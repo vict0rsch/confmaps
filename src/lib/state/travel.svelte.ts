@@ -4,6 +4,7 @@
 // API for the settings UI: `travel.units / .mode / .threshold` (reactive), and the setters
 // `setUnits`, `setMode`, `setThreshold` (validate, then persist). `apply()` is for values that
 // arrive in a shared link: used for this visit, not persisted.
+import { safeStorage } from './storage';
 import { DEFAULT_THRESHOLD_KM, type ModeSetting } from '../co2/model';
 import type { Units } from '../filters/types';
 
@@ -35,7 +36,7 @@ export function validTravel(v: unknown): Partial<TravelValues> {
 }
 
 export function readTravel(
-  storage: Pick<Storage, 'getItem'> | undefined = globalThis.localStorage,
+  storage: Pick<Storage, 'getItem'> | undefined = safeStorage(),
 ): TravelValues {
   try {
     const raw = storage?.getItem(TRAVEL_STORAGE_KEY);
@@ -47,7 +48,7 @@ export function readTravel(
 
 export function writeTravel(
   v: TravelValues,
-  storage: Pick<Storage, 'setItem'> | undefined = globalThis.localStorage,
+  storage: Pick<Storage, 'setItem'> | undefined = safeStorage(),
 ): void {
   try {
     storage?.setItem(TRAVEL_STORAGE_KEY, JSON.stringify(v));
@@ -63,8 +64,10 @@ export class TravelSettings {
   mode: ModeSetting = $state(DEFAULT_TRAVEL.mode);
   /** km. */
   threshold: number = $state(DEFAULT_TRAVEL.threshold);
+  /** The values in use came from a shared link (this visit only). */
+  fromLink = $state(false);
 
-  constructor(storage: Storage | undefined = globalThis.localStorage) {
+  constructor(storage: Storage | undefined = safeStorage()) {
     this.#storage = storage;
     this.apply(readTravel(storage));
   }
@@ -95,7 +98,22 @@ export class TravelSettings {
     if (ok.threshold !== undefined) this.threshold = ok.threshold;
   }
 
+  /** Travel values from a shared link: used for this visit, not saved, and flagged for a notice. */
+  applyShared(v: Partial<TravelValues>): void {
+    const ok = validTravel(v);
+    if (!Object.keys(ok).length) return;
+    this.apply(ok);
+    this.fromLink = true;
+  }
+
+  /** Leave the shared-link view: back to the saved settings (or defaults). */
+  useMine(): void {
+    this.apply(readTravel(this.#storage));
+    this.fromLink = false;
+  }
+
   #persist(v: Partial<TravelValues>): void {
+    this.fromLink = false;
     this.apply(v);
     writeTravel(this.values, this.#storage);
   }

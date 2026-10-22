@@ -14,7 +14,8 @@ export const URL_DEBOUNCE_MS = 250;
 export function hydrateFromURL(query: string = location.search): void {
   const parsed = parseQuery(query, filterState.filters, (id) => app.data.conferenceById.has(id));
   filterState.hydrate(parsed.filters);
-  travel.apply(parsed.travel);
+  // Travel settings in a link (always present with a CO₂ filter) win for this visit, unsaved.
+  travel.applyShared(parsed.travel);
   if (parsed.selection) app.select(parsed.selection);
   const h = parseHistory(query, (s) => historyMode.isSeries(s));
   if (h) historyMode.enter(h, { fromURL: true });

@@ -73,3 +73,28 @@ describe('travel settings', () => {
     expect(t.units).toBe('mi');
   });
 });
+
+describe('travel settings from a shared link', () => {
+  it('applyShared overrides saved values for this visit only and flags them', () => {
+    const storage = memoryStorage();
+    const t = new TravelSettings(storage);
+    t.setMode('fly');
+    t.applyShared({ mode: 'auto', threshold: 1000, units: 'km' });
+    expect(t.values).toEqual(DEFAULT_TRAVEL);
+    expect(t.fromLink).toBe(true);
+    expect(JSON.parse(storage.getItem(TRAVEL_STORAGE_KEY)!).mode).toBe('fly');
+    t.useMine();
+    expect(t.mode).toBe('fly');
+    expect(t.fromLink).toBe(false);
+  });
+
+  it('does nothing without travel params, and a user change clears the flag', () => {
+    const t = new TravelSettings(memoryStorage());
+    t.applyShared({});
+    expect(t.fromLink).toBe(false);
+    t.applyShared({ units: 'mi' });
+    expect(t.fromLink).toBe(true);
+    t.setUnits('km');
+    expect(t.fromLink).toBe(false);
+  });
+});

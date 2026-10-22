@@ -152,3 +152,20 @@ describe('shared home (opt-in)', () => {
     expect(parsed.selection).toBe('neurips26');
   });
 });
+
+describe('shared CO₂ views carry the travel settings', () => {
+  const co2On = { ...defaults, co2: 100 };
+
+  it('writes mode, thr and units, defaults included, when a CO₂ filter is active', () => {
+    expect(buildQuery('', inputs({ states: co2On }))).toBe('co2=100&mode=auto&thr=1000&units=km');
+  });
+
+  it('keeps writing only non-default travel otherwise (radius is km: units do not matter)', () => {
+    expect(buildQuery('', inputs({ states: { ...defaults, radius: 500 } }))).toBe('radius=500');
+  });
+
+  it("round-trips the defaults so a recipient with other saved settings gets the sender's", () => {
+    const q = buildQuery('', inputs({ states: co2On }));
+    expect(parseQuery(q, filters, isConference).travel).toEqual(DEFAULT_TRAVEL);
+  });
+});

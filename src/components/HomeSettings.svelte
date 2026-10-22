@@ -128,6 +128,14 @@
       </p>
     {/if}
 
+    {#if travel.fromLink}
+      <p class="shared" data-testid="shared-travel-notice">
+        Using the travel settings from the shared link ({travel.units} ·
+        {travel.mode === 'auto' ? `train under ${fmt(threshold)} ${travel.units}` : 'always fly'}) ·
+        <button class="text-button" type="button" onclick={() => travel.useMine()}>Use mine</button>
+      </p>
+    {/if}
+
     {#if home.city && !searching}
       <div class="current">
         <Icon name="pin" size={16} />

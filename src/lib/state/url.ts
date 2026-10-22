@@ -12,6 +12,12 @@ import { DEFAULT_TRAVEL, isMode, isThreshold, isUnits, type TravelValues } from 
 
 export const SELECTION_PARAM = 'c';
 export const TRAVEL_PARAMS = { mode: 'mode', threshold: 'thr', units: 'units' } as const;
+/**
+ * Filters whose result depends on the travel settings (CO₂ estimate: mode and threshold). A link
+ * with one active carries all travel settings, defaults included, so it does not depend on the
+ * recipient's saved ones. (`radius` is great-circle km: units only change its display.)
+ */
+export const TRAVEL_DEPENDENT_FILTERS: readonly string[] = ['co2'];
 export const HOME_PARAM = 'home';
 /** `h` = history mode (§6.4), `home` = opt-in shared city (§6.5). */
 export const RESERVED_PARAMS: readonly string[] = ['h', HOME_PARAM];
@@ -86,7 +92,7 @@ const enc = (s: string) => encodeURIComponent(s).replace(/%2C/gi, ',');
 
 /**
  * The query string (no `?`) for `inputs`, keeping `current`'s params this module does not own.
- * Order: selection, history, active filters (registry order), non-default travel, the rest.
+ * Order: selection, history, active filters (registry order), travel (non-default, or all when a CO₂ filter is active), the rest.
  */
 export function buildQuery(current: string, inputs: URLInputs): string {
   const entries: [string, string][] = [];
@@ -97,11 +103,14 @@ export function buildQuery(current: string, inputs: URLInputs): string {
     if (f.isActive(s)) entries.push(...new URLSearchParams(f.toURL(s)));
   }
   const t = inputs.travel;
-  if (t.mode !== DEFAULT_TRAVEL.mode) entries.push([TRAVEL_PARAMS.mode, t.mode]);
-  if (t.threshold !== DEFAULT_TRAVEL.threshold) {
+  const all = inputs.filters.some(
+    (f) => TRAVEL_DEPENDENT_FILTERS.includes(f.id) && f.isActive(inputs.states[f.id]),
+  );
+  if (all || t.mode !== DEFAULT_TRAVEL.mode) entries.push([TRAVEL_PARAMS.mode, t.mode]);
+  if (all || t.threshold !== DEFAULT_TRAVEL.threshold) {
     entries.push([TRAVEL_PARAMS.threshold, String(t.threshold)]);
   }
-  if (t.units !== DEFAULT_TRAVEL.units) entries.push([TRAVEL_PARAMS.units, t.units]);
+  if (all || t.units !== DEFAULT_TRAVEL.units) entries.push([TRAVEL_PARAMS.units, t.units]);
   const owned = new Set(ownedParams(inputs.filters));
   if (inputs.history !== undefined) owned.add(HISTORY_PARAM);
   for (const [k, v] of params(current)) {
