@@ -148,6 +148,19 @@ describe('estimateTrip override (detail-panel per-trip toggle)', () => {
   });
 });
 
+describe('estimateTrip invalid input', () => {
+  it('throws on non-finite coordinates', () => {
+    expect(() => estimateTrip({ lat: NaN, lng: 0 }, PARIS, auto)).toThrow(RangeError);
+    expect(() => estimateTrip(PARIS, { lat: 0, lng: Infinity }, auto)).toThrow(RangeError);
+  });
+
+  it('throws on non-finite or negative thresholdKm', () => {
+    for (const thresholdKm of [NaN, Infinity, -1]) {
+      expect(() => estimateTrip(BERLIN, PARIS, { mode: 'auto', thresholdKm })).toThrow(RangeError);
+    }
+  });
+});
+
 describe('estimateTrip edge cases', () => {
   it('same city → 0 kg', () => {
     const t = estimateTrip(PARIS, PARIS, auto);

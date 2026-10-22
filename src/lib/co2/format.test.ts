@@ -34,6 +34,16 @@ describe('formatCo2', () => {
   });
 });
 
+describe('invalid input', () => {
+  it('formatCo2 and formatDistance return a placeholder', () => {
+    for (const x of [NaN, Infinity, -Infinity, -5]) {
+      expect(formatCo2(x)).toBe('—');
+      expect(formatDistance(x, 'km')).toBe('—');
+      expect(formatDistance(x, 'mi')).toBe('—');
+    }
+  });
+});
+
 describe('formatDistance', () => {
   it('formats km with ~ and 2 significant figures', () => {
     expect(formatDistance(877.46, 'km')).toBe('~880 km');
@@ -65,12 +75,17 @@ describe('compareTrips', () => {
     expect(compareTrips({ kgCO2e: 65.115 }, { kgCO2e: 3767.4 })).toBe('roughly 58× less');
     expect(compareTrips({ kgCO2e: 3767.4 }, { kgCO2e: 65.115 })).toBe('roughly 58× more');
     expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 2500 })).toBe('roughly 25× less');
-    expect(compareTrips({ kgCO2e: 65 }, { kgCO2e: 220 })).toBe('roughly 3.4× less');
+    expect(compareTrips({ kgCO2e: 65 }, { kgCO2e: 220 })).toBe('~3× less');
+    expect(compareTrips({ kgCO2e: 300 }, { kgCO2e: 100 })).toBe('~3× more');
+    expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 150 })).toBe('~2× less'); // 1.5 boundary
+    expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 1000 })).toBe('roughly 10× less'); // 10 boundary
   });
 
   it('treats near-equal and zero cases', () => {
     expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 110 })).toBe('about the same');
+    expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 149 })).toBe('about the same');
     expect(compareTrips({ kgCO2e: 0 }, { kgCO2e: 0 })).toBe('about the same');
     expect(compareTrips({ kgCO2e: 0 }, { kgCO2e: 50 })).toBe('far less');
+    expect(compareTrips({ kgCO2e: 50 }, { kgCO2e: 0 })).toBe('far more');
   });
 });

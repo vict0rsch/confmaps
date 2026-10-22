@@ -70,8 +70,17 @@ function totalPerPkm(directId: string): number {
 /**
  * Order-of-magnitude round-trip estimate for one traveller, economy class, RF and well-to-tank
  * included.
+ *
+ * @throws {RangeError} if any lat/lng is not finite, or `opts.thresholdKm` is not finite or is
+ * negative. Callers should only pass validated coordinates; this never returns NaN figures.
  */
 export function estimateTrip(from: LatLng, to: LatLng, opts: EstimateOptions): TripEstimate {
+  if (![from.lat, from.lng, to.lat, to.lng].every(Number.isFinite)) {
+    throw new RangeError('estimateTrip: lat/lng must be finite numbers');
+  }
+  if (!Number.isFinite(opts.thresholdKm) || opts.thresholdKm < 0) {
+    throw new RangeError('estimateTrip: thresholdKm must be a finite, non-negative number');
+  }
   const distanceKm = haversineKm(from, to);
   const mode: TravelMode =
     opts.override ?? (opts.mode === 'auto' && distanceKm < opts.thresholdKm ? 'rail' : 'flight');

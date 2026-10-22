@@ -191,7 +191,7 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
 
 - Always `~` + rounded to 2 significant figures: "~50 kg", "~1.4 t". Never "49.7 kg".
 - Labels: "Estimated CO₂e" / "Rough footprint", never bare "CO₂".
-- Comparisons emphasize scale: "Paris: roughly 25× less than flying to Sydney".
+- Comparisons emphasize scale: "Paris: roughly 54× less than flying to Sydney".
 - Filter label: "Estimated footprint under ~X kg".
 - Methodology note starts with "These are order-of-magnitude estimates…".
 
@@ -206,7 +206,7 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
   Threshold default **1,000 km**, user-changeable. Per-trip toggle exists only in the detail panel and
   never affects filtering.
 - **Flights:** economy class, **radiative forcing included** (labeled), DESNZ haul band chosen by
-  distance, plus routing uplift per DESNZ guidance.
+  distance. DESNZ factors already include the 8% routing uplift (not added again).
 - **Well-to-tank emissions included** for all modes (DESNZ WTT factors added to the direct ones).
 - **Round trip:** always.
 - Mode is shown on every figure: "~50 kg 🚆", "~1.4 t ✈️".

@@ -85,7 +85,7 @@ settings. Where people do take long train trips, raise it.
   run up to 3,300 km for short-haul and start at 5,500 km for long-haul (illustrative distances
   table under DESNZ §8.9).
   Short flights emit more per km (take-off and landing weigh more), and banding by distance
-  keeps that difference. At 3,700 km the figure drops by about 4% because the factor changes
+  keeps that difference. At 3,700 km the figure drops by about 5% because the factor changes
   (0.14825 → 0.14165 with WTT).
 - **Why not "International, to/from non-UK"?** DESNZ offers this factor for flights between
   two non-UK airports (DESNZ §8.10), so it might seem to fit most of our users. But it blends
@@ -109,8 +109,9 @@ settings. Where people do take long train trips, raise it.
   approximate spot checks of European intercity routes (for example London–Paris by Eurostar is
   about 490 km of track for 344 km great-circle, a ratio of about 1.4; Amsterdam–Berlin is
   closer to 1.1). Other tools range from 1.0 (a GLEC-based freight tool applies no rail
-  adjustment) to about 1.3 (proposed for the IRAP travel-footprint tool). Changing it moves rail figures proportionally. Rail stays an order of
-  magnitude below flying either way.
+  adjustment) to about 1.3 (proposed for the IRAP travel-footprint tool). Changing it moves rail figures proportionally. Per kilometre, rail comes out roughly 3× lower
+  than flying in this model (about 2.3× even with a 1.6 detour factor); the big savings come
+  from choosing a much closer venue.
 - **Rail factor: National rail, not International rail (Eurostar).** The Eurostar factor
   (0.01135) covers one electrified high-speed line, counting UK-side electricity only and using
   UK grid intensity (DESNZ §5.66). The National rail factor (0.03092) averages a mixed diesel
