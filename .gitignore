@@ -13,3 +13,4 @@ playwright/.cache/
 .svelte-kit/
 .pytest_cache/
 .ruff_cache/
+.claude/

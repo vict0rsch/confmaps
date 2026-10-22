@@ -100,7 +100,7 @@ test('the methodology opens from the detail panel', async ({ page }) => {
   await expect(dialog.getByText('These are order-of-magnitude estimates')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
-  expect(page.url()).not.toContain('#methodology');
+  await expect(page).not.toHaveURL(/#methodology/);
 });
 
 test('share link never includes the home city unless opted in', async ({ page }) => {

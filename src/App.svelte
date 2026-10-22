@@ -12,7 +12,7 @@
   import Icon from './components/Icon.svelte';
   import Legend from './components/Legend.svelte';
   import MapView, { type Insets } from './components/Map.svelte';
-  import MethodologyDialog from './components/MethodologyDialog.svelte';
+  import DocDialog from './components/DocDialog.svelte';
   import ShareDialog from './components/ShareDialog.svelte';
   import SiteFootprint from './components/SiteFootprint.svelte';
   import ThemeToggle from './components/ThemeToggle.svelte';
@@ -90,7 +90,8 @@
   <SiteFootprint {site} />
 {/snippet}
 
-<MethodologyDialog />
+<DocDialog hash="methodology" title="Methodology" load={() => import('../METHODOLOGY.md?raw')} />
+<DocDialog hash="privacy" title="Privacy" load={() => import('../PRIVACY.md?raw')} />
 
 <div class="app" class:desktop={desktop.current} class:mobile={!desktop.current}>
   {#if desktop.current}

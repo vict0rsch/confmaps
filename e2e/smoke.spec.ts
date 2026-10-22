@@ -16,3 +16,14 @@ test('selecting a conference opens its detail; Esc closes it', async ({ page }) 
   await page.keyboard.press('Escape');
   await expect(detail).toHaveCount(0);
 });
+
+test('the privacy page opens from the footer and closes', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Privacy' }).first().click();
+  const dialog = page.getByRole('dialog', { name: 'Privacy' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText('cookieless')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(page).not.toHaveURL(/#privacy/);
+});

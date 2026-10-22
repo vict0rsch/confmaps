@@ -22,3 +22,10 @@ pnpm test:e2e     # playwright (pnpm exec playwright install chromium first)
 pnpm data:build   # sync upstream, geocode, archive, validate → data/build/data.json
 pnpm data:validate  # offline checks of the committed data files
 ```
+
+## Analytics (optional)
+
+Cookieless [GoatCounter](https://www.goatcounter.com) counting, off unless configured (see
+[PRIVACY.md](PRIVACY.md)). To enable it, create a GoatCounter site and add its code (the `xxx` in
+`xxx.goatcounter.com`) as a repository **variable** named `GOATCOUNTER_CODE` (Settings, Secrets and
+variables, Actions, Variables). `deploy.yml` passes it to the build as `VITE_GOATCOUNTER_CODE`.

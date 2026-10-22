@@ -1,8 +1,15 @@
 <script lang="ts">
-  // METHODOLOGY.md inside the app, reachable at `#methodology` (the footer and the detail panel
-  // link there). The markdown is bundled as text and rendered on first open only.
+  // A repo markdown document inside the app, reachable at `#<hash>` (METHODOLOGY.md at
+  // `#methodology`, PRIVACY.md at `#privacy`). The markdown is bundled as text and rendered on
+  // first open only.
   import { onMount } from 'svelte';
   import Icon from './Icon.svelte';
+
+  let {
+    hash,
+    title,
+    load,
+  }: { hash: string; title: string; load: () => Promise<{ default: string }> } = $props();
 
   let dialog: HTMLDialogElement | undefined = $state();
   let html = $state('');
@@ -11,10 +18,7 @@
   async function render() {
     if (html || failed) return;
     try {
-      const [{ marked }, { default: source }] = await Promise.all([
-        import('marked'),
-        import('../../METHODOLOGY.md?raw'),
-      ]);
+      const [{ marked }, { default: source }] = await Promise.all([import('marked'), load()]);
       // Links to files of the repo cannot work on the site: show their text, keep external links.
       marked.use({
         renderer: {
@@ -34,7 +38,7 @@
 
   function sync() {
     if (!dialog) return;
-    if (location.hash === '#methodology') {
+    if (location.hash === `#${hash}`) {
       if (!dialog.open) dialog.showModal();
       void render();
     } else if (dialog.open) {
@@ -43,7 +47,7 @@
   }
 
   function onClose() {
-    if (location.hash === '#methodology') {
+    if (location.hash === `#${hash}`) {
       history.replaceState(history.state, '', location.pathname + location.search);
     }
   }
@@ -53,13 +57,13 @@
 
 <svelte:window onhashchange={sync} />
 
-<dialog bind:this={dialog} aria-labelledby="methodology-title" onclose={onClose}>
+<dialog bind:this={dialog} aria-labelledby="{hash}-title" onclose={onClose}>
   <header>
-    <h2 id="methodology-title" class="visually-hidden">Methodology</h2>
+    <h2 id="{hash}-title" class="visually-hidden">{title}</h2>
     <button
       class="icon-button"
       type="button"
-      aria-label="Close methodology"
+      aria-label="Close {title.toLowerCase()}"
       onclick={() => dialog?.close()}
     >
       <Icon name="close" size={18} />
@@ -71,7 +75,7 @@
       <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       {@html html}
     {:else if failed}
-      <p>Could not load the methodology.</p>
+      <p>Could not load the {title.toLowerCase()}.</p>
     {:else}
       <p>Loading…</p>
     {/if}
