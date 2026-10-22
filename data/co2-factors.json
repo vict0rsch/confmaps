@@ -1,0 +1,179 @@
+{
+  "$comment": "Extracted from the official DESNZ flat file; every value, ID and label was checked by script against the flat file row and the full-set cell given. Updated yearly; see METHODOLOGY.md > Update procedure. Changing any value must also update src/lib/co2/factors.test.ts.",
+  "source": {
+    "publisher": "UK Department for Energy Security and Net Zero (DESNZ)",
+    "title": "Greenhouse gas reporting: conversion factors 2026",
+    "year": 2026,
+    "publicationUrl": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+    "flatFileUrl": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx",
+    "flatFileVersion": "1.2 (revised July 2026; the revision only touched WTT car and hotel factors)",
+    "fullSetUrl": "https://assets.publishing.service.gov.uk/media/6a29392bade52dc0882218a8/ghg-conversion-factors-2026-full-set.xlsx",
+    "methodologyUrl": "https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf",
+    "retrieved": "2026-10-22",
+    "flatFileSheet": "Factors by Category",
+    "flatFileValueColumn": "GHG Conversion Factor 2026"
+  },
+  "unit": "kg CO2e per passenger.km",
+  "factors": {
+    "flight-short-haul-economy-rf": {
+      "mode": "flight",
+      "usedByDefault": true,
+      "radiativeForcing": true,
+      "value": 0.12576,
+      "flatFile": {
+        "id": "21_316_3164_11_1",
+        "row": 4426,
+        "labels": ["Business travel- air", "Flights", "Short-haul, to/from UK", "Economy class"],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "E25" }
+    },
+    "flight-short-haul-economy-no-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": false,
+      "value": 0.07435,
+      "flatFile": {
+        "id": "21_316_3165_11_1",
+        "row": 4430,
+        "labels": ["Business travel- air", "Flights", "Short-haul, to/from UK", "Economy class"],
+        "columnText": "Without RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "I25" }
+    },
+    "flight-long-haul-economy-rf": {
+      "mode": "flight",
+      "usedByDefault": true,
+      "radiativeForcing": true,
+      "value": 0.11704,
+      "flatFile": {
+        "id": "21_316_3170_11_1",
+        "row": 4450,
+        "labels": ["Business travel- air", "Flights", "Long-haul, to/from UK", "Economy class"],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "E28" }
+    },
+    "flight-long-haul-economy-no-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": false,
+      "value": 0.06926,
+      "flatFile": {
+        "id": "21_316_3171_11_1",
+        "row": 4454,
+        "labels": ["Business travel- air", "Flights", "Long-haul, to/from UK", "Economy class"],
+        "columnText": "Without RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "I28" }
+    },
+    "flight-international-economy-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": true,
+      "value": 0.10916,
+      "flatFile": {
+        "id": "21_316_3180_11_1",
+        "row": 4490,
+        "labels": [
+          "Business travel- air",
+          "Flights",
+          "International, to/from non-UK",
+          "Economy class"
+        ],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "E33" }
+    },
+    "flight-international-economy-no-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": false,
+      "value": 0.06449,
+      "flatFile": {
+        "id": "21_316_3181_11_1",
+        "row": 4494,
+        "labels": [
+          "Business travel- air",
+          "Flights",
+          "International, to/from non-UK",
+          "Economy class"
+        ],
+        "columnText": "Without RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "I33" }
+    },
+    "flight-domestic-average-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": true,
+      "value": 0.22928,
+      "flatFile": {
+        "id": "21_316_3160_11_1",
+        "row": 4410,
+        "labels": ["Business travel- air", "Flights", "Domestic, to/from UK", "Average passenger"],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "E23" }
+    },
+    "flight-domestic-average-no-rf": {
+      "mode": "flight",
+      "usedByDefault": false,
+      "radiativeForcing": false,
+      "value": 0.13552,
+      "flatFile": {
+        "id": "21_316_3161_11_1",
+        "row": 4414,
+        "labels": ["Business travel- air", "Flights", "Domestic, to/from UK", "Average passenger"],
+        "columnText": "Without RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- air", "cell": "I23" }
+    },
+    "rail-national": {
+      "mode": "rail",
+      "usedByDefault": true,
+      "radiativeForcing": null,
+      "value": 0.03092,
+      "flatFile": {
+        "id": "25_315_3147_11_1",
+        "row": 5461,
+        "labels": ["Business travel- land", "Rail", "National rail"],
+        "columnText": null,
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- land", "cell": "D87" }
+    },
+    "rail-international": {
+      "mode": "rail",
+      "usedByDefault": false,
+      "radiativeForcing": null,
+      "value": 0.01135,
+      "flatFile": {
+        "id": "25_315_3148_11_1",
+        "row": 5465,
+        "labels": ["Business travel- land", "Rail", "International rail"],
+        "columnText": null,
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "Business travel- land", "cell": "D88" }
+    }
+  }
+}
