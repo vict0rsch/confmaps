@@ -172,6 +172,9 @@ export const SRC = {
   historyPath: 'history-path',
   historyHead: 'history-head',
   historyLabels: 'history-labels',
+  // Home (DESIGN §6.5): its marker, and lines to the selected conference's sites.
+  home: 'home',
+  homeLines: 'home-lines',
 } as const;
 
 export const LAYER = {
@@ -194,6 +197,10 @@ export const LAYER = {
   historyPath: 'history-path',
   historyHead: 'history-head',
   historyLabels: 'history-labels',
+  homeLines: 'home-lines',
+  home: 'home',
+  collide: 'collide',
+  focusCollide: 'focus-collide',
 } as const;
 
 /** Layers that represent a single location (hover/click targets). */
@@ -228,6 +235,11 @@ const radius: ExpressionSpecification = ['case', ['==', ['get', 'main'], 1], R_M
 const plus = (n: number): ExpressionSpecification => ['+', radius, n];
 
 export const lockImageId = (theme: ResolvedTheme) => `lock-badge-${theme}`;
+/** A transparent 1×1 image: `collide` scales it to each pin's / cluster's footprint. */
+export const COLLIDER_IMAGE = 'collider';
+
+/** Animated pins (Play, history mode) are drawn a little smaller: crowded areas stay legible. */
+const ANIM_SCALE = 0.85;
 
 export type Emphasis = { selectedId: string | null; hoveredId: string | null };
 
@@ -254,9 +266,21 @@ export function animRingOpacity(selectedId: string | null): ExpressionSpecificat
   return ['*', fs('ro', 0), pinOpacity(selectedId)];
 }
 
-/** Animated links: their own fade (`o` property) × the usual emphasis. */
-export function animLinkOpacity(e: Emphasis): ExpressionSpecification {
-  return ['*', ['get', 'o'], linkOpacity(e)];
+/**
+ * Animated links: their own fade (`o` property) × the usual emphasis. In history mode the path is
+ * the subject: satellite links (which can run far off-screen) stay faint.
+ */
+export function animLinkOpacity(e: Emphasis, history = false): ExpressionSpecification {
+  return ['*', ['get', 'o'], linkOpacity(e), history ? 0.3 : 1];
+}
+
+/** `v` (a number or an opacity expression) × `k`, for the clustered ↔ animated crossfade. */
+export function fade(
+  v: ExpressionSpecification | number,
+  k: number,
+): ExpressionSpecification | number {
+  if (k === 1) return v;
+  return typeof v === 'number' ? v * k : ['*', v, k];
 }
 
 export function linkOpacity(e: Emphasis): ExpressionSpecification | number {
@@ -320,6 +344,8 @@ export type DataSources = {
   historyPath: FeatureCollection;
   historyHead: FeatureCollection;
   historyLabels: FeatureCollection;
+  home: FeatureCollection;
+  homeLines: FeatureCollection;
 };
 
 export function dataSources(d: Partial<DataSources> = {}): Record<string, SourceSpecification> {
@@ -338,6 +364,8 @@ export function dataSources(d: Partial<DataSources> = {}): Record<string, Source
       clusterMaxZoom: CLUSTER_MAX_ZOOM,
     },
     [SRC.focus]: { type: 'geojson', data: d.focus ?? empty },
+    [SRC.home]: { type: 'geojson', data: d.home ?? empty },
+    [SRC.homeLines]: { type: 'geojson', data: d.homeLines ?? empty },
   };
 }
 
@@ -350,11 +378,17 @@ export function dataLayers(
   theme: ResolvedTheme,
   e: Emphasis,
   animated = false,
+  history = false,
 ): LayerSpecification[] {
   const unclustered: ExpressionSpecification = ['!', ['has', 'point_count']];
   const resting = { visibility: animated ? 'none' : 'visible' } as const;
   const anim = { visibility: animated ? 'visible' : 'none' } as const;
-  const scaled = (r: ExpressionSpecification): ExpressionSpecification => ['*', r, fs('s', 1)];
+  const scaled = (r: ExpressionSpecification): ExpressionSpecification => [
+    '*',
+    r,
+    fs('s', 1),
+    ANIM_SCALE,
+  ];
   const lineLayout = { 'line-cap': 'round', 'line-join': 'round' } as const;
   return [
     {
@@ -367,6 +401,18 @@ export function dataLayers(
         'line-width': 1.5,
         'line-dasharray': [2, 2],
         'line-opacity': linkOpacity(e),
+      },
+    },
+    // Home → the selected conference's sites: solid and quiet, the nearest one stronger.
+    {
+      id: LAYER.homeLines,
+      type: 'line',
+      source: SRC.homeLines,
+      layout: lineLayout,
+      paint: {
+        'line-color': p.selected,
+        'line-width': ['case', ['==', ['get', 'nearest'], 1], 1.75, 1.25],
+        'line-opacity': ['case', ['==', ['get', 'nearest'], 1], 0.7, 0.3],
       },
     },
     // History mode: the editions' path, on a halo so it reads over borders.
@@ -393,7 +439,7 @@ export function dataLayers(
         'line-color': p.link,
         'line-width': 1.5,
         'line-dasharray': [2, 2],
-        'line-opacity': animLinkOpacity(e),
+        'line-opacity': animLinkOpacity(e, history),
       },
     },
     {
@@ -465,7 +511,7 @@ export function dataLayers(
       source: SRC.anim,
       layout: anim,
       paint: {
-        'circle-radius': ['+', radius, 1, ['*', fs('rs', 0), 12]],
+        'circle-radius': ['+', ['*', radius, ANIM_SCALE], 1, ['*', fs('rs', 0), 12]],
         'circle-opacity': 0,
         'circle-stroke-color': pinColor(p),
         'circle-stroke-width': 1.5,
@@ -479,7 +525,7 @@ export function dataLayers(
       source: SRC.anim,
       layout: anim,
       paint: {
-        'circle-radius': scaled(plus(2.5)),
+        'circle-radius': scaled(plus(1.5)),
         'circle-color': p.pinHalo,
         'circle-opacity': animOpacity(e.selectedId),
       },
@@ -502,6 +548,52 @@ export function dataLayers(
       filter: ['==', ['get', 'locked'], 1],
       layout: { ...lockLayout(theme), ...anim },
       paint: { 'icon-opacity': animOpacity(e.selectedId) },
+    },
+    // Home: a small neutral dot (not a pin: it is not an event).
+    {
+      id: LAYER.home,
+      type: 'circle',
+      source: SRC.home,
+      paint: {
+        'circle-radius': 4,
+        'circle-color': p.labelStrong,
+        'circle-stroke-color': p.pinHalo,
+        'circle-stroke-width': 2,
+        'circle-pitch-alignment': 'map',
+      },
+    },
+    // Invisible footprints of pins and clusters: basemap labels that would sit under the data
+    // give way to it (symbols in higher layers are placed first).
+    {
+      id: LAYER.collide,
+      type: 'symbol',
+      source: SRC.pins,
+      layout: {
+        'icon-image': COLLIDER_IMAGE,
+        'icon-size': [
+          'case',
+          ['has', 'point_count'],
+          ['step', ['get', 'point_count'], 32, 5, 38, 15, 46],
+          ['case', ['==', ['get', 'main'], 1], 20, 16],
+        ],
+        'icon-allow-overlap': true,
+        'icon-ignore-placement': false,
+        'icon-padding': 4,
+      },
+      paint: { 'icon-opacity': 0 },
+    },
+    {
+      id: LAYER.focusCollide,
+      type: 'symbol',
+      source: SRC.focus,
+      layout: {
+        'icon-image': COLLIDER_IMAGE,
+        'icon-size': ['case', ['==', ['get', 'main'], 1], 28, 24],
+        'icon-allow-overlap': true,
+        'icon-ignore-placement': false,
+        'icon-padding': 4,
+      },
+      paint: { 'icon-opacity': 0 },
     },
     {
       id: LAYER.historyHead,

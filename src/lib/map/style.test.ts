@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { LayerSpecification, StyleSpecification } from 'maplibre-gl';
-import { classifyLayer, dataLayers, quietBasemap, type MapPalette } from './style';
+import { classifyLayer, dataLayers, fade, quietBasemap, type MapPalette } from './style';
 
 const p = Object.fromEntries(
   [
@@ -98,5 +98,27 @@ describe('dataLayers', () => {
       1,
       0.4,
     ]);
+  });
+
+  it('makes basemap labels give way to pins and clusters (an invisible collider on top)', () => {
+    const ls = dataLayers(p, 'light', { selectedId: null, hoveredId: null });
+    const ids = ls.map((x) => x.id);
+    for (const id of ['collide', 'focus-collide']) {
+      const c = ls.find((x) => x.id === id) as Extract<LayerSpecification, { type: 'symbol' }>;
+      expect(c.layout?.['icon-allow-overlap']).toBe(true);
+      expect(c.layout?.['icon-ignore-placement']).toBe(false);
+      expect(c.paint?.['icon-opacity']).toBe(0);
+    }
+    // Home lines sit under the pins; the home marker over them.
+    expect(ids.indexOf('home-lines')).toBeLessThan(ids.indexOf('clusters'));
+    expect(ids.indexOf('home')).toBeGreaterThan(ids.indexOf('pin'));
+  });
+});
+
+describe('fade', () => {
+  it('scales numbers and wraps expressions, leaving full opacity untouched', () => {
+    expect(fade(0.6, 0.5)).toBe(0.3);
+    expect(fade(['get', 'o'], 1)).toEqual(['get', 'o']);
+    expect(fade(['get', 'o'], 0.25)).toEqual(['*', ['get', 'o'], 0.25]);
   });
 });

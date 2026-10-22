@@ -14,6 +14,7 @@
 <script lang="ts">
   import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
   import {
+    LngLat,
     Map as MLMap,
     NavigationControl,
     type GeoJSONSource,
@@ -26,13 +27,23 @@
   import { getDates } from '../lib/state/filters.svelte';
   import { historyMode, play } from '../lib/state/timeline.svelte';
   import { animFeatures, Choreographer, liveIds, shownIds } from '../lib/map/choreography';
-  import { boundsOf, linkFeatures, pinFeatures, type PinCollection } from '../lib/map/geojson';
+  import {
+    boundsOf,
+    greatCircle,
+    linkFeatures,
+    pinFeatures,
+    trimLine,
+    type PinCollection,
+  } from '../lib/map/geojson';
+  import { haversineKm } from '../lib/geo/distance';
+  import { constrainLat } from '../lib/map/constrain';
   import { lockBadge } from '../lib/map/icons';
   import {
     ANIM_LAYERS,
     BASEMAP_URLS,
     CLUSTER_LAYERS,
     CLUSTER_MAX_ZOOM,
+    COLLIDER_IMAGE,
     LAYER,
     MAP_MAX_ZOOM,
     PIN_LAYERS,
@@ -42,6 +53,7 @@
     animRingOpacity,
     dataLayers,
     dataSources,
+    fade,
     linkOpacity,
     lockImageId,
     pinOpacity,
@@ -81,6 +93,40 @@
     return { type: 'FeatureCollection', features };
   });
 
+  // Home (DESIGN §6.5): a marker, and lines to the selected conference's sites only (lines to
+  // every pin would be clutter), drawn in on selection; the nearest site's line is the strongest.
+  const homeDraw = new Tween(1, { easing: cubicOut });
+  const homeLineCoords = $derived.by(() => {
+    const home = app.home;
+    if (!home || !app.selectedConferenceId) return [];
+    const sites = app.selectedSites.map((s) => ({ s, km: haversineKm(home, s) }));
+    const nearest = Math.min(...sites.map((x) => x.km));
+    return sites.map(({ s, km }) => ({ coords: greatCircle(home, s), nearest: km === nearest }));
+  });
+  const homePoint = $derived.by((): FeatureCollection => {
+    const h = app.home;
+    return {
+      type: 'FeatureCollection',
+      features: h
+        ? [
+            {
+              type: 'Feature',
+              geometry: { type: 'Point', coordinates: [h.lng, h.lat] },
+              properties: {},
+            },
+          ]
+        : [],
+    };
+  });
+  const homeLines = $derived.by((): FeatureCollection => ({
+    type: 'FeatureCollection',
+    features: homeLineCoords.map(({ coords, nearest }) => ({
+      type: 'Feature',
+      geometry: { type: 'LineString', coordinates: trimLine(coords, homeDraw.current) },
+      properties: { nearest: nearest ? 1 : 0 },
+    })),
+  }));
+
   // ---- Timeline choreography (Play, history mode) ---------------------------
   // While the timeline animates, an unclustered presentation of every location replaces the
   // clustered one (per-pin fades can't be clustered); it hands back once motion settles.
@@ -88,6 +134,8 @@
   const motion = $derived(motionConfig(prefersReducedMotion.current));
   const wantAnim = $derived(play.playing || !!historyMode.series);
   let animMode = $state(false);
+  /** Crossfade between the presentations: 0 = clustered, 1 = animated. */
+  const blend = new Tween(0, { easing: cubicOut });
   let choreo: Choreographer | undefined;
   let raf = 0;
   /** Pins currently shown by the animated presentation (hit-testing ignores hidden ones). */
@@ -106,22 +154,36 @@
 
   // ---- Map lifecycle -------------------------------------------------------
   $effect(() => {
+    // Phones: the world may get smaller than the screen, so the first view fits every upcoming pin.
+    const narrow = container.clientWidth < 640;
     const m = new MLMap({
       container,
       style: { version: 8, sources: {}, layers: [] },
       maxZoom: MAP_MAX_ZOOM,
-      minZoom: 0.5,
+      minZoom: narrow ? -1 : 0.5,
       dragRotate: false,
       pitchWithRotate: false,
       touchPitch: false,
       attributionControl: { compact: true },
     });
+    if (narrow) {
+      m.setTransformConstrain((lngLat, z) => {
+        const zoom = Math.min(m.getMaxZoom(), Math.max(m.getMinZoom(), z));
+        const pad = m.getPadding();
+        const h = container.clientHeight - (pad.top ?? 0) - (pad.bottom ?? 0);
+        return { center: new LngLat(lngLat.lng, constrainLat(lngLat.lat, zoom, h)), zoom };
+      });
+    }
     m.touchZoomRotate.disableRotation();
     m.keyboard.disableRotation();
     m.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
 
     m.on('style.load', () => (styleReady = true));
     m.setMissingStyleImageResolver((id) => {
+      if (id === COLLIDER_IMAGE) {
+        if (!m.hasImage(id)) m.addImage(id, { width: 1, height: 1, data: new Uint8Array(4) });
+        return;
+      }
       const theme = id.replace('lock-badge-', '') as ResolvedTheme;
       if (id !== lockImageId(theme) || m.hasImage(id)) return;
       const p = readPalette();
@@ -183,7 +245,7 @@
     untrack(() => {
       m.setPadding(insets);
       const initial = boundsOf(app.mapLocations, false);
-      if (initial) m.fitBounds(initial, { padding: margins(), duration: 0 });
+      if (initial) m.fitBounds(initial, { padding: overviewMargins(), duration: 0 });
     });
     choreo = new Choreographer(
       m,
@@ -215,7 +277,10 @@
         const base = quietBasemap(next, p);
         return {
           ...base,
-          sources: { ...base.sources, ...dataSources({ pins, focus, links, anim }) },
+          sources: {
+            ...base.sources,
+            ...dataSources({ pins, focus, links, anim, home: homePoint, homeLines }),
+          },
           layers: [
             ...base.layers,
             ...dataLayers(
@@ -223,6 +288,7 @@
               theme,
               { selectedId: app.selectedConferenceId, hoveredId: app.hoveredConferenceId },
               animMode,
+              !!historyMode.series,
             ),
           ],
         };
@@ -239,13 +305,34 @@
     source(SRC.links)?.setData(links);
   });
 
-  // Hand over between the clustered and the animated presentation.
+  // Hand over between the clustered and the animated presentation: a short crossfade (instant
+  // with reduced motion); each one is hidden once fully faded out.
   $effect(() => {
-    const on = animMode;
+    void blend.set(animMode ? 1 : 0, { duration: duration(300) });
+  });
+  const animVisible = $derived(blend.current > 0.001);
+  const clusterVisible = $derived(blend.current < 0.999);
+  $effect(() => {
+    const [a, c] = [animVisible, clusterVisible];
     if (!styleReady || !map) return;
-    for (const id of ANIM_LAYERS) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none');
+    for (const id of ANIM_LAYERS) map.setLayoutProperty(id, 'visibility', a ? 'visible' : 'none');
     for (const id of CLUSTER_LAYERS)
-      map.setLayoutProperty(id, 'visibility', on ? 'none' : 'visible');
+      map.setLayoutProperty(id, 'visibility', c ? 'visible' : 'none');
+  });
+
+  $effect(() => {
+    if (!styleReady) return;
+    source(SRC.home)?.setData(homePoint);
+    source(SRC.homeLines)?.setData(homeLines);
+  });
+
+  // A new selection (with a home set) draws its home lines in.
+  $effect(() => {
+    if (!app.selectedConferenceId || !app.home) return;
+    untrack(() => {
+      void homeDraw.set(0, { duration: 0 });
+      void homeDraw.set(1, { duration: duration(600), delay: duration(200) });
+    });
   });
 
   // Feed the choreographer. Entering history mode starts from an empty map so its editions
@@ -344,34 +431,45 @@
         else if (!app.selectedConferenceId) {
           const b = boundsOf(app.mapLocations, false);
           m.setPadding(insets);
-          if (b) m.fitBounds(b, { padding: margins(), duration: duration(800) });
+          if (b) m.fitBounds(b, { padding: overviewMargins(), duration: duration(800) });
         }
       });
     });
   });
 
   $effect(() => {
-    if (!styleReady || !map) return;
+    if (!styleReady) return;
     source(SRC.focus)?.setData(focus);
+  });
+
+  // Emphasis (selection dims the rest) × the presentations' crossfade.
+  $effect(() => {
+    if (!styleReady || !map) return;
     const sel = app.selectedConferenceId;
     const emphasis = { selectedId: sel, hoveredId: app.hoveredConferenceId };
-    const op = pinOpacity(sel);
-    map.setPaintProperty(LAYER.pin, 'circle-opacity', op);
-    map.setPaintProperty(LAYER.pin, 'circle-stroke-opacity', op);
-    map.setPaintProperty(LAYER.pinHalo, 'circle-opacity', op);
-    map.setPaintProperty(LAYER.pinLock, 'icon-opacity', op);
-    map.setPaintProperty(LAYER.links, 'line-opacity', linkOpacity(emphasis));
-    const aop = animOpacity(sel);
-    map.setPaintProperty(LAYER.animPin, 'circle-opacity', aop);
-    map.setPaintProperty(LAYER.animPin, 'circle-stroke-opacity', aop);
-    map.setPaintProperty(LAYER.animHalo, 'circle-opacity', aop);
-    map.setPaintProperty(LAYER.animLock, 'icon-opacity', aop);
-    map.setPaintProperty(LAYER.animRing, 'circle-stroke-opacity', animRingOpacity(sel));
-    map.setPaintProperty(LAYER.animLinks, 'line-opacity', animLinkOpacity(emphasis));
-    const clusterOp = sel ? 0.6 : 1;
-    map.setPaintProperty(LAYER.clusters, 'circle-opacity', clusterOp);
-    map.setPaintProperty(LAYER.clusters, 'circle-stroke-opacity', clusterOp);
-    map.setPaintProperty(LAYER.clusterCount, 'text-opacity', clusterOp);
+    const [ka, kc] = [blend.current, 1 - blend.current];
+    const paint = map.setPaintProperty.bind(map);
+    const op = fade(pinOpacity(sel), kc);
+    paint(LAYER.pin, 'circle-opacity', op);
+    paint(LAYER.pin, 'circle-stroke-opacity', op);
+    paint(LAYER.pinHalo, 'circle-opacity', op);
+    paint(LAYER.pinLock, 'icon-opacity', op);
+    paint(LAYER.links, 'line-opacity', fade(linkOpacity(emphasis), kc));
+    const aop = fade(animOpacity(sel), ka);
+    paint(LAYER.animPin, 'circle-opacity', aop);
+    paint(LAYER.animPin, 'circle-stroke-opacity', aop);
+    paint(LAYER.animHalo, 'circle-opacity', aop);
+    paint(LAYER.animLock, 'icon-opacity', aop);
+    paint(LAYER.animRing, 'circle-stroke-opacity', fade(animRingOpacity(sel), ka));
+    paint(
+      LAYER.animLinks,
+      'line-opacity',
+      fade(animLinkOpacity(emphasis, !!historyMode.series), ka),
+    );
+    const clusterOp = (sel ? 0.6 : 1) * kc;
+    paint(LAYER.clusters, 'circle-opacity', clusterOp);
+    paint(LAYER.clusters, 'circle-stroke-opacity', clusterOp);
+    paint(LAYER.clusterCount, 'text-opacity', clusterOp);
   });
 
   // On select, or when overlays resize: fit the selection into the visible area. Without a
@@ -421,6 +519,11 @@
     const x = Math.max(0, Math.min(max, (w - 80) / 2));
     const y = Math.max(0, Math.min(max, (h - 80) / 2));
     return { top: y, bottom: y, left: x, right: x };
+  }
+
+  /** The world overview: on a phone every pixel of width counts. */
+  function overviewMargins() {
+    return margins((container?.clientWidth ?? 0) < 640 ? 16 : MARGIN);
   }
 
   function fitSelection() {
