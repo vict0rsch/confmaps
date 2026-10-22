@@ -12,10 +12,14 @@
   import Icon from './components/Icon.svelte';
   import Legend from './components/Legend.svelte';
   import MapView, { type Insets } from './components/Map.svelte';
+  import MethodologyDialog from './components/MethodologyDialog.svelte';
+  import ShareDialog from './components/ShareDialog.svelte';
+  import SiteFootprint from './components/SiteFootprint.svelte';
   import ThemeToggle from './components/ThemeToggle.svelte';
   import FiltersSlot from './components/slots/FiltersSlot.svelte';
   import SettingsSlot from './components/slots/SettingsSlot.svelte';
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
+  import type { JoinedLocation } from './lib/data/load';
   import { app } from './lib/state/app.svelte';
   import { filterState } from './lib/state/filters.svelte';
   import { historyMode } from './lib/state/timeline.svelte';
@@ -82,12 +86,21 @@
   }
 </script>
 
+{#snippet siteFootprint(site: JoinedLocation)}
+  <SiteFootprint {site} />
+{/snippet}
+
+<MethodologyDialog />
+
 <div class="app" class:desktop={desktop.current} class:mobile={!desktop.current}>
   {#if desktop.current}
     <aside class="sidebar">
       <header class="sidebar-header">
         <Brand />
-        <ThemeToggle />
+        <div class="header-actions">
+          <ShareDialog />
+          <ThemeToggle />
+        </div>
       </header>
       <div class="sidebar-settings">
         <SettingsSlot />
@@ -144,6 +157,7 @@
             conference={app.selectedConference}
             onclose={closeDetail}
             onViewHistory={viewHistory}
+            {siteFootprint}
           />
         </div>
       {/if}
@@ -161,6 +175,7 @@
             conference={app.selectedConference}
             onclose={closeDetail}
             onViewHistory={viewHistory}
+            {siteFootprint}
           />
         {:else}
           <ConferenceList />
@@ -170,6 +185,10 @@
             <div class="sheet-footer-row">
               <span>Theme</span>
               <ThemeToggle />
+            </div>
+            <div class="sheet-footer-row">
+              <span>Share this view</span>
+              <ShareDialog />
             </div>
             <Footer />
           </div>
@@ -236,6 +255,12 @@
     justify-content: space-between;
     gap: var(--space-3);
     padding: var(--space-5) var(--space-4) var(--space-4);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
   }
 
   .sidebar-settings {
