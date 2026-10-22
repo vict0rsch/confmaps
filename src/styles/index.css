@@ -1,0 +1,5 @@
+/* Self-hosted typeface (no third-party font requests, for privacy). */
+@import '@fontsource-variable/inter/wght.css';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@import './tokens.css';
+@import './base.css';
