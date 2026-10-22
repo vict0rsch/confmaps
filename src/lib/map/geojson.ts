@@ -82,6 +82,29 @@ export function greatCircle(
   return points;
 }
 
+/**
+ * The first `f` (0–1, by length in degrees) of a line, ending on an interpolated point; used to
+ * draw lines in. Always ≥ 2 points.
+ */
+export function trimLine(coords: readonly [number, number][], f: number): [number, number][] {
+  if (f >= 1 || coords.length < 2) return [...coords];
+  const lens = coords.slice(1).map(([x, y], i) => Math.hypot(x - coords[i][0], y - coords[i][1]));
+  let left = Math.max(0, f) * lens.reduce((a, b) => a + b, 0);
+  const out: [number, number][] = [coords[0]];
+  for (let i = 0; i < lens.length; i++) {
+    const [a, b] = [coords[i], coords[i + 1]];
+    if (left >= lens[i]) {
+      out.push(b);
+      left -= lens[i];
+      continue;
+    }
+    const t = lens[i] ? left / lens[i] : 0;
+    out.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
+    break;
+  }
+  return out;
+}
+
 /** Main ↔ satellite arcs, for conferences whose main venue and ≥1 satellite are both visible. */
 export function linkFeatures(locations: readonly JoinedLocation[]): LinkCollection {
   const mains = new Map<string, JoinedLocation>();

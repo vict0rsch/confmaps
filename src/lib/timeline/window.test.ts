@@ -1,0 +1,145 @@
+import { describe, expect, it } from 'vitest';
+import { coverDomain, dayNumber, windowDays } from './scale';
+import {
+  advanceMonths,
+  canPlay,
+  centerWindow,
+  clampAtEnd,
+  datePresets,
+  dragHandle,
+  moveWindow,
+  nearestBoundary,
+  nextSpeed,
+  nudge,
+  playOrigin,
+  playWindow,
+  toDomainEdge,
+  windowLabel,
+} from './window';
+
+const d = coverDomain(undefined, { from: '2025-01-01', to: '2027-12-31' });
+const plan = { from: '2026-10-22', to: '2027-10-22' };
+
+describe('presets', () => {
+  it('6 / 12 months from today, and the past 5 years', () => {
+    expect(datePresets('2026-10-22').map((p) => [p.id, p.w])).toEqual([
+      ['6m', { from: '2026-10-22', to: '2027-04-22' }],
+      ['12m', plan],
+      ['5y', { from: '2021-10-22', to: '2026-10-22' }],
+    ]);
+  });
+});
+
+describe('dragging', () => {
+  it('snaps handles to the nearest month boundary', () => {
+    expect(nearestBoundary(dayNumber('2026-03-10'))).toBe(dayNumber('2026-03-01'));
+    expect(nearestBoundary(dayNumber('2026-03-20'))).toBe(dayNumber('2026-04-01'));
+    expect(dragHandle(plan, 'from', dayNumber('2026-12-27'), d)).toEqual({
+      from: '2027-01-01',
+      to: plan.to,
+    });
+    expect(dragHandle(plan, 'to', dayNumber('2027-06-03'), d)).toEqual({
+      from: plan.from,
+      to: '2027-05-31',
+    });
+  });
+
+  it('never inverts the window and stays in the domain', () => {
+    const w = { from: '2026-03-01', to: '2026-06-30' };
+    expect(dragHandle(w, 'from', dayNumber('2026-09-01'), d).from).toBe('2026-06-01');
+    expect(dragHandle(w, 'to', dayNumber('2025-06-01'), d).to).toBe('2026-03-31');
+    expect(dragHandle(w, 'from', dayNumber('2020-01-01'), d).from).toBe('2025-01-01');
+    expect(dragHandle(w, 'to', dayNumber('2030-01-01'), d).to).toBe('2027-12-31');
+  });
+
+  it('moves the body preserving its width, clamped at both ends', () => {
+    const width = windowDays(plan);
+    const later = moveWindow(plan, dayNumber('2026-12-01'), d);
+    expect(later.from).toBe('2026-12-01');
+    expect(windowDays(later)).toBe(width);
+    const end = moveWindow(plan, dayNumber('2027-09-01'), d);
+    expect(end.to).toBe('2027-12-31');
+    expect(windowDays(end)).toBe(width);
+    expect(moveWindow(plan, dayNumber('2010-01-01'), d).from).toBe('2025-01-01');
+    expect(windowDays(centerWindow(plan, dayNumber('2026-01-01'), d))).toBe(width);
+  });
+});
+
+describe('keyboard', () => {
+  it('nudges handles by months, clamped', () => {
+    expect(nudge(plan, 'from', 1, d)).toEqual({ from: '2026-11-22', to: plan.to });
+    expect(nudge(plan, 'to', -12, d)).toEqual({ from: plan.from, to: '2026-10-22' });
+    expect(nudge(plan, 'from', 24, d).from).toBe(plan.to); // stops at the other handle
+    expect(nudge(plan, 'to', 12, d).to).toBe('2027-12-31');
+  });
+
+  it('nudges the whole window keeping its width', () => {
+    const w = nudge(plan, 'window', -12, d);
+    expect(w.from).toBe('2025-10-22');
+    expect(windowDays(w)).toBe(windowDays(plan));
+  });
+
+  it('Home / End go to the domain edges', () => {
+    expect(toDomainEdge(plan, 'from', 'start', d).from).toBe('2025-01-01');
+    expect(toDomainEdge(plan, 'to', 'end', d).to).toBe('2027-12-31');
+    expect(toDomainEdge(plan, 'window', 'start', d).from).toBe('2025-01-01');
+    expect(toDomainEdge(plan, 'window', 'end', d).to).toBe('2027-12-31');
+  });
+});
+
+describe('play stepping', () => {
+  const origin = { from: '2026-01-01', to: '2026-06-30' };
+
+  it('advances one month per second at 1×, scaled by speed', () => {
+    expect(advanceMonths(0, 1000, 1)).toBe(1);
+    expect(advanceMonths(0, 1000, 2)).toBe(2);
+    expect(advanceMonths(1, 500, 0.5)).toBe(1.25);
+    expect([0.5, 1, 2].map((s) => nextSpeed(s as 0.5 | 1 | 2))).toEqual([1, 2, 0.5]);
+  });
+
+  it('continuous: day-granular slide, width preserved', () => {
+    const w = playWindow(origin, 1, false);
+    expect(w.from).toBe('2026-01-31');
+    expect(windowDays(w)).toBe(windowDays(origin));
+    expect(playWindow(origin, 0.5, false).from).toBe('2026-01-16');
+  });
+
+  it('stepped (reduced motion): whole months only, width preserved', () => {
+    const days = { from: '2026-01-10', to: '2026-07-09' };
+    expect(playWindow(days, 0.9, true)).toEqual(days);
+    const w = playWindow(days, 1.2, true);
+    expect(w.from).toBe('2026-02-10');
+    expect(windowDays(w)).toBe(windowDays(days));
+    // A whole-month window stays whole months (6 months here).
+    expect(playWindow(origin, 1, true)).toEqual({ from: '2026-02-01', to: '2026-07-31' });
+    expect(playWindow(origin, 2, true)).toEqual({ from: '2026-03-01', to: '2026-08-31' });
+  });
+
+  it('stops at the data end without changing width', () => {
+    const span = { from: '2025-01-19', to: '2027-08-18' };
+    const { w, ended } = clampAtEnd({ from: '2027-05-01', to: '2027-10-31' }, span.to);
+    expect(ended).toBe(true);
+    expect(w.to).toBe(span.to);
+    expect(windowDays(w)).toBe(windowDays({ from: '2027-05-01', to: '2027-10-31' }));
+    expect(clampAtEnd(origin, span.to).ended).toBe(false);
+  });
+
+  it('rewinds to the data start when already at the end; refuses a window wider than data', () => {
+    const span = { from: '2025-01-19', to: '2027-08-18' };
+    expect(playOrigin(origin, span)).toBe(origin);
+    const back = playOrigin(plan, span); // Plan reaches past the last event
+    expect(back.from).toBe('2025-01-01');
+    expect(windowDays(back)).toBe(windowDays(plan));
+    expect(canPlay(plan, span)).toBe(true);
+    expect(canPlay({ from: '2021-10-22', to: '2026-10-22' }, span)).toBe(false);
+  });
+});
+
+describe('windowLabel', () => {
+  it('reads whole months as months, other windows as days; short in compact', () => {
+    expect(windowLabel({ from: '2026-11-01', to: '2027-10-31' })).toBe('Nov 2026 – Oct 2027');
+    expect(windowLabel({ from: '2026-11-01', to: '2026-11-30' })).toBe('Nov 2026');
+    expect(windowLabel(plan)).toBe('Oct 22, 2026 – Oct 22, 2027');
+    expect(windowLabel(plan, true)).toBe('Oct ’26 – Oct ’27');
+  });
+});

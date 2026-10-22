@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import type { FeatureCollection, Point } from 'geojson';
+  import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
   import {
     Map as MLMap,
     NavigationControl,
@@ -18,17 +18,26 @@
     type MapGeoJSONFeature,
   } from 'maplibre-gl';
   import { untrack } from 'svelte';
-  import { prefersReducedMotion } from 'svelte/motion';
+  import { cubicOut } from 'svelte/easing';
+  import { prefersReducedMotion, Tween } from 'svelte/motion';
   import { app } from '../lib/state/app.svelte';
+  import { getDates } from '../lib/state/filters.svelte';
+  import { historyMode, play } from '../lib/state/timeline.svelte';
+  import { animFeatures, Choreographer, liveIds, shownIds } from '../lib/map/choreography';
   import { boundsOf, linkFeatures, pinFeatures, type PinCollection } from '../lib/map/geojson';
   import { lockBadge } from '../lib/map/icons';
   import {
+    ANIM_LAYERS,
     BASEMAP_URLS,
+    CLUSTER_LAYERS,
     CLUSTER_MAX_ZOOM,
     LAYER,
     MAP_MAX_ZOOM,
     PIN_LAYERS,
     SRC,
+    animLinkOpacity,
+    animOpacity,
+    animRingOpacity,
     dataLayers,
     dataSources,
     linkOpacity,
@@ -37,6 +46,8 @@
     quietBasemap,
     readPalette,
   } from '../lib/map/style';
+  import { historyFitPoints, historyLegs, pathAt, stopLabels } from '../lib/timeline/history';
+  import { motionConfig } from '../lib/timeline/motion';
   import type { ResolvedTheme } from '../lib/state/theme';
   import Icon from './Icon.svelte';
 
@@ -70,6 +81,29 @@
     return { type: 'FeatureCollection', features };
   });
 
+  // ---- Timeline choreography (Play, history mode) ---------------------------
+  // While the timeline animates, an unclustered presentation of every location replaces the
+  // clustered one (per-pin fades can't be clustered); it hands back once motion settles.
+  const anim = animFeatures(app.data.locations);
+  const motion = $derived(motionConfig(prefersReducedMotion.current));
+  const wantAnim = $derived(play.playing || !!historyMode.series);
+  let animMode = $state(false);
+  let choreo: Choreographer | undefined;
+  let raf = 0;
+  /** Pins currently shown by the animated presentation (hit-testing ignores hidden ones). */
+  let shownNow: ReadonlySet<string> = new Set();
+
+  const stops = $derived(historyMode.series ? historyMode.stops : null);
+  const shown = $derived(shownIds(app.visibleLocations, stops, play.travelShown));
+  const live = $derived(
+    play.playing ? liveIds(app.visibleLocations, getDates().from, stops, play.travelShown) : null,
+  );
+
+  // History mode: the path between editions, drawn in on entry and along with Play's travel.
+  const legs = $derived(historyLegs(historyMode.stops));
+  const intro = new Tween(1, { easing: cubicOut });
+  const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
+
   // ---- Map lifecycle -------------------------------------------------------
   $effect(() => {
     const m = new MLMap({
@@ -96,9 +130,11 @@
     });
 
     m.on('mousemove', PIN_LAYERS, (e) => {
-      m.getCanvas().style.cursor = 'pointer';
-      const id = e.features?.[0]?.properties?.conferenceId;
+      const f = e.features?.find(isTarget);
+      m.getCanvas().style.cursor = f ? 'pointer' : '';
+      const id = f?.properties?.conferenceId;
       if (id && app.hoveredConferenceId !== id) app.hover(id);
+      else if (!f && app.hoveredConferenceId) app.hover(null);
     });
     m.on('mouseleave', PIN_LAYERS, () => {
       m.getCanvas().style.cursor = '';
@@ -113,6 +149,7 @@
       const pin = hit.find(
         (f) =>
           f.layer.id === LAYER.pin ||
+          (f.layer.id === LAYER.animPin && isTarget(f)) ||
           (f.layer.id === LAYER.focusPin && (f.properties.selected === 1 || !onCluster)),
       );
       if (pin) {
@@ -148,10 +185,18 @@
       const initial = boundsOf(app.visibleLocations, false);
       if (initial) m.fitBounds(initial, { padding: margins(), duration: 0 });
     });
+    choreo = new Choreographer(
+      m,
+      app.data.locations,
+      untrack(() => motion),
+    );
     map = m;
     return () => {
       root.toggleAttribute('data-map-dragging', false);
       ro.disconnect();
+      cancelAnimationFrame(raf);
+      raf = 0;
+      choreo = undefined;
       m.remove();
       map = undefined;
     };
@@ -170,13 +215,15 @@
         const base = quietBasemap(next, p);
         return {
           ...base,
-          sources: { ...base.sources, ...dataSources({ pins, focus, links }) },
+          sources: { ...base.sources, ...dataSources({ pins, focus, links, anim }) },
           layers: [
             ...base.layers,
-            ...dataLayers(p, theme, {
-              selectedId: app.selectedConferenceId,
-              hoveredId: app.hoveredConferenceId,
-            }),
+            ...dataLayers(
+              p,
+              theme,
+              { selectedId: app.selectedConferenceId, hoveredId: app.hoveredConferenceId },
+              animMode,
+            ),
           ],
         };
       },
@@ -185,10 +232,122 @@
 
   const source = (id: string) => map?.getSource(id) as GeoJSONSource | undefined;
 
+  // The clustered source is hidden while Play runs: don't re-cluster on every frame.
   $effect(() => {
-    if (!styleReady) return;
+    if (!styleReady || (animMode && play.playing)) return;
     source(SRC.pins)?.setData(pins);
     source(SRC.links)?.setData(links);
+  });
+
+  // Hand over between the clustered and the animated presentation.
+  $effect(() => {
+    const on = animMode;
+    if (!styleReady || !map) return;
+    for (const id of ANIM_LAYERS) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none');
+    for (const id of CLUSTER_LAYERS)
+      map.setLayoutProperty(id, 'visibility', on ? 'none' : 'visible');
+  });
+
+  // Feed the choreographer. Entering history mode starts from an empty map so its editions
+  // arrive one after the other; starting Play keeps what is on screen.
+  $effect(() => {
+    const [want, s, l, cfg] = [wantAnim, shown, live, motion];
+    if (!styleReady || !choreo) return;
+    untrack(() => {
+      if (want && !animMode) {
+        choreo!.reset(historyMode.series && !play.playing ? new Set() : s, cfg);
+        animMode = true;
+      }
+      shownNow = s;
+      if (!animMode) return;
+      choreo!.setTargets(s, l ?? new Set(), performance.now(), cfg);
+      kick();
+    });
+  });
+
+  // A style reload (theme switch) drops feature-state: re-send it.
+  $effect(() => {
+    if (!styleReady || !choreo) return;
+    untrack(() => {
+      if (!animMode) return;
+      choreo!.reapply();
+      kick();
+    });
+  });
+
+  function kick() {
+    if (!raf) raf = requestAnimationFrame(loop);
+  }
+
+  function loop(now: number) {
+    raf = 0;
+    if (!choreo || !map) return;
+    if (choreo.frame(now)) return kick();
+    // Settled. Still animating (Play, history mode): the next change kicks the loop again.
+    // Otherwise back to clusters, once their source has caught up (no stale frame).
+    if (wantAnim) return;
+    if (map.isSourceLoaded(SRC.pins)) animMode = false;
+    else kick();
+  }
+
+  // History layers: path (trimmed to the progress), travelling head, year labels.
+  $effect(() => {
+    if (!styleReady) return;
+    const on = !!historyMode.series;
+    const { lines, head } = on ? pathAt(legs, pathProgress) : { lines: [], head: null };
+    const labels = on ? stopLabels(historyMode.stops, Math.floor(pathProgress + 1e-6)) : [];
+    source(SRC.historyPath)?.setData({
+      type: 'FeatureCollection',
+      features: lines.map((coordinates): Feature<LineString> => ({
+        type: 'Feature',
+        geometry: { type: 'LineString', coordinates },
+        properties: {},
+      })),
+    });
+    source(SRC.historyHead)?.setData({
+      type: 'FeatureCollection',
+      features:
+        head && play.travel !== null
+          ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: head }, properties: {} }]
+          : [],
+    });
+    source(SRC.historyLabels)?.setData({
+      type: 'FeatureCollection',
+      features: labels.map(({ lng, lat, years, city }) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lng, lat] },
+        properties: { years, city },
+      })),
+    });
+  });
+
+  // Entering history mode: draw the path in, and fit the camera to the editions. Exiting
+  // without a selection to restore: back to the overview.
+  let lastSeries: string | null | undefined;
+  $effect(() => {
+    const series = historyMode.series;
+    const m = map;
+    if (!m) return;
+    untrack(() => {
+      const first = lastSeries === undefined;
+      const prev = lastSeries;
+      lastSeries = series;
+      if (series === prev || (first && !series)) return;
+      if (series) {
+        void intro.set(0, { duration: 0 });
+        void intro.set(1, { duration: motion.drawLines ? 700 : 0, delay: first ? 0 : 300 });
+      }
+      // Next frame: entering closes the detail, whose camera follow-up (easeTo) would cancel it.
+      requestAnimationFrame(() => {
+        if (map !== m || historyMode.series !== series) return;
+        if (series) fitHistory(first ? 0 : duration(900));
+        else if (!app.selectedConferenceId) {
+          const b = boundsOf(app.visibleLocations, false);
+          m.setPadding(insets);
+          if (b) m.fitBounds(b, { padding: margins(), duration: duration(800) });
+        }
+      });
+    });
   });
 
   $effect(() => {
@@ -202,6 +361,13 @@
     map.setPaintProperty(LAYER.pinHalo, 'circle-opacity', op);
     map.setPaintProperty(LAYER.pinLock, 'icon-opacity', op);
     map.setPaintProperty(LAYER.links, 'line-opacity', linkOpacity(emphasis));
+    const aop = animOpacity(sel);
+    map.setPaintProperty(LAYER.animPin, 'circle-opacity', aop);
+    map.setPaintProperty(LAYER.animPin, 'circle-stroke-opacity', aop);
+    map.setPaintProperty(LAYER.animHalo, 'circle-opacity', aop);
+    map.setPaintProperty(LAYER.animLock, 'icon-opacity', aop);
+    map.setPaintProperty(LAYER.animRing, 'circle-stroke-opacity', animRingOpacity(sel));
+    map.setPaintProperty(LAYER.animLinks, 'line-opacity', animLinkOpacity(emphasis));
     const clusterOp = sel ? 0.6 : 1;
     map.setPaintProperty(LAYER.clusters, 'circle-opacity', clusterOp);
     map.setPaintProperty(LAYER.clusters, 'circle-stroke-opacity', clusterOp);
@@ -227,12 +393,33 @@
   });
 
   // ---- Helpers -------------------------------------------------------------
+  /** Hidden animated pins are still hit-tested by MapLibre: ignore them. */
+  function isTarget(f: MapGeoJSONFeature) {
+    return f.layer.id !== LAYER.animPin || shownNow.has(f.properties.id);
+  }
+
+  /**
+   * Fit the editions' path (with room for its year labels). Satellites widen the box only for a
+   * single-stop series; otherwise the path is the subject (NeurIPS's satellites would make it
+   * world-wide and unfittable on a phone).
+   */
+  function fitHistory(ms: number) {
+    const sites = app.visibleLocations;
+    const single = historyMode.stops.length < 2;
+    const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
+    const b = boundsOf(pts.length ? pts : sites, false);
+    if (!map || !b) return;
+    const m = margins(96);
+    map.setPadding(insets);
+    map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
+  }
+
   /** fitBounds margins inside the camera padding, shrunk when the visible area is small. */
-  function margins() {
+  function margins(max = MARGIN) {
     const w = (container?.clientWidth ?? 0) - insets.left - insets.right;
     const h = (container?.clientHeight ?? 0) - insets.top - insets.bottom;
-    const x = Math.max(0, Math.min(MARGIN, (w - 80) / 2));
-    const y = Math.max(0, Math.min(MARGIN, (h - 80) / 2));
+    const x = Math.max(0, Math.min(max, (w - 80) / 2));
+    const y = Math.max(0, Math.min(max, (h - 80) / 2));
     return { top: y, bottom: y, left: x, right: x };
   }
 

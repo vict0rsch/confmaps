@@ -162,7 +162,17 @@ export function quietBasemap(style: StyleSpecification, p: MapPalette): StyleSpe
 // Data layers
 // ---------------------------------------------------------------------------
 
-export const SRC = { pins: 'pins', focus: 'focus', links: 'links' } as const;
+export const SRC = {
+  pins: 'pins',
+  focus: 'focus',
+  links: 'links',
+  // Timeline choreography (Play, history mode): unclustered, animated through feature-state.
+  anim: 'anim',
+  animLinks: 'anim-links',
+  historyPath: 'history-path',
+  historyHead: 'history-head',
+  historyLabels: 'history-labels',
+} as const;
 
 export const LAYER = {
   links: 'links',
@@ -175,10 +185,37 @@ export const LAYER = {
   focusHalo: 'focus-halo',
   focusPin: 'focus-pin',
   focusLock: 'focus-lock',
+  animLinks: 'anim-links',
+  animRing: 'anim-ring',
+  animHalo: 'anim-halo',
+  animPin: 'anim-pin',
+  animLock: 'anim-lock',
+  historyCasing: 'history-casing',
+  historyPath: 'history-path',
+  historyHead: 'history-head',
+  historyLabels: 'history-labels',
 } as const;
 
 /** Layers that represent a single location (hover/click targets). */
-export const PIN_LAYERS = [LAYER.pin, LAYER.focusPin];
+export const PIN_LAYERS = [LAYER.pin, LAYER.focusPin, LAYER.animPin];
+
+/** The resting (clustered) presentation, swapped out while the timeline animates. */
+export const CLUSTER_LAYERS = [
+  LAYER.links,
+  LAYER.clusters,
+  LAYER.clusterCount,
+  LAYER.pinHalo,
+  LAYER.pin,
+  LAYER.pinLock,
+];
+/** The animated presentation (Play, history mode): every location, one pin each, no clusters. */
+export const ANIM_LAYERS = [
+  LAYER.animLinks,
+  LAYER.animRing,
+  LAYER.animHalo,
+  LAYER.animPin,
+  LAYER.animLock,
+];
 
 export const CLUSTER_MAX_ZOOM = 12;
 export const MAP_MAX_ZOOM = 12;
@@ -200,6 +237,28 @@ export function pinOpacity(selectedId: string | null): ExpressionSpecification |
   return ['case', ['==', ['get', 'conferenceId'], selectedId], 1, 0.4];
 }
 
+/** A feature-state number (set by the choreographer), with a default. */
+const fs = (key: string, fallback: number): ExpressionSpecification => [
+  'coalesce',
+  ['feature-state', key],
+  fallback,
+];
+
+/** Animated pins: the choreographer's opacity (`o`) × the selection dimming. */
+export function animOpacity(selectedId: string | null): ExpressionSpecification {
+  return ['*', fs('o', 0), pinOpacity(selectedId)];
+}
+
+/** The live ripple ring: its own opacity (`ro`) × the selection dimming. */
+export function animRingOpacity(selectedId: string | null): ExpressionSpecification {
+  return ['*', fs('ro', 0), pinOpacity(selectedId)];
+}
+
+/** Animated links: their own fade (`o` property) × the usual emphasis. */
+export function animLinkOpacity(e: Emphasis): ExpressionSpecification {
+  return ['*', ['get', 'o'], linkOpacity(e)];
+}
+
 export function linkOpacity(e: Emphasis): ExpressionSpecification | number {
   const ids = [e.selectedId, e.hoveredId].filter((x): x is string => !!x);
   if (!ids.length) return 0.5;
@@ -211,16 +270,18 @@ export function linkOpacity(e: Emphasis): ExpressionSpecification | number {
   ];
 }
 
-function pinPaint(p: MapPalette) {
-  const color: ExpressionSpecification = [
-    'case',
-    ['==', ['get', 'official'], 1],
-    p.pinOfficial,
-    p.pinCommunity,
-  ];
+const pinColor = (p: MapPalette): ExpressionSpecification => [
+  'case',
+  ['==', ['get', 'official'], 1],
+  p.pinOfficial,
+  p.pinCommunity,
+];
+
+function pinPaint(p: MapPalette, r: ExpressionSpecification = radius) {
+  const color = pinColor(p);
   return {
     // Official = filled; community = ring (hollow centre). Never colour alone.
-    'circle-radius': radius,
+    'circle-radius': r,
     'circle-color': [
       'case',
       ['==', ['get', 'official'], 1],
@@ -254,10 +315,20 @@ export type DataSources = {
   pins: FeatureCollection;
   focus: FeatureCollection;
   links: FeatureCollection;
+  anim: FeatureCollection;
+  animLinks: FeatureCollection;
+  historyPath: FeatureCollection;
+  historyHead: FeatureCollection;
+  historyLabels: FeatureCollection;
 };
 
 export function dataSources(d: Partial<DataSources> = {}): Record<string, SourceSpecification> {
   return {
+    [SRC.anim]: { type: 'geojson', data: d.anim ?? empty },
+    [SRC.animLinks]: { type: 'geojson', data: d.animLinks ?? empty },
+    [SRC.historyPath]: { type: 'geojson', data: d.historyPath ?? empty },
+    [SRC.historyHead]: { type: 'geojson', data: d.historyHead ?? empty },
+    [SRC.historyLabels]: { type: 'geojson', data: d.historyLabels ?? empty },
     [SRC.links]: { type: 'geojson', data: d.links ?? empty },
     [SRC.pins]: {
       type: 'geojson',
@@ -270,14 +341,27 @@ export function dataSources(d: Partial<DataSources> = {}): Record<string, Source
   };
 }
 
-export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): LayerSpecification[] {
+/**
+ * The app's layers, bottom to top. `animated` picks which presentation is visible: the resting
+ * clustered one, or the timeline's animated one (see CLUSTER_LAYERS / ANIM_LAYERS).
+ */
+export function dataLayers(
+  p: MapPalette,
+  theme: ResolvedTheme,
+  e: Emphasis,
+  animated = false,
+): LayerSpecification[] {
   const unclustered: ExpressionSpecification = ['!', ['has', 'point_count']];
+  const resting = { visibility: animated ? 'none' : 'visible' } as const;
+  const anim = { visibility: animated ? 'visible' : 'none' } as const;
+  const scaled = (r: ExpressionSpecification): ExpressionSpecification => ['*', r, fs('s', 1)];
+  const lineLayout = { 'line-cap': 'round', 'line-join': 'round' } as const;
   return [
     {
       id: LAYER.links,
       type: 'line',
       source: SRC.links,
-      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      layout: { ...lineLayout, ...resting },
       paint: {
         'line-color': p.link,
         'line-width': 1.5,
@@ -285,11 +369,39 @@ export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): La
         'line-opacity': linkOpacity(e),
       },
     },
+    // History mode: the editions' path, on a halo so it reads over borders.
+    {
+      id: LAYER.historyCasing,
+      type: 'line',
+      source: SRC.historyPath,
+      layout: lineLayout,
+      paint: { 'line-color': p.pinHalo, 'line-width': 5, 'line-opacity': 0.6 },
+    },
+    {
+      id: LAYER.historyPath,
+      type: 'line',
+      source: SRC.historyPath,
+      layout: lineLayout,
+      paint: { 'line-color': p.link, 'line-width': 2, 'line-opacity': 0.85 },
+    },
+    {
+      id: LAYER.animLinks,
+      type: 'line',
+      source: SRC.animLinks,
+      layout: { ...lineLayout, ...anim },
+      paint: {
+        'line-color': p.link,
+        'line-width': 1.5,
+        'line-dasharray': [2, 2],
+        'line-opacity': animLinkOpacity(e),
+      },
+    },
     {
       id: LAYER.clusters,
       type: 'circle',
       source: SRC.pins,
       filter: ['has', 'point_count'],
+      layout: resting,
       paint: {
         'circle-color': p.clusterFill,
         'circle-radius': ['step', ['get', 'point_count'], 13, 5, 16, 15, 20],
@@ -310,6 +422,7 @@ export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): La
         'text-size': 12,
         'text-allow-overlap': true,
         'text-ignore-placement': true,
+        ...resting,
       },
       paint: { 'text-color': p.clusterInk, 'text-opacity': e.selectedId ? 0.6 : 1 },
     },
@@ -318,6 +431,7 @@ export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): La
       type: 'circle',
       source: SRC.pins,
       filter: unclustered,
+      layout: resting,
       paint: {
         'circle-radius': plus(2.5),
         'circle-color': p.pinHalo,
@@ -329,6 +443,7 @@ export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): La
       type: 'circle',
       source: SRC.pins,
       filter: unclustered,
+      layout: resting,
       paint: {
         ...pinPaint(p),
         'circle-opacity': pinOpacity(e.selectedId),
@@ -340,8 +455,94 @@ export function dataLayers(p: MapPalette, theme: ResolvedTheme, e: Emphasis): La
       type: 'symbol',
       source: SRC.pins,
       filter: ['all', unclustered, ['==', ['get', 'locked'], 1]],
-      layout: lockLayout(theme),
+      layout: { ...lockLayout(theme), ...resting },
       paint: { 'icon-opacity': pinOpacity(e.selectedId) },
+    },
+    // Animated pins (timeline): opacity/scale/ripple from feature-state, positions never change.
+    {
+      id: LAYER.animRing,
+      type: 'circle',
+      source: SRC.anim,
+      layout: anim,
+      paint: {
+        'circle-radius': ['+', radius, 1, ['*', fs('rs', 0), 12]],
+        'circle-opacity': 0,
+        'circle-stroke-color': pinColor(p),
+        'circle-stroke-width': 1.5,
+        'circle-stroke-opacity': animRingOpacity(e.selectedId),
+        'circle-pitch-alignment': 'map',
+      },
+    },
+    {
+      id: LAYER.animHalo,
+      type: 'circle',
+      source: SRC.anim,
+      layout: anim,
+      paint: {
+        'circle-radius': scaled(plus(2.5)),
+        'circle-color': p.pinHalo,
+        'circle-opacity': animOpacity(e.selectedId),
+      },
+    },
+    {
+      id: LAYER.animPin,
+      type: 'circle',
+      source: SRC.anim,
+      layout: anim,
+      paint: {
+        ...pinPaint(p, scaled(radius)),
+        'circle-opacity': animOpacity(e.selectedId),
+        'circle-stroke-opacity': animOpacity(e.selectedId),
+      },
+    },
+    {
+      id: LAYER.animLock,
+      type: 'symbol',
+      source: SRC.anim,
+      filter: ['==', ['get', 'locked'], 1],
+      layout: { ...lockLayout(theme), ...anim },
+      paint: { 'icon-opacity': animOpacity(e.selectedId) },
+    },
+    {
+      id: LAYER.historyHead,
+      type: 'circle',
+      source: SRC.historyHead,
+      paint: {
+        'circle-radius': 4,
+        'circle-color': p.link,
+        'circle-stroke-color': p.pinHalo,
+        'circle-stroke-width': 2,
+      },
+    },
+    {
+      id: LAYER.historyLabels,
+      type: 'symbol',
+      source: SRC.historyLabels,
+      layout: {
+        'text-field': [
+          'format',
+          ['get', 'years'],
+          { 'text-font': ['literal', ['Noto Sans Bold']] },
+          '\n',
+          {},
+          ['get', 'city'],
+          { 'font-scale': 0.85, 'text-font': ['literal', ['Noto Sans Regular']] },
+        ],
+        'text-font': ['Noto Sans Regular'],
+        'text-size': 12,
+        'text-line-height': 1.15,
+        'text-anchor': 'bottom',
+        'text-offset': [0, -1],
+        // Always shown, and basemap labels give way to them.
+        'text-allow-overlap': true,
+        'text-ignore-placement': false,
+      },
+      paint: {
+        'text-color': p.selected,
+        'text-halo-color': p.pinHalo,
+        'text-halo-width': 1.5,
+        'text-opacity': ['coalesce', ['get', 'o'], 1],
+      },
     },
     // Focus = hovered + selected conference's sites, drawn above clusters so they stay visible.
     {

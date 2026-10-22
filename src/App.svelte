@@ -18,6 +18,7 @@
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
   import { app } from './lib/state/app.svelte';
   import { filterState } from './lib/state/filters.svelte';
+  import { historyMode } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
 
@@ -33,6 +34,17 @@
   $effect.pre(() => {
     document.documentElement.dataset.theme = app.resolvedTheme;
   });
+
+  // Mobile: history mode lowers the sheet so the editions' path is in view.
+  $effect(() => {
+    if (historyMode.series && !desktop.current && !untrack(() => app.selectedConferenceId)) {
+      sheetSnap = 'peek';
+    }
+  });
+
+  function viewHistory() {
+    if (app.selectedConference) historyMode.enter(app.selectedConference.series);
+  }
 
   // Mobile: opening a conference raises the sheet so the detail is readable.
   $effect(() => {
@@ -128,7 +140,11 @@
           in:fly={{ x: 24, duration: motion(200), easing: cubicOut }}
           out:fly={{ x: 24, duration: motion(150), easing: cubicIn }}
         >
-          <Detail conference={app.selectedConference} onclose={closeDetail} />
+          <Detail
+            conference={app.selectedConference}
+            onclose={closeDetail}
+            onViewHistory={viewHistory}
+          />
         </div>
       {/if}
     {:else}
@@ -141,7 +157,11 @@
         label={app.selectedConference ? 'Conference details' : 'Conference list'}
       >
         {#if app.selectedConference}
-          <Detail conference={app.selectedConference} onclose={closeDetail} />
+          <Detail
+            conference={app.selectedConference}
+            onclose={closeDetail}
+            onViewHistory={viewHistory}
+          />
         {:else}
           <ConferenceList />
           <div class="sheet-footer">

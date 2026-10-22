@@ -1,16 +1,11 @@
 <script lang="ts">
   import { monthEnd, parseDay, type DateWindow } from '../../lib/filters/dates';
   import type { ControlProps } from '../../lib/filters/types';
-  import { addMonthsISO, planWindow } from '../../lib/state/derive';
+  import { datePresets, sameWindow as same } from '../../lib/timeline/window';
 
   let { state, set, ctx }: ControlProps<DateWindow> = $props();
 
-  const presets = $derived([
-    { label: '6 months', w: planWindow(ctx.today, 6) },
-    { label: '12 months', w: planWindow(ctx.today, 12) },
-    { label: 'Past 5 years', w: { from: addMonthsISO(ctx.today, -60), to: ctx.today } },
-  ]);
-  const same = (a: DateWindow, b: DateWindow) => a.from === b.from && a.to === b.to;
+  const presets = $derived(datePresets(ctx.today));
 
   // Month inputs: "from" snaps to the month's first day, "to" to its last; the other bound moves
   // if needed to keep from ≤ to.

@@ -1,0 +1,198 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+vi.mock('../analytics', () => ({ track: vi.fn() }));
+
+import { track } from '../analytics';
+import { liveIds, shownIds } from '../map/choreography';
+import { windowDays } from '../timeline/scale';
+import { app } from './app.svelte';
+import { defaultDates, filterState, getDates, setDates } from './filters.svelte';
+import { historyMode, play, PlayState, scope } from './timeline.svelte';
+import { buildQuery, parseHistory, type URLInputs } from './url';
+import { DEFAULT_TRAVEL } from './travel.svelte';
+
+const spring = { from: '2025-03-01', to: '2025-08-31' };
+
+beforeEach(() => {
+  historyMode.exit();
+  play.pause();
+  filterState.resetAll();
+  app.select(null);
+  vi.mocked(track).mockClear();
+});
+
+describe('PlayState', () => {
+  it('slides the dates window one month per second at 1×, keeping its width', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    setDates(spring);
+    p.play();
+    expect(p.playing).toBe(true);
+    p.step(1000);
+    expect(getDates().from).toBe('2025-03-31');
+    expect(windowDays(getDates())).toBe(windowDays(spring));
+    p.speed = 2;
+    p.step(1000);
+    expect(getDates().from).toBe('2025-05-31');
+    p.pause();
+  });
+
+  it('reduced motion steps whole months', () => {
+    const p = new PlayState({ reducedMotion: () => true });
+    setDates(spring);
+    p.play();
+    p.step(900);
+    expect(getDates()).toEqual(spring);
+    p.step(200);
+    expect(getDates()).toEqual({ from: '2025-04-01', to: '2025-09-30' });
+    p.pause();
+  });
+
+  it('stops at the data end, and rewinds to the data start when played again', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    setDates(spring);
+    p.play();
+    for (let i = 0; i < 60 && p.playing; i++) p.step(1000);
+    expect(p.playing).toBe(false);
+    expect(getDates().to).toBe(scope.span.to);
+    p.play();
+    expect(getDates().from).toBe(`${scope.span.from.slice(0, 7)}-01`);
+    p.pause();
+  });
+
+  it('pauses on any outside change of the window (drag, preset, filter panel)', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    setDates(spring);
+    p.play();
+    p.step(500);
+    setDates(defaultDates());
+    p.step(500);
+    expect(p.playing).toBe(false);
+    expect(getDates()).toEqual(defaultDates());
+  });
+
+  it('reports play_pressed once per page load', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    setDates(spring);
+    p.play();
+    p.pause();
+    p.play();
+    p.pause();
+    expect(vi.mocked(track).mock.calls.filter(([n]) => n === 'play_pressed')).toHaveLength(1);
+  });
+
+  it('cannot play a window wider than the data', () => {
+    setDates({ from: '2021-10-22', to: '2028-10-22' });
+    expect(play.canPlay).toBe(false);
+  });
+});
+
+describe('history mode', () => {
+  it('shows every edition of the series, ignoring (but keeping) the dates window', () => {
+    setDates({ from: '2026-01-01', to: '2026-01-31' });
+    historyMode.enter('neurips');
+    const confs = new Set(app.visibleLocations.map((l) => l.conferenceId));
+    expect([...confs].sort()).toEqual(['neurips25', 'neurips26']);
+    expect(getDates()).toEqual({ from: '2026-01-01', to: '2026-01-31' }); // not mutated
+    expect(historyMode.stops.map((s) => s.city)).toEqual(['San Diego', 'Sydney']);
+    expect(historyMode.years).toEqual([2025, 2026]);
+    expect(vi.mocked(track)).toHaveBeenCalledWith('history_mode_opened');
+    historyMode.exit();
+    expect(
+      app.visibleLocations.every((l) => l.start <= '2026-01-31' && l.end >= '2026-01-01'),
+    ).toBe(true);
+  });
+
+  it('still applies the other filters', () => {
+    filterState.set('kind', 'community');
+    historyMode.enter('neurips');
+    expect(app.visibleLocations.every((l) => !l.official)).toBe(true);
+    expect(historyMode.stops).toEqual([]);
+  });
+
+  it('closes the open conference on entry and restores it on exit', () => {
+    app.select('icml26');
+    historyMode.enter('icml');
+    expect(app.selectedConferenceId).toBeNull();
+    historyMode.exit();
+    expect(app.selectedConferenceId).toBe('icml26');
+  });
+
+  it('from a URL: keeps the selection and does not report analytics', () => {
+    app.select('icml26');
+    historyMode.enter('icml', { fromURL: true });
+    expect(historyMode.series).toBe('icml');
+    expect(app.selectedConferenceId).toBe('icml26');
+    expect(vi.mocked(track)).not.toHaveBeenCalled();
+  });
+
+  it('ignores unknown series', () => {
+    historyMode.enter('nope');
+    expect(historyMode.series).toBeNull();
+  });
+
+  it('Play travels the stops, revealing editions as it reaches them', () => {
+    historyMode.enter('iclr');
+    const p = new PlayState({ reducedMotion: () => false });
+    p.play();
+    expect(p.travel).toBe(0);
+    const stops = historyMode.stops;
+    expect(stops.map((s) => s.years[0])).toEqual([2025, 2026, 2027]);
+    const at = () => shownIds(app.visibleLocations, stops, p.travelShown);
+    expect([...at()]).toEqual(['iclr25@main']);
+    p.step(1800); // one leg at 1×
+    expect([...at()].sort()).toEqual(['iclr25@main', 'iclr26@main']);
+    expect([...liveIds(app.visibleLocations, null, stops, p.travelShown)]).toEqual(['iclr26@main']);
+    p.step(1800);
+    expect(p.playing).toBe(false);
+    expect(p.travel).toBeNull(); // complete: whole path shown
+    expect(at().size).toBe(3);
+  });
+
+  it('a single edition cannot play', () => {
+    historyMode.enter('coling');
+    expect(historyMode.stops).toHaveLength(1);
+    expect(play.canPlay).toBe(false);
+  });
+});
+
+describe('live pins during Play', () => {
+  it('are visible events under the window start', () => {
+    const locs = app.data.locations.filter((l) => l.conferenceId === 'neurips26');
+    const t = '2026-12-10';
+    expect([...liveIds(locs, t, null, null)].sort()).toEqual(['neurips26-paris', 'neurips26@main']);
+    expect(liveIds(locs, '2026-12-20', null, null).size).toBe(0);
+  });
+});
+
+describe('URL h', () => {
+  const inputs = (history: string | null | undefined): URLInputs => ({
+    filters: filterState.filters,
+    states: filterState.defaults(),
+    selection: null,
+    travel: { ...DEFAULT_TRAVEL },
+    history,
+  });
+  const isSeries = (s: string) => historyMode.isSeries(s);
+
+  it('round-trips the series', () => {
+    const q = buildQuery('', inputs('icml'));
+    expect(q).toBe('h=icml');
+    expect(parseHistory(q, isSeries)).toBe('icml');
+  });
+
+  it('is removed on exit, kept when the caller does not own it, ignored when unknown', () => {
+    expect(buildQuery('h=icml&x=1', inputs(null))).toBe('x=1');
+    expect(buildQuery('h=icml&x=1', inputs(undefined))).toBe('h=icml&x=1');
+    expect(parseHistory('h=bogus', isSeries)).toBeNull();
+    expect(parseHistory('', isSeries)).toBeNull();
+  });
+
+  it('sits after the selection, before filters', () => {
+    const q = buildQuery('', {
+      ...inputs('neurips'),
+      selection: 'neurips26',
+      states: { ...filterState.defaults(), kind: 'official' },
+    });
+    expect(q).toBe('c=neurips26&h=neurips&kind=official');
+  });
+});

@@ -2,8 +2,9 @@
 // selection and travel settings back with `history.replaceState` (debounced).
 import { app } from './app.svelte';
 import { filterState } from './filters.svelte';
+import { historyMode } from './timeline.svelte';
 import { travel } from './travel.svelte';
-import { buildQuery, parseQuery, type URLInputs } from './url';
+import { buildQuery, parseHistory, parseQuery, type URLInputs } from './url';
 
 export const URL_DEBOUNCE_MS = 250;
 
@@ -13,6 +14,8 @@ export function hydrateFromURL(query: string = location.search): void {
   filterState.hydrate(parsed.filters);
   travel.apply(parsed.travel);
   if (parsed.selection) app.select(parsed.selection);
+  const h = parseHistory(query, (s) => historyMode.isSeries(s));
+  if (h) historyMode.enter(h, { fromURL: true });
 }
 
 function write(inputs: URLInputs): void {
@@ -37,6 +40,7 @@ export function startURLSync(debounceMs = URL_DEBOUNCE_MS): () => void {
         states: filterState.states,
         selection: app.selectedConferenceId,
         travel: travel.values,
+        history: historyMode.series,
       };
       clearTimeout(timer);
       timer = setTimeout(() => write(inputs), debounceMs);
