@@ -1,4 +1,6 @@
 <script lang="ts" module>
+  // Loaded lazily (App.svelte): MapLibre and its CSS live in their own chunk, off the first paint.
+  import 'maplibre-gl/dist/maplibre-gl.css';
   import { setWorkerUrl } from 'maplibre-gl';
   // MapLibre 6 loads its (self-contained) worker from a URL next to its own module; with Vite
   // bundling that file is not emitted, so ship it as a hashed asset and point MapLibre at it.

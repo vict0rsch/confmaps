@@ -11,7 +11,7 @@
   import Footer from './components/Footer.svelte';
   import Icon from './components/Icon.svelte';
   import Legend from './components/Legend.svelte';
-  import MapView, { type Insets } from './components/Map.svelte';
+  import type { Insets } from './components/Map.svelte';
   import DocDialog from './components/DocDialog.svelte';
   import ShareDialog from './components/ShareDialog.svelte';
   import SiteFootprint from './components/SiteFootprint.svelte';
@@ -25,6 +25,9 @@
   import { historyMode } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
+
+  // MapLibre is most of the JS: load it in its own chunk, started now, so the shell paints first.
+  const mapView = import('./components/Map.svelte');
 
   const DRAWER_WIDTH = 384; // keep in sync with --drawer-width
   const DRAWER_GAP = 12;
@@ -143,7 +146,11 @@
   {/if}
 
   <main class="stage">
-    <MapView {insets} />
+    {#await mapView}
+      <div class="map-placeholder"></div>
+    {:then { default: MapView }}
+      <MapView {insets} />
+    {/await}
 
     {#if desktop.current}
       <div class="legend-chip"><Legend /></div>
@@ -349,6 +356,12 @@
   .desktop .stage {
     grid-row: 1;
     grid-column: 2;
+  }
+
+  .map-placeholder {
+    position: absolute;
+    inset: 0;
+    background: var(--map-land);
   }
 
   .legend-chip {
