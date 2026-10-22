@@ -6,12 +6,13 @@ on:
     workflows: [CI]
     types: [completed]
     branches: [main]
+  # Manual redeploy of main (a run on another branch is skipped: only the tip of main deploys).
   workflow_dispatch:
   # Called by sync.yml after its own checks: its pushes use GITHUB_TOKEN, which triggers no CI run.
   workflow_call:
     inputs:
       ref:
-        description: 'Commit to deploy (default: the triggering ref)'
+        description: 'Commit to deploy, skipped unless it is the tip of main (default: the triggering ref)'
         type: string
         required: false
         default: ''
@@ -26,11 +27,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # Only the current tip of main is deployed: a CI run (or a sync) that finishes after a newer
+  # commit landed must not roll production back. Skipping is a success, with a notice.
+  gate:
     if: >-
       github.event_name != 'workflow_run' ||
       (github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      sha: ${{ steps.tip.outputs.sha }}
+      current: ${{ steps.tip.outputs.current }}
+    steps:
+      - id: tip
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ inputs.ref || github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          tip="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          echo "sha=$TARGET" >> "$GITHUB_OUTPUT"
+          if [ "$TARGET" = "$tip" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=Deploy skipped::$TARGET is not the tip of main ($tip); the newer commit is deployed instead."
+            echo "current=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: gate
+    if: needs.gate.outputs.current == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
@@ -39,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-          ref: ${{ inputs.ref || github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ needs.gate.outputs.sha }}
           persist-credentials: false
       - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -51,8 +79,33 @@ jobs:
         env:
           VITE_GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+      # What actions/upload-pages-artifact v3.0.1 does, without its unpinned
+      # `actions/upload-artifact@v4`: a tar of dist/ uploaded as `github-pages`.
+      - name: Archive the site
+        run: >-
+          tar --dereference --hard-dereference --directory dist -cvf "$RUNNER_TEMP/artifact.tar"
+          --exclude=.git --exclude=.github .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: dist
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+      # main may have moved during the build.
+      - name: Re-check the tip of main
+        id: tip
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ needs.gate.outputs.sha }}
+        run: |
+          tip="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          echo "sha=$TARGET" >> "$GITHUB_OUTPUT"
+          if [ "$TARGET" = "$tip" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=Deploy skipped::$TARGET is not the tip of main ($tip); the newer commit is deployed instead."
+            echo "current=false" >> "$GITHUB_OUTPUT"
+          fi
       - id: deployment
+        if: steps.tip.outputs.current == 'true'
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
