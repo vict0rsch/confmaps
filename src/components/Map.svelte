@@ -14,7 +14,6 @@
 <script lang="ts">
   import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
   import {
-    LngLat,
     Map as MLMap,
     NavigationControl,
     type GeoJSONSource,
@@ -36,7 +35,6 @@
     type PinCollection,
   } from '../lib/map/geojson';
   import { haversineKm } from '../lib/geo/distance';
-  import { constrainLat } from '../lib/map/constrain';
   import { lockBadge } from '../lib/map/icons';
   import {
     ANIM_LAYERS,
@@ -154,7 +152,8 @@
 
   // ---- Map lifecycle -------------------------------------------------------
   $effect(() => {
-    // Phones: the world may get smaller than the screen, so the first view fits every upcoming pin.
+    // Phones: zoom may go below 0 so the first view fits every upcoming pin. MapLibre's own
+    // constraint keeps the world covering the visible area (camera padding), so no empty band.
     const narrow = container.clientWidth < 640;
     const m = new MLMap({
       container,
@@ -166,14 +165,6 @@
       touchPitch: false,
       attributionControl: { compact: true },
     });
-    if (narrow) {
-      m.setTransformConstrain((lngLat, z) => {
-        const zoom = Math.min(m.getMaxZoom(), Math.max(m.getMinZoom(), z));
-        const pad = m.getPadding();
-        const h = container.clientHeight - (pad.top ?? 0) - (pad.bottom ?? 0);
-        return { center: new LngLat(lngLat.lng, constrainLat(lngLat.lat, zoom, h)), zoom };
-      });
-    }
     m.touchZoomRotate.disableRotation();
     m.keyboard.disableRotation();
     m.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
@@ -521,9 +512,9 @@
     return { top: y, bottom: y, left: x, right: x };
   }
 
-  /** The world overview: on a phone every pixel of width counts. */
+  /** The world overview: on a phone every pixel of width counts, but edge pins keep their halo. */
   function overviewMargins() {
-    return margins((container?.clientWidth ?? 0) < 640 ? 16 : MARGIN);
+    return margins((container?.clientWidth ?? 0) < 640 ? 24 : MARGIN);
   }
 
   function fitSelection() {

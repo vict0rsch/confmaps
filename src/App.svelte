@@ -34,7 +34,8 @@
   const SHEET_PEEK = 132; // keep in sync with BottomSheet
   const TIMELINE_COMPACT = 44; // --timeline-height-compact
 
-  let sheetSnap: Snap = $state('peek');
+  // Phones open at half: the map above is roughly square, the shape of the world overview.
+  let sheetSnap: Snap = $state('half');
   let sheetHeight = $state(0);
   let filtersDialog: HTMLDialogElement | undefined = $state();
 
