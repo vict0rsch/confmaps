@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Called by sync.yml: its pushes use GITHUB_TOKEN, which does not trigger `push` workflows.
+  workflow_call:
+    inputs:
+      ref:
+        description: 'Commit to deploy (default: the triggering ref)'
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -22,6 +30,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:

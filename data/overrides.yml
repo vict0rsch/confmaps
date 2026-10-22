@@ -1,0 +1,29 @@
+# Manual fixes keyed by location id (`<conferenceId>@main` or a satellite id). Fields replace the
+# computed values: lat, lng (together; skips geocoding), name, city, country, venue, start, end
+# (on `@main`, also the conference's dates), official, presents_papers, access, link, notes.
+# `reason` is free text and is not emitted.
+
+icassp26@main:
+  start: '2026-05-04'
+  end: '2026-05-08'
+  reason: Upstream start/end say 2025; the official site says 4-8 May 2026 (https://2026.ieeeicassp.org).
+
+neurips25@main:
+  venue: San Diego Convention Center
+  reason: Upstream venue also lists Mexico City, which is the neurips25-mexico-city satellite.
+
+neurips26@main:
+  venue: International Convention Centre, Sydney
+  reason: Upstream venue also lists the Atlanta and Paris satellite events.
+
+uai26@main:
+  start: '2026-08-17'
+  end: '2026-08-21'
+  reason: Upstream date text says 2025; the official site says Aug 17-21, 2026 (https://www.auai.org/uai2026/).
+
+lrec26@main:
+  lat: 39.5695818
+  lng: 2.6500745
+  reason: >-
+    Nominatim resolves "Palma, Mallorca, Spain" to Palma de Mallorca Airport; these are the
+    coordinates of the Palma municipality (Nominatim "Palma", countrycodes=es).

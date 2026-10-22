@@ -16,7 +16,8 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "data:build": "tsx scripts/build-data.ts"
+    "data:build": "tsx scripts/build-data.ts",
+    "data:validate": "tsx scripts/validate-data.ts"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.14.0",

@@ -1,0 +1,2551 @@
+{
+  "conferences": [
+    {
+      "deadlines": [
+        {
+          "date": "2024-08-08T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-08-16T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2024-12-10T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2024-12-20T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-03-04",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai25",
+      "link": "https://aaai.org/conference/aaai/aaai-25/",
+      "series": "aaai",
+      "source": "hf",
+      "start": "2025-02-25",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-10T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-17T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-05-23",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas25",
+      "link": "https://aamas2025.org/",
+      "series": "aamas",
+      "source": "hf",
+      "start": "2025-05-19",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-16T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-03-28T11:59:59Z",
+          "label": "Author response period begins",
+          "timezone": "AoE",
+          "type": "author_response"
+        },
+        {
+          "date": "2025-04-04T11:59:59Z",
+          "label": "Author response period ends",
+          "timezone": "AoE",
+          "type": "author_response"
+        },
+        {
+          "date": "2025-04-16T11:59:59Z",
+          "label": "ARR reviews available",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-04-21T11:59:59Z",
+          "label": "ARR commitment deadline",
+          "timezone": "AoE",
+          "type": "commitment_deadline"
+        },
+        {
+          "date": "2025-05-16T11:59:59Z",
+          "label": "Author notification date",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-05-31T11:59:59Z",
+          "label": "Withdrawal deadline",
+          "timezone": "AoE",
+          "type": "withdrawal"
+        },
+        {
+          "date": "2025-05-31T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-08-01",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl25",
+      "link": "https://2025.aclweb.org/",
+      "series": "acl",
+      "source": "hf",
+      "start": "2025-07-27",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-04-05T11:59:59Z",
+          "label": "Abstract submission for regular papers",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-04-12T11:59:59Z",
+          "label": "Regular paper submission (including supplementary materials, if applicable)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-06-10T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-06-20T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        }
+      ],
+      "end": "2025-10-31",
+      "fullName": "ACM Multimedia",
+      "id": "acm25",
+      "link": "https://acmmm2025.org/",
+      "series": "acm-mm",
+      "source": "hf",
+      "start": "2025-10-27",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-04T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-11T11:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-05-05",
+      "fullName": "International Conference on Artificial Intelligence and Statistics",
+      "id": "aistats25",
+      "link": "https://aistats.org/aistats2025",
+      "series": "aistats",
+      "source": "hf",
+      "start": "2025-05-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-01T09:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC+0",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-02-27",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2025",
+      "link": "https://algorithmiclearningtheory.org/alt2025/",
+      "series": "alt",
+      "source": "hf",
+      "start": "2025-02-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-16T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-06-12",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2025",
+      "link": "https://www.cec2025.org/",
+      "series": "cec",
+      "source": "hf",
+      "start": "2025-06-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-06T11:59:59Z",
+          "label": "Abstract/Metadata Due",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-09-13T11:59:59Z",
+          "label": "Full Paper Due",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-05-01",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi25",
+      "link": "https://chi2025.acm.org/",
+      "series": "chi",
+      "source": "hf",
+      "start": "2025-04-26",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-05-17T11:59:00Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-05-24T11:59:00Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-08-05T11:59:00Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-08-28T11:59:00Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-11-14",
+      "fullName": "Conference on Information and Knowledge Management",
+      "id": "cikm25",
+      "link": "https://cikm2025.org/",
+      "series": "cikm",
+      "source": "hf",
+      "start": "2025-11-10",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-17T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-01-24",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling25",
+      "link": "https://coling2025.org/",
+      "series": "coling",
+      "source": "hf",
+      "start": "2025-01-19",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-27T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-04T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-08-14",
+      "fullName": "Conference on Lifelong Learning Agents",
+      "id": "collas25",
+      "link": "https://lifelong-ml.cc",
+      "series": "collas",
+      "source": "hf",
+      "start": "2025-08-11",
+      "tags": [
+        "machine-learning",
+        "lifelong-learning"
+      ],
+      "title": "CoLLAs",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-23T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-29T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-27T12:00:00Z",
+          "label": "Rebuttal Period Start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-06-11T11:59:59Z",
+          "label": "Rebuttal Period End",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-07-08T11:59:59Z",
+          "label": "Decision Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-08-08T11:59:59Z",
+          "label": "Camera-Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-10-10",
+      "fullName": "Conference on Language Modeling",
+      "id": "colm25",
+      "link": "https://colmweb.org/cfp.html",
+      "series": "colm",
+      "source": "hf",
+      "start": "2025-10-07",
+      "tags": [
+        "natural-language-processing",
+        "large-language-models"
+      ],
+      "title": "COLM",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-06T21:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC-5",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-07-04",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt25",
+      "link": "https://learningtheory.org/colt2025/",
+      "series": "colt",
+      "source": "hf",
+      "start": "2025-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-15T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-24T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-06-18T11:59:59Z",
+          "label": "Camera-ready papers due",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-08-01",
+      "fullName": "The SIGNLL Conference on Computational Natural Language Learning",
+      "id": "conll25",
+      "link": "https://conll.org/",
+      "series": "conll",
+      "source": "hf",
+      "start": "2025-07-31",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-05-01T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-09-30",
+      "fullName": "The Conference on Robot Learning",
+      "id": "corl25",
+      "link": "https://www.corl.org/",
+      "series": "corl",
+      "source": "hf",
+      "start": "2025-09-27",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-11-26T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-03-27",
+      "fullName": "The Conference on Parsimony and Learning",
+      "id": "cpal25",
+      "link": "https://cpal.cc/",
+      "series": "cpal",
+      "source": "hf",
+      "start": "2025-03-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CPAL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-11-08T07:59:00Z",
+          "label": "Abstract submission deadline",
+          "timezone": "UTC-8",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-11-15T07:59:00Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC-8",
+          "type": "paper"
+        },
+        {
+          "date": "2025-01-23T15:59:59Z",
+          "label": "Reviews released",
+          "timezone": "UTC-8",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-01-31T15:59:59Z",
+          "label": "Rebuttal period ends",
+          "timezone": "UTC-8",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-02-26T15:59:59Z",
+          "label": "Final decision",
+          "timezone": "UTC-8",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-06-17",
+      "fullName": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr25",
+      "link": "https://cvpr.thecvf.com/Conferences/2025/CallForPapers",
+      "series": "cvpr",
+      "source": "hf",
+      "start": "2025-06-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-04-30T11:59:59Z",
+          "label": "Abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-05-07T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-06-24T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-06-26T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-07-11T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-08-27T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2025-09-04T11:59:59Z",
+          "label": "Early registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2025-10-30",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai25",
+      "link": "https://ecai2025.org/deadlines/",
+      "series": "ecai",
+      "source": "hf",
+      "start": "2025-10-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-03T11:59:59Z",
+          "label": "Abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-10T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-04-10",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir25",
+      "link": "https://ecir2025.eu/",
+      "series": "ecir",
+      "source": "hf",
+      "start": "2025-04-06",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-08T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-15T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-09-19",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd25",
+      "link": "https://ecmlpkdd.org/2025/",
+      "series": "ecml-pkdd",
+      "source": "hf",
+      "start": "2025-09-15",
+      "tags": [
+        "machine-learning",
+        "data-mining"
+      ],
+      "title": "ECML PKDD",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-05T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-09-25T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-10-09T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-11-09",
+      "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (Industry Track)",
+      "id": "emnlp25ind",
+      "link": "https://2025.emnlp.org/",
+      "series": "emnlp-industry-track",
+      "source": "hf",
+      "start": "2025-11-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP (Industry Track)",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-05T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-09-10T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-09-20T11:59:59Z",
+          "label": "Camera-ready submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-11-09",
+      "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (System Demonstrations Track)",
+      "id": "emnlp25sys",
+      "link": "https://2025.emnlp.org/",
+      "series": "emnlp-system-demonstrations-track",
+      "source": "hf",
+      "start": "2025-11-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP (System Demonstrations Track)",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-11-20T08:00:00Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC-8",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-04-25",
+      "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
+      "id": "esann25",
+      "link": "https://www.esann.org/",
+      "series": "esann",
+      "source": "hf",
+      "start": "2025-04-23",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-03T23:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-05-16",
+      "fullName": "The 46th Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics25",
+      "link": "https://eg25.cs.ucl.ac.uk/",
+      "series": "eurographics",
+      "source": "hf",
+      "start": "2025-05-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-30T11:59:59Z",
+          "label": "Abstract and Full Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-09-12",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann25",
+      "link": "https://e-nns.org/icann2025/",
+      "series": "icann",
+      "source": "hf",
+      "start": "2025-09-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-18T06:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "GMT+02",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-04-11",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp25",
+      "link": "https://2025.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "hf",
+      "start": "2025-04-06",
+      "tags": [
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-04T09:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "UTC+0",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-08T09:59:59Z",
+          "label": "Paper submission",
+          "timezone": "UTC+0",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-10T11:59:59Z",
+          "label": "Reviews released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-05-10T12:00:00Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-05-17T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-06-21T11:59:59Z",
+          "label": "Final decision",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-10-25",
+      "fullName": "IEEE International Conference on Computer Vision",
+      "id": "iccv25",
+      "link": "https://iccv.thecvf.com/Conferences/2025",
+      "series": "iccv",
+      "source": "hf",
+      "start": "2025-10-19",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-01T07:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "PST",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-15T07:59:59Z",
+          "label": "Paper submission",
+          "timezone": "PST",
+          "type": "paper"
+        },
+        {
+          "date": "2025-03-20T07:59:59Z",
+          "label": "Supplementary materials",
+          "timezone": "PST",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-06-07T07:59:59Z",
+          "label": "Acceptance notification",
+          "timezone": "PST",
+          "type": "notification"
+        },
+        {
+          "date": "2025-06-28T07:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "PST",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-09-21",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2025",
+      "link": "https://www.icdar2025.com/home",
+      "series": "icdar",
+      "source": "hf",
+      "start": "2025-09-17",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-06-07T11:59:59Z",
+          "label": "Full Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-08-26T11:59:59Z",
+          "label": "Author Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-09-26T11:59:59Z",
+          "label": "Camera Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-11-15",
+      "fullName": "International Conference on Data Mining",
+      "id": "icdm25",
+      "link": "https://www3.cs.stonybrook.edu/~icdm2025/index.html",
+      "series": "icdm",
+      "source": "hf",
+      "start": "2025-11-12",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-28T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-02T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-04-28",
+      "fullName": "International Conference on Learning Representations",
+      "id": "iclr25",
+      "link": "https://iclr.cc/Conferences/2025",
+      "series": "iclr",
+      "source": "hf",
+      "start": "2025-04-24",
+      "tags": [
+        "machine-learning",
+        "computer-vision",
+        "natural-language-processing",
+        "signal-processing",
+        "representation-learning"
+      ],
+      "title": "ICLR",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-24T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-01-31T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-03-26T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-04-01T11:59:59Z",
+          "label": "Author Response Deadline",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-05-02T11:59:59Z",
+          "label": "Author Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-06-10T11:59:59Z",
+          "label": "Camera Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-07-19",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml25",
+      "link": "https://icml.cc/Conferences/2025",
+      "series": "icml",
+      "source": "hf",
+      "start": "2025-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-04-06T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-04-16T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-07-11T11:59:59Z",
+          "label": "Paper decision notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-09-13",
+      "fullName": "International Conference on Computational Optimization",
+      "id": "icomp25",
+      "link": "https://icomp.cc/",
+      "series": "icomp",
+      "source": "hf",
+      "start": "2025-09-11",
+      "tags": [
+        "machine-learning",
+        "optimization-methods"
+      ],
+      "title": "ICOMP",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-16T07:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "PST",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-05-23",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra25",
+      "link": "https://2025.ieee-icra.org",
+      "series": "icra",
+      "source": "hf",
+      "start": "2025-05-19",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-17T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-01-24T11:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-04-29T11:59:59Z",
+          "label": "Paper notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-08-22",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai25",
+      "link": "https://2025.ijcai.org/",
+      "series": "ijcai",
+      "source": "hf",
+      "start": "2025-08-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-29T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-07-29T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-12-24",
+      "fullName": "International Joint Conference on Natural Language Processing & Asia-Pacific Chapter of the Association for Computational Linguistics",
+      "id": "ijcnlpaacl25",
+      "link": "https://2025.aaclnet.org/",
+      "series": "ijcnlp-aacl",
+      "source": "hf",
+      "start": "2025-12-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "IJCNLP & AACL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-31T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-04-01T11:59:59Z",
+          "label": "Paper Acceptance Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-05-02T11:59:59Z",
+          "label": "Camera-Ready Paper Submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-07-05",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn2025",
+      "link": "https://2025.ijcnn.org/",
+      "series": "ijcnn",
+      "source": "hf",
+      "start": "2025-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-03T07:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "PST",
+          "type": "paper"
+        },
+        {
+          "date": "2025-07-01T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-08-01T11:59:59Z",
+          "label": "Final paper submission deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-10-25",
+      "fullName": "IEEE\\RSJ International Conference on Intelligent Robots and Systems",
+      "id": "iros25",
+      "link": "http://www.iros25.org/",
+      "series": "iros",
+      "source": "hf",
+      "start": "2025-10-19",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-04T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-02-11T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-04-05T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-04-19T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-05-17T11:59:59Z",
+          "label": "Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-08-07",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd25",
+      "link": "https://kdd2025.kdd.org/",
+      "series": "kdd",
+      "source": "hf",
+      "start": "2025-08-03",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-03-21T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-05-31T11:59:59Z",
+          "label": "Acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-06-16T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-08-07",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem25",
+      "link": "https://ksem2025.scimeeting.cn/",
+      "series": "ksem",
+      "source": "hf",
+      "start": "2025-08-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-14T23:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "Europe/London",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-02-19T23:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "Europe/London",
+          "type": "paper"
+        },
+        {
+          "date": "2025-03-11T11:59:59Z",
+          "label": "Decision notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-03-28",
+      "fullName": "The International Conference dedicated to mathematics in artificial intelligence",
+      "id": "mathai25",
+      "link": "https://mathai.club",
+      "series": "mathai",
+      "source": "hf",
+      "start": "2025-03-24",
+      "tags": [
+        "machine-learning",
+        "mathematics"
+      ],
+      "title": "MathAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-10-16T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-05-04",
+      "fullName": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
+      "id": "naacl25",
+      "link": "https://2025.naacl.org/",
+      "series": "naacl",
+      "source": "hf",
+      "start": "2025-04-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-05-12T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-05-16T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-23T11:59:59Z",
+          "label": "Supplementary materials deadline",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-07-24T12:00:00Z",
+          "label": "Author rebuttal begins",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-07-31T11:59:59Z",
+          "label": "Author rebuttal ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-09-19T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-10-24T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-12-07",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips25",
+      "link": "https://neurips.cc/",
+      "series": "neurips",
+      "source": "hf",
+      "start": "2025-11-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-22T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-03-01T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-10T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2025-08-09",
+      "fullName": "Reinforcement Learning Conference",
+      "id": "rlc25",
+      "link": "https://rl-conference.cc/",
+      "series": "rlc",
+      "source": "hf",
+      "start": "2025-08-05",
+      "tags": [
+        "machine-learning",
+        "reinforcement-learning"
+      ],
+      "title": "RLC",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-18T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-01-25T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-06-25",
+      "fullName": "Robotics Science and Systems",
+      "id": "rss25",
+      "link": "https://roboticsconference.org",
+      "series": "rss",
+      "source": "hf",
+      "start": "2025-06-21",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-04T23:59:00Z",
+          "label": "Abstract submission (Round 1)",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-02-07T23:59:00Z",
+          "label": "Paper submission (Round 1)",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2025-03-15T23:59:00Z",
+          "label": "Notification of acceptance (Round 1)",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2025-03-29T23:59:00Z",
+          "label": "Revised version due (Round 1)",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2025-04-05T23:59:00Z",
+          "label": "Camera ready due (Round 1)",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2025-04-08T23:59:00Z",
+          "label": "Abstract submission (Round 2)",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-04-11T23:59:00Z",
+          "label": "Paper submission (Round 2)",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2025-05-16T23:59:00Z",
+          "label": "Notification of acceptance (Round 2)",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2025-05-30T23:59:00Z",
+          "label": "Revised version due (Round 2)",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2025-06-06T23:59:00Z",
+          "label": "Camera ready due (Round 2)",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2025-07-04",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp25",
+      "link": "https://sgp2025.my.canva.site/",
+      "series": "sgp",
+      "source": "hf",
+      "start": "2025-06-30",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-16T22:00:00Z",
+          "label": "Submission form and conflicts deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2025-01-23T22:00:00Z",
+          "label": "Paper deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-08-14",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph25",
+      "link": "https://s2025.siggraph.org/",
+      "series": "siggraph",
+      "source": "hf",
+      "start": "2025-08-10",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-02-11T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-07-25",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai25",
+      "link": "https://www.auai.org/uai2025/",
+      "series": "uai",
+      "source": "hf",
+      "start": "2025-07-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-07-16T06:59:59Z",
+          "label": "Paper Submission Deadline",
+          "timezone": "UTC-7",
+          "type": "submission"
+        }
+      ],
+      "end": "2025-03-04",
+      "fullName": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+      "id": "wacv25",
+      "link": "https://wacv2025.thecvf.com/",
+      "series": "wacv",
+      "source": "hf",
+      "start": "2025-02-28",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-08-08T11:59:00Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-08-15T11:59:00Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-03-14",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm25",
+      "link": "https://www.wsdm-conference.org/2025/",
+      "series": "wsdm",
+      "source": "hf",
+      "start": "2025-03-10",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2025
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "aaai25",
+      "country": "United States",
+      "end": "2025-03-04",
+      "id": "aaai25@main",
+      "lat": 39.9527237,
+      "link": "https://aaai.org/conference/aaai/aaai-25/",
+      "lng": -75.1635262,
+      "name": "AAAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-02-25",
+      "venue": "Pennsylvania Convention Center, Philadelphia, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Detroit",
+      "conferenceId": "aamas25",
+      "country": "United States",
+      "end": "2025-05-23",
+      "id": "aamas25@main",
+      "lat": 42.3315509,
+      "link": "https://aamas2025.org/",
+      "lng": -83.0466403,
+      "name": "AAMAS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-19",
+      "venue": "Detroit Marriott at the Renaissance Center, Detroit, Michigan"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "acl25",
+      "country": "Austria",
+      "end": "2025-08-01",
+      "id": "acl25@main",
+      "lat": 48.2083537,
+      "link": "https://2025.aclweb.org/",
+      "lng": 16.3725042,
+      "name": "ACL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-27",
+      "venue": "Austria Center Vienna, Bruno-Kreisky-Platz 1, 1220 Wien, Austria"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "acm25",
+      "country": "Ireland",
+      "end": "2025-10-31",
+      "id": "acm25@main",
+      "lat": 53.3493795,
+      "link": "https://acmmm2025.org/",
+      "lng": -6.2605593,
+      "name": "ACM MM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-27",
+      "venue": "Royal Dublin Convention Centre, Dublin, Ireland"
+    },
+    {
+      "access": "registration",
+      "city": "Mai Khao",
+      "conferenceId": "aistats25",
+      "country": "Thailand",
+      "end": "2025-05-05",
+      "id": "aistats25@main",
+      "lat": 8.1255701,
+      "link": "https://aistats.org/aistats2025",
+      "lng": 98.3080305,
+      "name": "AISTATS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-03",
+      "venue": "Splash Beach Resort"
+    },
+    {
+      "access": "registration",
+      "city": "Milan",
+      "conferenceId": "alt2025",
+      "country": "Italy",
+      "end": "2025-02-27",
+      "id": "alt2025@main",
+      "lat": 45.4641943,
+      "link": "https://algorithmiclearningtheory.org/alt2025/",
+      "lng": 9.1896346,
+      "name": "ALT 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-02-24",
+      "venue": "Politecnico di Milano, Milan, Italy"
+    },
+    {
+      "access": "registration",
+      "city": "Hangzhou",
+      "conferenceId": "cec2025",
+      "country": "China",
+      "end": "2025-06-12",
+      "id": "cec2025@main",
+      "lat": 30.2489634,
+      "link": "https://www.cec2025.org/",
+      "lng": 120.2052342,
+      "name": "CEC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-08"
+    },
+    {
+      "access": "registration",
+      "city": "Yokohama",
+      "conferenceId": "chi25",
+      "country": "Japan",
+      "end": "2025-05-01",
+      "id": "chi25@main",
+      "lat": 35.4503381,
+      "link": "https://chi2025.acm.org/",
+      "lng": 139.6343802,
+      "name": "CHI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-26",
+      "venue": "Pacifico Yokohama Conference Center, Yokohama, Japan"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "cikm25",
+      "country": "South Korea",
+      "end": "2025-11-14",
+      "id": "cikm25@main",
+      "lat": 37.5666791,
+      "link": "https://cikm2025.org/",
+      "lng": 126.9782914,
+      "name": "CIKM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-10",
+      "venue": "COEX, Seoul, South Korea"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "coling25",
+      "country": "United Arab Emirates",
+      "end": "2025-01-24",
+      "id": "coling25@main",
+      "lat": 24.4538352,
+      "link": "https://coling2025.org/",
+      "lng": 54.3774014,
+      "name": "COLING 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-01-19",
+      "venue": "Abu Dhabi National Exhibition Centre (ADNEC), Abu Dhabi, UAE"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "collas25",
+      "country": "United States",
+      "end": "2025-08-14",
+      "id": "collas25@main",
+      "lat": 39.9527237,
+      "link": "https://lifelong-ml.cc",
+      "lng": -75.1635262,
+      "name": "CoLLAs 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "colm25",
+      "country": "Canada",
+      "end": "2025-10-10",
+      "id": "colm25@main",
+      "lat": 45.5031824,
+      "link": "https://colmweb.org/cfp.html",
+      "lng": -73.5698065,
+      "name": "COLM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-07",
+      "venue": "Palais des Congrès Montreal, Canada"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "colt25",
+      "country": "France",
+      "end": "2025-07-04",
+      "id": "colt25@main",
+      "lat": 45.7578137,
+      "link": "https://learningtheory.org/colt2025/",
+      "lng": 4.8320114,
+      "name": "COLT 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "conll25",
+      "country": "Austria",
+      "end": "2025-08-01",
+      "id": "conll25@main",
+      "lat": 48.2083537,
+      "link": "https://conll.org/",
+      "lng": 16.3725042,
+      "name": "CoNLL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-31",
+      "venue": "Vienna, Austria"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "corl25",
+      "country": "South Korea",
+      "end": "2025-09-30",
+      "id": "corl25@main",
+      "lat": 37.5666791,
+      "link": "https://www.corl.org/",
+      "lng": 126.9782914,
+      "name": "CoRL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-27",
+      "venue": "COEX Convention & Exhibition Center, Seoul, South Korea"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "cpal25",
+      "country": "United States",
+      "end": "2025-03-27",
+      "id": "cpal25@main",
+      "lat": 37.4265407,
+      "link": "https://cpal.cc/",
+      "lng": -122.1703055,
+      "name": "CPAL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-24",
+      "venue": "Simonyi Conference Center, Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Nashville",
+      "conferenceId": "cvpr25",
+      "country": "United States",
+      "end": "2025-06-17",
+      "id": "cvpr25@main",
+      "lat": 36.1622767,
+      "link": "https://cvpr.thecvf.com/Conferences/2025/CallForPapers",
+      "lng": -86.7742984,
+      "name": "CVPR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-10",
+      "venue": "Music City Center, Nashville, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Bologna",
+      "conferenceId": "ecai25",
+      "country": "Italy",
+      "end": "2025-10-30",
+      "id": "ecai25@main",
+      "lat": 44.4938203,
+      "link": "https://ecai2025.org/deadlines/",
+      "lng": 11.3426327,
+      "name": "ECAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-25",
+      "venue": "Bologna Congress Center and The Engineering School (University of Bologna)"
+    },
+    {
+      "access": "registration",
+      "city": "Lucca",
+      "conferenceId": "ecir25",
+      "country": "Italy",
+      "end": "2025-04-10",
+      "id": "ecir25@main",
+      "lat": 44.0177639,
+      "link": "https://ecir2025.eu/",
+      "lng": 10.45443,
+      "name": "ECIR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-06",
+      "venue": "IMT School for Advanced Studies Lucca, Lucca, Italy"
+    },
+    {
+      "access": "registration",
+      "city": "Porto",
+      "conferenceId": "ecmlpkdd25",
+      "country": "Portugal",
+      "end": "2025-09-19",
+      "id": "ecmlpkdd25@main",
+      "lat": 41.1502195,
+      "link": "https://ecmlpkdd.org/2025/",
+      "lng": -8.6103497,
+      "name": "ECML PKDD 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-15",
+      "venue": "Alfândega Porto Congress Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "emnlp25ind",
+      "country": "China",
+      "end": "2025-11-09",
+      "id": "emnlp25ind@main",
+      "lat": 31.311123,
+      "link": "https://2025.emnlp.org/",
+      "lng": 120.6212881,
+      "name": "EMNLP (Industry Track) 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-05",
+      "venue": "Suzhou, China"
+    },
+    {
+      "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "emnlp25sys",
+      "country": "China",
+      "end": "2025-11-09",
+      "id": "emnlp25sys@main",
+      "lat": 31.311123,
+      "link": "https://2025.emnlp.org/",
+      "lng": 120.6212881,
+      "name": "EMNLP (System Demonstrations Track) 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-05",
+      "venue": "Suzhou, China"
+    },
+    {
+      "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann25",
+      "country": "Belgium",
+      "end": "2025-04-25",
+      "id": "esann25@main",
+      "lat": 51.2085526,
+      "link": "https://www.esann.org/",
+      "lng": 3.226772,
+      "name": "ESANN 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-23"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "neurips25",
+      "country": "Denmark",
+      "end": "2025-12-07",
+      "id": "eurips25-copenhagen",
+      "lat": 55.6867243,
+      "link": "https://eurips.cc/",
+      "lng": 12.5700724,
+      "name": "EurIPS 2025",
+      "notes": "Officially endorsed by NeurIPS. ELLIS UnConference Dec 2, conference Dec 3–5, workshops Dec 6–7. Registration sold out.",
+      "official": true,
+      "presentsPapers": true,
+      "role": "satellite",
+      "start": "2025-12-02",
+      "venue": "Bella Center"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "eurographics25",
+      "country": "United Kingdom",
+      "end": "2025-05-16",
+      "id": "eurographics25@main",
+      "lat": 51.5074456,
+      "link": "https://eg25.cs.ucl.ac.uk/",
+      "lng": -0.1277653,
+      "name": "Eurographics 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-12",
+      "venue": "BFI Southbank"
+    },
+    {
+      "access": "registration",
+      "city": "Kaunas",
+      "conferenceId": "icann25",
+      "country": "Lithuania",
+      "end": "2025-09-12",
+      "id": "icann25@main",
+      "lat": 54.8982139,
+      "link": "https://e-nns.org/icann2025/",
+      "lng": 23.9044817,
+      "name": "ICANN 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-09",
+      "venue": "Kaunas, Lithuania"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "icassp25",
+      "country": "India",
+      "end": "2025-04-11",
+      "id": "icassp25@main",
+      "lat": 17.360589,
+      "link": "https://2025.ieeeicassp.org/",
+      "lng": 78.4740613,
+      "name": "ICASSP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-06",
+      "venue": "Hyderabad International Convention Center, Hyderabad, India"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "iccv25",
+      "country": "United States",
+      "end": "2025-10-25",
+      "id": "iccv25@main",
+      "lat": 21.304547,
+      "link": "https://iccv.thecvf.com/Conferences/2025",
+      "lng": -157.855676,
+      "name": "ICCV 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-19",
+      "venue": "Hawaii Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Wuhan",
+      "conferenceId": "icdar2025",
+      "country": "China",
+      "end": "2025-09-21",
+      "id": "icdar2025@main",
+      "lat": 30.578891,
+      "link": "https://www.icdar2025.com/home",
+      "lng": 114.2921197,
+      "name": "ICDAR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-17"
+    },
+    {
+      "access": "registration",
+      "city": "Washington DC",
+      "conferenceId": "icdm25",
+      "country": "United States",
+      "end": "2025-11-15",
+      "id": "icdm25@main",
+      "lat": 38.8950982,
+      "link": "https://www3.cs.stonybrook.edu/~icdm2025/index.html",
+      "lng": -77.0363849,
+      "name": "ICDM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-12"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "iclr25",
+      "country": "Singapore",
+      "end": "2025-04-28",
+      "id": "iclr25@main",
+      "lat": 1.2899175,
+      "link": "https://iclr.cc/Conferences/2025",
+      "lng": 103.8519072,
+      "name": "ICLR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-24",
+      "venue": "Singapore EXPO - 1 Expo Drive, Singapore"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "icml25",
+      "country": "Canada",
+      "end": "2025-07-19",
+      "id": "icml25@main",
+      "lat": 49.2608724,
+      "link": "https://icml.cc/Conferences/2025",
+      "lng": -123.113952,
+      "name": "ICML 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-13",
+      "venue": "Vancouver Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Yerevan",
+      "conferenceId": "icomp25",
+      "country": "Armenia",
+      "end": "2025-09-13",
+      "id": "icomp25@main",
+      "lat": 40.1777112,
+      "link": "https://icomp.cc/",
+      "lng": 44.5126233,
+      "name": "ICOMP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-11"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "icra25",
+      "country": "United States",
+      "end": "2025-05-23",
+      "id": "icra25@main",
+      "lat": 33.7544657,
+      "link": "https://2025.ieee-icra.org",
+      "lng": -84.3898151,
+      "name": "ICRA 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-19",
+      "venue": "Georgia World Congress Center, Atlanta, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "ijcai25",
+      "country": "Canada",
+      "end": "2025-08-22",
+      "id": "ijcai25@main",
+      "lat": 45.5031824,
+      "link": "https://2025.ijcai.org/",
+      "lng": -73.5698065,
+      "name": "IJCAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-16",
+      "venue": "Palais des congrès, Montreal"
+    },
+    {
+      "access": "registration",
+      "city": "Mumbai",
+      "conferenceId": "ijcnlpaacl25",
+      "country": "India",
+      "end": "2025-12-24",
+      "id": "ijcnlpaacl25@main",
+      "lat": 19.054999,
+      "link": "https://2025.aaclnet.org/",
+      "lng": 72.8692035,
+      "name": "IJCNLP & AACL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-12-20"
+    },
+    {
+      "access": "registration",
+      "city": "Rome",
+      "conferenceId": "ijcnn2025",
+      "country": "Italy",
+      "end": "2025-07-05",
+      "id": "ijcnn2025@main",
+      "lat": 41.8933203,
+      "link": "https://2025.ijcnn.org/",
+      "lng": 12.4829321,
+      "name": "IJCNN 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
+    },
+    {
+      "access": "registration",
+      "city": "Hangzhou",
+      "conferenceId": "iros25",
+      "country": "China",
+      "end": "2025-10-25",
+      "id": "iros25@main",
+      "lat": 30.2489634,
+      "link": "http://www.iros25.org/",
+      "lng": 120.2052342,
+      "name": "IROS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-19",
+      "venue": "Hangzhou International Expo Center (HIEC)"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "kdd25",
+      "country": "Canada",
+      "end": "2025-08-07",
+      "id": "kdd25@main",
+      "lat": 43.6534817,
+      "link": "https://kdd2025.kdd.org/",
+      "lng": -79.3839347,
+      "name": "KDD 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-03",
+      "venue": "Toronto Convention Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "ksem25",
+      "country": "China",
+      "end": "2025-08-07",
+      "id": "ksem25@main",
+      "lat": 22.1757605,
+      "link": "https://ksem2025.scimeeting.cn/",
+      "lng": 113.5514142,
+      "name": "KSEM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-04",
+      "venue": "Wynn Palace"
+    },
+    {
+      "access": "registration",
+      "city": "Sochi",
+      "conferenceId": "mathai25",
+      "country": "Russia",
+      "end": "2025-03-28",
+      "id": "mathai25@main",
+      "lat": 43.5854823,
+      "link": "https://mathai.club",
+      "lng": 39.723109,
+      "name": "MathAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-24",
+      "venue": "Sirius International Mathematics Center, Sirius"
+    },
+    {
+      "access": "registration",
+      "city": "Albuquerque",
+      "conferenceId": "naacl25",
+      "country": "United States",
+      "end": "2025-05-04",
+      "id": "naacl25@main",
+      "lat": 35.0841034,
+      "link": "https://2025.naacl.org/",
+      "lng": -106.650985,
+      "name": "NAACL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-29"
+    },
+    {
+      "access": "authors_only",
+      "city": "Mexico City",
+      "conferenceId": "neurips25",
+      "country": "Mexico",
+      "end": "2025-12-05",
+      "id": "neurips25-mexico-city",
+      "lat": 19.3207722,
+      "link": "https://nips.cc/Conferences/2025/MXCityRegistrationDetails",
+      "lng": -99.1514677,
+      "name": "NeurIPS 2025 Mexico City",
+      "notes": "Second official NeurIPS location (pilot), ~500 attendees. Registration reserved for authors of accepted papers, organizers and presenters; general public restricted.",
+      "official": true,
+      "presentsPapers": true,
+      "role": "satellite",
+      "start": "2025-11-30",
+      "venue": "Hilton Mexico City Reforma"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "neurips25",
+      "country": "United States",
+      "end": "2025-12-07",
+      "id": "neurips25@main",
+      "lat": 32.7157062,
+      "link": "https://neurips.cc/",
+      "lng": -117.1638284,
+      "name": "NeurIPS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-30",
+      "venue": "San Diego Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "rlc25",
+      "country": "Canada",
+      "end": "2025-08-09",
+      "id": "rlc25@main",
+      "lat": 53.5462055,
+      "link": "https://rl-conference.cc/",
+      "lng": -113.491241,
+      "name": "RLC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-05",
+      "venue": "Centennial Centre for Interdisciplinary Science (CCIS), University of Alberta"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "rss25",
+      "country": "United States",
+      "end": "2025-06-25",
+      "id": "rss25@main",
+      "lat": 34.0536923,
+      "link": "https://roboticsconference.org",
+      "lng": -118.2427676,
+      "name": "RSS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-21",
+      "venue": "University of Southern California"
+    },
+    {
+      "access": "registration",
+      "city": "Bilbao",
+      "conferenceId": "sgp25",
+      "country": "Spain",
+      "end": "2025-07-04",
+      "id": "sgp25@main",
+      "lat": 43.2630018,
+      "link": "https://sgp2025.my.canva.site/",
+      "lng": -2.9350039,
+      "name": "SGP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30",
+      "venue": "Bizkaia Aretoa, Bilbao, Spain"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "siggraph25",
+      "country": "Canada",
+      "end": "2025-08-14",
+      "id": "siggraph25@main",
+      "lat": 49.2608724,
+      "link": "https://s2025.siggraph.org/",
+      "lng": -123.113952,
+      "name": "SIGGRAPH 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-10",
+      "venue": "Convention Centre, Vancouver, Canada"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "uai25",
+      "country": "Brazil",
+      "end": "2025-07-25",
+      "id": "uai25@main",
+      "lat": -22.9110137,
+      "link": "https://www.auai.org/uai2025/",
+      "lng": -43.2093727,
+      "name": "UAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-21"
+    },
+    {
+      "access": "registration",
+      "city": "Tucson",
+      "conferenceId": "wacv25",
+      "country": "United States",
+      "end": "2025-03-04",
+      "id": "wacv25@main",
+      "lat": 32.2228765,
+      "link": "https://wacv2025.thecvf.com/",
+      "lng": -110.974847,
+      "name": "WACV 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-02-28",
+      "venue": "JW Marriott Starpass in Tucson, Arizona, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Hannover",
+      "conferenceId": "wsdm25",
+      "country": "Germany",
+      "end": "2025-03-14",
+      "id": "wsdm25@main",
+      "lat": 52.3744779,
+      "link": "https://www.wsdm-conference.org/2025/",
+      "lng": 9.7385532,
+      "name": "WSDM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-10",
+      "venue": "Hannover Congress Center, Hannover, Germany"
+    }
+  ]
+}

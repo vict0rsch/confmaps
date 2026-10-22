@@ -1,0 +1,3551 @@
+{
+  "conferences": [
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-26T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-08-02T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-08-05T11:59:59Z",
+          "label": "Supplementary material and code deadline",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-09-16T11:59:59Z",
+          "label": "Phase 1 rejection notifications",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-10-08T11:59:59Z",
+          "label": "Author feedback window start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-10-14T11:59:59Z",
+          "label": "Author feedback window end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-11-09T11:59:59Z",
+          "label": "Final acceptance/rejection notices",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-11-14T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-01-27",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai26",
+      "link": "https://aaai.org/conference/aaai/aaai-26/",
+      "series": "aaai",
+      "source": "hf",
+      "start": "2026-01-20",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-10-02T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-09T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-11-22T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-11-26T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-12-23T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-02-12T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-05-29",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas26",
+      "link": "https://cyprusconferences.org/aamas2026/",
+      "series": "aamas",
+      "source": "hf",
+      "start": "2026-05-25",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-06T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-11T11:59:59Z",
+          "label": "ARR reviews available",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-03-15T11:59:59Z",
+          "label": "ARR commitment deadline",
+          "timezone": "AoE",
+          "type": "commitment_deadline"
+        },
+        {
+          "date": "2026-04-05T11:59:59Z",
+          "label": "Author notification date",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-20T11:59:59Z",
+          "label": "Withdrawal deadline",
+          "timezone": "AoE",
+          "type": "withdrawal"
+        },
+        {
+          "date": "2026-04-20T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-07-07",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl26",
+      "link": "https://2026.aclweb.org/",
+      "series": "acl",
+      "source": "hf",
+      "start": "2026-07-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-26T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-03T11:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-10-10T11:59:59Z",
+          "label": "Supplementary material deadline",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-11-22T00:00:00Z",
+          "label": "Rebuttal period start",
+          "timezone": "UTC",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-01-23T11:59:59Z",
+          "label": "Paper decision notifications",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-01T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-05-05",
+      "fullName": "International Conference on Artificial Intelligence and Statistics",
+      "id": "aistats26",
+      "link": "https://virtual.aistats.org/Conferences/2026",
+      "series": "aistats",
+      "source": "hf",
+      "start": "2026-05-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-10-03T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-12-19T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-11-18T11:59:59Z",
+          "label": "Author feedback period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-11-24T11:59:59Z",
+          "label": "Author feedback period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        }
+      ],
+      "end": "2026-02-26",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2026",
+      "link": "https://algorithmiclearningtheory.org/alt2026/",
+      "series": "alt",
+      "source": "hf",
+      "start": "2026-02-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-26T11:59:59Z",
+          "label": "Paper submission deadline (extended)",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-03-10T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-03-26T11:59:59Z",
+          "label": "Final paper submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-06-12",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2026",
+      "link": "https://bisconf.org/2026",
+      "series": "bis",
+      "source": "hf",
+      "start": "2026-06-10",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-01T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-16T11:59:59Z",
+          "label": "Paper acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-16T11:59:59Z",
+          "label": "Camera-ready papers deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-05-02T11:59:59Z",
+          "label": "Early bird registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-06-26",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2026",
+      "link": "https://attend.ieee.org/wcci-2026/",
+      "series": "cec",
+      "source": "hf",
+      "start": "2026-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-05T11:59:59Z",
+          "label": "Abstract/Metadata Due",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-09-12T11:59:59Z",
+          "label": "Full Paper Due",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-11-05T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-12-05T11:59:59Z",
+          "label": "Resubmission Due",
+          "timezone": "AoE",
+          "type": "rebuttal_and_revision"
+        },
+        {
+          "date": "2026-01-16T11:59:59Z",
+          "label": "Decisions Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-04-17",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi26",
+      "link": "https://chi2026.acm.org/",
+      "series": "chi",
+      "source": "hf",
+      "start": "2026-04-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-05T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-11T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-03-18T11:59:59Z",
+          "label": "Rebuttal Period Ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-04-10T11:59:59Z",
+          "label": "Final Decisions",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-06-30",
+      "fullName": "AHLI Conference on Health, Inference, and Learning",
+      "id": "chil26",
+      "link": "https://chil.ahli.cc/submit/call-for-papers/",
+      "series": "chil",
+      "source": "hf",
+      "start": "2026-06-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-04-10T23:59:00Z",
+          "label": "Abstract registration deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-04-15T23:59:00Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2026-09-17",
+      "fullName": "Fifth Conference on Lifelong Learning Agents",
+      "id": "collas26",
+      "link": "https://lifelong-ml.cc",
+      "series": "collas",
+      "source": "hf",
+      "start": "2026-09-14",
+      "tags": [
+        "machine-learning",
+        "lifelong-learning"
+      ],
+      "title": "CoLLAs",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-03-27T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-04-01T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-22T12:00:00Z",
+          "label": "Rebuttal Period Start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-06-09T11:59:59Z",
+          "label": "Rebuttal Period End",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-07-09T11:59:59Z",
+          "label": "Decision Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-10-09",
+      "fullName": "Conference on Language Modeling",
+      "id": "colm26",
+      "link": "https://colmweb.org/",
+      "series": "colm",
+      "source": "hf",
+      "start": "2026-10-06",
+      "tags": [
+        "natural-language-processing",
+        "large-language-models"
+      ],
+      "title": "COLM",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-05T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-03T12:00:00Z",
+          "label": "Reviews released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-04-10T12:00:00Z",
+          "label": "Initial author response due",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-04-21T11:59:59Z",
+          "label": "Discussion period ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-05-04T12:00:00Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-07-03",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt26",
+      "link": "https://learningtheory.org/colt2026/",
+      "series": "colt",
+      "source": "hf",
+      "start": "2026-06-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-20T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-04-22T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-05-19T11:59:59Z",
+          "label": "Camera-ready papers due",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-07-04",
+      "fullName": "The SIGNLL Conference on Computational Natural Language Learning",
+      "id": "conll26",
+      "link": "https://conll.org/",
+      "series": "conll",
+      "source": "hf",
+      "start": "2026-07-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-12-11T11:59:59Z",
+          "label": "Tutorial proposals deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-12-13T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-12-16T11:59:59Z",
+          "label": "Rising Stars Award applications",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-06T11:59:59Z",
+          "label": "Review deadline",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-09T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-01-15T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-01-15T11:59:59Z",
+          "label": "Tutorial notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-16T11:59:59Z",
+          "label": "Spotlight Track submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-21T11:59:59Z",
+          "label": "Final decisions (Proceedings and Spotlight)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-22T11:59:59Z",
+          "label": "Rising Stars Award notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-02-17T11:59:59Z",
+          "label": "Hotel registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-03-26",
+      "fullName": "The Conference on Parsimony and Learning",
+      "id": "cpal26",
+      "link": "https://cpal.cc/",
+      "series": "cpal",
+      "source": "hf",
+      "start": "2026-03-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CPAL",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-11-08T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-11-14T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-11-21T11:59:59Z",
+          "label": "Supplementary Materials",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2026-01-23T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-01-23T11:59:59Z",
+          "label": "Rebuttal Period Starts",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-01-30T11:59:59Z",
+          "label": "Rebuttal Period Ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-02-21T11:59:59Z",
+          "label": "Final Decisions",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-06-07",
+      "fullName": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr26",
+      "link": "https://cvpr.thecvf.com/Conferences/2026/CallForPapers",
+      "series": "cvpr",
+      "source": "hf",
+      "start": "2026-06-03",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-13T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-20T11:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-05T11:59:59Z",
+          "label": "Summary rejection notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-08T11:59:59Z",
+          "label": "Author response period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-04-11T11:59:59Z",
+          "label": "Author response period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-04-30T11:59:59Z",
+          "label": "Paper notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-05-16T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-08-21",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai26",
+      "link": "https://2026.ijcai.org/",
+      "series": "ecai",
+      "source": "hf",
+      "start": "2026-08-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-16T11:59:59Z",
+          "label": "Tutorial Proposal Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-26T22:00:00Z",
+          "label": "Paper Registration",
+          "timezone": "UTC",
+          "type": "registration"
+        },
+        {
+          "date": "2026-02-28T11:59:59Z",
+          "label": "Workshop Proposal Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-03-05T22:00:00Z",
+          "label": "Paper Submission",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-12T22:00:00Z",
+          "label": "Supplemental Materials",
+          "timezone": "UTC",
+          "type": "supplementary"
+        },
+        {
+          "date": "2026-04-12T20:00:00Z",
+          "label": "Tutorial/Workshop Decisions",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2026-05-02T23:59:59Z",
+          "label": "Reviews Released to Authors",
+          "timezone": "UTC",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-05-11T21:00:00Z",
+          "label": "Rebuttal Deadline",
+          "timezone": "UTC",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-06-15T11:59:59Z",
+          "label": "AI Art Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-06-17T23:59:59Z",
+          "label": "Final Decisions",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-27T11:59:59Z",
+          "label": "Camera Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-06-30T11:59:59Z",
+          "label": "AI Art Acceptance Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-09-12",
+      "fullName": "European Conference on Computer Vision",
+      "id": "eccv26",
+      "link": "https://eccv.ecva.net/Conferences/2026",
+      "series": "eccv",
+      "source": "hf",
+      "start": "2026-09-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-26T11:59:59Z",
+          "label": "Abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-03T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-12-17T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-04-02",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir26",
+      "link": "https://ecir2026.eu/",
+      "series": "ecir",
+      "source": "hf",
+      "start": "2026-03-29",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-03-06T11:59:59Z",
+          "label": "Abstract submission (Research Track)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-03-13T11:59:59Z",
+          "label": "Paper submission (Research Track)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-28T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-19T11:59:59Z",
+          "label": "Camera ready submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-09-11",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd26",
+      "link": "https://ecmlpkdd.org/2026/",
+      "series": "ecml-pkdd",
+      "source": "hf",
+      "start": "2026-09-07",
+      "tags": [
+        "machine-learning",
+        "data-mining"
+      ],
+      "title": "ECML PKDD",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-11-27T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-01-24T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-02-14T11:59:59Z",
+          "label": "Early registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        },
+        {
+          "date": "2026-04-11T11:59:59Z",
+          "label": "Final registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-04-24",
+      "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
+      "id": "esann26",
+      "link": "https://www.esann.org/",
+      "series": "esann",
+      "source": "hf",
+      "start": "2026-04-22",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-22T23:59:59Z",
+          "label": "Abstract and submission form deadline",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-09-26T23:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2025-11-19T23:59:59Z",
+          "label": "Reviews released",
+          "timezone": "UTC",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-11-26T23:59:59Z",
+          "label": "Rebuttal due",
+          "timezone": "UTC",
+          "type": "rebuttal"
+        },
+        {
+          "date": "2025-12-15T23:59:59Z",
+          "label": "Conditional acceptance/rejection notification",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-23T23:59:59Z",
+          "label": "Revised version deadline",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-02-06T23:59:59Z",
+          "label": "Final notification",
+          "timezone": "UTC",
+          "type": "notification"
+        },
+        {
+          "date": "2026-02-20T23:59:59Z",
+          "label": "Camera-ready version due",
+          "timezone": "UTC",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-04-03T23:59:59Z",
+          "label": "Author registration deadline",
+          "timezone": "UTC",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-05-08",
+      "fullName": "The 47th Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics26",
+      "link": "https://eg2026.github.io/",
+      "series": "eurographics",
+      "source": "hf",
+      "start": "2026-05-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-06-05T21:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC+02",
+          "type": "submission"
+        },
+        {
+          "date": "2026-07-18T21:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "UTC+02",
+          "type": "notification"
+        },
+        {
+          "date": "2026-07-25T21:59:59Z",
+          "label": "Camera-ready submission deadline",
+          "timezone": "UTC+02",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-01",
+      "fullName": "European Conference on Visual Information Processing",
+      "id": "euvip26",
+      "link": "https://euvip2026.github.io/",
+      "series": "euvip",
+      "source": "hf",
+      "start": "2026-09-28",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-09T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-14T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-21T11:59:59Z",
+          "label": "Preliminary Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-02-25T11:59:59Z",
+          "label": "Rebuttal Submission",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-03-03T11:59:59Z",
+          "label": "Initial Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-03-26T11:59:59Z",
+          "label": "Revision Deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-09T11:59:59Z",
+          "label": "Final Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-18T11:59:59Z",
+          "label": "Camera-Ready Deadline (Round 1)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-05-12T11:59:59Z",
+          "label": "Camera-Ready Deadline (Revised Papers)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-06-28",
+      "fullName": "ACM Conference on Fairness, Accountability, and Transparency",
+      "id": "facct26",
+      "link": "https://facctconference.org/2026/index.html",
+      "series": "facct",
+      "source": "hf",
+      "start": "2026-06-25",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-26T11:59:59Z",
+          "label": "Abstract Submission (Round 1)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-07T11:59:59Z",
+          "label": "Paper Submission (Round 1) - Extended",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-12-12T11:59:59Z",
+          "label": "Notifications to authors (Round 1)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-26T11:59:59Z",
+          "label": "Revisions due (Round 1)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-01-10T11:59:59Z",
+          "label": "Abstract Submission (Round 2)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-26T11:59:59Z",
+          "label": "Paper Submission (Round 2) - Extended",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-03T11:59:59Z",
+          "label": "Notifications to authors (Round 2)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-22T11:59:59Z",
+          "label": "Camera-ready (for all accepted papers)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-05-29",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg26",
+      "link": "https://fg2026.ieee-biometrics.org/",
+      "series": "fg",
+      "source": "hf",
+      "start": "2026-05-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-03-31T11:59:59Z",
+          "label": "Abstract and Full Paper Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-03-31T11:59:59Z",
+          "label": "Full Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-05-30T11:59:59Z",
+          "label": "Final Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-16T11:59:59Z",
+          "label": "Camera-ready Paper Upload",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-06-30T11:59:59Z",
+          "label": "Author Registration and Early Registration",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-09-17",
+      "fullName": "35th International Conference on Artificial Neural Networks",
+      "id": "icann26",
+      "link": "https://e-nns.org/icann2026/",
+      "series": "icann",
+      "source": "hf",
+      "start": "2026-09-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-18T06:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "GMT+02",
+          "type": "submission"
+        }
+      ],
+      "end": "2026-05-08",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp26",
+      "link": "https://2026.ieeeicassp.org",
+      "series": "icassp",
+      "source": "hf",
+      "start": "2026-05-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-14T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-02-28T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-04-18T11:59:59Z",
+          "label": "Reviews released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-04-25T11:59:59Z",
+          "label": "Rebuttal period ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-05-16T11:59:59Z",
+          "label": "Acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-16T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-09-04",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2026",
+      "link": "https://icdar2026.org/",
+      "series": "icdar",
+      "source": "hf",
+      "start": "2026-08-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-20T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-09-25T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-11-12T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-12-04T11:59:59Z",
+          "label": "Discussion Period End",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-01-26T11:59:59Z",
+          "label": "Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-04-27",
+      "fullName": "The Fourteenth International Conference on Learning Representations",
+      "id": "iclr26",
+      "link": "https://iclr.cc/Conferences/2026",
+      "series": "iclr",
+      "source": "hf",
+      "start": "2026-04-23",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision",
+        "robotics",
+        "mathematics",
+        "reinforcement-learning",
+        "representation-learning"
+      ],
+      "title": "ICLR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-24T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-29T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-25T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-03-31T11:59:59Z",
+          "label": "Author Response Deadline",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-05-01T11:59:59Z",
+          "label": "Author Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-07-11",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml26",
+      "link": "https://icml.cc/Conferences/2026/CallForPapers",
+      "series": "icml",
+      "source": "hf",
+      "start": "2026-07-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2026
+    },
+    {
+      "deadlines": [],
+      "end": "2026-09-13",
+      "fullName": "International Conference on Computational Optimization",
+      "id": "icomp26",
+      "link": "https://icomp.cc/",
+      "series": "icomp",
+      "source": "hf",
+      "start": "2026-09-11",
+      "tags": [
+        "machine-learning",
+        "optimization-methods"
+      ],
+      "title": "ICOMP",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-09-16T07:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "PST",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-01T07:59:59Z",
+          "label": "Notification of Acceptance",
+          "timezone": "PST",
+          "type": "notification"
+        },
+        {
+          "date": "2026-03-07T07:59:59Z",
+          "label": "Camera-Ready Submission",
+          "timezone": "PST",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-06-05",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra26",
+      "link": "https://2026.ieee-icra.org/",
+      "series": "icra",
+      "source": "hf",
+      "start": "2026-06-01",
+      "tags": [
+        "robotics",
+        "computer-vision"
+      ],
+      "title": "ICRA",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-13T11:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-20T11:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-05T11:59:59Z",
+          "label": "Phase I notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-07T12:00:00Z",
+          "label": "Author response period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-04-11T11:59:59Z",
+          "label": "Author response period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-04-30T11:59:59Z",
+          "label": "Paper notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-05-16T11:59:59Z",
+          "label": "Camera ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-08-21",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai26",
+      "link": "https://2026.ijcai.org/",
+      "series": "ijcai",
+      "source": "hf",
+      "start": "2026-08-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-01T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-03-17T11:59:59Z",
+          "label": "Paper acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-16T11:59:59Z",
+          "label": "Camera-ready papers",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-06-26",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn26",
+      "link": "https://attend.ieee.org/wcci-2026/",
+      "series": "ijcnn",
+      "source": "hf",
+      "start": "2026-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-07-19T11:59:59Z",
+          "label": "Direct submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-08-06T11:59:59Z",
+          "label": "Pre-reviewed ARR commitment",
+          "timezone": "AoE",
+          "type": "commitment_deadline"
+        },
+        {
+          "date": "2026-08-16T11:59:59Z",
+          "label": "Author notification date",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-10-21",
+      "fullName": "International Conference on Natural Language Generation",
+      "id": "inlg2026",
+      "link": "https://2026.inlgmeeting.org/",
+      "series": "inlg",
+      "source": "hf",
+      "start": "2026-10-17",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-26T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-03-05T11:59:59Z",
+          "label": "Paper update deadline",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2026-04-25T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-05-02T11:59:59Z",
+          "label": "Rebuttal period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-06-06T11:59:59Z",
+          "label": "Paper acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-20T11:59:59Z",
+          "label": "Camera-ready paper submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-01",
+      "fullName": "Interspeech",
+      "id": "interspeech2026",
+      "link": "https://interspeech2026.org",
+      "series": "interspeech",
+      "source": "hf",
+      "start": "2026-09-28",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-03-03T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-08T11:59:59Z",
+          "label": "Paper video submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-06-17T11:59:59Z",
+          "label": "Paper acceptance notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-07-11T11:59:59Z",
+          "label": "Final paper submission deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-01",
+      "fullName": "IEEE\\RSJ International Conference on Intelligent Robots and Systems",
+      "id": "iros26",
+      "link": "https://2026.ieee-iros.org/",
+      "series": "iros",
+      "source": "hf",
+      "start": "2026-09-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-10-04T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-11T11:59:59Z",
+          "label": "Full paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-12-13T11:59:59Z",
+          "label": "Decision notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-24T11:59:59Z",
+          "label": "Camera-ready submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-01-24T11:59:59Z",
+          "label": "Author registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-07-16",
+      "fullName": "ACM Conference on Intelligent User Interfaces",
+      "id": "iui26",
+      "link": "https://iui.acm.org/2026/",
+      "series": "iui",
+      "source": "hf",
+      "start": "2026-07-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-25T11:59:59Z",
+          "label": "Abstract submission (First Cycle)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-08-01T11:59:59Z",
+          "label": "Paper submission (First Cycle)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-10-05T11:59:59Z",
+          "label": "Rebuttal period start (First Cycle)",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-10-19T11:59:59Z",
+          "label": "Rebuttal period end (First Cycle)",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2025-11-24T11:59:59Z",
+          "label": "Notification (First Cycle)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-02-02T11:59:59Z",
+          "label": "Abstract submission (Second Cycle)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-02-09T11:59:59Z",
+          "label": "Paper submission (Second Cycle)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-04-05T11:59:59Z",
+          "label": "Rebuttal period start (Second Cycle)",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-04-18T11:59:59Z",
+          "label": "Rebuttal period end (Second Cycle)",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-05-17T11:59:59Z",
+          "label": "Notification (Second Cycle)",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-08-13",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd26",
+      "link": "https://kdd2026.kdd.org/",
+      "series": "kdd",
+      "source": "hf",
+      "start": "2026-08-09",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-10-25T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-14T11:59:59Z",
+          "label": "Notification of Acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-03-16T11:59:59Z",
+          "label": "Camera Ready Due",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-05-16",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec26",
+      "link": "https://lrec2026.info/",
+      "series": "lrec",
+      "source": "hf",
+      "start": "2026-05-11",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-17T23:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "Europe/London",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-03-01T23:59:59Z",
+          "label": "Full paper submission deadline",
+          "timezone": "Europe/London",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-13T11:59:59Z",
+          "label": "Decision notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-04-03",
+      "fullName": "The International Conference dedicated to mathematics in artificial intelligence",
+      "id": "mathai26",
+      "link": "https://mathai.club",
+      "series": "mathai",
+      "source": "hf",
+      "start": "2026-03-30",
+      "tags": [
+        "machine-learning",
+        "mathematics"
+      ],
+      "title": "MathAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-13T07:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "UTC-08",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-02-27T07:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "UTC-08",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-08T07:59:59Z",
+          "label": "Early Acceptance & Reviews Released",
+          "timezone": "UTC-08",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-05-09T07:59:59Z",
+          "label": "Rebuttal Period Starts",
+          "timezone": "UTC-08",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-05-15T07:59:59Z",
+          "label": "Rebuttal Period Ends",
+          "timezone": "UTC-08",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-06-13T07:59:59Z",
+          "label": "Final Decisions",
+          "timezone": "UTC-08",
+          "type": "notification"
+        },
+        {
+          "date": "2026-05-26T07:59:59Z",
+          "label": "Camera-Ready (Early Accepted Papers)",
+          "timezone": "UTC-08",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-06-27T07:59:59Z",
+          "label": "Camera-Ready (All Other Papers)",
+          "timezone": "UTC-08",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-01",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai26",
+      "link": "https://conferences.miccai.org/2026/",
+      "series": "miccai",
+      "source": "hf",
+      "start": "2026-09-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-11-04T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-12-02T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-27T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-04-12",
+      "fullName": "The 5th International Workshop on Natural Language-based Software Engineering",
+      "id": "nlbse26",
+      "link": "https://nlbse2026.github.io/",
+      "series": "nlbse",
+      "source": "hf",
+      "start": "2026-04-12",
+      "tags": [
+        "natural-language-processing",
+        "software engineering"
+      ],
+      "title": "NLBSE",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-03-02T11:59:59Z",
+          "label": "Abstract submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-03-06T11:59:59Z",
+          "label": "Paper submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-09T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-07-19T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-08-18",
+      "fullName": "Reinforcement Learning Conference",
+      "id": "rlc26",
+      "link": "https://rl-conference.cc/",
+      "series": "rlc",
+      "source": "hf",
+      "start": "2026-08-15",
+      "tags": [
+        "machine-learning",
+        "reinforcement-learning"
+      ],
+      "title": "RLC",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-24T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-31T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-02-07T11:59:59Z",
+          "label": "Supplementary Materials",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2026-03-21T11:59:59Z",
+          "label": "Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-03-21T11:59:59Z",
+          "label": "Rebuttal Period Starts",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-03-28T11:59:59Z",
+          "label": "Rebuttal Period Ends",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-04-28T11:59:59Z",
+          "label": "Final Decisions",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-07-17",
+      "fullName": "Robotics Science and Systems",
+      "id": "rss26",
+      "link": "https://roboticsconference.org",
+      "series": "rss",
+      "source": "hf",
+      "start": "2026-07-13",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-05-09T11:59:59Z",
+          "label": "Title and Abstract Submission (AoE)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-05-16T11:59:59Z",
+          "label": "Paper Submission (AoE)",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-06-27T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-08-26",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr26",
+      "link": "https://2026.declarativeai.net/events/ruleml-rr",
+      "series": "ruleml-rr",
+      "source": "hf",
+      "start": "2026-08-24",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-02T22:59:00Z",
+          "label": "Abstract submission (Round 1)",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-02-04T22:59:00Z",
+          "label": "Paper submission (Round 1)",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-03-17T11:59:59Z",
+          "label": "Notification of acceptance (Round 1)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-03-27T11:59:59Z",
+          "label": "Revised version due (Round 1)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-04-03T11:59:59Z",
+          "label": "Camera ready due (Round 1)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-04-13T22:59:00Z",
+          "label": "Abstract submission (Round 2)",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-04-15T22:59:00Z",
+          "label": "Paper submission (Round 2)",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-26T11:59:59Z",
+          "label": "Notification of acceptance (Round 2)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-06-05T11:59:59Z",
+          "label": "Revised version due (Round 2)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-06-12T11:59:59Z",
+          "label": "Camera ready due (Round 2)",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-07-03",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp26",
+      "link": "https://sgp26.org/",
+      "series": "sgp",
+      "source": "hf",
+      "start": "2026-07-01",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-05-30T23:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-07-07T23:59:59Z",
+          "label": "First notification",
+          "timezone": "UTC",
+          "type": "first-notification"
+        },
+        {
+          "date": "2026-07-18T23:59:59Z",
+          "label": "Revision submission deadline",
+          "timezone": "UTC",
+          "type": "revision-deadline"
+        },
+        {
+          "date": "2026-08-03T23:59:59Z",
+          "label": "Final notification",
+          "timezone": "UTC",
+          "type": "final-notification"
+        },
+        {
+          "date": "2026-08-15T23:59:59Z",
+          "label": "Camera-ready version",
+          "timezone": "UTC",
+          "type": "camera-ready"
+        }
+      ],
+      "end": "2026-10-02",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi26",
+      "link": "https://sibgrapi.sbc.org.br/2026/",
+      "series": "sibgrapi",
+      "source": "hf",
+      "start": "2026-09-29",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-13T22:00:00Z",
+          "label": "Art Papers deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-13T22:00:00Z",
+          "label": "Student Volunteers Team Leader Applications deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-15T22:00:00Z",
+          "label": "Technical Papers submission form deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-22T22:00:00Z",
+          "label": "Technical Papers deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-01-23T22:00:00Z",
+          "label": "Upload and conflicts deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-27T22:00:00Z",
+          "label": "Art Gallery deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-01-27T22:00:00Z",
+          "label": "Technical Workshops deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-10T22:00:00Z",
+          "label": "Talks, Production Sessions, Panels, Courses, Educator's Forum, Spatial Storytelling, Immersive Pavilion, Emerging Technologies deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-02-10T22:00:00Z",
+          "label": "Student Volunteers Applications deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-03-17T22:00:00Z",
+          "label": "Computer Animation Festival deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-07T22:00:00Z",
+          "label": "Frontiers deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-07T22:00:00Z",
+          "label": "Real-Time Live! deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-21T22:00:00Z",
+          "label": "Posters deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-21T22:00:00Z",
+          "label": "Appy Hour deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-21T22:00:00Z",
+          "label": "Student Research Competition deadline",
+          "timezone": "UTC",
+          "type": "submission"
+        }
+      ],
+      "end": "2026-07-23",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph26",
+      "link": "https://s2026.siggraph.org/",
+      "series": "siggraph",
+      "source": "hf",
+      "start": "2026-07-19",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-01-16T11:59:59Z",
+          "label": "Full research paper abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-01-23T11:59:59Z",
+          "label": "Full research paper submission deadline",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2026-04-03T11:59:59Z",
+          "label": "Notification deadline",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-04-30T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-04-30T11:59:59Z",
+          "label": "Author registration deadline",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-07-24",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir26",
+      "link": "https://sigir2026.org/en-AU",
+      "series": "sigir",
+      "source": "hf",
+      "start": "2026-07-20",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-02-26T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        }
+      ],
+      "end": "2026-08-21",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai26",
+      "link": "https://www.auai.org/uai2026/",
+      "series": "uai",
+      "source": "hf",
+      "start": "2026-08-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-07-12T11:59:59Z",
+          "label": "Round 1 Paper Registration",
+          "timezone": "AoE",
+          "type": "registration"
+        },
+        {
+          "date": "2025-07-19T11:59:59Z",
+          "label": "Round 1 Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-07-19T11:59:59Z",
+          "label": "Round 1 Supplementary Material Submission",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-09-06T11:59:59Z",
+          "label": "Round 1 Reviews Released",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2025-09-20T11:59:59Z",
+          "label": "Round 1 Rebuttal and Revision Submission",
+          "timezone": "AoE",
+          "type": "rebuttal_and_revision"
+        },
+        {
+          "date": "2025-11-07T11:59:59Z",
+          "label": "Round 1 Final Decisions Released to Authors",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-09-13T11:59:59Z",
+          "label": "Round 2 New Paper Registration",
+          "timezone": "AoE",
+          "type": "registration"
+        },
+        {
+          "date": "2025-09-20T11:59:59Z",
+          "label": "Round 2 Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-09-20T11:59:59Z",
+          "label": "Round 2 Supplementary Material Submission",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2025-11-07T11:59:59Z",
+          "label": "Round 2 Reviews and Final Decisions to Authors",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-11T11:59:59Z",
+          "label": "Camera-Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-03-10",
+      "fullName": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+      "id": "wacv26",
+      "link": "https://wacv.thecvf.com/",
+      "series": "wacv",
+      "source": "hf",
+      "start": "2026-03-06",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-08-08T11:59:00Z",
+          "label": "Abstract submission (full papers)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-08-15T11:59:00Z",
+          "label": "Paper submission (full papers)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-09-19T11:59:00Z",
+          "label": "Abstract submission (short papers)",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-09-26T11:59:00Z",
+          "label": "Paper submission (short papers)",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2025-10-24T11:59:59Z",
+          "label": "Author notification (full papers)",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2025-11-28T11:59:59Z",
+          "label": "Author notification (short papers)",
+          "timezone": "AoE",
+          "type": "notification"
+        }
+      ],
+      "end": "2026-02-26",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm26",
+      "link": "https://wsdm-conference.org/2026/",
+      "series": "wsdm",
+      "source": "hf",
+      "start": "2026-02-22",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-10-01T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-10-08T11:59:59Z",
+          "label": "Paper Submission",
+          "timezone": "AoE",
+          "type": "submission"
+        },
+        {
+          "date": "2025-11-24T12:00:00Z",
+          "label": "Rebuttal Period Start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2025-12-02T11:59:59Z",
+          "label": "Rebuttal Period End",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-01-14T11:59:59Z",
+          "label": "Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-01-26T11:59:59Z",
+          "label": "Camera Ready",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-04-17",
+      "fullName": "The Web Conference",
+      "id": "www26",
+      "link": "https://www2026.thewebconf.org/",
+      "series": "www",
+      "source": "hf",
+      "start": "2026-04-13",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 2026
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "aaai26",
+      "country": "Singapore",
+      "end": "2026-01-27",
+      "id": "aaai26@main",
+      "lat": 1.2899175,
+      "link": "https://aaai.org/conference/aaai/aaai-26/",
+      "lng": 103.8519072,
+      "name": "AAAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-01-20",
+      "venue": "Singapore EXPO, Singapore"
+    },
+    {
+      "access": "registration",
+      "city": "Paphos",
+      "conferenceId": "aamas26",
+      "country": "Cyprus",
+      "end": "2026-05-29",
+      "id": "aamas26@main",
+      "lat": 34.7743988,
+      "link": "https://cyprusconferences.org/aamas2026/",
+      "lng": 32.4231586,
+      "name": "AAMAS 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-25",
+      "venue": "Coral Beach Hotel & Resort, Paphos, Cyprus"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "acl26",
+      "country": "United States",
+      "end": "2026-07-07",
+      "id": "acl26@main",
+      "lat": 32.7157062,
+      "link": "https://2026.aclweb.org/",
+      "lng": -117.1638284,
+      "name": "ACL 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-02",
+      "venue": "Grand Hyatt Manchester San Diego, 1 Market Place, San Diego, CA 92101"
+    },
+    {
+      "access": "registration",
+      "city": "Tangier",
+      "conferenceId": "aistats26",
+      "country": "Morocco",
+      "end": "2026-05-05",
+      "id": "aistats26@main",
+      "lat": 35.7694908,
+      "link": "https://virtual.aistats.org/Conferences/2026",
+      "lng": -5.8044679,
+      "name": "AISTATS 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-02",
+      "venue": "Hilton Tangier Al Houara Resort & Spa"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "alt2026",
+      "country": "Canada",
+      "end": "2026-02-26",
+      "id": "alt2026@main",
+      "lat": 43.6534817,
+      "link": "https://algorithmiclearningtheory.org/alt2026/",
+      "lng": -79.3839347,
+      "name": "ALT 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-02-23",
+      "venue": "Fields Institute, Toronto, Canada"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "bis2026",
+      "country": "Czech Republic",
+      "end": "2026-06-12",
+      "id": "bis2026@main",
+      "lat": 50.0874654,
+      "link": "https://bisconf.org/2026",
+      "lng": 14.4212535,
+      "name": "BIS 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-10",
+      "venue": "Prague University of Economics and Business, Nám. W. Churchilla 4, Prague 130 67, Czech Republic"
+    },
+    {
+      "access": "registration",
+      "city": "Maastricht",
+      "conferenceId": "cec2026",
+      "country": "Netherlands",
+      "end": "2026-06-26",
+      "id": "cec2026@main",
+      "lat": 50.8579855,
+      "link": "https://attend.ieee.org/wcci-2026/",
+      "lng": 5.6969882,
+      "name": "CEC 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-21",
+      "venue": "Maastricht Exhibition & Congress Centre (MECC)"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "chi26",
+      "country": "Spain",
+      "end": "2026-04-17",
+      "id": "chi26@main",
+      "lat": 41.3825802,
+      "link": "https://chi2026.acm.org/",
+      "lng": 2.177073,
+      "name": "CHI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-04-13",
+      "venue": "Centre de Convencions Internacional de Barcelona, Barcelona, Spain"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "chil26",
+      "country": "United States",
+      "end": "2026-06-30",
+      "id": "chil26@main",
+      "lat": 47.6038321,
+      "link": "https://chil.ahli.cc/submit/call-for-papers/",
+      "lng": -122.330062,
+      "name": "CHIL 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-28",
+      "venue": "Seattle Children's Research Institute, B. Wayne Hughes Building"
+    },
+    {
+      "access": "registration",
+      "city": "Bucharest",
+      "conferenceId": "collas26",
+      "country": "Romania",
+      "end": "2026-09-17",
+      "id": "collas26@main",
+      "lat": 44.4361414,
+      "link": "https://lifelong-ml.cc",
+      "lng": 26.102684,
+      "name": "CoLLAs 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-14",
+      "venue": "National University of Science and Technology Politehnica Bucharest"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "colm26",
+      "country": "United States",
+      "end": "2026-10-09",
+      "id": "colm26@main",
+      "lat": 37.7879363,
+      "link": "https://colmweb.org/",
+      "lng": -122.4075201,
+      "name": "COLM 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-10-06",
+      "venue": "Hilton San Francisco Union Square, USA"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "colt26",
+      "country": "United States",
+      "end": "2026-07-03",
+      "id": "colt26@main",
+      "lat": 32.7157062,
+      "link": "https://learningtheory.org/colt2026/",
+      "lng": -117.1638284,
+      "name": "COLT 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-29",
+      "venue": "Bahia Resort Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "conll26",
+      "country": "United States",
+      "end": "2026-07-04",
+      "id": "conll26@main",
+      "lat": 32.7157062,
+      "link": "https://conll.org/",
+      "lng": -117.1638284,
+      "name": "CoNLL 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-03",
+      "venue": "San Diego, California, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Tübingen",
+      "conferenceId": "cpal26",
+      "country": "Germany",
+      "end": "2026-03-26",
+      "id": "cpal26@main",
+      "lat": 48.5203263,
+      "link": "https://cpal.cc/",
+      "lng": 9.053596,
+      "name": "CPAL 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-03-23",
+      "venue": "Max Planck Institute for Intelligent Systems"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "cvpr26",
+      "country": "United States",
+      "end": "2026-06-07",
+      "id": "cvpr26@main",
+      "lat": 39.7392364,
+      "link": "https://cvpr.thecvf.com/Conferences/2026/CallForPapers",
+      "lng": -104.984862,
+      "name": "CVPR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-03",
+      "venue": "Colorado Convention Center, Denver, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Bremen",
+      "conferenceId": "ecai26",
+      "country": "Germany",
+      "end": "2026-08-21",
+      "id": "ecai26@main",
+      "lat": 53.0758196,
+      "link": "https://2026.ijcai.org/",
+      "lng": 8.8071646,
+      "name": "ECAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-15",
+      "venue": "University of Bremen and Bremen Exhibition Center"
+    },
+    {
+      "access": "registration",
+      "city": "Malmö",
+      "conferenceId": "eccv26",
+      "country": "Sweden",
+      "end": "2026-09-12",
+      "id": "eccv26@main",
+      "lat": 55.6052931,
+      "link": "https://eccv.ecva.net/Conferences/2026",
+      "lng": 13.0001566,
+      "name": "ECCV 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-08",
+      "venue": "Malmö Arena and Malmömässan"
+    },
+    {
+      "access": "registration",
+      "city": "Delft",
+      "conferenceId": "ecir26",
+      "country": "Netherlands",
+      "end": "2026-04-02",
+      "id": "ecir26@main",
+      "lat": 52.0114017,
+      "link": "https://ecir2026.eu/",
+      "lng": 4.35839,
+      "name": "ECIR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-03-29",
+      "venue": "Lijm & Cultuur, Delft, The Netherlands"
+    },
+    {
+      "access": "registration",
+      "city": "Naples",
+      "conferenceId": "ecmlpkdd26",
+      "country": "Italy",
+      "end": "2026-09-11",
+      "id": "ecmlpkdd26@main",
+      "lat": 40.8358846,
+      "link": "https://ecmlpkdd.org/2026/",
+      "lng": 14.2487679,
+      "name": "ECML PKDD 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-07",
+      "venue": "University of Naples Federico II & Mostra d'Oltremare"
+    },
+    {
+      "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann26",
+      "country": "Belgium",
+      "end": "2026-04-24",
+      "id": "esann26@main",
+      "lat": 51.2085526,
+      "link": "https://www.esann.org/",
+      "lng": 3.226772,
+      "name": "ESANN 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-04-22",
+      "venue": "Crowne Plaza Bruges, Burg 10, 8000 Brugge"
+    },
+    {
+      "access": "registration",
+      "city": "Aachen",
+      "conferenceId": "eurographics26",
+      "country": "Germany",
+      "end": "2026-05-08",
+      "id": "eurographics26@main",
+      "lat": 50.776351,
+      "link": "https://eg2026.github.io/",
+      "lng": 6.083862,
+      "name": "Eurographics 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-04",
+      "venue": "Aachen, Germany"
+    },
+    {
+      "access": "registration",
+      "city": "Luxembourg",
+      "conferenceId": "euvip26",
+      "country": "Luxembourg",
+      "end": "2026-10-01",
+      "id": "euvip26@main",
+      "lat": 49.6112768,
+      "link": "https://euvip2026.github.io/",
+      "lng": 6.129799,
+      "name": "EUVIP 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-28",
+      "venue": "Parc Hotel Alvisse, 120 Rte d'Echternach, 1453 Dommeldange, Luxembourg"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "facct26",
+      "country": "Canada",
+      "end": "2026-06-28",
+      "id": "facct26@main",
+      "lat": 45.5031824,
+      "link": "https://facctconference.org/2026/index.html",
+      "lng": -73.5698065,
+      "name": "FAccT 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-25",
+      "venue": "Le Centre Sheraton Montréal, Montreal, QC, Canada"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "fg26",
+      "country": "Japan",
+      "end": "2026-05-29",
+      "id": "fg26@main",
+      "lat": 35.0115754,
+      "link": "https://fg2026.ieee-biometrics.org/",
+      "lng": 135.7681441,
+      "name": "FG 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-25",
+      "venue": "Kyoto Research Park (KRP)"
+    },
+    {
+      "access": "registration",
+      "city": "Padua",
+      "conferenceId": "icann26",
+      "country": "Italy",
+      "end": "2026-09-17",
+      "id": "icann26@main",
+      "lat": 45.3984428,
+      "link": "https://e-nns.org/icann2026/",
+      "lng": 11.8956829,
+      "name": "ICANN 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-14",
+      "venue": "Conference center of the School of Psychology, University of Padua, Padua, Italy"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "icassp26",
+      "country": "Spain",
+      "end": "2026-05-08",
+      "id": "icassp26@main",
+      "lat": 41.3825802,
+      "link": "https://2026.ieeeicassp.org",
+      "lng": 2.177073,
+      "name": "ICASSP 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-04",
+      "venue": "Barcelona International Convention Center (CCIB), Barcelona, Spain"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "icdar2026",
+      "country": "Austria",
+      "end": "2026-09-04",
+      "id": "icdar2026@main",
+      "lat": 48.2083537,
+      "link": "https://icdar2026.org/",
+      "lng": 16.3725042,
+      "name": "ICDAR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-30",
+      "venue": "TU Wien, Campus Gußhaus"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "iclr26",
+      "country": "Brazil",
+      "end": "2026-04-27",
+      "id": "iclr26@main",
+      "lat": -22.9110137,
+      "link": "https://iclr.cc/Conferences/2026",
+      "lng": -43.2093727,
+      "name": "ICLR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-04-23",
+      "venue": "Riocentro Convention and Event Center"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "icml26",
+      "country": "South Korea",
+      "end": "2026-07-11",
+      "id": "icml26@main",
+      "lat": 37.5666791,
+      "link": "https://icml.cc/Conferences/2026/CallForPapers",
+      "lng": 126.9782914,
+      "name": "ICML 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-06",
+      "venue": "Coex Convention & Exhibition Center"
+    },
+    {
+      "access": "registration",
+      "city": "Yerevan",
+      "conferenceId": "icomp26",
+      "country": "Armenia",
+      "end": "2026-09-13",
+      "id": "icomp26@main",
+      "lat": 40.1777112,
+      "link": "https://icomp.cc/",
+      "lng": 44.5126233,
+      "name": "ICOMP 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-11"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "icra26",
+      "country": "Austria",
+      "end": "2026-06-05",
+      "id": "icra26@main",
+      "lat": 48.2083537,
+      "link": "https://2026.ieee-icra.org/",
+      "lng": 16.3725042,
+      "name": "ICRA 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-01",
+      "venue": "Messe Wien Exhibition & Congress Center, Vienna, Austria"
+    },
+    {
+      "access": "registration",
+      "city": "Bremen",
+      "conferenceId": "ijcai26",
+      "country": "Germany",
+      "end": "2026-08-21",
+      "id": "ijcai26@main",
+      "lat": 53.0758196,
+      "link": "https://2026.ijcai.org/",
+      "lng": 8.8071646,
+      "name": "IJCAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-15",
+      "venue": "Bremen Exhibition Center"
+    },
+    {
+      "access": "registration",
+      "city": "Maastricht",
+      "conferenceId": "ijcnn26",
+      "country": "Netherlands",
+      "end": "2026-06-26",
+      "id": "ijcnn26@main",
+      "lat": 50.8579855,
+      "link": "https://attend.ieee.org/wcci-2026/",
+      "lng": 5.6969882,
+      "name": "IJCNN 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-06-21",
+      "venue": "MECC Maastricht"
+    },
+    {
+      "access": "registration",
+      "city": "Utrecht",
+      "conferenceId": "inlg2026",
+      "country": "Netherlands",
+      "end": "2026-10-21",
+      "id": "inlg2026@main",
+      "lat": 52.0907006,
+      "link": "https://2026.inlgmeeting.org/",
+      "lng": 5.1215634,
+      "name": "INLG 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "interspeech2026",
+      "country": "Australia",
+      "end": "2026-10-01",
+      "id": "interspeech2026@main",
+      "lat": -33.8698439,
+      "link": "https://interspeech2026.org",
+      "lng": 151.2082848,
+      "name": "Interspeech 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-28",
+      "venue": "International Convention Centre (ICC) Sydney"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "iros26",
+      "country": "United States",
+      "end": "2026-10-01",
+      "id": "iros26@main",
+      "lat": 40.4406968,
+      "link": "https://2026.ieee-iros.org/",
+      "lng": -80.0025666,
+      "name": "IROS 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-27",
+      "venue": "David L. Lawrence Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Limassol",
+      "conferenceId": "iui26",
+      "country": "Cyprus",
+      "end": "2026-07-16",
+      "id": "iui26@main",
+      "lat": 34.6852901,
+      "link": "https://iui.acm.org/2026/",
+      "lng": 33.0332657,
+      "name": "IUI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-13",
+      "venue": "St. Raphael Resort & Marina"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "kdd26",
+      "country": "South Korea",
+      "end": "2026-08-13",
+      "id": "kdd26@main",
+      "lat": 33.4887737,
+      "link": "https://kdd2026.kdd.org/",
+      "lng": 126.4987083,
+      "name": "KDD 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-09",
+      "venue": "International Convention Center Jeju"
+    },
+    {
+      "access": "registration",
+      "city": "Palma, Mallorca",
+      "conferenceId": "lrec26",
+      "country": "Spain",
+      "end": "2026-05-16",
+      "id": "lrec26@main",
+      "lat": 39.5695818,
+      "link": "https://lrec2026.info/",
+      "lng": 2.6500745,
+      "name": "LREC 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-05-11",
+      "venue": "Palau de Congressos de Palma"
+    },
+    {
+      "access": "registration",
+      "city": "Sochi",
+      "conferenceId": "mathai26",
+      "country": "Russia",
+      "end": "2026-04-03",
+      "id": "mathai26@main",
+      "lat": 43.5854823,
+      "link": "https://mathai.club",
+      "lng": 39.723109,
+      "name": "MathAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-03-30",
+      "venue": "Sirius International Mathematics Center, Sirius"
+    },
+    {
+      "access": "registration",
+      "city": "Strasbourg",
+      "conferenceId": "miccai26",
+      "country": "France",
+      "end": "2026-10-01",
+      "id": "miccai26@main",
+      "lat": 48.584614,
+      "link": "https://conferences.miccai.org/2026/",
+      "lng": 7.7507127,
+      "name": "MICCAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-27",
+      "venue": "Strasbourg Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "nlbse26",
+      "country": "Brazil",
+      "end": "2026-04-12",
+      "id": "nlbse26@main",
+      "lat": -22.9110137,
+      "link": "https://nlbse2026.github.io/",
+      "lng": -43.2093727,
+      "name": "NLBSE 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-04-12",
+      "venue": "Windsor Convention Center and Hotels"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "rlc26",
+      "country": "Canada",
+      "end": "2026-08-18",
+      "id": "rlc26@main",
+      "lat": 45.5031824,
+      "link": "https://rl-conference.cc/",
+      "lng": -73.5698065,
+      "name": "RLC 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-15"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "rss26",
+      "country": "Australia",
+      "end": "2026-07-17",
+      "id": "rss26@main",
+      "lat": -33.8698439,
+      "link": "https://roboticsconference.org",
+      "lng": 151.2082848,
+      "name": "RSS 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-13",
+      "venue": "University of Technology Sydney"
+    },
+    {
+      "access": "registration",
+      "city": "Vilnius",
+      "conferenceId": "rulemlrr26",
+      "country": "Lithuania",
+      "end": "2026-08-26",
+      "id": "rulemlrr26@main",
+      "lat": 54.6870458,
+      "link": "https://2026.declarativeai.net/events/ruleml-rr",
+      "lng": 25.2829111,
+      "name": "RuleML+RR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Bern",
+      "conferenceId": "sgp26",
+      "country": "Switzerland",
+      "end": "2026-07-03",
+      "id": "sgp26@main",
+      "lat": 46.9484742,
+      "link": "https://sgp26.org/",
+      "lng": 7.4521749,
+      "name": "SGP 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-01",
+      "venue": "University of Bern, Switzerland"
+    },
+    {
+      "access": "registration",
+      "city": "Goiânia",
+      "conferenceId": "sibgrapi26",
+      "country": "Brazil",
+      "end": "2026-10-02",
+      "id": "sibgrapi26@main",
+      "lat": -16.680882,
+      "link": "https://sibgrapi.sbc.org.br/2026/",
+      "lng": -49.2532691,
+      "name": "SIBGRAPI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-09-29",
+      "venue": "Federal University of Goiás (UFG)"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph26",
+      "country": "United States",
+      "end": "2026-07-23",
+      "id": "siggraph26@main",
+      "lat": 34.0536923,
+      "link": "https://s2026.siggraph.org/",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-19",
+      "venue": "Los Angeles Convention Center, Los Angeles, California"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "sigir26",
+      "country": "Australia",
+      "end": "2026-07-24",
+      "id": "sigir26@main",
+      "lat": -37.8142454,
+      "link": "https://sigir2026.org/en-AU",
+      "lng": 144.9631732,
+      "name": "SIGIR 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-20",
+      "venue": "Melbourne Convention and Exhibition Centre (MCEC)"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "uai26",
+      "country": "Netherlands",
+      "end": "2026-08-21",
+      "id": "uai26@main",
+      "lat": 52.3730796,
+      "link": "https://www.auai.org/uai2026/",
+      "lng": 4.8924534,
+      "name": "UAI 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-08-17"
+    },
+    {
+      "access": "registration",
+      "city": "Tucson, Arizona",
+      "conferenceId": "wacv26",
+      "country": "United States",
+      "end": "2026-03-10",
+      "id": "wacv26@main",
+      "lat": 32.2228765,
+      "link": "https://wacv.thecvf.com/",
+      "lng": -110.974847,
+      "name": "WACV 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-03-06",
+      "venue": "JW Marriott Starpass in Tucson, Arizona, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Boise",
+      "conferenceId": "wsdm26",
+      "country": "United States",
+      "end": "2026-02-26",
+      "id": "wsdm26@main",
+      "lat": 43.6166163,
+      "link": "https://wsdm-conference.org/2026/",
+      "lng": -116.200886,
+      "name": "WSDM 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-02-22",
+      "venue": "Boise, Idaho, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Dubai",
+      "conferenceId": "www26",
+      "country": "United Arab Emirates",
+      "end": "2026-04-17",
+      "id": "www26@main",
+      "lat": 25.0742823,
+      "link": "https://www2026.thewebconf.org/",
+      "lng": 55.1885624,
+      "name": "WWW 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-04-13",
+      "venue": "InterContinental Dubai Festival City by IHG"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+# Satellite events tied to a parent conference (DESIGN.md §3.2). Curated by hand; the discovery
+# agent only proposes changes by PR. Every entry needs evidence in `sources`.
+#
+# Fields: id (unique, stable), parent (upstream conference id), name, link, city, country,
+# venue?, start, end, official, presents_papers, access (open | registration | authors_only),
+# notes?, sources?
+
+- id: eurips25-copenhagen
+  parent: neurips25
+  name: EurIPS 2025
+  link: https://eurips.cc/
+  city: Copenhagen
+  country: Denmark
+  venue: Bella Center
+  start: '2025-12-02'
+  end: '2025-12-07'
+  official: true
+  presents_papers: true
+  access: registration
+  notes: >-
+    Officially endorsed by NeurIPS. ELLIS UnConference Dec 2, conference Dec 3–5, workshops
+    Dec 6–7. Registration sold out.
+  sources:
+    - https://eurips.cc/
+
+- id: neurips25-mexico-city
+  parent: neurips25
+  name: NeurIPS 2025 Mexico City
+  link: https://nips.cc/Conferences/2025/MXCityRegistrationDetails
+  city: Mexico City
+  country: Mexico
+  venue: Hilton Mexico City Reforma
+  start: '2025-11-30'
+  end: '2025-12-05'
+  official: true
+  presents_papers: true
+  access: authors_only
+  notes: >-
+    Second official NeurIPS location (pilot), ~500 attendees. Registration reserved for authors of
+    accepted papers, organizers and presenters; general public restricted.
+  sources:
+    - https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/
+    - https://nips.cc/Conferences/2025/MXCityRegistrationDetails
+
+- id: neurips26-paris
+  parent: neurips26
+  name: NeurIPS 2026 Paris
+  link: https://neurips-europe.cc/
+  city: Paris
+  country: France
+  start: '2026-12-09'
+  end: '2026-12-13'
+  official: true
+  presents_papers: true
+  access: authors_only
+  notes: >-
+    Official NeurIPS 2026 satellite. Main conference Dec 9–11, workshops and competitions
+    Dec 12–13. Registration for non-presenters is sold out and the waiting list is closed.
+  sources:
+    - https://neurips-europe.cc/
+    - https://neurips.cc/Conferences/2026
+    - https://blog.neurips.cc/2026/04/22/neurips-newsletter-april-2026/

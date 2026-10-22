@@ -1,0 +1,11 @@
+# Legacy shape: top-level deadline fields + timezone, free-text date only, US state as country.
+- title: Béta Conf (Industry Track)
+  year: 2025
+  id: beta25
+  link: https://beta.example/
+  deadline: '2024-10-01 09:59:59'
+  abstract_deadline: '2024-09-24 23:59:59'
+  timezone: UTC-8
+  date: June 30 - July 4, 2025
+  city: Nashville
+  country: Tennessee

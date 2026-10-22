@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # HEAD^1 = PR base / previous commit, for the archive-shrink check
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -21,6 +23,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm check
+      - run: pnpm data:validate --against HEAD^1
       - run: pnpm test
       - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium

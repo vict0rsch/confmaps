@@ -1,0 +1,34 @@
+- title: Alpha
+  year: 2025
+  id: alpha25
+  full_name: Alpha Conference on Learning
+  link: https://alpha.example/2025
+  deadlines:
+    - type: abstract
+      label: Abstract deadline
+      date: '2025-01-10 23:59:59'
+      timezone: AoE
+    - type: paper
+      label: Paper deadline
+      date: '2025-01-15 23:59:59'
+      timezone: UTC+02
+  city: Vienna
+  country: Austria
+  venue: Messe Wien
+  start: '2025-06-01'
+  end: '2025-06-05'
+  tags:
+    - machine-learning
+- title: Alpha
+  year: 2026
+  id: alpha26
+  link: https://alpha.example/2026
+  deadlines:
+    - type: paper
+      label: Paper deadline
+      date: '2026-06-01 12:00:00'
+      timezone: Europe/London
+  city: Paris
+  country: France
+  start: 2026-07-01
+  end: 2026-07-04

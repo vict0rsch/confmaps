@@ -19,5 +19,6 @@ pnpm lint         # eslint
 pnpm format       # prettier
 pnpm test         # vitest
 pnpm test:e2e     # playwright (pnpm exec playwright install chromium first)
-pnpm data:build   # build data/build/data.json (not implemented yet)
+pnpm data:build   # sync upstream, geocode, archive, validate → data/build/data.json
+pnpm data:validate  # offline checks of the committed data files
 ```

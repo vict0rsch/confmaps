@@ -1,0 +1,112 @@
+import { describe, expect, it } from 'vitest';
+import { geocache, satellite, UPSTREAM_DIR } from '../__fixtures__';
+import type { ArchiveFile, DataFile } from '../schema';
+import { archiveIds, mergeArchiveFiles } from './archive';
+import { buildDataset } from './pipeline';
+import { readUpstreamDir } from './upstream';
+import { validateDataset, type ValidationInput } from './validate';
+
+const result = await buildDataset({
+  upstream: readUpstreamDir(UPSTREAM_DIR).entries,
+  satellites: [satellite()],
+  overrides: {},
+  archive: { conferences: [], locations: [] },
+  geocache: geocache(),
+  today: '2025-10-01',
+});
+const archive: ArchiveFile = mergeArchiveFiles(result.archive);
+const data = (): DataFile =>
+  structuredClone({
+    generatedAt: '2025-10-01T00:00:00.000Z',
+    conferences: result.conferences,
+    locations: result.locations,
+  });
+
+const validate = (over: Partial<ValidationInput> = {}) =>
+  validateDataset({
+    data: data(),
+    satellites: [satellite()],
+    overrides: {},
+    geocache: geocache(),
+    archive,
+    ...over,
+  });
+
+describe('validateDataset', () => {
+  it('accepts a consistent dataset', () => {
+    expect(result.errors).toEqual([]);
+    expect(validate({ previousArchive: { ids: archiveIds(archive), label: 'HEAD' } })).toEqual([]);
+  });
+
+  it('rejects a satellite whose parent does not exist', () => {
+    expect(validate({ satellites: [satellite({ parent: 'gamma25' })] })).toEqual([
+      'satellites.yml: alpha25-copenhagen: parent "gamma25" does not exist',
+    ]);
+  });
+
+  it('rejects start > end', () => {
+    const d = data();
+    d.conferences[0].end = '2025-05-01';
+    d.locations.find((l) => l.id === 'beta25@main')!.start = '2025-08-01';
+    expect(validate({ data: d, satellites: [satellite({ start: '2025-07-01' })] })).toEqual([
+      'conference alpha25: start 2025-06-01 > end 2025-05-01',
+      'location beta25@main: start 2025-08-01 > end 2025-07-04',
+      'satellites.yml: alpha25-copenhagen: start 2025-07-01 > end 2025-06-06',
+    ]);
+  });
+
+  it('rejects unresolved locations', () => {
+    const d = data();
+    Object.assign(d.locations[0], { lat: 0, lng: 0 });
+    const gc = geocache();
+    delete gc['copenhagen|denmark'];
+    expect(validate({ data: d, geocache: gc })).toEqual([
+      `location ${d.locations[0].id}: not geocoded (0, 0)`,
+      'satellites.yml: alpha25-copenhagen: "Copenhagen, Denmark" is not geocoded (run pnpm data:build)',
+    ]);
+    const missing = data() as unknown as { locations: Record<string, unknown>[] };
+    delete missing.locations[1].lat;
+    expect(validate({ data: missing })).toEqual([
+      `data.json: locations[${result.locations[1].id}].lat: Invalid input: expected number, received undefined`,
+    ]);
+  });
+
+  it('rejects an archive that shrank', () => {
+    const shrunk: ArchiveFile = {
+      conferences: archive.conferences.filter((c) => c.id !== 'beta25'),
+      locations: archive.locations.filter((l) => l.id !== 'alpha25-copenhagen'),
+    };
+    expect(
+      validate({ archive: shrunk, previousArchive: { ids: archiveIds(archive), label: 'HEAD^1' } }),
+    ).toEqual([
+      'archive shrank: conference "beta25" (archived in HEAD^1) was removed',
+      'archive shrank: location "alpha25-copenhagen" (archived in HEAD^1) was removed',
+    ]);
+  });
+
+  it('rejects archived records missing from data.json', () => {
+    const d = data();
+    d.conferences = d.conferences.filter((c) => c.id !== 'beta25');
+    d.locations = d.locations.filter((l) => l.conferenceId !== 'beta25');
+    expect(validate({ data: d })).toEqual([
+      'archived conference "beta25" is missing from data.json',
+      'archived location "beta25@main" is missing from data.json',
+    ]);
+  });
+
+  it('rejects duplicate ids and stale overrides', () => {
+    const d = data();
+    d.locations.push({ ...d.locations[0] });
+    expect(
+      validate({
+        data: d,
+        satellites: [satellite(), satellite()],
+        overrides: { 'old@main': { venue: 'x' } },
+      }),
+    ).toEqual([
+      `duplicate location id "${d.locations[0].id}"`,
+      'satellites.yml: duplicate id "alpha25-copenhagen"',
+      'overrides.yml: "old@main" matches no location',
+    ]);
+  });
+});
