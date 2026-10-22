@@ -8,11 +8,14 @@ import {
 } from './model';
 import { haversineKm, type LatLng } from '../geo/distance';
 
-// Golden values, hand-computed from the official DESNZ 2026 factors (data/co2-factors.json):
-//   rail-national                 0.03092 kg CO2e / passenger.km
-//   flight-short-haul-economy-rf  0.12576 kg CO2e / passenger.km  (great-circle < 3,700 km)
-//   flight-long-haul-economy-rf   0.11704 kg CO2e / passenger.km  (great-circle ≥ 3,700 km)
-// Model: rail = d × 1.2 (detour) × 2 (round trip) × factor; flight = d × 2 × factor
+// Golden values, hand-computed from the official DESNZ 2026 factors (data/co2-factors.json).
+// Each mode uses direct + well-to-tank (WTT), kg CO2e / passenger.km:
+//   rail   = rail-national 0.03092                + rail-national-wtt 0.00897             = 0.03989
+//   short  = flight-short-haul-economy-rf 0.12576 + flight-short-haul-economy-wtt 0.02249 = 0.14825
+//            (great-circle < 3,700 km)
+//   long   = flight-long-haul-economy-rf 0.11704  + flight-long-haul-economy-wtt 0.02461  = 0.14165
+//            (great-circle ≥ 3,700 km)
+// Model: rail = d × 1.2 (detour) × 2 (round trip) × 0.03989; flight = d × 2 × (short | long)
 // (DESNZ's 8% routing uplift is already inside the flight factors).
 // Great-circle distances d were computed independently (Python, haversine, R = 6371 km).
 
@@ -32,110 +35,115 @@ const auto: EstimateOptions = { mode: 'auto', thresholdKm: DEFAULT_THRESHOLD_KM 
 
 describe('model constants', () => {
   it('match METHODOLOGY.md', () => {
-    expect(DEFAULT_THRESHOLD_KM).toBe(700);
+    expect(DEFAULT_THRESHOLD_KM).toBe(1000);
     expect(SHORT_HAUL_MAX_KM).toBe(3700);
     expect(RAIL_DETOUR_FACTOR).toBe(1.2);
   });
 });
 
 describe('estimateTrip golden values', () => {
-  it('Berlin → Paris by rail (auto, threshold above the 877 km distance)', () => {
+  it('Berlin → Paris is rail under the defaults (877 km < 1,000 km)', () => {
     // d = 877.4633 km < 1000 → rail
-    // 877.4633 × 1.2 × 2 × 0.03092 = 2105.912 × 0.03092 = 65.115 kg
-    const t = estimateTrip(BERLIN, PARIS, { mode: 'auto', thresholdKm: 1000 });
+    // 877.4633 × 1.2 × 2 × 0.03989 = 2105.912 × 0.03989 = 84.005 kg
+    const t = estimateTrip(BERLIN, PARIS, auto);
     expect(t.mode).toBe('rail');
     expect(t.factorId).toBe('rail-national');
     expect(t.roundTrip).toBe(true);
     expect(t.distanceKm).toBeCloseTo(877.4633, 3);
-    expect(t.kgCO2e).toBeCloseTo(65.115, 2);
+    expect(t.kgCO2e).toBeCloseTo(84.0048, 3);
   });
 
-  it('Berlin → Paris flies with the default 700 km threshold (877 km ≥ 700)', () => {
-    // 877.4633 × 2 × 0.12576 = 1754.9267 × 0.12576 = 220.700 kg
-    const t = estimateTrip(BERLIN, PARIS, auto);
+  it('Berlin → Paris flies when the user lowers the threshold to 700 km', () => {
+    // 877.4633 ≥ 700 → short-haul flight
+    // 877.4633 × 2 × 0.14825 = 1754.9267 × 0.14825 = 260.168 kg
+    const t = estimateTrip(BERLIN, PARIS, { mode: 'auto', thresholdKm: 700 });
     expect(t.mode).toBe('flight');
     expect(t.factorId).toBe('flight-short-haul-economy-rf');
-    expect(t.kgCO2e).toBeCloseTo(220.7, 1);
+    expect(t.kgCO2e).toBeCloseTo(260.1679, 3);
   });
 
   it('Berlin → Sydney is a long-haul flight', () => {
     // d = 16094.4999 km ≥ 3700 → long-haul
-    // 16094.4999 × 2 × 0.11704 = 32188.9999 × 0.11704 = 3767.401 kg
+    // 16094.4999 × 2 × 0.14165 = 32188.9999 × 0.14165 = 4559.572 kg
     const t = estimateTrip(BERLIN, SYDNEY, auto);
     expect(t.mode).toBe('flight');
     expect(t.factorId).toBe('flight-long-haul-economy-rf');
     expect(t.distanceKm).toBeCloseTo(16094.5, 1);
-    expect(t.kgCO2e).toBeCloseTo(3767.4, 1);
+    expect(t.kgCO2e).toBeCloseTo(4559.572, 2);
   });
 
-  it('just under the 700 km threshold → rail', () => {
-    // 699 × 1.2 × 2 × 0.03092 = 1677.6 × 0.03092 = 51.871 kg
-    const t = estimateTrip(ORIGIN, northOfNullIsland(699), auto);
-    expect(t.distanceKm).toBeCloseTo(699, 6);
+  it('just under the 1,000 km threshold → rail', () => {
+    // 999 × 1.2 × 2 × 0.03989 = 2397.6 × 0.03989 = 95.640 kg
+    const t = estimateTrip(ORIGIN, northOfNullIsland(999), auto);
+    expect(t.distanceKm).toBeCloseTo(999, 6);
     expect(t.mode).toBe('rail');
-    expect(t.kgCO2e).toBeCloseTo(51.8714, 3);
+    expect(t.kgCO2e).toBeCloseTo(95.6403, 3);
   });
 
-  it('just over the 700 km threshold → short-haul flight', () => {
-    // 701 × 2 × 0.12576 = 1402 × 0.12576 = 176.316 kg
-    const t = estimateTrip(ORIGIN, northOfNullIsland(701), auto);
+  it('just over the 1,000 km threshold → short-haul flight', () => {
+    // 1001 × 2 × 0.14825 = 2002 × 0.14825 = 296.797 kg
+    const t = estimateTrip(ORIGIN, northOfNullIsland(1001), auto);
     expect(t.mode).toBe('flight');
     expect(t.factorId).toBe('flight-short-haul-economy-rf');
-    expect(t.kgCO2e).toBeCloseTo(176.3155, 3);
+    expect(t.kgCO2e).toBeCloseTo(296.7965, 3);
   });
 
   it('exactly at the threshold → flight (rail only strictly below)', () => {
-    const p = northOfNullIsland(700);
+    const p = northOfNullIsland(1000);
     const t = estimateTrip(ORIGIN, p, { mode: 'auto', thresholdKm: haversineKm(ORIGIN, p) });
     expect(t.mode).toBe('flight');
   });
 
   it('switches haul band at 3,700 km', () => {
-    // 3699 × 2 × 0.12576 = 930.373 kg (short-haul)
+    // 3699 × 2 × 0.14825 = 7398 × 0.14825 = 1096.754 kg (short-haul)
     const short = estimateTrip(ORIGIN, northOfNullIsland(3699), auto);
     expect(short.factorId).toBe('flight-short-haul-economy-rf');
-    expect(short.kgCO2e).toBeCloseTo(930.3725, 3);
-    // 3701 × 2 × 0.11704 = 866.330 kg (long-haul)
+    expect(short.kgCO2e).toBeCloseTo(1096.7535, 3);
+    // 3701 × 2 × 0.14165 = 7402 × 0.14165 = 1048.493 kg (long-haul)
     const long = estimateTrip(ORIGIN, northOfNullIsland(3701), auto);
     expect(long.factorId).toBe('flight-long-haul-economy-rf');
-    expect(long.kgCO2e).toBeCloseTo(866.3301, 3);
+    expect(long.kgCO2e).toBeCloseTo(1048.4933, 3);
   });
 
   it('`fly` mode forces a flight on a short trip (Paris → London)', () => {
     // d = 343.5561 km; auto would pick rail:
-    //   343.5561 × 1.2 × 2 × 0.03092 = 25.495 kg
-    // fly: 343.5561 × 2 × 0.12576 = 86.411 kg
+    //   343.5561 × 1.2 × 2 × 0.03989 = 824.5346 × 0.03989 = 32.891 kg
+    // fly: 343.5561 × 2 × 0.14825 = 687.1122 × 0.14825 = 101.864 kg
     const railTrip = estimateTrip(PARIS, LONDON, auto);
     expect(railTrip.mode).toBe('rail');
-    expect(railTrip.kgCO2e).toBeCloseTo(25.4946, 3);
-    const flyTrip = estimateTrip(PARIS, LONDON, { mode: 'fly', thresholdKm: 700 });
+    expect(railTrip.kgCO2e).toBeCloseTo(32.8907, 3);
+    const flyTrip = estimateTrip(PARIS, LONDON, { mode: 'fly', thresholdKm: DEFAULT_THRESHOLD_KM });
     expect(flyTrip.mode).toBe('flight');
     expect(flyTrip.factorId).toBe('flight-short-haul-economy-rf');
-    expect(flyTrip.kgCO2e).toBeCloseTo(86.4112, 3);
+    expect(flyTrip.kgCO2e).toBeCloseTo(101.8644, 3);
   });
 });
 
 describe('estimateTrip override (detail-panel per-trip toggle)', () => {
   it('wins over auto in both directions', () => {
-    // Berlin → Paris, auto 700 would fly; override rail → 65.115 kg (see above)
-    const r = estimateTrip(BERLIN, PARIS, { ...auto, override: 'rail' });
-    expect(r.mode).toBe('rail');
-    expect(r.kgCO2e).toBeCloseTo(65.115, 2);
-    // Paris → London, auto would take rail; override flight → 86.411 kg
-    const f = estimateTrip(PARIS, LONDON, { ...auto, override: 'flight' });
+    // Berlin → Paris, auto 1,000 would take rail; override flight → 260.168 kg (see above)
+    const f = estimateTrip(BERLIN, PARIS, { ...auto, override: 'flight' });
     expect(f.mode).toBe('flight');
-    expect(f.kgCO2e).toBeCloseTo(86.4112, 3);
+    expect(f.kgCO2e).toBeCloseTo(260.1679, 3);
+    // Berlin → Paris, auto 700 would fly; override rail → 84.005 kg (see above)
+    const r = estimateTrip(BERLIN, PARIS, { mode: 'auto', thresholdKm: 700, override: 'rail' });
+    expect(r.mode).toBe('rail');
+    expect(r.kgCO2e).toBeCloseTo(84.0048, 3);
   });
 
   it('wins over `fly` mode', () => {
-    const r = estimateTrip(PARIS, LONDON, { mode: 'fly', thresholdKm: 700, override: 'rail' });
+    const r = estimateTrip(PARIS, LONDON, {
+      mode: 'fly',
+      thresholdKm: DEFAULT_THRESHOLD_KM,
+      override: 'rail',
+    });
     expect(r.mode).toBe('rail');
-    expect(r.kgCO2e).toBeCloseTo(25.4946, 3);
+    expect(r.kgCO2e).toBeCloseTo(32.8907, 3);
   });
 
   it('does not change the reported great-circle distance', () => {
     const a = estimateTrip(BERLIN, PARIS, auto);
-    const b = estimateTrip(BERLIN, PARIS, { ...auto, override: 'rail' });
+    const b = estimateTrip(BERLIN, PARIS, { ...auto, override: 'flight' });
     expect(b.distanceKm).toBe(a.distanceKm);
   });
 });

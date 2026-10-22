@@ -8,10 +8,13 @@ export type TripEstimate = {
   mode: TravelMode;
   /** One-way great-circle distance, km (what the UI shows). */
   distanceKm: number;
-  /** Round-trip estimate, kg CO2e. */
+  /** Round-trip estimate, kg CO2e: direct (RF included for flights) + well-to-tank. */
   kgCO2e: number;
   roundTrip: true;
-  /** Key into data/co2-factors.json `factors`. */
+  /**
+   * Key into data/co2-factors.json `factors`: the direct factor. Its well-to-tank counterpart,
+   * `WTT_FACTOR_IDS[factorId]`, is added too.
+   */
   factorId: string;
 };
 
@@ -23,7 +26,7 @@ export type EstimateOptions = {
 };
 
 /** Default `auto` threshold: rail below this great-circle distance, flight at or above. */
-export const DEFAULT_THRESHOLD_KM = 700;
+export const DEFAULT_THRESHOLD_KM = 1000;
 
 /**
  * Great-circle distance at which flights switch from the DESNZ short-haul to the long-haul
@@ -42,6 +45,13 @@ export const RAIL_FACTOR_ID = 'rail-national';
 export const SHORT_HAUL_FACTOR_ID = 'flight-short-haul-economy-rf';
 export const LONG_HAUL_FACTOR_ID = 'flight-long-haul-economy-rf';
 
+/** Well-to-tank factor (fuel extraction, refining, transport) added to each direct factor. */
+export const WTT_FACTOR_IDS: Record<string, string> = {
+  [RAIL_FACTOR_ID]: 'rail-national-wtt',
+  [SHORT_HAUL_FACTOR_ID]: 'flight-short-haul-economy-wtt',
+  [LONG_HAUL_FACTOR_ID]: 'flight-long-haul-economy-wtt',
+};
+
 export const CO2_FACTORS_SOURCE = factorsData.source;
 
 const factors: Record<string, { value: number }> = factorsData.factors;
@@ -52,7 +62,15 @@ function factorValue(id: string): number {
   return f.value;
 }
 
-/** Order-of-magnitude round-trip estimate for one traveller, economy class, RF included. */
+/** kg CO2e per passenger.km: direct factor + its well-to-tank counterpart. */
+function totalPerPkm(directId: string): number {
+  return factorValue(directId) + factorValue(WTT_FACTOR_IDS[directId]);
+}
+
+/**
+ * Order-of-magnitude round-trip estimate for one traveller, economy class, RF and well-to-tank
+ * included.
+ */
 export function estimateTrip(from: LatLng, to: LatLng, opts: EstimateOptions): TripEstimate {
   const distanceKm = haversineKm(from, to);
   const mode: TravelMode =
@@ -60,11 +78,11 @@ export function estimateTrip(from: LatLng, to: LatLng, opts: EstimateOptions): T
 
   if (mode === 'rail') {
     const factorId = RAIL_FACTOR_ID;
-    const kgCO2e = distanceKm * RAIL_DETOUR_FACTOR * 2 * factorValue(factorId);
+    const kgCO2e = distanceKm * RAIL_DETOUR_FACTOR * 2 * totalPerPkm(factorId);
     return { mode, distanceKm, kgCO2e, roundTrip: true, factorId };
   }
   const factorId = distanceKm < SHORT_HAUL_MAX_KM ? SHORT_HAUL_FACTOR_ID : LONG_HAUL_FACTOR_ID;
-  const kgCO2e = distanceKm * 2 * factorValue(factorId);
+  const kgCO2e = distanceKm * 2 * totalPerPkm(factorId);
   return { mode, distanceKm, kgCO2e, roundTrip: true, factorId };
 }
 

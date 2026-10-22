@@ -203,10 +203,11 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
   back to car routes.)
 - **Distance:** great-circle (haversine) between home and location.
 - **Mode (global setting):** `auto` = rail if distance < threshold, else flight; or `always fly`.
-  Threshold default **700 km**, user-changeable. Per-trip toggle exists only in the detail panel and
+  Threshold default **1,000 km**, user-changeable. Per-trip toggle exists only in the detail panel and
   never affects filtering.
 - **Flights:** economy class, **radiative forcing included** (labeled), DESNZ haul band chosen by
   distance, plus routing uplift per DESNZ guidance.
+- **Well-to-tank emissions included** for all modes (DESNZ WTT factors added to the direct ones).
 - **Round trip:** always.
 - Mode is shown on every figure: "~50 kg 🚆", "~1.4 t ✈️".
 - Exact factor rows, haul thresholds, routing uplift and any rail detour factor are chosen and

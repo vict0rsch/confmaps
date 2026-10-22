@@ -6,6 +6,9 @@ describe('formatCo2', () => {
     expect(formatCo2(49.7)).toBe('~50 kg');
     expect(formatCo2(65.115)).toBe('~65 kg');
     expect(formatCo2(220.7)).toBe('~220 kg');
+    expect(formatCo2(84.0048)).toBe('~84 kg'); // golden: Berlin → Paris rail
+    expect(formatCo2(260.1679)).toBe('~260 kg'); // golden: Berlin → Paris flight
+    expect(formatCo2(101.8644)).toBe('~100 kg'); // golden: Paris → London flight
     expect(formatCo2(5.25)).toBe('~5.3 kg');
     expect(formatCo2(0)).toBe('~0 kg');
   });
@@ -15,6 +18,7 @@ describe('formatCo2', () => {
     expect(formatCo2(996)).toBe('~1.0 t'); // 996 → 1000 at 2 s.f.
     expect(formatCo2(1400)).toBe('~1.4 t');
     expect(formatCo2(3767.4)).toBe('~3.8 t');
+    expect(formatCo2(4559.572)).toBe('~4.6 t'); // golden: Berlin → Sydney flight
     expect(formatCo2(16_349)).toBe('~16 t');
     expect(formatCo2(123_456)).toBe('~120 t');
   });
@@ -54,7 +58,10 @@ describe('modeIcon', () => {
 
 describe('compareTrips', () => {
   it('phrases scale differences', () => {
-    // Berlin→Paris rail 65.115 kg vs Berlin→Sydney flight 3767.4 kg: 57.86 → "58×"
+    // Current golden values: Berlin→Paris rail 84.0048 kg vs Berlin→Sydney flight 4559.572 kg:
+    // 4559.572 / 84.0048 = 54.28 → "54×"
+    expect(compareTrips({ kgCO2e: 84.0048 }, { kgCO2e: 4559.572 })).toBe('roughly 54× less');
+    // Direct-only figures (before WTT was added): 3767.4 / 65.115 = 57.86 → "58×"
     expect(compareTrips({ kgCO2e: 65.115 }, { kgCO2e: 3767.4 })).toBe('roughly 58× less');
     expect(compareTrips({ kgCO2e: 3767.4 }, { kgCO2e: 65.115 })).toBe('roughly 58× more');
     expect(compareTrips({ kgCO2e: 100 }, { kgCO2e: 2500 })).toBe('roughly 25× less');

@@ -15,6 +15,9 @@ const EXPECTED: Record<string, number> = {
   'flight-domestic-average-no-rf': 0.13552,
   'rail-national': 0.03092,
   'rail-international': 0.01135,
+  'flight-short-haul-economy-wtt': 0.02249,
+  'flight-long-haul-economy-wtt': 0.02461,
+  'rail-national-wtt': 0.00897,
 };
 
 describe('data/co2-factors.json', () => {
@@ -37,8 +40,11 @@ describe('data/co2-factors.json', () => {
       .sort();
     expect(used).toEqual([
       'flight-long-haul-economy-rf',
+      'flight-long-haul-economy-wtt',
       'flight-short-haul-economy-rf',
+      'flight-short-haul-economy-wtt',
       'rail-national',
+      'rail-national-wtt',
     ]);
   });
 });

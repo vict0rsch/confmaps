@@ -1,5 +1,5 @@
 {
-  "$comment": "Extracted from the official DESNZ flat file; every value, ID and label was checked by script against the flat file row and the full-set cell given. Updated yearly; see METHODOLOGY.md > Update procedure. Changing any value must also update src/lib/co2/factors.test.ts.",
+  "$comment": "Extracted from the official DESNZ flat file; every value, ID and label was checked by script against the flat file row and the full-set cell given. The model adds each direct factor and its well-to-tank (WTT) counterpart (the *-wtt entries). Updated yearly; see METHODOLOGY.md > Update procedure. Changing any value must also update src/lib/co2/factors.test.ts.",
   "source": {
     "publisher": "UK Department for Energy Security and Net Zero (DESNZ)",
     "title": "Greenhouse gas reporting: conversion factors 2026",
@@ -174,6 +174,66 @@
         "ghgUnit": "kg CO2e"
       },
       "fullSet": { "sheet": "Business travel- land", "cell": "D88" }
+    },
+    "flight-short-haul-economy-wtt": {
+      "mode": "flight",
+      "usedByDefault": true,
+      "radiativeForcing": null,
+      "wellToTank": true,
+      "value": 0.02249,
+      "flatFile": {
+        "id": "22_912_3164_11_1",
+        "row": 4526,
+        "labels": [
+          "WTT- business travel- air",
+          "WTT- flights",
+          "Short-haul, to/from UK",
+          "Economy class"
+        ],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "WTT- business travel- air", "cell": "E22" },
+      "note": "DESNZ publishes identical With RF / Without RF WTT air values ('WTT- business travel- air' sheet guidance: 'the indirect effects do not change the emissions'). The With RF row is recorded to pair with the With RF direct factor."
+    },
+    "flight-long-haul-economy-wtt": {
+      "mode": "flight",
+      "usedByDefault": true,
+      "radiativeForcing": null,
+      "wellToTank": true,
+      "value": 0.02461,
+      "flatFile": {
+        "id": "22_912_3170_11_1",
+        "row": 4532,
+        "labels": [
+          "WTT- business travel- air",
+          "WTT- flights",
+          "Long-haul, to/from UK",
+          "Economy class"
+        ],
+        "columnText": "With RF",
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "WTT- business travel- air", "cell": "E25" },
+      "note": "DESNZ publishes identical With RF / Without RF WTT air values ('WTT- business travel- air' sheet guidance: 'the indirect effects do not change the emissions'). The With RF row is recorded to pair with the With RF direct factor."
+    },
+    "rail-national-wtt": {
+      "mode": "rail",
+      "usedByDefault": true,
+      "radiativeForcing": null,
+      "wellToTank": true,
+      "value": 0.00897,
+      "flatFile": {
+        "id": "26_911_3147_11_1",
+        "row": 5701,
+        "labels": ["WTT- pass vehs & travel- land", "WTT- rail", "National rail"],
+        "columnText": null,
+        "uom": "passenger.km",
+        "ghgUnit": "kg CO2e"
+      },
+      "fullSet": { "sheet": "WTT- pass vehs & travel- land", "cell": "D84" }
     }
   }
 }

@@ -16,11 +16,15 @@ rounded to two significant figures and shown with a `~`.
 - The method follows the accompanying _2026 methodology paper_ (cited below as "DESNZ §x.y").
 - Everything runs in your browser from that static file. No API is called.
 
-| Used for           | DESNZ row (sheet _Business travel- air_ / _- land_)        | kg CO₂e per passenger.km |
-| ------------------ | ---------------------------------------------------------- | ------------------------ |
-| Flights < 3,700 km | Flights › Short-haul, to/from UK › Economy class › With RF | 0.12576                  |
-| Flights ≥ 3,700 km | Flights › Long-haul, to/from UK › Economy class › With RF  | 0.11704                  |
-| Rail               | Rail › National rail                                       | 0.03092                  |
+Each mode adds two DESNZ rows: the direct factor (sheets _Business travel- air_ / _- land_)
+and its well-to-tank (WTT) counterpart (sheets _WTT- business travel- air_ / _WTT- pass vehs &
+travel- land_), with the same row labels. Values in kg CO₂e per passenger.km:
+
+| Used for           | DESNZ row (direct and WTT)                      | Direct (RF incl.) | WTT     | Total   |
+| ------------------ | ----------------------------------------------- | ----------------- | ------- | ------- |
+| Flights < 3,700 km | Flights › Short-haul, to/from UK › Economy › RF | 0.12576           | 0.02249 | 0.14825 |
+| Flights ≥ 3,700 km | Flights › Long-haul, to/from UK › Economy › RF  | 0.11704           | 0.02461 | 0.14165 |
+| Rail               | Rail › National rail                            | 0.03092           | 0.00897 | 0.03989 |
 
 The file also keeps a few rows for reference that the model does not use: the without-RF
 versions of the flight factors, _International, to/from non-UK_ (economy), _Domestic, to/from
@@ -36,22 +40,38 @@ UK_ (average passenger) and _International rail_ (Eurostar).
   component (a 1.7 multiplier, DESNZ §8.42–8.43, after Lee et al. 2021). DESNZ recommends
   including these effects to capture the full climate impact of air travel, while noting large
   scientific uncertainty about their size (DESNZ §8.39–8.44 and the _Business travel- air_ sheet
-  guidance). Without RF, flight figures would be about 40% lower.
-- **Direct emissions only.** The _Business travel_ factors cover fuel burnt or electricity
-  used. Well-to-tank (fuel production) emissions are a separate DESNZ table and are not added
-  (see limitations).
+  guidance). Without RF (and with WTT), flight figures would be about a third lower
+  (0.07435 + 0.02249 = 0.09684 short-haul, 0.06926 + 0.02461 = 0.09387 long-haul).
+- **Well-to-tank (WTT) emissions included.** The _Business travel_ factors cover only the
+  fuel burnt (or electricity used) during the trip. WTT factors cover the upstream emissions of
+  getting that energy there: "extraction, refining and transportation" of the fuel (DESNZ
+  _WTT_ sheet descriptions). These emissions happen because of the trip, so leaving them out
+  would undercount every mode. DESNZ publishes them as a separate Scope 3 table to be added to
+  the direct figure. They raise short-haul flights by about 18% (0.02249 on 0.12576),
+  long-haul by about 21% (0.02461 on 0.11704) and national rail by about 29% (0.00897 on
+  0.03092). Rail rises more in relative terms but stays far below flying: per passenger.km,
+  short-haul flying goes from about 4.1× to 3.7× rail.
+- **RF and WTT pairing.** DESNZ's WTT air table also has "With RF" and "Without RF" columns,
+  but their values are identical: "for WTT- business travel- air the indirect effects do not
+  change the emissions" (_WTT- business travel- air_ sheet guidance), since non-CO₂ effects
+  occur at altitude, not during fuel production. We record the "With RF" rows, matching the
+  direct factors, so the pairing is consistent if DESNZ ever makes them differ.
 
 ## Mode selection
 
 - **Auto (default):** rail if the great-circle distance is under the threshold, flight
-  otherwise. The threshold defaults to **700 km** and can be changed in settings. A trip exactly
-  at the threshold counts as a flight.
+  otherwise. The threshold defaults to **1,000 km** and can be changed in settings. A trip
+  exactly at the threshold counts as a flight.
 - **Always fly:** every trip is a flight. This is useful where rail is not a realistic option.
 - **Per-trip toggle:** in a conference's detail panel you can switch one trip between rail and
   flight. It changes only that figure. Filters always use the global setting.
 
-With the default 700 km threshold, Berlin → Paris (~880 km) counts as a flight. Raise the
-threshold to about 1,000 km to compare it by train.
+**Why 1,000 km.** Within Europe, trips up to about 1,000 km great-circle (about 1,200 km of
+track with our detour factor) are ones many people reasonably take by train: a long day on
+high-speed and intercity lines, or one night on a sleeper. Examples: Paris → Berlin (~880 km),
+Paris → Barcelona (~830 km), London → Berlin (~930 km), Amsterdam → Vienna (~940 km). Beyond
+that, flying is the usual choice. Where trains are slower or rarer, lower the threshold in
+settings. Where people do take long train trips, raise it.
 
 ## Distances and uplifts
 
@@ -65,12 +85,14 @@ threshold to about 1,000 km to compare it by train.
   run up to 3,300 km for short-haul and start at 5,500 km for long-haul (illustrative distances
   table under DESNZ §8.9).
   Short flights emit more per km (take-off and landing weigh more), and banding by distance
-  keeps that difference. At 3,700 km the figure drops by about 7% because the factor changes.
+  keeps that difference. At 3,700 km the figure drops by about 4% because the factor changes
+  (0.14825 → 0.14165 with WTT).
 - **Why not "International, to/from non-UK"?** DESNZ offers this factor for flights between
   two non-UK airports (DESNZ §8.10), so it might seem to fit most of our users. But it blends
   short-haul and long-haul flights into one average (DESNZ footnote 24), with no distance
-  dependence. Its economy value with RF (0.10916) is 7–13% below the two banded factors we use,
-  so our choice slightly overestimates, which is negligible at order-of-magnitude precision.
+  dependence. Its economy value with RF plus WTT (0.10916 + 0.01656 = 0.12572) is 11–15% below
+  the two banded totals we use, so our choice slightly overestimates, which is negligible at
+  order-of-magnitude precision.
   The value is kept in the data file for comparison.
 - **Domestic band not used.** DESNZ's domestic factor (0.22928, average passenger) covers
   flights within the UK only, and DESNZ gives no distance threshold for it. Very short flights
@@ -101,21 +123,22 @@ threshold to about 1,000 km to compare it by train.
 
 ```
 d       = great-circle distance home → event (km)
-rail    = d × 1.2 × 2 × 0.03092                         kg CO₂e
-flight  = d × 2 × (d < 3700 ? 0.12576 : 0.11704)        kg CO₂e
+rail    = d × 1.2 × 2 × (0.03092 + 0.00897)             kg CO₂e   (= 0.03989)
+flight  = d < 3700 ? d × 2 × (0.12576 + 0.02249)        kg CO₂e   (= 0.14825, short-haul)
+                   : d × 2 × (0.11704 + 0.02461)        kg CO₂e   (= 0.14165, long-haul)
 ```
 
 Worked examples (these are the golden tests in `src/lib/co2/model.test.ts`):
 
-| Trip            | Mode                                | d (km) | Estimate                                          |
-| --------------- | ----------------------------------- | ------ | ------------------------------------------------- |
-| Berlin → Paris  | rail (threshold raised to 1,000 km) | 877    | 877.46 × 1.2 × 2 × 0.03092 = 65.1 → **~65 kg 🚆** |
-| Berlin → Paris  | flight (default 700 km)             | 877    | 877.46 × 2 × 0.12576 = 220.7 → **~220 kg ✈️**     |
-| Berlin → Sydney | flight, long-haul                   | 16,094 | 16,094.5 × 2 × 0.11704 = 3,767 → **~3.8 t ✈️**    |
-| Paris → London  | rail (auto)                         | 344    | 343.56 × 1.2 × 2 × 0.03092 = 25.5 → **~25 kg 🚆** |
-| Paris → London  | flight ("always fly")               | 344    | 343.56 × 2 × 0.12576 = 86.4 → **~86 kg ✈️**       |
+| Trip            | Mode                              | d (km) | Estimate                                          |
+| --------------- | --------------------------------- | ------ | ------------------------------------------------- |
+| Berlin → Paris  | rail (auto, default 1,000 km)     | 877    | 877.46 × 1.2 × 2 × 0.03989 = 84.0 → **~84 kg 🚆** |
+| Berlin → Paris  | flight (threshold lowered to 700) | 877    | 877.46 × 2 × 0.14825 = 260.2 → **~260 kg ✈️**     |
+| Berlin → Sydney | flight, long-haul                 | 16,094 | 16,094.5 × 2 × 0.14165 = 4,560 → **~4.6 t ✈️**    |
+| Paris → London  | rail (auto)                       | 344    | 343.56 × 1.2 × 2 × 0.03989 = 32.9 → **~33 kg 🚆** |
+| Paris → London  | flight ("always fly")             | 344    | 343.56 × 2 × 0.14825 = 101.9 → **~100 kg ✈️**     |
 
-Paris by train is therefore roughly 58× less than flying to Sydney.
+From Berlin, Paris by train is therefore roughly 54× less than flying to Sydney.
 
 ## Assumptions and limitations
 
@@ -130,9 +153,6 @@ Paris by train is therefore roughly 58× less than flying to Sydney.
   toggle where that is wrong.
 - **Average aircraft, load factors and fleets** are those of UK-registered airlines in 2023
   (DESNZ §8.7), and the rail averages are British. Other airlines and countries differ.
-- **Well-to-tank emissions are excluded.** Adding DESNZ's WTT factors would raise flights by
-  about 18–21% and national rail by about 29% (2026 WTT economy: 0.02249 / 0.02461 per
-  passenger.km for short- and long-haul; 0.00897 for national rail).
 - **RF uncertainty.** The 70% non-CO₂ uplift is a simplified, uncertain multiplier applied
   equally to all flights (DESNZ §8.43–8.44).
 - **One traveller, economy, round trip.** Premium cabins, one-way trips or groups scale the
@@ -160,7 +180,8 @@ DESNZ publishes new factors each June (the next set is due June 2027).
    page.
 3. Read the "major changes" report and the air and rail sections of the methodology paper.
    Check that the 8% uplift is still built into the factors, that RF is still a separate column
-   and that the haul and rail definitions have not changed. Update this document if they have.
+   (and that the WTT air "With RF" / "Without RF" values are still identical) and that the haul
+   and rail definitions have not changed. Update this document if they have.
 4. Run `pnpm test`. `src/lib/co2/factors.test.ts` **will fail on purpose**. Update its frozen
    table, recompute the golden values in `src/lib/co2/model.test.ts` by hand (keep the
    arithmetic in the comments) and update the worked examples above.
