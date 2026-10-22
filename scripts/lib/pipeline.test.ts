@@ -163,3 +163,78 @@ it('reports conferences whose dates cannot be determined', async () => {
   });
   expect(r.errors).toEqual([expect.stringContaining('conference beta25: no start/end')]);
 });
+
+describe('deadline overrides, stale overrides, series', () => {
+  it('replace (or drop) a conference deadline list from its @main override', async () => {
+    const r = await build({
+      overrides: {
+        'alpha25@main': { deadlines: [] },
+        'beta25@main': {
+          deadlines: [
+            { type: 'paper', label: 'Paper', date: '2024-10-01 23:59:59', timezone: 'AoE' },
+          ],
+        },
+      },
+    });
+    expect(r.errors).toEqual([]);
+    expect(r.conferences.find((c) => c.id === 'alpha25')?.deadlines).toEqual([]);
+    expect(r.conferences.find((c) => c.id === 'beta25')?.deadlines).toEqual([
+      { type: 'paper', label: 'Paper', date: '2024-10-02T11:59:59Z', timezone: 'AoE' },
+    ]);
+  });
+
+  it('reject deadlines on a satellite override and bad deadline timezones', async () => {
+    const r = await build({
+      overrides: {
+        'alpha25-copenhagen': { deadlines: [] },
+        'alpha25@main': {
+          deadlines: [{ type: 'paper', date: '2025-01-01 00:00:00', timezone: 'Moon' }],
+        },
+      },
+    });
+    expect(r.errors).toEqual([
+      'overrides.yml: alpha25-copenhagen: "deadlines" is only allowed on a "…@main" location',
+      'overrides.yml: alpha25@main: deadline "paper": unknown timezone "Moon"',
+    ]);
+  });
+
+  it('warn about override fields that already equal the computed value', async () => {
+    const r = await build({
+      overrides: {
+        'alpha25@main': { venue: 'Messe Wien', city: 'Vienna', notes: 'new' },
+        'alpha25-copenhagen': { access: 'open' },
+      },
+    });
+    expect(r.warnings).toEqual([
+      'overrides.yml: alpha25@main: venue, city already equal the computed value (stale override?)',
+      'overrides.yml: alpha25-copenhagen: access already equal the computed value (stale override?)',
+    ]);
+    // Archive-only records already carry their overrides: no false "stale" warning.
+    const archive = mergeArchiveFiles(r.archive);
+    const later = await build({
+      upstream: [],
+      satellites: [],
+      archive,
+      overrides: { 'alpha25@main': { notes: 'new' } },
+    });
+    expect(later.warnings).toEqual([]);
+  });
+
+  it('recomputes the series of archived conferences (alias changes reach old editions)', async () => {
+    const archive = mergeArchiveFiles((await build()).archive);
+    archive.conferences = archive.conferences.map((c) => ({ ...c, series: 'old-key' }));
+    const r = await build({ upstream: [], satellites: [], archive });
+    expect(r.conferences.map((c) => c.series)).toEqual(['alpha', 'beta-conf-industry-track']);
+  });
+
+  it('reports geocoder warnings with the location id', async () => {
+    const cache = geocache();
+    delete cache['paris|france'];
+    const r = await build({
+      geocache: cache,
+      geocoder: async () => ({ lat: 48.8, lng: 2.3, display_name: 'Paris', warning: 'doubtful' }),
+    });
+    expect(r.warnings).toEqual(['alpha26@main: geocoding "paris|france": doubtful']);
+    expect(cache['paris|france']).toEqual({ lat: 48.8, lng: 2.3, display_name: 'Paris' });
+  });
+});

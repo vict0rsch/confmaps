@@ -17,6 +17,7 @@ import {
   canonicalizeCountries,
   normalizeUpstream,
   satelliteToLocation,
+  seriesOf,
   type PendingLocation,
 } from './normalize';
 
@@ -60,7 +61,11 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
   // Current records win over archived ones; archived ones are kept when upstream drops them.
   const conferences = new Map<string, Conference>();
   for (const c of inp.archive.conferences) {
-    conferences.set(c.id, { ...c, source: c.source === 'hf' ? 'archive' : c.source });
+    conferences.set(c.id, {
+      ...c,
+      series: seriesOf(c.title), // so series alias changes reach archived editions too
+      source: c.source === 'hf' ? 'archive' : c.source,
+    });
   }
   for (const c of norm.conferences) conferences.set(c.id, c);
 
@@ -73,8 +78,11 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
   }
   for (const l of norm.locations) locations.set(l.id, l);
   for (const s of inp.satellites) locations.set(s.id, satelliteToLocation(s));
+  const fresh = new Set([...norm.locations.map((l) => l.id), ...inp.satellites.map((s) => s.id)]);
 
-  errors.push(...applyOverrides(conferences, locations, inp.overrides));
+  const applied = applyOverrides(conferences, locations, inp.overrides, fresh);
+  errors.push(...applied.errors);
+  warnings.push(...applied.warnings);
   errors.push(...canonicalizeCountries(locations.values()));
 
   for (const c of conferences.values()) {
@@ -83,14 +91,17 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
         `conference ${c.id}: no start/end upstream and its free-text date could not be parsed; ` +
           `add start/end under "${c.id}@main" in data/overrides.yml`,
       );
-    } else if (Number(c.start.slice(0, 4)) !== c.year) {
-      warnings.push(`conference ${c.id}: year ${c.year} but starts ${c.start} (upstream typo?)`);
     }
   }
 
-  errors.push(
-    ...(await resolveCoordinates([...locations.values()], inp.geocache, inp.geocoder, inp.log)),
+  const geo = await resolveCoordinates(
+    [...locations.values()],
+    inp.geocache,
+    inp.geocoder,
+    inp.log,
   );
+  errors.push(...geo.errors);
+  warnings.push(...geo.warnings);
 
   const confList = [...conferences.values()].sort(byId);
   const locList = [...locations.values()].sort(byId) as EventLocation[];

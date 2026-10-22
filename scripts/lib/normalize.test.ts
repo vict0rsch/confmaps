@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { UPSTREAM_DIR } from '../__fixtures__';
-import { normalizeUpstream, parseDateText, seriesKey } from './normalize';
+import { normalizeUpstream, parseDateText, seriesKey, seriesOf } from './normalize';
 import { readUpstreamDir } from './upstream';
 
 describe('seriesKey', () => {
@@ -12,6 +12,15 @@ describe('seriesKey', () => {
     ['RuleML+RR', 'ruleml-rr'],
     ['Béta', 'beta'],
   ])('%s → %s', (title, key) => expect(seriesKey(title)).toBe(key));
+});
+
+describe('seriesOf', () => {
+  it.each([
+    ['EMNLP', 'emnlp'],
+    ['EMNLP (Industry Track)', 'emnlp'],
+    ['EMNLP (System Demonstrations Track)', 'emnlp'],
+    ['Béta Conf (Industry Track)', 'beta-conf-industry-track'], // no alias: stays separate
+  ])('%s → %s', (title, series) => expect(seriesOf(title)).toBe(series));
 });
 
 describe('parseDateText', () => {

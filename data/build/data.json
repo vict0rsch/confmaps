@@ -2140,7 +2140,7 @@
       "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (Industry Track)",
       "id": "emnlp25ind",
       "link": "https://2025.emnlp.org/",
-      "series": "emnlp-industry-track",
+      "series": "emnlp",
       "source": "hf",
       "start": "2025-11-05",
       "tags": [
@@ -2174,7 +2174,7 @@
       "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (System Demonstrations Track)",
       "id": "emnlp25sys",
       "link": "https://2025.emnlp.org/",
-      "series": "emnlp-system-demonstrations-track",
+      "series": "emnlp",
       "source": "hf",
       "start": "2025-11-05",
       "tags": [
@@ -2260,7 +2260,7 @@
       "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (Industry Track)",
       "id": "emnlp26ind",
       "link": "https://2026.emnlp.org/",
-      "series": "emnlp-industry-track",
+      "series": "emnlp",
       "source": "hf",
       "start": "2026-10-24",
       "tags": [
@@ -2294,7 +2294,7 @@
       "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (System Demonstrations Track)",
       "id": "emnlp26sys",
       "link": "https://2026.emnlp.org/",
-      "series": "emnlp-system-demonstrations-track",
+      "series": "emnlp",
       "source": "hf",
       "start": "2026-10-24",
       "tags": [
@@ -2788,14 +2788,7 @@
       "year": 2026
     },
     {
-      "deadlines": [
-        {
-          "date": "2025-09-18T06:59:59Z",
-          "label": "Paper Submission",
-          "timezone": "GMT+02",
-          "type": "submission"
-        }
-      ],
+      "deadlines": [],
       "end": "2025-04-11",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp25",
@@ -2894,25 +2887,25 @@
           "type": "abstract"
         },
         {
-          "date": "2025-03-15T07:59:59Z",
+          "date": "2025-03-15T06:59:59Z",
           "label": "Paper submission",
           "timezone": "PST",
           "type": "paper"
         },
         {
-          "date": "2025-03-20T07:59:59Z",
+          "date": "2025-03-20T06:59:59Z",
           "label": "Supplementary materials",
           "timezone": "PST",
           "type": "supplementary"
         },
         {
-          "date": "2025-06-07T07:59:59Z",
+          "date": "2025-06-07T06:59:59Z",
           "label": "Acceptance notification",
           "timezone": "PST",
           "type": "notification"
         },
         {
-          "date": "2025-06-28T07:59:59Z",
+          "date": "2025-06-28T06:59:59Z",
           "label": "Camera-ready deadline",
           "timezone": "PST",
           "type": "camera_ready"
@@ -3359,7 +3352,7 @@
     {
       "deadlines": [
         {
-          "date": "2024-09-16T07:59:59Z",
+          "date": "2024-09-16T06:59:59Z",
           "label": "Paper Submission",
           "timezone": "PST",
           "type": "submission"
@@ -3383,7 +3376,7 @@
     {
       "deadlines": [
         {
-          "date": "2025-09-16T07:59:59Z",
+          "date": "2025-09-16T06:59:59Z",
           "label": "Paper Submission",
           "timezone": "PST",
           "type": "submission"
@@ -3418,7 +3411,7 @@
     {
       "deadlines": [
         {
-          "date": "2026-09-16T07:59:59Z",
+          "date": "2026-09-16T06:59:59Z",
           "label": "Paper Submission",
           "timezone": "PST",
           "type": "submission"
@@ -5451,7 +5444,7 @@
       "year": 2027
     }
   ],
-  "generatedAt": "2026-10-22T19:45:17.904Z",
+  "generatedAt": "2026-10-22T20:14:33.348Z",
   "locations": [
     {
       "access": "registration",
@@ -6066,9 +6059,9 @@
       "country": "United States",
       "end": "2025-03-27",
       "id": "cpal25@main",
-      "lat": 37.4265407,
+      "lat": 37.427467,
       "link": "https://cpal.cc/",
-      "lng": -122.1703055,
+      "lng": -122.1702445,
       "name": "CPAL 2025",
       "official": true,
       "presentsPapers": true,
@@ -6202,9 +6195,9 @@
       "country": "Italy",
       "end": "2025-04-10",
       "id": "ecir25@main",
-      "lat": 44.0177639,
+      "lat": 43.8428381,
       "link": "https://ecir2025.eu/",
-      "lng": 10.45443,
+      "lng": 10.502876,
       "name": "ECIR 2025",
       "official": true,
       "presentsPapers": true,
@@ -6457,9 +6450,9 @@
       "country": "Italy",
       "end": "2027-05-14",
       "id": "eurographics27@main",
-      "lat": 44.0177639,
+      "lat": 43.8428381,
       "link": "https://eg2027.isti.cnr.it/",
-      "lng": 10.45443,
+      "lng": 10.502876,
       "name": "Eurographics 2027",
       "official": true,
       "presentsPapers": true,
@@ -7059,9 +7052,9 @@
       "country": "South Korea",
       "end": "2026-08-13",
       "id": "kdd26@main",
-      "lat": 33.4887737,
+      "lat": 33.4998289,
       "link": "https://kdd2026.kdd.org/",
-      "lng": 126.4987083,
+      "lng": 126.5313902,
       "name": "KDD 2026",
       "official": true,
       "presentsPapers": true,
@@ -7076,9 +7069,9 @@
       "country": "China",
       "end": "2025-08-07",
       "id": "ksem25@main",
-      "lat": 22.1757605,
+      "lat": 22.1899448,
       "link": "https://ksem2025.scimeeting.cn/",
-      "lng": 113.5514142,
+      "lng": 113.5380454,
       "name": "KSEM 2025",
       "official": true,
       "presentsPapers": true,
@@ -7187,17 +7180,17 @@
       "start": "2027-06-01"
     },
     {
-      "access": "authors_only",
+      "access": "registration",
       "city": "Mexico City",
       "conferenceId": "neurips25",
       "country": "Mexico",
       "end": "2025-12-05",
       "id": "neurips25-mexico-city",
-      "lat": 19.3207722,
+      "lat": 19.4326296,
       "link": "https://nips.cc/Conferences/2025/MXCityRegistrationDetails",
-      "lng": -99.1514677,
+      "lng": -99.1331785,
       "name": "NeurIPS 2025 Mexico City",
-      "notes": "Second official NeurIPS location (pilot), ~500 attendees. Registration reserved for authors of accepted papers, organizers and presenters; general public restricted.",
+      "notes": "Second official NeurIPS location (pilot), capacity ~500 attendees. Registration for the general public was restricted; a portion of spaces was reserved for authors of accepted papers, conference chairs, organizers and other presenters.",
       "official": true,
       "presentsPapers": true,
       "role": "satellite",
@@ -7615,9 +7608,9 @@
       "country": "United Arab Emirates",
       "end": "2026-04-17",
       "id": "www26@main",
-      "lat": 25.0742823,
+      "lat": 25.2647227,
       "link": "https://www2026.thewebconf.org/",
-      "lng": 55.1885624,
+      "lng": 55.2924146,
       "name": "WWW 2026",
       "official": true,
       "presentsPapers": true,
@@ -7641,5 +7634,9 @@
       "role": "main",
       "start": "2027-05-10"
     }
-  ]
+  ],
+  "upstream": {
+    "repo": "huggingface/ai-deadlines",
+    "sha": "f9642a13bf765a05c627b35586f852602d2dd022"
+  }
 }

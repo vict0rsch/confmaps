@@ -7,11 +7,13 @@ import { parse } from 'yaml';
 import { UpstreamConferenceSchema, type UpstreamConference } from '../schema';
 
 export const UPSTREAM_REPO = 'https://github.com/huggingface/ai-deadlines.git';
+/** `repo` recorded in data.json's `upstream` provenance. */
+export const UPSTREAM_NAME = 'huggingface/ai-deadlines';
 export const UPSTREAM_BRANCH = 'main';
 export const UPSTREAM_PATH = 'src/data/conferences';
 
-/** Shallow sparse clone into a temp dir (nothing is committed). Returns the checkout root. */
-export function fetchUpstream(): { dir: string; cleanup: () => void } {
+/** Shallow sparse clone into a temp dir (nothing is committed). Returns the checkout root and commit. */
+export function fetchUpstream(): { dir: string; sha: string; cleanup: () => void } {
   const dir = mkdtempSync(join(tmpdir(), 'ai-deadlines-'));
   const git = (...args: string[]) =>
     execFileSync('git', args, { stdio: ['ignore', 'ignore', 'inherit'] });
@@ -26,7 +28,8 @@ export function fetchUpstream(): { dir: string; cleanup: () => void } {
     dir,
   );
   git('-C', dir, 'sparse-checkout', 'set', UPSTREAM_PATH);
-  return { dir, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
+  const sha = execFileSync('git', ['-C', dir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+  return { dir, sha, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
 }
 
 /**

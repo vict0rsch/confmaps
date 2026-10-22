@@ -106,8 +106,8 @@
   },
   "dubai|united arab emirates": {
     "display_name": "Dubai, Dubai Emirate, United Arab Emirates",
-    "lat": 25.0742823,
-    "lng": 55.1885624
+    "lat": 25.2647227,
+    "lng": 55.2924146
   },
   "dublin|ireland": {
     "display_name": "Dublin, County Dublin, Leinster, Ireland",
@@ -161,8 +161,8 @@
   },
   "jeju|south korea": {
     "display_name": "Jeju, South Korea",
-    "lat": 33.4887737,
-    "lng": 126.4987083
+    "lat": 33.4998289,
+    "lng": 126.5313902
   },
   "kaunas|lithuania": {
     "display_name": "Kaunas, Kauno miesto savivaldybė, Kaunas County, Lithuania",
@@ -196,8 +196,8 @@
   },
   "lucca|italy": {
     "display_name": "Lucca, Tuscany, Italy",
-    "lat": 44.0177639,
-    "lng": 10.45443
+    "lat": 43.8428381,
+    "lng": 10.502876
   },
   "luxembourg|luxembourg": {
     "display_name": "Luxembourg, Canton Luxembourg, Luxembourg",
@@ -215,9 +215,9 @@
     "lng": 5.6969882
   },
   "macao|china": {
-    "display_name": "Macau, China",
-    "lat": 22.1757605,
-    "lng": 113.5514142
+    "display_name": "Macau, 999078, China",
+    "lat": 22.1899448,
+    "lng": 113.5380454
   },
   "mai khao|thailand": {
     "display_name": "Mai Khao, Si Sunthon, Thalang District, Phuket Province, Thailand",
@@ -235,9 +235,9 @@
     "lng": 144.9631732
   },
   "mexico city|mexico": {
-    "display_name": "Mexico City, Mexico",
-    "lat": 19.3207722,
-    "lng": -99.1514677
+    "display_name": "Mexico City, Cuauhtémoc, Mexico City, Mexico",
+    "lat": 19.4326296,
+    "lng": -99.1331785
   },
   "milan|italy": {
     "display_name": "Milan, Rodano, Milan, Lombardy, Italy",
@@ -350,9 +350,9 @@
     "lng": -1.404189
   },
   "stanford|united states": {
-    "display_name": "Stanford, Palo Alto, Santa Clara County, California, United States",
-    "lat": 37.4265407,
-    "lng": -122.1703055
+    "display_name": "Stanford, Santa Clara County, California, 94305, United States",
+    "lat": 37.427467,
+    "lng": -122.1702445
   },
   "strasbourg|france": {
     "display_name": "Strasbourg, Bas-Rhin, European Collectivity of Alsace, Grand Est, Metropolitan France, France",

@@ -4,6 +4,10 @@ import { z } from 'zod';
 
 const isoDate = z.iso.date(); // YYYY-MM-DD
 const access = z.enum(['open', 'registration', 'authors_only']);
+/** Every `link`/`sources` URL must be http(s): it is rendered as an `<a href>` in the app. */
+const httpUrl = z
+  .url({ protocol: /^https?$/, error: 'must be an http(s):// URL' })
+  .regex(/^https?:\/\/\S+$/i, 'must be an http(s):// URL');
 
 // ---------------------------------------------------------------------------
 // Inputs
@@ -27,7 +31,7 @@ export const UpstreamConferenceSchema = z.looseObject({
   title: z.string().min(1),
   year: z.number().int(),
   full_name: z.string().nullish(),
-  link: z.string().min(1),
+  link: httpUrl,
   deadlines: z.array(UpstreamDeadlineSchema).nullish(),
   deadline: z.string().nullish(),
   abstract_deadline: z.string().nullish(),
@@ -52,7 +56,7 @@ export const SatelliteSchema = z.strictObject({
     .refine((s) => !s.endsWith('@main')),
   parent: z.string().min(1),
   name: z.string().min(1),
-  link: z.url(),
+  link: httpUrl,
   city: z.string().min(1),
   country: z.string().min(1),
   venue: z.string().optional(),
@@ -62,7 +66,7 @@ export const SatelliteSchema = z.strictObject({
   presents_papers: z.boolean(),
   access,
   notes: z.string().optional(),
-  sources: z.array(z.url()).optional(),
+  sources: z.array(httpUrl).optional(),
 });
 export const SatellitesFileSchema = z.array(SatelliteSchema);
 
@@ -70,6 +74,8 @@ export const SatellitesFileSchema = z.array(SatelliteSchema);
  * One entry of `data/overrides.yml`, keyed by location id (`neurips25@main` or a satellite id).
  * Every field is optional and replaces the computed value. On a `…@main` location, `start`/`end`
  * also replace the conference's dates. `lat`/`lng` (both or neither) skip geocoding.
+ * `deadlines` (only on `…@main`) replaces the conference's whole deadline list, in upstream form
+ * (`[]` drops them all).
  */
 export const OverrideSchema = z
   .strictObject({
@@ -84,8 +90,9 @@ export const OverrideSchema = z
     official: z.boolean().optional(),
     presents_papers: z.boolean().optional(),
     access: access.optional(),
-    link: z.url().optional(),
+    link: httpUrl.optional(),
     notes: z.string().optional(),
+    deadlines: z.array(z.strictObject(UpstreamDeadlineSchema.shape)).optional(),
     reason: z.string().optional(), // free-text justification, not emitted
   })
   .refine((o) => (o.lat === undefined) === (o.lng === undefined), 'lat and lng go together');
@@ -118,7 +125,7 @@ export const ConferenceSchema = z.strictObject({
   title: z.string().min(1),
   year: z.number().int(),
   fullName: z.string().optional(),
-  link: z.string().min(1),
+  link: httpUrl,
   tags: z.array(z.string()),
   deadlines: z.array(DeadlineSchema),
   start: isoDate,
@@ -141,13 +148,20 @@ export const EventLocationSchema = z.strictObject({
   official: z.boolean(),
   presentsPapers: z.boolean(),
   access,
-  link: z.string().min(1),
+  link: httpUrl,
   notes: z.string().optional(),
+});
+
+/** Upstream commit the dataset was built from (updated only when the dataset changes). */
+export const UpstreamRefSchema = z.strictObject({
+  repo: z.string().min(1),
+  sha: z.string().regex(/^[0-9a-f]{40}$/),
 });
 
 /** `data/build/data.json`. */
 export const DataFileSchema = z.strictObject({
   generatedAt: z.iso.datetime(),
+  upstream: UpstreamRefSchema.optional(),
   conferences: z.array(ConferenceSchema),
   locations: z.array(EventLocationSchema),
 });
@@ -169,4 +183,5 @@ export type Deadline = z.infer<typeof DeadlineSchema>;
 export type Conference = z.infer<typeof ConferenceSchema>;
 export type EventLocation = z.infer<typeof EventLocationSchema>;
 export type DataFile = z.infer<typeof DataFileSchema>;
+export type UpstreamRef = z.infer<typeof UpstreamRefSchema>;
 export type ArchiveFile = z.infer<typeof ArchiveFileSchema>;

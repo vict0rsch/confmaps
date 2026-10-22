@@ -1475,7 +1475,7 @@
     {
       "deadlines": [
         {
-          "date": "2025-09-16T07:59:59Z",
+          "date": "2025-09-16T06:59:59Z",
           "label": "Paper Submission",
           "timezone": "PST",
           "type": "submission"
@@ -3285,9 +3285,9 @@
       "country": "South Korea",
       "end": "2026-08-13",
       "id": "kdd26@main",
-      "lat": 33.4887737,
+      "lat": 33.4998289,
       "link": "https://kdd2026.kdd.org/",
-      "lng": 126.4987083,
+      "lng": 126.5313902,
       "name": "KDD 2026",
       "official": true,
       "presentsPapers": true,
@@ -3537,9 +3537,9 @@
       "country": "United Arab Emirates",
       "end": "2026-04-17",
       "id": "www26@main",
-      "lat": 25.0742823,
+      "lat": 25.2647227,
       "link": "https://www2026.thewebconf.org/",
-      "lng": 55.1885624,
+      "lng": 55.2924146,
       "name": "WWW 2026",
       "official": true,
       "presentsPapers": true,

@@ -12,6 +12,7 @@ import {
   type Geocache,
   type Overrides,
   type Satellite,
+  type UpstreamRef,
 } from '../schema';
 import { readArchiveDir } from './archive';
 import { stableStringify } from './json';
@@ -30,6 +31,8 @@ export interface Inputs {
   overrides: Overrides;
   geocache: Geocache;
   archive: ArchiveFile;
+  /** Ids present in more than one archive file (see parseArchive). */
+  archiveDuplicates: string[];
   errors: string[];
 }
 
@@ -61,6 +64,7 @@ export function loadInputs(dataDir: string): Inputs {
     overrides: ov.data ?? {},
     geocache: gc.data ?? {},
     archive: ar.archive,
+    archiveDuplicates: ar.duplicates,
     errors,
   };
 }
@@ -73,27 +77,45 @@ export function writeIfChanged(path: string, text: string): boolean {
   return true;
 }
 
+/** The previous `data.json`, or `undefined` if missing or unreadable. */
+export function readPreviousData(
+  path: string,
+):
+  | { generatedAt?: unknown; upstream?: unknown; conferences?: unknown; locations?: unknown }
+  | undefined {
+  if (!existsSync(path)) return undefined;
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'));
+  } catch {
+    return undefined;
+  }
+}
+
 /**
- * Write `data.json`. `generatedAt` is only bumped when conferences/locations change, so an
- * unchanged dataset produces a byte-identical file (no daily no-op commits).
+ * Write `data.json`. `generatedAt` and `upstream` (the upstream commit) are only updated when
+ * conferences/locations change, so an unchanged dataset produces a byte-identical file (no daily
+ * no-op commits).
  */
 export function writeDataJson(
   path: string,
   conferences: Conference[],
   locations: EventLocation[],
   now: Date,
+  upstream?: UpstreamRef,
 ): boolean {
   const body = stableStringify({ conferences, locations });
   let generatedAt = now.toISOString();
-  if (existsSync(path)) {
-    try {
-      const prev = JSON.parse(readFileSync(path, 'utf8'));
-      const same =
-        stableStringify({ conferences: prev.conferences, locations: prev.locations }) === body;
-      if (same && typeof prev.generatedAt === 'string') generatedAt = prev.generatedAt;
-    } catch {
-      // unreadable previous file: overwrite
-    }
+  let ref = upstream;
+  const prev = readPreviousData(path);
+  if (
+    prev &&
+    stableStringify({ conferences: prev.conferences, locations: prev.locations }) === body
+  ) {
+    if (typeof prev.generatedAt === 'string') generatedAt = prev.generatedAt;
+    ref = prev.upstream as UpstreamRef | undefined;
   }
-  return writeIfChanged(path, stableStringify({ generatedAt, conferences, locations }));
+  return writeIfChanged(
+    path,
+    stableStringify({ generatedAt, ...(ref ? { upstream: ref } : {}), conferences, locations }),
+  );
 }

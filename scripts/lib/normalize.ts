@@ -16,7 +16,7 @@ export type PendingLocation = Omit<EventLocation, 'lat' | 'lng'> & { lat?: numbe
 
 export const mainLocationId = (conferenceId: string) => `${conferenceId}@main`;
 
-/** Series key = normalized title: `ICML` → `icml`, `ECML PKDD` → `ecml-pkdd`. */
+/** Normalized title: `ICML` → `icml`, `ECML PKDD` → `ecml-pkdd`. */
 export function seriesKey(title: string): string {
   return title
     .normalize('NFKD')
@@ -25,6 +25,21 @@ export function seriesKey(title: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
+
+/**
+ * Tracks / sub-events that upstream lists as separate conferences but belong to a parent series
+ * (normalized title → series). Scanned upstream titles (2026-10): only EMNLP splits this way.
+ */
+export const SERIES_ALIASES: Record<string, string> = {
+  'emnlp-industry-track': 'emnlp',
+  'emnlp-system-demonstrations-track': 'emnlp',
+};
+
+/** Series of a conference title: the normalized title, rolled up through SERIES_ALIASES. */
+export const seriesOf = (title: string) => {
+  const key = seriesKey(title);
+  return SERIES_ALIASES[key] ?? key;
+};
 
 const MONTHS = [
   'january',
@@ -75,32 +90,38 @@ const LEGACY_DEADLINES = [
   ['final_decision_date', 'notification', 'Final decision'],
 ] as const;
 
-function normalizeDeadlines(entry: UpstreamConference, errors: string[]): Deadline[] {
-  const raw: { type: string; label: string; date: string; timezone?: string | null }[] =
-    entry.deadlines
-      ? entry.deadlines.map((d) => ({ ...d, label: d.label ?? d.type }))
-      : LEGACY_DEADLINES.flatMap(([field, type, label]) => {
-          const date = entry[field];
-          return date ? [{ type, label, date, timezone: entry.timezone }] : [];
-        });
+type RawDeadline = { type: string; label?: string; date: string; timezone?: string | null };
+
+/** Upstream-form deadlines → normalized ones. `where` prefixes error messages. */
+export function convertDeadlines(raw: RawDeadline[], where: string, errors: string[]): Deadline[] {
   const out: Deadline[] = [];
   for (const d of raw) {
     if (!d.timezone) {
-      errors.push(`upstream ${entry.id}: deadline "${d.type}" has no timezone`);
+      errors.push(`${where}: deadline "${d.type}" has no timezone`);
       continue;
     }
     try {
       out.push({
         type: d.type,
-        label: d.label,
+        label: d.label ?? d.type,
         date: toUtcIso(d.date, d.timezone),
         timezone: d.timezone.trim(),
       });
     } catch (e) {
-      errors.push(`upstream ${entry.id}: deadline "${d.type}": ${(e as Error).message}`);
+      errors.push(`${where}: deadline "${d.type}": ${(e as Error).message}`);
     }
   }
   return out;
+}
+
+function normalizeDeadlines(entry: UpstreamConference, errors: string[]): Deadline[] {
+  const raw: RawDeadline[] = entry.deadlines
+    ? entry.deadlines
+    : LEGACY_DEADLINES.flatMap(([field, type, label]) => {
+        const date = entry[field];
+        return date ? [{ type, label, date, timezone: entry.timezone }] : [];
+      });
+  return convertDeadlines(raw, `upstream ${entry.id}`, errors);
 }
 
 export interface Normalized {
@@ -127,7 +148,7 @@ export function normalizeUpstream(entries: UpstreamConference[]): Normalized {
     }
     const conf: Conference = {
       id: e.id,
-      series: seriesKey(e.title),
+      series: seriesOf(e.title),
       title: e.title,
       year: e.year,
       ...(e.full_name ? { fullName: e.full_name } : {}),
@@ -178,35 +199,61 @@ export function satelliteToLocation(s: Satellite): PendingLocation {
 }
 
 function overrideFields(o: Override): Partial<PendingLocation> {
-  const { presents_papers, reason, ...rest } = o;
+  const { presents_papers, reason, deadlines, ...rest } = o;
   void reason;
+  void deadlines;
   return { ...rest, ...(presents_papers !== undefined ? { presentsPapers: presents_papers } : {}) };
 }
 
 /**
  * Apply overrides in place (they win over upstream, satellites and archive). Start/end on a
- * `@main` location also set the conference's dates. Returns errors for unknown location ids.
+ * `@main` location also set the conference's dates; `deadlines` replaces the conference's.
+ * Returns errors for unknown location ids, and warnings for override fields that already equal
+ * the computed value (stale: upstream was fixed). `fresh` holds the ids whose record came from
+ * upstream or satellites.yml in this build; archive-only records already carry their overrides,
+ * so they are not checked for staleness.
  */
 export function applyOverrides(
   conferences: Map<string, Conference>,
   locations: Map<string, PendingLocation>,
   overrides: Overrides,
-): string[] {
+  fresh: Set<string> = new Set(locations.keys()),
+): { errors: string[]; warnings: string[] } {
   const errors: string[] = [];
+  const warnings: string[] = [];
   for (const [id, o] of Object.entries(overrides)) {
     const loc = locations.get(id);
     if (!loc) {
       errors.push(`overrides.yml: "${id}" matches no location`);
       continue;
     }
-    Object.assign(loc, overrideFields(o));
     const conf = loc.role === 'main' ? conferences.get(loc.conferenceId) : undefined;
+    const fields = overrideFields(o);
+    if (fresh.has(id)) {
+      const same = Object.entries(fields)
+        .filter(([k, v]) => loc[k as keyof PendingLocation] === v)
+        .map(([k]) => k);
+      if (o.deadlines && conf) {
+        const converted = convertDeadlines(o.deadlines, '', []);
+        if (JSON.stringify(converted) === JSON.stringify(conf.deadlines)) same.push('deadlines');
+      }
+      if (same.length)
+        warnings.push(
+          `overrides.yml: ${id}: ${same.join(', ')} already equal the computed value (stale override?)`,
+        );
+    }
+    Object.assign(loc, fields);
+    if (o.deadlines && loc.role !== 'main') {
+      errors.push(`overrides.yml: ${id}: "deadlines" is only allowed on a "…@main" location`);
+    }
     if (conf) {
       if (o.start) conf.start = o.start;
       if (o.end) conf.end = o.end;
+      if (o.deadlines)
+        conf.deadlines = convertDeadlines(o.deadlines, `overrides.yml: ${id}`, errors);
     }
   }
-  return errors;
+  return { errors, warnings };
 }
 
 /** Replace each location's country by its canonical name. Returns errors for unknown ones. */

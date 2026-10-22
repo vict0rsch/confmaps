@@ -1,7 +1,14 @@
 # Manual fixes keyed by location id (`<conferenceId>@main` or a satellite id). Fields replace the
 # computed values: lat, lng (together; skips geocoding), name, city, country, venue, start, end
-# (on `@main`, also the conference's dates), official, presents_papers, access, link, notes.
+# (on `@main`, also the conference's dates), official, presents_papers, access, link, notes, and
+# on `@main` only, deadlines (replaces the conference's list, upstream form; `[]` drops them all).
 # `reason` is free text and is not emitted.
+
+icassp25@main:
+  deadlines: []
+  reason: >-
+    Upstream's only deadline (2025-09-18, GMT+02) is after the conference (6-11 Apr 2025); it is a
+    copy of icassp26's. Dropped rather than guessed.
 
 icassp26@main:
   start: '2026-05-04'
@@ -14,7 +21,9 @@ neurips25@main:
 
 neurips26@main:
   venue: International Convention Centre, Sydney
-  reason: Upstream venue also lists the Atlanta and Paris satellite events.
+  reason: >-
+    Upstream venue is a sentence that also describes events in other cities; keep only the main
+    venue it names ("International Convention Centre, Sydney, Australia (Main venue, Dec 6-12)").
 
 uai26@main:
   start: '2026-08-17'

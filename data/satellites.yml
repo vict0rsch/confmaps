@@ -34,10 +34,11 @@
   end: '2025-12-05'
   official: true
   presents_papers: true
-  access: authors_only
+  access: registration
   notes: >-
-    Second official NeurIPS location (pilot), ~500 attendees. Registration reserved for authors of
-    accepted papers, organizers and presenters; general public restricted.
+    Second official NeurIPS location (pilot), capacity ~500 attendees. Registration for the general
+    public was restricted; a portion of spaces was reserved for authors of accepted papers,
+    conference chairs, organizers and other presenters.
   sources:
     - https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/
     - https://nips.cc/Conferences/2025/MXCityRegistrationDetails

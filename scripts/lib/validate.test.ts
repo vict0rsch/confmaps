@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { geocache, satellite, UPSTREAM_DIR } from '../__fixtures__';
-import type { ArchiveFile, DataFile } from '../schema';
+import type { ArchiveFile, DataFile, Overrides } from '../schema';
 import { archiveIds, mergeArchiveFiles } from './archive';
 import { buildDataset } from './pipeline';
 import { readUpstreamDir } from './upstream';
-import { validateDataset, type ValidationInput } from './validate';
+import { sanityCheck, validateDataset, type ValidationInput } from './validate';
 
 const result = await buildDataset({
   upstream: readUpstreamDir(UPSTREAM_DIR).entries,
@@ -107,6 +107,62 @@ describe('validateDataset', () => {
       `duplicate location id "${d.locations[0].id}"`,
       'satellites.yml: duplicate id "alpha25-copenhagen"',
       'overrides.yml: "old@main" matches no location',
+    ]);
+  });
+});
+
+describe('sanityCheck', () => {
+  const sane = (d: DataFile = data(), over: Overrides = {}) => sanityCheck(d, over, geocache());
+
+  it('is quiet on the fixtures', () => {
+    expect(sane()).toEqual({ errors: [], warnings: [] });
+  });
+
+  it('errors on a deadline after the conference ends (one day of AoE slack)', () => {
+    const d = data();
+    const c = d.conferences.find((x) => x.id === 'alpha25')!; // ends 2025-06-05
+    c.deadlines = [
+      { type: 'ok', label: 'ok', date: '2025-06-06T11:59:59Z', timezone: 'AoE' },
+      { type: 'bad', label: 'bad', date: '2025-09-18T06:59:59Z', timezone: 'GMT+02' },
+    ];
+    expect(sane(d).errors).toEqual([
+      expect.stringMatching(
+        /^conference alpha25: deadline "bad" \(2025-09-18T06:59:59Z\) is after the conference ends \(2025-06-05\)/,
+      ),
+    ]);
+  });
+
+  it('warns on deadlines far from the year, year/start mismatch, duplicate editions', () => {
+    const d = data();
+    const c = d.conferences.find((x) => x.id === 'alpha25')!;
+    c.deadlines = [{ type: 'old', label: 'old', date: '2022-12-31T00:00:00Z', timezone: 'UTC' }];
+    d.conferences.find((x) => x.id === 'alpha26')!.year = 2025;
+    expect(sane(d).warnings).toEqual([
+      'conference alpha25: deadline "old" (2022-12-31T00:00:00Z) is far from 2025',
+      'conference alpha26: year 2025 but starts 2026-07-01 (upstream typo?)',
+      'conference alpha26: deadline "paper" (2026-06-01T11:00:00Z) is far from 2025',
+      'conferences alpha25, alpha26 are the same edition (alpha 2025)',
+    ]);
+  });
+
+  it('warns on a satellite far outside its parent window', () => {
+    const d = data();
+    const s = d.locations.find((l) => l.id === 'alpha25-copenhagen')!;
+    s.start = '2025-07-06'; // parent ends 2025-06-05
+    s.end = '2025-07-07';
+    expect(sane(d).warnings).toEqual([
+      'satellite alpha25-copenhagen: 2025-07-06–2025-07-07 is more than 30 days from alpha25 (2025-06-01–2025-06-05)',
+    ]);
+  });
+
+  it('warns on override coordinates far from every geocoded place in the country', () => {
+    const ok = { 'alpha25@main': { lat: 47.07, lng: 15.44 } }; // Graz, Austria
+    expect(sane(data(), ok).warnings).toEqual([]);
+    const swapped = { 'alpha25@main': { lat: 16.37, lng: 48.2 } };
+    expect(sane(data(), swapped).warnings).toEqual([
+      expect.stringMatching(
+        /^overrides\.yml: alpha25@main: \(16\.37, 48\.2\) is over 1500 km from every geocoded place in Austria/,
+      ),
     ]);
   });
 });

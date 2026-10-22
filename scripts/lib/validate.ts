@@ -10,7 +10,8 @@ import {
 } from '../schema';
 import { archiveIds, type ArchiveIds } from './archive';
 import { canonicalCountry } from './countries';
-import { geocacheKey } from './geocode';
+import { geocacheKey, haversineKm } from './geocode';
+import { seriesKey } from './normalize';
 
 export interface ValidationInput {
   data: unknown;
@@ -115,4 +116,79 @@ export function validateDataset(input: ValidationInput): string[] {
     }
   }
   return errors;
+}
+
+const DAY = 86_400_000;
+const addDays = (date: string, days: number) =>
+  new Date(Date.parse(`${date}T00:00:00Z`) + days * DAY).toISOString().slice(0, 10);
+
+/** Override coordinates farther than this from every geocoded place in their country warn. */
+export const OVERRIDE_COUNTRY_KM = 1500;
+/** Satellites starting/ending more than this many days outside their parent's dates warn. */
+export const SATELLITE_WINDOW_DAYS = 30;
+
+/**
+ * Plausibility checks on the dataset (upstream typos and stale fixes). Errors block the build;
+ * warnings are printed for review. Assumes `data` passed `DataFileSchema`.
+ */
+export function sanityCheck(
+  data: Pick<DataFile, 'conferences' | 'locations'>,
+  overrides: Overrides,
+  geocache: Geocache,
+): { errors: string[]; warnings: string[] } {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const confs = new Map(data.conferences.map((c) => [c.id, c]));
+
+  for (const c of data.conferences) {
+    if (Number(c.start.slice(0, 4)) !== c.year)
+      warnings.push(`conference ${c.id}: year ${c.year} but starts ${c.start} (upstream typo?)`);
+    for (const d of c.deadlines) {
+      // An AoE deadline on the last day is the next day in UTC: allow one day of slack.
+      if (d.date.slice(0, 10) > addDays(c.end, 1)) {
+        errors.push(
+          `conference ${c.id}: deadline "${d.type}" (${d.date}) is after the conference ends ` +
+            `(${c.end}); fix it with "deadlines" under "${c.id}@main" in data/overrides.yml`,
+        );
+      }
+      const y = Number(d.date.slice(0, 4));
+      if (y < c.year - 2 || y > c.year)
+        warnings.push(`conference ${c.id}: deadline "${d.type}" (${d.date}) is far from ${c.year}`);
+    }
+  }
+
+  const byEdition = new Map<string, string[]>();
+  for (const c of data.conferences) {
+    const k = `${seriesKey(c.title)} ${c.year}`;
+    byEdition.set(k, [...(byEdition.get(k) ?? []), c.id]);
+  }
+  for (const [k, ids] of byEdition) {
+    if (ids.length > 1) warnings.push(`conferences ${ids.join(', ')} are the same edition (${k})`);
+  }
+
+  for (const l of data.locations) {
+    const parent = confs.get(l.conferenceId);
+    if (l.role === 'satellite' && parent) {
+      const early = l.start < addDays(parent.start, -SATELLITE_WINDOW_DAYS);
+      const late = l.end > addDays(parent.end, SATELLITE_WINDOW_DAYS);
+      if (early || late)
+        warnings.push(
+          `satellite ${l.id}: ${l.start}–${l.end} is more than ${SATELLITE_WINDOW_DAYS} days ` +
+            `from ${parent.id} (${parent.start}–${parent.end})`,
+        );
+    }
+    const o = overrides[l.id];
+    if (o?.lat !== undefined && o.lng !== undefined) {
+      const country = geocacheKey('', l.country);
+      const refs = Object.entries(geocache)
+        .filter(([key]) => key.endsWith(country))
+        .map(([, e]) => haversineKm(e, { lat: o.lat!, lng: o.lng! }));
+      if (refs.length && Math.min(...refs) > OVERRIDE_COUNTRY_KM)
+        warnings.push(
+          `overrides.yml: ${l.id}: (${o.lat}, ${o.lng}) is over ${OVERRIDE_COUNTRY_KM} km from ` +
+            `every geocoded place in ${l.country} (swapped or wrong-signed lat/lng?)`,
+        );
+    }
+  }
+  return { errors, warnings };
 }
