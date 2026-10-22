@@ -59,3 +59,6 @@ Do Not Track and Global Privacy Control are respected.
 - Home-city search: [GeoNames](https://www.geonames.org) (CC BY 4.0).
 - CO₂ factors: UK DESNZ greenhouse gas conversion factors (Open Government Licence v3.0).
 - Font: Inter Variable via Fontsource (SIL OFL).
+
+Full licence texts, attributions and the modification notices are in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), also shown in the app under "Data & credits".

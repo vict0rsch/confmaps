@@ -95,6 +95,11 @@
 
 <DocDialog hash="methodology" title="Methodology" load={() => import('../METHODOLOGY.md?raw')} />
 <DocDialog hash="privacy" title="Privacy" load={() => import('../PRIVACY.md?raw')} />
+<DocDialog
+  hash="credits"
+  title="Third-party notices"
+  load={() => import('../THIRD_PARTY_NOTICES.md?raw')}
+/>
 
 <div class="app" class:desktop={desktop.current} class:mobile={!desktop.current}>
   {#if desktop.current}
@@ -266,6 +271,8 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
+    /* The expanded credits can exceed a short window: scroll the sidebar rather than overlap the timeline. */
+    overflow-y: auto;
     background: var(--surface);
     border-right: 1px solid var(--border);
   }

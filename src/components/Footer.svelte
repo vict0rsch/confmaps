@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  // Both documents are rendered in-app (DocDialog) from the repo's markdown files.
+  // These documents are rendered in-app (DocDialog) from the repo's markdown files.
   export const METHODOLOGY_URL = '#methodology';
   export const PRIVACY_URL = '#privacy';
+  export const CREDITS_URL = '#credits';
 </script>
 
 <script lang="ts">
@@ -37,7 +38,11 @@
       >OpenStreetMap contributors</a
     >. Cities:
     <a href="https://www.geonames.org" target="_blank" rel="noopener noreferrer">GeoNames</a>
-    (CC BY 4.0). Geocoding:
+    (<a
+      href="https://creativecommons.org/licenses/by/4.0/"
+      target="_blank"
+      rel="noopener noreferrer">CC BY 4.0</a
+    >; modified: filtered, rounded, see <a href={CREDITS_URL}>notices</a>). Geocoding:
     <a href="https://nominatim.org" target="_blank" rel="noopener noreferrer">Nominatim</a>
     / OSM (<a
       href="https://opendatacommons.org/licenses/odbl/"
@@ -53,7 +58,7 @@
       href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
       target="_blank"
       rel="noopener noreferrer">OGL v3.0</a
-    >).
+    >). Full licences: <a href={CREDITS_URL}>third-party notices</a>.
   </p>
 </footer>
 
