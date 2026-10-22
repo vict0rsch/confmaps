@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test('a shared link restores filters and selection; changes are written back', async ({ page }) => {
   await page.goto('/?sub=CV&open=1&bogus=1&radius=nope');

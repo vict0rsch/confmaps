@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test('Play advances the window; pausing stops it', async ({ page }) => {
   await page.goto('/');

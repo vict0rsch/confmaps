@@ -483,7 +483,7 @@ once per page load; the page view carries only the referrer's origin.
 | Unit | CO₂ model with **golden values** hand-computed from the official DESNZ table (e.g. Berlin→Paris rail, Berlin→Sydney flight; round trip, RF), haversine, each filter's `test()` + URL round-trip, `end ≥ today` boundaries, timezone-safe dates | Vitest | ✅ |
 | Build | type check + production build | `svelte-check`, `vite build` | ✅ |
 | E2E smoke (~5 tests) | load, set home, radius filter changes pin count, open detail, myclimate link present, play advances window | Playwright (1 browser) | ✅ |
-| A11y | axe scan, both themes | `@axe-core/playwright` | ⚠️ warn only initially |
+| A11y | axe scan, both themes, desktop + phone (`pnpm test:a11y`; separate warn-only CI job) | `@axe-core/playwright` | ⚠️ warn only initially |
 
 The discovery agent's PRs go through the same pipeline.
 

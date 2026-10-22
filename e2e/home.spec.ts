@@ -1,4 +1,5 @@
-import { expect, test, type Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const BERLIN_ID = 2950159;
 
@@ -36,6 +37,21 @@ test('setting home via search shows distances and estimates in the list', async 
   await expect(page.getByTestId('home-city')).toHaveText('Berlin, Germany');
   const stored = await page.evaluate(() => localStorage.getItem('confmaps:home'));
   expect(JSON.parse(stored!)).toMatchObject({ id: BERLIN_ID, name: 'Berlin' });
+});
+
+test('the radius filter narrows the list', async ({ page }) => {
+  await page.goto('/');
+  await setHome(page);
+  const count = page.locator('#list-heading .count');
+  const rows = page.locator('button.row');
+  await expect(rows.first()).toBeVisible();
+  const all = await rows.count();
+  await page.goto('/?radius=300');
+  await expect(page.getByTestId('home-city')).toHaveText('Berlin, Germany');
+  await expect(page.getByTestId('filters-badge')).toHaveText(/^\s*1/);
+  await expect(count).not.toHaveText(`(${all})`);
+  expect(await rows.count()).toBeLessThan(all);
+  await expect(count).toHaveText(`(${await rows.count()})`);
 });
 
 test('combobox is keyboard accessible', async ({ page }) => {
