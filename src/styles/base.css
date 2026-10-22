@@ -135,6 +135,48 @@ time {
   background: var(--surface-hover);
 }
 
+/* Text / number / date input (filters, settings). */
+.input {
+  height: 32px;
+  min-width: 0;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--ink-faint);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.input:disabled {
+  color: var(--ink-faint);
+  background: var(--surface-sunken);
+}
+
+.input::placeholder {
+  color: var(--ink-faint);
+}
+
+.button:disabled {
+  color: var(--ink-faint);
+  box-shadow: none;
+  cursor: default;
+}
+
+.button:disabled:hover {
+  background: var(--surface);
+}
+
 /* Set by Map.svelte while the map is being dragged. */
 html[data-map-dragging] body * {
   pointer-events: none;

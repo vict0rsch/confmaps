@@ -17,6 +17,7 @@
   import SettingsSlot from './components/slots/SettingsSlot.svelte';
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
   import { app } from './lib/state/app.svelte';
+  import { filterState } from './lib/state/filters.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
 
@@ -83,6 +84,11 @@
         <summary>
           <Icon name="chevron" size={14} />
           <span>Filters</span>
+          {#if filterState.activeCount}
+            <span class="badge tabular" data-testid="filters-badge">
+              {filterState.activeCount}<span class="visually-hidden"> active</span>
+            </span>
+          {/if}
         </summary>
         <div class="filters-body"><FiltersSlot /></div>
       </details>
@@ -100,6 +106,11 @@
         <SettingsSlot compact />
         <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
           <Icon name="filter" size={14} /> Filters
+          {#if filterState.activeCount}
+            <span class="badge tabular" data-testid="filters-badge">
+              {filterState.activeCount}<span class="visually-hidden"> active</span>
+            </span>
+          {/if}
         </button>
       </div>
     </header>
@@ -165,7 +176,13 @@
         <Icon name="close" size={18} />
       </button>
     </header>
-    <FiltersSlot />
+    <div class="filters-dialog-body"><FiltersSlot /></div>
+    <footer>
+      <button class="show-results" type="button" onclick={() => filtersDialog?.close()}>
+        Show {app.listItems.length}
+        {app.listItems.length === 1 ? 'result' : 'results'}
+      </button>
+    </footer>
   </dialog>
 {/if}
 
@@ -245,7 +262,24 @@
   }
 
   .filters-body {
+    max-height: 40vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 0 var(--space-4) var(--space-4);
+  }
+
+  .badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    line-height: 1;
   }
 
   .sidebar-list {
@@ -373,7 +407,7 @@
     height: 100%;
     max-height: none;
     margin: 0;
-    padding: var(--space-4);
+    padding: var(--space-4) var(--space-4) 0;
     border: 0;
     background: var(--surface);
     color: var(--ink);
@@ -385,6 +419,39 @@
 
   .filters-dialog::backdrop {
     background: var(--scrim);
+  }
+
+  .filters-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filters-dialog-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .filters-dialog footer {
+    padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border);
+  }
+
+  .show-results {
+    width: 100%;
+    height: 44px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: var(--text-md);
+    font-weight: var(--weight-semibold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .show-results:hover {
+    filter: brightness(1.08);
   }
 
   .filters-dialog header {
