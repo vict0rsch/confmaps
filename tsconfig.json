@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "types": ["svelte", "vite/client", "node"],
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.svelte", "scripts/**/*.ts", "e2e/**/*.ts", "*.ts"]
+}
