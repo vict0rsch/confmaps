@@ -31,3 +31,38 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await expect(page).not.toHaveURL(/[?&]h=/);
   await expect(page.getByTestId('timeline-range')).toBeVisible();
 });
+
+test.describe('phone', () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true });
+
+  test('Play is in view on first load and the timeline scrubs without dragging the sheet', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    const play = page.getByRole('button', { name: 'Play timeline' });
+    await expect(play).toBeInViewport();
+    // The sheet slides up on load; let it settle before measuring.
+    const sheet = page.getByRole('region', { name: 'Conference list' });
+    let top = -1;
+    await expect
+      .poll(async () => {
+        const prev = top;
+        top = (await sheet.boundingBox())!.y;
+        return top === prev;
+      })
+      .toBe(true);
+    const range = page.getByTestId('timeline-range');
+    const before = (await range.textContent())!.trim();
+    const win = (await page.getByRole('slider', { name: 'Date window' }).boundingBox())!;
+    const [x, y] = [win.x + win.width / 2, win.y + win.height / 2];
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    await page.mouse.move(x - 60, y - 80, { steps: 8 });
+    await page.mouse.up();
+    await expect(range).not.toHaveText(before);
+    expect((await sheet.boundingBox())!.y).toBe(top);
+
+    await play.click(); // fails if the sheet covers it
+    await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
+  });
+});

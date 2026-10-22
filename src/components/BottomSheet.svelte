@@ -20,7 +20,7 @@
     children: Snippet;
   } = $props();
 
-  const PEEK = 132;
+  const PEEK = 176; // grip + docked timeline + list heading and a row
   const ORDER: Snap[] = ['peek', 'half', 'full'];
 
   let containerHeight = $state(0);

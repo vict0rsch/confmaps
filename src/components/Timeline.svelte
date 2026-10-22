@@ -52,8 +52,14 @@
   const gap = $derived(width / Math.max(1, bins.length) > 8 ? 2 : 1);
   const ticks = $derived(axisTicks(domain, width));
   const todayX = $derived(x(dayNumber(app.today)));
-  // "Today" label owns the axis around it.
-  const visibleTicks = $derived(ticks.filter((t) => Math.abs(x(t.day) - todayX) > 34));
+  // "Today" label owns the axis around it. Year labels start at their tick and run right, so one
+  // just before today needs more room.
+  const visibleTicks = $derived(
+    ticks.filter((t) => {
+      const d = x(t.day) - todayX;
+      return t.kind === 'year' && d < 0 ? d < -46 : Math.abs(d) > 34;
+    }),
+  );
 
   const win = $derived({ x0: x(dayNumber(dates.from)), x1: x(dayNumber(dates.to) + 1) });
   const presets = $derived(datePresets(app.today));

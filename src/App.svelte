@@ -31,8 +31,7 @@
 
   const DRAWER_WIDTH = 384; // keep in sync with --drawer-width
   const DRAWER_GAP = 12;
-  const SHEET_PEEK = 132; // keep in sync with BottomSheet
-  const TIMELINE_COMPACT = 44; // --timeline-height-compact
+  const SHEET_PEEK = 176; // keep in sync with BottomSheet
 
   // Phones open at half: the map above is roughly square, the shape of the world overview.
   let sheetSnap: Snap = $state('half');
@@ -72,7 +71,7 @@
       : {
           top: 0,
           right: 0,
-          bottom: Math.max(sheetHeight, SHEET_PEEK + TIMELINE_COMPACT + 8),
+          bottom: Math.max(sheetHeight, SHEET_PEEK),
           left: 0,
         },
   );
@@ -179,14 +178,19 @@
         </div>
       {/if}
     {:else}
-      <div class="timeline-compact" style:bottom="{SHEET_PEEK + 8}px">
-        <TimelineSlot compact />
-      </div>
       <BottomSheet
         bind:snap={sheetSnap}
         onheightchange={(h) => (sheetHeight = h)}
         label={app.selectedConference ? 'Conference details' : 'Conference list'}
       >
+        {#snippet header()}
+          <!-- Docked under the grip so Play stays in view at every snap. Its presses scrub the
+               timeline, never drag the sheet. -->
+          <!-- svelte-ignore a11y_no_static_element_interactions -->
+          <div class="sheet-timeline" onpointerdown={(e) => e.stopPropagation()}>
+            <TimelineSlot compact />
+          </div>
+        {/snippet}
         {#if app.selectedConference}
           <Detail
             conference={app.selectedConference}
@@ -458,16 +462,10 @@
     display: none;
   }
 
-  .timeline-compact {
-    position: absolute;
-    left: var(--space-3);
-    right: var(--space-3);
+  .sheet-timeline {
     height: var(--timeline-height-compact);
-    background: color-mix(in srgb, var(--surface-raised) 94%, transparent);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(8px);
+    padding: 0 var(--space-3) 0 var(--space-2);
+    border-bottom: 1px solid var(--border);
   }
 
   .sheet-footer {

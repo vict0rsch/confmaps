@@ -422,9 +422,10 @@ MOBILE
 ┌──────────────────────┐
 │ 📍Berlin  [Filters 3]│  ← filters open as full-screen sheet
 │        MAP           │
-│ ▁▂█▂▁ ├──window──┤ ▶ │  ← compact scrubber
 ├──────────────────────┤
-│ ═══ bottom sheet ═══ │  ← list; detail replaces list on select
+│ ═══ bottom sheet ═══ │
+│ ▶ ▁▂█▂▁ ├──window──┤ │  ← compact scrubber, docked in the sheet (visible at every snap)
+│ list / detail        │  ← detail replaces list on select
 └──────────────────────┘
 ```
 
