@@ -9,6 +9,7 @@
 // API: `home.city` (reactive, the city in use), `home.saved`, `home.shared`, `home.set(city)`,
 // `home.clear()`, `home.locate()`, `home.applyShared(id)`, `home.useMine()`, `home.load()`.
 // The store keeps `app.home` (what the filters and distances read) in sync.
+import { safeStorage } from '../state/storage';
 import type { LatLng } from '../geo/distance';
 import { app } from '../state/app.svelte';
 import { loadCities, nearestCity, type IndexedCity } from './cities';
@@ -34,7 +35,7 @@ export function validStoredCity(v: unknown): StoredCity | undefined {
 }
 
 export function readHome(
-  storage: Pick<Storage, 'getItem'> | undefined = globalThis.localStorage,
+  storage: Pick<Storage, 'getItem'> | undefined = safeStorage(),
 ): StoredCity | undefined {
   try {
     const raw = storage?.getItem(HOME_STORAGE_KEY);
@@ -46,7 +47,7 @@ export function readHome(
 
 export function writeHome(
   city: StoredCity | undefined,
-  storage: Pick<Storage, 'setItem' | 'removeItem'> | undefined = globalThis.localStorage,
+  storage: Pick<Storage, 'setItem' | 'removeItem'> | undefined = safeStorage(),
 ): void {
   try {
     if (city) storage?.setItem(HOME_STORAGE_KEY, JSON.stringify(city));
@@ -89,7 +90,7 @@ export class HomeStore {
   /** The city in use: the shared one if any, else the saved one. */
   readonly city: StoredCity | undefined = $derived(this.shared ?? this.saved);
 
-  constructor(storage: Storage | undefined = globalThis.localStorage, target: HomeTarget = app) {
+  constructor(storage: Storage | undefined = safeStorage(), target: HomeTarget = app) {
     this.#storage = storage;
     this.#target = target;
     this.saved = readHome(storage);
