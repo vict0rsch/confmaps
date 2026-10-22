@@ -467,7 +467,7 @@
   }
 
   .privacy {
-    color: var(--ink-faint);
+    color: var(--ink-muted);
     font-size: var(--text-xs);
     line-height: var(--leading-normal);
   }

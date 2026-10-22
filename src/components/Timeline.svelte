@@ -647,7 +647,7 @@
     position: absolute;
     top: 0;
     transform: translateX(-50%);
-    color: var(--ink-faint);
+    color: var(--ink-muted);
     font-size: 10.5px;
     line-height: 12px;
     white-space: nowrap;

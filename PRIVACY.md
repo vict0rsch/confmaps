@@ -22,7 +22,7 @@ GoatCounter itself derives coarse, aggregate information (such as browser and co
 - No personal data, coordinates, cities, search text or free text, ever.
 - Your home city is kept in your browser's `localStorage` only, so the app can remember it. It is never sent anywhere.
 - "Use my location" is snapped to the nearest city on your device; the coordinates are never sent or stored.
-- Your home city is not put in URLs, unless you tick "Include my city in the link" when sharing, and then only the city name.
+- Your home city is not put in URLs, unless you tick "Include my city in the link" when sharing, and then only the city's GeoNames id (a number) — never coordinates.
 
 ## Do Not Track and Global Privacy Control
 
