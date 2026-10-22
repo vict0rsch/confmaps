@@ -8,6 +8,7 @@ import type { DateWindow } from '../filters/dates';
 import { FilterStore } from '../filters/store.svelte';
 import type { Ctx } from '../filters/types';
 import { app } from './app.svelte';
+import { planWindow } from './derive';
 import { travel } from './travel.svelte';
 
 export function appCtx(): Ctx {
@@ -22,7 +23,10 @@ export function appCtx(): Ctx {
   };
 }
 
-export const filterState = new FilterStore(createFilters(app.today), appCtx);
+export const filterState = new FilterStore(
+  createFilters(() => app.today),
+  appCtx,
+);
 
 // The closure reads `filterState.predicate` (derived) on each call, so `app.visibleLocations`
 // tracks every filter state and ctx value it depends on.
@@ -34,3 +38,10 @@ export const getDates = (): DateWindow => filterState.get<DateWindow>('dates');
 export const setDates = (w: DateWindow): void => filterState.set('dates', w);
 /** The Plan default (today → +12 months). */
 export const defaultDates = (): DateWindow => filterState.filter('dates')!.defaultState;
+
+// A new day moves the default Plan window only: a window the viewer chose stays where it is.
+app.onNewDay((prev, today) => {
+  const old = planWindow(prev);
+  const cur = getDates();
+  if (cur.from === old.from && cur.to === old.to) filterState.hydrate({ dates: planWindow(today) });
+});

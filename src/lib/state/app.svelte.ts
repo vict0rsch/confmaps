@@ -6,6 +6,7 @@
 //   `app.resetPredicate()` restores the Plan default (today → +12 months).
 // - Home location (§6.5): set `app.home = { lat, lng }`; the detail panel's distance/CO₂ slot keys
 //   off it.
+import { safeStorage } from './storage';
 import { MediaQuery } from 'svelte/reactivity';
 import { loadData, type AppData, type JoinedLocation } from '../data/load';
 import type { Conference } from '../data/types';
@@ -21,6 +22,8 @@ import {
 } from './derive';
 import { readTheme, resolveTheme, writeTheme, type ResolvedTheme, type Theme } from './theme';
 
+export const CLOCK_TICK_MS = 60_000;
+
 export type AppStateOptions = {
   data?: AppData;
   /** Clock, injectable for tests. */
@@ -31,6 +34,7 @@ export type AppStateOptions = {
 export class AppState {
   readonly data: AppData;
   readonly #storage: Storage | undefined;
+  readonly #newDay: ((prev: string, today: string) => void)[] = [];
   readonly #systemDark = new MediaQuery('(prefers-color-scheme: dark)', false);
 
   /** Local calendar date, `YYYY-MM-DD`. */
@@ -88,7 +92,7 @@ export class AppState {
 
   constructor(opts: AppStateOptions = {}) {
     this.data = opts.data ?? loadData();
-    this.#storage = opts.storage ?? globalThis.localStorage;
+    this.#storage = opts.storage ?? safeStorage();
     // eslint-disable-next-line svelte/prefer-svelte-reactivity
     const now = opts.now ?? new Date();
     this.now = now;
@@ -100,6 +104,39 @@ export class AppState {
   /** Plan default: locations with `end ≥ today` and `start ≤ today + 12 months`. */
   defaultPredicate(): LocationPredicate {
     return windowPredicate(planWindow(this.today));
+  }
+
+  /** Refresh `now` (and `today` once the local date has changed). */
+  // eslint-disable-next-line svelte/prefer-svelte-reactivity -- default argument, not state
+  refreshClock(date: Date = new Date()): void {
+    this.now = date;
+    const t = todayISO(date);
+    if (t === this.today) return;
+    const prev = this.today;
+    this.today = t;
+    for (const fn of this.#newDay) fn(prev, t);
+  }
+
+  /** Call `fn(previousToday, today)` when the local date changes. */
+  onNewDay(fn: (prev: string, today: string) => void): void {
+    this.#newDay.push(fn);
+  }
+
+  /**
+   * Keep the clock current in a long-lived tab: every minute, and when the tab becomes visible
+   * again (timers are throttled in the background). Returns a stop function.
+   */
+  startClock(): () => void {
+    const tick = () => this.refreshClock();
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') tick();
+    };
+    const timer = setInterval(tick, CLOCK_TICK_MS);
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }
 
   resetPredicate(): void {

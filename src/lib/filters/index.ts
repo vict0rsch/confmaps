@@ -11,7 +11,7 @@ import { subjectFilter } from './subject';
 import type { AnyFilter } from './types';
 
 /** `today` (`YYYY-MM-DD`) sets the `dates` default (the Plan window). */
-export function createFilters(today: string): AnyFilter[] {
+export function createFilters(today: string | (() => string)): AnyFilter[] {
   return [
     searchFilter,
     createDatesFilter(today),

@@ -40,14 +40,22 @@ const encodeTo = (iso: string) => (iso === monthEnd(iso) ? iso.slice(0, 7) : iso
 export const isValidWindow = (w: DateWindow) =>
   parseDay(w.from, 'start') === w.from && parseDay(w.to, 'end') === w.to && w.from <= w.to;
 
-/** The dates filter for a given `today`: its default is the Plan window (today → +12 months). */
-export function createDatesFilter(today: string): Filter<DateWindow> {
-  const defaultState = planWindow(today);
+/**
+ * The dates filter for a given `today`: its default is the Plan window (today → +12 months).
+ * Pass a function to make the default follow the clock (a tab left open past midnight).
+ */
+export function createDatesFilter(today: string | (() => string)): Filter<DateWindow> {
+  const defaultNow = () => planWindow(typeof today === 'function' ? today() : today);
   return {
     id: 'dates',
     label: 'Dates',
-    defaultState,
-    isActive: (s) => s.from !== defaultState.from || s.to !== defaultState.to,
+    get defaultState() {
+      return defaultNow();
+    },
+    isActive: (s) => {
+      const d = defaultNow();
+      return s.from !== d.from || s.to !== d.to;
+    },
     appliesWhenInactive: true,
     test: (loc, _ctx, s) => inWindow(loc, s),
     Control: DatesControl,
@@ -55,6 +63,7 @@ export function createDatesFilter(today: string): Filter<DateWindow> {
     toURL: (s) =>
       [param('from', encodeFrom(s.from)), param('to', encodeTo(s.to))].filter(Boolean).join('&'),
     fromURL: (v) => {
+      const defaultState = defaultNow();
       const w = {
         from: parseDay(readParam(v, 'from'), 'start') ?? defaultState.from,
         to: parseDay(readParam(v, 'to'), 'end') ?? defaultState.to,

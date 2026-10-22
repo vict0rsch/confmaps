@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { flushSync } from 'svelte';
 import { AppState } from './app.svelte';
 
@@ -42,5 +42,46 @@ describe('AppState', () => {
     expect(app.selectedSites.map((s) => s.id)).toEqual(first.sites.map((s) => s.id));
     app.select(null);
     expect(app.selectedSites).toEqual([]);
+  });
+});
+
+describe('clock', () => {
+  const listeners = new Map<string, () => void>();
+  beforeEach(() => {
+    // Node has no `document`: a minimal stand-in for the visibility listener.
+    vi.stubGlobal('document', {
+      visibilityState: 'visible',
+      addEventListener: (t: string, f: () => void) => listeners.set(t, f),
+      removeEventListener: (t: string) => listeners.delete(t),
+    });
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
+  it('refreshes now every minute and rolls today at midnight', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2026, 9, 22, 23, 59, 30));
+    const app = new AppState({ now: new Date() });
+    const stop = app.startClock();
+    expect(app.today).toBe('2026-10-22');
+    vi.advanceTimersByTime(60_000);
+    expect(app.now.getTime()).toBe(Date.now());
+    expect(app.today).toBe('2026-10-23');
+    stop();
+    vi.advanceTimersByTime(120_000);
+    expect(app.now.getTime()).toBeLessThan(Date.now());
+  });
+
+  it('refreshes when the tab becomes visible again', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2026, 9, 22, 12));
+    const app = new AppState({ now: new Date() });
+    const stop = app.startClock();
+    vi.setSystemTime(new Date(2026, 9, 22, 12, 0, 20));
+    listeners.get('visibilitychange')!();
+    expect(app.now.getTime()).toBe(Date.now());
+    stop();
   });
 });
