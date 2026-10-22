@@ -1,0 +1,46 @@
+name: Discover satellites
+
+# Runs the discovery agent (scripts/discover, DESIGN.md §4) and opens one PR with proposed
+# changes to data/satellites.yml. The PR is never merged automatically.
+on:
+  workflow_dispatch:
+  # Weekly run: enable after reviewing dry-run cost.
+  # schedule:
+  #   - cron: '23 6 * * 1' # Mondays, 06:23 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: discover
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: scripts/discover/uv.lock
+      - run: uv sync --project scripts/discover --locked
+      - name: Configure git identity for the PR commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      # No workflow inputs or event data are interpolated into `run:`; secrets reach the
+      # script only through env.
+      - name: Run discovery and open a PR
+        run: uv run --project scripts/discover --locked discover --mode upcoming --open-pr
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}

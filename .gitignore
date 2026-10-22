@@ -11,3 +11,5 @@ playwright/.cache/
 .env
 .env.*
 .svelte-kit/
+.pytest_cache/
+.ruff_cache/
