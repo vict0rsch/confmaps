@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { joinData, type JoinedLocation } from '../data/load';
+import { joinData, trackName, type JoinedLocation } from '../data/load';
 import type { Conference, DataFile, EventLocation } from '../data/types';
 import {
   addMonthsISO,
   deadlineSummary,
+  foldTracks,
   groupByConference,
   inWindow,
   planWindow,
@@ -136,6 +137,61 @@ describe('groupByConference', () => {
   it('breaks ties by title', () => {
     const d = joinData(file([conf('zz26'), conf('aa26')], [loc('zz26'), loc('aa26')]));
     expect(groupByConference(d.locations).map((i) => i.conference.id)).toEqual(['aa26', 'zz26']);
+  });
+});
+
+describe('tracks of one event', () => {
+  const tracks = () =>
+    joinData(
+      file(
+        [
+          conf('emnlp26sys', { series: 'emnlp', title: 'EMNLP (System Demonstrations Track)' }),
+          conf('emnlp26ind', { series: 'emnlp', title: 'EMNLP (Industry Track)' }),
+          conf('emnlp26', { series: 'emnlp', title: 'EMNLP' }),
+          // Same series and year, elsewhere or another time: not a track.
+          conf('emnlp26x', { series: 'emnlp', title: 'EMNLP (Other)', start: '2027-01-01' }),
+          conf('emnlp26y', { series: 'emnlp', title: 'EMNLP (Away)' }),
+        ],
+        [
+          loc('emnlp26sys'),
+          loc('emnlp26ind'),
+          loc('emnlp26'),
+          loc('emnlp26x', { start: '2027-01-01', end: '2027-01-03' }),
+          loc('emnlp26y', { city: 'Rome' }),
+        ],
+      ),
+    );
+
+  it('groups same series + year + city + overlapping dates, main event first', () => {
+    const d = tracks();
+    expect(d.trackGroups.get('emnlp26ind')!.map((c) => c.id)).toEqual([
+      'emnlp26',
+      'emnlp26ind',
+      'emnlp26sys',
+    ]);
+    expect(d.trackGroups.has('emnlp26x')).toBe(false);
+    expect(d.trackGroups.has('emnlp26y')).toBe(false);
+    expect(trackName(d.conferenceById.get('emnlp26ind')!)).toBe('Industry Track');
+    expect(trackName(d.conferenceById.get('emnlp26')!)).toBeNull();
+  });
+
+  it('folds tracks into one list row, led by the highest-ranked visible member', () => {
+    const d = tracks();
+    const rows = foldTracks(groupByConference(d.locations), d.trackGroups);
+    const emnlp = rows.filter((r) => r.conference.id.startsWith('emnlp26'));
+    expect(emnlp.map((r) => [r.conference.id, r.tracks.map((t) => t.id)])).toEqual([
+      ['emnlp26', ['emnlp26ind', 'emnlp26sys']],
+      ['emnlp26y', []],
+      ['emnlp26x', []],
+    ]);
+    // Main event filtered out: the next track leads.
+    const partial = foldTracks(
+      groupByConference(d.locations.filter((l) => l.conferenceId !== 'emnlp26')),
+      d.trackGroups,
+    );
+    const row = partial.find((r) => r.tracks.length)!;
+    expect(row.conference.id).toBe('emnlp26ind');
+    expect(row.tracks.map((t) => t.id)).toEqual(['emnlp26sys']);
   });
 });
 

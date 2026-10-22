@@ -66,8 +66,8 @@
   const duration = (ms: number) => (prefersReducedMotion.current ? 0 : ms);
 
   // ---- Source data ---------------------------------------------------------
-  const pins = $derived(pinFeatures(app.visibleLocations));
-  const links = $derived(linkFeatures(app.visibleLocations));
+  const pins = $derived(pinFeatures(app.mapLocations));
+  const links = $derived(linkFeatures(app.mapLocations));
   const focus = $derived.by((): FeatureCollection => {
     const sel = app.selectedConferenceId;
     const hov = app.hoveredConferenceId;
@@ -75,9 +75,7 @@
       c.features.map((f) => ({ ...f, properties: { ...f.properties, selected } }));
     const features = [];
     if (hov && hov !== sel) {
-      features.push(
-        ...tag(pinFeatures(app.visibleLocations.filter((l) => l.conferenceId === hov)), 0),
-      );
+      features.push(...tag(pinFeatures(app.mapLocations.filter((l) => l.conferenceId === hov)), 0));
     }
     if (sel) features.push(...tag(pinFeatures(app.selectedSites), 1));
     return { type: 'FeatureCollection', features };
@@ -96,9 +94,9 @@
   let shownNow: ReadonlySet<string> = new Set();
 
   const stops = $derived(historyMode.series ? historyMode.stops : null);
-  const shown = $derived(shownIds(app.visibleLocations, stops, play.travelShown));
+  const shown = $derived(shownIds(app.mapLocations, stops, play.travelShown));
   const live = $derived(
-    play.playing ? liveIds(app.visibleLocations, getDates().from, stops, play.travelShown) : null,
+    play.playing ? liveIds(app.mapLocations, getDates().from, stops, play.travelShown) : null,
   );
 
   // History mode: the path between editions, drawn in on entry and along with Play's travel.
@@ -184,7 +182,7 @@
     // Untracked: camera calls fire map events synchronously, and their handlers read state.
     untrack(() => {
       m.setPadding(insets);
-      const initial = boundsOf(app.visibleLocations, false);
+      const initial = boundsOf(app.mapLocations, false);
       if (initial) m.fitBounds(initial, { padding: margins(), duration: 0 });
     });
     choreo = new Choreographer(
@@ -344,7 +342,7 @@
         if (map !== m || historyMode.series !== series) return;
         if (series) fitHistory(first ? 0 : duration(900));
         else if (!app.selectedConferenceId) {
-          const b = boundsOf(app.visibleLocations, false);
+          const b = boundsOf(app.mapLocations, false);
           m.setPadding(insets);
           if (b) m.fitBounds(b, { padding: margins(), duration: duration(800) });
         }
@@ -406,7 +404,7 @@
    * world-wide and unfittable on a phone).
    */
   function fitHistory(ms: number) {
-    const sites = app.visibleLocations;
+    const sites = app.mapLocations;
     const single = historyMode.stops.length < 2;
     const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
     const b = boundsOf(pts.length ? pts : sites, false);
@@ -509,7 +507,7 @@
       <ul role="list">
         {#each coLocated.ids as id (id)}
           {@const conf = app.data.conferenceById.get(id)}
-          {@const site = app.visibleLocations.find((l) => l.conferenceId === id)}
+          {@const site = app.mapLocations.find((l) => l.conferenceId === id)}
           {#if conf}
             <li>
               <button type="button" onclick={() => chooseCoLocated(id)}>

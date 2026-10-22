@@ -41,6 +41,8 @@ export type ListItem = {
   conference: Conference;
   /** The conference's visible locations, main first. */
   sites: JoinedLocation[];
+  /** Other visible tracks of the same event, folded into this row (see `foldTracks`). */
+  tracks: Conference[];
 };
 
 /**
@@ -52,7 +54,7 @@ export function groupByConference(visible: readonly JoinedLocation[]): ListItem[
   for (const loc of visible) {
     const item = byId.get(loc.conferenceId);
     if (item) item.sites.push(loc);
-    else byId.set(loc.conferenceId, { conference: loc.conference, sites: [loc] });
+    else byId.set(loc.conferenceId, { conference: loc.conference, sites: [loc], tracks: [] });
   }
   const items = [...byId.values()];
   for (const item of items) {
@@ -68,6 +70,31 @@ export function groupByConference(visible: readonly JoinedLocation[]): ListItem[
       a.conference.start.localeCompare(b.conference.start) ||
       a.conference.title.localeCompare(b.conference.title),
   );
+}
+
+/**
+ * One row per event: tracks of the same event (`groups`, from `AppData.trackGroups`) fold into
+ * the row of their highest-ranked visible member, which keeps its place in the order.
+ */
+export function foldTracks(
+  items: readonly ListItem[],
+  groups: ReadonlyMap<string, readonly Conference[]>,
+): ListItem[] {
+  const members = new Map<readonly Conference[], ListItem[]>();
+  for (const item of items) {
+    const g = groups.get(item.conference.id);
+    if (g) members.set(g, [...(members.get(g) ?? []), item]);
+  }
+  return items.flatMap((item) => {
+    const g = groups.get(item.conference.id);
+    if (!g) return [item];
+    const all = members.get(g)!;
+    if (all[0] !== item) return [];
+    const [lead, ...rest] = all.toSorted(
+      (a, b) => g.indexOf(a.conference) - g.indexOf(b.conference),
+    );
+    return [{ ...lead, tracks: rest.map((r) => r.conference) }];
+  });
 }
 
 /** Upstream deadline types that mean "the paper deadline". */

@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { JoinedLocation } from '../lib/data/load';
+  import { trackName, type JoinedLocation } from '../lib/data/load';
   import type { Conference } from '../lib/data/types';
   import { formatDateRange, formatInstant } from '../lib/format/dates';
   import { kindLabel, placeLabel, roleLabel } from '../lib/format/labels';
@@ -32,6 +32,8 @@
 
   const sites = $derived(app.data.locationsByConference.get(conference.id) ?? []);
   const deadlines = $derived(deadlineSummary(conference, app.now));
+  /** The event's tracks (EMNLP + Industry + System Demonstrations), when it has several. */
+  const tracks = $derived(app.data.trackGroups.get(conference.id) ?? []);
   const host = $derived.by(() => {
     try {
       return new URL(conference.link).hostname.replace(/^www\./, '');
@@ -104,6 +106,36 @@
       </dd>
     </div>
   </dl>
+
+  {#if tracks.length}
+    <section class="tracks" aria-labelledby="tracks-heading">
+      <h3 id="tracks-heading">Tracks ({tracks.length})</h3>
+      <ul role="list">
+        {#each tracks as t (t.id)}
+          {@const paper = deadlineSummary(t, app.now).paper}
+          {@const current = t.id === conference.id}
+          <li>
+            <button
+              type="button"
+              class="track"
+              aria-current={current ? 'true' : undefined}
+              disabled={current}
+              onclick={() => app.select(t.id)}
+            >
+              <span class="track-name">{trackName(t) ?? 'Main conference'}</span>
+              <span class="track-meta tabular">
+                {#if paper}
+                  Paper deadline: {paper.passed ? 'passed' : formatInstant(paper.deadline.date)}
+                {:else}
+                  No paper deadline listed
+                {/if}
+              </span>
+            </button>
+          </li>
+        {/each}
+      </ul>
+    </section>
+  {/if}
 
   {#if !app.home}
     <p class="prompt">
@@ -249,6 +281,44 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-muted);
+  }
+
+  .tracks ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .track {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--ink);
+    text-align: left;
+  }
+
+  .track:hover:not(:disabled) {
+    background: var(--surface-hover);
+  }
+
+  .track[aria-current='true'] {
+    background: var(--surface-selected);
+    cursor: default;
+  }
+
+  .track-name {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  .track-meta {
+    color: var(--ink-muted);
+    font-size: var(--text-xs);
   }
 
   .sites ul {

@@ -81,7 +81,9 @@
     <ul role="list" bind:this={listEl} onkeydown={onKeydown}>
       {#each items as item (item.conference.id)}
         {@const c = item.conference}
-        {@const selected = app.selectedConferenceId === c.id}
+        {@const selected =
+          app.selectedConferenceId === c.id ||
+          item.tracks.some((t) => t.id === app.selectedConferenceId)}
         <li>
           <button
             type="button"
@@ -116,6 +118,12 @@
                 </span>
               {/each}
             </span>
+            {#if item.tracks.length}
+              <span class="tracks" title={item.tracks.map((t) => t.title).join(', ')}>
+                +{item.tracks.length}
+                {item.tracks.length === 1 ? 'track' : 'tracks'}
+              </span>
+            {/if}
             {#if near.get(c.id)}
               {@const n = near.get(c.id)!}
               <span class="near tabular" data-testid="row-footprint">
@@ -261,6 +269,11 @@
 
   .tag {
     flex: none;
+    color: var(--ink-muted);
+    font-size: var(--text-xs);
+  }
+
+  .tracks {
     color: var(--ink-muted);
     font-size: var(--text-xs);
   }

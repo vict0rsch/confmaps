@@ -27,3 +27,17 @@ test('the privacy page opens from the footer and closes', async ({ page }) => {
   await expect(dialog).toBeHidden();
   await expect(page).not.toHaveURL(/#privacy/);
 });
+
+test("an event's tracks share one list row, and the detail lists them", async ({ page }) => {
+  await page.goto('/');
+  const row = page.locator('button.row[data-conference-id="emnlp26"]');
+  await expect(row).toContainText('+2 tracks');
+  await expect(page.locator('button.row[data-conference-id="emnlp26ind"]')).toHaveCount(0);
+  await row.click();
+  const tracks = page.getByTestId('detail').getByRole('region', { name: 'Tracks (3)' });
+  await tracks.getByRole('button', { name: /Industry Track/ }).click();
+  await expect(page.getByTestId('detail').getByRole('heading', { level: 2 })).toHaveText(
+    'EMNLP (Industry Track) 2026',
+  );
+  await expect(row).toHaveAttribute('aria-current', 'true');
+});

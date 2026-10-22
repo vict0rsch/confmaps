@@ -11,6 +11,7 @@ import { loadData, type AppData, type JoinedLocation } from '../data/load';
 import type { Conference } from '../data/types';
 import type { LatLng } from '../geo/distance';
 import {
+  foldTracks,
   groupByConference,
   planWindow,
   todayISO,
@@ -55,8 +56,18 @@ export class AppState {
   readonly visibleLocations: JoinedLocation[] = $derived.by(() =>
     this.data.locations.filter((loc) => this.predicate(loc)),
   );
-  /** Conferences with ≥1 visible location, sorted by start date. */
-  readonly listItems: ListItem[] = $derived(groupByConference(this.visibleLocations));
+  /** Conferences with ≥1 visible location, sorted by start date; an event's tracks share a row. */
+  readonly listItems: ListItem[] = $derived.by(() =>
+    foldTracks(groupByConference(this.visibleLocations), this.data.trackGroups),
+  );
+  /** What the map draws: visible locations, without those of tracks folded into another row. */
+  readonly mapLocations: JoinedLocation[] = $derived.by(() => {
+    // eslint-disable-next-line svelte/prefer-svelte-reactivity -- local, rebuilt on each derive
+    const folded = new Set(this.listItems.flatMap((i) => i.tracks.map((t) => t.id)));
+    return folded.size
+      ? this.visibleLocations.filter((l) => !folded.has(l.conferenceId))
+      : this.visibleLocations;
+  });
 
   readonly selectedConference: Conference | null = $derived.by(() =>
     this.selectedConferenceId
