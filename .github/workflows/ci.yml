@@ -4,6 +4,9 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Lets the discovery agent attach checks to its PR branch (`gh workflow run ci.yml --ref <branch>`):
+  # PRs opened with GITHUB_TOKEN do not trigger `pull_request` workflows.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,19 +14,45 @@ permissions:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-          fetch-depth: 2 # HEAD^1 = PR base / previous commit, for the archive-shrink check
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+          fetch-depth: 0 # full history: the archive-shrink check reads the base commit's archive
+          persist-credentials: false
+      - uses: pnpm/action-setup@a15d269cd4658e1107c09f1fabf4cbd7bd1f308a # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm check
-      - run: pnpm data:validate --against HEAD^1
+      # The archive at the base must still be fully present: the PR base, the commit before the
+      # push, or (manual run on a branch) the merge-base with main.
+      - name: Validate data
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          case "$EVENT" in
+            pull_request) BASE="$PR_BASE" ;;
+            push) BASE="$BEFORE" ;;
+            *) BASE="$(git merge-base HEAD origin/main)" ;;
+          esac
+          # New branch (all-zeros `before`) or a manual run on main itself: use the parent commit.
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ] ||
+             [ "$BASE" = "$(git rev-parse HEAD)" ]; then
+            if git rev-parse --verify --quiet HEAD^1 >/dev/null; then BASE="$(git rev-parse HEAD^1)"
+            else BASE=""; fi
+          fi
+          if [ -n "$BASE" ]; then
+            pnpm data:validate --require-against "$BASE"
+          else
+            echo "Root commit: no base to compare the archive against."
+            pnpm data:validate
+          fi
       - run: pnpm test
       - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium
