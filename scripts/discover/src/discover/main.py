@@ -3,26 +3,35 @@
 --mode upcoming            conferences starting within the next 12 months (default)
 --mode backfill --since Y  past editions (ended before today) of year >= Y
 --only ID[,ID...]          restrict to these conference ids
---dry-run                  write nothing, open no PR; print diff, evidence and cost
---open-pr                  (CI only) commit satellites.yml (+ geocache.json), push, open a PR
+--dry-run                  write nothing; print evidence, cost, tool calls and the diff
+--max-usd N                no further API calls once the estimated cost exceeds N (default 5)
+--results-dir DIR          save each conference's API result there (default: a new temp dir)
+--from-results DIR         re-run checks, merge and report on saved results (no API calls)
+--out-dir DIR              (CI) also write pr.json and pr-body.md there for the PR job
+
+Without ``--dry-run``, ``data/satellites.yml`` is written and validated (``pnpm
+data:validate``, geocoding new cities with ``pnpm data:build``). This script never commits,
+pushes or opens PRs: ``.github/workflows/discover.yml`` does that in a separate job.
 """
 
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, TextIO
 
 import anthropic
 
 from . import agent
+from .geo import Geocoder, cached_hit
 from .merge import apply_plan, load_satellites, plan_changes, unified_diff
-from .report import ConferenceRun, code, cost_section, evidence_section, tool_log
-from .verify import PageFetcher, check_candidate
+from .report import ConferenceRun, build_body, tool_log, total_usage
+from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 SATELLITES = Path("data/satellites.yml")
@@ -30,6 +39,41 @@ GEOCACHE = Path("data/geocache.json")
 DATA_JSON = Path("data/build/data.json")
 UPCOMING_DAYS = 365
 MAX_PR_BODY = 60000  # GitHub limit is 65,536 characters
+DEFAULT_MAX_USD = 5.0
+# Every log line starts with this, so no untrusted text can start a line (GitHub Actions reads
+# `::command` lines as workflow commands, after trimming leading whitespace).
+LOG_PREFIX = "> "
+# Never passed to subprocesses: pnpm (and its npm dependencies) needs no credentials.
+SECRET_ENV = {"GH_TOKEN", "GITHUB_TOKEN"}
+
+
+def say(text: Any = "", prefix: str = LOG_PREFIX, file: TextIO | None = None) -> None:
+    """Print ``text`` with ``prefix`` on every line (see :data:`LOG_PREFIX`).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        say("Researching neurips26", file=sys.stderr)  # "> Researching neurips26"
+    """
+    for line in str(text).splitlines() or [""]:
+        print(prefix + line, file=file or sys.stdout)
+
+
+def scrubbed_env() -> dict[str, str]:
+    """The environment without Anthropic settings or GitHub tokens, for ``pnpm``.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        subprocess.run(["pnpm", "data:validate"], env=scrubbed_env())
+    """
+    return {
+        k: v
+        for k, v in os.environ.items()
+        if not k.startswith("ANTHROPIC_") and k not in SECRET_ENV
+    }
 
 
 def select_conferences(
@@ -98,10 +142,19 @@ def select_conferences(
 
 
 def _run(cmd: list[str], cwd: Path) -> int:
-    print(f"$ {' '.join(cmd)}", file=sys.stderr)
-    # The pipeline (and its npm dependencies) never needs the API key.
-    env = {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_")}
-    return subprocess.run(cmd, cwd=cwd, env=env, check=False).returncode
+    say(f"$ {' '.join(cmd)}", file=sys.stderr)
+    proc = subprocess.run(
+        cmd,
+        cwd=cwd,
+        env=scrubbed_env(),
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        errors="replace",
+    )
+    say(proc.stdout, prefix="pnpm> ", file=sys.stderr)
+    return proc.returncode
 
 
 def validate(repo: Path, has_additions: bool) -> bool:
@@ -114,96 +167,57 @@ def validate(repo: Path, has_additions: bool) -> bool:
         return True
     if not has_additions:
         return False
-    print("Validation failed; running data:build to geocode new satellite cities.", file=sys.stderr)
+    say("Validation failed; running data:build to geocode new satellite cities.", file=sys.stderr)
     if _run(["pnpm", "data:build"], repo) != 0:
         return False
     return _run(["pnpm", "data:validate"], repo) == 0
 
 
-def open_pr(repo: Path, title: str, body: str) -> None:
-    """Commit only the curated files on a new branch, push it and open a PR (never merged)."""
+def _result_path(results_dir: Path, conference_id: str) -> Path:
+    return results_dir / f"{re.sub(r'[^A-Za-z0-9._-]', '_', conference_id)}.json"
 
-    def git(*args: str) -> subprocess.CompletedProcess[str]:
-        return subprocess.run(["git", *args], cwd=repo, check=True, text=True, capture_output=True)
 
-    branch = f"discover/{datetime.now(UTC):%Y-%m-%d-%H%M%S}"
-    git("checkout", "-b", branch)
-    paths = [str(SATELLITES)]
-    if subprocess.run(
-        ["git", "diff", "--quiet", "--", str(GEOCACHE)], cwd=repo, check=False
-    ).returncode:
-        paths.append(str(GEOCACHE))
-    git("add", "--", *paths)
-    git("commit", "-m", title, "--", *paths)
-    git("push", "-u", "origin", branch)
-    with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False) as f:
-        f.write(body)
-    subprocess.run(
-        ["gh", "pr", "create", "--title", title, "--body-file", f.name, "--head", branch],
-        cwd=repo,
-        check=True,
+def save_result(results_dir: Path, conference: dict[str, Any], research: agent.Research) -> None:
+    """Persist one conference's (paid) API result as soon as it arrives."""
+    results_dir.mkdir(parents=True, exist_ok=True)
+    payload = {"conference": conference, "research": research.to_dict()}
+    _result_path(results_dir, conference["id"]).write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
     )
 
 
-def _parse_args(argv: list[str] | None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(prog="discover", description=__doc__.split("\n")[0])
-    p.add_argument("--mode", choices=["upcoming", "backfill"], default="upcoming")
-    p.add_argument("--since", type=int, help="first year for --mode backfill")
-    p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
-    p.add_argument("--dry-run", action="store_true")
-    p.add_argument("--open-pr", action="store_true")
-    p.add_argument("--repo-root", type=Path, default=REPO_ROOT)
-    args = p.parse_args(argv)
-    args.only = [i.strip() for chunk in args.only for i in chunk.split(",") if i.strip()]
-    if args.mode == "backfill" and args.since is None:
-        p.error("--mode backfill needs --since YYYY")
-    if args.open_pr and args.dry_run:
-        p.error("--open-pr cannot be combined with --dry-run")
-    if args.open_pr and os.environ.get("GITHUB_ACTIONS") != "true":
-        p.error("--open-pr only runs in GitHub Actions")
-    return args
+def load_results(results_dir: Path) -> list[ConferenceRun]:
+    """Saved results (from :func:`save_result`), sorted like :func:`select_conferences`."""
+    runs = []
+    for path in sorted(results_dir.glob("*.json")):
+        d = json.loads(path.read_text())
+        runs.append(ConferenceRun(d["conference"], agent.Research.from_dict(d["research"])))
+    return sorted(runs, key=lambda r: (r.conference["start"], r.conference["id"]))
 
 
-def main(argv: list[str] | None = None, client: Any = None, fetcher: Any = None) -> int:
-    """Entry point. ``client`` / ``fetcher`` are injectable for tests.
-
-    Returns
-    -------
-    int
-        0 on success; 1 if validation failed or any conference hit an API error.
-
-    Examples
-    --------
-    .. code-block:: python
-
-        main(["--only", "neurips26", "--dry-run"])
-    """
-    args = _parse_args(argv)
-    repo: Path = args.repo_root
-    today = datetime.now(UTC).date()
-    data = json.loads((repo / DATA_JSON).read_text())
-    sat_text = (repo / SATELLITES).read_text()
-    existing = load_satellites(sat_text)
-
-    confs = select_conferences(data, args.mode, today, args.since, args.only)
-    known = {c["id"] for c in data["conferences"]}
-    for missing in sorted(set(args.only) - {c["id"] for c in confs}):
-        why = "unknown id" if missing not in known else f"not selected by --mode {args.mode}"
-        print(f"warning: --only {missing}: {why}", file=sys.stderr)
-    if not confs:
-        print("No conferences to research.")
-        return 0
-
-    client = client or anthropic.Anthropic()
-    fetcher = fetcher or PageFetcher()
+def research_all(
+    client: Any,
+    confs: list[dict[str, Any]],
+    existing: list[dict[str, Any]],
+    today: date,
+    results_dir: Path,
+    max_usd: float,
+) -> list[ConferenceRun]:
+    """One API call (plus continuations) per conference, within the ``max_usd`` budget."""
     runs: list[ConferenceRun] = []
     for conf in confs:
-        print(f"Researching {conf['id']} ({conf['title']} {conf['year']})…", file=sys.stderr)
         run = ConferenceRun(conf)
         runs.append(run)
+        spent = total_usage(runs).usd
+        if spent >= max_usd:
+            run.error = f"not researched: --max-usd budget (${max_usd:.2f}) reached"
+            continue
+        say(f"Researching {conf['id']} ({conf['title']} {conf['year']})…", file=sys.stderr)
         mine = [s for s in existing if s["parent"] == conf["id"]]
         try:
-            run.research = agent.research(client, conf, mine, today.isoformat())
+            run.research = agent.research(
+                client, conf, mine, today.isoformat(), usd_limit=max_usd - spent
+            )
         except (
             anthropic.AuthenticationError,
             anthropic.PermissionDeniedError,
@@ -213,56 +227,167 @@ def main(argv: list[str] | None = None, client: Any = None, fetcher: Any = None)
         except (anthropic.APIStatusError, anthropic.APIConnectionError) as e:
             run.error = f"{type(e).__name__}: {e}"
             continue
-        main_city = conf["main_location"].get("city")
-        run.checked = [
-            check_candidate(raw, conf["id"], main_city, fetcher.get)
-            for raw in run.research.candidates
-        ]
+        save_result(results_dir, conf, run.research)
+    return runs
 
-    plan = plan_changes(existing, [c for run in runs for c in run.checked])
+
+def _load_geocache(repo: Path) -> dict[str, Any]:
+    path = repo / GEOCACHE
+    return json.loads(path.read_text()) if path.exists() else {}
+
+
+def _parse_args(argv: list[str] | None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(prog="discover", description=__doc__.split("\n")[0])
+    p.add_argument("--mode", choices=["upcoming", "backfill"], default="upcoming")
+    p.add_argument("--since", type=int, help="first year for --mode backfill")
+    p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--max-usd", type=float, default=DEFAULT_MAX_USD)
+    p.add_argument("--results-dir", type=Path)
+    p.add_argument("--from-results", type=Path)
+    p.add_argument("--out-dir", type=Path)
+    p.add_argument("--repo-root", type=Path, default=REPO_ROOT)
+    args = p.parse_args(argv)
+    args.only = [i.strip() for chunk in args.only for i in chunk.split(",") if i.strip()]
+    if args.mode == "backfill" and args.since is None and not args.from_results:
+        p.error("--mode backfill needs --since YYYY")
+    if args.out_dir and args.dry_run:
+        p.error("--out-dir cannot be combined with --dry-run")
+    if args.from_results and not args.from_results.is_dir():
+        p.error(f"--from-results {args.from_results}: not a directory")
+    return args
+
+
+def main(
+    argv: list[str] | None = None,
+    client: Any = None,
+    fetcher: Any = None,
+    geocoder: Any = None,
+    today: date | None = None,
+) -> int:
+    """Entry point. ``client``, ``fetcher``, ``geocoder`` and ``today`` are injectable for tests.
+
+    Returns
+    -------
+    int
+        0 on success; 1 if validation failed or any conference has no usable result (API
+        error, refusal, stop reason other than ``end_turn``, unparseable output, budget).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        main(["--only", "neurips26", "--dry-run"])
+    """
+    args = _parse_args(argv)
+    repo: Path = args.repo_root
+    today = today or datetime.now(UTC).date()
+    data = json.loads((repo / DATA_JSON).read_text())
+    sat_text = (repo / SATELLITES).read_text()
+    existing = load_satellites(sat_text)
+
+    results_dir: Path | None = None
+    if args.from_results:
+        runs = [
+            r
+            for r in load_results(args.from_results)
+            if not args.only or r.conference["id"] in args.only
+        ]
+        mode = "from saved results"
+    else:
+        confs = select_conferences(data, args.mode, today, args.since, args.only)
+        known = {c["id"] for c in data["conferences"]}
+        for missing in sorted(set(args.only) - {c["id"] for c in confs}):
+            why = "unknown id" if missing not in known else f"not selected by --mode {args.mode}"
+            say(f"warning: --only {missing}: {why}", file=sys.stderr)
+        if not confs:
+            say("No conferences to research.")
+            return 0
+        results_dir = args.results_dir or Path(tempfile.mkdtemp(prefix="discover-results-"))
+        say(f"Saving API results in {results_dir}", file=sys.stderr)
+        runs = research_all(
+            client or anthropic.Anthropic(), confs, existing, today, results_dir, args.max_usd
+        )
+        mode = f"`--mode {args.mode}`"
+    try:
+        return _process(args, repo, today, data, sat_text, existing, runs, mode, fetcher, geocoder)
+    finally:
+        if results_dir is not None:
+            say(
+                f"API results saved in {results_dir}; re-run without API calls with "
+                f"--from-results {results_dir}",
+                file=sys.stderr,
+            )
+
+
+def _process(
+    args: argparse.Namespace,
+    repo: Path,
+    today: date,
+    data: dict[str, Any],
+    sat_text: str,
+    existing: list[dict[str, Any]],
+    runs: list[ConferenceRun],
+    mode: str,
+    fetcher: Any,
+    geocoder: Any,
+) -> int:
+    """Checks, merge, report and (unless dry run) the validated ``satellites.yml`` write."""
+    fetcher = fetcher or PageFetcher()
+    geocache = _load_geocache(repo)
+    geocoder = geocoder or Geocoder(geocache)
+    for run in runs:
+        if run.research and run.research.status == "ok":
+            pages = LimitedPages(fetcher.get, MAX_FETCHES_PER_CONFERENCE)
+            run.checked = [
+                check_candidate_safely(raw, run.conference, pages, geocoder)
+                for raw in run.research.candidates
+            ]
+
+    existing_coords = {
+        s["id"]: (hit.lat, hit.lng)
+        for s in existing
+        if (hit := cached_hit(geocache, str(s.get("city", "")), str(s.get("country", ""))))
+    }
+    plan = plan_changes(existing, [c for run in runs for c in run.checked], existing_coords)
     new_text = apply_plan(sat_text, plan)
     weekly = len(select_conferences(data, "upcoming", today))
+    counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
     summary = (
-        f"{len(plan.additions)} addition(s), {len(plan.updates)} update(s) from "
-        f"{len(runs)} conference(s) (`--mode {args.mode}`)."
+        f"{counts}, {len(plan.suggestions)} suggestion(s) not applied, from {len(runs)} "
+        f"conference(s) ({mode})."
     )
-    body = "\n\n".join(
-        [
-            (
-                "Proposed by the satellite discovery agent (`scripts/discover`, DESIGN.md §4). "
-                "**Review before merging**: each kept quote was found on its source page by "
-                "this script, but values and the inclusion rule still need a human check."
-            ),
-            summary,
-            "## Evidence",
-            evidence_section(runs, plan),
-            "## Cost",
-            cost_section(runs, weekly),
-        ]
-    )
-    failed = [r.conference["id"] for r in runs if r.error]
-    print(body)
+    rc = 1 if any(r.failed for r in runs) else 0
 
     if args.dry_run:
-        print("\n## Server tool calls\n\n" + (tool_log(runs) or "(none)"))
+        say(build_body(runs, plan, summary, weekly, geocache))
+        say("\n## Server tool calls\n\n" + (tool_log(runs) or "(none)"))
         diff = unified_diff(sat_text, new_text)
-        print("\n## Proposed diff (not written)\n\n```diff\n" + (diff or "(no changes)\n") + "```")
-        return 1 if failed else 0
+        say("\n## Proposed diff (not written)\n\n```diff\n" + (diff or "(no changes)\n") + "```")
+        return rc
 
     if plan.empty:
-        print(f"No changes. {summary}")
-        return 1 if failed else 0
+        say(build_body(runs, plan, summary, weekly, geocache))
+        say(f"No changes to write. {summary}")
+        return rc
     (repo / SATELLITES).write_text(new_text)
-    print(f"Wrote {SATELLITES}: {summary}")
+    say(f"Wrote {SATELLITES}: {summary}")
     if not validate(repo, bool(plan.additions)):
-        print("data:validate failed; not opening a PR.", file=sys.stderr)
+        say("data:validate failed; not proposing a PR.", file=sys.stderr)
         return 1
-    if args.open_pr:
-        if failed:
-            body += "\n\nConferences with API errors (not researched): " + ", ".join(
-                code(i) for i in failed
-            )
+    # data:build may have geocoded the new cities: show the coordinates the map will use.
+    body = build_body(runs, plan, summary, weekly, _load_geocache(repo))
+    say(body)
+    if args.out_dir:
         if len(body) > MAX_PR_BODY:
             body = body[:MAX_PR_BODY] + "\n\n…(truncated; see the workflow log)"
-        open_pr(repo, f"Satellite discovery: {summary.split(' from ')[0]}", body)
-    return 1 if failed else 0
+        args.out_dir.mkdir(parents=True, exist_ok=True)
+        (args.out_dir / "pr-body.md").write_text(body)
+        pr = {
+            "title": f"Satellite discovery: {counts}",
+            # Unverified defaults must be checked by a human before the PR can be merged.
+            "draft": any(a.defaulted for a in plan.additions),
+        }
+        (args.out_dir / "pr.json").write_text(json.dumps(pr) + "\n")
+        say(f"Wrote PR title and body to {args.out_dir}")
+    return rc

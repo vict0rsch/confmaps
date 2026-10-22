@@ -1,46 +1,164 @@
 name: Discover satellites
 
-# Runs the discovery agent (scripts/discover, DESIGN.md §4) and opens one PR with proposed
-# changes to data/satellites.yml. The PR is never merged automatically.
+# Runs the discovery agent (scripts/discover, DESIGN.md §4) and proposes changes to
+# data/satellites.yml in one PR. The PR is never merged automatically. Two jobs:
+# - research: read-only token, and the only job that sees ANTHROPIC_API_KEY (environment
+#   `discovery`). It reads untrusted web pages, writes and validates the data files, then
+#   uploads them with the PR title/body as an artifact. It cannot push.
+# - propose: no Anthropic key, runs no code from the repository or the artifact (only git, gh
+#   and jq); commits the two data files, pushes a branch, opens the PR and dispatches CI.
+#
+# Repository setup:
+# - Environment `discovery` holding the ANTHROPIC_API_KEY secret. Restrict its deployment
+#   branches to `main`; optionally add required reviewers (each run then waits for approval).
+# - Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests"
+#   must be enabled, or `gh pr create` with GITHUB_TOKEN fails.
+# - PRs opened with GITHUB_TOKEN do not trigger `pull_request` workflows, so CI is started with
+#   `gh workflow run ci.yml` on the PR branch (needs `actions: write` here and a
+#   `workflow_dispatch` trigger in ci.yml). The more standard alternative is a GitHub App
+#   installation token or a fine-grained PAT (contents + pull requests: write) for the
+#   propose job: PRs it opens trigger CI normally and no dispatch is needed.
+#
+# Actions are pinned to commit SHAs (version in the trailing comment).
 on:
   workflow_dispatch:
   # Weekly run: enable after reviewing dry-run cost.
   # schedule:
   #   - cron: '23 6 * * 1' # Mondays, 06:23 UTC
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 concurrency:
   group: discover
   cancel-in-progress: false
 
 jobs:
-  discover:
+  research:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    environment: discovery
+    permissions:
+      contents: read
+    outputs:
+      changes: ${{ steps.discover.outputs.changes }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           enable-cache: true
           cache-dependency-glob: scripts/discover/uv.lock
       - run: uv sync --project scripts/discover --locked
-      - name: Configure git identity for the PR commit
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-      # No workflow inputs or event data are interpolated into `run:`; secrets reach the
-      # script only through env.
-      - name: Run discovery and open a PR
-        run: uv run --project scripts/discover --locked discover --mode upcoming --open-pr
+      # No workflow inputs or event data are interpolated into `run:`; the secret reaches the
+      # script only through env, in this step only. The script strips it (and any GitHub
+      # token) from the environment of the pnpm commands it runs.
+      - name: Run discovery
+        id: discover
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OUT: ${{ runner.temp }}/proposal
+          RESULTS: ${{ runner.temp }}/results
+        run: |
+          set +e
+          uv run --project scripts/discover --locked discover --mode upcoming \
+            --results-dir "$RESULTS" --out-dir "$OUT"
+          rc=$?
+          set -e
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          # pr.json exists only when there are changes and data:validate passed.
+          if [ -f "$OUT/pr.json" ]; then
+            cp data/satellites.yml data/geocache.json "$OUT/"
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Upload the proposal
+        if: steps.discover.outputs.changes == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: proposal
+          path: ${{ runner.temp }}/proposal/
+          if-no-files-found: error
+          retention-days: 7
+      # Paid API results, to re-run the checks locally with `discover --from-results DIR`.
+      - name: Upload the API results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: api-results
+          path: ${{ runner.temp }}/results/
+          if-no-files-found: ignore
+          retention-days: 14
+      # Conferences without a usable result (API error, refusal, budget, ...) fail this job;
+      # a PR for the others is still proposed.
+      - name: Fail on incomplete research
+        if: steps.discover.outputs.rc != '0'
+        run: exit 1
+
+  propose:
+    needs: research
+    if: ${{ !cancelled() && needs.research.outputs.changes == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write # gh workflow run ci.yml
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: proposal
+          path: ${{ runner.temp }}/proposal
+      # Only the two curated data files are taken from the artifact; nothing in it is executed.
+      - name: Commit the proposed data files
+        id: commit
+        env:
+          P: ${{ runner.temp }}/proposal
+        run: |
+          cp "$P/satellites.yml" data/satellites.yml
+          cp "$P/geocache.json" data/geocache.json
+          branch="discover/$(date -u +%Y-%m-%d-%H%M%S)"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git add -- data/satellites.yml data/geocache.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "$(jq -r .title "$P/pr.json")"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+      - name: Push the branch
+        if: steps.commit.outputs.branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+        run: >-
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          "HEAD:refs/heads/$BRANCH"
+      - name: Open the PR
+        if: steps.commit.outputs.branch
+        env:
           GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+          P: ${{ runner.temp }}/proposal
+        run: |
+          # Draft when an added satellite has UNVERIFIED default fields.
+          draft=()
+          if [ "$(jq -r .draft "$P/pr.json")" = true ]; then draft=(--draft); fi
+          gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" \
+            --title "$(jq -r .title "$P/pr.json")" --body-file "$P/pr-body.md" "${draft[@]}"
+      - name: Run CI on the PR branch
+        if: steps.commit.outputs.branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+        run: gh workflow run ci.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH"

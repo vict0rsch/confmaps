@@ -2,35 +2,53 @@
 
 Rules (deterministic, never deletes anything):
 
-- Dedup key: ``(parent, normalized city)`` against existing entries and earlier candidates.
-- New key → addition with a stable id ``<parent>-<city-slug>``; ``sources`` = verified URLs.
-- Existing key → update with changed fields only. Only factual fields are overwritten
-  (``UPDATABLE``); free-text fields are filled only when missing (``FILL_IF_MISSING``);
-  identity fields (id, parent, name, link, city, country) are never touched.
+- Dedup: same ``parent`` and same city — same normalized name, or geocoded within
+  :data:`SAME_CITY_KM` (aliases, other scripts) — against existing entries and earlier
+  candidates.
+- New city → addition with a stable id ``<parent>-<city-slug>``; ``sources`` = evidence URLs.
+  Required fields without evidence get conservative defaults, each marked with an
+  ``# UNVERIFIED default`` YAML comment (see :data:`DEFAULTS`).
+- Existing city → only *verified* date changes are applied (:data:`APPLIED_UPDATES`). Every
+  other difference (``official``, ``presents_papers``, ``access``, missing ``venue`` /
+  ``notes``) is a suggestion shown in the PR, never written over curated data. Identity
+  fields (id, parent, name, link, city, country) are never touched.
 """
 
 import difflib
+import hashlib
 import io
 import re
 from dataclasses import dataclass, field
+from datetime import date
 from typing import Any
 
 from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 from ruamel.yaml.scalarstring import SingleQuotedScalarString
 
+from .geo import haversine_km
 from .verify import Checked, norm_city
 
 FIELD_ORDER = [
     "id", "parent", "name", "link", "city", "country", "venue", "start", "end", "official",
     "presents_papers", "access", "notes", "sources",
 ]  # fmt: skip
-UPDATABLE = ["start", "end", "official", "presents_papers", "access"]
-FILL_IF_MISSING = ["venue", "notes"]
-# satellites.yml requires these; without verified evidence they get conservative defaults
-# that the PR evidence table flags as unverified.
-DEFAULTS: dict[str, Any] = {"official": False, "presents_papers": False, "access": "registration"}
+APPLIED_UPDATES = ["start", "end"]
+SUGGESTED_UPDATES = ["official", "presents_papers", "access"]
+SUGGESTED_IF_MISSING = ["venue", "notes"]
+# satellites.yml requires these. Without evidence an addition still needs a value, so each
+# default is chosen so that an unreviewed error never sends a researcher to an event they
+# cannot attend or present at: not endorsed, no paper presentations, restricted access.
+# `authors_only` (rather than `registration`) is the restrictive choice: wrongly saying
+# "anyone can register" makes people plan travel for nothing, while wrongly saying "authors
+# only" at worst makes them check the event page. Each default is marked in the YAML, makes
+# the PR a draft and is listed under "Needs human verification".
+DEFAULTS: dict[str, Any] = {"official": False, "presents_papers": False, "access": "authors_only"}
+UNVERIFIED_COMMENT = "UNVERIFIED default — check before merging"
 DATE_FIELDS = {"start", "end"}
+SAME_CITY_KM = 25.0
+
+Coords = tuple[float, float]
 
 
 def city_slug(city: str) -> str:
@@ -45,6 +63,11 @@ def city_slug(city: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", norm_city(city)).strip("-")
 
 
+def _iso(value: Any) -> str:
+    """Dates as ISO strings, whether YAML gave a ``date`` (unquoted) or a string."""
+    return value.isoformat() if isinstance(value, date) else str(value)
+
+
 @dataclass
 class Addition:
     entry: dict[str, Any]
@@ -55,7 +78,8 @@ class Addition:
 @dataclass
 class Update:
     id: str
-    changes: dict[str, tuple[Any, Any]]  # field → (old, new); old is None when filled in
+    changes: dict[str, tuple[Any, Any]]  # applied: field → (old, new)
+    suggested: dict[str, tuple[Any, Any]]  # not applied: field → (old or None, new)
     new_sources: list[str]
     candidate: Checked
 
@@ -63,19 +87,42 @@ class Update:
 @dataclass
 class Plan:
     additions: list[Addition] = field(default_factory=list)
-    updates: list[Update] = field(default_factory=list)
-    skipped: list[tuple[Checked, str]] = field(default_factory=list)
+    updates: list[Update] = field(default_factory=list)  # with changes and/or suggestions
+    skipped: list[tuple[Checked, str, str]] = field(default_factory=list)  # (c, reason, detail)
+
+    @property
+    def applied(self) -> list[Update]:
+        return [u for u in self.updates if u.changes]
+
+    @property
+    def suggestions(self) -> list[Update]:
+        return [u for u in self.updates if u.suggested]
 
     @property
     def empty(self) -> bool:
-        return not self.additions and not self.updates
+        """No change to write (suggestions alone are never written)."""
+        return not self.additions and not self.applied
 
 
-def _verified_sources(c: Checked) -> list[str]:
-    return list(dict.fromkeys(c.sources[f] for f in FIELD_ORDER if f in c.sources))
+def _evidence_sources(c: Checked, fields: list[str]) -> list[str]:
+    return list(dict.fromkeys(c.sources[f] for f in fields if f in c.sources))
 
 
-def plan_changes(existing: list[dict[str, Any]], candidates: list[Checked]) -> Plan:
+def _coords(c: Checked) -> Coords | None:
+    return (c.geo.lat, c.geo.lng) if c.geo else None
+
+
+def _same_city(name_a: str, coords_a: Coords | None, name_b: str, coords_b: Coords | None) -> bool:
+    if norm_city(name_a) == norm_city(name_b):
+        return True
+    return bool(coords_a and coords_b and haversine_km(coords_a, coords_b) <= SAME_CITY_KM)
+
+
+def plan_changes(
+    existing: list[dict[str, Any]],
+    candidates: list[Checked],
+    existing_coords: dict[str, Coords] | None = None,
+) -> Plan:
     """Dedupe verified candidates against existing satellites and each other.
 
     Parameters
@@ -84,43 +131,60 @@ def plan_changes(existing: list[dict[str, Any]], candidates: list[Checked]) -> P
         Current ``satellites.yml`` entries (plain dicts).
     candidates : list of Checked
         Verified candidates; those with ``dropped`` set are ignored.
+    existing_coords : dict, optional
+        Satellite id → ``(lat, lng)`` of its city (from ``data/geocache.json``).
 
     Returns
     -------
     Plan
-        Additions, updates (changed fields only) and skipped candidates with reasons.
+        Additions, updates (applied changes and suggestions) and skipped candidates.
 
     Examples
     --------
     .. code-block:: python
 
-        plan = plan_changes(load_satellites(text), checked)
+        plan = plan_changes(load_satellites(text), checked, {"neurips26-paris": (48.86, 2.35)})
         new_text = apply_plan(text, plan)
     """
+    coords = existing_coords or {}
     plan = Plan()
-    by_key = {(s["parent"], norm_city(s["city"])): s for s in existing}
     ids = {s["id"] for s in existing}
-    seen: set[tuple[str, str]] = set()
+    seen: list[Checked] = []
     for c in candidates:
         if c.dropped:
             continue
-        key = (c.parent, norm_city(c.fields["city"]))
-        if key in seen:
-            plan.skipped.append((c, "duplicate of an earlier candidate in this run"))
+        city = c.fields["city"]
+        if any(
+            p.parent == c.parent and _same_city(p.fields["city"], _coords(p), city, _coords(c))
+            for p in seen
+        ):
+            plan.skipped.append((c, "duplicate of an earlier candidate in this run", ""))
             continue
-        seen.add(key)
-        current = by_key.get(key)
+        seen.append(c)
+        current = next(
+            (
+                s
+                for s in existing
+                if s["parent"] == c.parent
+                and _same_city(s["city"], coords.get(s["id"]), city, _coords(c))
+            ),
+            None,
+        )
         if current is None:
             plan.additions.append(_addition(c, ids))
         elif update := _update(current, c):
             plan.updates.append(update)
         else:
-            plan.skipped.append((c, f"matches {current['id']} with no verified changes"))
+            plan.skipped.append((c, "matches an existing entry with no changes", current["id"]))
     return plan
 
 
 def _addition(c: Checked, ids: set[str]) -> Addition:
-    base = f"{c.parent}-{city_slug(c.fields['city'])}"
+    city = c.fields["city"]
+    # Non-Latin names ("東京") have no ASCII slug: use the geocoded English name, else a hash.
+    slug = city_slug(city) or (c.geo and city_slug(c.geo.english_name)) or ""
+    slug = slug or hashlib.sha1(norm_city(city).encode()).hexdigest()[:8]
+    base = f"{c.parent}-{slug}"
     new_id, n = base, 2
     while new_id in ids:
         new_id, n = f"{base}-{n}", n + 1
@@ -133,29 +197,32 @@ def _addition(c: Checked, ids: set[str]) -> Addition:
         elif f in DEFAULTS:
             entry[f] = DEFAULTS[f]
             defaulted.append(f)
-    entry["sources"] = _verified_sources(c)
+    entry["sources"] = _evidence_sources(c, FIELD_ORDER)
     return Addition(entry, c, defaulted)
 
 
 def _update(current: dict[str, Any], c: Checked) -> Update | None:
     changes: dict[str, tuple[Any, Any]] = {}
-    for f in UPDATABLE:
-        if f in c.fields and c.fields[f] != current.get(f):
-            changes[f] = (current.get(f), c.fields[f])
-    for f in FILL_IF_MISSING:
-        if f in c.fields and not current.get(f):
-            changes[f] = (None, c.fields[f])
-    start = changes.get("start", (None, current["start"]))[1]
-    end = changes.get("end", (None, current["end"]))[1]
+    for f in APPLIED_UPDATES:
+        if c.verified(f) and c.fields[f] != _iso(current.get(f)):
+            changes[f] = (_iso(current.get(f)), c.fields[f])
+    start = changes.get("start", (None, _iso(current["start"])))[1]
+    end = changes.get("end", (None, _iso(current["end"])))[1]
     if start > end:  # a partial date update must not produce start > end
         changes.pop("start", None)
         changes.pop("end", None)
-    if not changes:
+    suggested: dict[str, tuple[Any, Any]] = {}
+    for f in SUGGESTED_UPDATES:
+        if f in c.fields and c.fields[f] != current.get(f):
+            suggested[f] = (current.get(f), c.fields[f])
+    for f in SUGGESTED_IF_MISSING:
+        if f in c.fields and not current.get(f):
+            suggested[f] = (None, c.fields[f])
+    if not changes and not suggested:
         return None
     have = set(current.get("sources") or [])
-    used = [c.sources[f] for f in FIELD_ORDER if f in changes and f in c.sources]
-    new_sources = [u for u in dict.fromkeys(used) if u not in have]
-    return Update(current["id"], changes, new_sources, c)
+    new_sources = [u for u in _evidence_sources(c, list(changes)) if u not in have]
+    return Update(current["id"], changes, suggested, new_sources, c)
 
 
 # ---------------------------------------------------------------------------
@@ -225,14 +292,14 @@ def _append(seq: CommentedSeq, value: Any) -> None:
 
 
 def apply_plan(text: str, plan: Plan) -> str:
-    """Apply a plan to ``satellites.yml`` text; existing entries and comments are kept.
+    """Apply a plan's additions and applied updates; existing entries and comments are kept.
 
     Parameters
     ----------
     text : str
         Current file content.
     plan : Plan
-        Changes from :func:`plan_changes`.
+        Changes from :func:`plan_changes` (suggestions are not written).
 
     Returns
     -------
@@ -252,7 +319,7 @@ def apply_plan(text: str, plan: Plan) -> str:
         out = text
     else:
         by_id = {entry["id"]: entry for entry in data}
-        for u in plan.updates:
+        for u in plan.applied:
             entry = by_id[u.id]
             for f, (_, new) in u.changes.items():
                 _set(entry, f, _scalar(f, new))
@@ -266,6 +333,11 @@ def apply_plan(text: str, plan: Plan) -> str:
         entry = CommentedMap()
         for f, value in a.entry.items():
             entry[f] = _scalar(f, value)
+        for f in a.defaulted:
+            # Two spaces after the value (ruamel would otherwise align all comments). The
+            # column counts the 4-space indent this entry gets before `_dump` dedents it.
+            value = str(a.entry[f]).lower() if isinstance(a.entry[f], bool) else a.entry[f]
+            entry.yaml_add_eol_comment(UNVERIFIED_COMMENT, f, column=4 + len(f"{f}: {value}") + 2)
         out = out.rstrip("\n") + "\n\n" + _dump(CommentedSeq([entry]))
     return out
 

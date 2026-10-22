@@ -2,8 +2,11 @@
 
 Prices are Anthropic first-party list prices (claude-api skill, cached 2026-10-06), USD:
 per million tokens for input / output / 5-minute cache write / cache read, and $10 per 1,000
-web searches. Web fetch has no per-request charge (fetched content is billed as input tokens),
-and the code execution behind dynamic filtering is free with the web tools.
+web searches. Web fetch has no per-request charge (fetched content is billed as input tokens).
+No code-execution fee is modelled: the request declares no ``code_execution`` tool, and the
+code execution the API provisions for the web tools' dynamic filtering has no charge beyond
+tokens (web search / web fetch tool docs, checked 2026-10-22). Declaring that tool would need
+a container-time line here.
 """
 
 from dataclasses import dataclass, field

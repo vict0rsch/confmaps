@@ -7,7 +7,8 @@ from typing import Any, Self
 
 import pytest
 
-from discover.verify import Page, normalize
+from discover.geo import GeoHit, geocache_key
+from discover.verify import Page, page_from_markup
 
 REPO = Path(__file__).resolve().parents[3]
 
@@ -76,7 +77,7 @@ class _Stream:
 
 
 class FakeClient:
-    """Mimics ``client.beta.messages.stream(...)``; returns queued messages in order."""
+    """Mimics ``client.beta.messages.stream(...)``; returns (or raises) queued items in order."""
 
     def __init__(self, *responses: Any) -> None:
         self.responses = list(responses)
@@ -86,11 +87,14 @@ class FakeClient:
     def _stream(self, **kwargs: Any) -> _Stream:
         # Snapshot messages: the caller mutates the list after the call.
         self.calls.append({**kwargs, "messages": list(kwargs["messages"])})
-        return _Stream(self.responses.pop(0))
+        response = self.responses.pop(0)
+        if isinstance(response, Exception):
+            raise response
+        return _Stream(response)
 
 
 class FakeFetcher:
-    """``url -> Page`` from a dict of raw page texts; unknown URLs are unreachable."""
+    """``url -> Page`` from a dict of raw page texts (HTML or text); unknown URLs give 404."""
 
     def __init__(self, pages: dict[str, str]) -> None:
         self.pages = pages
@@ -99,14 +103,43 @@ class FakeFetcher:
     def get(self, url: str) -> Page:
         self.requested.append(url)
         if url not in self.pages:
-            return Page(None, "HTTP 404")
-        return Page(normalize(self.pages[url]))
+            return Page(None, "HTTP error", "404")
+        return page_from_markup(self.pages[url], url)
+
+
+ATLANTA_HIT = GeoHit(33.7544657, -84.3898151, "Atlanta, Fulton County, Georgia, United States", "x")
+PARIS_HIT = GeoHit(48.8534951, 2.3483915, "Paris, Ile-de-France, France", "geocache")
+
+
+class FakeGeocoder:
+    """``(city, country) -> GeoHit | None`` from a table keyed like ``data/geocache.json``."""
+
+    def __init__(self, hits: dict[str, GeoHit] | None = None) -> None:
+        self.hits = {
+            "atlanta|united states": ATLANTA_HIT,
+            "paris|france": PARIS_HIT,
+            **(hits or {}),
+        }
+        self.calls: list[tuple[str, str]] = []
+
+    def __call__(self, city: str, country: str) -> GeoHit | None:
+        self.calls.append((city, country))
+        return self.hits.get(geocache_key(city, country))
 
 
 def ev(value: Any, url: str, quote: str) -> dict[str, Any]:
     return {"value": value, "source_url": url, "quote": quote}
 
 
+CONF = {
+    "id": "neurips26",
+    "title": "NeurIPS",
+    "year": 2026,
+    "start": "2026-12-06",
+    "end": "2026-12-12",
+    "link": "https://neurips.cc/",
+    "main_location": {"city": "Sydney", "country": "Australia"},
+}
 ATLANTA_URL = "https://neurips.cc/Conferences/2026/Atlanta"
 ATLANTA_PAGE = (
     "NeurIPS 2026 Atlanta. The official NeurIPS satellite in Atlanta, Georgia, United States "

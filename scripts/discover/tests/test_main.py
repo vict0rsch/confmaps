@@ -1,9 +1,13 @@
 import json
 import shutil
-from datetime import date, timedelta
+import sys
+from datetime import date
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
+import anthropic
+import httpx
 import pytest
 from conftest import (
     ATLANTA_PAGE,
@@ -11,13 +15,15 @@ from conftest import (
     REPO,
     FakeClient,
     FakeFetcher,
+    FakeGeocoder,
     atlanta_candidate,
     ev,
     json_message,
+    message,
+    usage,
 )
 
-from discover.main import main, select_conferences
-from discover.report import code, link
+from discover.main import LOG_PREFIX, _run, main, say, scrubbed_env, select_conferences
 
 TODAY = date(2026, 10, 22)
 
@@ -45,27 +51,40 @@ def test_backfill_and_only(data_json: dict[str, Any]) -> None:
 
 @pytest.fixture
 def repo(tmp_path: Path, data_json: dict[str, Any]) -> Path:
-    (tmp_path / "data" / "build").mkdir(parents=True)
-    shutil.copy(REPO / "data" / "satellites.yml", tmp_path / "data" / "satellites.yml")
-    # main() uses the real date: keep neurips26 upcoming whenever the test runs.
-    soon = date.today() + timedelta(days=30)
-    data_json["conferences"][0]["start"] = soon.isoformat()
-    data_json["conferences"][0]["end"] = (soon + timedelta(days=4)).isoformat()
-    (tmp_path / "data" / "build" / "data.json").write_text(json.dumps(data_json))
-    return tmp_path
+    (tmp_path / "repo" / "data" / "build").mkdir(parents=True)
+    root = tmp_path / "repo"
+    shutil.copy(REPO / "data" / "satellites.yml", root / "data" / "satellites.yml")
+    (root / "data" / "build" / "data.json").write_text(json.dumps(data_json))
+    return root
+
+
+def run_main(repo: Path, *args: str, client: Any = None, fetcher: Any = None) -> int:
+    results = repo.parent / "results"
+    argv = ["--repo-root", str(repo), *args]
+    if "--from-results" not in args:
+        argv += ["--results-dir", str(results)]
+    return main(
+        argv,
+        client or FakeClient(),
+        fetcher or FakeFetcher({ATLANTA_URL: ATLANTA_PAGE}),
+        FakeGeocoder(),
+        today=TODAY,
+    )
+
+
+PARIS_STUB = {
+    "parent": "neurips26",
+    "rationale": "dup",
+    "city": ev("Paris", "https://neurips-europe.cc/", "NeurIPS 2026 in Paris"),
+}
 
 
 def test_dry_run_writes_nothing_and_reports(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:
     before = (repo / "data" / "satellites.yml").read_text()
-    paris = {
-        "parent": "neurips26",
-        "rationale": "dup",
-        "city": ev("Paris", "https://neurips-europe.cc/", "in Paris"),
-    }
-    client = FakeClient(json_message({"candidates": [atlanta_candidate(), paris]}))
-    fetcher = FakeFetcher({ATLANTA_URL: ATLANTA_PAGE})
-    rc = main(["--only", "neurips26", "--dry-run", "--repo-root", str(repo)], client, fetcher)
-    out = capsys.readouterr().out
+    client = FakeClient(json_message({"candidates": [atlanta_candidate(), PARIS_STUB]}))
+    rc = run_main(repo, "--only", "neurips26", "--dry-run", client=client)
+    captured = capsys.readouterr()
+    out = captured.out
     assert rc == 0
     assert (repo / "data" / "satellites.yml").read_text() == before
     assert sorted(p.name for p in (repo / "data").iterdir()) == ["build", "satellites.yml"]
@@ -74,18 +93,64 @@ def test_dry_run_writes_nothing_and_reports(repo: Path, capsys: pytest.CaptureFi
     assert "dropped: missing verified required field(s)" in out  # the Paris stub
     assert "| `neurips26` | 1 |" in out  # cost row
     assert "Est. USD" in out and "projected weekly" in out
+    assert "## New cities" in out and "33.7545, -84.3898" in out
+    # Every log line carries the static prefix (no untrusted text starts a line).
+    assert all(line.startswith(LOG_PREFIX) for line in out.splitlines())
+    assert all(line.startswith(LOG_PREFIX) for line in captured.err.splitlines())
+    assert (repo.parent / "results" / "neurips26.json").exists()
+    assert "--from-results" in captured.err
 
 
-def test_open_pr_refused_outside_ci(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
+def test_from_results_reruns_without_api_calls(
+    repo: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    client = FakeClient(json_message({"candidates": [atlanta_candidate()]}))
+    assert run_main(repo, "--only", "neurips26", "--dry-run", client=client) == 0
+    first = capsys.readouterr().out
+    no_api = FakeClient()  # any call would fail: no queued responses
+    rc = run_main(repo, "--from-results", str(repo.parent / "results"), "--dry-run", client=no_api)
+    second = capsys.readouterr().out
+    assert rc == 0 and no_api.calls == []
+    assert "**add** `neurips26-atlanta`" in first and "**add** `neurips26-atlanta`" in second
+
+
+def _auth_error() -> anthropic.AuthenticationError:
+    request = httpx.Request("POST", "https://api.anthropic.com/v1/messages")
+    return anthropic.AuthenticationError(
+        "bad key", response=httpx.Response(401, request=request), body=None
+    )
+
+
+def test_paid_results_survive_a_crash(repo: Path) -> None:
+    client = FakeClient(json_message({"candidates": []}), _auth_error())
+    with pytest.raises(anthropic.AuthenticationError):
+        run_main(repo, "--dry-run", client=client)  # emnlp26 then neurips26
+    saved = json.loads((repo.parent / "results" / "emnlp26.json").read_text())
+    assert saved["research"]["status"] == "ok" and saved["conference"]["id"] == "emnlp26"
+
+
+def test_non_ok_results_count_as_failures(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    refused = message([], stop_reason="refusal", stop_details=SimpleNamespace(category="cyber"))
+    truncated = json_message({"candidates": []}, stop_reason="max_tokens")
+    rc = run_main(repo, "--dry-run", client=FakeClient(refused, truncated))
+    out = capsys.readouterr().out
+    assert rc == 1
+    assert "No result: `refusal`" in out and "No result: `error`" in out
+    assert "Conferences without a usable result" in out
+
+
+def test_max_usd_stops_further_calls(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    costly = json_message({"candidates": []}, usage_=usage(1_000_000, 0))  # $4
+    client = FakeClient(costly)
+    rc = run_main(repo, "--dry-run", "--max-usd", "1", client=client)
+    out = capsys.readouterr().out
+    assert rc == 1 and len(client.calls) == 1
+    assert "--max-usd budget ($1.00) reached" in out
+
+
+def test_out_dir_cannot_be_combined_with_dry_run(repo: Path) -> None:
     with pytest.raises(SystemExit):
-        main(["--open-pr", "--repo-root", str(repo)], FakeClient(), FakeFetcher({}))
-
-
-def test_markdown_escaping() -> None:
-    assert code("a | b `c`\n@team") == "`a \\| b 'c' @team`"
-    assert code(True) == "`true`"
-    assert link("https://x.org/a b|c>") == "<https://x.org/a%20b%7Cc%3E>"
+        run_main(repo, "--dry-run", "--out-dir", str(repo.parent / "out"))
 
 
 def test_write_mode_validates_and_fails_on_invalid_data(
@@ -99,8 +164,64 @@ def test_write_mode_validates_and_fails_on_invalid_data(
 
     monkeypatch.setattr("discover.main._run", fake_run)
     client = FakeClient(json_message({"candidates": [atlanta_candidate()]}))
-    fetcher = FakeFetcher({ATLANTA_URL: ATLANTA_PAGE})
-    rc = main(["--only", "neurips26", "--repo-root", str(repo)], client, fetcher)
+    out_dir = repo.parent / "out"
+    rc = run_main(repo, "--only", "neurips26", "--out-dir", str(out_dir), client=client)
     assert rc == 1
     assert commands == [["pnpm", "data:validate"], ["pnpm", "data:build"]]
     assert "id: neurips26-atlanta" in (repo / "data" / "satellites.yml").read_text()
+    assert not (out_dir / "pr.json").exists()  # no PR for invalid data
+
+
+def test_write_mode_produces_a_draft_pr_when_defaults_were_used(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    raw = atlanta_candidate(access=None)
+    client = FakeClient(json_message({"candidates": [raw]}))
+    out_dir = repo.parent / "out"
+    assert run_main(repo, "--only", "neurips26", "--out-dir", str(out_dir), client=client) == 0
+    pr = json.loads((out_dir / "pr.json").read_text())
+    assert pr == {"title": "Satellite discovery: 1 addition(s), 0 update(s)", "draft": True}
+    body = (out_dir / "pr-body.md").read_text()
+    top = body.index("## Needs human verification")
+    assert top < body.index("## Evidence")
+    assert "`neurips26-atlanta` `access`: UNVERIFIED default `authors_only`" in body
+    assert "`official` = `true`: model judgement" in body
+
+
+def test_write_mode_ready_pr_when_everything_has_evidence(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    client = FakeClient(json_message({"candidates": [atlanta_candidate()]}))
+    out_dir = repo.parent / "out"
+    assert run_main(repo, "--only", "neurips26", "--out-dir", str(out_dir), client=client) == 0
+    assert json.loads((out_dir / "pr.json").read_text())["draft"] is False
+
+
+def test_scrubbed_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    for k in ("ANTHROPIC_API_KEY", "ANTHROPIC_BASE_URL", "GH_TOKEN", "GITHUB_TOKEN"):
+        monkeypatch.setenv(k, "secret")
+    monkeypatch.setenv("KEEP_ME", "1")
+    env = scrubbed_env()
+    assert env["KEEP_ME"] == "1"
+    assert not any(k.startswith("ANTHROPIC_") or k in ("GH_TOKEN", "GITHUB_TOKEN") for k in env)
+
+
+def test_say_prefixes_every_line(capsys: pytest.CaptureFixture[str]) -> None:
+    say("first\n::set-output name=x::y\r\n  ::warning::z")
+    assert capsys.readouterr().out.splitlines() == [
+        "> first",
+        "> ::set-output name=x::y",
+        ">   ::warning::z",
+    ]
+
+
+def test_subprocess_output_is_prefixed_and_env_scrubbed(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("GH_TOKEN", "secret")
+    code = "import os; print('::error::x'); print(os.environ.get('GH_TOKEN'))"
+    assert _run([sys.executable, "-c", code], tmp_path) == 0
+    err = capsys.readouterr().err.splitlines()
+    assert "pnpm> ::error::x" in err and "pnpm> None" in err

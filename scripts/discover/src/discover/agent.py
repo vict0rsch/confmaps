@@ -6,7 +6,7 @@ touches the repository; everything it returns is checked by deterministic code (
 """
 
 import json
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from .cost import Usage
@@ -17,11 +17,22 @@ MAX_TOKENS = 64000
 # `fallbacks: "default"` re-runs a classifier-declined request on Anthropic's recommended
 # model for that refusal category; this is the beta header for the scalar "default" form.
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
+# Newest server-tool versions in anthropic 2.1.0 (BetaWebSearchTool20260318Param,
+# BetaWebFetchTool20260318Param), documented for claude-opus-5-5: dynamic filtering, which runs
+# on code execution that the API provisions itself at no extra charge (no `code_execution`
+# tool is declared, and none must be: it would add a second sandbox).
+# - web_fetch can be restricted with `allowed_domains` / `blocked_domains` and `url_sources`;
+#   none is set: satellite pages live on arbitrary domains, and the API already fetches only
+#   URLs that appeared in the conversation (user message, search or fetch results).
+# - web_fetch `citations` stay disabled (the default): citations with structured output
+#   (`output_config.format`) are rejected with a 400. Server tools need no other setting to be
+#   combined with structured output.
+# - `response_inclusion` keeps its default ("full") so the tool log lists every query and URL.
 # Caps are per request; a paused turn is resumed at most MAX_CONTINUATIONS times.
 TOOLS: list[dict[str, Any]] = [
-    {"type": "web_search_20260209", "name": "web_search", "max_uses": 8},
+    {"type": "web_search_20260318", "name": "web_search", "max_uses": 8},
     {
-        "type": "web_fetch_20260209",
+        "type": "web_fetch_20260318",
         "name": "web_fetch",
         "max_uses": 10,
         "max_content_tokens": 20000,
@@ -108,14 +119,19 @@ you report an existing satellite, use the same city so that it is matched as an 
 
 Evidence rules (strict):
 - Every field you return is an object {value, source_url, quote}. The quote is a short \
-verbatim excerpt (a phrase or one sentence, under 300 characters) copied exactly from the \
-visible text of the page at source_url, and it must support the value. Do not paraphrase, \
-translate, abbreviate, or join text from different parts of the page.
-- A program downloads every source_url and drops each field whose quote does not appear on \
-that page; it then drops candidates that lack name, link, city, country, start or end. Cite \
-the HTML page that contains the text (not a search-result snippet, PDF or image), preferably \
-the event's own page or the parent conference's official page.
-- Omit a field entirely when you have no such quote. Never guess a value.
+verbatim excerpt (a phrase or one sentence, at least a few words and under 300 characters) \
+copied exactly from the visible text of the page at source_url, and it must support the value. \
+Do not paraphrase, translate, abbreviate, or join text from different parts of the page.
+- A program downloads every source_url and checks each field: the quote must appear on that \
+page; for name, city, venue and country the quote must contain the value as written; for \
+start and end it must contain the day, the month and the year of that date; for official, \
+presents_papers and access it must be a full sentence or clause of at least 20 characters. The \
+link must be a link on the source page or on the same site. Fields that fail are dropped, then \
+candidates that lack name, link, city, country, start or end. Cite the HTML page that contains \
+the text (not a search-result snippet, PDF or image), preferably the event's own page or the \
+parent conference's official page.
+- Omit a field entirely when you have no such quote, except country, which may be given \
+without a quote naming it (it is then checked by geocoding the city). Never guess a value.
 
 Field values:
 - parent: the target conference id, exactly as given.
@@ -152,6 +168,19 @@ class Research:
     served_by: str | None = None
     tool_calls: list[str] = field(default_factory=list)
     usage: Usage = field(default_factory=Usage)
+
+    def to_dict(self) -> dict[str, Any]:
+        """JSON-ready form, saved per conference so paid results survive a crash."""
+        d = asdict(self)
+        d["usage"]["unpriced_models"] = sorted(self.usage.unpriced_models)
+        return d
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "Research":
+        """Inverse of :meth:`to_dict` (for ``--from-results``)."""
+        u = dict(d.get("usage") or {})
+        u["unpriced_models"] = set(u.get("unpriced_models") or [])
+        return cls(**{**d, "usage": Usage(**u)})
 
 
 def user_message(conference: dict[str, Any], existing: list[dict[str, Any]], today: str) -> str:
@@ -237,13 +266,17 @@ def _tool_calls(content: list[Any]) -> list[str]:
 
 
 def research(
-    client: Any, conference: dict[str, Any], existing: list[dict[str, Any]], today: str
+    client: Any,
+    conference: dict[str, Any],
+    existing: list[dict[str, Any]],
+    today: str,
+    usd_limit: float | None = None,
 ) -> Research:
     """Ask the model for candidate satellites of one conference.
 
     Streams the request (long server-tool turns), resumes ``pause_turn`` up to
-    ``MAX_CONTINUATIONS`` times, and checks ``stop_reason`` before reading content. API errors
-    propagate to the caller.
+    ``MAX_CONTINUATIONS`` times (not once the estimated cost exceeds ``usd_limit``), and
+    checks ``stop_reason`` before reading content. API errors propagate to the caller.
 
     Parameters
     ----------
@@ -255,6 +288,8 @@ def research(
         Satellites already recorded for this conference.
     today : str
         ISO date of the run.
+    usd_limit : float, optional
+        Budget for this conference; a paused turn is not resumed beyond it.
 
     Returns
     -------
@@ -300,6 +335,9 @@ def research(
             result.served_by = message.model
         if message.stop_reason != "pause_turn":
             break
+        if usd_limit is not None and result.usage.usd > usd_limit:
+            result.detail = f"paused turn not resumed: budget of ${usd_limit:.2f} reached"
+            return result
         # Server-side tool loop hit its iteration limit: send the turn back to resume it.
         messages.append({"role": "assistant", "content": _echo_content(message.content)})
 
