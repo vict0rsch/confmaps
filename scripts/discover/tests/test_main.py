@@ -160,14 +160,14 @@ def test_write_mode_validates_and_fails_on_invalid_data(
 
     def fake_run(cmd: list[str], cwd: Path) -> int:
         commands.append(cmd)
-        return 1  # data:validate (and data:build) fail
+        return 1  # data:build fails
 
     monkeypatch.setattr("discover.main._run", fake_run)
     client = FakeClient(json_message({"candidates": [atlanta_candidate()]}))
     out_dir = repo.parent / "out"
     rc = run_main(repo, "--only", "neurips26", "--out-dir", str(out_dir), client=client)
     assert rc == 1
-    assert commands == [["pnpm", "data:validate"], ["pnpm", "data:build"]]
+    assert commands == [["pnpm", "data:build"]]  # nothing to validate without a rebuild
     assert "id: neurips26-atlanta" in (repo / "data" / "satellites.yml").read_text()
     assert not (out_dir / "pr.json").exists()  # no PR for invalid data
 
@@ -225,3 +225,63 @@ def test_subprocess_output_is_prefixed_and_env_scrubbed(
     assert _run([sys.executable, "-c", code], tmp_path) == 0
     err = capsys.readouterr().err.splitlines()
     assert "pnpm> ::error::x" in err and "pnpm> None" in err
+
+
+PARIS_URL = "https://neurips-europe.cc/"
+PARIS_PAGE = "NeurIPS 2026 Paris runs December 9–14, 2026 in Paris, France."
+
+
+def test_update_only_proposal_is_rebuilt_and_carries_the_generated_files(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # A verified date change alone makes data.json stale: data:build must run before
+    # data:validate, and the PR must carry every file it rewrites.
+    commands: list[list[str]] = []
+
+    def fake_run(cmd: list[str], cwd: Path) -> int:
+        commands.append(cmd)
+        if cmd == ["pnpm", "data:build"]:
+            (cwd / "data" / "build" / "data.json").write_text('{"rebuilt": true}')
+            (cwd / "data" / "archive").mkdir(exist_ok=True)
+            (cwd / "data" / "archive" / "2026.json").write_text("{}")
+            (cwd / "data" / "archive" / "notes.txt").write_text("not a year file")
+            (cwd / "data" / "geocache.json").write_text("{}")
+        return 0
+
+    monkeypatch.setattr("discover.main._run", fake_run)
+    paris = {
+        "parent": "neurips26",
+        "rationale": "Existing satellite; the end date moved.",
+        "name": ev("NeurIPS 2026 Paris", PARIS_URL, "NeurIPS 2026 Paris"),
+        "link": ev(PARIS_URL, PARIS_URL, "NeurIPS 2026 Paris"),
+        "city": ev("Paris", PARIS_URL, "NeurIPS 2026 Paris"),
+        "country": ev("France", PARIS_URL, "NeurIPS 2026 Paris"),
+        "start": ev("2026-12-09", PARIS_URL, "December 9–14, 2026"),
+        "end": ev("2026-12-14", PARIS_URL, "December 9–14, 2026"),
+    }
+    client = FakeClient(json_message({"candidates": [paris]}))
+    out_dir = repo.parent / "out"
+    rc = run_main(
+        repo,
+        "--only",
+        "neurips26",
+        "--out-dir",
+        str(out_dir),
+        client=client,
+        fetcher=FakeFetcher({PARIS_URL: PARIS_PAGE}),
+    )
+    assert rc == 0
+    assert commands == [["pnpm", "data:build"], ["pnpm", "data:validate"]]
+    pr = json.loads((out_dir / "pr.json").read_text())
+    assert pr["title"] == "Satellite discovery: 0 addition(s), 1 update(s)"
+    copied = sorted(str(p.relative_to(out_dir)) for p in (out_dir / "data").rglob("*"))
+    assert copied == [
+        "data/archive",
+        "data/archive/2026.json",
+        "data/build",
+        "data/build/data.json",
+        "data/geocache.json",
+        "data/satellites.yml",
+    ]
+    assert (out_dir / "data" / "build" / "data.json").read_text() == '{"rebuilt": true}'
+    assert "end: '2026-12-14'" in (out_dir / "data" / "satellites.yml").read_text()

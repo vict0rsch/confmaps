@@ -3,10 +3,11 @@ name: Discover satellites
 # Runs the discovery agent (scripts/discover, DESIGN.md §4) and proposes changes to
 # data/satellites.yml in one PR. The PR is never merged automatically. Two jobs:
 # - research: read-only token, and the only job that sees ANTHROPIC_API_KEY (environment
-#   `discovery`). It reads untrusted web pages, writes and validates the data files, then
-#   uploads them with the PR title/body as an artifact. It cannot push.
+#   `discovery`). It reads untrusted web pages, writes satellites.yml, rebuilds the generated
+#   files (`pnpm data:build`: upstream clone, geocoding, data.json, archive) and validates them,
+#   then uploads the data files with the PR title/body as an artifact. It cannot push.
 # - propose: no Anthropic key, runs no code from the repository or the artifact (only git, gh
-#   and jq); commits the two data files, pushes a branch, opens the PR and dispatches CI.
+#   and jq); commits the data files, pushes a branch, opens the PR and dispatches CI.
 #
 # Repository setup:
 # - Environment `discovery` holding the ANTHROPIC_API_KEY secret. Restrict its deployment
@@ -72,9 +73,9 @@ jobs:
           rc=$?
           set -e
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-          # pr.json exists only when there are changes and data:validate passed.
+          # pr.json exists only when there are changes and data:build + data:validate passed;
+          # the data files the PR carries are then under $OUT/data/.
           if [ -f "$OUT/pr.json" ]; then
-            cp data/satellites.yml data/geocache.json "$OUT/"
             echo "changes=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Upload the proposal
@@ -117,19 +118,25 @@ jobs:
         with:
           name: proposal
           path: ${{ runner.temp }}/proposal
-      # Only the two curated data files are taken from the artifact; nothing in it is executed.
+      # Only these data paths are taken from the artifact (archive: year files only); nothing
+      # in it is executed.
       - name: Commit the proposed data files
         id: commit
         env:
           P: ${{ runner.temp }}/proposal
         run: |
-          cp "$P/satellites.yml" data/satellites.yml
-          cp "$P/geocache.json" data/geocache.json
+          for f in satellites.yml geocache.json build/data.json; do
+            cp -- "$P/data/$f" "data/$f"
+          done
+          for f in "$P"/data/archive/*.json; do
+            name="$(basename -- "$f")"
+            if [[ "$name" =~ ^[0-9]{4}\.json$ ]]; then cp -- "$f" "data/archive/$name"; fi
+          done
           branch="discover/$(date -u +%Y-%m-%d-%H%M%S)"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git switch -c "$branch"
-          git add -- data/satellites.yml data/geocache.json
+          git add -- data/satellites.yml data/geocache.json data/build/data.json data/archive
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0

@@ -9,8 +9,10 @@
 --from-results DIR         re-run checks, merge and report on saved results (no API calls)
 --out-dir DIR              (CI) also write pr.json and pr-body.md there for the PR job
 
-Without ``--dry-run``, ``data/satellites.yml`` is written and validated (``pnpm
-data:validate``, geocoding new cities with ``pnpm data:build``). This script never commits,
+Without ``--dry-run``, ``data/satellites.yml`` is written, the generated files are rebuilt
+(``pnpm data:build``: geocodes new cities, refreshes ``data/build/data.json`` and the archive)
+and the result is validated (``pnpm data:validate``). With ``--out-dir``, the data files a PR
+carries (:func:`proposed_files`) are copied under ``<out-dir>/data/``. This script never commits,
 pushes or opens PRs: ``.github/workflows/discover.yml`` does that in a separate job.
 """
 
@@ -18,6 +20,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -37,6 +40,7 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 SATELLITES = Path("data/satellites.yml")
 GEOCACHE = Path("data/geocache.json")
 DATA_JSON = Path("data/build/data.json")
+ARCHIVE = Path("data/archive")
 UPCOMING_DAYS = 365
 MAX_PR_BODY = 60000  # GitHub limit is 65,536 characters
 DEFAULT_MAX_USD = 5.0
@@ -157,20 +161,27 @@ def _run(cmd: list[str], cwd: Path) -> int:
     return proc.returncode
 
 
-def validate(repo: Path, has_additions: bool) -> bool:
-    """``pnpm data:validate``; if it fails and cities were added, geocode them and retry.
+def rebuild_and_validate(repo: Path) -> bool:
+    """``pnpm data:build`` then ``pnpm data:validate``.
 
-    ``data:validate`` requires every satellite city in ``data/geocache.json``; ``data:build``
-    is the pipeline step that geocodes new cities (Nominatim) and refreshes ``data.json``.
+    ``data:validate`` checks ``data/build/data.json`` against ``satellites.yml`` (any added or
+    updated satellite makes it stale) and requires every satellite city in
+    ``data/geocache.json``; ``data:build`` geocodes new cities (Nominatim) and regenerates
+    ``data.json`` and ``data/archive/`` from a fresh upstream clone.
     """
-    if _run(["pnpm", "data:validate"], repo) == 0:
-        return True
-    if not has_additions:
-        return False
-    say("Validation failed; running data:build to geocode new satellite cities.", file=sys.stderr)
-    if _run(["pnpm", "data:build"], repo) != 0:
-        return False
-    return _run(["pnpm", "data:validate"], repo) == 0
+    return _run(["pnpm", "data:build"], repo) == 0 and _run(["pnpm", "data:validate"], repo) == 0
+
+
+def proposed_files(repo: Path) -> list[Path]:
+    """Data files a discovery PR carries, relative to ``repo``.
+
+    The curated file and everything ``data:build`` writes; ``discover.yml`` commits exactly
+    these paths.
+    """
+    archive = sorted(
+        p.relative_to(repo) for p in (repo / ARCHIVE).glob("[0-9][0-9][0-9][0-9].json")
+    )
+    return [p for p in (SATELLITES, GEOCACHE, DATA_JSON, *archive) if (repo / p).is_file()]
 
 
 def _result_path(results_dir: Path, conference_id: str) -> Path:
@@ -372,8 +383,8 @@ def _process(
         return rc
     (repo / SATELLITES).write_text(new_text)
     say(f"Wrote {SATELLITES}: {summary}")
-    if not validate(repo, bool(plan.additions)):
-        say("data:validate failed; not proposing a PR.", file=sys.stderr)
+    if not rebuild_and_validate(repo):
+        say("data:build or data:validate failed; not proposing a PR.", file=sys.stderr)
         return 1
     # data:build may have geocoded the new cities: show the coordinates the map will use.
     body = build_body(runs, plan, summary, weekly, _load_geocache(repo))
@@ -388,6 +399,9 @@ def _process(
             # Unverified defaults must be checked by a human before the PR can be merged.
             "draft": any(a.defaulted for a in plan.additions),
         }
+        for rel in proposed_files(repo):
+            (args.out_dir / rel).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(repo / rel, args.out_dir / rel)
         (args.out_dir / "pr.json").write_text(json.dumps(pr) + "\n")
         say(f"Wrote PR title and body to {args.out_dir}")
     return rc
