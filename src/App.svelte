@@ -100,27 +100,35 @@
   {#if desktop.current}
     <aside class="sidebar">
       <header class="sidebar-header">
-        <Brand />
-        <div class="header-actions">
-          <ShareDialog />
-          <ThemeToggle />
+        <div class="header-row">
+          <Brand />
+          <div class="header-actions">
+            <ShareDialog />
+            <ThemeToggle />
+          </div>
         </div>
+        <p class="tagline">
+          <span>AI conferences and their satellites.</span> <span>Attend closer, fly less.</span>
+        </p>
       </header>
       <div class="sidebar-settings">
         <SettingsSlot />
       </div>
-      <details class="filters">
-        <summary>
-          <Icon name="chevron" size={14} />
-          <span>Filters</span>
-          {#if filterState.activeCount}
-            <span class="badge tabular" data-testid="filters-badge">
-              {filterState.activeCount}<span class="visually-hidden"> active</span>
-            </span>
-          {/if}
-        </summary>
-        <div class="filters-body"><FiltersSlot /></div>
-      </details>
+      <!-- Scrolls on its own (summary pinned) so the list below keeps a usable height. -->
+      <div class="filters-scroll">
+        <details class="filters">
+          <summary>
+            <Icon name="chevron" size={14} />
+            <span>Filters</span>
+            {#if filterState.activeCount}
+              <span class="badge tabular" data-testid="filters-badge">
+                {filterState.activeCount}<span class="visually-hidden"> active</span>
+              </span>
+            {/if}
+          </summary>
+          <div class="filters-body"><FiltersSlot /></div>
+        </details>
+      </div>
       <div class="sidebar-list">
         <ConferenceList />
       </div>
@@ -130,7 +138,7 @@
     </aside>
   {:else}
     <header class="topbar">
-      <Brand tagline={false} />
+      <Brand />
       <div class="topbar-actions">
         <SettingsSlot compact />
         <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
@@ -258,11 +266,25 @@
   }
 
   .sidebar-header {
+    padding: var(--space-4) var(--space-4) var(--space-3);
+  }
+
+  .header-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: var(--space-3);
-    padding: var(--space-5) var(--space-4) var(--space-4);
+    min-height: 36px;
+  }
+
+  .sidebar-header .tagline {
+    margin-top: var(--space-1);
+    line-height: var(--leading-tight);
+  }
+
+  /* Break between the two sentences, not inside one. */
+  .sidebar-header .tagline span {
+    display: inline-block;
   }
 
   .header-actions {
@@ -275,7 +297,11 @@
     padding: 0 var(--space-4) var(--space-3);
   }
 
-  .filters {
+  .filters-scroll {
+    flex: 0 1 auto;
+    min-height: 45px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
@@ -291,6 +317,13 @@
     cursor: pointer;
     list-style: none;
     user-select: none;
+  }
+
+  .filters > summary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--surface);
   }
 
   .filters summary::-webkit-details-marker {
@@ -315,9 +348,6 @@
   }
 
   .filters-body {
-    max-height: 40vh;
-    overflow-y: auto;
-    overscroll-behavior: contain;
     padding: 0 var(--space-4) var(--space-4);
   }
 
@@ -336,8 +366,9 @@
   }
 
   .sidebar-list {
-    flex: 1;
-    min-height: 0;
+    flex: 1 1 0;
+    /* With the filters open, the list keeps ~3 rows; the filter panel scrolls instead. */
+    min-height: 240px;
     overflow-y: auto;
     overscroll-behavior: contain;
   }

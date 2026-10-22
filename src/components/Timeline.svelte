@@ -749,7 +749,8 @@
   .compact .history-label {
     flex: 1;
     flex-direction: row;
-    align-items: baseline;
+    /* Not baseline: the title's leading icon would set it and drop the text below the meta. */
+    align-items: center;
     gap: var(--space-2);
   }
 

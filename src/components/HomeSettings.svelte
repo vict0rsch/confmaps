@@ -233,7 +233,7 @@
 
     <details class="travel" open={compact}>
       <summary>
-        <Icon name="chevron" size={12} />
+        <Icon name="chevron" size={14} />
         <span>Travel</span>
         <span class="summary tabular">
           {travel.units} ·
@@ -534,6 +534,10 @@
     margin: 0;
     padding: 0;
     border: 0;
+  }
+
+  .mode legend {
+    padding: 0;
   }
 
   .mode-row {

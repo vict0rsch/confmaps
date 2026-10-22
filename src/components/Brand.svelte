@@ -1,7 +1,3 @@
-<script lang="ts">
-  let { tagline = true }: { tagline?: boolean } = $props();
-</script>
-
 <div class="brand">
   <h1>
     <svg class="mark" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
@@ -17,9 +13,6 @@
     </svg>
     confmaps
   </h1>
-  {#if tagline}
-    <p class="tagline">AI conferences and their satellites. Attend closer, fly less.</p>
-  {/if}
 </div>
 
 <style>
@@ -35,12 +28,5 @@
 
   .mark {
     flex: none;
-  }
-
-  .tagline {
-    margin-top: 6px;
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
-    line-height: var(--leading-tight);
   }
 </style>

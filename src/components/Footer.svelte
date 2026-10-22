@@ -4,8 +4,28 @@
   export const PRIVACY_URL = '#privacy';
 </script>
 
+<script lang="ts">
+  let credits = $state(false);
+  const uid = $props.id();
+</script>
+
 <footer class="footer">
-  <p>
+  <p class="links">
+    <a href={METHODOLOGY_URL}>Methodology</a>
+    <span aria-hidden="true">·</span>
+    <a href={PRIVACY_URL}>Privacy</a>
+    <span aria-hidden="true">·</span>
+    <button
+      class="credits-toggle"
+      type="button"
+      aria-expanded={credits}
+      aria-controls="{uid}-credits"
+      onclick={() => (credits = !credits)}
+    >
+      Data &amp; credits
+    </button>
+  </p>
+  <p id="{uid}-credits" class="credits" hidden={!credits}>
     Data:
     <a href="https://github.com/huggingface/ai-deadlines" target="_blank" rel="noopener noreferrer"
       >huggingface/ai-deadlines</a
@@ -35,11 +55,6 @@
       rel="noopener noreferrer">OGL v3.0</a
     >).
   </p>
-  <p class="links">
-    <a href={METHODOLOGY_URL}>Methodology</a>
-    <span aria-hidden="true">·</span>
-    <a href={PRIVACY_URL}>Privacy</a>
-  </p>
 </footer>
 
 <style>
@@ -64,6 +79,27 @@
 
   .links {
     display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     gap: var(--space-2);
+  }
+
+  .credits-toggle {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink-muted);
+    font: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+  }
+
+  .credits-toggle:hover,
+  .credits-toggle[aria-expanded='true'] {
+    color: var(--ink);
+  }
+
+  .credits[hidden] {
+    display: none;
   }
 </style>
