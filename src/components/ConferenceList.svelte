@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { formatCo2, formatDistance, modeIcon } from '../lib/co2/format';
+  import { nearestTrip } from '../lib/home/footprint';
   import { app } from '../lib/state/app.svelte';
+  import { travel } from '../lib/state/travel.svelte';
   import type { ListItem } from '../lib/state/derive';
   import { formatDateRangeShort } from '../lib/format/dates';
   import { placeLabel } from '../lib/format/labels';
@@ -8,7 +11,25 @@
 
   let listEl: HTMLUListElement | undefined = $state();
 
-  const items = $derived(app.listItems);
+  let nearestFirst = $state(false);
+
+  // With a home set, each conference gets its nearest visible site and the estimated trip there.
+  const near = $derived.by(() => {
+    const home = app.home;
+    const opts = { mode: travel.mode, thresholdKm: travel.threshold };
+    return new Map(
+      home ? app.listItems.map((i) => [i.conference.id, nearestTrip(home, i.sites, opts)]) : [],
+    );
+  });
+  const items = $derived(
+    nearestFirst && app.home
+      ? app.listItems.toSorted(
+          (a, b) =>
+            (near.get(a.conference.id)?.trip.distanceKm ?? Infinity) -
+            (near.get(b.conference.id)?.trip.distanceKm ?? Infinity),
+        )
+      : app.listItems,
+  );
 
   function span(item: ListItem) {
     const start = item.sites.reduce((m, s) => (s.start < m ? s.start : m), item.sites[0].start);
@@ -43,6 +64,16 @@
     <h2 id="list-heading">
       List <span class="count tabular">({items.length})</span>
     </h2>
+    {#if app.home}
+      <button
+        class="sort"
+        type="button"
+        aria-pressed={nearestFirst}
+        onclick={() => (nearestFirst = !nearestFirst)}
+      >
+        Nearest first
+      </button>
+    {/if}
   </header>
 
   {#if items.length}
@@ -85,6 +116,20 @@
                 </span>
               {/each}
             </span>
+            {#if near.get(c.id)}
+              {@const n = near.get(c.id)!}
+              <span class="near tabular" data-testid="row-footprint">
+                {#if item.sites.length > 1}<span class="near-place">{n.site.city}</span>{/if}
+                <span>{formatDistance(n.trip.distanceKm, travel.units)}</span>
+                <span>
+                  {formatCo2(n.trip.kgCO2e)}
+                  <span aria-hidden="true">{modeIcon(n.trip.mode)}</span>
+                  <span class="visually-hidden">
+                    estimated, {n.trip.mode === 'rail' ? 'by train' : 'by plane'}
+                  </span>
+                </span>
+              </span>
+            {/if}
           </button>
         </li>
       {/each}
@@ -224,6 +269,34 @@
     flex: none;
     margin-left: auto;
     padding-left: var(--space-2);
+  }
+
+  .sort {
+    padding: 2px var(--space-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--ink-muted);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+  }
+
+  .sort[aria-pressed='true'] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .near {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px var(--space-3);
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+  }
+
+  .near-place {
+    color: var(--ink);
   }
 
   .empty {

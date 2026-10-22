@@ -6,3 +6,4 @@ data/build
 data/archive
 data/geocache.json
 scripts/discover
+public/cities.json

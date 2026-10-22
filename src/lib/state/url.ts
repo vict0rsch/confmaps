@@ -2,7 +2,9 @@
 // Example: `?c=neurips26&sub=ML,CV&radius=1000&co2=300&from=2026-11&to=2027-10`.
 //
 // Owned params: each registered filter's `params`, plus `c` (selection), `mode`, `thr`, `units`.
-// Every other param (including the reserved `h` and `home`, owned by later phases) is left as is.
+// `home` (a shared GeoNames city id, §6.5) is read but never kept: the address bar never carries
+// it, only the share dialog adds it (`withHomeParam`). Every other param (including the reserved
+// `h`) is left as is.
 // Parsing never throws: invalid values fall back to defaults.
 import type { ModeSetting } from '../co2/model';
 import type { AnyFilter, Units } from '../filters/types';
@@ -10,8 +12,9 @@ import { DEFAULT_TRAVEL, isMode, isThreshold, isUnits, type TravelValues } from 
 
 export const SELECTION_PARAM = 'c';
 export const TRAVEL_PARAMS = { mode: 'mode', threshold: 'thr', units: 'units' } as const;
-/** `h` = history mode (§6.4), `home` = opt-in shared city (§6.5). Never written by this module. */
-export const RESERVED_PARAMS: readonly string[] = ['h', 'home'];
+export const HOME_PARAM = 'home';
+/** `h` = history mode (§6.4), `home` = opt-in shared city (§6.5). */
+export const RESERVED_PARAMS: readonly string[] = ['h', HOME_PARAM];
 
 export function ownedParams(filters: readonly AnyFilter[]): string[] {
   return [SELECTION_PARAM, ...filters.flatMap((f) => f.params), ...Object.values(TRAVEL_PARAMS)];
@@ -23,6 +26,8 @@ export type ParsedURL = {
   selection: string | null;
   /** Only the travel values present and valid in the URL. */
   travel: Partial<TravelValues>;
+  /** GeoNames id from an opt-in shared link (`home=<id>`), else null. */
+  home: number | null;
 };
 
 function params(query: string): URLSearchParams {
@@ -55,7 +60,9 @@ export function parseQuery(
   if (isUnits(units)) travel.units = units;
   const thr = p.get(TRAVEL_PARAMS.threshold);
   if (thr && /^\d{1,5}$/.test(thr) && isThreshold(Number(thr))) travel.threshold = Number(thr);
-  return { filters: states, selection: c && isConference(c) ? c : null, travel };
+  const h = p.get(HOME_PARAM);
+  const home = h && /^\d{1,9}$/.test(h) && Number(h) > 0 ? Number(h) : null;
+  return { filters: states, selection: c && isConference(c) ? c : null, travel, home };
 }
 
 export type URLInputs = {
@@ -86,6 +93,16 @@ export function buildQuery(current: string, inputs: URLInputs): string {
   }
   if (t.units !== DEFAULT_TRAVEL.units) entries.push([TRAVEL_PARAMS.units, t.units]);
   const owned = new Set(ownedParams(inputs.filters));
-  for (const [k, v] of params(current)) if (!owned.has(k)) entries.push([k, v]);
+  for (const [k, v] of params(current)) {
+    if (!owned.has(k) && k !== HOME_PARAM) entries.push([k, v]);
+  }
   return entries.map(([k, v]) => `${enc(k)}=${enc(v)}`).join('&');
+}
+
+/** `url` with `home=<city id>` added (opt-in share), or with any `home` removed when `id` is null. */
+export function withHomeParam(url: string, id: number | null): string {
+  const u = new URL(url);
+  u.searchParams.delete(HOME_PARAM);
+  if (id !== null) u.searchParams.set(HOME_PARAM, String(id));
+  return u.toString();
 }

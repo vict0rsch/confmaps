@@ -1,5 +1,7 @@
 // URL state (DESIGN §6.6), live part: hydrate from `location.search` once, then mirror filters,
-// selection and travel settings back with `history.replaceState` (debounced).
+// selection and travel settings back with `history.replaceState` (debounced). `home` is read once
+// (shared link) and never written back.
+import { home } from '../home/store.svelte';
 import { app } from './app.svelte';
 import { filterState } from './filters.svelte';
 import { travel } from './travel.svelte';
@@ -13,6 +15,8 @@ export function hydrateFromURL(query: string = location.search): void {
   filterState.hydrate(parsed.filters);
   travel.apply(parsed.travel);
   if (parsed.selection) app.select(parsed.selection);
+  // Opt-in shared city: this visit only (not saved); the sync below then drops `home` from the URL.
+  if (parsed.home) void home.applyShared(parsed.home);
 }
 
 function write(inputs: URLInputs): void {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createFilters } from '../filters';
 import { DEFAULT_TRAVEL } from './travel.svelte';
-import { buildQuery, ownedParams, parseQuery, type URLInputs } from './url';
+import { buildQuery, ownedParams, parseQuery, withHomeParam, type URLInputs } from './url';
 
 const filters = createFilters('2026-10-22');
 const defaults = Object.fromEntries(filters.map((f) => [f.id, f.defaultState]));
@@ -40,9 +40,9 @@ describe('buildQuery', () => {
     );
   });
 
-  it('keeps params it does not own (h, home, others) and replaces its own', () => {
-    const q = buildQuery('?h=icml&sub=NLP&utm=x&home=Paris&c=old', inputs());
-    expect(q).toBe('h=icml&utm=x&home=Paris');
+  it('keeps params it does not own (h, others) and replaces its own', () => {
+    const q = buildQuery('?h=icml&sub=NLP&utm=x&c=old', inputs());
+    expect(q).toBe('h=icml&utm=x');
   });
 
   it('never writes home from state (home is not an input)', () => {
@@ -122,5 +122,33 @@ describe('parseQuery', () => {
     expect(p.selection).toBe(state.selection);
     expect(p.filters).toEqual(state.states);
     expect({ ...DEFAULT_TRAVEL, ...p.travel }).toEqual(state.travel);
+  });
+});
+
+describe('shared home (opt-in)', () => {
+  it('parses home=<geonameid> and ignores anything else', () => {
+    expect(parseQuery('home=2950159', filters, isConference).home).toBe(2950159);
+    const bad = ['home=Paris', 'home=0', 'home=-5', 'home=12.5', 'home=', 'home=1234567890', ''];
+    for (const q of bad) expect(parseQuery(q, filters, isConference).home).toBeNull();
+  });
+
+  it('the live URL never carries home: buildQuery drops it', () => {
+    expect(buildQuery('?home=2950159&utm=x', inputs())).toBe('utm=x');
+    expect(buildQuery('', inputs({ selection: 'neurips26' }))).not.toContain('home');
+  });
+
+  it('withHomeParam adds the id only when given, keeping other params, and removes it otherwise', () => {
+    const base = 'https://confmaps.org/?c=neurips26&radius=1000';
+    expect(withHomeParam(base, null)).toBe(base);
+    expect(withHomeParam(base, 2950159)).toBe(`${base}&home=2950159`);
+    expect(withHomeParam(`${base}&home=1`, 2950159)).toBe(`${base}&home=2950159`);
+    expect(withHomeParam(`${base}&home=1`, null)).toBe(base);
+  });
+
+  it('round-trips through parseQuery', () => {
+    const url = withHomeParam('https://confmaps.org/?c=neurips26', 2950159);
+    const parsed = parseQuery(new URL(url).search, filters, isConference);
+    expect(parsed.home).toBe(2950159);
+    expect(parsed.selection).toBe('neurips26');
   });
 });

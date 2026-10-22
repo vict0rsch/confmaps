@@ -15,7 +15,10 @@
     ©
     <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer"
       >OpenStreetMap</a
-    > contributors.
+    >
+    contributors. Cities:
+    <a href="https://www.geonames.org" target="_blank" rel="noopener noreferrer">GeoNames</a>
+    (CC BY 4.0).
   </p>
   <p class="links">
     <a href={METHODOLOGY_URL}>Methodology</a>
