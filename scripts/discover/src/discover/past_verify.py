@@ -8,8 +8,11 @@ value / date in quote, link on page or same site, geocoding) with these rules:
 - ``start``, ``end``: date in quote; ``start <= end``; at most :data:`MAX_DAYS` days; the
   edition is over; ``start`` falls in the edition's year or the next one (flagged in the PR).
 - ``link``: linked from the source page or on the same site.
-- ``format`` virtual / hybrid: a quote of 20+ characters on the page that says so
-  (:data:`~discover.verify.FORMAT_IN_QUOTE`). ``in_person``: derived for an edition held
+- ``format`` virtual / hybrid: a quote of 20+ characters on the page that plainly says so and
+  states no conflicting format (:data:`~discover.verify.FORMAT_IN_QUOTE`; see
+  :func:`format_problem`). A quote that only negates or hedges the claimed format ("will not be
+  hybrid", "may move online") keeps it as a model judgement, never verified. ``in_person``:
+  derived for an edition held
   before :data:`COVID_START` in a verified city
   (:data:`~discover.verify.PRE2020_DEFAULT`), otherwise a model judgement; with neither,
   ``past_merge`` writes an ``# UNVERIFIED default`` and the PR is a draft.
@@ -55,8 +58,33 @@ PAST_RULES: dict[str, str] = {
     "cancelled": "judgement",
 }
 PLACE_FIELDS = ("city", "country", "venue")
-_VIRTUAL = re.compile(r"\b(virtual(ly)?|online)\b")
-_HYBRID = re.compile(r"\bhybrid\b|\bin-? ?person\b.*\b(online|virtual(ly)?)\b")
+FORMAT_HEDGED = "quote negates or hedges the format"
+# A format is asserted by a clause that names it with no negation or hedge in that clause.
+_CLAUSE_BREAK = re.compile(r"[.;:!?,()\[\]]|\s-\s|\b(?:but|however|whereas|although|though)\b")
+_MENTIONS = {
+    "hybrid": re.compile(r"\bhybrid\b"),
+    "virtual": re.compile(r"\b(?:virtual(?:ly)?|online)\b"),
+    "in_person": re.compile(r"\bin-? ?person\b"),
+}
+_EXCLUSIVE = {
+    "virtual": re.compile(
+        r"\b(?:fully|only|purely|entirely|exclusively|completely|all)[- ](?:virtual(?:ly)?|online)\b"
+        r"|\b(?:virtual|online)[- ]only\b"
+    ),
+    "in_person": re.compile(
+        r"\b(?:fully|only|purely|entirely|exclusively)[- ]in-? ?person\b|\bin-? ?person[- ]only\b"
+    ),
+}
+_NEGATION = re.compile(
+    r"\b(?:not|no|never|nor|none|cannot|without|instead|rather than|unable|impossible"
+    r"|cancel(?:l?ed|lation|s)?|called off|no longer)\b|n't\b"
+)
+_HEDGE = re.compile(
+    r"\b(?:might|could|if|unless|whether|possibl[ey]|tentative(?:ly)?|plan(?:s|ned|ning)?|hope"
+    r"|expect(?:s|ed)?|subject to|depending|tbd|tba"
+    r"|to be (?:confirmed|decided|determined|announced))\b"
+    r"|(?<!\d )\bmay\b(?! \d)"  # not the month ("May 12", "12 May")
+)
 
 
 @dataclass
@@ -76,8 +104,29 @@ class CheckedEdition(Checked):
         return f"{self.parent} {self.year} — {place}"
 
 
+def _format_claims(quote: str) -> tuple[set[str], set[str]]:
+    """``(asserted, hedged)``: formats (and ``only:<format>``) the quote's clauses state plainly,
+    and formats only named in a clause with a negation or a hedge."""
+    asserted: set[str] = set()
+    hedged: set[str] = set()
+    for clause in _CLAUSE_BREAK.split(normalize(quote)):
+        found = {f for f, rx in _MENTIONS.items() if rx.search(clause)}
+        if _NEGATION.search(clause) or _HEDGE.search(clause):
+            hedged |= found
+        else:
+            asserted |= found | {f"only:{f}" for f, rx in _EXCLUSIVE.items() if rx.search(clause)}
+    if {"in_person", "virtual"} <= asserted:
+        asserted.add("hybrid")
+    return asserted, hedged
+
+
 def format_problem(value: str, quote: str) -> str:
     """Why a quote does not state a virtual / hybrid format, or ``""`` (also for in person).
+
+    The claimed format must be stated in a clause without negation or hedge ("not", "no",
+    "won't", "instead of", "cancelled", "may", "if", ...) and no other clause may state a
+    conflicting format. :data:`FORMAT_HEDGED` when the quote names the claimed format only in a
+    negated or hedged clause.
 
     Examples
     --------
@@ -85,14 +134,24 @@ def format_problem(value: str, quote: str) -> str:
 
         format_problem("virtual", "The conference was held virtually this year")  # ""
         format_problem("virtual", "Hybrid: in person in Vienna and online")  # "quote says …"
+        format_problem("hybrid", "MIDL will not be hybrid")  # FORMAT_HEDGED
     """
-    q = normalize(quote)
+    asserted, hedged = _format_claims(quote)
     if value == "virtual":
-        if _HYBRID.search(q):
-            return "quote says hybrid, not virtual"
-        return "" if _VIRTUAL.search(q) else "quote does not say virtual or online"
+        if asserted & {"hybrid", "in_person"}:
+            return "quote says hybrid or in person, not virtual"
+        if "virtual" in asserted:
+            return ""
+        return FORMAT_HEDGED if "virtual" in hedged else "quote does not say virtual or online"
     if value == "hybrid":
-        return "" if _HYBRID.search(q) else "quote does not say hybrid"
+        if asserted & {"only:virtual", "only:in_person"}:
+            return "quote says fully virtual or in person only, not hybrid"
+        if "hybrid" in asserted:
+            return ""
+        named = asserted | hedged
+        if "hybrid" in hedged or {"in_person", "virtual"} <= named:
+            return FORMAT_HEDGED
+        return "quote does not say hybrid"
     return ""
 
 
@@ -151,7 +210,10 @@ def check_edition(
             check.kind, check.reason = "", "title is not of this series"
             check.detail = f"{series_of(check.value)} ≠ {series}"
         if check.kept and name == "format":
-            if problem := format_problem(check.value, check.quote):
+            problem = format_problem(check.value, check.quote)
+            if problem == FORMAT_HEDGED:
+                pass  # stays a model judgement: never verified, so never applied by --recheck
+            elif problem:
                 check.kind, check.reason = "", problem
             elif check.value != "in_person":
                 check.kind = FORMAT_IN_QUOTE
