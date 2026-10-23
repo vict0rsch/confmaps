@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { type Page, type TestInfo } from '@playwright/test';
 import { expect, test } from './fixtures';
+import { startPastFixture } from './past-fixture';
 
 // Warn-only (DESIGN §9): run with PW_A11Y=1 (the `a11y` project). Violations are attached to the
 // test and printed as a summary; the suite only fails if axe itself cannot run. Set
@@ -97,3 +98,41 @@ for (const theme of ['light', 'dark'] as Theme[]) {
     });
   }
 }
+
+// Past editions (fixture build): the Virtual badge in list rows and the virtual detail.
+test.describe('past editions', () => {
+  let fixture: Awaited<ReturnType<typeof startPastFixture>>;
+  test.beforeAll(async () => {
+    test.setTimeout(120_000);
+    fixture = await startPastFixture();
+  });
+  test.afterAll(async () => fixture?.close());
+
+  for (const theme of ['light', 'dark'] as Theme[]) {
+    for (const [size, viewport] of Object.entries(sizes)) {
+      test.describe(`${theme} ${size}`, () => {
+        test.use({ viewport, colorScheme: theme });
+        test('virtual rows and detail', async ({ page }, testInfo) => {
+          const phone = size === 'phone';
+          await page.goto(`${fixture.url}/?from=2019-12&to=2020-12`);
+          await expect(page.locator('button.row').first()).toBeVisible();
+          await setHome(page, phone);
+          await expect(page.getByTestId('format-badge').first()).toBeVisible();
+          await scan(page, `${theme} ${size} virtual rows`, testInfo);
+          await page.locator('button.row[data-conference-id="neurips20"]').click();
+          await expect(page.getByTestId('site-footprint')).toContainText('Online');
+          // Let the panel's entrance finish (mid-fade text fails contrast).
+          await page.evaluate(() =>
+            Promise.all(
+              document
+                .getAnimations()
+                .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+                .map((a) => a.finished),
+            ),
+          );
+          await scan(page, `${theme} ${size} virtual detail`, testInfo);
+        });
+      });
+    }
+  }
+});
