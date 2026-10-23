@@ -1,9 +1,10 @@
 name: Discover satellites
 
 # Runs the discovery agent (scripts/discover, DESIGN.md §4) and proposes changes to
-# data/satellites.yml in one PR. The PR is never merged automatically. Two jobs:
+# data/satellites.yml (modes upcoming, backfill) or data/past_conferences.yml (mode past,
+# docs/backfill-spec.md §5) in one PR. The PR is never merged automatically. Two jobs:
 # - research: read-only token, and the only job that sees ANTHROPIC_API_KEY (environment
-#   `discovery`). It reads untrusted web pages, writes satellites.yml, rebuilds the generated
+#   `discovery`). It reads untrusted web pages, writes the curated file, rebuilds the generated
 #   files (`pnpm data:build`: upstream clone, geocoding, data.json, archive) and validates them,
 #   then uploads the data files with the PR title/body as an artifact. It cannot push.
 # - propose: no Anthropic key, runs no code from the repository or the artifact (only git, gh
@@ -20,9 +21,41 @@ name: Discover satellites
 #   installation token or a fine-grained PAT (contents + pull requests: write) for the
 #   propose job: PRs it opens trigger CI normally and no dispatch is needed.
 #
+# Manual runs (Actions → Discover satellites → Run workflow, or `gh workflow run discover.yml
+# -f mode=past -f series=neurips,icml -f since=1987`): the inputs reach the script only through
+# env and are validated by its argparse. `backfill` researches every past edition with a city
+# (one API call each, up to max_usd): prefer a local run with `--only ID,...`. For `past`, dry-run
+# one series locally first and set max_usd from the measured cost.
+#
 # Actions are pinned to commit SHAs (version in the trailing comment).
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'upcoming: next 12 months; backfill: past editions (needs since); past: past main editions (needs series, since)'
+        type: choice
+        options: [upcoming, backfill, past]
+        default: upcoming
+      series:
+        description: 'past: series key(s), comma-separated (e.g. neurips,icml)'
+        type: string
+        default: ''
+      since:
+        description: 'backfill / past: first year'
+        type: string
+        default: ''
+      until:
+        description: 'past: last year (default: last year)'
+        type: string
+        default: ''
+      recheck:
+        description: 'past: also re-verify the imported (source: pwc) editions in the range'
+        type: boolean
+        default: false
+      max_usd:
+        description: 'Budget: no further API calls once the estimated cost exceeds it (USD)'
+        type: string
+        default: '5'
   # Weekly run: enable after reviewing dry-run cost.
   # schedule:
   #   - cron: '23 6 * * 1' # Mondays, 06:23 UTC
@@ -57,19 +90,31 @@ jobs:
           enable-cache: true
           cache-dependency-glob: scripts/discover/uv.lock
       - run: uv sync --project scripts/discover --locked
-      # No workflow inputs or event data are interpolated into `run:`; the secret reaches the
-      # script only through env, in this step only. The script strips it (and any GitHub
-      # token) from the environment of the pnpm commands it runs.
+      # No workflow inputs or event data are interpolated into `run:`: they reach the script
+      # as env values, each passed as one `--flag=value` argument (a value can never become
+      # another option) and validated by its argparse (choices, year ranges, series keys).
+      # The secret reaches the script only through env, in this step only. The script strips
+      # it (and any GitHub token) from the environment of the pnpm commands it runs.
       - name: Run discovery
         id: discover
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OUT: ${{ runner.temp }}/proposal
           RESULTS: ${{ runner.temp }}/results
+          MODE: ${{ inputs.mode || 'upcoming' }}
+          SERIES: ${{ inputs.series }}
+          SINCE: ${{ inputs.since }}
+          UNTIL: ${{ inputs.until }}
+          RECHECK: ${{ inputs.recheck }}
+          MAX_USD: ${{ inputs.max_usd || '5' }}
         run: |
           set +e
-          uv run --project scripts/discover --locked discover --mode upcoming \
-            --results-dir "$RESULTS" --out-dir "$OUT"
+          args=("--mode=$MODE" "--max-usd=$MAX_USD" --results-dir "$RESULTS" --out-dir "$OUT")
+          if [ -n "$SERIES" ]; then args+=("--series=$SERIES"); fi
+          if [ -n "$SINCE" ]; then args+=("--since=$SINCE"); fi
+          if [ -n "$UNTIL" ]; then args+=("--until=$UNTIL"); fi
+          if [ "$RECHECK" = true ]; then args+=(--recheck); fi
+          uv run --project scripts/discover --locked discover "${args[@]}"
           rc=$?
           set -e
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
@@ -118,8 +163,8 @@ jobs:
         with:
           name: proposal
           path: ${{ runner.temp }}/proposal
-      # Only these data paths are taken from the artifact (archive: year files only); nothing
-      # in it is executed.
+      # Only these data paths are taken from the artifact (archive: year files only;
+      # past_conferences.yml when present); nothing in it is executed.
       - name: Commit the proposed data files
         id: commit
         env:
@@ -128,6 +173,9 @@ jobs:
           for f in satellites.yml geocache.json build/data.json; do
             cp -- "$P/data/$f" "data/$f"
           done
+          if [ -f "$P/data/past_conferences.yml" ]; then
+            cp -- "$P/data/past_conferences.yml" data/past_conferences.yml
+          fi
           for f in "$P"/data/archive/*.json; do
             name="$(basename -- "$f")"
             if [[ "$name" =~ ^[0-9]{4}\.json$ ]]; then cp -- "$f" "data/archive/$name"; fi
@@ -137,6 +185,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git switch -c "$branch"
           git add -- data/satellites.yml data/geocache.json data/build/data.json data/archive
+          if [ -f data/past_conferences.yml ]; then git add -- data/past_conferences.yml; fi
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -158,7 +207,8 @@ jobs:
           BRANCH: ${{ steps.commit.outputs.branch }}
           P: ${{ runner.temp }}/proposal
         run: |
-          # Draft when an added satellite has UNVERIFIED default fields.
+          # Draft when an addition has UNVERIFIED default fields or a cancelled past edition
+          # must be removed by hand.
           draft=()
           if [ "$(jq -r .draft "$P/pr.json")" = true ]; then draft=(--draft); fi
           gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" \
