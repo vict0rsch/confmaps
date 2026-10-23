@@ -1,0 +1,1449 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2022-03-01",
+      "id": "aaai22",
+      "link": "https://aaai.org/Conferences/AAAI-22/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2022-02-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-27",
+      "id": "acl22",
+      "link": "https://2022.aclweb.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2022-05-22",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-14",
+      "id": "acm22",
+      "link": "https://2022.acmmm.org/",
+      "series": "acm-mm",
+      "source": "pwc",
+      "start": "2022-10-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACM MM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-14",
+      "id": "acml22",
+      "link": "https://www.acml-conf.org/2022",
+      "series": "acml",
+      "source": "pwc",
+      "start": "2022-12-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-01",
+      "id": "aistats22",
+      "link": "https://www.aistats.org/aistats2022/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2022-03-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-27",
+      "id": "automl22",
+      "link": "https://automl.cc/",
+      "series": "automl",
+      "source": "pwc",
+      "start": "2022-07-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AutoML-Conf",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-11-24",
+      "id": "bmvc22",
+      "link": "https://www.bmvc2022.org",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2022-11-21",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-08",
+      "id": "chil22",
+      "link": "https://www.chilconference.org/",
+      "series": "chil",
+      "source": "pwc",
+      "start": "2022-04-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-22",
+      "id": "cikm22",
+      "link": "https://www.cikm2022.org/",
+      "series": "cikm",
+      "source": "pwc",
+      "start": "2022-10-17",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "CIKM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-17",
+      "id": "coling22",
+      "link": "https://coling2022.org/",
+      "series": "coling",
+      "source": "pwc",
+      "start": "2022-10-12",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-08-31",
+      "id": "collas22",
+      "link": "https://lifelong-ml.cc",
+      "series": "collas",
+      "source": "pwc",
+      "start": "2022-08-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CoLLAs",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-18",
+      "id": "corl22",
+      "link": "https://corl2022.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2022-12-14",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-24",
+      "id": "cvpr22",
+      "link": "http://cvpr2022.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2022-06-21",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-28",
+      "id": "eccv22",
+      "link": "https://eccv2022.ecva.net/",
+      "series": "eccv",
+      "source": "pwc",
+      "start": "2022-10-24",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-23",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd22",
+      "link": "https://2022.ecmlpkdd.org/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2022-09-19",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ECML/PKDD",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-11",
+      "id": "emnlp22",
+      "link": "https://2022.emnlp.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2022-12-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-24",
+      "id": "facct22",
+      "link": "https://facctconference.org/2022/",
+      "series": "facct",
+      "source": "pwc",
+      "start": "2022-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "FAccT",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-24",
+      "id": "icaps22",
+      "link": "http://icaps22.icaps-conference.org/",
+      "series": "icaps",
+      "source": "pwc",
+      "start": "2022-06-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICAPS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-27",
+      "id": "icassp22",
+      "link": "https://2022.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2022-05-22",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-03",
+      "fullName": "IEEE International Conference on Data Mining (ICDM)",
+      "id": "icdm22",
+      "link": "https://icdm22.cse.usf.edu/",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2022-11-30",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-19",
+      "id": "icip22",
+      "link": "https://2022.ieeeicip.org",
+      "series": "icip",
+      "source": "pwc",
+      "start": "2022-10-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-29",
+      "id": "iclr22",
+      "link": "https://iclr.cc/Conferences/2022",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2022-04-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-11-11",
+      "id": "icmi22",
+      "link": "https://icmi.acm.org/2022/",
+      "series": "icmi",
+      "source": "pwc",
+      "start": "2022-11-07",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-23",
+      "id": "icml22",
+      "link": "https://icml.cc/Conferences/2022",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2022-07-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-27",
+      "id": "icra22",
+      "link": "https://icra2022.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2022-05-23",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-09",
+      "id": "icwsm22",
+      "link": "https://www.icwsm.org/2022/index.html/",
+      "series": "icwsm",
+      "source": "pwc",
+      "start": "2022-06-06",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-29",
+      "fullName": "International Joint Conference on Artificial Intelligence and European Conference on Artificial Intelligence",
+      "id": "ijcai22",
+      "link": "https://ijcai-22.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2022-07-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI-ECAI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-11-24",
+      "id": "ijcnlpaacl22",
+      "link": "https://www.aacl2022.org/",
+      "series": "ijcnlp-aacl",
+      "source": "pwc",
+      "start": "2022-11-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AACL-IJCNLP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-22",
+      "id": "interspeech2022",
+      "link": "http://www.interspeech2022.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2022-09-18",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "InterSpeech",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-27",
+      "id": "iros22",
+      "link": "https://iros2022.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2022-10-23",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-08",
+      "id": "ismir22",
+      "link": "https://ismir2022.ismir.net/",
+      "series": "ismir",
+      "source": "pwc",
+      "start": "2022-12-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-05",
+      "id": "ismis22",
+      "link": "https://ismis2022.icar.cnr.it/",
+      "series": "ismis",
+      "source": "pwc",
+      "start": "2022-10-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-08-18",
+      "id": "kdd22",
+      "link": "https://www.kdd.org/kdd2022/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2022-08-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-24",
+      "id": "l4dc22",
+      "link": "https://l4dc.stanford.edu/",
+      "series": "l4dc",
+      "source": "pwc",
+      "start": "2022-06-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-12",
+      "fullName": "Learning on Graphs Conference",
+      "id": "log22",
+      "link": "https://logconference.org/",
+      "series": "log",
+      "source": "pwc",
+      "start": "2022-12-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "LoG",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-25",
+      "id": "lrec22",
+      "link": "http://elra.info/en/lrec/lrec-2022/",
+      "series": "lrec",
+      "source": "pwc",
+      "start": "2022-06-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-15",
+      "id": "naacl22",
+      "link": "https://2022.naacl.org/",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2022-07-10",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-09",
+      "id": "neurips22",
+      "link": "https://neurips.cc/Conferences/2022/",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2022-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-23",
+      "id": "recsys22",
+      "link": "https://recsys.acm.org/recsys22/",
+      "series": "recsys",
+      "source": "pwc",
+      "start": "2022-09-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-02",
+      "id": "roman22",
+      "link": "http://www.ro-man2022.org/",
+      "series": "ro-man",
+      "source": "pwc",
+      "start": "2022-08-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-01",
+      "id": "rss22",
+      "link": "https://roboticsconference.org/2022",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2022-06-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-08-11",
+      "id": "siggraph22",
+      "link": "https://s2022.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2022-08-08",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-09",
+      "fullName": "SIGGRAPH ASIA 2022",
+      "id": "siggraphasia22",
+      "link": "https://sa2022.siggraph.org/",
+      "series": "siggraph-asia",
+      "source": "pwc",
+      "start": "2022-12-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-15",
+      "id": "sigir22",
+      "link": "https://sigir.org/sigir2022/",
+      "series": "sigir",
+      "source": "pwc",
+      "start": "2022-07-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-08-05",
+      "id": "uai22",
+      "link": "https://www.auai.org/uai2022/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2022-08-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-01-08",
+      "id": "wacv22",
+      "link": "http://wacv2022.thecvf.com/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2022-01-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-02-25",
+      "id": "wsdm22",
+      "link": "https://www.wsdm-conference.org/2022/",
+      "series": "wsdm",
+      "source": "pwc",
+      "start": "2022-02-21",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-29",
+      "id": "www22",
+      "link": "https://www2022.thewebconf.org/",
+      "series": "www",
+      "source": "pwc",
+      "start": "2022-04-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WWW",
+      "year": 2022
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "aaai22",
+      "country": "Canada",
+      "end": "2022-03-01",
+      "id": "aaai22@main",
+      "lat": 49.2608724,
+      "link": "https://aaai.org/Conferences/AAAI-22/",
+      "lng": -123.113952,
+      "name": "AAAI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-02-22"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "acl22",
+      "country": "Ireland",
+      "end": "2022-05-27",
+      "id": "acl22@main",
+      "lat": 53.3493795,
+      "link": "https://2022.aclweb.org/",
+      "lng": -6.2605593,
+      "name": "ACL 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-05-22"
+    },
+    {
+      "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "acm22",
+      "country": "Portugal",
+      "end": "2022-10-14",
+      "id": "acm22@main",
+      "lat": 38.7077507,
+      "link": "https://2022.acmmm.org/",
+      "lng": -9.1365919,
+      "name": "ACM MM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-10"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "acml22",
+      "country": "India",
+      "end": "2022-12-14",
+      "id": "acml22@main",
+      "lat": 17.360589,
+      "link": "https://www.acml-conf.org/2022",
+      "lng": 78.4740613,
+      "name": "ACML 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Valencia",
+      "conferenceId": "aistats22",
+      "country": "Spain",
+      "end": "2022-04-01",
+      "id": "aistats22@main",
+      "lat": 39.4697065,
+      "link": "https://www.aistats.org/aistats2022/",
+      "lng": -0.3763353,
+      "name": "AISTATS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-03-30"
+    },
+    {
+      "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "automl22",
+      "country": "United States",
+      "end": "2022-07-27",
+      "id": "automl22@main",
+      "lat": 39.2908816,
+      "link": "https://automl.cc/",
+      "lng": -76.610759,
+      "name": "AutoML-Conf 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "bmvc22",
+      "country": "United Kingdom",
+      "end": "2022-11-24",
+      "format": "hybrid",
+      "id": "bmvc22@main",
+      "lat": 51.5074456,
+      "link": "https://www.bmvc2022.org",
+      "lng": -0.1277653,
+      "name": "BMVC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-21",
+      "venue": "The Kia Oval"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "chil22",
+      "end": "2022-04-08",
+      "format": "virtual",
+      "id": "chil22@main",
+      "link": "https://www.chilconference.org/",
+      "name": "CHIL 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-07"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "cikm22",
+      "country": "United States",
+      "end": "2022-10-22",
+      "id": "cikm22@main",
+      "lat": 33.7544657,
+      "link": "https://www.cikm2022.org/",
+      "lng": -84.3898151,
+      "name": "CIKM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "Gyeongju",
+      "conferenceId": "coling22",
+      "country": "South Korea",
+      "end": "2022-10-17",
+      "id": "coling22@main",
+      "lat": 35.8556705,
+      "link": "https://coling2022.org/",
+      "lng": 129.2248811,
+      "name": "COLING 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "collas22",
+      "end": "2022-08-31",
+      "format": "virtual",
+      "id": "collas22@main",
+      "link": "https://lifelong-ml.cc",
+      "name": "CoLLAs 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-29"
+    },
+    {
+      "access": "registration",
+      "city": "Auckland",
+      "conferenceId": "corl22",
+      "country": "New Zealand",
+      "end": "2022-12-18",
+      "format": "hybrid",
+      "id": "corl22@main",
+      "lat": -36.852095,
+      "link": "https://corl2022.org",
+      "lng": 174.7631803,
+      "name": "CoRL 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-14"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "cvpr22",
+      "country": "United States",
+      "end": "2022-06-24",
+      "id": "cvpr22@main",
+      "lat": 29.9574657,
+      "link": "http://cvpr2022.thecvf.com/",
+      "lng": -90.0629493,
+      "name": "CVPR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Tel Aviv",
+      "conferenceId": "eccv22",
+      "country": "Israel",
+      "end": "2022-10-28",
+      "id": "eccv22@main",
+      "lat": 32.0852997,
+      "link": "https://eccv2022.ecva.net/",
+      "lng": 34.7818064,
+      "name": "ECCV 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-24"
+    },
+    {
+      "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "ecmlpkdd22",
+      "country": "France",
+      "end": "2022-09-23",
+      "id": "ecmlpkdd22@main",
+      "lat": 45.1875602,
+      "link": "https://2022.ecmlpkdd.org/",
+      "lng": 5.7357819,
+      "name": "ECML/PKDD 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-19"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "emnlp22",
+      "country": "United Arab Emirates",
+      "end": "2022-12-11",
+      "id": "emnlp22@main",
+      "lat": 24.4538352,
+      "link": "https://2022.emnlp.org/",
+      "lng": 54.3774014,
+      "name": "EMNLP 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-07"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "facct22",
+      "country": "South Korea",
+      "end": "2022-06-24",
+      "id": "facct22@main",
+      "lat": 37.5666791,
+      "link": "https://facctconference.org/2022/",
+      "lng": 126.9782914,
+      "name": "FAccT 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-21"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icaps22",
+      "end": "2022-06-24",
+      "format": "virtual",
+      "id": "icaps22@main",
+      "link": "http://icaps22.icaps-conference.org/",
+      "name": "ICAPS 2022",
+      "notes": "Held online (planned: Singapore Management University, Singapore).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "icassp22",
+      "country": "Singapore",
+      "end": "2022-05-27",
+      "id": "icassp22@main",
+      "lat": 1.2899175,
+      "link": "https://2022.ieeeicassp.org/",
+      "lng": 103.8519072,
+      "name": "ICASSP 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-05-22"
+    },
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "icdm22",
+      "country": "United States",
+      "end": "2022-12-03",
+      "id": "icdm22@main",
+      "lat": 28.5421218,
+      "link": "https://icdm22.cse.usf.edu/",
+      "lng": -81.379045,
+      "name": "ICDM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-30"
+    },
+    {
+      "access": "registration",
+      "city": "Bordeaux",
+      "conferenceId": "icip22",
+      "country": "France",
+      "end": "2022-10-19",
+      "id": "icip22@main",
+      "lat": 44.841225,
+      "link": "https://2022.ieeeicip.org",
+      "lng": -0.5800364,
+      "name": "ICIP 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-16"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iclr22",
+      "end": "2022-04-29",
+      "format": "virtual",
+      "id": "iclr22@main",
+      "link": "https://iclr.cc/Conferences/2022",
+      "name": "ICLR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-25"
+    },
+    {
+      "access": "registration",
+      "city": "Bangalore",
+      "conferenceId": "icmi22",
+      "country": "India",
+      "end": "2022-11-11",
+      "id": "icmi22@main",
+      "lat": 12.9767936,
+      "link": "https://icmi.acm.org/2022/",
+      "lng": 77.590082,
+      "name": "ICMI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-07"
+    },
+    {
+      "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "icml22",
+      "country": "United States",
+      "end": "2022-07-23",
+      "format": "hybrid",
+      "id": "icml22@main",
+      "lat": 39.2908816,
+      "link": "https://icml.cc/Conferences/2022",
+      "lng": -76.610759,
+      "name": "ICML 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-17"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "icra22",
+      "country": "United States",
+      "end": "2022-05-27",
+      "id": "icra22@main",
+      "lat": 39.9527237,
+      "link": "https://icra2022.org/",
+      "lng": -75.1635262,
+      "name": "ICRA 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-05-23"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "icwsm22",
+      "country": "United States",
+      "end": "2022-06-09",
+      "format": "hybrid",
+      "id": "icwsm22@main",
+      "lat": 33.7544657,
+      "link": "https://www.icwsm.org/2022/index.html/",
+      "lng": -84.3898151,
+      "name": "ICWSM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-06"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "ijcai22",
+      "country": "Austria",
+      "end": "2022-07-29",
+      "id": "ijcai22@main",
+      "lat": 48.2083537,
+      "link": "https://ijcai-22.org/",
+      "lng": 16.3725042,
+      "name": "IJCAI-ECAI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "ijcnlpaacl22",
+      "country": "Taiwan",
+      "end": "2022-11-24",
+      "id": "ijcnlpaacl22@main",
+      "lat": 25.0375198,
+      "link": "https://www.aacl2022.org/",
+      "lng": 121.5636796,
+      "name": "AACL-IJCNLP 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-21"
+    },
+    {
+      "access": "registration",
+      "city": "Incheon",
+      "conferenceId": "interspeech2022",
+      "country": "South Korea",
+      "end": "2022-09-22",
+      "id": "interspeech2022@main",
+      "lat": 37.456,
+      "link": "http://www.interspeech2022.org/",
+      "lng": 126.7052,
+      "name": "InterSpeech 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "iros22",
+      "country": "Japan",
+      "end": "2022-10-27",
+      "id": "iros22@main",
+      "lat": 35.0115754,
+      "link": "https://iros2022.org/",
+      "lng": 135.7681441,
+      "name": "IROS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-23"
+    },
+    {
+      "access": "registration",
+      "city": "Bangalore",
+      "conferenceId": "ismir22",
+      "country": "India",
+      "end": "2022-12-08",
+      "id": "ismir22@main",
+      "lat": 12.9767936,
+      "link": "https://ismir2022.ismir.net/",
+      "lng": 77.590082,
+      "name": "ISMIR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-04"
+    },
+    {
+      "access": "registration",
+      "city": "Cosenza",
+      "conferenceId": "ismis22",
+      "country": "Italy",
+      "end": "2022-10-05",
+      "id": "ismis22@main",
+      "lat": 39.3099931,
+      "link": "https://ismis2022.icar.cnr.it/",
+      "lng": 16.2501929,
+      "name": "ISMIS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-03"
+    },
+    {
+      "access": "registration",
+      "city": "Washington DC",
+      "conferenceId": "kdd22",
+      "country": "United States",
+      "end": "2022-08-18",
+      "id": "kdd22@main",
+      "lat": 38.8950982,
+      "link": "https://www.kdd.org/kdd2022/",
+      "lng": -77.0363849,
+      "name": "KDD 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-14"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "l4dc22",
+      "country": "United States",
+      "end": "2022-06-24",
+      "id": "l4dc22@main",
+      "lat": 37.427467,
+      "link": "https://l4dc.stanford.edu/",
+      "lng": -122.1702445,
+      "name": "L4DC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-23",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "log22",
+      "end": "2022-12-12",
+      "format": "virtual",
+      "id": "log22@main",
+      "link": "https://logconference.org/",
+      "name": "LoG 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-09"
+    },
+    {
+      "access": "registration",
+      "city": "Marseille",
+      "conferenceId": "lrec22",
+      "country": "France",
+      "end": "2022-06-25",
+      "id": "lrec22@main",
+      "lat": 43.2963986,
+      "link": "http://elra.info/en/lrec/lrec-2022/",
+      "lng": 5.3777888,
+      "name": "LREC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-20"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "naacl22",
+      "country": "United States",
+      "end": "2022-07-15",
+      "id": "naacl22@main",
+      "lat": 47.6038321,
+      "link": "https://2022.naacl.org/",
+      "lng": -122.330062,
+      "name": "NAACL 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-10"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "neurips22",
+      "country": "United States",
+      "end": "2022-12-09",
+      "format": "hybrid",
+      "id": "neurips22@main",
+      "lat": 29.9574657,
+      "link": "https://neurips.cc/Conferences/2022/",
+      "lng": -90.0629493,
+      "name": "NeurIPS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-28"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "recsys22",
+      "country": "United States",
+      "end": "2022-09-23",
+      "id": "recsys22@main",
+      "lat": 47.6038321,
+      "link": "https://recsys.acm.org/recsys22/",
+      "lng": -122.330062,
+      "name": "RecSys 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Naples",
+      "conferenceId": "roman22",
+      "country": "Italy",
+      "end": "2022-09-02",
+      "id": "roman22@main",
+      "lat": 40.8358846,
+      "link": "http://www.ro-man2022.org/",
+      "lng": 14.2487679,
+      "name": "RO-MAN 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-29"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "rss22",
+      "country": "United States",
+      "end": "2022-07-01",
+      "id": "rss22@main",
+      "lat": 40.7127281,
+      "link": "https://roboticsconference.org/2022",
+      "lng": -74.0060152,
+      "name": "RSS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-27"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "siggraph22",
+      "country": "Canada",
+      "end": "2022-08-11",
+      "format": "hybrid",
+      "id": "siggraph22@main",
+      "lat": 49.2608724,
+      "link": "https://s2022.siggraph.org/",
+      "lng": -123.113952,
+      "name": "SIGGRAPH 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "Daegu",
+      "conferenceId": "siggraphasia22",
+      "country": "South Korea",
+      "end": "2022-12-09",
+      "id": "siggraphasia22@main",
+      "lat": 35.8713,
+      "link": "https://sa2022.siggraph.org/",
+      "lng": 128.6018,
+      "name": "SIGGRAPH Asia 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-06"
+    },
+    {
+      "access": "registration",
+      "city": "Madrid",
+      "conferenceId": "sigir22",
+      "country": "Spain",
+      "end": "2022-07-15",
+      "id": "sigir22@main",
+      "lat": 40.416782,
+      "link": "https://sigir.org/sigir2022/",
+      "lng": -3.703507,
+      "name": "SIGIR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-11"
+    },
+    {
+      "access": "registration",
+      "city": "Eindhoven",
+      "conferenceId": "uai22",
+      "country": "Netherlands",
+      "end": "2022-08-05",
+      "id": "uai22@main",
+      "lat": 51.4392648,
+      "link": "https://www.auai.org/uai2022/",
+      "lng": 5.478633,
+      "name": "UAI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "wacv22",
+      "country": "United States",
+      "end": "2022-01-08",
+      "id": "wacv22@main",
+      "lat": 19.9469278,
+      "link": "http://wacv2022.thecvf.com/",
+      "lng": -155.787398,
+      "name": "WACV 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-01-04"
+    },
+    {
+      "access": "registration",
+      "city": "Phoenix",
+      "conferenceId": "wsdm22",
+      "country": "United States",
+      "end": "2022-02-25",
+      "id": "wsdm22@main",
+      "lat": 33.4484367,
+      "link": "https://www.wsdm-conference.org/2022/",
+      "lng": -112.074141,
+      "name": "WSDM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-02-21"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "www22",
+      "country": "France",
+      "end": "2022-04-29",
+      "id": "www22@main",
+      "lat": 45.7578137,
+      "link": "https://www2022.thewebconf.org/",
+      "lng": 4.8320114,
+      "name": "WWW 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-25"
+    }
+  ]
+}

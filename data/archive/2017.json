@@ -1,0 +1,820 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2017-10-12",
+      "id": "3dv17",
+      "link": "http://irc.cs.sdu.edu.cn/3dv/",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2017-10-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-02-09",
+      "id": "aaai17",
+      "link": "http://www.aaai.org/Conferences/AAAI/aaai17.php",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2017-02-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-04",
+      "id": "acl17",
+      "link": "http://acl2017.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2017-07-30",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-22",
+      "id": "aistats17",
+      "link": "https://www.aistats.org/aistats2017/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2017-04-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-07",
+      "id": "bmvc17",
+      "link": "https://bmvc2017.london/",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2017-09-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-10",
+      "id": "colt17",
+      "link": "http://www.learningtheory.org/colt2017/",
+      "series": "colt",
+      "source": "pwc",
+      "start": "2017-07-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-04",
+      "id": "conll17",
+      "link": "http://www.conll.org/",
+      "series": "conll",
+      "source": "pwc",
+      "start": "2017-08-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CONLL",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-11-15",
+      "id": "corl17",
+      "link": "http://www.robot-learning.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2017-11-13",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-25",
+      "id": "cvpr17",
+      "link": "http://cvpr2017.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2017-07-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-22",
+      "id": "ecmlpkdd17",
+      "link": "http://ecmlpkdd2017.ijs.si/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2017-09-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECML-PKDD",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-11",
+      "id": "emnlp17",
+      "link": "http://emnlp2017.net/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2017-09-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-15",
+      "id": "fsr17",
+      "link": "https://www.fsr.ethz.ch/",
+      "series": "fsr",
+      "source": "pwc",
+      "start": "2017-09-12",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-28",
+      "id": "icarsc17",
+      "link": "http://icarsc2017.isr.uc.pt",
+      "series": "icarsc",
+      "source": "pwc",
+      "start": "2017-04-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-10-29",
+      "id": "iccv17",
+      "link": "http://iccv2017.thecvf.com/",
+      "series": "iccv",
+      "source": "pwc",
+      "start": "2017-10-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-21",
+      "id": "icdlepirob17",
+      "link": "http://www.icdl-epirob.org/",
+      "series": "icdl-epirob",
+      "source": "pwc",
+      "start": "2017-09-18",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-26",
+      "id": "iclr17",
+      "link": "http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2017-04-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-11",
+      "id": "icml17",
+      "link": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2017-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-03",
+      "id": "icra17",
+      "link": "http://www.icra2017.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2017-05-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-25",
+      "id": "ijcai17",
+      "link": "http://ijcai-17.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2017-08-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-28",
+      "id": "iros17",
+      "link": "http://www.iros2017.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2017-09-24",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-17",
+      "id": "kdd17",
+      "link": "http://www.kdd.org/kdd2017/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2017-08-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-12-09",
+      "id": "neurips17",
+      "link": "https://nips.cc/Conferences/2017",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2017-12-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-06",
+      "id": "ranlp17",
+      "link": "http://www.lml.bas.bg/ranlp2017",
+      "series": "ranlp",
+      "source": "pwc",
+      "start": "2017-09-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-16",
+      "id": "rss17",
+      "link": "http://www.roboticsconference.org/",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2017-07-12",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-04",
+      "id": "sem17",
+      "link": "https://aclanthology.org/S17-1000/",
+      "series": "sem",
+      "source": "pwc",
+      "start": "2017-08-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-03",
+      "id": "siggraph17",
+      "link": "http://s2017.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2017-07-30",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-15",
+      "id": "uai17",
+      "link": "http://auai.org/uai2017/index.php",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2017-08-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2017
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Qingdao",
+      "conferenceId": "3dv17",
+      "country": "China",
+      "end": "2017-10-12",
+      "id": "3dv17@main",
+      "lat": 36.0663249,
+      "link": "http://irc.cs.sdu.edu.cn/3dv/",
+      "lng": 120.3777659,
+      "name": "3DV 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-10"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "aaai17",
+      "country": "United States",
+      "end": "2017-02-09",
+      "id": "aaai17@main",
+      "lat": 37.7879363,
+      "link": "http://www.aaai.org/Conferences/AAAI/aaai17.php",
+      "lng": -122.4075201,
+      "name": "AAAI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-02-04"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "acl17",
+      "country": "Canada",
+      "end": "2017-08-04",
+      "id": "acl17@main",
+      "lat": 49.2608724,
+      "link": "http://acl2017.org/",
+      "lng": -123.113952,
+      "name": "ACL 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Fort Lauderdale",
+      "conferenceId": "aistats17",
+      "country": "United States",
+      "end": "2017-04-22",
+      "id": "aistats17@main",
+      "lat": 26.1223084,
+      "link": "https://www.aistats.org/aistats2017/",
+      "lng": -80.1433786,
+      "name": "AISTATS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-20"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "bmvc17",
+      "country": "United Kingdom",
+      "end": "2017-09-07",
+      "id": "bmvc17@main",
+      "lat": 51.5074456,
+      "link": "https://bmvc2017.london/",
+      "lng": -0.1277653,
+      "name": "BMVC 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "colt17",
+      "country": "Netherlands",
+      "end": "2017-07-10",
+      "id": "colt17@main",
+      "lat": 52.3730796,
+      "link": "http://www.learningtheory.org/colt2017/",
+      "lng": 4.8924534,
+      "name": "COLT 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-07",
+      "venue": "University of Amsterdam"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "conll17",
+      "country": "Canada",
+      "end": "2017-08-04",
+      "id": "conll17@main",
+      "lat": 49.2608724,
+      "link": "http://www.conll.org/",
+      "lng": -123.113952,
+      "name": "CONLL 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Mountain View",
+      "conferenceId": "corl17",
+      "country": "United States",
+      "end": "2017-11-15",
+      "id": "corl17@main",
+      "lat": 37.3893889,
+      "link": "http://www.robot-learning.org",
+      "lng": -122.0832101,
+      "name": "CoRL 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-13"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "cvpr17",
+      "country": "United States",
+      "end": "2017-07-25",
+      "id": "cvpr17@main",
+      "lat": 21.304547,
+      "link": "http://cvpr2017.thecvf.com/",
+      "lng": -157.855676,
+      "name": "CVPR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-22"
+    },
+    {
+      "access": "registration",
+      "city": "Skopje",
+      "conferenceId": "ecmlpkdd17",
+      "country": "North Macedonia",
+      "end": "2017-09-22",
+      "id": "ecmlpkdd17@main",
+      "lat": 41.9962054,
+      "link": "http://ecmlpkdd2017.ijs.si/",
+      "lng": 21.4318881,
+      "name": "ECML-PKDD 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "emnlp17",
+      "country": "Denmark",
+      "end": "2017-09-11",
+      "id": "emnlp17@main",
+      "lat": 55.6867243,
+      "link": "http://emnlp2017.net/",
+      "lng": 12.5700724,
+      "name": "EMNLP 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-07"
+    },
+    {
+      "access": "registration",
+      "city": "Zurich",
+      "conferenceId": "fsr17",
+      "country": "Switzerland",
+      "end": "2017-09-15",
+      "id": "fsr17@main",
+      "lat": 47.3744489,
+      "link": "https://www.fsr.ethz.ch/",
+      "lng": 8.5410422,
+      "name": "FSR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-12",
+      "venue": "ETH Zurich"
+    },
+    {
+      "access": "registration",
+      "city": "Coimbra",
+      "conferenceId": "icarsc17",
+      "country": "Portugal",
+      "end": "2017-04-28",
+      "id": "icarsc17@main",
+      "lat": 40.2111874,
+      "link": "http://icarsc2017.isr.uc.pt",
+      "lng": -8.4291478,
+      "name": "ICARSC 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Venice",
+      "conferenceId": "iccv17",
+      "country": "Italy",
+      "end": "2017-10-29",
+      "id": "iccv17@main",
+      "lat": 45.4371908,
+      "link": "http://iccv2017.thecvf.com/",
+      "lng": 12.3345898,
+      "name": "ICCV 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-22"
+    },
+    {
+      "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "icdlepirob17",
+      "country": "Portugal",
+      "end": "2017-09-21",
+      "id": "icdlepirob17@main",
+      "lat": 38.7077507,
+      "link": "http://www.icdl-epirob.org/",
+      "lng": -9.1365919,
+      "name": "ICDL-EpiRob 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Toulon",
+      "conferenceId": "iclr17",
+      "country": "France",
+      "end": "2017-04-26",
+      "id": "iclr17@main",
+      "lat": 43.1257311,
+      "link": "http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1",
+      "lng": 5.9304919,
+      "name": "ICLR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-24",
+      "venue": "Palais des Congrès Neptune"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "icml17",
+      "country": "Australia",
+      "end": "2017-08-11",
+      "id": "icml17@main",
+      "lat": -33.8698439,
+      "link": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838",
+      "lng": 151.2082848,
+      "name": "ICML 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "icra17",
+      "country": "Singapore",
+      "end": "2017-06-03",
+      "id": "icra17@main",
+      "lat": 1.2899175,
+      "link": "http://www.icra2017.org/",
+      "lng": 103.8519072,
+      "name": "ICRA 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-29"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "ijcai17",
+      "country": "Australia",
+      "end": "2017-08-25",
+      "id": "ijcai17@main",
+      "lat": -37.8142454,
+      "link": "http://ijcai-17.org/",
+      "lng": 144.9631732,
+      "name": "IJCAI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "iros17",
+      "country": "Canada",
+      "end": "2017-09-28",
+      "id": "iros17@main",
+      "lat": 49.2608724,
+      "link": "http://www.iros2017.org/",
+      "lng": -123.113952,
+      "name": "IROS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-24"
+    },
+    {
+      "access": "registration",
+      "city": "Halifax",
+      "conferenceId": "kdd17",
+      "country": "Canada",
+      "end": "2017-08-17",
+      "id": "kdd17@main",
+      "lat": 44.648618,
+      "link": "http://www.kdd.org/kdd2017/",
+      "lng": -63.5859487,
+      "name": "KDD 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Long Beach",
+      "conferenceId": "neurips17",
+      "country": "United States",
+      "end": "2017-12-09",
+      "id": "neurips17@main",
+      "lat": 33.7690164,
+      "link": "https://nips.cc/Conferences/2017",
+      "lng": -118.191604,
+      "name": "NIPS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-12-04",
+      "venue": "Long Beach Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Varna",
+      "conferenceId": "ranlp17",
+      "country": "Bulgaria",
+      "end": "2017-09-06",
+      "id": "ranlp17@main",
+      "lat": 43.2073873,
+      "link": "http://www.lml.bas.bg/ranlp2017",
+      "lng": 27.9166653,
+      "name": "RANLP 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "rss17",
+      "country": "United States",
+      "end": "2017-07-16",
+      "id": "rss17@main",
+      "lat": 42.3588336,
+      "link": "http://www.roboticsconference.org/",
+      "lng": -71.0578303,
+      "name": "RSS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "sem17",
+      "country": "Canada",
+      "end": "2017-08-04",
+      "id": "sem17@main",
+      "lat": 49.2608724,
+      "link": "https://aclanthology.org/S17-1000/",
+      "lng": -123.113952,
+      "name": "*SEM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph17",
+      "country": "United States",
+      "end": "2017-08-03",
+      "id": "siggraph17@main",
+      "lat": 34.0536923,
+      "link": "http://s2017.siggraph.org/",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "uai17",
+      "country": "Australia",
+      "end": "2017-08-15",
+      "id": "uai17@main",
+      "lat": -33.8698439,
+      "link": "http://auai.org/uai2017/index.php",
+      "lng": 151.2082848,
+      "name": "UAI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-11"
+    }
+  ]
+}

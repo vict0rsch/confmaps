@@ -1,0 +1,1658 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2024-03-21",
+      "id": "3dv24",
+      "link": "https://3dvconf.github.io/2024/",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2024-03-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-02-28",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai24",
+      "link": "https://aaai.org/aaai-conference/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2024-02-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-10",
+      "id": "aamas24",
+      "link": "https://www.aamas2024-conference.auckland.ac.nz/",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2024-05-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-16",
+      "id": "acl24",
+      "link": "https://2024.aclweb.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2024-08-11",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-01",
+      "id": "acm24",
+      "link": "https://2024.acmmm.org/",
+      "series": "acm-mm",
+      "source": "pwc",
+      "start": "2024-10-28",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACM MM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-04",
+      "id": "aistats24",
+      "link": "https://www.aistats.org/aistats2024/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2024-05-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-16",
+      "fullName": "ACM International Conference on AIware",
+      "id": "aiware24",
+      "link": "https://2024.aiwareconf.org/#",
+      "series": "aiware",
+      "source": "pwc",
+      "start": "2024-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AIware",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-12",
+      "fullName": "International Conference on Automated Machine Learning",
+      "id": "automl24",
+      "link": "https://2024.automl.cc/",
+      "series": "automl",
+      "source": "pwc",
+      "start": "2024-09-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AutoML",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-28",
+      "fullName": "The British Machine Vision Conference",
+      "id": "bmvc24",
+      "link": "https://bmvc2024.org/",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2024-11-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "BMVC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-16",
+      "fullName": "ACM CHI Conference on Human Factors in Computing Systems",
+      "id": "chi24",
+      "link": "https://chi2024.acm.org/",
+      "series": "chi",
+      "source": "pwc",
+      "start": "2024-05-11",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-28",
+      "fullName": "Conference on Health, Inference, and Learning",
+      "id": "chil24",
+      "link": "https://www.chilconference.org/index.html",
+      "series": "chil",
+      "source": "pwc",
+      "start": "2024-06-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-25",
+      "id": "cikm24",
+      "link": "https://cikm2024.org/",
+      "series": "cikm",
+      "source": "pwc",
+      "start": "2024-10-21",
+      "tags": [
+        "data-mining",
+        "knowledge-representation"
+      ],
+      "title": "CIKM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-03",
+      "id": "clear24",
+      "link": "https://www.cclear.cc/2024",
+      "series": "clear",
+      "source": "pwc",
+      "start": "2024-04-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CLeaR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-01",
+      "id": "collas24",
+      "link": "https://lifelong-ml.cc",
+      "series": "collas",
+      "source": "pwc",
+      "start": "2024-07-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CoLLAs",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-09",
+      "fullName": "1st Conference on Language Modeling",
+      "id": "colm24",
+      "link": "https://colmweb.org/",
+      "series": "colm",
+      "source": "pwc",
+      "start": "2024-10-07",
+      "tags": [
+        "natural-language-processing",
+        "machine-learning"
+      ],
+      "title": "COLM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-09",
+      "id": "corl24",
+      "link": "https://corl.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2024-11-06",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-13",
+      "id": "cscw24",
+      "link": "https://cscw.acm.org/2024/",
+      "series": "cscw",
+      "source": "pwc",
+      "start": "2024-11-09",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-21",
+      "id": "cvpr24",
+      "link": "https://cvpr.thecvf.com/Conferences/2024",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2024-06-17",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-03-22",
+      "fullName": "The 18th Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl24",
+      "link": "https://2024.eacl.org/",
+      "series": "eacl",
+      "source": "pwc",
+      "start": "2024-03-17",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-24",
+      "id": "ecai24",
+      "link": "https://www.ecai2024.eu/",
+      "series": "ecai",
+      "source": "pwc",
+      "start": "2024-10-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-04",
+      "id": "eccv24",
+      "link": "https://eccv2024.ecva.net/",
+      "series": "eccv",
+      "source": "pwc",
+      "start": "2024-09-29",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-03-28",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir24",
+      "link": "https://www.ecir2024.org/",
+      "series": "ecir",
+      "source": "pwc",
+      "start": "2024-03-24",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-13",
+      "id": "ecmlpkdd24",
+      "link": "https://2024.ecmlpkdd.org/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2024-09-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECML PKDD",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-16",
+      "id": "emnlp24",
+      "link": "https://2024.emnlp.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2024-11-12",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-03-14",
+      "id": "hri24",
+      "link": "https://humanrobotinteraction.org/2024/",
+      "series": "hri",
+      "source": "pwc",
+      "start": "2024-03-11",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-15",
+      "fullName": "18th Ibero-American Conference on Artificial Intelligence",
+      "id": "iberamia24",
+      "link": "https://www.iberamia.org/iberamia/iberamia2024/",
+      "series": "iberamia",
+      "source": "pwc",
+      "start": "2024-11-13",
+      "tags": [
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "IBERAMIA",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-06",
+      "id": "icaps24",
+      "link": "https://icaps24.icaps-conference.org/",
+      "series": "icaps",
+      "source": "pwc",
+      "start": "2024-06-01",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-19",
+      "id": "icassp24",
+      "link": "https://2024.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2024-04-14",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-11",
+      "id": "iclr24",
+      "link": "https://iclr.cc/Conferences/2024",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2024-05-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-27",
+      "id": "icml24",
+      "link": "https://icml.cc/Conferences/2024",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2024-07-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-21",
+      "fullName": "International Conference on Pattern Recognition and Artificial Intelligence",
+      "id": "icprai24",
+      "link": "http://icprai2024.org/",
+      "series": "icprai",
+      "source": "pwc",
+      "start": "2024-06-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPRAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-17",
+      "id": "icra24",
+      "link": "http://2024.ieee-icra.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2024-05-13",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-09",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai24",
+      "link": "https://ijcai24.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2024-08-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-18",
+      "id": "iros24",
+      "link": "https://iros2024-abudhabi.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2024-10-14",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-14",
+      "id": "ismir24",
+      "link": "https://ismir2024.ismir.net/",
+      "series": "ismir",
+      "source": "pwc",
+      "start": "2024-11-10",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-03-21",
+      "id": "iui24",
+      "link": "https://iui.acm.org/2024/",
+      "series": "iui",
+      "source": "pwc",
+      "start": "2024-03-18",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-29",
+      "id": "kdd24",
+      "link": "https://kdd2024.kdd.org/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2024-08-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-08",
+      "id": "kr24",
+      "link": "https://kr.org/KR2024/",
+      "series": "kr",
+      "source": "pwc",
+      "start": "2024-11-02",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-29",
+      "fullName": "Learning on Graphs Conference",
+      "id": "log24",
+      "link": "https://logconference.org",
+      "series": "log",
+      "source": "pwc",
+      "start": "2024-11-26",
+      "tags": [
+        "machine-learning",
+        "data-mining",
+        "knowledge-representation"
+      ],
+      "title": "LoG",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-25",
+      "fullName": "The 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
+      "id": "lreccoling24",
+      "link": "https://lrec-coling-2024.org",
+      "series": "lrec-coling",
+      "source": "pwc",
+      "start": "2024-05-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC-COLING",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-10",
+      "id": "miccai24",
+      "link": "https://conferences.miccai.org/2024/en/",
+      "series": "miccai",
+      "source": "pwc",
+      "start": "2024-10-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-09",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr24",
+      "link": "https://sites.google.com/view/mipr2024",
+      "series": "mipr",
+      "source": "pwc",
+      "start": "2024-08-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-21",
+      "id": "naacl24",
+      "link": "https://2024.naacl.org",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2024-06-16",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-15",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips24",
+      "link": "https://nips.cc/Conferences/2024",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2024-12-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-12",
+      "id": "rlc24",
+      "link": "https://rl-conference.cc/",
+      "series": "rlc",
+      "source": "pwc",
+      "start": "2024-08-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "RLC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-19",
+      "id": "rss24",
+      "link": "https://roboticsconference.org/2024",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2024-07-15",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-11",
+      "fullName": "IEEE Conference on Secure and Trustworthy Machine Learning",
+      "id": "satml24",
+      "link": "https://satml.org/",
+      "series": "satml",
+      "source": "pwc",
+      "start": "2024-04-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SaTML",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-01",
+      "id": "siggraph24",
+      "link": "https://s2024.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2024-07-28",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-06",
+      "fullName": "SIGGRAPH ASIA 2024",
+      "id": "siggraphasia24",
+      "link": "https://asia.siggraph.org/2024/",
+      "series": "siggraph-asia",
+      "source": "pwc",
+      "start": "2024-12-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-18",
+      "id": "sigir24",
+      "link": "https://sigir-2024.github.io",
+      "series": "sigir",
+      "source": "pwc",
+      "start": "2024-07-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-19",
+      "fullName": "1st ESA Conference on AI in and for Space",
+      "id": "spaice24",
+      "link": "https://spaice.esa.int/",
+      "series": "spaice",
+      "source": "pwc",
+      "start": "2024-09-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SPAICE",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-28",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom24",
+      "link": "https://specom2024.ftn.uns.ac.rs",
+      "series": "specom",
+      "source": "pwc",
+      "start": "2024-11-25",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-19",
+      "id": "uai24",
+      "link": "https://www.auai.org/uai2024/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2024-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-01-07",
+      "fullName": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+      "id": "wacv24",
+      "link": "https://wacv2024.thecvf.com",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2024-01-03",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2024
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Davos",
+      "conferenceId": "3dv24",
+      "country": "Switzerland",
+      "end": "2024-03-21",
+      "id": "3dv24@main",
+      "lat": 46.796198,
+      "link": "https://3dvconf.github.io/2024/",
+      "lng": 9.8236892,
+      "name": "3DV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-18"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "aaai24",
+      "country": "Canada",
+      "end": "2024-02-28",
+      "id": "aaai24@main",
+      "lat": 49.2608724,
+      "link": "https://aaai.org/aaai-conference/",
+      "lng": -123.113952,
+      "name": "AAAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-02-20"
+    },
+    {
+      "access": "registration",
+      "city": "Auckland",
+      "conferenceId": "aamas24",
+      "country": "New Zealand",
+      "end": "2024-05-10",
+      "id": "aamas24@main",
+      "lat": -36.852095,
+      "link": "https://www.aamas2024-conference.auckland.ac.nz/",
+      "lng": 174.7631803,
+      "name": "AAMAS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Bangkok",
+      "conferenceId": "acl24",
+      "country": "Thailand",
+      "end": "2024-08-16",
+      "id": "acl24@main",
+      "lat": 13.7524938,
+      "link": "https://2024.aclweb.org/",
+      "lng": 100.4935089,
+      "name": "ACL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "acm24",
+      "country": "Australia",
+      "end": "2024-11-01",
+      "id": "acm24@main",
+      "lat": -37.8142454,
+      "link": "https://2024.acmmm.org/",
+      "lng": 144.9631732,
+      "name": "ACM MM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-28"
+    },
+    {
+      "access": "registration",
+      "city": "Valencia",
+      "conferenceId": "aistats24",
+      "country": "Spain",
+      "end": "2024-05-04",
+      "id": "aistats24@main",
+      "lat": 39.4697065,
+      "link": "https://www.aistats.org/aistats2024/",
+      "lng": -0.3763353,
+      "name": "AISTATS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-02"
+    },
+    {
+      "access": "registration",
+      "city": "Porto de Galinhas",
+      "conferenceId": "aiware24",
+      "country": "Brazil",
+      "end": "2024-07-16",
+      "id": "aiware24@main",
+      "lat": -8.5046818,
+      "link": "https://2024.aiwareconf.org/#",
+      "lng": -35.0049962,
+      "name": "AIware 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "automl24",
+      "country": "France",
+      "end": "2024-09-12",
+      "id": "automl24@main",
+      "lat": 48.8534951,
+      "link": "https://2024.automl.cc/",
+      "lng": 2.3483915,
+      "name": "AutoML 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "bmvc24",
+      "country": "United Kingdom",
+      "end": "2024-11-28",
+      "id": "bmvc24@main",
+      "lat": 55.861155,
+      "link": "https://bmvc2024.org/",
+      "lng": -4.2501687,
+      "name": "BMVC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-25"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "chi24",
+      "country": "United States",
+      "end": "2024-05-16",
+      "id": "chi24@main",
+      "lat": 21.304547,
+      "link": "https://chi2024.acm.org/",
+      "lng": -157.855676,
+      "name": "CHI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-11"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "chil24",
+      "country": "United States",
+      "end": "2024-06-28",
+      "id": "chil24@main",
+      "lat": 40.7127281,
+      "link": "https://www.chilconference.org/index.html",
+      "lng": -74.0060152,
+      "name": "CHIL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-27"
+    },
+    {
+      "access": "registration",
+      "city": "Boise",
+      "conferenceId": "cikm24",
+      "country": "United States",
+      "end": "2024-10-25",
+      "id": "cikm24@main",
+      "lat": 43.6166163,
+      "link": "https://cikm2024.org/",
+      "lng": -116.200886,
+      "name": "CIKM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-21"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "clear24",
+      "country": "United States",
+      "end": "2024-04-03",
+      "id": "clear24@main",
+      "lat": 34.0536923,
+      "link": "https://www.cclear.cc/2024",
+      "lng": -118.2427676,
+      "name": "CLeaR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-01"
+    },
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "collas24",
+      "country": "Italy",
+      "end": "2024-08-01",
+      "id": "collas24@main",
+      "lat": 43.7159395,
+      "link": "https://lifelong-ml.cc",
+      "lng": 10.4018624,
+      "name": "CoLLAs 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-29"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "colm24",
+      "country": "United States",
+      "end": "2024-10-09",
+      "id": "colm24@main",
+      "lat": 39.9527237,
+      "link": "https://colmweb.org/",
+      "lng": -75.1635262,
+      "name": "COLM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-07"
+    },
+    {
+      "access": "registration",
+      "city": "Munich",
+      "conferenceId": "corl24",
+      "country": "Germany",
+      "end": "2024-11-09",
+      "id": "corl24@main",
+      "lat": 48.1371079,
+      "link": "https://corl.org",
+      "lng": 11.5753822,
+      "name": "CoRL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-06"
+    },
+    {
+      "access": "registration",
+      "city": "San José",
+      "conferenceId": "cscw24",
+      "country": "Costa Rica",
+      "end": "2024-11-13",
+      "format": "hybrid",
+      "id": "cscw24@main",
+      "lat": 9.9327373,
+      "link": "https://cscw.acm.org/2024/",
+      "lng": -84.0796683,
+      "name": "CSCW 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-09",
+      "venue": "Costa Rica Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "cvpr24",
+      "country": "United States",
+      "end": "2024-06-21",
+      "id": "cvpr24@main",
+      "lat": 47.6038321,
+      "link": "https://cvpr.thecvf.com/Conferences/2024",
+      "lng": -122.330062,
+      "name": "CVPR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-17"
+    },
+    {
+      "access": "registration",
+      "city": "St. Julian's",
+      "conferenceId": "eacl24",
+      "country": "Malta",
+      "end": "2024-03-22",
+      "id": "eacl24@main",
+      "lat": 35.9199225,
+      "link": "https://2024.eacl.org/",
+      "lng": 14.4877119,
+      "name": "EACL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-17"
+    },
+    {
+      "access": "registration",
+      "city": "Santiago de Compostela",
+      "conferenceId": "ecai24",
+      "country": "Spain",
+      "end": "2024-10-24",
+      "id": "ecai24@main",
+      "lat": 42.9064576,
+      "link": "https://www.ecai2024.eu/",
+      "lng": -8.5192983,
+      "name": "ECAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-19"
+    },
+    {
+      "access": "registration",
+      "city": "Milan",
+      "conferenceId": "eccv24",
+      "country": "Italy",
+      "end": "2024-10-04",
+      "id": "eccv24@main",
+      "lat": 45.4641943,
+      "link": "https://eccv2024.ecva.net/",
+      "lng": 9.1896346,
+      "name": "ECCV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-29"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "ecir24",
+      "country": "United Kingdom",
+      "end": "2024-03-28",
+      "id": "ecir24@main",
+      "lat": 55.861155,
+      "link": "https://www.ecir2024.org/",
+      "lng": -4.2501687,
+      "name": "ECIR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-24"
+    },
+    {
+      "access": "registration",
+      "city": "Vilnius",
+      "conferenceId": "ecmlpkdd24",
+      "country": "Lithuania",
+      "end": "2024-09-13",
+      "id": "ecmlpkdd24@main",
+      "lat": 54.6870458,
+      "link": "https://2024.ecmlpkdd.org/",
+      "lng": 25.2829111,
+      "name": "ECML PKDD 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Miami",
+      "conferenceId": "emnlp24",
+      "country": "United States",
+      "end": "2024-11-16",
+      "id": "emnlp24@main",
+      "lat": 25.7741566,
+      "link": "https://2024.emnlp.org/",
+      "lng": -80.1935973,
+      "name": "EMNLP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-12"
+    },
+    {
+      "access": "registration",
+      "city": "Boulder",
+      "conferenceId": "hri24",
+      "country": "United States",
+      "end": "2024-03-14",
+      "id": "hri24@main",
+      "lat": 40.0149856,
+      "link": "https://humanrobotinteraction.org/2024/",
+      "lng": -105.270545,
+      "name": "HRI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-11"
+    },
+    {
+      "access": "registration",
+      "city": "Montevideo",
+      "conferenceId": "iberamia24",
+      "country": "Uruguay",
+      "end": "2024-11-15",
+      "id": "iberamia24@main",
+      "lat": -34.9058916,
+      "link": "https://www.iberamia.org/iberamia/iberamia2024/",
+      "lng": -56.1913095,
+      "name": "IBERAMIA 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-13"
+    },
+    {
+      "access": "registration",
+      "city": "Banff",
+      "conferenceId": "icaps24",
+      "country": "Canada",
+      "end": "2024-06-06",
+      "id": "icaps24@main",
+      "lat": 51.175076,
+      "link": "https://icaps24.icaps-conference.org/",
+      "lng": -115.5720773,
+      "name": "ICAPS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-01"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "icassp24",
+      "country": "South Korea",
+      "end": "2024-04-19",
+      "id": "icassp24@main",
+      "lat": 37.5666791,
+      "link": "https://2024.ieeeicassp.org/",
+      "lng": 126.9782914,
+      "name": "ICASSP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-14"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "iclr24",
+      "country": "Austria",
+      "end": "2024-05-11",
+      "id": "iclr24@main",
+      "lat": 48.2083537,
+      "link": "https://iclr.cc/Conferences/2024",
+      "lng": 16.3725042,
+      "name": "ICLR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-07"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "icml24",
+      "country": "Austria",
+      "end": "2024-07-27",
+      "id": "icml24@main",
+      "lat": 48.2083537,
+      "link": "https://icml.cc/Conferences/2024",
+      "lng": 16.3725042,
+      "name": "ICML 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-21"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "icprai24",
+      "country": "South Korea",
+      "end": "2024-06-21",
+      "id": "icprai24@main",
+      "lat": 33.4998289,
+      "link": "http://icprai2024.org/",
+      "lng": 126.5313902,
+      "name": "ICPRAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-18"
+    },
+    {
+      "access": "registration",
+      "city": "Yokohama",
+      "conferenceId": "icra24",
+      "country": "Japan",
+      "end": "2024-05-17",
+      "id": "icra24@main",
+      "lat": 35.4503381,
+      "link": "http://2024.ieee-icra.org/",
+      "lng": 139.6343802,
+      "name": "ICRA 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-13"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "ijcai24",
+      "country": "South Korea",
+      "end": "2024-08-09",
+      "id": "ijcai24@main",
+      "lat": 33.4998289,
+      "link": "https://ijcai24.org/",
+      "lng": 126.5313902,
+      "name": "IJCAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "iros24",
+      "country": "United Arab Emirates",
+      "end": "2024-10-18",
+      "id": "iros24@main",
+      "lat": 24.4538352,
+      "link": "https://iros2024-abudhabi.org/",
+      "lng": 54.3774014,
+      "name": "IROS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-14"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "ismir24",
+      "country": "United States",
+      "end": "2024-11-14",
+      "id": "ismir24@main",
+      "lat": 37.7879363,
+      "link": "https://ismir2024.ismir.net/",
+      "lng": -122.4075201,
+      "name": "ISMIR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-10"
+    },
+    {
+      "access": "registration",
+      "city": "Greenville",
+      "conferenceId": "iui24",
+      "country": "United States",
+      "end": "2024-03-21",
+      "id": "iui24@main",
+      "lat": 34.851354,
+      "link": "https://iui.acm.org/2024/",
+      "lng": -82.3984882,
+      "name": "IUI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-18"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "kdd24",
+      "country": "Spain",
+      "end": "2024-08-29",
+      "id": "kdd24@main",
+      "lat": 41.3825802,
+      "link": "https://kdd2024.kdd.org/",
+      "lng": 2.177073,
+      "name": "KDD 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-25"
+    },
+    {
+      "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "kr24",
+      "country": "Vietnam",
+      "end": "2024-11-08",
+      "id": "kr24@main",
+      "lat": 21.0283334,
+      "link": "https://kr.org/KR2024/",
+      "lng": 105.854041,
+      "name": "KR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-02"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "log24",
+      "end": "2024-11-29",
+      "format": "virtual",
+      "id": "log24@main",
+      "link": "https://logconference.org",
+      "name": "LoG 2024",
+      "notes": "Held online with local meetups in several cities.",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Turin",
+      "conferenceId": "lreccoling24",
+      "country": "Italy",
+      "end": "2024-05-25",
+      "id": "lreccoling24@main",
+      "lat": 45.0677551,
+      "link": "https://lrec-coling-2024.org",
+      "lng": 7.6824892,
+      "name": "LREC-COLING 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Marrakesh",
+      "conferenceId": "miccai24",
+      "country": "Morocco",
+      "end": "2024-10-10",
+      "id": "miccai24@main",
+      "lat": 31.6258257,
+      "link": "https://conferences.miccai.org/2024/en/",
+      "lng": -7.9891608,
+      "name": "MICCAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-06"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "mipr24",
+      "country": "United States",
+      "end": "2024-08-09",
+      "id": "mipr24@main",
+      "lat": 37.3361663,
+      "link": "https://sites.google.com/view/mipr2024",
+      "lng": -121.890591,
+      "name": "MIPR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-07"
+    },
+    {
+      "access": "registration",
+      "city": "Mexico City",
+      "conferenceId": "naacl24",
+      "country": "Mexico",
+      "end": "2024-06-21",
+      "id": "naacl24@main",
+      "lat": 19.4326296,
+      "link": "https://2024.naacl.org",
+      "lng": -99.1331785,
+      "name": "NAACL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-16"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips24",
+      "country": "Canada",
+      "end": "2024-12-15",
+      "id": "neurips24@main",
+      "lat": 49.2608724,
+      "link": "https://nips.cc/Conferences/2024",
+      "lng": -123.113952,
+      "name": "NeurIPS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-10"
+    },
+    {
+      "access": "registration",
+      "city": "Amherst",
+      "conferenceId": "rlc24",
+      "country": "United States",
+      "end": "2024-08-12",
+      "id": "rlc24@main",
+      "lat": 42.3731948,
+      "link": "https://rl-conference.cc/",
+      "lng": -72.5198761,
+      "name": "RLC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-09"
+    },
+    {
+      "access": "registration",
+      "city": "Delft",
+      "conferenceId": "rss24",
+      "country": "Netherlands",
+      "end": "2024-07-19",
+      "id": "rss24@main",
+      "lat": 52.0114017,
+      "link": "https://roboticsconference.org/2024",
+      "lng": 4.35839,
+      "name": "RSS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "satml24",
+      "country": "Canada",
+      "end": "2024-04-11",
+      "id": "satml24@main",
+      "lat": 43.6534817,
+      "link": "https://satml.org/",
+      "lng": -79.3839347,
+      "name": "SaTML 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-09"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "siggraph24",
+      "country": "United States",
+      "end": "2024-08-01",
+      "id": "siggraph24@main",
+      "lat": 39.7392364,
+      "link": "https://s2024.siggraph.org/",
+      "lng": -104.984862,
+      "name": "SIGGRAPH 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-28"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "siggraphasia24",
+      "country": "Japan",
+      "end": "2024-12-06",
+      "id": "siggraphasia24@main",
+      "lat": 35.6768601,
+      "link": "https://asia.siggraph.org/2024/",
+      "lng": 139.7638947,
+      "name": "SIGGRAPH Asia 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-03",
+      "venue": "Tokyo International Forum"
+    },
+    {
+      "access": "registration",
+      "city": "Washington DC",
+      "conferenceId": "sigir24",
+      "country": "United States",
+      "end": "2024-07-18",
+      "id": "sigir24@main",
+      "lat": 38.8950982,
+      "link": "https://sigir-2024.github.io",
+      "lng": -77.0363849,
+      "name": "SIGIR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Harwell",
+      "conferenceId": "spaice24",
+      "country": "United Kingdom",
+      "end": "2024-09-19",
+      "id": "spaice24@main",
+      "lat": 51.5999743,
+      "link": "https://spaice.esa.int/",
+      "lng": -1.2909164,
+      "name": "SPAICE 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-17",
+      "venue": "ECSAT"
+    },
+    {
+      "access": "registration",
+      "city": "Belgrade",
+      "conferenceId": "specom24",
+      "country": "Serbia",
+      "end": "2024-11-28",
+      "id": "specom24@main",
+      "lat": 44.8153318,
+      "link": "https://specom2024.ftn.uns.ac.rs",
+      "lng": 20.4456588,
+      "name": "SPECOM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-25"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "uai24",
+      "country": "Spain",
+      "end": "2024-07-19",
+      "id": "uai24@main",
+      "lat": 41.3825802,
+      "link": "https://www.auai.org/uai2024/",
+      "lng": 2.177073,
+      "name": "UAI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "wacv24",
+      "country": "United States",
+      "end": "2024-01-07",
+      "id": "wacv24@main",
+      "lat": 19.9469278,
+      "link": "https://wacv2024.thecvf.com",
+      "lng": -155.787398,
+      "name": "WACV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-01-03"
+    }
+  ]
+}

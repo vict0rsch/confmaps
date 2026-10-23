@@ -1,0 +1,1356 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2020-11-28",
+      "id": "3dv20",
+      "link": "http://3dv2020.dgcv.nii.ac.jp/index.html",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2020-11-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-02-12",
+      "id": "aaai20",
+      "link": "https://aaai.org/Conferences/AAAI-20/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2020-02-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-05-13",
+      "id": "aamas20",
+      "link": "https://aamas2020.conference.auckland.ac.nz/",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2020-05-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-04",
+      "id": "accv20",
+      "link": "http://accv2020.kyoto/",
+      "series": "accv",
+      "source": "pwc",
+      "start": "2020-11-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-10",
+      "id": "acl20",
+      "link": "https://acl2020.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2020-07-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-16",
+      "id": "acm20",
+      "link": "https://2020.acmmm.org/",
+      "series": "acm-mm",
+      "source": "pwc",
+      "start": "2020-10-12",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACM MM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-28",
+      "id": "aistats20",
+      "link": "https://www.aistats.org/aistats2020",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2020-08-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-02-11",
+      "id": "alt2020",
+      "link": "http://alt2020.algorithmiclearningtheory.org/",
+      "series": "alt",
+      "source": "pwc",
+      "start": "2020-02-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-10",
+      "id": "bmvc20",
+      "link": "https://britishmachinevisionassociation.github.io/bmvc",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2020-09-07",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-24",
+      "id": "chil20",
+      "link": "http://www.chilconference.org/",
+      "series": "chil",
+      "source": "pwc",
+      "start": "2020-07-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-23",
+      "id": "cikm20",
+      "link": "https://cikm2020.org/",
+      "series": "cikm",
+      "source": "pwc",
+      "start": "2020-10-19",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "CIKM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-13",
+      "id": "coling20",
+      "link": "https://coling2020.org/",
+      "series": "coling",
+      "source": "pwc",
+      "start": "2020-12-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-12",
+      "id": "colt20",
+      "link": "http://www.learningtheory.org/colt2020/",
+      "series": "colt",
+      "source": "pwc",
+      "start": "2020-07-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-20",
+      "id": "conll20",
+      "link": "http://www.conll.org/2020",
+      "series": "conll",
+      "source": "pwc",
+      "start": "2020-11-19",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-18",
+      "id": "corl20",
+      "link": "http://www.robot-learning.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2020-11-16",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-19",
+      "id": "cvpr20",
+      "link": "http://cvpr2020.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2020-06-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-08",
+      "id": "ecai20",
+      "link": "http://ecai2020.eu/",
+      "series": "ecai",
+      "source": "pwc",
+      "start": "2020-08-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-28",
+      "id": "eccv20",
+      "link": "https://eccv2020.eu",
+      "series": "eccv",
+      "source": "pwc",
+      "start": "2020-08-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-18",
+      "id": "ecmlpkdd20",
+      "link": "https://ecmlpkdd2020.net/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2020-09-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECML PKDD",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-20",
+      "id": "emnlp20",
+      "link": "https://2020.emnlp.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2020-11-16",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-03-26",
+      "id": "hri20",
+      "link": "https://humanrobotinteraction.org/2020/",
+      "series": "hri",
+      "source": "pwc",
+      "start": "2020-03-23",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-30",
+      "id": "icaps20",
+      "link": "https://icaps20.icaps-conference.org/",
+      "series": "icaps",
+      "source": "pwc",
+      "start": "2020-10-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICAPS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-05-08",
+      "id": "icassp20",
+      "link": "https://2020.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2020-05-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-11",
+      "id": "iccc20",
+      "link": "http://computationalcreativity.net/iccc20/",
+      "series": "iccc",
+      "source": "pwc",
+      "start": "2020-09-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-20",
+      "id": "icdm20",
+      "link": "http://icdm2020.bigke.org/",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2020-11-17",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-04-30",
+      "id": "iclr20",
+      "link": "https://iclr.cc/Conferences/2020",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2020-04-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-18",
+      "id": "icml20",
+      "link": "https://icml.cc/Conferences/2020",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2020-07-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-29",
+      "id": "icmr20",
+      "link": "http://icmr2020.org/",
+      "series": "icmr",
+      "source": "pwc",
+      "start": "2020-10-26",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2021-01-15",
+      "id": "icpr20",
+      "link": "https://www.micc.unifi.it/icpr2020/",
+      "series": "icpr",
+      "source": "pwc",
+      "start": "2021-01-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-15",
+      "id": "icra20",
+      "link": "https://icra2020.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2020-05-31",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2021-01-15",
+      "id": "ijcai20",
+      "link": "https://www.ijcai20.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2021-01-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI-PRICAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-07",
+      "id": "ijcnlpaacl20",
+      "link": "http://aacl2020.org",
+      "series": "ijcnlp-aacl",
+      "source": "pwc",
+      "start": "2020-12-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AACL-IJCNLP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-18",
+      "id": "inlg2020",
+      "link": "https://www.inlg2020.org/",
+      "series": "inlg",
+      "source": "pwc",
+      "start": "2020-12-15",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-29",
+      "id": "interspeech2020",
+      "link": "http://www.interspeech2020.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2020-10-25",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-29",
+      "id": "iros20",
+      "link": "http://www.iros2020.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2020-10-25",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-15",
+      "id": "ismir20",
+      "link": "https://ismir.github.io/ISMIR2020/",
+      "series": "ismir",
+      "source": "pwc",
+      "start": "2020-10-11",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-27",
+      "id": "kdd20",
+      "link": "https://www.kdd.org/kdd2020/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2020-08-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-08",
+      "id": "miccai20",
+      "link": "http://www.miccai2020.org/",
+      "series": "miccai",
+      "source": "pwc",
+      "start": "2020-10-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-09",
+      "id": "midl20",
+      "link": "https://2020.midl.io/",
+      "series": "midl",
+      "source": "pwc",
+      "start": "2020-07-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-12",
+      "id": "neurips20",
+      "link": "https://nips.cc/Conferences/2020",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2020-12-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-26",
+      "id": "recsys20",
+      "link": "https://recsys.acm.org/recsys20/",
+      "series": "recsys",
+      "source": "pwc",
+      "start": "2020-09-22",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-16",
+      "id": "rss20",
+      "link": "https://roboticsconference.org/",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2020-07-12",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-28",
+      "id": "siggraph20",
+      "link": "https://s2020.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2020-08-17",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-30",
+      "id": "sigir20",
+      "link": "http://sigir.org/sigir2020/",
+      "series": "sigir",
+      "source": "pwc",
+      "start": "2020-07-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-06",
+      "id": "uai20",
+      "link": "http://auai.org/uai2020/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2020-08-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-03-05",
+      "id": "wacv20",
+      "link": "http://wacv20.wacv.net/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2020-03-02",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-02-07",
+      "id": "wsdm20",
+      "link": "http://www.wsdm-conference.org/2020/",
+      "series": "wsdm",
+      "source": "pwc",
+      "start": "2020-02-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-04-24",
+      "id": "www20",
+      "link": "https://www2020.thewebconf.org/",
+      "series": "www",
+      "source": "pwc",
+      "start": "2020-04-20",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WWW",
+      "year": 2020
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "conferenceId": "3dv20",
+      "end": "2020-11-28",
+      "format": "virtual",
+      "id": "3dv20@main",
+      "link": "http://3dv2020.dgcv.nii.ac.jp/index.html",
+      "name": "3DV 2020",
+      "notes": "Held online (planned: Fukuoka, Japan).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-25"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "aaai20",
+      "country": "United States",
+      "end": "2020-02-12",
+      "id": "aaai20@main",
+      "lat": 40.7127281,
+      "link": "https://aaai.org/Conferences/AAAI-20/",
+      "lng": -74.0060152,
+      "name": "AAAI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-02-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aamas20",
+      "end": "2020-05-13",
+      "format": "virtual",
+      "id": "aamas20@main",
+      "link": "https://aamas2020.conference.auckland.ac.nz/",
+      "name": "AAMAS 2020",
+      "notes": "Held online (planned: Auckland, New Zealand).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-09"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "accv20",
+      "end": "2020-12-04",
+      "format": "virtual",
+      "id": "accv20@main",
+      "link": "http://accv2020.kyoto/",
+      "name": "ACCV 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-30"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "acl20",
+      "end": "2020-07-10",
+      "format": "virtual",
+      "id": "acl20@main",
+      "link": "https://acl2020.org/",
+      "name": "ACL 2020",
+      "notes": "Held online (planned: Seattle, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-05"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "acm20",
+      "end": "2020-10-16",
+      "format": "virtual",
+      "id": "acm20@main",
+      "link": "https://2020.acmmm.org/",
+      "name": "ACM MM 2020",
+      "notes": "Held online (planned: Seattle, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aistats20",
+      "end": "2020-08-28",
+      "format": "virtual",
+      "id": "aistats20@main",
+      "link": "https://www.aistats.org/aistats2020",
+      "name": "AISTATS 2020",
+      "notes": "Held online (planned: Palermo, Italy).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-26"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "alt2020",
+      "country": "United States",
+      "end": "2020-02-11",
+      "id": "alt2020@main",
+      "lat": 32.7157062,
+      "link": "http://alt2020.algorithmiclearningtheory.org/",
+      "lng": -117.1638284,
+      "name": "ALT 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-02-08"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "bmvc20",
+      "end": "2020-09-10",
+      "format": "virtual",
+      "id": "bmvc20@main",
+      "link": "https://britishmachinevisionassociation.github.io/bmvc",
+      "name": "BMVC 2020",
+      "notes": "Held online (planned: Manchester, United Kingdom).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "chil20",
+      "end": "2020-07-24",
+      "format": "virtual",
+      "id": "chil20@main",
+      "link": "http://www.chilconference.org/",
+      "name": "CHIL 2020",
+      "notes": "Held online (planned: Toronto, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "cikm20",
+      "end": "2020-10-23",
+      "format": "virtual",
+      "id": "cikm20@main",
+      "link": "https://cikm2020.org/",
+      "name": "CIKM 2020",
+      "notes": "Held online (planned: Galway, Ireland).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-19"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "coling20",
+      "end": "2020-12-13",
+      "format": "virtual",
+      "id": "coling20@main",
+      "link": "https://coling2020.org/",
+      "name": "COLING 2020",
+      "notes": "Held online (planned: Barcelona, Spain).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-08"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "colt20",
+      "end": "2020-07-12",
+      "format": "virtual",
+      "id": "colt20@main",
+      "link": "http://www.learningtheory.org/colt2020/",
+      "name": "COLT 2020",
+      "notes": "Held online (planned: Graz, Austria).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-09"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "conll20",
+      "end": "2020-11-20",
+      "format": "virtual",
+      "id": "conll20@main",
+      "link": "http://www.conll.org/2020",
+      "name": "CoNLL 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-19"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "corl20",
+      "end": "2020-11-18",
+      "format": "virtual",
+      "id": "corl20@main",
+      "link": "http://www.robot-learning.org",
+      "name": "CoRL 2020",
+      "notes": "Held online (planned: Cambridge, MA, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-16"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "cvpr20",
+      "end": "2020-06-19",
+      "format": "virtual",
+      "id": "cvpr20@main",
+      "link": "http://cvpr2020.thecvf.com/",
+      "name": "CVPR 2020",
+      "notes": "Held online (planned: Seattle, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ecai20",
+      "end": "2020-09-08",
+      "format": "virtual",
+      "id": "ecai20@main",
+      "link": "http://ecai2020.eu/",
+      "name": "ECAI 2020",
+      "notes": "Held online (planned: Santiago de Compostela, Spain).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-29"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "eccv20",
+      "end": "2020-08-28",
+      "format": "virtual",
+      "id": "eccv20@main",
+      "link": "https://eccv2020.eu",
+      "name": "ECCV 2020",
+      "notes": "Held online (planned: Glasgow, United Kingdom).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ecmlpkdd20",
+      "end": "2020-09-18",
+      "format": "virtual",
+      "id": "ecmlpkdd20@main",
+      "link": "https://ecmlpkdd2020.net/",
+      "name": "ECML PKDD 2020",
+      "notes": "Held online (planned: Ghent, Belgium).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "emnlp20",
+      "end": "2020-11-20",
+      "format": "virtual",
+      "id": "emnlp20@main",
+      "link": "https://2020.emnlp.org/",
+      "name": "EMNLP 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-16"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "hri20",
+      "end": "2020-03-26",
+      "format": "virtual",
+      "id": "hri20@main",
+      "link": "https://humanrobotinteraction.org/2020/",
+      "name": "HRI 2020",
+      "notes": "Held online (planned: Cambridge, United Kingdom).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-03-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icaps20",
+      "end": "2020-10-30",
+      "format": "virtual",
+      "id": "icaps20@main",
+      "link": "https://icaps20.icaps-conference.org/",
+      "name": "ICAPS 2020",
+      "notes": "Held online (planned: Nancy, France).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-26"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icassp20",
+      "end": "2020-05-08",
+      "format": "virtual",
+      "id": "icassp20@main",
+      "link": "https://2020.ieeeicassp.org/",
+      "name": "ICASSP 2020",
+      "notes": "Held online (planned: Barcelona, Spain).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-04"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iccc20",
+      "end": "2020-09-11",
+      "format": "virtual",
+      "id": "iccc20@main",
+      "link": "http://computationalcreativity.net/iccc20/",
+      "name": "ICCC 2020",
+      "notes": "Held online (planned: Coimbra, Portugal).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icdm20",
+      "end": "2020-11-20",
+      "format": "virtual",
+      "id": "icdm20@main",
+      "link": "http://icdm2020.bigke.org/",
+      "name": "ICDM 2020",
+      "notes": "Held online (planned: Sorrento, Italy).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-17"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iclr20",
+      "end": "2020-04-30",
+      "format": "virtual",
+      "id": "iclr20@main",
+      "link": "https://iclr.cc/Conferences/2020",
+      "name": "ICLR 2020",
+      "notes": "Held online (planned: Addis Ababa, Ethiopia).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-26"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icml20",
+      "end": "2020-07-18",
+      "format": "virtual",
+      "id": "icml20@main",
+      "link": "https://icml.cc/Conferences/2020",
+      "name": "ICML 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icmr20",
+      "end": "2020-10-29",
+      "format": "virtual",
+      "id": "icmr20@main",
+      "link": "http://icmr2020.org/",
+      "name": "ICMR 2020",
+      "notes": "Held online (planned: Dublin, Ireland).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-26"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icpr20",
+      "end": "2021-01-15",
+      "format": "virtual",
+      "id": "icpr20@main",
+      "link": "https://www.micc.unifi.it/icpr2020/",
+      "name": "ICPR 2020",
+      "notes": "Held online (planned: Milan, Italy).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-10"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icra20",
+      "end": "2020-06-15",
+      "format": "virtual",
+      "id": "icra20@main",
+      "link": "https://icra2020.org/",
+      "name": "ICRA 2020",
+      "notes": "Held online (planned: Paris, France). Live sessions 31 May-15 Jun 2020; recorded content available until 31 Aug 2020.",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-31"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ijcai20",
+      "end": "2021-01-15",
+      "format": "virtual",
+      "id": "ijcai20@main",
+      "link": "https://www.ijcai20.org/",
+      "name": "IJCAI-PRICAI 2020",
+      "notes": "Held online (planned: Yokohama, Japan, originally July 2020).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ijcnlpaacl20",
+      "end": "2020-12-07",
+      "format": "virtual",
+      "id": "ijcnlpaacl20@main",
+      "link": "http://aacl2020.org",
+      "name": "AACL-IJCNLP 2020",
+      "notes": "Held online (planned: Suzhou, China).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-04"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "inlg2020",
+      "end": "2020-12-18",
+      "format": "virtual",
+      "id": "inlg2020@main",
+      "link": "https://www.inlg2020.org/",
+      "name": "INLG 2020",
+      "notes": "Held online (planned: Dublin, Ireland).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-15"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "interspeech2020",
+      "end": "2020-10-29",
+      "format": "virtual",
+      "id": "interspeech2020@main",
+      "link": "http://www.interspeech2020.org/",
+      "name": "Interspeech 2020",
+      "notes": "Held online (planned: Shanghai, China).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-25"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iros20",
+      "end": "2020-10-29",
+      "format": "virtual",
+      "id": "iros20@main",
+      "link": "http://www.iros2020.org/",
+      "name": "IROS 2020",
+      "notes": "Held online (planned: Las Vegas, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-25"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ismir20",
+      "end": "2020-10-15",
+      "format": "virtual",
+      "id": "ismir20@main",
+      "link": "https://ismir.github.io/ISMIR2020/",
+      "name": "ISMIR 2020",
+      "notes": "Held online (planned: Montreal, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-11"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "kdd20",
+      "end": "2020-08-27",
+      "format": "virtual",
+      "id": "kdd20@main",
+      "link": "https://www.kdd.org/kdd2020/",
+      "name": "KDD 2020",
+      "notes": "Held online (planned: San Diego, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "miccai20",
+      "end": "2020-10-08",
+      "format": "virtual",
+      "id": "miccai20@main",
+      "link": "http://www.miccai2020.org/",
+      "name": "MICCAI 2020",
+      "notes": "Held online (planned: Lima, Peru).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-04"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "midl20",
+      "end": "2020-07-09",
+      "format": "virtual",
+      "id": "midl20@main",
+      "link": "https://2020.midl.io/",
+      "name": "MIDL 2020",
+      "notes": "Held online (planned: Montreal, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "neurips20",
+      "end": "2020-12-12",
+      "format": "virtual",
+      "id": "neurips20@main",
+      "link": "https://nips.cc/Conferences/2020",
+      "name": "NeurIPS 2020",
+      "notes": "Held online (planned: Vancouver, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "recsys20",
+      "end": "2020-09-26",
+      "format": "virtual",
+      "id": "recsys20@main",
+      "link": "https://recsys.acm.org/recsys20/",
+      "name": "RecSys 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-22"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "rss20",
+      "end": "2020-07-16",
+      "format": "virtual",
+      "id": "rss20@main",
+      "link": "https://roboticsconference.org/",
+      "name": "RSS 2020",
+      "notes": "Held online (planned: Corvallis, Oregon, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "siggraph20",
+      "end": "2020-08-28",
+      "format": "virtual",
+      "id": "siggraph20@main",
+      "link": "https://s2020.siggraph.org/",
+      "name": "SIGGRAPH 2020",
+      "notes": "Held online (planned: Washington, DC, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-17"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sigir20",
+      "end": "2020-07-30",
+      "format": "virtual",
+      "id": "sigir20@main",
+      "link": "http://sigir.org/sigir2020/",
+      "name": "SIGIR 2020",
+      "notes": "Held online (planned: Xi'an, China).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-25"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "uai20",
+      "end": "2020-08-06",
+      "format": "virtual",
+      "id": "uai20@main",
+      "link": "http://auai.org/uai2020/",
+      "name": "UAI 2020",
+      "notes": "Held online (planned: Toronto, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Snowmass Village",
+      "conferenceId": "wacv20",
+      "country": "United States",
+      "end": "2020-03-05",
+      "id": "wacv20@main",
+      "lat": 39.2130418,
+      "link": "http://wacv20.wacv.net/",
+      "lng": -106.9378207,
+      "name": "WACV 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-03-02"
+    },
+    {
+      "access": "registration",
+      "city": "Houston",
+      "conferenceId": "wsdm20",
+      "country": "United States",
+      "end": "2020-02-07",
+      "id": "wsdm20@main",
+      "lat": 29.7589382,
+      "link": "http://www.wsdm-conference.org/2020/",
+      "lng": -95.3676974,
+      "name": "WSDM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-02-03"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "www20",
+      "end": "2020-04-24",
+      "format": "virtual",
+      "id": "www20@main",
+      "link": "https://www2020.thewebconf.org/",
+      "name": "WWW 2020",
+      "notes": "Held online (planned: Taipei, Taiwan).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-20"
+    }
+  ]
+}

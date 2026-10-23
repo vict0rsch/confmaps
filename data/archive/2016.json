@@ -1,0 +1,126 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2016-12-16",
+      "id": "coling16",
+      "link": "http://coling2016.anlp.jp/",
+      "series": "coling",
+      "source": "pwc",
+      "start": "2016-12-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-11-04",
+      "id": "emnlp16",
+      "link": "http://www.emnlp2016.net/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2016-11-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-06-15",
+      "id": "naacl16",
+      "link": "http://naacl.org/naacl-hlt-2016/",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2016-06-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL-HLT",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-06-29",
+      "id": "uai16",
+      "link": "http://auai.org/uai2016/cfp.php",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2016-06-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2016
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "coling16",
+      "country": "Japan",
+      "end": "2016-12-16",
+      "id": "coling16@main",
+      "lat": 34.6937569,
+      "link": "http://coling2016.anlp.jp/",
+      "lng": 135.5014539,
+      "name": "COLING 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-12-13"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "emnlp16",
+      "country": "United States",
+      "end": "2016-11-04",
+      "id": "emnlp16@main",
+      "lat": 30.2649261,
+      "link": "http://www.emnlp2016.net/",
+      "lng": -97.7474086,
+      "name": "EMNLP 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-11-02"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "naacl16",
+      "country": "United States",
+      "end": "2016-06-15",
+      "id": "naacl16@main",
+      "lat": 32.7157062,
+      "link": "http://naacl.org/naacl-hlt-2016/",
+      "lng": -117.1638284,
+      "name": "NAACL-HLT 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "uai16",
+      "country": "United States",
+      "end": "2016-06-29",
+      "id": "uai16@main",
+      "lat": 40.7127281,
+      "link": "http://auai.org/uai2016/cfp.php",
+      "lng": -74.0060152,
+      "name": "UAI 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-06-25"
+    }
+  ]
+}
