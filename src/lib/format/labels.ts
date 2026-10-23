@@ -23,3 +23,20 @@ export const FORMAT_LABEL: Record<Format, string> = { virtual: 'Virtual', hybrid
 export const placeLabel = (
   l: Pick<PinnedLocation, 'city' | 'country' | 'format'> | { format: 'virtual' },
 ) => (isVirtual(l) ? 'Online' : `${l.city}, ${l.country}`);
+
+const WAYBACK = /^https?:\/\/web\.archive\.org\/web\/[^/]+\/(.+)$/;
+const bareHost = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+
+/**
+ * How a conference website link reads: its hostname ("icml.cc"), or "Archived site" plus the
+ * original hostname for a Wayback Machine snapshot (how past editions link to their site).
+ */
+export function websiteLabel(link: string): { text: string; archivedHost?: string } {
+  const original = WAYBACK.exec(link)?.[1];
+  try {
+    if (original) return { text: 'Archived site', archivedHost: bareHost(original) };
+    return { text: bareHost(link) };
+  } catch {
+    return { text: original ? 'Archived site' : link };
+  }
+}
