@@ -1,4 +1,7 @@
-"""One Claude API call per conference: web research → candidate satellites with evidence.
+"""One Claude API call per research target: web research → candidates with evidence.
+
+Satellite mode: one call per conference (this module). Past mode: one call per batch of
+years of a series (``past_agent``); both go through :func:`ask`.
 
 The model only has Anthropic's server-side web search / web fetch tools. It never sees or
 touches the repository; everything it returns is checked by deterministic code (``verify``,
@@ -57,7 +60,8 @@ FIELD_SCHEMAS: dict[str, dict[str, Any]] = {
 }
 
 
-def _evidence(value_schema: dict[str, Any]) -> dict[str, Any]:
+def evidence_schema(value_schema: dict[str, Any]) -> dict[str, Any]:
+    """``{value, source_url, quote}`` object schema for one field."""
     return {
         "type": "object",
         "properties": {
@@ -81,7 +85,7 @@ OUTPUT_SCHEMA: dict[str, Any] = {
                 "properties": {
                     "parent": {"type": "string"},
                     "rationale": {"type": "string"},
-                    **{name: _evidence(schema) for name, schema in FIELD_SCHEMAS.items()},
+                    **{name: evidence_schema(schema) for name, schema in FIELD_SCHEMAS.items()},
                 },
                 "required": ["parent", "rationale"],
                 "additionalProperties": False,
@@ -272,11 +276,7 @@ def research(
     today: str,
     usd_limit: float | None = None,
 ) -> Research:
-    """Ask the model for candidate satellites of one conference.
-
-    Streams the request (long server-tool turns), resumes ``pause_turn`` up to
-    ``MAX_CONTINUATIONS`` times (not once the estimated cost exceeds ``usd_limit``), and
-    checks ``stop_reason`` before reading content. API errors propagate to the caller.
+    """Ask the model for candidate satellites of one conference (see :func:`ask`).
 
     Parameters
     ----------
@@ -306,22 +306,82 @@ def research(
         if result.status == "ok":
             print(len(result.candidates))
     """
-    result = Research(conference_id=conference["id"], status="error")
-    messages: list[dict[str, Any]] = [
-        {"role": "user", "content": user_message(conference, existing, today)}
-    ]
+    return ask(
+        client,
+        conference["id"],
+        user_message(conference, existing, today),
+        system=SYSTEM_PROMPT,
+        schema=OUTPUT_SCHEMA,
+        tools=TOOLS,
+        items_key="candidates",
+        usd_limit=usd_limit,
+    )
+
+
+def ask(
+    client: Any,
+    label: str,
+    user: str,
+    *,
+    system: str,
+    schema: dict[str, Any],
+    tools: list[dict[str, Any]],
+    items_key: str,
+    usd_limit: float | None = None,
+) -> Research:
+    """One research request: web tools in, a JSON list of evidence-backed items out.
+
+    Streams the request (long server-tool turns), resumes ``pause_turn`` up to
+    ``MAX_CONTINUATIONS`` times (not once the estimated cost exceeds ``usd_limit``), and
+    checks ``stop_reason`` before reading content. API errors propagate to the caller. Model,
+    effort, adaptive thinking, the refusal fallback and caching are the same for every mode;
+    the mode supplies the prompt, the output schema and the tool caps.
+
+    Parameters
+    ----------
+    client : anthropic.Anthropic
+        SDK client (or a test double exposing ``beta.messages.stream``).
+    label : str
+        Name of the request in results and reports (a conference id, a series batch).
+    user : str
+        The user turn.
+    system : str
+        System prompt (stable across requests of a mode, so it is cached).
+    schema : dict
+        JSON schema of the structured output; an object with a list under ``items_key``.
+    tools : list of dict
+        Server tools (web search / web fetch) with their per-request caps.
+    items_key : str
+        Key of the item list in the output (``"candidates"``, ``"editions"``).
+    usd_limit : float, optional
+        Budget for this request; a paused turn is not resumed beyond it.
+
+    Returns
+    -------
+    Research
+        Status, raw (unverified) items in ``candidates``, tool-call log and usage.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        result = ask(client, "neurips:1987-1992", text, system=PAST_SYSTEM_PROMPT,
+                     schema=PAST_OUTPUT_SCHEMA, tools=PAST_TOOLS, items_key="editions")
+    """
+    result = Research(conference_id=label, status="error")
+    messages: list[dict[str, Any]] = [{"role": "user", "content": user}]
     message = None
     for _ in range(MAX_CONTINUATIONS + 1):
         with client.beta.messages.stream(
             model=MODEL,
             max_tokens=MAX_TOKENS,
-            system=SYSTEM_PROMPT,
+            system=system,
             messages=messages,
-            tools=TOOLS,
+            tools=tools,
             thinking={"type": "adaptive"},
             output_config={
                 "effort": EFFORT,
-                "format": {"type": "json_schema", "schema": OUTPUT_SCHEMA},
+                "format": {"type": "json_schema", "schema": schema},
             },
             betas=[FALLBACK_BETA],
             fallbacks="default",
@@ -355,9 +415,9 @@ def research(
     except json.JSONDecodeError as e:
         result.detail = f"unparseable output: {e}"
         return result
-    candidates = parsed.get("candidates") if isinstance(parsed, dict) else None
+    candidates = parsed.get(items_key) if isinstance(parsed, dict) else None
     if not isinstance(candidates, list):
-        result.detail = "output has no candidates list"
+        result.detail = f"output has no {items_key} list"
         return result
     result.status = "ok"
     result.candidates = [c for c in candidates if isinstance(c, dict)]

@@ -14,20 +14,19 @@ Rules (deterministic, never deletes anything):
   fields (id, parent, name, link, city, country) are never touched.
 """
 
-import difflib
 import hashlib
-import io
 import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
 
-from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 from ruamel.yaml.scalarstring import SingleQuotedScalarString
 
+from . import yamlio
 from .geo import haversine_km
 from .verify import Checked, norm_city
+from .yamlio import append_item, dump, load_entries, load_for_edit, set_ordered
 
 FIELD_ORDER = [
     "id", "parent", "name", "link", "city", "country", "venue", "start", "end", "official",
@@ -226,24 +225,8 @@ def _update(current: dict[str, Any], c: Checked) -> Update | None:
 
 
 # ---------------------------------------------------------------------------
-# YAML (ruamel round-trip: comments, key order and quoting are preserved)
+# YAML (ruamel round-trip: comments, key order and quoting are preserved; see ``yamlio``)
 # ---------------------------------------------------------------------------
-
-
-def _yaml() -> YAML:
-    y = YAML()
-    y.preserve_quotes = True
-    y.width = 100
-    # Nested lists (`sources`) are indented under their key; the top-level list is dedented by
-    # `_dump` to match the hand-written file.
-    y.indent(mapping=2, sequence=4, offset=2)
-    return y
-
-
-def _dump(data: Any) -> str:
-    out = io.StringIO()
-    _yaml().dump(data, out)
-    return "".join(line.removeprefix("  ") for line in out.getvalue().splitlines(True))
 
 
 def load_satellites(text: str) -> list[dict[str, Any]]:
@@ -255,40 +238,11 @@ def load_satellites(text: str) -> list[dict[str, Any]]:
 
         sats = load_satellites(Path("data/satellites.yml").read_text())
     """
-    data = _yaml().load(text) or []
-    return [
-        {k: (list(v) if isinstance(v, list) else v) for k, v in entry.items()} for entry in data
-    ]
+    return load_entries(text)
 
 
 def _scalar(f: str, value: Any) -> Any:
     return SingleQuotedScalarString(value) if f in DATE_FIELDS else value
-
-
-def _set(m: CommentedMap, key: str, value: Any) -> None:
-    """Set ``key`` in canonical field order, keeping a trailing blank line at the end."""
-    if key in m:
-        m[key] = value
-        return
-    later = FIELD_ORDER[FIELD_ORDER.index(key) + 1 :]
-    pos = next((i for i, k in enumerate(m) if k in later), len(m))
-    if pos == len(m) and len(m):
-        # Blank lines between entries are stored as a comment on the last key: move it.
-        last = list(m)[-1]
-        trailing = m.ca.items.pop(last, None)
-        m.insert(pos, key, value)
-        if trailing is not None:
-            m.ca.items[key] = trailing
-    else:
-        m.insert(pos, key, value)
-
-
-def _append(seq: CommentedSeq, value: Any) -> None:
-    """Append to a list, keeping the comment (blank line) that follows its last item."""
-    trailing = seq.ca.items.pop(len(seq) - 1, None)
-    seq.append(value)
-    if trailing is not None:
-        seq.ca.items[len(seq) - 1] = trailing
 
 
 def apply_plan(text: str, plan: Plan) -> str:
@@ -314,7 +268,7 @@ def apply_plan(text: str, plan: Plan) -> str:
     """
     if plan.empty:
         return text
-    data = _yaml().load(text)
+    data = load_for_edit(text)
     if data is None:  # file with comments only
         out = text
     else:
@@ -322,27 +276,25 @@ def apply_plan(text: str, plan: Plan) -> str:
         for u in plan.applied:
             entry = by_id[u.id]
             for f, (_, new) in u.changes.items():
-                _set(entry, f, _scalar(f, new))
-            if u.new_sources:
-                if "sources" not in entry:
-                    _set(entry, "sources", CommentedSeq())
+                set_ordered(entry, f, _scalar(f, new), FIELD_ORDER)
+            if u.new_sources and "sources" not in entry:
+                set_ordered(entry, "sources", CommentedSeq(u.new_sources), FIELD_ORDER)
+            elif u.new_sources:
                 for url in u.new_sources:
-                    _append(entry["sources"], url)
-        out = _dump(data)
+                    append_item(entry["sources"], url)
+        out = dump(data)
     for a in plan.additions:
         entry = CommentedMap()
         for f, value in a.entry.items():
             entry[f] = _scalar(f, value)
         for f in a.defaulted:
             # Two spaces after the value (ruamel would otherwise align all comments). The
-            # column counts the 4-space indent this entry gets before `_dump` dedents it.
+            # column counts the 4-space indent this entry gets before `dump` dedents it.
             value = str(a.entry[f]).lower() if isinstance(a.entry[f], bool) else a.entry[f]
             entry.yaml_add_eol_comment(UNVERIFIED_COMMENT, f, column=4 + len(f"{f}: {value}") + 2)
-        out = out.rstrip("\n") + "\n\n" + _dump(CommentedSeq([entry]))
+        out = out.rstrip("\n") + "\n\n" + dump(CommentedSeq([entry]))
     return out
 
 
 def unified_diff(old: str, new: str, path: str = "data/satellites.yml") -> str:
-    return "".join(
-        difflib.unified_diff(old.splitlines(True), new.splitlines(True), f"a/{path}", f"b/{path}")
-    )
+    return yamlio.unified_diff(old, new, path)
