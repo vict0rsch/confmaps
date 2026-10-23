@@ -7,7 +7,7 @@
   import { trackName, type JoinedLocation } from '../lib/data/load';
   import { isVirtual, type Conference } from '../lib/data/types';
   import { formatDateRange, formatInstant } from '../lib/format/dates';
-  import { kindLabel, placeLabel, roleLabel } from '../lib/format/labels';
+  import { kindLabel, placeLabel, roleLabel, websiteLabel } from '../lib/format/labels';
   import { app } from '../lib/state/app.svelte';
   import { deadlineSummary } from '../lib/state/derive';
   import AccessBadge from './AccessBadge.svelte';
@@ -37,13 +37,7 @@
   const showDeadlines = $derived(conference.deadlines.length > 0 || conference.end >= app.today);
   /** The event's tracks (EMNLP + Industry + System Demonstrations), when it has several. */
   const tracks = $derived(app.data.trackGroups.get(conference.id) ?? []);
-  const host = $derived.by(() => {
-    try {
-      return new URL(conference.link).hostname.replace(/^www\./, '');
-    } catch {
-      return conference.link;
-    }
-  });
+  const website = $derived(websiteLabel(conference.link));
 
   // Move focus into the panel when it opens or switches conference (screen readers).
   $effect(() => {
@@ -83,7 +77,12 @@
     </div>
     <div class="fact">
       <dt><Icon name="external" size={15} label="Website" /></dt>
-      <dd><a href={conference.link} target="_blank" rel="noopener noreferrer">{host}</a></dd>
+      <dd>
+        <a href={conference.link} target="_blank" rel="noopener noreferrer">
+          {website.text}
+          {#if website.archivedHost}<span class="archived-host">· {website.archivedHost}</span>{/if}
+        </a>
+      </dd>
     </div>
     {#if showDeadlines}
       <div class="fact quiet">
@@ -260,6 +259,11 @@
     flex-direction: column;
     gap: 2px;
     min-width: 0;
+  }
+
+  .archived-host {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
   }
 
   .quiet dd {
