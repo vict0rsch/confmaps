@@ -1,15 +1,31 @@
 """CLI: ``uv run --project scripts/discover discover [options]`` (from the repository root).
 
+Satellites (``data/satellites.yml``):
+
 --mode upcoming            conferences starting within the next 12 months (default)
---mode backfill --since Y  past editions (ended before today) of year >= Y
+--mode backfill --since Y  past editions (ended before today) of year >= Y, virtual editions
+                           excluded. Every past edition counts (≈345 more once the PwC import
+                           lands), so restrict it with --only: one API call per conference.
 --only ID[,ID...]          restrict to these conference ids
+
+Past main editions (``data/past_conferences.yml``, docs/backfill-spec.md §5):
+
+--mode past --series S[,S...] --since Y [--until Y2] [--recheck]
+                           years Y..Y2 (default: last year) of each series with no recorded
+                           edition; one API call per series and batch of up to 6 years.
+                           --recheck also re-verifies recorded `source: pwc` editions in the
+                           range (the COVID pass). Dry-run one series first to measure cost.
+
+Common:
+
 --dry-run                  write nothing; print evidence, cost, tool calls and the diff
 --max-usd N                no further API calls once the estimated cost exceeds N (default 5)
---results-dir DIR          save each conference's API result there (default: a new temp dir)
---from-results DIR         re-run checks, merge and report on saved results (no API calls)
+--results-dir DIR          save each request's API result there (default: a new temp dir)
+--from-results DIR         re-run checks, merge and report on saved results (no API calls;
+                           with --mode past for past-mode results)
 --out-dir DIR              (CI) also write pr.json and pr-body.md there for the PR job
 
-Without ``--dry-run``, ``data/satellites.yml`` is written, the generated files are rebuilt
+Without ``--dry-run``, the curated file is written, the generated files are rebuilt
 (``pnpm data:build``: geocodes new cities, refreshes ``data/build/data.json`` and the archive)
 and the result is validated (``pnpm data:validate``). With ``--out-dir``, the data files a PR
 carries (:func:`proposed_files`) are copied under ``<out-dir>/data/``. This script never commits,
@@ -24,26 +40,32 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any, TextIO
 
 import anthropic
 
-from . import agent
+from . import agent, past_agent
 from .geo import Geocoder, cached_hit
-from .merge import apply_plan, load_satellites, plan_changes, unified_diff
-from .report import ConferenceRun, build_body, tool_log, total_usage
+from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
+from .past import check_and_plan, plan_batches
+from .report import PAST_INTRO, ConferenceRun, build_body, tool_log, total_usage
 from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
+from .yamlio import load_entries
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 SATELLITES = Path("data/satellites.yml")
+PAST = Path("data/past_conferences.yml")
 GEOCACHE = Path("data/geocache.json")
 DATA_JSON = Path("data/build/data.json")
 ARCHIVE = Path("data/archive")
 UPCOMING_DAYS = 365
 MAX_PR_BODY = 60000  # GitHub limit is 65,536 characters
 DEFAULT_MAX_USD = 5.0
+SERIES_RE = re.compile(r"^[a-z0-9-]+$")
+MIN_YEAR, MAX_YEAR = 1950, 2100  # PastConferenceSchema year range
 # Every log line starts with this, so no untrusted text can start a line (GitHub Actions reads
 # `::command` lines as workflow commands, after trimming leading whitespace).
 LOG_PREFIX = "> "
@@ -90,7 +112,7 @@ def select_conferences(
     """Conferences to research, with their main location, as given to the model.
 
     Editions sharing link and dates (e.g. EMNLP and its Industry / Demo tracks) are researched
-    once, under the shortest id.
+    once, under the shortest id. Virtual editions (no city, so no satellites) are skipped.
 
     Parameters
     ----------
@@ -129,9 +151,9 @@ def select_conferences(
         if not keep or (only and c["id"] not in only):
             continue
         key = (c["link"].rstrip("/"), c["start"], c["end"])
-        if key in picked:
-            continue
         main = mains.get(c["id"], {})
+        if key in picked or main.get("format") == "virtual":
+            continue
         picked[key] = {
             "id": c["id"],
             "title": c["title"],
@@ -181,42 +203,48 @@ def proposed_files(repo: Path) -> list[Path]:
     archive = sorted(
         p.relative_to(repo) for p in (repo / ARCHIVE).glob("[0-9][0-9][0-9][0-9].json")
     )
-    return [p for p in (SATELLITES, GEOCACHE, DATA_JSON, *archive) if (repo / p).is_file()]
+    return [p for p in (SATELLITES, PAST, GEOCACHE, DATA_JSON, *archive) if (repo / p).is_file()]
 
 
 def _result_path(results_dir: Path, conference_id: str) -> Path:
     return results_dir / f"{re.sub(r'[^A-Za-z0-9._-]', '_', conference_id)}.json"
 
 
-def save_result(results_dir: Path, conference: dict[str, Any], research: agent.Research) -> None:
-    """Persist one conference's (paid) API result as soon as it arrives."""
+def save_result(
+    results_dir: Path, conference: dict[str, Any], research: agent.Research, mode: str
+) -> None:
+    """Persist one request's (paid) API result as soon as it arrives."""
     results_dir.mkdir(parents=True, exist_ok=True)
-    payload = {"conference": conference, "research": research.to_dict()}
+    payload = {"mode": mode, "conference": conference, "research": research.to_dict()}
     _result_path(results_dir, conference["id"]).write_text(
         json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
     )
 
 
-def load_results(results_dir: Path) -> list[ConferenceRun]:
-    """Saved results (from :func:`save_result`), sorted like :func:`select_conferences`."""
+def load_results(results_dir: Path, mode: str = "satellites") -> list[ConferenceRun]:
+    """Saved results of one mode (``satellites`` or ``past``, from :func:`save_result`), sorted
+    like :func:`select_conferences` (past batches: by id, i.e. series then first year)."""
     runs = []
     for path in sorted(results_dir.glob("*.json")):
         d = json.loads(path.read_text())
-        runs.append(ConferenceRun(d["conference"], agent.Research.from_dict(d["research"])))
-    return sorted(runs, key=lambda r: (r.conference["start"], r.conference["id"]))
+        if d.get("mode", "satellites") == mode:
+            runs.append(ConferenceRun(d["conference"], agent.Research.from_dict(d["research"])))
+    return sorted(runs, key=lambda r: (r.conference.get("start", ""), r.conference["id"]))
 
 
 def research_all(
-    client: Any,
-    confs: list[dict[str, Any]],
-    existing: list[dict[str, Any]],
-    today: date,
+    targets: list[dict[str, Any]],
+    ask_one: Callable[[dict[str, Any], float], agent.Research],
     results_dir: Path,
     max_usd: float,
+    mode: str = "satellites",
 ) -> list[ConferenceRun]:
-    """One API call (plus continuations) per conference, within the ``max_usd`` budget."""
+    """One API call (plus continuations) per target, within the ``max_usd`` budget.
+
+    ``ask_one(target, usd_limit)`` makes the call (conference → satellites, batch → editions).
+    """
     runs: list[ConferenceRun] = []
-    for conf in confs:
+    for conf in targets:
         run = ConferenceRun(conf)
         runs.append(run)
         spent = total_usage(runs).usd
@@ -224,11 +252,8 @@ def research_all(
             run.error = f"not researched: --max-usd budget (${max_usd:.2f}) reached"
             continue
         say(f"Researching {conf['id']} ({conf['title']} {conf['year']})…", file=sys.stderr)
-        mine = [s for s in existing if s["parent"] == conf["id"]]
         try:
-            run.research = agent.research(
-                client, conf, mine, today.isoformat(), usd_limit=max_usd - spent
-            )
+            run.research = ask_one(conf, max_usd - spent)
         except (
             anthropic.AuthenticationError,
             anthropic.PermissionDeniedError,
@@ -238,7 +263,7 @@ def research_all(
         except (anthropic.APIStatusError, anthropic.APIConnectionError) as e:
             run.error = f"{type(e).__name__}: {e}"
             continue
-        save_result(results_dir, conf, run.research)
+        save_result(results_dir, conf, run.research, mode)
     return runs
 
 
@@ -249,9 +274,12 @@ def _load_geocache(repo: Path) -> dict[str, Any]:
 
 def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p = argparse.ArgumentParser(prog="discover", description=__doc__.split("\n")[0])
-    p.add_argument("--mode", choices=["upcoming", "backfill"], default="upcoming")
-    p.add_argument("--since", type=int, help="first year for --mode backfill")
+    p.add_argument("--mode", choices=["upcoming", "backfill", "past"], default="upcoming")
+    p.add_argument("--since", type=int, help="first year for --mode backfill / past")
+    p.add_argument("--until", type=int, help="last year for --mode past (default: last year)")
     p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
+    p.add_argument("--series", action="append", default=[], help="series key(s), comma-separated")
+    p.add_argument("--recheck", action="store_true", help="also re-verify source: pwc editions")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--max-usd", type=float, default=DEFAULT_MAX_USD)
     p.add_argument("--results-dir", type=Path)
@@ -260,8 +288,30 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--repo-root", type=Path, default=REPO_ROOT)
     args = p.parse_args(argv)
     args.only = [i.strip() for chunk in args.only for i in chunk.split(",") if i.strip()]
+    args.series = [s.strip() for chunk in args.series for s in chunk.split(",") if s.strip()]
     if args.mode == "backfill" and args.since is None and not args.from_results:
         p.error("--mode backfill needs --since YYYY")
+    if args.mode == "past":
+        if args.only:
+            p.error("--only applies to satellite modes; use --series with --mode past")
+        if not args.from_results and (not args.series or args.since is None):
+            p.error("--mode past needs --series S[,S...] and --since YYYY")
+        for s in args.series:
+            if not SERIES_RE.fullmatch(s):
+                p.error(f"--series {s!r}: series keys are lowercase letters, digits and dashes")
+        for name in ("since", "until"):
+            year = getattr(args, name)
+            if year is not None and not MIN_YEAR <= year <= MAX_YEAR:
+                p.error(f"--{name} {year}: not a year in {MIN_YEAR}..{MAX_YEAR}")
+        if args.since is not None and args.until is not None and args.until < args.since:
+            p.error("--until is before --since")
+    else:
+        for flag, used in (("--series", args.series), ("--until", args.until is not None),
+                           ("--recheck", args.recheck)):  # fmt: skip
+            if used:
+                p.error(f"{flag} only applies to --mode past")
+    if args.max_usd < 0:
+        p.error("--max-usd must not be negative")
     if args.out_dir and args.dry_run:
         p.error("--out-dir cannot be combined with --dry-run")
     if args.from_results and not args.from_results.is_dir():
@@ -294,6 +344,8 @@ def main(
     repo: Path = args.repo_root
     today = today or datetime.now(UTC).date()
     data = json.loads((repo / DATA_JSON).read_text())
+    if args.mode == "past":
+        return _main_past(args, repo, today, data, client, fetcher, geocoder)
     sat_text = (repo / SATELLITES).read_text()
     existing = load_satellites(sat_text)
 
@@ -314,21 +366,105 @@ def main(
         if not confs:
             say("No conferences to research.")
             return 0
-        results_dir = args.results_dir or Path(tempfile.mkdtemp(prefix="discover-results-"))
-        say(f"Saving API results in {results_dir}", file=sys.stderr)
-        runs = research_all(
-            client or anthropic.Anthropic(), confs, existing, today, results_dir, args.max_usd
-        )
+        results_dir = _results_dir(args)
+        client = client or anthropic.Anthropic()
+
+        def ask_one(conf: dict[str, Any], usd_limit: float) -> agent.Research:
+            mine = [s for s in existing if s["parent"] == conf["id"]]
+            return agent.research(client, conf, mine, today.isoformat(), usd_limit=usd_limit)
+
+        runs = research_all(confs, ask_one, results_dir, args.max_usd)
         mode = f"`--mode {args.mode}`"
     try:
         return _process(args, repo, today, data, sat_text, existing, runs, mode, fetcher, geocoder)
     finally:
-        if results_dir is not None:
+        _results_hint(results_dir)
+
+
+def _results_dir(args: argparse.Namespace) -> Path:
+    results_dir = args.results_dir or Path(tempfile.mkdtemp(prefix="discover-results-"))
+    say(f"Saving API results in {results_dir}", file=sys.stderr)
+    return results_dir
+
+
+def _results_hint(results_dir: Path | None) -> None:
+    if results_dir is not None:
+        say(
+            f"API results saved in {results_dir}; re-run without API calls with "
+            f"--from-results {results_dir}",
+            file=sys.stderr,
+        )
+
+
+def _main_past(
+    args: argparse.Namespace,
+    repo: Path,
+    today: date,
+    data: dict[str, Any],
+    client: Any,
+    fetcher: Any,
+    geocoder: Any,
+) -> int:
+    """``--mode past``: research (or replay), check, merge and propose past editions."""
+    past_path = repo / PAST
+    past_text = past_path.read_text() if past_path.exists() else ""
+    past = load_entries(past_text)
+    results_dir: Path | None = None
+    if args.from_results:
+        runs = load_results(args.from_results, "past")
+        if args.series:
+            runs = [r for r in runs if r.conference["series"] in args.series]
+        mode = "from saved results"
+    else:
+        until = args.until if args.until is not None else today.year - 1
+        batches, unknown = plan_batches(data, past, args.series, args.since, until, args.recheck)
+        if unknown:
             say(
-                f"API results saved in {results_dir}; re-run without API calls with "
-                f"--from-results {results_dir}",
+                "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "
+                "come from data/build/data.json `series` or seriesOf(title) of a past entry)",
                 file=sys.stderr,
             )
+            return 1
+        if not batches:
+            say("No editions to research.")
+            return 0
+        results_dir = _results_dir(args)
+        client = client or anthropic.Anthropic()
+
+        def ask_one(batch: dict[str, Any], usd_limit: float) -> agent.Research:
+            return past_agent.research(client, batch, today.isoformat(), usd_limit=usd_limit)
+
+        runs = research_all(batches, ask_one, results_dir, args.max_usd, mode="past")
+        mode = f"`--mode past{' --recheck' if args.recheck else ''}`"
+    try:
+        fetcher = fetcher or PageFetcher()
+        geocache = _load_geocache(repo)
+        geocoder = geocoder or Geocoder(geocache)
+        plan, new_text = check_and_plan(runs, data, past, past_text, fetcher.get, geocoder, today)
+        counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
+        summary = (
+            f"{counts}, {len(plan.suggestions)} suggestion(s) not applied, "
+            f"{len(plan.removals)} reported cancellation(s) to remove by hand, from "
+            f"{len(runs)} request(s) ({mode})."
+        )
+        return _propose(
+            args,
+            repo,
+            PAST,
+            past_text,
+            new_text,
+            runs,
+            plan,
+            summary,
+            lambda cache: build_body(runs, plan, summary, None, cache, PAST_INTRO),
+            {
+                "title": f"Past editions: {counts}",
+                # Unverified defaults and cancellations need a human before the PR can merge.
+                "draft": any(a.defaulted for a in plan.additions) or bool(plan.removals),
+            },
+        )
+    finally:
+        _results_hint(results_dir)
 
 
 def _process(
@@ -368,40 +504,69 @@ def _process(
         f"{counts}, {len(plan.suggestions)} suggestion(s) not applied, from {len(runs)} "
         f"conference(s) ({mode})."
     )
-    rc = 1 if any(r.failed for r in runs) else 0
+    return _propose(
+        args,
+        repo,
+        SATELLITES,
+        sat_text,
+        new_text,
+        runs,
+        plan,
+        summary,
+        lambda cache: build_body(runs, plan, summary, weekly, cache),
+        {
+            "title": f"Satellite discovery: {counts}",
+            # Unverified defaults must be checked by a human before the PR can be merged.
+            "draft": any(a.defaulted for a in plan.additions),
+        },
+    )
 
+
+def _propose(
+    args: argparse.Namespace,
+    repo: Path,
+    rel: Path,
+    old_text: str,
+    new_text: str,
+    runs: list[ConferenceRun],
+    plan: Plan,
+    summary: str,
+    body_for: Callable[[dict[str, Any]], str],
+    pr: dict[str, Any],
+) -> int:
+    """Report, then (unless dry run) write ``rel``, rebuild, validate and stage the PR files.
+
+    ``body_for(geocache)`` builds the PR body; ``pr`` is the ``pr.json`` (title, draft).
+    """
+    rc = 1 if any(r.failed for r in runs) else 0
+    geocache = _load_geocache(repo)
     if args.dry_run:
-        say(build_body(runs, plan, summary, weekly, geocache))
+        say(body_for(geocache))
         say("\n## Server tool calls\n\n" + (tool_log(runs) or "(none)"))
-        diff = unified_diff(sat_text, new_text)
+        diff = unified_diff(old_text, new_text, str(rel))
         say("\n## Proposed diff (not written)\n\n```diff\n" + (diff or "(no changes)\n") + "```")
         return rc
 
     if plan.empty:
-        say(build_body(runs, plan, summary, weekly, geocache))
+        say(body_for(geocache))
         say(f"No changes to write. {summary}")
         return rc
-    (repo / SATELLITES).write_text(new_text)
-    say(f"Wrote {SATELLITES}: {summary}")
+    (repo / rel).write_text(new_text)
+    say(f"Wrote {rel}: {summary}")
     if not rebuild_and_validate(repo):
         say("data:build or data:validate failed; not proposing a PR.", file=sys.stderr)
         return 1
     # data:build may have geocoded the new cities: show the coordinates the map will use.
-    body = build_body(runs, plan, summary, weekly, _load_geocache(repo))
+    body = body_for(_load_geocache(repo))
     say(body)
     if args.out_dir:
         if len(body) > MAX_PR_BODY:
             body = body[:MAX_PR_BODY] + "\n\n…(truncated; see the workflow log)"
         args.out_dir.mkdir(parents=True, exist_ok=True)
         (args.out_dir / "pr-body.md").write_text(body)
-        pr = {
-            "title": f"Satellite discovery: {counts}",
-            # Unverified defaults must be checked by a human before the PR can be merged.
-            "draft": any(a.defaulted for a in plan.additions),
-        }
-        for rel in proposed_files(repo):
-            (args.out_dir / rel).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(repo / rel, args.out_dir / rel)
+        for path in proposed_files(repo):
+            (args.out_dir / path).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(repo / path, args.out_dir / path)
         (args.out_dir / "pr.json").write_text(json.dumps(pr) + "\n")
         say(f"Wrote PR title and body to {args.out_dir}")
     return rc
