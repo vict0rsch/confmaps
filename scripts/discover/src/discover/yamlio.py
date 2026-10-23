@@ -179,7 +179,14 @@ def delete_key(m: CommentedMap, key: str) -> None:
     """Remove ``key``; its end-of-line comment (e.g. ``# review: …``) moves to the previous key.
 
     A review marker must never disappear with the value it was written next to: it is the
-    merge gate (``pnpm data:validate``) for a human check.
+    merge gate (``pnpm data:validate``) for a human check. When the previous key already has a
+    comment, both texts are kept on its line.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        delete_key(entry, "city")  # `country: X # a` + `city: Y # b` → `country: X # a # b`
     """
     if key not in m:
         return
@@ -187,8 +194,24 @@ def delete_key(m: CommentedMap, key: str) -> None:
     comment = m.ca.items.pop(key, None)
     del m[key]
     pos = keys.index(key)
-    if comment is not None and pos > 0 and keys[pos - 1] not in m.ca.items:
+    if comment is None or pos == 0:
+        return
+    prev = m.ca.items.get(keys[pos - 1])
+    if prev is None:
         m.ca.items[keys[pos - 1]] = comment
+    elif prev[2] is None:
+        prev[2] = comment[2]
+    elif comment[2] is not None:
+        prev[2].value = _merge_eol(prev[2].value, comment[2].value)
+
+
+def _merge_eol(first: str, second: str) -> str:
+    """Join two end-of-line comment tokens: both comments on one line, then the lines that
+    followed each (full-line comments, blank lines) in order."""
+    head1, _, rest1 = first.partition("\n")
+    head2, _, rest2 = second.partition("\n")
+    head = " ".join(h.strip() for h in (head1, head2) if h.strip())
+    return f"{head}\n{rest1}{rest2}"
 
 
 def append_item(seq: CommentedSeq, value: Any) -> None:

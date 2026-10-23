@@ -23,10 +23,16 @@ from discover.past_merge import (
     plan_past_changes,
     series_profiles,
 )
-from discover.past_verify import CheckedEdition, check_edition, format_problem
+from discover.past_verify import (
+    FORMAT_HEDGED,
+    PLACE_FIELDS,
+    CheckedEdition,
+    check_edition,
+    format_problem,
+)
 from discover.report import PAST_INTRO, ConferenceRun, build_body
 from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
-from discover.yamlio import dump, load_entries, load_for_edit
+from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
 TODAY = date(2026, 10, 23)
 SHA_A, SHA_B = "a" * 40, "b" * 40
@@ -296,6 +302,45 @@ def test_format_rules(value: str, quote: str, ok: bool) -> None:
     assert (format_problem(value, quote) == "") is ok
 
 
+# The official MIDL 2021 registration page (https://2021.midl.io/registration.html).
+MIDL21 = (
+    "Unfortunately, it will not be possible to host MIDL as a hybrid event. Our location will "
+    "still be in use as a vaccination centre. Furthermore, current regulations do not allow any "
+    "conference-like meetings. Consequently, MIDL 2021 will take place as a fully virtual meeting."
+)
+
+
+@pytest.mark.parametrize(
+    ("value", "quote", "problem"),
+    [
+        # Negated or hedged: never verified (a model judgement at best).
+        ("hybrid", MIDL21.split(". ")[0], FORMAT_HEDGED),
+        ("hybrid", "The 2021 edition will not be hybrid, sadly", FORMAT_HEDGED),
+        ("hybrid", "The 2021 edition won’t be hybrid, sadly", FORMAT_HEDGED),
+        ("hybrid", "The hybrid format was cancelled due to the pandemic", FORMAT_HEDGED),
+        ("hybrid", "We are held online instead of the hybrid event", FORMAT_HEDGED),
+        ("hybrid", "The conference may be hybrid if regulations allow", FORMAT_HEDGED),
+        ("virtual", "The conference will not take place online this year", FORMAT_HEDGED),
+        ("virtual", "Sessions could move online depending on regulations", FORMAT_HEDGED),
+        # A conflicting format stated plainly: not verified at all.
+        ("hybrid", MIDL21, "quote says fully virtual or in person only, not hybrid"),
+        ("hybrid", "The conference will be fully virtual this year", "quote says fully virtual"),
+        ("hybrid", "There will be no in-person component, online only", "quote says fully virtual"),
+        ("virtual", "The conference is in person in Vienna this year", "quote says hybrid"),
+        # Positive controls.
+        ("virtual", MIDL21, ""),
+        ("virtual", "MIDL 2021 will take place as a fully virtual meeting", ""),
+        ("virtual", "The conference takes place online on 12 May 2021", ""),
+        ("virtual", "The conference is held online, not in person", ""),
+        ("hybrid", "ICLR 2023 will be a hybrid conference in Kigali, Rwanda", ""),
+        ("hybrid", "Attend in person in Vienna, or join online from anywhere", ""),
+    ],
+)
+def test_format_rules_negation_and_conflicts(value: str, quote: str, problem: str) -> None:
+    got = format_problem(value, quote)
+    assert got.startswith(problem) if problem else got == ""
+
+
 def test_virtual_edition_has_a_format_quote_and_drops_the_city() -> None:
     c = checked(ed2021(city=ev("Sydney", U21, "in person meetups in Sydney")))
     assert not c.dropped
@@ -311,6 +356,61 @@ def test_virtual_claim_with_a_hybrid_quote_is_not_verified() -> None:
     quote = "Hybrid events: in person meetups in Sydney and online sessions"
     c = checked(ed2021(format=ev("virtual", U21, quote)))
     assert c.dropped == "virtual or hybrid format claimed but not verified"
+
+
+U20H = "https://neurips.cc/2020-hybrid"
+
+
+def hybrid2020(quote: str) -> dict[str, Any]:
+    """A 2020 edition claimed hybrid in Montréal, with ``quote`` as the format evidence."""
+    page = f"NeurIPS 2020 is held in Montréal, Canada, December 6–12, 2020. {quote}"
+    return ed2020(
+        format=ev("hybrid", U20H, quote),
+        city=ev("Montréal", U20H, "held in Montréal, Canada"),
+        country=ev("Canada", U20H, "held in Montréal, Canada"),
+    ), {U20H: page}
+
+
+# neurips20 as a virtual `source: pwc` entry, as the importer writes a virtual edition.
+VIRTUAL20 = {k: v for k, v in PAST[1].items() if k not in PLACE_FIELDS} | {"format": "virtual"}
+
+
+def plan_virtual20(c: CheckedEdition) -> Any:
+    past = [PAST[0], VIRTUAL20, PAST[2]]
+    return plan_past_changes(past, DATA, [c], series_profiles(DATA, past))
+
+
+def test_negated_hybrid_quote_is_a_suggestion_never_applied() -> None:
+    raw, pages = hybrid2020("Unfortunately, it will not be possible to host it as a hybrid event.")
+    c = checked(raw, pages)
+    assert not c.dropped and c.kinds["format"] == JUDGEMENT and not c.verified("format")
+    plan = plan_virtual20(c)
+    assert plan.applied == []
+    (u,) = plan.suggestions
+    assert u.suggested["format"] == ("virtual", "hybrid") and "city" in u.suggested
+    # As an addition it stays a model judgement, listed for a human check.
+    added = plan_past_changes([], DATA, [c], series_profiles(DATA, PAST))
+    assert added.additions[0].entry["format"] == "hybrid"
+    body = build_body([], added, "s", None, {}, PAST_INTRO)
+    assert "`format` = `hybrid`: model judgement, check the quote below" in body
+
+
+def test_midl_2021_text_does_not_turn_a_virtual_entry_hybrid() -> None:
+    raw, pages = hybrid2020(MIDL21)
+    c = checked(raw, pages)
+    assert c.dropped == "virtual or hybrid format claimed but not verified"
+    assert plan_virtual20(c).updates == []
+
+
+def test_verified_switch_from_virtual_is_never_applied() -> None:
+    raw, pages = hybrid2020("NeurIPS 2020 will be a hybrid conference this year.")
+    c = checked(raw, pages)
+    assert c.kinds["format"] == FORMAT_IN_QUOTE and c.verified("city")
+    plan = plan_virtual20(c)
+    assert plan.applied == []  # a new pin always needs a human
+    (u,) = plan.suggestions
+    assert u.suggested["format"] == ("virtual", "hybrid")
+    assert u.suggested["city"] == (None, "Montréal")
 
 
 def test_pre2020_in_person_is_derived_from_the_verified_city() -> None:
@@ -581,6 +681,32 @@ REAL_PAST = REPO / "data" / "past_conferences.yml"
 def test_round_trip_of_the_real_file_is_byte_identical() -> None:
     text = REAL_PAST.read_text()
     assert dump(load_for_edit(text), WIDTH) == text
+
+
+def test_delete_key_keeps_a_review_marker_when_the_previous_key_has_a_comment() -> None:
+    text = (
+        "- id: a\n  country: Canada # review: country\n  city: Vancouver # review: stale\n"
+        "  venue: Hall A\n\n- id: b\n  country: France # review: x\n  city: Paris # review: last\n"
+        "\n- id: c\n"
+    )
+    data = load_for_edit(text)
+    delete_key(data[0], "city")
+    delete_key(data[1], "city")  # the last key: its blank line must survive too
+    out = dump(data, WIDTH)
+    assert "  country: Canada # review: country # review: stale\n  venue: Hall A\n\n" in out
+    assert "  country: France # review: x # review: last\n\n- id: c\n" in out
+    assert YAML(typ="safe").load(out) == [
+        {"id": "a", "country": "Canada", "venue": "Hall A"},
+        {"id": "b", "country": "France"},
+        {"id": "c"},
+    ]
+    assert len(re.findall(r"#\s*review:", out, re.IGNORECASE)) == 4
+
+
+def test_delete_key_moves_a_review_marker_to_an_uncommented_previous_key() -> None:
+    data = load_for_edit("- id: a\n  country: Canada\n  city: Vancouver # review: stale\n")
+    delete_key(data[0], "city")
+    assert dump(data, WIDTH) == "- id: a\n  country: Canada # review: stale\n"
 
 
 def test_round_trip_with_updates_keeps_every_comment() -> None:

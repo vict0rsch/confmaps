@@ -12,7 +12,8 @@ Rules (deterministic, never deletes an entry; docs/backfill-spec.md §5.5):
 - Existing entry (``--recheck``): on ``source: pwc`` entries, verified changes of
   :data:`APPLIED_UPDATES` are applied (PwC is lower trust than evidence; a switch to virtual
   deletes city, country and venue; a new city without a verified venue deletes the old venue;
-  new evidence URLs are appended to ``sources``). Every other difference, and every difference
+  new evidence URLs are appended to ``sources``). A switch from virtual to in person or hybrid
+  (which adds a pin to the map) is never applied. Every other difference, and every difference
   on a ``source: curated`` entry, is a suggestion shown in the PR, never written.
 - ``cancelled`` is never applied: the entry is listed for human removal before merge.
 """
@@ -173,7 +174,13 @@ def _update(current: dict[str, Any], c: CheckedEdition) -> Update | None:
     cur = {k: _iso(current.get(k)) for k in SUGGESTED_UPDATES}
     changes: dict[str, tuple[Any, Any]] = {}
     if current.get("source") == "pwc":
-        if c.verified("format") and c.fields["format"] != cur["format"]:
+        # Leaving virtual adds a physical location: a false pin is the worst error, so that
+        # change is always a suggestion for a human.
+        if (
+            c.verified("format")
+            and c.fields["format"] != cur["format"]
+            and cur["format"] != "virtual"
+        ):
             changes["format"] = (cur["format"], c.fields["format"])
         fmt = changes.get("format", (None, cur["format"]))[1]
         if fmt == "virtual":
