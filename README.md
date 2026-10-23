@@ -39,6 +39,16 @@ Needs `ANTHROPIC_API_KEY`. Try it without writing anything:
 uv run --project scripts/discover discover --mode upcoming --dry-run --max-usd 2
 ```
 
+Past main editions (`data/past_conferences.yml`) have their own mode: it looks for years of a
+series with no recorded edition and appends cited `source: curated` entries. `--recheck` also
+re-verifies the imported (`source: pwc`) editions in the range. Dry-run one series first to
+measure the cost:
+
+```sh
+uv run --project scripts/discover discover --mode past --series neurips,icml --since 1987 --dry-run --max-usd 2
+uv run --project scripts/discover discover --mode past --series cvpr --since 2016 --until 2024 --recheck --dry-run
+```
+
 See DESIGN.md §4 for the evidence checks and the workflow (`discover.yml`, manual dispatch only).
 
 ## Analytics (optional)
@@ -53,6 +63,9 @@ Do Not Track and Global Privacy Control are respected.
 
 - Conferences: [huggingface/ai-deadlines](https://github.com/huggingface/ai-deadlines) (MIT),
   synced daily; satellites are curated in `data/satellites.yml`.
+- Past editions (2016–2025): [paperswithcode/ai-deadlines](https://github.com/paperswithcode/ai-deadlines)
+  (MIT), imported once from its git history into `data/past_conferences.yml`, deduplicated and
+  corrected using cited sources (`pnpm data:import-pwc`, a one-time writer).
 - Geocoding: [Nominatim](https://nominatim.org) / OpenStreetMap contributors (ODbL), cached in
   `data/geocache.json`.
 - Map: [OpenFreeMap](https://openfreemap.org) tiles, rendered with MapLibre GL JS.

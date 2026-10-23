@@ -34,6 +34,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Past conferences: paperswithcode/ai-deadlines (MIT)
+
+Past main editions from 2016 to 2025 (`data/past_conferences.yml`, `source: pwc`) are derived from
+[paperswithcode/ai-deadlines](https://github.com/paperswithcode/ai-deadlines), the original
+aideadlin.es data. **Modifications:** the editions were imported once from every version of
+`_data/conferences.yml` in that repository's git history (branch `gh-pages`, up to commit
+`b230d24719088a769e6938704a826e5084b4cb34`), deduplicated (one entry per edition, ids merged),
+cleaned (titles, dates and places parsed into structured fields; deadlines, timezones and other
+fields dropped), and corrected using cited sources (virtual and hybrid formats, dates, places and
+links, with the evidence URLs recorded in each entry's `sources`); a few non-conferences and a
+cancelled edition were removed. Each entry keeps the PwC ids and commits it came from. Licence,
+reproduced in full:
+
+```text
+MIT License
+
+Copyright (c) 2021 Abhishek Das
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ## City index: GeoNames (CC BY 4.0)
 
 The home-city search (`public/cities.json`) is derived from the

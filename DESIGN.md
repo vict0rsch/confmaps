@@ -45,6 +45,7 @@ manual (weekly schedule pending): scripts/discover/ (Python, Claude API) ──�
 ```
 data/
   satellites.yml          # curated satellites (schema §3.2)
+  past_conferences.yml    # past main editions, PwC import + curated (§3.4)
   overrides.yml           # per-location overrides, keyed by location id
   geocache.json           # "city|country" (normalized) → {lat, lng, display_name}
   co2-factors.json        # extracted DESNZ factors, versioned by year (§5)
@@ -56,7 +57,8 @@ scripts/
   discover/               # Python discovery agent (uv project, §4)
   build-cities.ts         # GeoNames → public/cities.json
   validate-data.ts        # offline checks of the committed data (§9)
-  backfill-pwc.ts         # one-off historical import (§3.4, deferred; not written)
+  import-pwc.ts           # one-time PwC import → data/past_conferences.yml (§3.4)
+  pwc/                    # importer modules; fixes.ts = hand-maintained corrections
 src/
   lib/filters/            # one file per filter (§6.3)
   lib/co2/                # CO₂ model (§5)
@@ -154,8 +156,46 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
 - Past events are first-class (history view, "Past 5y" preset).
 - **Archive-and-freeze:** once an event's `end` < today, its current state is written to
   `data/archive/`. The sync **adds and updates, never removes**, so upstream pruning cannot erase history.
-- **Backfill (deferred):** one-time import of ~2017–2024 from `paperswithcode/ai-deadlines`
-  `conferences.yml` (free-text `place` → geocode + manual review, dedupe against HF ids).
+- **Past editions — `data/past_conferences.yml`** (spec: `docs/backfill-spec.md`). Main editions
+  that upstream no longer lists (2016–2025 today), validated by `PastConferencesFileSchema`. One
+  entry per edition: `id, title` (as named that year, e.g. "NIPS"), `year, full_name?, link,
+  start, end, format` (`in_person | virtual | hybrid`), `city`/`country`/`venue?` (required unless
+  virtual, forbidden if virtual), `tags, notes?, source` (`pwc | curated`), `pwc` (provenance:
+  merged PwC ids, first/last commit) and `sources` (evidence URLs; required for curated). No
+  deadlines (`deadlines: []`). Historical names roll up through `SERIES_ALIASES` (`nips→neurips`,
+  `naacl-hlt→naacl`, `emnlp-ijcnlp→emnlp`, `mm→acm-mm`, …), so `series = seriesOf(title)` still
+  links editions. Ids follow the series' HF stem (`neurips18`, `icdar2019`).
+  - **Merge:** archive → past entries (overwriting their archive copies) → HF upstream →
+    satellites → overrides. Precedence **HF > past entry > archive copy**; a past id that
+    upstream also has is shadowed with a warning ("HF wins; remove it"). A past
+    entry starting after today is an error (upcoming editions come from upstream). Overrides on
+    `<id>@main` work as for HF, but cannot set place fields on a virtual location.
+  - **Archive:** past entries freeze into `archive/<year>.json` like everything else; a postponed
+    edition stays in its nominal year (`icpr20` and `ijcai20`, held January 2021, warn but stay in
+    `2020.json`). Since the archive never shrinks, every correction or removal must land before
+    the entry reaches `main`; afterwards it can only be corrected, not removed.
+  - **Consistency:** past entries are re-derived offline like satellites; a `pwc`/`curated`
+    conference must come from the file or the archive.
+- **PwC import (done once):** `pnpm data:import-pwc` reads every version of
+  `paperswithcode/ai-deadlines` `_data/conferences.yml` in its git history (bare clone, pinned
+  `gh-pages` HEAD `b230d247`, per-entry fallback for unparseable versions), keeps the latest value
+  per PwC id, parses free-text `place`/`date` deterministically, dedupes by series|year (several
+  PwC ids → one edition) and drops editions upstream already has. Corrections live in
+  `scripts/pwc/fixes.ts` (`TITLE_FIXES`, `EXCLUDE`, `PLACE_FIXES`, `FIELD_FIXES`, each with a
+  reason; an entry for an unknown or unused PwC id is an error). It is a **one-time writer**: it
+  refuses a non-empty file without `--force` and always refuses one with curated entries; after
+  the import the file is edited by hand or by the discovery agent (§4), and the research
+  corrections below are not encoded in the importer (only its exclusions are, in `EXCLUDE`).
+- **Review-marker gate:** the importer marks suspicious entries with an end-of-line
+  `# review: <reasons>` comment: `covid` (in person between 2020-03 and 2021-12), `stale` (PwC
+  never updated after the event), `multi-id`, `fixes-applied`. `pnpm data:validate` fails while
+  any marker remains.
+- **Research-based resolution:** the markers of the initial import (and a few inclusion
+  questions) were resolved by research with cited sources: COVID-era editions switched to
+  `virtual` (planned host kept in `notes`, e.g. "Held online (planned: Seattle, United States).")
+  or `hybrid`, dates, places, titles and links corrected, evidence URLs appended to `sources`;
+  a cancelled edition (LREC 2020) and non-conferences (AES, AI World Barcelona, AABI, WMT) were
+  removed and added to `EXCLUDE`. Later checks use the discovery agent's `--recheck` (§4).
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions
   (e.g. NeurIPS 2025 Mexico City, EurIPS 2025 Copenhagen); same PR + evidence review.
 - History grouping: a conference **series key** = normalized `title` (e.g. `icml`), so editions
@@ -167,22 +207,31 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
 type Conference = {
   id: string; series: string; title: string; year: number; fullName?: string;
   link: string; tags: string[]; deadlines: Deadline[]; start: string; end: string;
-  source: "hf" | "pwc" | "archive";
+  source: "hf" | "pwc" | "curated" | "archive"; // pwc/curated: past_conferences.yml, never → archive
 };
-type EventLocation = {
+type LocationBase = {
   id: string;                 // `${conferenceId}@main` or satellite id
   conferenceId: string;
   role: "main" | "satellite";
-  name: string; city: string; country: string; venue?: string;
-  lat: number; lng: number;
+  name: string;
   start: string; end: string; // satellites use their own dates
   official: boolean; presentsPapers: boolean;
   access: "open" | "registration" | "authors_only";
   link: string; notes?: string;
 };
+type PinnedLocation = LocationBase & {
+  format?: "hybrid";          // absent = in person
+  city: string; country: string; venue?: string;
+  lat: number; lng: number;
+};
+type VirtualLocation = LocationBase & { role: "main"; format: "virtual" }; // no place, no pin
+type EventLocation = PinnedLocation | VirtualLocation;
 ```
 
 Main locations default to `official: true`, `presentsPapers: true`, `access: "registration"`.
+`format` lives on the location: only past main editions are virtual or hybrid (in-person records
+are unchanged). Virtual locations skip country canonicalization and geocoding; hybrid ones are
+pinned at their physical city.
 
 **Track grouping (frontend, `groupTracks`):** conferences with the same series, year and main-venue
 city and overlapping dates are tracks of one event (e.g. EMNLP 2026 and its Industry and System
@@ -208,7 +257,23 @@ Purpose: find satellites the owner would never hear about, especially community 
   and server-side refusal fallback (`fallbacks: "default"`). Paused turns are resumed up to 3 times.
 - **Scope per run:** one call per conference starting within the next ~12 months
   (`--mode upcoming`); `--mode backfill --since YEAR` covers past editions. Editions sharing link and
-  dates (EMNLP and its tracks) are researched once.
+  dates (EMNLP and its tracks) are researched once. Backfill skips virtual editions (no satellites
+  to look for) but now also sees the ≈340 past editions, so restrict it with `--only ID[,ID…]`.
+- **Past main editions (`--mode past`, `docs/backfill-spec.md` §5):**
+  `--mode past --series neurips,icml --since 1987 [--until YYYY] [--recheck] [--dry-run]`
+  (`--until` defaults to last year). Targets the years of each series with no known edition (in
+  `data.json` or `past_conferences.yml`); one call per series and batch of up to 6 years
+  (`web_search` 8, `web_fetch` 12 uses). The prompt lists the series' known editions and asks to
+  omit years with no edition (biennial, cancelled). Each edition field is `{value, source_url,
+  quote}`, verified as for satellites, plus: `start ≤ end`, at most 21 days, `start` in the year
+  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so; `in_person` is
+  derived for a verified city before 2020-03, else needs a judgement quote, else it is written
+  `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported). Additions are appended as `source: curated` with
+  the evidence URLs in `sources` and the series' latest tags. `--recheck` also re-verifies the
+  `source: pwc` editions in range and **applies** verified format/place/date changes to them
+  (a switch to virtual drops the place); on curated entries differences are only suggested. A
+  reported cancellation is never applied: it is listed under "Needs human removal (before merge)".
+  PR title `Past editions: N addition(s), M update(s)`.
 - **Output schema:** candidate satellites matching §3.2, where **every field is
   `{value, source_url, quote}`**. Fields without a supporting quote are omitted, never guessed.
 - **Evidence verification (deterministic code, independent of the model).** Each `source_url` is
@@ -244,11 +309,13 @@ Purpose: find satellites the owner would never hear about, especially community 
   no environment proxies, size/time/fetch-count caps. GitHub tokens and `ANTHROPIC_*` are stripped
   from the environment of subprocesses; log lines are prefixed so page text cannot inject workflow
   commands.
-- **Workflow (`discover.yml`):** two jobs. `research` runs in the `discovery` environment (the only
+- **Workflow (`discover.yml`):** `workflow_dispatch` inputs `mode` (`upcoming | backfill | past`),
+  `series`, `since`, `until`, `recheck`, `max_usd`, passed through `env` and validated by the CLI.
+  Two jobs. `research` runs in the `discovery` environment (the only
   place `ANTHROPIC_API_KEY` exists), with a read-only token; it validates and uploads the proposal as
   an artifact. `propose` has no Anthropic key and runs no repository code (git, gh, jq only): it
-  commits the allowlisted generated files (`satellites.yml`, `geocache.json`,
-  `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
+  commits the allowlisted generated files (`satellites.yml`, `past_conferences.yml` in past mode,
+  `geocache.json`, `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
 - **CI on agent PRs:** PRs opened with `GITHUB_TOKEN` do not trigger `pull_request` workflows, so the
   `propose` job runs `gh workflow run ci.yml --ref <branch>` (`ci.yml` has `workflow_dispatch`). A
   GitHub App token or fine-grained PAT would make this unnecessary (§11).
@@ -342,8 +409,8 @@ Initial filters:
 | `dates` | `{from, to}` window | Same state as the timeline (§6.4); test uses `end ≥ from && start ≤ to` |
 | `subject` | conference tags | Upstream's free-form tags grouped into subjects with short URL codes (`sub=ML,CV`; e.g. `ML` machine learning, `RL`, `LLM`); near-duplicate tags merge; unknown tags become their own subject under "Other" |
 | `search` | text match on title/full name | aideadlin.es-style |
-| `radius` | within X km/mi of home | Needs home; greyed with "Set your location" otherwise |
-| `co2` | estimated footprint under ~X kg | Needs home; uses global mode/threshold |
+| `radius` | within X km/mi of home | Needs home; greyed with "Set your location" otherwise. Virtual editions pass; hybrid ones use their city |
+| `co2` | estimated footprint under ~X kg | Needs home; uses global mode/threshold. Virtual editions count as 0 kg and pass; hybrid ones use their city |
 | `access` | open / registration / authors only | |
 | `kind` | official / community | |
 | `open` | submission still open | Next upstream deadline (abstract or paper) after today |
@@ -357,7 +424,7 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 ```
  ▁▂▁▃▅▂▁▁▂█▃▁▁▂▁▃▆▂▁▁▂█▄▁▁▂▁▃▅▂▁▁▂█▃   ← events/month histogram
                 ├────────────────────┤     ← window, both handles draggable
- [▶ play]  [Plan: 6m | 12m]  [Past 5y]  [speed 1×]
+ [▶ play]  [Plan: 6m | 12m]  [Past 5y | All years]  [speed 1×]
 ```
 
 - **Plan mode (default on load):** window = today → +12 months, static. Presets 6m / 12m.
@@ -371,13 +438,17 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
     motion settles.
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
-- **History presets** ("Past 5y") only set the handles.
+- **History presets** ("Past 5 years", "All years" back to the oldest edition) only set the
+  handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
+  editions do not squeeze it; "All years" (or history mode) extends it. Play spans all data.
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
   **Predicate layering:** history mode shows that series' editions of **all years** that pass every
   filter *except* `dates`; the dates window is ignored but left untouched, so exiting restores the
-  previous view.
+  previous view. The path skips virtual editions (the leg joins the neighbouring stops; hybrid
+  editions are normal stops), and the years held online are listed beside the title
+  ("Online: 2020 · 2021").
 - **Reduced motion:** play steps month by month with crossfades only.
 
 ### 6.5 Home location & privacy
@@ -459,6 +530,20 @@ Tone: **calm and neutral** (Apple Maps × Linear). Modern, simple, clear.
 - **Performance:** MapLibre GL loads in its own lazy chunk (`Map.svelte` is a dynamic import), so the
   shell, list and filters render before the map library arrives.
 
+### 6.9 Virtual and hybrid editions
+
+Past main editions can be virtual or hybrid (§3.4, §3.5).
+
+- **Virtual:** listed with a "Virtual" badge (monitor icon + text, never colour alone) and place
+  "Online"; **no pin**, no map focus or "back to selection", no home line. The detail panel says
+  "Virtual event · Official", with no venue. Footprint: **"Online · ~0 kg"** (never estimated;
+  "Attending online: no travel"), no mode toggle, myclimate link or comparison; "Nearest first"
+  sorts it at distance 0.
+- **Hybrid:** the normal pin and city plus a "Hybrid" tag; the trip estimate is shown with "Also
+  online (~0 kg)". Distance and CO₂ filters use the physical city.
+- Past editions without deadlines hide the deadline line (and the HF countdown link).
+- Credits name paperswithcode/ai-deadlines (MIT) next to huggingface/ai-deadlines.
+
 ## 7. Analytics
 
 GoatCounter (cookieless, no consent banner), page views + anonymous custom events only:
@@ -512,7 +597,7 @@ All third-party actions are pinned to commit SHAs.
 
 ## 10. Build phases
 
-All done except the deferred item.
+All done.
 
 1. ~~Scaffold~~ (Svelte/Vite/TS, lint, Vitest, Playwright, CI, Pages deploy).
 2. ~~Data pipeline~~: schema, upstream sync, archive-freeze, geocoding + cache, overrides, validation,
@@ -524,11 +609,15 @@ All done except the deferred item.
 7. ~~Home location~~: city search, geolocation snapping, share dialog.
 8. ~~Analytics~~ + `PRIVACY.md`.
 9. ~~Discovery agent~~ (built and hardened; dry run and schedule still open, §11).
-10. *(Deferred)* PwC historical backfill.
+10. ~~PwC historical backfill~~: `past_conferences.yml` (§3.4), virtual/hybrid editions (§3.5,
+    §6.9), discovery past mode (§4); review flags resolved by cited research.
 
 ## 11. Open items
 
-- **PwC backfill** (~2017–2024 history) cleanup effort: deferred.
+- **Earlier editions** (before 2016) are not in PwC: add them with
+  `discover --mode past --series <s> --since <year>` (dry-run one series first to set `--max-usd`).
+- **Spot checks:** a few research resolutions are medium/low confidence (listed in the backfill
+  PR); `discover --mode past --recheck` can re-verify them with quotes.
 - **Discovery agent dry run:** measure cost per run (`--dry-run`, `--max-usd`), then enable the
   weekly `schedule:` in `discover.yml`.
 - **GoatCounter account:** create the site and set the `GOATCOUNTER_CODE` Actions variable

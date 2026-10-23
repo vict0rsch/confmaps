@@ -158,6 +158,9 @@ From Berlin, Paris by train is therefore roughly 54× less than flying to Sydney
   equally to all flights (DESNZ §8.43–8.44).
 - **One traveller, economy, round trip.** Premium cabins, one-way trips or groups scale the
   figure.
+- **Online attendance is shown as ~0 kg** (virtual editions, and the online option of hybrid
+  ones). This is an estimate of travel only: streaming, data-centre and device emissions are not
+  counted.
 
 ## How to cross-check
 
