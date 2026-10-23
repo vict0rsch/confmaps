@@ -20,7 +20,8 @@ test('a CO2 link carries its travel settings, applied for this visit only', asyn
   // The settings stay in the address bar, so the link can be passed on.
   await expect.poll(() => page.url()).toContain('mode=auto');
 
-  await page.getByRole('button', { name: 'Use mine' }).first().click();
+  // The shared home notice also has a "Use mine" button (once the city resolves): scope to ours.
+  await page.getByTestId('shared-travel-notice').getByRole('button', { name: 'Use mine' }).click();
   await expect(page.getByTestId('shared-travel-notice')).toHaveCount(0);
 });
 
