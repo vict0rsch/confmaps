@@ -201,6 +201,13 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   or `hybrid`, dates, places, titles and links corrected, evidence URLs appended to `sources`;
   a cancelled edition (LREC 2020) and non-conferences (AES, AI World Barcelona, AABI, WMT) were
   removed and added to `EXCLUDE`. Later checks use the discovery agent's `--recheck` (§4).
+- **Links of past editions** point to a Wayback Machine snapshot of the edition's site taken
+  around the event (`https://web.archive.org/web/<timestamp>/<original>`, a 200 capture from
+  18 months before the end to 6 months after), because lapsed conference domains get hijacked
+  (gambling, link farms, injected spam). Without such a capture: a stable proceedings page (ACL
+  Anthology, IEEE Xplore, …), else the live site if it still shows that edition. The detail
+  panel labels a snapshot "Archived site · <original host>". `sources` hold only URLs that
+  currently load and support the facts, or snapshots.
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions
   (e.g. NeurIPS 2025 Mexico City, EurIPS 2025 Copenhagen); same PR + evidence review.
 - History grouping: a conference **series key** = normalized `title` (e.g. `icml`), so editions
