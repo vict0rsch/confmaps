@@ -16,7 +16,7 @@
 - id: coling16
   title: COLING
   year: 2016
-  link: http://coling2016.anlp.jp/
+  link: https://web.archive.org/web/20161125085612/http://coling2016.anlp.jp/
   start: '2016-12-13'
   end: '2016-12-16'
   format: in_person
@@ -34,7 +34,7 @@
 - id: emnlp16
   title: EMNLP
   year: 2016
-  link: http://www.emnlp2016.net/
+  link: https://web.archive.org/web/20161122100008/http://www.emnlp2016.net/
   start: '2016-11-02'
   end: '2016-11-04'
   format: in_person
@@ -52,7 +52,7 @@
 - id: naacl16
   title: NAACL-HLT
   year: 2016
-  link: http://naacl.org/naacl-hlt-2016/
+  link: https://web.archive.org/web/20160613114946/http://naacl.org/naacl-hlt-2016/
   start: '2016-06-13'
   end: '2016-06-15'
   format: in_person
@@ -70,7 +70,7 @@
 - id: uai16
   title: UAI
   year: 2016
-  link: http://auai.org/uai2016/cfp.php
+  link: https://web.archive.org/web/20160611134948/http://auai.org/uai2016/cfp.php
   start: '2016-06-25'
   end: '2016-06-29'
   format: in_person
@@ -88,7 +88,7 @@
 - id: 3dv17
   title: 3DV
   year: 2017
-  link: http://irc.cs.sdu.edu.cn/3dv/
+  link: https://web.archive.org/web/20170902175938/http://irc.cs.sdu.edu.cn/3dv/
   start: '2017-10-10'
   end: '2017-10-12'
   format: in_person
@@ -108,7 +108,7 @@
 - id: aaai17
   title: AAAI
   year: 2017
-  link: http://www.aaai.org/Conferences/AAAI/aaai17.php
+  link: https://web.archive.org/web/20170204162357/http://www.aaai.org/Conferences/AAAI/aaai17.php
   start: '2017-02-04'
   end: '2017-02-09'
   format: in_person
@@ -126,7 +126,7 @@
 - id: acl17
   title: ACL
   year: 2017
-  link: http://acl2017.org/
+  link: https://web.archive.org/web/20170802021819/http://acl2017.org/
   start: '2017-07-30'
   end: '2017-08-04'
   format: in_person
@@ -144,7 +144,7 @@
 - id: aistats17
   title: AISTATS
   year: 2017
-  link: https://www.aistats.org/aistats2017/
+  link: https://web.archive.org/web/20170808084940/https://www.aistats.org/aistats2017/
   start: '2017-04-20'
   end: '2017-04-22'
   format: in_person
@@ -166,7 +166,7 @@
 - id: bmvc17
   title: BMVC
   year: 2017
-  link: https://bmvc2017.london/
+  link: https://web.archive.org/web/20170822181607/https://bmvc2017.london/
   start: '2017-09-04'
   end: '2017-09-07'
   format: in_person
@@ -184,7 +184,7 @@
 - id: colt17
   title: COLT
   year: 2017
-  link: http://www.learningtheory.org/colt2017/
+  link: https://web.archive.org/web/20170705051541/http://www.learningtheory.org/colt2017/
   start: '2017-07-07'
   end: '2017-07-10'
   format: in_person
@@ -208,7 +208,7 @@
 - id: conll17
   title: CONLL
   year: 2017
-  link: http://www.conll.org/
+  link: https://web.archive.org/web/20170816085613/http://www.conll.org/
   start: '2017-08-03'
   end: '2017-08-04'
   format: in_person
@@ -226,7 +226,7 @@
 - id: corl17
   title: CoRL
   year: 2017
-  link: http://www.robot-learning.org
+  link: https://web.archive.org/web/20171112162525/http://www.robot-learning.org
   start: '2017-11-13'
   end: '2017-11-15'
   format: in_person
@@ -244,7 +244,7 @@
 - id: cvpr17
   title: CVPR
   year: 2017
-  link: http://cvpr2017.thecvf.com/
+  link: https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/
   start: '2017-07-22'
   end: '2017-07-25'
   format: in_person
@@ -264,7 +264,7 @@
 - id: ecmlpkdd17
   title: ECML-PKDD
   year: 2017
-  link: http://ecmlpkdd2017.ijs.si/
+  link: https://web.archive.org/web/20170915204040/http://ecmlpkdd2017.ijs.si/
   start: '2017-09-18'
   end: '2017-09-22'
   format: in_person
@@ -282,7 +282,7 @@
 - id: emnlp17
   title: EMNLP
   year: 2017
-  link: http://emnlp2017.net/
+  link: https://web.archive.org/web/20170907065500/http://emnlp2017.net/
   start: '2017-09-07'
   end: '2017-09-11'
   format: in_person
@@ -300,7 +300,7 @@
 - id: fsr17
   title: FSR
   year: 2017
-  link: https://www.fsr.ethz.ch/
+  link: https://web.archive.org/web/20160711112057/https://www.fsr.ethz.ch/
   start: '2017-09-12'
   end: '2017-09-15'
   format: in_person
@@ -323,7 +323,7 @@
 - id: icarsc17
   title: ICARSC
   year: 2017
-  link: http://icarsc2017.isr.uc.pt
+  link: https://ieeexplore.ieee.org/xpl/conhome/7957705/proceeding
   start: '2017-04-26'
   end: '2017-04-28'
   format: in_person
@@ -341,7 +341,7 @@
 - id: iccv17
   title: ICCV
   year: 2017
-  link: http://iccv2017.thecvf.com/
+  link: https://web.archive.org/web/20171116070323/http://iccv2017.thecvf.com/
   start: '2017-10-22'
   end: '2017-10-29'
   format: in_person
@@ -359,7 +359,7 @@
 - id: icdlepirob17
   title: ICDL-EpiRob
   year: 2017
-  link: http://www.icdl-epirob.org/
+  link: https://web.archive.org/web/20170916212924/http://www.icdl-epirob.org/
   start: '2017-09-18'
   end: '2017-09-21'
   format: in_person
@@ -377,7 +377,7 @@
 - id: iclr17
   title: ICLR
   year: 2017
-  link: http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1
+  link: https://web.archive.org/web/20170425002323/http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1
   start: '2017-04-24'
   end: '2017-04-26'
   format: in_person
@@ -396,7 +396,7 @@
 - id: icml17
   title: ICML
   year: 2017
-  link: http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838
+  link: https://web.archive.org/web/20170919070005/http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838
   start: '2017-08-06'
   end: '2017-08-11'
   format: in_person
@@ -414,7 +414,7 @@
 - id: icra17
   title: ICRA
   year: 2017
-  link: http://www.icra2017.org/
+  link: https://web.archive.org/web/20170531204403/http://www.icra2017.org/
   start: '2017-05-29'
   end: '2017-06-03'
   format: in_person
@@ -432,7 +432,7 @@
 - id: ijcai17
   title: IJCAI
   year: 2017
-  link: http://ijcai-17.org/
+  link: https://web.archive.org/web/20170821032608/http://ijcai-17.org/
   start: '2017-08-19'
   end: '2017-08-25'
   format: in_person
@@ -450,7 +450,7 @@
 - id: iros17
   title: IROS
   year: 2017
-  link: http://www.iros2017.org/
+  link: https://web.archive.org/web/20170924092841/http://www.iros2017.org/
   start: '2017-09-24'
   end: '2017-09-28'
   format: in_person
@@ -468,7 +468,7 @@
 - id: kdd17
   title: KDD
   year: 2017
-  link: http://www.kdd.org/kdd2017/
+  link: https://web.archive.org/web/20170815174643/http://www.kdd.org/kdd2017/
   start: '2017-08-13'
   end: '2017-08-17'
   format: in_person
@@ -486,7 +486,7 @@
 - id: neurips17
   title: NIPS
   year: 2017
-  link: https://nips.cc/Conferences/2017
+  link: https://web.archive.org/web/20171204231754/https://nips.cc/Conferences/2017
   start: '2017-12-04'
   end: '2017-12-09'
   format: in_person
@@ -509,7 +509,7 @@
 - id: ranlp17
   title: RANLP
   year: 2017
-  link: http://www.lml.bas.bg/ranlp2017
+  link: https://web.archive.org/web/20170911161706/http://www.lml.bas.bg/ranlp2017
   start: '2017-09-04'
   end: '2017-09-06'
   format: in_person
@@ -527,7 +527,7 @@
 - id: rss17
   title: RSS
   year: 2017
-  link: http://www.roboticsconference.org/
+  link: https://web.archive.org/web/20170715081700/http://www.roboticsconference.org/
   start: '2017-07-12'
   end: '2017-07-16'
   format: in_person
@@ -568,7 +568,7 @@
 - id: siggraph17
   title: SIGGRAPH
   year: 2017
-  link: http://s2017.siggraph.org/
+  link: https://web.archive.org/web/20170730153954/http://s2017.siggraph.org/
   start: '2017-07-30'
   end: '2017-08-03'
   format: in_person
@@ -586,7 +586,7 @@
 - id: uai17
   title: UAI
   year: 2017
-  link: http://auai.org/uai2017/index.php
+  link: https://web.archive.org/web/20170807072452/http://auai.org/uai2017/index.php
   start: '2017-08-11'
   end: '2017-08-15'
   format: in_person
@@ -606,7 +606,7 @@
 - id: 3dv18
   title: 3DV
   year: 2018
-  link: http://3dv18.uniud.it
+  link: https://web.archive.org/web/20180824224316/http://3dv18.uniud.it
   start: '2018-09-05'
   end: '2018-09-08'
   format: in_person
@@ -626,7 +626,7 @@
 - id: aaai18
   title: AAAI
   year: 2018
-  link: http://www.aaai.org/Conferences/AAAI/aaai18.php
+  link: https://web.archive.org/web/20171004164747/http://www.aaai.org/Conferences/AAAI/aaai18.php
   start: '2018-02-02'
   end: '2018-02-07'
   format: in_person
@@ -644,7 +644,7 @@
 - id: aamas18
   title: AAMAS
   year: 2018
-  link: http://celweb.vuse.vanderbilt.edu/aamas18
+  link: https://web.archive.org/web/20180714152912/http://celweb.vuse.vanderbilt.edu/aamas18
   start: '2018-07-11'
   end: '2018-07-13'
   format: in_person
@@ -662,7 +662,7 @@
 - id: accv18
   title: ACCV
   year: 2018
-  link: http://accv2018.net/
+  link: https://web.archive.org/web/20181118080030/http://accv2018.net/
   start: '2018-12-02'
   end: '2018-12-06'
   format: in_person
@@ -683,7 +683,7 @@
 - id: acl18
   title: ACL
   year: 2018
-  link: http://acl2018.org/
+  link: https://web.archive.org/web/20180715211050/http://acl2018.org/
   start: '2018-07-15'
   end: '2018-07-20'
   format: in_person
@@ -703,7 +703,7 @@
 - id: aistats18
   title: AISTATS
   year: 2018
-  link: http://www.aistats.org/
+  link: https://web.archive.org/web/20180414142626/http://www.aistats.org/
   start: '2018-04-09'
   end: '2018-04-11'
   format: in_person
@@ -721,7 +721,7 @@
 - id: bmvc18
   title: BMVC
   year: 2018
-  link: http://bmvc2018.org/
+  link: https://web.archive.org/web/20180903151200/http://bmvc2018.org/
   start: '2018-09-03'
   end: '2018-09-06'
   format: in_person
@@ -744,7 +744,7 @@
 - id: coling18
   title: COLING
   year: 2018
-  link: http://coling2018.org/
+  link: https://web.archive.org/web/20180818110848/http://coling2018.org/
   start: '2018-08-20'
   end: '2018-08-25'
   format: in_person
@@ -762,7 +762,7 @@
 - id: colt18
   title: COLT
   year: 2018
-  link: http://www.learningtheory.org/colt2018/
+  link: https://web.archive.org/web/20180704095749/http://www.learningtheory.org/colt2018/
   start: '2018-07-05'
   end: '2018-07-09'
   format: in_person
@@ -780,7 +780,7 @@
 - id: conll18
   title: CoNLL
   year: 2018
-  link: http://www.conll.org/
+  link: https://web.archive.org/web/20181101202623/http://www.conll.org/
   start: '2018-10-31'
   end: '2018-11-01'
   format: in_person
@@ -800,7 +800,7 @@
 - id: corl18
   title: CoRL
   year: 2018
-  link: http://www.robot-learning.org/
+  link: https://web.archive.org/web/20181101080938/http://www.robot-learning.org/
   start: '2018-10-29'
   end: '2018-10-31'
   format: in_person
@@ -818,7 +818,7 @@
 - id: cvpr18
   title: CVPR
   year: 2018
-  link: http://cvpr2018.thecvf.com/
+  link: https://web.archive.org/web/20180618220802/http://cvpr2018.thecvf.com/
   start: '2018-06-18'
   end: '2018-06-23'
   format: in_person
@@ -836,7 +836,7 @@
 - id: eccv18
   title: ECCV
   year: 2018
-  link: https://eccv2018.org/
+  link: https://web.archive.org/web/20180912003016/https://eccv2018.org/
   start: '2018-09-08'
   end: '2018-09-14'
   format: in_person
@@ -854,7 +854,7 @@
 - id: emnlp18
   title: EMNLP
   year: 2018
-  link: http://emnlp2018.org
+  link: https://web.archive.org/web/20181105065835/http://emnlp2018.org
   start: '2018-11-02'
   end: '2018-11-04'
   format: in_person
@@ -872,7 +872,7 @@
 - id: icassp18
   title: ICASSP
   year: 2018
-  link: https://2018.ieeeicassp.org/
+  link: https://web.archive.org/web/20180224042015/https://2018.ieeeicassp.org/
   start: '2018-04-15'
   end: '2018-04-20'
   format: in_person
@@ -890,7 +890,7 @@
 - id: icdm18
   title: ICDM
   year: 2018
-  link: http://icdm2018.org/
+  link: https://web.archive.org/web/20181115113028/http://icdm2018.org/
   start: '2018-11-17'
   end: '2018-11-20'
   format: in_person
@@ -908,7 +908,7 @@
 - id: iclr18
   title: ICLR
   year: 2018
-  link: http://iclr.cc/
+  link: https://web.archive.org/web/20180502193621/http://iclr.cc/
   start: '2018-04-30'
   end: '2018-05-03'
   format: in_person
@@ -927,7 +927,7 @@
 - id: icml18
   title: ICML
   year: 2018
-  link: https://icml.cc/Conferences/2018
+  link: https://web.archive.org/web/20180724065152/https://icml.cc/Conferences/2018
   start: '2018-07-10'
   end: '2018-07-15'
   format: in_person
@@ -945,7 +945,7 @@
 - id: icra18
   title: ICRA
   year: 2018
-  link: http://www.icra2018.org/
+  link: https://web.archive.org/web/20180521214354/http://www.icra2018.org/
   start: '2018-05-21'
   end: '2018-05-25'
   format: in_person
@@ -965,7 +965,7 @@
 - id: ijcai18
   title: IJCAI
   year: 2018
-  link: https://www.ijcai-18.org/
+  link: https://web.archive.org/web/20180715211112/https://www.ijcai-18.org/
   start: '2018-07-13'
   end: '2018-07-19'
   format: in_person
@@ -983,7 +983,7 @@
 - id: interspeech2018
   title: Interspeech
   year: 2018
-  link: http://interspeech2018.org/
+  link: https://web.archive.org/web/20180902171408/http://interspeech2018.org/
   start: '2018-09-02'
   end: '2018-09-06'
   format: in_person
@@ -1001,7 +1001,7 @@
 - id: iros18
   title: IROS
   year: 2018
-  link: https://www.iros2018.org/
+  link: https://web.archive.org/web/20181005210324/https://www.iros2018.org/
   start: '2018-10-01'
   end: '2018-10-05'
   format: in_person
@@ -1021,7 +1021,7 @@
 - id: kdd18
   title: KDD
   year: 2018
-  link: http://www.kdd.org/kdd2018/
+  link: https://web.archive.org/web/20180820213922/http://www.kdd.org/kdd2018/
   start: '2018-08-19'
   end: '2018-08-23'
   format: in_person
@@ -1039,7 +1039,7 @@
 - id: mldm18
   title: MLDM
   year: 2018
-  link: http://www.mldm.de/mldm2018.php
+  link: https://web.archive.org/web/20171216192449/http://www.mldm.de/mldm2018.php
   start: '2018-07-15'
   end: '2018-07-19'
   format: in_person
@@ -1061,7 +1061,7 @@
 - id: naacl18
   title: NAACL
   year: 2018
-  link: http://naacl2018.org/
+  link: https://web.archive.org/web/20180606093944/http://naacl2018.org/
   start: '2018-06-02'
   end: '2018-06-04'
   format: in_person
@@ -1079,7 +1079,7 @@
 - id: neurips18
   title: NeurIPS
   year: 2018
-  link: https://neurips.cc/Conferences/2018
+  link: https://web.archive.org/web/20181118115501/https://neurips.cc/Conferences/2018
   start: '2018-12-02'
   end: '2018-12-08'
   format: in_person
@@ -1100,7 +1100,7 @@
 - id: rss18
   title: RSS
   year: 2018
-  link: http://www.roboticsconference.org/
+  link: https://web.archive.org/web/20180625000803/http://www.roboticsconference.org/
   start: '2018-06-26'
   end: '2018-06-30'
   format: in_person
@@ -1118,7 +1118,7 @@
 - id: siggraph18
   title: SIGGRAPH
   year: 2018
-  link: http://s2018.siggraph.org/
+  link: https://web.archive.org/web/20180811220048/http://s2018.siggraph.org/
   start: '2018-08-12'
   end: '2018-08-16'
   format: in_person
@@ -1136,7 +1136,7 @@
 - id: slt18
   title: SLT
   year: 2018
-  link: http://slt2018.org/
+  link: https://web.archive.org/web/20181215114906/http://slt2018.org/
   start: '2018-12-18'
   end: '2018-12-21'
   format: in_person
@@ -1160,7 +1160,7 @@
 - id: uai18
   title: UAI
   year: 2018
-  link: http://auai.org/uai2018/index.php
+  link: https://web.archive.org/web/20180811124959/http://auai.org/uai2018/index.php
   start: '2018-08-06'
   end: '2018-08-10'
   format: in_person
@@ -1178,7 +1178,7 @@
 - id: wacv18
   title: WACV
   year: 2018
-  link: http://wacv18.uccs.us/
+  link: https://web.archive.org/web/20180310224848/http://wacv18.uccs.us/
   start: '2018-03-12'
   end: '2018-03-14'
   format: in_person
@@ -1199,7 +1199,7 @@
 - id: 3dv19
   title: 3DV
   year: 2019
-  link: http://3dv19.gel.ulaval.ca/
+  link: https://web.archive.org/web/20190921045641/http://3dv19.gel.ulaval.ca/
   start: '2019-09-16'
   end: '2019-09-19'
   format: in_person
@@ -1217,7 +1217,7 @@
 - id: aaai19
   title: AAAI
   year: 2019
-  link: https://aaai.org/Conferences/AAAI-19/
+  link: https://web.archive.org/web/20190128052942/https://aaai.org/Conferences/AAAI-19/
   start: '2019-01-27'
   end: '2019-02-01'
   format: in_person
@@ -1236,7 +1236,7 @@
 - id: aamas19
   title: AAMAS
   year: 2019
-  link: http://aamas2019.encs.concordia.ca/
+  link: https://web.archive.org/web/20190510111451/http://aamas2019.encs.concordia.ca/
   start: '2019-05-13'
   end: '2019-05-17'
   format: in_person
@@ -1254,7 +1254,7 @@
 - id: acl19
   title: ACL
   year: 2019
-  link: http://acl2019.org/
+  link: https://web.archive.org/web/20190817182208/http://acl2019.org/
   start: '2019-07-28'
   end: '2019-08-02'
   format: in_person
@@ -1272,7 +1272,7 @@
 - id: aistats19
   title: AISTATS
   year: 2019
-  link: https://www.aistats.org/
+  link: https://web.archive.org/web/20190418103725/https://www.aistats.org/
   start: '2019-04-16'
   end: '2019-04-18'
   format: in_person
@@ -1290,7 +1290,7 @@
 - id: bmvc19
   title: BMVC
   year: 2019
-  link: https://bmvc2019.org
+  link: https://web.archive.org/web/20190918053629/https://bmvc2019.org
   start: '2019-09-09'
   end: '2019-09-12'
   format: in_person
@@ -1308,7 +1308,7 @@
 - id: colt19
   title: COLT
   year: 2019
-  link: http://www.learningtheory.org/colt2019/
+  link: https://web.archive.org/web/20190626045806/http://www.learningtheory.org/colt2019/
   start: '2019-06-25'
   end: '2019-06-28'
   format: in_person
@@ -1326,7 +1326,7 @@
 - id: conll19
   title: CoNLL
   year: 2019
-  link: http://www.conll.org/2019
+  link: https://web.archive.org/web/20191115113224/http://www.conll.org/2019
   start: '2019-11-03'
   end: '2019-11-04'
   format: in_person
@@ -1344,7 +1344,7 @@
 - id: corl19
   title: CoRL
   year: 2019
-  link: http://www.robot-learning.org
+  link: https://web.archive.org/web/20191029192533/http://www.robot-learning.org
   start: '2019-10-30'
   end: '2019-11-01'
   format: in_person
@@ -1362,7 +1362,7 @@
 - id: cvpr19
   title: CVPR
   year: 2019
-  link: http://cvpr2019.thecvf.com/
+  link: https://web.archive.org/web/20190618024449/http://cvpr2019.thecvf.com/
   start: '2019-06-16'
   end: '2019-06-21'
   format: in_person
@@ -1380,7 +1380,7 @@
 - id: ecmlpkdd19
   title: ECML/PKDD
   year: 2019
-  link: https://ecmlpkdd2019.org/
+  link: https://web.archive.org/web/20190920170727/https://ecmlpkdd2019.org/
   start: '2019-09-16'
   end: '2019-09-20'
   format: in_person
@@ -1398,7 +1398,7 @@
 - id: emnlp19
   title: EMNLP-IJCNLP
   year: 2019
-  link: http://emnlp-ijcnlp2019.org/
+  link: https://web.archive.org/web/20191104113159/http://emnlp-ijcnlp2019.org/
   start: '2019-11-03'
   end: '2019-11-07'
   format: in_person
@@ -1416,7 +1416,7 @@
 - id: gecco19
   title: GECCO
   year: 2019
-  link: https://gecco-2019.sigevo.org/index.html/tiki-index.php
+  link: https://web.archive.org/web/20190824123508/https://gecco-2019.sigevo.org/index.html/tiki-index.php
   start: '2019-07-13'
   end: '2019-07-17'
   format: in_person
@@ -1434,7 +1434,7 @@
 - id: hri19
   title: HRI
   year: 2019
-  link: https://humanrobotinteraction.org/2019/
+  link: https://web.archive.org/web/20190318095407/https://humanrobotinteraction.org/2019/
   start: '2019-03-11'
   end: '2019-03-14'
   format: in_person
@@ -1452,7 +1452,7 @@
 - id: icassp19
   title: ICASSP
   year: 2019
-  link: http://icassp2019.com/
+  link: https://web.archive.org/web/20180423135143/http://icassp2019.com/
   start: '2019-05-12'
   end: '2019-05-17'
   format: in_person
@@ -1470,7 +1470,7 @@
 - id: iccv19
   title: ICCV
   year: 2019
-  link: http://iccv2019.thecvf.com/
+  link: https://web.archive.org/web/20191027100939/http://iccv2019.thecvf.com/
   start: '2019-10-27'
   end: '2019-11-02'
   format: in_person
@@ -1488,7 +1488,7 @@
 - id: icdm19
   title: ICDM
   year: 2019
-  link: http://icdm2019.bigke.org/
+  link: https://web.archive.org/web/20191117110527/http://icdm2019.bigke.org/
   start: '2019-11-08'
   end: '2019-11-11'
   format: in_person
@@ -1506,7 +1506,7 @@
 - id: iclr19
   title: ICLR
   year: 2019
-  link: http://iclr.cc/
+  link: https://web.archive.org/web/20190511061804/http://iclr.cc/
   start: '2019-05-06'
   end: '2019-05-09'
   format: in_person
@@ -1524,7 +1524,7 @@
 - id: icml19
   title: ICML
   year: 2019
-  link: https://icml.cc/Conferences/2019
+  link: https://web.archive.org/web/20190615210823/https://icml.cc/Conferences/2019
   start: '2019-06-10'
   end: '2019-06-15'
   format: in_person
@@ -1542,7 +1542,7 @@
 - id: icra19
   title: ICRA
   year: 2019
-  link: https://icra2019.org//
+  link: https://web.archive.org/web/20190522080209/https://icra2019.org//
   start: '2019-05-20'
   end: '2019-05-24'
   format: in_person
@@ -1560,7 +1560,7 @@
 - id: ijcai19
   title: IJCAI
   year: 2019
-  link: https://www.ijcai19.org/
+  link: https://web.archive.org/web/20190730145458/https://www.ijcai19.org/
   start: '2019-08-10'
   end: '2019-08-16'
   format: in_person
@@ -1578,7 +1578,7 @@
 - id: interspeech2019
   title: InterSpeech
   year: 2019
-  link: https://www.interspeech2019.org/
+  link: https://web.archive.org/web/20190916204230/https://www.interspeech2019.org/
   start: '2019-09-15'
   end: '2019-09-19'
   format: in_person
@@ -1596,7 +1596,7 @@
 - id: iros19
   title: IROS
   year: 2019
-  link: https://www.iros2019.org/
+  link: https://web.archive.org/web/20191022235153/https://www.iros2019.org/
   start: '2019-11-03'
   end: '2019-11-09'
   format: in_person
@@ -1614,7 +1614,7 @@
 - id: ismir19
   title: ISMIR
   year: 2019
-  link: http://ismir2019.ewi.tudelft.nl/
+  link: https://web.archive.org/web/20191105063516/http://ismir2019.ewi.tudelft.nl/
   start: '2019-11-04'
   end: '2019-11-08'
   format: in_person
@@ -1632,7 +1632,7 @@
 - id: kdd19
   title: KDD
   year: 2019
-  link: https://www.kdd.org/kdd2019
+  link: https://web.archive.org/web/20190808044023/https://www.kdd.org/kdd2019
   start: '2019-08-03'
   end: '2019-08-07'
   format: in_person
@@ -1650,7 +1650,7 @@
 - id: miccai19
   title: MICCAI
   year: 2019
-  link: http://www.miccai2019.org/
+  link: https://web.archive.org/web/20191014183144/http://www.miccai2019.org/
   start: '2019-10-13'
   end: '2019-10-17'
   format: in_person
@@ -1668,7 +1668,7 @@
 - id: naacl19
   title: NAACL
   year: 2019
-  link: http://naacl2019.org/
+  link: https://web.archive.org/web/20190518100659/http://naacl2019.org/
   start: '2019-06-02'
   end: '2019-06-07'
   format: in_person
@@ -1686,7 +1686,7 @@
 - id: neurips19
   title: NeurIPS
   year: 2019
-  link: https://neurips.cc/Conferences/2019
+  link: https://web.archive.org/web/20191218040003/https://neurips.cc/Conferences/2019
   start: '2019-12-08'
   end: '2019-12-14'
   format: in_person
@@ -1709,7 +1709,7 @@
 - id: rss19
   title: RSS
   year: 2019
-  link: http://www.roboticsconference.org/
+  link: https://web.archive.org/web/20190612144845/http://www.roboticsconference.org/
   start: '2019-06-22'
   end: '2019-06-26'
   format: in_person
@@ -1727,7 +1727,7 @@
 - id: siggraph19
   title: SIGGRAPH
   year: 2019
-  link: https://s2019.siggraph.org/
+  link: https://web.archive.org/web/20190726234405/https://s2019.siggraph.org/
   start: '2019-07-28'
   end: '2019-08-01'
   format: in_person
@@ -1745,7 +1745,7 @@
 - id: uai19
   title: UAI
   year: 2019
-  link: http://auai.org/uai2019/
+  link: https://web.archive.org/web/20190718065357/http://auai.org/uai2019/
   start: '2019-07-22'
   end: '2019-07-26'
   format: in_person
@@ -1763,7 +1763,7 @@
 - id: wacv19
   title: WACV
   year: 2019
-  link: http://wacv19.uccs.us/
+  link: https://web.archive.org/web/20180306124057/http://wacv19.uccs.us/
   start: '2019-01-08'
   end: '2019-01-11'
   format: in_person
@@ -1781,7 +1781,7 @@
 - id: 3dv20
   title: 3DV
   year: 2020
-  link: http://3dv2020.dgcv.nii.ac.jp/index.html
+  link: https://web.archive.org/web/20201125022639/http://3dv2020.dgcv.nii.ac.jp/index.html
   start: '2020-11-25'
   end: '2020-11-28'
   format: virtual
@@ -1801,7 +1801,7 @@
 - id: aaai20
   title: AAAI
   year: 2020
-  link: https://aaai.org/Conferences/AAAI-20/
+  link: https://web.archive.org/web/20200116000750/https://aaai.org/Conferences/AAAI-20/
   start: '2020-02-07'
   end: '2020-02-12'
   format: in_person
@@ -1819,7 +1819,7 @@
 - id: aamas20
   title: AAMAS
   year: 2020
-  link: https://aamas2020.conference.auckland.ac.nz/
+  link: https://web.archive.org/web/20200508191245/https://aamas2020.conference.auckland.ac.nz/
   start: '2020-05-09'
   end: '2020-05-13'
   format: virtual
@@ -1839,7 +1839,7 @@
 - id: accv20
   title: ACCV
   year: 2020
-  link: http://accv2020.kyoto/
+  link: https://web.archive.org/web/20201202134325/http://accv2020.kyoto/
   start: '2020-11-30'
   end: '2020-12-04'
   format: virtual
@@ -1855,7 +1855,7 @@
 - id: acl20
   title: ACL
   year: 2020
-  link: https://acl2020.org/
+  link: https://web.archive.org/web/20200709031942/https://acl2020.org/
   start: '2020-07-05'
   end: '2020-07-10'
   format: virtual
@@ -1876,7 +1876,7 @@
 - id: acm20
   title: ACM MM
   year: 2020
-  link: https://2020.acmmm.org/
+  link: https://web.archive.org/web/20201024093050/https://2020.acmmm.org/
   start: '2020-10-12'
   end: '2020-10-16'
   format: virtual
@@ -1897,7 +1897,7 @@
 - id: aistats20
   title: AISTATS
   year: 2020
-  link: https://www.aistats.org/aistats2020
+  link: https://web.archive.org/web/20200920070113/https://www.aistats.org/aistats2020
   start: '2020-08-26'
   end: '2020-08-28'
   format: virtual
@@ -1918,7 +1918,7 @@
 - id: alt2020
   title: ALT
   year: 2020
-  link: http://alt2020.algorithmiclearningtheory.org/
+  link: https://web.archive.org/web/20200217220607/http://alt2020.algorithmiclearningtheory.org/
   start: '2020-02-08'
   end: '2020-02-11'
   format: in_person
@@ -1938,7 +1938,7 @@
 - id: bmvc20
   title: BMVC
   year: 2020
-  link: https://britishmachinevisionassociation.github.io/bmvc
+  link: https://web.archive.org/web/20200530100007/https://britishmachinevisionassociation.github.io/bmvc
   start: '2020-09-07'
   end: '2020-09-10'
   format: virtual
@@ -1958,7 +1958,7 @@
 - id: chil20
   title: CHIL
   year: 2020
-  link: http://www.chilconference.org/
+  link: https://web.archive.org/web/20200804090251/http://www.chilconference.org/
   start: '2020-07-23'
   end: '2020-07-24'
   format: virtual
@@ -1978,7 +1978,7 @@
 - id: cikm20
   title: CIKM
   year: 2020
-  link: https://cikm2020.org/
+  link: https://web.archive.org/web/20201019154619/https://cikm2020.org/
   start: '2020-10-19'
   end: '2020-10-23'
   format: virtual
@@ -1998,7 +1998,7 @@
 - id: coling20
   title: COLING
   year: 2020
-  link: https://coling2020.org/
+  link: https://web.archive.org/web/20201207153820/https://coling2020.org/
   start: '2020-12-08'
   end: '2020-12-13'
   format: virtual
@@ -2018,7 +2018,7 @@
 - id: colt20
   title: COLT
   year: 2020
-  link: http://www.learningtheory.org/colt2020/
+  link: https://web.archive.org/web/20200611205858/http://www.learningtheory.org/colt2020/
   start: '2020-07-09'
   end: '2020-07-12'
   format: virtual
@@ -2037,7 +2037,7 @@
 - id: conll20
   title: CoNLL
   year: 2020
-  link: http://www.conll.org/2020
+  link: https://web.archive.org/web/20201125001143/http://www.conll.org/2020
   start: '2020-11-19'
   end: '2020-11-20'
   format: virtual
@@ -2053,7 +2053,7 @@
 - id: corl20
   title: CoRL
   year: 2020
-  link: http://www.robot-learning.org
+  link: https://web.archive.org/web/20201111215000/http://www.robot-learning.org
   start: '2020-11-16'
   end: '2020-11-18'
   format: virtual
@@ -2074,7 +2074,7 @@
 - id: cvpr20
   title: CVPR
   year: 2020
-  link: http://cvpr2020.thecvf.com/
+  link: https://web.archive.org/web/20200614132851/http://cvpr2020.thecvf.com/
   start: '2020-06-14'
   end: '2020-06-19'
   format: virtual
@@ -2094,7 +2094,7 @@
 - id: ecai20
   title: ECAI
   year: 2020
-  link: http://ecai2020.eu/
+  link: https://web.archive.org/web/20200730063548/http://ecai2020.eu/
   start: '2020-08-29'
   end: '2020-09-08'
   format: virtual
@@ -2114,7 +2114,7 @@
 - id: eccv20
   title: ECCV
   year: 2020
-  link: https://eccv2020.eu
+  link: https://web.archive.org/web/20200824110946/https://eccv2020.eu
   start: '2020-08-23'
   end: '2020-08-28'
   format: virtual
@@ -2138,7 +2138,7 @@
 - id: ecmlpkdd20
   title: ECML PKDD
   year: 2020
-  link: https://ecmlpkdd2020.net/
+  link: https://web.archive.org/web/20200919030631/https://ecmlpkdd2020.net/
   start: '2020-09-14'
   end: '2020-09-18'
   format: virtual
@@ -2157,7 +2157,7 @@
 - id: emnlp20
   title: EMNLP
   year: 2020
-  link: https://2020.emnlp.org/
+  link: https://web.archive.org/web/20201116132146/https://2020.emnlp.org/
   start: '2020-11-16'
   end: '2020-11-20'
   format: virtual
@@ -2173,7 +2173,7 @@
 - id: hri20
   title: HRI
   year: 2020
-  link: https://humanrobotinteraction.org/2020/
+  link: https://web.archive.org/web/20200401234545/https://humanrobotinteraction.org/2020/
   start: '2020-03-23'
   end: '2020-03-26'
   format: virtual
@@ -2194,7 +2194,7 @@
 - id: icaps20
   title: ICAPS
   year: 2020
-  link: https://icaps20.icaps-conference.org/
+  link: https://web.archive.org/web/20201025140522/https://icaps20.icaps-conference.org/
   start: '2020-10-26'
   end: '2020-10-30'
   format: virtual
@@ -2214,7 +2214,7 @@
 - id: icassp20
   title: ICASSP
   year: 2020
-  link: https://2020.ieeeicassp.org/
+  link: https://web.archive.org/web/20200430210128/https://2020.ieeeicassp.org/
   start: '2020-05-04'
   end: '2020-05-08'
   format: virtual
@@ -2234,7 +2234,7 @@
 - id: iccc20
   title: ICCC
   year: 2020
-  link: http://computationalcreativity.net/iccc20/
+  link: https://web.archive.org/web/20201008193411/http://computationalcreativity.net/iccc20/
   start: '2020-09-07'
   end: '2020-09-11'
   format: virtual
@@ -2253,7 +2253,7 @@
 - id: icdm20
   title: ICDM
   year: 2020
-  link: http://icdm2020.bigke.org/
+  link: https://web.archive.org/web/20201115120303/http://icdm2020.bigke.org/
   start: '2020-11-17'
   end: '2020-11-20'
   format: virtual
@@ -2274,7 +2274,7 @@
 - id: iclr20
   title: ICLR
   year: 2020
-  link: https://iclr.cc/Conferences/2020
+  link: https://web.archive.org/web/20200426203300/https://iclr.cc/Conferences/2020
   start: '2020-04-26'
   end: '2020-04-30'
   format: virtual
@@ -2295,7 +2295,7 @@
 - id: icml20
   title: ICML
   year: 2020
-  link: https://icml.cc/Conferences/2020
+  link: https://web.archive.org/web/20200715220747/https://icml.cc/Conferences/2020
   start: '2020-07-12'
   end: '2020-07-18'
   format: virtual
@@ -2311,7 +2311,7 @@
 - id: icmr20
   title: ICMR
   year: 2020
-  link: http://icmr2020.org/
+  link: https://web.archive.org/web/20201025162252/http://icmr2020.org/
   start: '2020-10-26'
   end: '2020-10-29'
   format: virtual
@@ -2334,7 +2334,7 @@
 - id: icpr20
   title: ICPR
   year: 2020
-  link: https://www.micc.unifi.it/icpr2020/
+  link: https://web.archive.org/web/20210106201159/https://www.micc.unifi.it/icpr2020/
   start: '2021-01-10'
   end: '2021-01-15'
   format: virtual
@@ -2357,7 +2357,7 @@
 - id: icra20
   title: ICRA
   year: 2020
-  link: https://icra2020.org/
+  link: https://web.archive.org/web/20200605063531/https://icra2020.org/
   start: '2020-05-31'
   end: '2020-06-15'
   format: virtual
@@ -2378,7 +2378,7 @@
 - id: ijcai20
   title: IJCAI-PRICAI
   year: 2020
-  link: https://www.ijcai20.org/
+  link: https://web.archive.org/web/20210113110214/https://www.ijcai20.org/
   start: '2021-01-07'
   end: '2021-01-15'
   format: virtual
@@ -2398,7 +2398,7 @@
 - id: ijcnlpaacl20
   title: AACL-IJCNLP
   year: 2020
-  link: http://aacl2020.org
+  link: https://web.archive.org/web/20201204061627/http://aacl2020.org
   start: '2020-12-04'
   end: '2020-12-07'
   format: virtual
@@ -2417,7 +2417,7 @@
 - id: inlg2020
   title: INLG
   year: 2020
-  link: https://www.inlg2020.org/
+  link: https://web.archive.org/web/20201205091254/https://www.inlg2020.org/
   start: '2020-12-15'
   end: '2020-12-18'
   format: virtual
@@ -2438,7 +2438,7 @@
 - id: interspeech2020
   title: Interspeech
   year: 2020
-  link: http://www.interspeech2020.org/
+  link: https://web.archive.org/web/20201023103015/http://www.interspeech2020.org/
   start: '2020-10-25'
   end: '2020-10-29'
   format: virtual
@@ -2459,7 +2459,7 @@
 - id: iros20
   title: IROS
   year: 2020
-  link: http://www.iros2020.org/
+  link: https://web.archive.org/web/20201027133952/http://www.iros2020.org/
   start: '2020-10-25'
   end: '2020-10-29'
   format: virtual
@@ -2481,7 +2481,7 @@
 - id: ismir20
   title: ISMIR
   year: 2020
-  link: https://ismir.github.io/ISMIR2020/
+  link: https://web.archive.org/web/20201012222838/https://ismir.github.io/ISMIR2020/
   start: '2020-10-11'
   end: '2020-10-15'
   format: virtual
@@ -2502,7 +2502,7 @@
 - id: kdd20
   title: KDD
   year: 2020
-  link: https://www.kdd.org/kdd2020/
+  link: https://web.archive.org/web/20200817123540/https://www.kdd.org/kdd2020/
   start: '2020-08-23'
   end: '2020-08-27'
   format: virtual
@@ -2522,7 +2522,7 @@
 - id: miccai20
   title: MICCAI
   year: 2020
-  link: http://www.miccai2020.org/
+  link: https://web.archive.org/web/20200929075424/https://www.miccai2020.org/en/
   start: '2020-10-04'
   end: '2020-10-08'
   format: virtual
@@ -2542,7 +2542,7 @@
 - id: midl20
   title: MIDL
   year: 2020
-  link: https://2020.midl.io/
+  link: https://web.archive.org/web/20200806094723/https://2020.midl.io/
   start: '2020-07-06'
   end: '2020-07-09'
   format: virtual
@@ -2564,7 +2564,7 @@
 - id: neurips20
   title: NeurIPS
   year: 2020
-  link: https://nips.cc/Conferences/2020
+  link: https://web.archive.org/web/20201208151319/https://nips.cc/Conferences/2020
   start: '2020-12-06'
   end: '2020-12-12'
   format: virtual
@@ -2586,7 +2586,7 @@
 - id: recsys20
   title: RecSys
   year: 2020
-  link: https://recsys.acm.org/recsys20/
+  link: https://web.archive.org/web/20200919155618/https://recsys.acm.org/recsys20/
   start: '2020-09-22'
   end: '2020-09-26'
   format: virtual
@@ -2602,7 +2602,7 @@
 - id: rss20
   title: RSS
   year: 2020
-  link: https://roboticsconference.org/
+  link: https://web.archive.org/web/20200715074055/https://roboticsconference.org/
   start: '2020-07-12'
   end: '2020-07-16'
   format: virtual
@@ -2625,7 +2625,7 @@
 - id: siggraph20
   title: SIGGRAPH
   year: 2020
-  link: https://s2020.siggraph.org/
+  link: https://web.archive.org/web/20200817172842/https://s2020.siggraph.org/
   start: '2020-08-17'
   end: '2020-08-28'
   format: virtual
@@ -2646,7 +2646,7 @@
 - id: sigir20
   title: SIGIR
   year: 2020
-  link: http://sigir.org/sigir2020/
+  link: https://web.archive.org/web/20200724200508/http://sigir.org/sigir2020/
   start: '2020-07-25'
   end: '2020-07-30'
   format: virtual
@@ -2666,7 +2666,7 @@
 - id: uai20
   title: UAI
   year: 2020
-  link: http://auai.org/uai2020/
+  link: https://web.archive.org/web/20200814080105/http://auai.org/uai2020/
   start: '2020-08-03'
   end: '2020-08-06'
   format: virtual
@@ -2687,7 +2687,7 @@
 - id: wacv20
   title: WACV
   year: 2020
-  link: http://wacv20.wacv.net/
+  link: https://web.archive.org/web/20200303063751/http://wacv20.wacv.net/
   start: '2020-03-02'
   end: '2020-03-05'
   format: in_person
@@ -2708,7 +2708,7 @@
 - id: wsdm20
   title: WSDM
   year: 2020
-  link: http://www.wsdm-conference.org/2020/
+  link: https://web.archive.org/web/20200203065634/http://www.wsdm-conference.org/2020/
   start: '2020-02-03'
   end: '2020-02-07'
   format: in_person
@@ -2726,7 +2726,7 @@
 - id: www20
   title: WWW
   year: 2020
-  link: https://www2020.thewebconf.org/
+  link: https://web.archive.org/web/20200421191515/https://www2020.thewebconf.org/
   start: '2020-04-20'
   end: '2020-04-24'
   format: virtual
@@ -2745,7 +2745,7 @@
 - id: aaai21
   title: AAAI
   year: 2021
-  link: https://aaai.org/Conferences/AAAI-21/
+  link: https://web.archive.org/web/20210204123056/https://aaai.org/Conferences/AAAI-21/
   start: '2021-02-02'
   end: '2021-02-09'
   format: virtual
@@ -2765,7 +2765,7 @@
 - id: aamas21
   title: AAMAS
   year: 2021
-  link: https://aamas2021.soton.ac.uk/
+  link: https://web.archive.org/web/20210503213151/https://aamas2021.soton.ac.uk/
   start: '2021-05-03'
   end: '2021-05-07'
   format: virtual
@@ -2786,7 +2786,7 @@
   title: ACL
   year: 2021
   full_name: 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021)
-  link: https://2021.aclweb.org/
+  link: https://web.archive.org/web/20210730133848/https://2021.aclweb.org/
   start: '2021-08-01'
   end: '2021-08-06'
   format: virtual
@@ -2807,7 +2807,7 @@
 - id: acm21
   title: ACM MM
   year: 2021
-  link: https://2021.acmmm.org/
+  link: https://web.archive.org/web/20211026232001/https://2021.acmmm.org/
   start: '2021-10-20'
   end: '2021-10-24'
   format: hybrid
@@ -2829,7 +2829,7 @@
 - id: acml21
   title: ACML
   year: 2021
-  link: http://www.acml-conf.org/2021
+  link: https://web.archive.org/web/20211022131622/http://www.acml-conf.org/2021
   start: '2021-11-17'
   end: '2021-11-19'
   format: virtual
@@ -2847,7 +2847,7 @@
 - id: aistats21
   title: AISTATS
   year: 2021
-  link: https://www.aistats.org/aistats2021/
+  link: https://web.archive.org/web/20210413110859/https://www.aistats.org/aistats2021/
   start: '2021-04-13'
   end: '2021-04-15'
   format: virtual
@@ -2867,7 +2867,7 @@
 - id: akbc21
   title: AKBC
   year: 2021
-  link: https://www.akbc.ws/2021/
+  link: https://web.archive.org/web/20210928044931/https://www.akbc.ws/2021/
   start: '2021-10-04'
   end: '2021-10-08'
   format: virtual
@@ -2888,7 +2888,7 @@
 - id: bmvc21
   title: BMVC
   year: 2021
-  link: https://www.bmvc2021.com
+  link: https://web.archive.org/web/20211020092611/https://www.bmvc2021.com
   start: '2021-11-22'
   end: '2021-11-25'
   format: virtual
@@ -2904,7 +2904,7 @@
 - id: chil21
   title: CHIL
   year: 2021
-  link: https://www.chilconference.org/
+  link: https://web.archive.org/web/20210408160735/https://www.chilconference.org/
   start: '2021-04-08'
   end: '2021-04-10'
   format: virtual
@@ -2920,7 +2920,7 @@
 - id: cikm21
   title: CIKM
   year: 2021
-  link: https://cikm2021.org/
+  link: https://web.archive.org/web/20211102182251/https://cikm2021.org/
   start: '2021-11-01'
   end: '2021-11-05'
   format: virtual
@@ -2941,7 +2941,7 @@
 - id: corl21
   title: CoRL
   year: 2021
-  link: http://www.robot-learning.org
+  link: https://web.archive.org/web/20211109033032/http://www.robot-learning.org
   start: '2021-11-08'
   end: '2021-11-11'
   format: hybrid
@@ -2959,7 +2959,7 @@
 - id: cvpr21
   title: CVPR
   year: 2021
-  link: http://cvpr2021.thecvf.com/
+  link: https://web.archive.org/web/20210618175916/http://cvpr2021.thecvf.com/
   start: '2021-06-19'
   end: '2021-06-25'
   format: virtual
@@ -2980,7 +2980,7 @@
 - id: eacl21
   title: EACL
   year: 2021
-  link: https://2021.eacl.org/
+  link: https://web.archive.org/web/20210423040608/https://2021.eacl.org/
   start: '2021-04-21'
   end: '2021-04-23'
   format: virtual
@@ -2997,7 +2997,7 @@
 - id: ecmlpkdd21
   title: ECML PKDD
   year: 2021
-  link: https://2021.ecmlpkdd.org/
+  link: https://web.archive.org/web/20210917004838/https://2021.ecmlpkdd.org/
   start: '2021-09-13'
   end: '2021-09-17'
   format: virtual
@@ -3017,7 +3017,7 @@
 - id: emnlp21
   title: EMNLP
   year: 2021
-  link: https://2021.emnlp.org/
+  link: https://web.archive.org/web/20211108163842/https://2021.emnlp.org/
   start: '2021-11-07'
   end: '2021-11-11'
   format: hybrid
@@ -3038,7 +3038,7 @@
 - id: fg21
   title: FG
   year: 2021
-  link: http://iab-rubric.org/fg2021/
+  link: https://web.archive.org/web/20220127155454/http://iab-rubric.org/fg2021/
   start: '2021-12-15'
   end: '2021-12-18'
   format: virtual
@@ -3058,7 +3058,7 @@
 - id: icaps21
   title: ICAPS
   year: 2021
-  link: https://icaps21.icaps-conference.org/
+  link: https://web.archive.org/web/20210802161646/https://icaps21.icaps-conference.org/
   start: '2021-08-02'
   end: '2021-08-13'
   format: virtual
@@ -3078,7 +3078,7 @@
 - id: icassp21
   title: ICASSP
   year: 2021
-  link: https://2021.ieeeicassp.org/
+  link: https://web.archive.org/web/20210419083128/https://2021.ieeeicassp.org/
   start: '2021-06-06'
   end: '2021-06-11'
   format: virtual
@@ -3098,7 +3098,7 @@
 - id: iccv21
   title: ICCV
   year: 2021
-  link: http://iccv2021.thecvf.com/
+  link: https://web.archive.org/web/20211007184740/http://iccv2021.thecvf.com/
   start: '2021-10-11'
   end: '2021-10-17'
   format: virtual
@@ -3118,7 +3118,7 @@
 - id: icdm21
   title: ICDM
   year: 2021
-  link: https://icdm2021.auckland.ac.nz
+  link: https://web.archive.org/web/20211217054455/https://icdm2021.auckland.ac.nz
   start: '2021-12-07'
   end: '2021-12-10'
   format: virtual
@@ -3137,7 +3137,7 @@
 - id: icip21
   title: ICIP
   year: 2021
-  link: https://2021.ieeeicip.org
+  link: https://web.archive.org/web/20210921045344/https://2021.ieeeicip.org
   start: '2021-09-19'
   end: '2021-09-22'
   format: virtual
@@ -3157,7 +3157,7 @@
 - id: iclr21
   title: ICLR
   year: 2021
-  link: https://iclr.cc/Conferences/2021
+  link: https://web.archive.org/web/20210504195429/https://iclr.cc/Conferences/2021
   start: '2021-05-03'
   end: '2021-05-07'
   format: virtual
@@ -3177,7 +3177,7 @@
 - id: icme21
   title: ICME
   year: 2021
-  link: https://2021.ieeeicme.org/
+  link: https://web.archive.org/web/20210707140327/https://2021.ieeeicme.org/
   start: '2021-07-05'
   end: '2021-07-09'
   format: virtual
@@ -3197,7 +3197,7 @@
 - id: icmi21
   title: ICMI
   year: 2021
-  link: https://icmi.acm.org/2021/
+  link: https://web.archive.org/web/20211024210207/https://icmi.acm.org/2021/
   start: '2021-10-18'
   end: '2021-10-22'
   format: hybrid
@@ -3218,7 +3218,7 @@
 - id: icml21
   title: ICML
   year: 2021
-  link: https://icml.cc/Conferences/2021
+  link: https://web.archive.org/web/20210720092647/https://icml.cc/Conferences/2021
   start: '2021-07-18'
   end: '2021-07-24'
   format: virtual
@@ -3239,7 +3239,7 @@
 - id: icra21
   title: ICRA
   year: 2021
-  link: https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/icra2021/icra2021/web.archive.org/web/20210531183741/https_/www.ieee-icra.org/index.html
+  link: https://web.archive.org/web/20210530005435/https://www.ieee-icra.org/
   start: '2021-05-30'
   end: '2021-06-05'
   format: hybrid
@@ -3264,7 +3264,7 @@
 - id: ijcai21
   title: IJCAI
   year: 2021
-  link: https://ijcai-21.org/
+  link: https://web.archive.org/web/20210815034739/https://ijcai-21.org/
   start: '2021-08-19'
   end: '2021-08-26'
   format: virtual
@@ -3283,7 +3283,7 @@
 - id: interspeech2021
   title: Interspeech
   year: 2021
-  link: http://www.interspeech2021.org/
+  link: https://web.archive.org/web/20210831140614/http://www.interspeech2021.org/
   start: '2021-08-30'
   end: '2021-09-03'
   format: hybrid
@@ -3304,7 +3304,7 @@
 - id: iros21
   title: IROS
   year: 2021
-  link: https://www.iros2021.org/important-dates
+  link: https://web.archive.org/web/20210925060234/https://www.iros2021.org/important-dates
   start: '2021-09-27'
   end: '2021-10-01'
   format: virtual
@@ -3324,7 +3324,7 @@
 - id: kdd21
   title: KDD
   year: 2021
-  link: https://www.kdd.org/kdd2021/
+  link: https://web.archive.org/web/20210813142414/https://www.kdd.org/kdd2021/
   start: '2021-08-14'
   end: '2021-08-18'
   format: virtual
@@ -3345,7 +3345,7 @@
 - id: miccai21
   title: MICCAI
   year: 2021
-  link: http://www.miccai2021.org/
+  link: https://web.archive.org/web/20210927155958/https://www.miccai2021.org/en/
   start: '2021-09-27'
   end: '2021-10-01'
   format: virtual
@@ -3366,7 +3366,7 @@
 - id: midl21
   title: MIDL
   year: 2021
-  link: https://2021.midl.io/
+  link: https://web.archive.org/web/20210709014959/https://2021.midl.io/
   start: '2021-07-07'
   end: '2021-07-09'
   format: virtual
@@ -3386,7 +3386,7 @@
 - id: naacl21
   title: NAACL-HLT
   year: 2021
-  link: https://2021.naacl.org/
+  link: https://web.archive.org/web/20210605104454/https://2021.naacl.org/
   start: '2021-06-06'
   end: '2021-06-11'
   format: virtual
@@ -3407,7 +3407,7 @@
 - id: neurips21
   title: NeurIPS
   year: 2021
-  link: https://neurips.cc/Conferences/2021/
+  link: https://web.archive.org/web/20220103224732/https://neurips.cc/Conferences/2021/
   start: '2021-12-05'
   end: '2021-12-14'
   format: virtual
@@ -3423,7 +3423,7 @@
 - id: recsys21
   title: RecSys
   year: 2021
-  link: https://recsys.acm.org/recsys21/
+  link: https://web.archive.org/web/20211006033600/https://recsys.acm.org/recsys21/
   start: '2021-09-27'
   end: '2021-10-01'
   format: hybrid
@@ -3443,7 +3443,7 @@
 - id: rss21
   title: RSS
   year: 2021
-  link: https://roboticsconference.org/2021
+  link: https://web.archive.org/web/20210724113132/https://roboticsconference.org/2021
   start: '2021-07-12'
   end: '2021-07-16'
   format: virtual
@@ -3459,7 +3459,7 @@
 - id: sdm21
   title: SDM
   year: 2021
-  link: https://www.siam.org/conferences/cm/conference/sdm21
+  link: https://web.archive.org/web/20210415175616/https://www.siam.org/conferences/cm/conference/sdm21
   start: '2021-04-29'
   end: '2021-05-01'
   format: virtual
@@ -3475,7 +3475,7 @@
 - id: siggraph21
   title: SIGGRAPH
   year: 2021
-  link: https://s2021.siggraph.org/
+  link: https://web.archive.org/web/20210731210239/https://s2021.siggraph.org/
   start: '2021-08-01'
   end: '2021-08-05'
   format: virtual
@@ -3491,7 +3491,7 @@
 - id: sigir21
   title: SIGIR
   year: 2021
-  link: http://sigir.org/sigir2021/
+  link: https://web.archive.org/web/20210708225815/http://sigir.org/sigir2021/
   start: '2021-07-11'
   end: '2021-07-15'
   format: virtual
@@ -3513,7 +3513,7 @@
 - id: uai21
   title: UAI
   year: 2021
-  link: http://auai.org/uai2021/
+  link: https://web.archive.org/web/20210801074801/http://auai.org/uai2021/
   start: '2021-07-27'
   end: '2021-07-30'
   format: virtual
@@ -3533,7 +3533,7 @@
 - id: wacv21
   title: WACV
   year: 2021
-  link: http://wacv2021.thecvf.com/
+  link: https://web.archive.org/web/20210120151931/http://wacv2021.thecvf.com/
   start: '2021-01-05'
   end: '2021-01-09'
   format: virtual
@@ -3553,7 +3553,7 @@
 - id: wsdm21
   title: WSDM
   year: 2021
-  link: http://www.wsdm-conference.org/2021/
+  link: https://web.archive.org/web/20210314141038/http://www.wsdm-conference.org/2021/
   start: '2021-03-08'
   end: '2021-03-12'
   format: virtual
@@ -3573,7 +3573,7 @@
 - id: www21
   title: WWW
   year: 2021
-  link: http://www2021.thewebconf.org/
+  link: https://web.archive.org/web/20210420135321/http://www2021.thewebconf.org/
   start: '2021-04-19'
   end: '2021-04-23'
   format: virtual
@@ -3592,7 +3592,7 @@
 - id: aaai22
   title: AAAI
   year: 2022
-  link: https://aaai.org/Conferences/AAAI-22/
+  link: https://web.archive.org/web/20220223171426/https://aaai.org/Conferences/AAAI-22/
   start: '2022-02-22'
   end: '2022-03-01'
   format: in_person
@@ -3610,7 +3610,7 @@
 - id: acl22
   title: ACL
   year: 2022
-  link: https://2022.aclweb.org/
+  link: https://web.archive.org/web/20220520032714/https://2022.aclweb.org/
   start: '2022-05-22'
   end: '2022-05-27'
   format: in_person
@@ -3628,7 +3628,7 @@
 - id: acm22
   title: ACM MM
   year: 2022
-  link: https://2022.acmmm.org/
+  link: https://web.archive.org/web/20221009115525/https://2022.acmmm.org/
   start: '2022-10-10'
   end: '2022-10-14'
   format: hybrid
@@ -3651,7 +3651,7 @@
 - id: acml22
   title: ACML
   year: 2022
-  link: https://www.acml-conf.org/2022
+  link: https://web.archive.org/web/20221212072152/https://www.acml-conf.org/2022
   start: '2022-12-12'
   end: '2022-12-14'
   format: in_person
@@ -3669,7 +3669,7 @@
 - id: aistats22
   title: AISTATS
   year: 2022
-  link: https://www.aistats.org/aistats2022/
+  link: https://web.archive.org/web/20220514164142/https://www.aistats.org/aistats2022/
   start: '2022-03-30'
   end: '2022-04-01'
   format: in_person
@@ -3687,7 +3687,7 @@
 - id: automl22
   title: AutoML-Conf
   year: 2022
-  link: https://automl.cc/
+  link: https://web.archive.org/web/20220727065710/https://automl.cc/
   start: '2022-07-25'
   end: '2022-07-27'
   format: in_person
@@ -3705,7 +3705,7 @@
 - id: bmvc22
   title: BMVC
   year: 2022
-  link: https://www.bmvc2022.org
+  link: https://web.archive.org/web/20221119211919/https://www.bmvc2022.org
   start: '2022-11-21'
   end: '2022-11-24'
   format: hybrid
@@ -3729,7 +3729,7 @@
 - id: chil22
   title: CHIL
   year: 2022
-  link: https://www.chilconference.org/
+  link: https://web.archive.org/web/20220406123902/https://www.chilconference.org/
   start: '2022-04-07'
   end: '2022-04-08'
   format: virtual
@@ -3745,7 +3745,7 @@
 - id: cikm22
   title: CIKM
   year: 2022
-  link: https://www.cikm2022.org/
+  link: https://web.archive.org/web/20221010174617/https://www.cikm2022.org/
   start: '2022-10-17'
   end: '2022-10-22'
   format: in_person
@@ -3763,7 +3763,7 @@
 - id: coling22
   title: COLING
   year: 2022
-  link: https://coling2022.org/
+  link: https://web.archive.org/web/20221014003828/https://coling2022.org/
   start: '2022-10-12'
   end: '2022-10-17'
   format: in_person
@@ -3781,7 +3781,7 @@
 - id: collas22
   title: CoLLAs
   year: 2022
-  link: https://lifelong-ml.cc
+  link: https://web.archive.org/web/20220902033805/https://lifelong-ml.cc
   start: '2022-08-29'
   end: '2022-08-31'
   format: virtual
@@ -3797,7 +3797,7 @@
 - id: corl22
   title: CoRL
   year: 2022
-  link: https://corl2022.org
+  link: https://web.archive.org/web/20221215143549/https://corl2022.org
   start: '2022-12-14'
   end: '2022-12-18'
   format: hybrid
@@ -3815,7 +3815,7 @@
 - id: cvpr22
   title: CVPR
   year: 2022
-  link: http://cvpr2022.thecvf.com/
+  link: https://web.archive.org/web/20220621183831/http://cvpr2022.thecvf.com/
   start: '2022-06-21'
   end: '2022-06-24'
   format: in_person
@@ -3833,7 +3833,7 @@
 - id: eccv22
   title: ECCV
   year: 2022
-  link: https://eccv2022.ecva.net/
+  link: https://web.archive.org/web/20221024155449/https://eccv2022.ecva.net/
   start: '2022-10-24'
   end: '2022-10-28'
   format: in_person
@@ -3852,7 +3852,7 @@
   title: ECML/PKDD
   year: 2022
   full_name: European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases
-  link: https://2022.ecmlpkdd.org/
+  link: https://web.archive.org/web/20220917042941/https://2022.ecmlpkdd.org/
   start: '2022-09-19'
   end: '2022-09-23'
   format: in_person
@@ -3870,7 +3870,7 @@
 - id: emnlp22
   title: EMNLP
   year: 2022
-  link: https://2022.emnlp.org/
+  link: https://web.archive.org/web/20221209093033/https://2022.emnlp.org/
   start: '2022-12-07'
   end: '2022-12-11'
   format: in_person
@@ -3888,7 +3888,7 @@
 - id: facct22
   title: FAccT
   year: 2022
-  link: https://facctconference.org/2022/
+  link: https://web.archive.org/web/20220627075114/https://facctconference.org/2022/
   start: '2022-06-21'
   end: '2022-06-24'
   format: in_person
@@ -3906,7 +3906,7 @@
 - id: icaps22
   title: ICAPS
   year: 2022
-  link: http://icaps22.icaps-conference.org/
+  link: https://web.archive.org/web/20220615193136/http://icaps22.icaps-conference.org/
   start: '2022-06-13'
   end: '2022-06-24'
   format: virtual
@@ -3928,7 +3928,7 @@
 - id: icassp22
   title: ICASSP
   year: 2022
-  link: https://2022.ieeeicassp.org/
+  link: https://web.archive.org/web/20220520212232/https://2022.ieeeicassp.org/
   start: '2022-05-22'
   end: '2022-05-27'
   format: in_person
@@ -3947,7 +3947,7 @@
   title: ICDM
   year: 2022
   full_name: IEEE International Conference on Data Mining (ICDM)
-  link: https://icdm22.cse.usf.edu/
+  link: https://web.archive.org/web/20221213144218/https://icdm22.cse.usf.edu/
   start: '2022-11-30'
   end: '2022-12-03'
   format: in_person
@@ -3965,7 +3965,7 @@
 - id: icip22
   title: ICIP
   year: 2022
-  link: https://2022.ieeeicip.org
+  link: https://web.archive.org/web/20221020035758/https://2022.ieeeicip.org
   start: '2022-10-16'
   end: '2022-10-19'
   format: in_person
@@ -3983,7 +3983,7 @@
 - id: iclr22
   title: ICLR
   year: 2022
-  link: https://iclr.cc/Conferences/2022
+  link: https://web.archive.org/web/20220427214532/https://iclr.cc/Conferences/2022
   start: '2022-04-25'
   end: '2022-04-29'
   format: virtual
@@ -3999,7 +3999,7 @@
 - id: icmi22
   title: ICMI
   year: 2022
-  link: https://icmi.acm.org/2022/
+  link: https://web.archive.org/web/20221130044738/https://icmi.acm.org/2022/
   start: '2022-11-07'
   end: '2022-11-11'
   format: in_person
@@ -4017,7 +4017,7 @@
 - id: icml22
   title: ICML
   year: 2022
-  link: https://icml.cc/Conferences/2022
+  link: https://web.archive.org/web/20220719010533/https://icml.cc/Conferences/2022
   start: '2022-07-17'
   end: '2022-07-23'
   format: hybrid
@@ -4042,7 +4042,7 @@
 - id: icra22
   title: ICRA
   year: 2022
-  link: https://icra2022.org/
+  link: https://web.archive.org/web/20220523232304/https://icra2022.org/
   start: '2022-05-23'
   end: '2022-05-27'
   format: in_person
@@ -4060,7 +4060,7 @@
 - id: icwsm22
   title: ICWSM
   year: 2022
-  link: https://www.icwsm.org/2022/index.html/
+  link: https://web.archive.org/web/20220611102833/https://www.icwsm.org/2022/index.html/
   start: '2022-06-06'
   end: '2022-06-09'
   format: hybrid
@@ -4084,7 +4084,7 @@
   title: IJCAI-ECAI
   year: 2022
   full_name: International Joint Conference on Artificial Intelligence and European Conference on Artificial Intelligence
-  link: https://ijcai-22.org/
+  link: https://web.archive.org/web/20220724090537/https://ijcai-22.org/
   start: '2022-07-23'
   end: '2022-07-29'
   format: in_person
@@ -4104,7 +4104,7 @@
 - id: ijcnlpaacl22
   title: AACL-IJCNLP
   year: 2022
-  link: https://www.aacl2022.org/
+  link: https://web.archive.org/web/20221208004406/https://www.aacl2022.org/
   start: '2022-11-21'
   end: '2022-11-24'
   format: in_person
@@ -4122,7 +4122,7 @@
 - id: interspeech2022
   title: InterSpeech
   year: 2022
-  link: http://www.interspeech2022.org/
+  link: https://web.archive.org/web/20220910160233/http://www.interspeech2022.org/
   start: '2022-09-18'
   end: '2022-09-22'
   format: in_person
@@ -4140,7 +4140,7 @@
 - id: iros22
   title: IROS
   year: 2022
-  link: https://iros2022.org/
+  link: https://web.archive.org/web/20221024051353/https://iros2022.org/
   start: '2022-10-23'
   end: '2022-10-27'
   format: in_person
@@ -4158,7 +4158,7 @@
 - id: ismir22
   title: ISMIR
   year: 2022
-  link: https://ismir2022.ismir.net/
+  link: https://web.archive.org/web/20221201033627/https://ismir2022.ismir.net/
   start: '2022-12-04'
   end: '2022-12-08'
   format: in_person
@@ -4176,7 +4176,7 @@
 - id: ismis22
   title: ISMIS
   year: 2022
-  link: https://ismis2022.icar.cnr.it/
+  link: https://web.archive.org/web/20221004220313/https://ismis2022.icar.cnr.it/
   start: '2022-10-03'
   end: '2022-10-05'
   format: in_person
@@ -4194,7 +4194,7 @@
 - id: kdd22
   title: KDD
   year: 2022
-  link: https://www.kdd.org/kdd2022/
+  link: https://web.archive.org/web/20220814222036/https://www.kdd.org/kdd2022/
   start: '2022-08-14'
   end: '2022-08-18'
   format: in_person
@@ -4212,7 +4212,7 @@
 - id: l4dc22
   title: L4DC
   year: 2022
-  link: https://l4dc.stanford.edu/
+  link: https://web.archive.org/web/20220624023154/https://l4dc.stanford.edu/
   start: '2022-06-23'
   end: '2022-06-24'
   format: in_person
@@ -4236,7 +4236,7 @@
   title: LoG
   year: 2022
   full_name: Learning on Graphs Conference
-  link: https://logconference.org/
+  link: https://web.archive.org/web/20221209171445/https://logconference.org/
   start: '2022-12-09'
   end: '2022-12-12'
   format: virtual
@@ -4256,7 +4256,7 @@
 - id: lrec22
   title: LREC
   year: 2022
-  link: http://elra.info/en/lrec/lrec-2022/
+  link: https://web.archive.org/web/20221111142440/http://elra.info/en/lrec/lrec-2022/
   start: '2022-06-20'
   end: '2022-06-25'
   format: in_person
@@ -4274,7 +4274,7 @@
 - id: naacl22
   title: NAACL
   year: 2022
-  link: https://2022.naacl.org/
+  link: https://web.archive.org/web/20220712212235/https://2022.naacl.org/
   start: '2022-07-10'
   end: '2022-07-15'
   format: in_person
@@ -4292,7 +4292,7 @@
 - id: neurips22
   title: NeurIPS
   year: 2022
-  link: https://neurips.cc/Conferences/2022/
+  link: https://web.archive.org/web/20221201092443/https://neurips.cc/Conferences/2022/
   start: '2022-11-28'
   end: '2022-12-09'
   format: hybrid
@@ -4310,7 +4310,7 @@
 - id: recsys22
   title: RecSys
   year: 2022
-  link: https://recsys.acm.org/recsys22/
+  link: https://web.archive.org/web/20220916060251/https://recsys.acm.org/recsys22/
   start: '2022-09-18'
   end: '2022-09-23'
   format: in_person
@@ -4328,7 +4328,7 @@
 - id: roman22
   title: RO-MAN
   year: 2022
-  link: http://www.ro-man2022.org/
+  link: https://web.archive.org/web/20220929184345/http://www.ro-man2022.org/
   start: '2022-08-29'
   end: '2022-09-02'
   format: in_person
@@ -4346,7 +4346,7 @@
 - id: rss22
   title: RSS
   year: 2022
-  link: https://roboticsconference.org/2022
+  link: https://web.archive.org/web/20220625034951/https://roboticsconference.org/2022
   start: '2022-06-27'
   end: '2022-07-01'
   format: in_person
@@ -4364,7 +4364,7 @@
 - id: siggraph22
   title: SIGGRAPH
   year: 2022
-  link: https://s2022.siggraph.org/
+  link: https://web.archive.org/web/20220808225313/https://s2022.siggraph.org/
   start: '2022-08-08'
   end: '2022-08-11'
   format: hybrid
@@ -4387,7 +4387,7 @@
   title: SIGGRAPH Asia
   year: 2022
   full_name: SIGGRAPH ASIA 2022
-  link: https://sa2022.siggraph.org/
+  link: https://web.archive.org/web/20221206230538/https://sa2022.siggraph.org/en/
   start: '2022-12-06'
   end: '2022-12-09'
   format: in_person
@@ -4405,7 +4405,7 @@
 - id: sigir22
   title: SIGIR
   year: 2022
-  link: https://sigir.org/sigir2022/
+  link: https://web.archive.org/web/20220716072003/https://sigir.org/sigir2022/
   start: '2022-07-11'
   end: '2022-07-15'
   format: in_person
@@ -4423,7 +4423,7 @@
 - id: uai22
   title: UAI
   year: 2022
-  link: https://www.auai.org/uai2022/
+  link: https://web.archive.org/web/20220802095505/https://www.auai.org/uai2022/
   start: '2022-08-01'
   end: '2022-08-05'
   format: in_person
@@ -4441,7 +4441,7 @@
 - id: wacv22
   title: WACV
   year: 2022
-  link: http://wacv2022.thecvf.com/
+  link: https://web.archive.org/web/20220204101858/http://wacv2022.thecvf.com/
   start: '2022-01-04'
   end: '2022-01-08'
   format: in_person
@@ -4459,7 +4459,7 @@
 - id: wsdm22
   title: WSDM
   year: 2022
-  link: https://www.wsdm-conference.org/2022/
+  link: https://web.archive.org/web/20220224010610/https://www.wsdm-conference.org/2022/
   start: '2022-02-21'
   end: '2022-02-25'
   format: in_person
@@ -4477,7 +4477,7 @@
 - id: www22
   title: WWW
   year: 2022
-  link: https://www2022.thewebconf.org/
+  link: https://web.archive.org/web/20220425111035/https://www2022.thewebconf.org/
   start: '2022-04-25'
   end: '2022-04-29'
   format: in_person
@@ -4496,7 +4496,7 @@
   title: AAAI
   year: 2023
   full_name: AAAI Conference on Artificial Intelligence
-  link: https://aaai.org/Conferences/AAAI-23/
+  link: https://web.archive.org/web/20230203000242/https://aaai.org/Conferences/AAAI-23/
   start: '2023-02-07'
   end: '2023-02-14'
   format: in_person
@@ -4514,7 +4514,7 @@
 - id: aamas23
   title: AAMAS
   year: 2023
-  link: https://aamas2023.soton.ac.uk/
+  link: https://web.archive.org/web/20230602230446/https://aamas2023.soton.ac.uk/
   start: '2023-05-29'
   end: '2023-06-02'
   format: in_person
@@ -4532,7 +4532,7 @@
 - id: acl23
   title: ACL
   year: 2023
-  link: https://2023.aclweb.org/
+  link: https://web.archive.org/web/20230705224518/https://2023.aclweb.org/
   start: '2023-07-09'
   end: '2023-07-14'
   format: in_person
@@ -4550,7 +4550,7 @@
 - id: acm23
   title: ACM MM
   year: 2023
-  link: https://www.acmmm2023.org/
+  link: https://web.archive.org/web/20231023022831/https://www.acmmm2023.org/
   start: '2023-10-29'
   end: '2023-11-03'
   format: in_person
@@ -4573,7 +4573,7 @@
 - id: acml23
   title: ACML
   year: 2023
-  link: https://www.acml-conf.org/2023
+  link: https://web.archive.org/web/20231025043608/https://www.acml-conf.org/2023
   start: '2023-11-11'
   end: '2023-11-14'
   format: in_person
@@ -4591,7 +4591,7 @@
 - id: aistats23
   title: AISTATS
   year: 2023
-  link: https://www.aistats.org/aistats2023/
+  link: https://web.archive.org/web/20230505064941/https://www.aistats.org/aistats2023/
   start: '2023-04-25'
   end: '2023-04-27'
   format: in_person
@@ -4609,7 +4609,7 @@
 - id: automl23
   title: AutoML-Conf
   year: 2023
-  link: https://2023.automl.cc
+  link: https://web.archive.org/web/20230911105537/https://2023.automl.cc
   start: '2023-09-12'
   end: '2023-09-15'
   format: in_person
@@ -4632,7 +4632,7 @@
 - id: bmvc23
   title: BMVC
   year: 2023
-  link: https://www.bmvc2023.org
+  link: https://web.archive.org/web/20231122205052/https://www.bmvc2023.org
   start: '2023-11-20'
   end: '2023-11-24'
   format: in_person
@@ -4650,7 +4650,7 @@
 - id: chil23
   title: CHIL
   year: 2023
-  link: https://www.chilconference.org/
+  link: https://web.archive.org/web/20230627081352/https://www.chilconference.org/
   start: '2023-06-22'
   end: '2023-06-24'
   format: in_person
@@ -4669,7 +4669,7 @@
   title: CIKM
   year: 2023
   full_name: International Conference on Information and Knowledge Managements
-  link: https://cikm2023.github.io/
+  link: https://web.archive.org/web/20230911110056/https://cikm2023.github.io/
   start: '2023-10-23'
   end: '2023-10-25'
   format: in_person
@@ -4687,7 +4687,7 @@
 - id: collas23
   title: CoLLAs
   year: 2023
-  link: https://lifelong-ml.cc
+  link: https://web.archive.org/web/20230911105541/https://lifelong-ml.cc
   start: '2023-08-22'
   end: '2023-08-25'
   format: in_person
@@ -4705,7 +4705,7 @@
 - id: conll23
   title: CoNLL
   year: 2023
-  link: https://conll.org/
+  link: https://web.archive.org/web/20231202083611/https://conll.org/
   start: '2023-12-06'
   end: '2023-12-07'
   format: in_person
@@ -4723,7 +4723,7 @@
 - id: corl23
   title: CoRL
   year: 2023
-  link: https://corl2023.org
+  link: https://web.archive.org/web/20231106175337/https://corl2023.org
   start: '2023-11-06'
   end: '2023-11-09'
   format: in_person
@@ -4741,7 +4741,7 @@
 - id: cvpr23
   title: CVPR
   year: 2023
-  link: http://cvpr2023.thecvf.com/
+  link: https://web.archive.org/web/20230621185420/http://cvpr2023.thecvf.com/
   start: '2023-06-18'
   end: '2023-06-22'
   format: in_person
@@ -4764,7 +4764,7 @@
 - id: eacl23
   title: EACL
   year: 2023
-  link: https://2023.eacl.org/
+  link: https://web.archive.org/web/20230512231338/https://2023.eacl.org/
   start: '2023-05-02'
   end: '2023-05-06'
   format: hybrid
@@ -4782,7 +4782,7 @@
 - id: ecai23
   title: ECAI
   year: 2023
-  link: https://ecai2023.eu/
+  link: https://web.archive.org/web/20231015140140/https://ecai2023.eu/
   start: '2023-09-30'
   end: '2023-10-05'
   format: in_person
@@ -4801,7 +4801,7 @@
   title: ECML/PKDD
   year: 2023
   full_name: European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases
-  link: https://2023.ecmlpkdd.org/
+  link: https://web.archive.org/web/20230918123125/https://2023.ecmlpkdd.org/
   start: '2023-09-18'
   end: '2023-09-22'
   format: in_person
@@ -4819,7 +4819,7 @@
 - id: emnlp23
   title: EMNLP
   year: 2023
-  link: https://2023.emnlp.org/
+  link: https://web.archive.org/web/20231207025438/https://2023.emnlp.org/
   start: '2023-12-06'
   end: '2023-12-10'
   format: in_person
@@ -4838,7 +4838,7 @@
   title: evoMUSART
   year: 2023
   full_name: 12th International Conference on Artificial Intelligence in Music, Sound, Art and Design
-  link: https://www.evostar.org/2023/evomusart/
+  link: https://web.archive.org/web/20230402092325/https://www.evostar.org/2023/evomusart/
   start: '2023-04-12'
   end: '2023-04-14'
   format: in_person
@@ -4856,7 +4856,7 @@
 - id: icaps23
   title: ICAPS
   year: 2023
-  link: https://icaps23.icaps-conference.org/
+  link: https://web.archive.org/web/20230701224430/https://icaps23.icaps-conference.org/
   start: '2023-07-08'
   end: '2023-07-13'
   format: in_person
@@ -4874,7 +4874,7 @@
 - id: icassp23
   title: ICASSP
   year: 2023
-  link: https://2023.ieeeicassp.org/
+  link: https://web.archive.org/web/20230601040531/https://2023.ieeeicassp.org/
   start: '2023-06-04'
   end: '2023-06-09'
   format: in_person
@@ -4892,7 +4892,7 @@
 - id: iccv23
   title: ICCV
   year: 2023
-  link: http://iccv2023.thecvf.com/
+  link: https://web.archive.org/web/20230929213712/http://iccv2023.thecvf.com/
   start: '2023-10-02'
   end: '2023-10-06'
   format: in_person
@@ -4910,7 +4910,7 @@
 - id: icdm23
   title: ICDM
   year: 2023
-  link: https://www.cloud-conf.net/icdm2023/
+  link: https://web.archive.org/web/20231111043630/https://www.cloud-conf.net/icdm2023/
   start: '2023-12-01'
   end: '2023-12-04'
   format: in_person
@@ -4928,7 +4928,7 @@
 - id: icip23
   title: ICIP
   year: 2023
-  link: https://2023.ieeeicip.org/
+  link: https://web.archive.org/web/20231004212058/https://2023.ieeeicip.org/
   start: '2023-10-08'
   end: '2023-10-11'
   format: in_person
@@ -4946,7 +4946,7 @@
 - id: iclr23
   title: ICLR
   year: 2023
-  link: https://iclr.cc/Conferences/2023
+  link: https://web.archive.org/web/20230505021224/https://iclr.cc/Conferences/2023
   start: '2023-05-01'
   end: '2023-05-05'
   format: in_person
@@ -4964,7 +4964,7 @@
 - id: icml23
   title: ICML
   year: 2023
-  link: https://icml.cc/Conferences/2023
+  link: https://web.archive.org/web/20230807120944/https://icml.cc/Conferences/2023
   start: '2023-07-23'
   end: '2023-07-29'
   format: in_person
@@ -4986,7 +4986,7 @@
 - id: icra23
   title: ICRA
   year: 2023
-  link: https://www.icra2023.org/
+  link: https://web.archive.org/web/20230601004821/https://www.icra2023.org/
   start: '2023-05-29'
   end: '2023-06-02'
   format: in_person
@@ -5009,7 +5009,7 @@
 - id: ijcai23
   title: IJCAI
   year: 2023
-  link: https://ijcai-23.org/
+  link: https://web.archive.org/web/20230925023106/https://ijcai-23.org/
   start: '2023-08-19'
   end: '2023-08-25'
   format: in_person
@@ -5031,7 +5031,7 @@
 - id: ijcnlpaacl23
   title: IJCNLP-AACL
   year: 2023
-  link: http://www.ijcnlp-aacl2023.org/
+  link: https://web.archive.org/web/20231128042539/http://www.ijcnlp-aacl2023.org/
   start: '2023-11-01'
   end: '2023-11-04'
   format: in_person
@@ -5049,7 +5049,7 @@
 - id: interspeech2023
   title: Interspeech
   year: 2023
-  link: http://www.interspeech2023.org/
+  link: https://web.archive.org/web/20230823030952/http://www.interspeech2023.org/
   start: '2023-08-20'
   end: '2023-08-24'
   format: in_person
@@ -5073,7 +5073,7 @@
 - id: iros23
   title: IROS
   year: 2023
-  link: https://ieee-iros.org/
+  link: https://web.archive.org/web/20231002151047/https://ieee-iros.org/
   start: '2023-10-01'
   end: '2023-10-05'
   format: in_person
@@ -5092,7 +5092,7 @@
   title: ISWC
   year: 2023
   full_name: International Semantic Web Conference
-  link: https://iswc2023.semanticweb.org/
+  link: https://web.archive.org/web/20231103215314/https://iswc2023.semanticweb.org/
   start: '2023-11-06'
   end: '2023-11-10'
   format: in_person
@@ -5110,7 +5110,7 @@
 - id: kdd23
   title: KDD
   year: 2023
-  link: https://kdd.org/kdd2023/
+  link: https://web.archive.org/web/20230802175700/https://kdd.org/kdd2023/
   start: '2023-08-06'
   end: '2023-08-10'
   format: in_person
@@ -5128,7 +5128,7 @@
 - id: kr23
   title: KR
   year: 2023
-  link: https://kr.org/KR2023/
+  link: https://web.archive.org/web/20230923150413/https://kr.org/KR2023/
   start: '2023-09-02'
   end: '2023-09-08'
   format: in_person
@@ -5146,7 +5146,7 @@
 - id: miccai23
   title: MICCAI
   year: 2023
-  link: https://conferences.miccai.org/2023/en/
+  link: https://web.archive.org/web/20230923104657/https://conferences.miccai.org/2023/en/
   start: '2023-10-08'
   end: '2023-10-12'
   format: in_person
@@ -5164,7 +5164,7 @@
 - id: neurips23
   title: NeurIPS
   year: 2023
-  link: https://neurips.cc/Conferences/2023/
+  link: https://web.archive.org/web/20231209151617/https://neurips.cc/Conferences/2023/
   start: '2023-12-10'
   end: '2023-12-16'
   format: in_person
@@ -5182,7 +5182,7 @@
 - id: pakdd23
   title: PAKDD
   year: 2023
-  link: https://pakdd2023.org
+  link: https://web.archive.org/web/20230525100840/https://pakdd2023.org
   start: '2023-05-25'
   end: '2023-05-28'
   format: in_person
@@ -5200,7 +5200,7 @@
 - id: recsys23
   title: RecSys
   year: 2023
-  link: https://recsys.acm.org/recsys23/
+  link: https://web.archive.org/web/20231002050031/https://recsys.acm.org/recsys23/
   start: '2023-09-18'
   end: '2023-09-22'
   format: in_person
@@ -5218,7 +5218,7 @@
 - id: roman23
   title: RO-MAN
   year: 2023
-  link: http://ro-man2023.org/main
+  link: https://web.archive.org/web/20230924191705/http://ro-man2023.org/main
   start: '2023-08-28'
   end: '2023-08-31'
   format: in_person
@@ -5236,7 +5236,7 @@
 - id: rss23
   title: RSS
   year: 2023
-  link: https://roboticsconference.org/2023
+  link: https://web.archive.org/web/20230928141456/https://roboticsconference.org/2023
   start: '2023-07-10'
   end: '2023-07-14'
   format: in_person
@@ -5255,7 +5255,7 @@
   title: '*SEM'
   year: 2023
   full_name: '*SEM 2023'
-  link: https://sites.google.com/view/starsem2023
+  link: https://web.archive.org/web/20230528162954/https://sites.google.com/view/starsem2023
   start: '2023-07-13'
   end: '2023-07-14'
   format: in_person
@@ -5273,7 +5273,7 @@
 - id: siggraph23
   title: SIGGRAPH
   year: 2023
-  link: https://s2023.siggraph.org/
+  link: https://web.archive.org/web/20230806045843/https://s2023.siggraph.org/
   start: '2023-08-06'
   end: '2023-08-10'
   format: in_person
@@ -5292,7 +5292,7 @@
   title: SIGGRAPH Asia
   year: 2023
   full_name: SIGGRAPH ASIA 2023
-  link: https://asia.siggraph.org/2023/
+  link: https://web.archive.org/web/20231205202357/https://asia.siggraph.org/2023/
   start: '2023-12-12'
   end: '2023-12-15'
   format: in_person
@@ -5310,7 +5310,7 @@
 - id: sigir23
   title: SIGIR
   year: 2023
-  link: https://sigir.org/sigir2023/
+  link: https://web.archive.org/web/20230723120829/https://sigir.org/sigir2023/
   start: '2023-07-23'
   end: '2023-07-27'
   format: in_person
@@ -5329,7 +5329,7 @@
   title: SIGIR-AP
   year: 2023
   full_name: 1st International ACM SIGIR Conference on Information Retrieval in the Asia Pacific
-  link: http://www.sigir-ap.org/sigir-ap-2023/
+  link: https://web.archive.org/web/20231210080435/http://www.sigir-ap.org/sigir-ap-2023/
   start: '2023-11-26'
   end: '2023-11-29'
   format: in_person
@@ -5347,7 +5347,7 @@
 - id: uai23
   title: UAI
   year: 2023
-  link: https://www.auai.org/uai2023/
+  link: https://web.archive.org/web/20230609090924/https://www.auai.org/uai2023/
   start: '2023-07-31'
   end: '2023-08-04'
   format: in_person
@@ -5365,7 +5365,7 @@
 - id: wacv23
   title: WACV
   year: 2023
-  link: http://wacv2023.thecvf.com/
+  link: https://web.archive.org/web/20230101202124/http://wacv2023.thecvf.com/
   start: '2023-01-03'
   end: '2023-01-07'
   format: in_person
@@ -5383,7 +5383,7 @@
 - id: wsdm23
   title: WSDM
   year: 2023
-  link: https://www.wsdm-conference.org/2023/
+  link: https://web.archive.org/web/20230306024516/https://www.wsdm-conference.org/2023/
   start: '2023-02-27'
   end: '2023-03-03'
   format: in_person
@@ -5401,7 +5401,7 @@
 - id: www23
   title: WWW
   year: 2023
-  link: https://www2023.thewebconf.org/
+  link: https://web.archive.org/web/20230501235929/https://www2023.thewebconf.org/
   start: '2023-04-30'
   end: '2023-05-04'
   format: in_person
@@ -5425,7 +5425,7 @@
 - id: 3dv24
   title: 3DV
   year: 2024
-  link: https://3dvconf.github.io/2024/
+  link: https://web.archive.org/web/20240318200123/https://3dvconf.github.io/2024/
   start: '2024-03-18'
   end: '2024-03-21'
   format: in_person
@@ -5444,7 +5444,7 @@
   title: AAAI
   year: 2024
   full_name: AAAI Conference on Artificial Intelligence
-  link: https://aaai.org/aaai-conference/
+  link: https://web.archive.org/web/20240217192156/https://aaai.org/aaai-conference/
   start: '2024-02-20'
   end: '2024-02-28'
   format: in_person
@@ -5462,7 +5462,7 @@
 - id: aamas24
   title: AAMAS
   year: 2024
-  link: https://www.aamas2024-conference.auckland.ac.nz/
+  link: https://web.archive.org/web/20240507200750/https://www.aamas2024-conference.auckland.ac.nz/
   start: '2024-05-06'
   end: '2024-05-10'
   format: in_person
@@ -5480,7 +5480,7 @@
 - id: acl24
   title: ACL
   year: 2024
-  link: https://2024.aclweb.org/
+  link: https://web.archive.org/web/20240811192721/https://2024.aclweb.org/
   start: '2024-08-11'
   end: '2024-08-16'
   format: in_person
@@ -5498,7 +5498,7 @@
 - id: acm24
   title: ACM MM
   year: 2024
-  link: https://2024.acmmm.org/
+  link: https://web.archive.org/web/20241101184439/https://2024.acmmm.org/
   start: '2024-10-28'
   end: '2024-11-01'
   format: in_person
@@ -5520,7 +5520,7 @@
 - id: aistats24
   title: AISTATS
   year: 2024
-  link: https://www.aistats.org/aistats2024/
+  link: https://web.archive.org/web/20240511070648/https://www.aistats.org/aistats2024/
   start: '2024-05-02'
   end: '2024-05-04'
   format: in_person
@@ -5539,7 +5539,7 @@
   title: AIware
   year: 2024
   full_name: ACM International Conference on AIware
-  link: https://2024.aiwareconf.org/#
+  link: https://web.archive.org/web/20240716204420/https://2024.aiwareconf.org/#
   start: '2024-07-15'
   end: '2024-07-16'
   format: in_person
@@ -5558,7 +5558,7 @@
   title: AutoML
   year: 2024
   full_name: International Conference on Automated Machine Learning
-  link: https://2024.automl.cc/
+  link: https://web.archive.org/web/20240909155605/https://2024.automl.cc/
   start: '2024-09-09'
   end: '2024-09-12'
   format: in_person
@@ -5577,7 +5577,7 @@
   title: BMVC
   year: 2024
   full_name: The British Machine Vision Conference
-  link: https://bmvc2024.org/
+  link: https://web.archive.org/web/20241205100919/https://bmvc2024.org/
   start: '2024-11-25'
   end: '2024-11-28'
   format: in_person
@@ -5598,7 +5598,7 @@
   title: CHI
   year: 2024
   full_name: ACM CHI Conference on Human Factors in Computing Systems
-  link: https://chi2024.acm.org/
+  link: https://web.archive.org/web/20240512163734/https://chi2024.acm.org/
   start: '2024-05-11'
   end: '2024-05-16'
   format: in_person
@@ -5622,7 +5622,7 @@
   title: CHIL
   year: 2024
   full_name: Conference on Health, Inference, and Learning
-  link: https://www.chilconference.org/index.html
+  link: https://web.archive.org/web/20240423182812/https://www.chilconference.org/index.html
   start: '2024-06-27'
   end: '2024-06-28'
   format: in_person
@@ -5640,7 +5640,7 @@
 - id: cikm24
   title: CIKM
   year: 2024
-  link: https://cikm2024.org/
+  link: https://web.archive.org/web/20241108001720/https://cikm2024.org/
   start: '2024-10-21'
   end: '2024-10-25'
   format: in_person
@@ -5660,7 +5660,7 @@
 - id: clear24
   title: CLeaR
   year: 2024
-  link: https://www.cclear.cc/2024
+  link: https://web.archive.org/web/20240420165939/https://www.cclear.cc/2024
   start: '2024-04-01'
   end: '2024-04-03'
   format: in_person
@@ -5678,7 +5678,7 @@
 - id: collas24
   title: CoLLAs
   year: 2024
-  link: https://lifelong-ml.cc
+  link: https://web.archive.org/web/20240804081832/https://lifelong-ml.cc
   start: '2024-07-29'
   end: '2024-08-01'
   format: in_person
@@ -5697,7 +5697,7 @@
   title: COLM
   year: 2024
   full_name: 1st Conference on Language Modeling
-  link: https://colmweb.org/
+  link: https://web.archive.org/web/20241009234608/https://colmweb.org/
   start: '2024-10-07'
   end: '2024-10-09'
   format: in_person
@@ -5717,7 +5717,7 @@
 - id: corl24
   title: CoRL
   year: 2024
-  link: https://corl.org
+  link: https://web.archive.org/web/20241106085650/https://corl.org
   start: '2024-11-06'
   end: '2024-11-09'
   format: in_person
@@ -5737,7 +5737,7 @@
 - id: cscw24
   title: CSCW
   year: 2024
-  link: https://cscw.acm.org/2024/
+  link: https://web.archive.org/web/20241114015444/https://cscw.acm.org/2024/
   start: '2024-11-09'
   end: '2024-11-13'
   format: hybrid
@@ -5760,7 +5760,7 @@
 - id: cvpr24
   title: CVPR
   year: 2024
-  link: https://cvpr.thecvf.com/Conferences/2024
+  link: https://web.archive.org/web/20240618025205/https://cvpr.thecvf.com/Conferences/2024
   start: '2024-06-17'
   end: '2024-06-21'
   format: in_person
@@ -5779,7 +5779,7 @@
   title: EACL
   year: 2024
   full_name: The 18th Conference of the European Chapter of the Association for Computational Linguistics
-  link: https://2024.eacl.org/
+  link: https://web.archive.org/web/20240326193836/https://2024.eacl.org/
   start: '2024-03-17'
   end: '2024-03-22'
   format: in_person
@@ -5797,7 +5797,7 @@
 - id: ecai24
   title: ECAI
   year: 2024
-  link: https://www.ecai2024.eu/
+  link: https://web.archive.org/web/20241021125854/https://www.ecai2024.eu/
   start: '2024-10-19'
   end: '2024-10-24'
   format: in_person
@@ -5817,7 +5817,7 @@
 - id: eccv24
   title: ECCV
   year: 2024
-  link: https://eccv2024.ecva.net/Conferences/2024
+  link: https://web.archive.org/web/20241107010836/https://eccv2024.ecva.net/Conferences/2024
   start: '2024-09-29'
   end: '2024-10-04'
   format: in_person
@@ -5838,7 +5838,7 @@
   title: ECIR
   year: 2024
   full_name: European Conference on Information Retrieval
-  link: https://www.ecir2024.org/
+  link: https://web.archive.org/web/20240309181233/https://www.ecir2024.org/
   start: '2024-03-24'
   end: '2024-03-28'
   format: in_person
@@ -5856,7 +5856,7 @@
 - id: ecmlpkdd24
   title: ECML PKDD
   year: 2024
-  link: https://2024.ecmlpkdd.org/
+  link: https://web.archive.org/web/20240325074817/https://2024.ecmlpkdd.org/
   start: '2024-09-09'
   end: '2024-09-13'
   format: in_person
@@ -5874,7 +5874,7 @@
 - id: emnlp24
   title: EMNLP
   year: 2024
-  link: https://2024.emnlp.org/
+  link: https://web.archive.org/web/20241111161548/https://2024.emnlp.org/
   start: '2024-11-12'
   end: '2024-11-16'
   format: in_person
@@ -5894,7 +5894,7 @@
 - id: hri24
   title: HRI
   year: 2024
-  link: https://humanrobotinteraction.org/2024/
+  link: https://web.archive.org/web/20240228222314/https://humanrobotinteraction.org/2024/
   start: '2024-03-11'
   end: '2024-03-14'
   format: in_person
@@ -5913,7 +5913,7 @@
   title: IBERAMIA
   year: 2024
   full_name: 18th Ibero-American Conference on Artificial Intelligence
-  link: https://www.iberamia.org/iberamia/iberamia2024/
+  link: https://web.archive.org/web/20241103183337/https://www.iberamia.org/iberamia/iberamia2024/
   start: '2024-11-13'
   end: '2024-11-15'
   format: in_person
@@ -5934,7 +5934,7 @@
 - id: icaps24
   title: ICAPS
   year: 2024
-  link: https://icaps24.icaps-conference.org/
+  link: https://web.archive.org/web/20240601163319/https://icaps24.icaps-conference.org/
   start: '2024-06-01'
   end: '2024-06-06'
   format: in_person
@@ -5952,7 +5952,7 @@
 - id: icassp24
   title: ICASSP
   year: 2024
-  link: https://2024.ieeeicassp.org/
+  link: https://web.archive.org/web/20240413011938/https://2024.ieeeicassp.org/
   start: '2024-04-14'
   end: '2024-04-19'
   format: in_person
@@ -5970,7 +5970,7 @@
 - id: iclr24
   title: ICLR
   year: 2024
-  link: https://iclr.cc/Conferences/2024
+  link: https://web.archive.org/web/20240510204603/https://iclr.cc/Conferences/2024
   start: '2024-05-07'
   end: '2024-05-11'
   format: in_person
@@ -5988,7 +5988,7 @@
 - id: icml24
   title: ICML
   year: 2024
-  link: https://icml.cc/Conferences/2024
+  link: https://web.archive.org/web/20240721183422/https://icml.cc/Conferences/2024
   start: '2024-07-21'
   end: '2024-07-27'
   format: in_person
@@ -6007,7 +6007,7 @@
   title: ICPRAI
   year: 2024
   full_name: International Conference on Pattern Recognition and Artificial Intelligence
-  link: http://icprai2024.org/
+  link: https://brain.korea.ac.kr/icprai2024/
   start: '2024-06-18'
   end: '2024-06-21'
   format: in_person
@@ -6025,7 +6025,7 @@
 - id: icra24
   title: ICRA
   year: 2024
-  link: http://2024.ieee-icra.org/
+  link: https://web.archive.org/web/20240513235306/http://2024.ieee-icra.org/
   start: '2024-05-13'
   end: '2024-05-17'
   format: in_person
@@ -6044,7 +6044,7 @@
   title: IJCAI
   year: 2024
   full_name: International Joint Conference on Artificial Intelligence
-  link: https://ijcai24.org/
+  link: https://web.archive.org/web/20240806045059/https://ijcai24.org/
   start: '2024-08-03'
   end: '2024-08-09'
   format: in_person
@@ -6062,7 +6062,7 @@
 - id: iros24
   title: IROS
   year: 2024
-  link: https://iros2024-abudhabi.org/
+  link: https://web.archive.org/web/20241014182545/https://iros2024-abudhabi.org/
   start: '2024-10-14'
   end: '2024-10-18'
   format: in_person
@@ -6082,7 +6082,7 @@
 - id: ismir24
   title: ISMIR
   year: 2024
-  link: https://ismir2024.ismir.net/
+  link: https://web.archive.org/web/20241107080330/https://ismir2024.ismir.net/
   start: '2024-11-10'
   end: '2024-11-14'
   format: in_person
@@ -6102,7 +6102,7 @@
 - id: iui24
   title: IUI
   year: 2024
-  link: https://iui.acm.org/2024/
+  link: https://web.archive.org/web/20240407044311/https://iui.acm.org/2024/
   start: '2024-03-18'
   end: '2024-03-21'
   format: in_person
@@ -6120,7 +6120,7 @@
 - id: kdd24
   title: KDD
   year: 2024
-  link: https://kdd2024.kdd.org/
+  link: https://web.archive.org/web/20240826161344/https://kdd2024.kdd.org/
   start: '2024-08-25'
   end: '2024-08-29'
   format: in_person
@@ -6138,7 +6138,7 @@
 - id: kr24
   title: KR
   year: 2024
-  link: https://kr.org/KR2024/
+  link: https://web.archive.org/web/20241110191320/https://kr.org/KR2024/
   start: '2024-11-02'
   end: '2024-11-08'
   format: in_person
@@ -6159,7 +6159,7 @@
   title: LoG
   year: 2024
   full_name: Learning on Graphs Conference
-  link: https://logconference.org
+  link: https://web.archive.org/web/20241126191516/https://logconference.org
   start: '2024-11-26'
   end: '2024-11-29'
   format: virtual
@@ -6179,7 +6179,7 @@
   title: LREC-COLING
   year: 2024
   full_name: The 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation
-  link: https://lrec-coling-2024.org
+  link: https://web.archive.org/web/20240526150149/https://lrec-coling-2024.org
   start: '2024-05-20'
   end: '2024-05-25'
   format: in_person
@@ -6197,7 +6197,7 @@
 - id: miccai24
   title: MICCAI
   year: 2024
-  link: https://conferences.miccai.org/2024/en/
+  link: https://web.archive.org/web/20240929012010/https://conferences.miccai.org/2024/en/
   start: '2024-10-06'
   end: '2024-10-10'
   format: in_person
@@ -6218,7 +6218,7 @@
   title: MIPR
   year: 2024
   full_name: International Conference on Multimedia Information Processing and Retrieval
-  link: https://sites.google.com/view/mipr2024
+  link: https://web.archive.org/web/20240806233217/https://sites.google.com/view/mipr2024
   start: '2024-08-07'
   end: '2024-08-09'
   format: in_person
@@ -6236,7 +6236,7 @@
 - id: naacl24
   title: NAACL
   year: 2024
-  link: https://2024.naacl.org
+  link: https://web.archive.org/web/20240615103041/https://2024.naacl.org
   start: '2024-06-16'
   end: '2024-06-21'
   format: in_person
@@ -6255,7 +6255,7 @@
   title: NeurIPS
   year: 2024
   full_name: Conference on Neural Information Processing Systems
-  link: https://nips.cc/Conferences/2024
+  link: https://web.archive.org/web/20241216214811/https://nips.cc/Conferences/2024
   start: '2024-12-10'
   end: '2024-12-15'
   format: in_person
@@ -6275,7 +6275,7 @@
 - id: rlc24
   title: RLC
   year: 2024
-  link: https://rl-conference.cc/
+  link: https://web.archive.org/web/20240814094746/https://rl-conference.cc/
   start: '2024-08-09'
   end: '2024-08-12'
   format: in_person
@@ -6293,7 +6293,7 @@
 - id: rss24
   title: RSS
   year: 2024
-  link: https://roboticsconference.org/2024
+  link: https://web.archive.org/web/20240730064157/https://roboticsconference.org/2024
   start: '2024-07-15'
   end: '2024-07-19'
   format: in_person
@@ -6312,7 +6312,7 @@
   title: SaTML
   year: 2024
   full_name: IEEE Conference on Secure and Trustworthy Machine Learning
-  link: https://satml.org/
+  link: https://web.archive.org/web/20240419122901/https://satml.org/
   start: '2024-04-09'
   end: '2024-04-11'
   format: in_person
@@ -6337,7 +6337,7 @@
 - id: siggraph24
   title: SIGGRAPH
   year: 2024
-  link: https://s2024.siggraph.org/
+  link: https://web.archive.org/web/20240729064105/https://s2024.siggraph.org/
   start: '2024-07-28'
   end: '2024-08-01'
   format: in_person
@@ -6356,7 +6356,7 @@
   title: SIGGRAPH Asia
   year: 2024
   full_name: SIGGRAPH ASIA 2024
-  link: https://asia.siggraph.org/2024/
+  link: https://web.archive.org/web/20241204000012/https://asia.siggraph.org/2024/
   start: '2024-12-03'
   end: '2024-12-06'
   format: in_person
@@ -6377,7 +6377,7 @@
 - id: sigir24
   title: SIGIR
   year: 2024
-  link: https://sigir-2024.github.io
+  link: https://web.archive.org/web/20240718173612/https://sigir-2024.github.io
   start: '2024-07-14'
   end: '2024-07-18'
   format: in_person
@@ -6396,7 +6396,7 @@
   title: SPAICE
   year: 2024
   full_name: 1st ESA Conference on AI in and for Space
-  link: https://spaice.esa.int/
+  link: https://web.archive.org/web/20240920111008/https://spaice.esa.int/
   start: '2024-09-17'
   end: '2024-09-19'
   format: in_person
@@ -6420,7 +6420,7 @@
   title: SPECOM
   year: 2024
   full_name: International Conference on Speech and Computer
-  link: https://specom2024.ftn.uns.ac.rs
+  link: https://web.archive.org/web/20241126141414/https://specom2024.ftn.uns.ac.rs
   start: '2024-11-25'
   end: '2024-11-28'
   format: hybrid
@@ -6441,7 +6441,7 @@
 - id: uai24
   title: UAI
   year: 2024
-  link: https://www.auai.org/uai2024/
+  link: https://web.archive.org/web/20240716150811/https://www.auai.org/uai2024/
   start: '2024-07-15'
   end: '2024-07-19'
   format: in_person
@@ -6460,7 +6460,7 @@
   title: WACV
   year: 2024
   full_name: IEEE/CVF Winter Conference on Applications of Computer Vision
-  link: https://wacv2024.thecvf.com
+  link: https://web.archive.org/web/20240101064844/https://wacv2024.thecvf.com
   start: '2024-01-03'
   end: '2024-01-07'
   format: in_person
@@ -6479,7 +6479,7 @@
   title: 3DV
   year: 2025
   full_name: International Conference on 3D Vision
-  link: https://3dvconf.github.io/2025/
+  link: https://web.archive.org/web/20250320205912/https://3dvconf.github.io/2025/
   start: '2025-03-25'
   end: '2025-03-28'
   format: in_person
