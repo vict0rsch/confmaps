@@ -208,6 +208,8 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   Anthology, IEEE Xplore, …), else the live site if it still shows that edition. The detail
   panel labels a snapshot "Archived site · <original host>". `sources` hold only URLs that
   currently load and support the facts, or snapshots.
+- **2022–23 hybrid sweep:** every 2022–23 edition was checked against its own site or proceedings for a
+  hybrid format; those with a cited quote are marked `hybrid`, the rest are left as they were.
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions
   (e.g. NeurIPS 2025 Mexico City, EurIPS 2025 Copenhagen); same PR + evidence review.
 - History grouping: a conference **series key** = normalized `title` (e.g. `icml`), so editions

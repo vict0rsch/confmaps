@@ -455,6 +455,10 @@ edition's own site (archived copies on web.archive.org are acceptable)."
 - Required after checks: start, end, link, format, and city + country unless virtual; a virtual
   edition drops any city. A pinned city must geocode in its country (`geo.Geocoder`).
 
+**As built (evidence rules).** A format claim passes only when the quote positively asserts the format
+in a non-negated, non-hedged clause and no conflicting format is asserted. Negated or hedged quotes go
+to model judgement; a plain conflict is dropped. Review markers survive field deletion.
+
 ### 5.5 Merge (new `past_merge.py`; shared ruamel helpers move from `merge.py` to `yamlio.py`)
 
 Dedupe by `series|year` against `data.json`, the past file, and earlier candidates in the run.
@@ -463,7 +467,8 @@ series' latest title, `full_name` only if verified, `tags` copied from the serie
 appended to `past_conferences.yml`. `--recheck` updates: on `source: pwc` entries, verified `format`,
 `city`, `country`, `venue`, `start`, `end` changes are **applied** (PwC is lower trust than evidence;
 a switch to virtual deletes city/country/venue; new sources are appended); on `source: curated`,
-differences are suggestions only. `cancelled` is never applied — listed under "Needs human removal
+differences are suggestions only. **As built:** `--recheck` never applies a change that turns a virtual
+entry into a physical one (suggestion only). `cancelled` is never applied — listed under "Needs human removal
 (before merge)". PR flow: `proposed_files` adds `data/past_conferences.yml`; PR title
 `Past editions: N addition(s), M update(s)`; `report.py` generalized for edition evidence tables.
 `discover.yml`: `workflow_dispatch` inputs `mode` (choice), `series`, `since`, `until`, `max_usd`,
