@@ -1,0 +1,56 @@
+{
+  "description": "Shared test vectors for the past-edition id convention (docs/backfill-spec.md §1.2), used by scripts/lib/past-id.test.ts and the Python discovery tests. `conferences` stands in for data.json; each vector expects seriesOf(title) === series and pastEditionId(series, year, conferences) === id. Only `source: hf` non-track conferences count (the `archive` NIPS and the EMNLP track are distractors); ties on the newest year break by ascending id.",
+  "conferences": [
+    { "id": "neurips25", "series": "neurips", "title": "NeurIPS", "year": 2025, "source": "hf" },
+    { "id": "neurips26", "series": "neurips", "title": "NeurIPS", "year": 2026, "source": "hf" },
+    { "id": "nips2027", "series": "neurips", "title": "NIPS", "year": 2027, "source": "archive" },
+    { "id": "icdar2025", "series": "icdar", "title": "ICDAR", "year": 2025, "source": "hf" },
+    { "id": "icdar2027", "series": "icdar", "title": "ICDAR", "year": 2027, "source": "hf" },
+    { "id": "alt2025", "series": "alt", "title": "ALT", "year": 2025, "source": "hf" },
+    { "id": "alt2026", "series": "alt", "title": "ALT", "year": 2026, "source": "hf" },
+    { "id": "acm25", "series": "acm-mm", "title": "ACM MM", "year": 2025, "source": "hf" },
+    { "id": "acm26", "series": "acm-mm", "title": "ACM MM", "year": 2026, "source": "hf" },
+    {
+      "id": "ecmlpkdd26",
+      "series": "ecml-pkdd",
+      "title": "ECML PKDD",
+      "year": 2026,
+      "source": "hf"
+    },
+    {
+      "id": "ijcnlpaacl25",
+      "series": "ijcnlp-aacl",
+      "title": "IJCNLP & AACL",
+      "year": 2025,
+      "source": "hf"
+    },
+    { "id": "3dv27", "series": "3dv", "title": "3DV", "year": 2027, "source": "hf" },
+    { "id": "emnlp26", "series": "emnlp", "title": "EMNLP", "year": 2026, "source": "hf" },
+    {
+      "id": "emnlpind2027",
+      "series": "emnlp",
+      "title": "EMNLP (Industry Track)",
+      "year": 2027,
+      "source": "hf"
+    },
+    { "id": "icdm2024", "series": "icdm", "title": "ICDM", "year": 2025, "source": "hf" }
+  ],
+  "vectors": [
+    { "title": "NIPS", "series": "neurips", "year": 2018, "id": "neurips18" },
+    { "title": "ICDAR", "series": "icdar", "year": 2019, "id": "icdar2019" },
+    { "title": "ALT", "series": "alt", "year": 2020, "id": "alt2020" },
+    { "title": "ACM MM", "series": "acm-mm", "year": 2020, "id": "acm20" },
+    { "title": "ECML PKDD", "series": "ecml-pkdd", "year": 2019, "id": "ecmlpkdd19" },
+    { "title": "AACL-IJCNLP", "series": "ijcnlp-aacl", "year": 2020, "id": "ijcnlpaacl20" },
+    { "title": "3DV", "series": "3dv", "year": 2018, "id": "3dv18" },
+    { "title": "SIGGRAPH Asia", "series": "siggraph-asia", "year": 2022, "id": "siggraphasia22" },
+    { "title": "EMNLP-IJCNLP", "series": "emnlp", "year": 2019, "id": "emnlp19" },
+    {
+      "title": "ICDM",
+      "series": "icdm",
+      "year": 2019,
+      "id": "icdm19",
+      "note": "synthetic: newest HF id digits (2024) differ from its year (2025) → fallback"
+    }
+  ]
+}

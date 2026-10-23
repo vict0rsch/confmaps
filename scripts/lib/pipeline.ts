@@ -1,13 +1,14 @@
 // Pure build core (no file or network IO besides the injected geocoder):
 // normalize → merge archive → apply overrides → canonicalize countries → geocode → freeze.
-import type {
-  ArchiveFile,
-  Conference,
-  EventLocation,
-  Geocache,
-  Overrides,
-  Satellite,
-  UpstreamConference,
+import {
+  isVirtual,
+  type ArchiveFile,
+  type Conference,
+  type EventLocation,
+  type Geocache,
+  type Overrides,
+  type Satellite,
+  type UpstreamConference,
 } from '../schema';
 import { archiveIds, freeze, type ArchiveIds } from './archive';
 import { resolveCoordinates, type Geocoder } from './geocode';
@@ -71,6 +72,10 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
 
   const locations = new Map<string, PendingLocation>();
   for (const l of inp.archive.locations) {
+    if (isVirtual(l)) {
+      locations.set(l.id, l);
+      continue;
+    }
     const { lat, lng, ...rest } = l; // re-resolved below, so geocache/override fixes apply
     void lat;
     void lng;

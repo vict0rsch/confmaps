@@ -63,7 +63,7 @@ describe('archive-and-freeze', () => {
     const renamed = upstream.map((e) => (e.id === 'alpha25' ? { ...e, venue: 'New Hall' } : e));
     const r = await build({ upstream: renamed, archive });
     const frozen = r.archive.get(2025)!.locations.find((l) => l.id === 'alpha25@main');
-    expect(frozen?.venue).toBe('New Hall');
+    expect(frozen).toMatchObject({ venue: 'New Hall' });
     expect(r.conferences.find((c) => c.id === 'alpha25')?.source).toBe('hf');
   });
 
@@ -106,7 +106,7 @@ describe('overrides', () => {
       archive,
       overrides: { 'alpha25@main': { venue: 'Later fix' } },
     });
-    expect(r.locations.find((l) => l.id === 'alpha25@main')?.venue).toBe('Later fix');
+    expect(r.locations.find((l) => l.id === 'alpha25@main')).toMatchObject({ venue: 'Later fix' });
   });
 
   it('report unknown location ids', async () => {
@@ -118,7 +118,9 @@ describe('overrides', () => {
 describe('countries and geocoding', () => {
   it('canonicalizes country names (US state → United States)', async () => {
     const r = await build();
-    expect(r.locations.find((l) => l.id === 'beta25@main')?.country).toBe('United States');
+    expect(r.locations.find((l) => l.id === 'beta25@main')).toMatchObject({
+      country: 'United States',
+    });
   });
 
   it('uses the cache, and calls the geocoder once per missing key with the country code', async () => {

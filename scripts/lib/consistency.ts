@@ -14,13 +14,14 @@
 //   - all conferences: `series` derived from `title`.
 // Not covered (needs upstream): the upstream-derived fields of non-archived conferences and their
 // main locations (title, dates, deadlines, city, venue, …) beyond the rules above.
-import type {
-  ArchiveFile,
-  DataFile,
-  EventLocation,
-  Geocache,
-  Overrides,
-  Satellite,
+import {
+  isVirtual,
+  type ArchiveFile,
+  type DataFile,
+  type EventLocation,
+  type Geocache,
+  type Overrides,
+  type Satellite,
 } from '../schema';
 import { canonicalCountry } from './countries';
 import { geocacheKey } from './geocode';
@@ -81,6 +82,7 @@ export function checkConsistency(input: ConsistencyInput): string[] {
     const own = overrides[s.id] ? { [s.id]: overrides[s.id] } : {};
     applyOverrides(new Map(), pending, own);
     const loc = pending.get(s.id)!;
+    if (isVirtual(loc)) continue; // satellites are always pinned
     loc.country = canonicalCountry(loc.country) ?? loc.country;
     if (loc.lat === undefined) {
       const hit = geocache[geocacheKey(loc.city, loc.country)];
@@ -101,9 +103,9 @@ export function checkConsistency(input: ConsistencyInput): string[] {
     const o = overrides[l.id] ?? {};
     if (l.role === 'satellite' && !satIds.has(l.id) && !archivedLocs.has(l.id))
       errors.push(`location ${l.id}: satellite in neither satellites.yml nor the archive`);
-    if (canonicalCountry(l.country) !== l.country)
+    if (!isVirtual(l) && canonicalCountry(l.country) !== l.country)
       errors.push(`location ${l.id}: country "${l.country}" is not a canonical name`);
-    if (o.lat === undefined) {
+    if (!isVirtual(l) && o.lat === undefined) {
       const hit = geocache[geocacheKey(l.city, l.country)];
       if (hit && (hit.lat !== l.lat || hit.lng !== l.lng))
         errors.push(

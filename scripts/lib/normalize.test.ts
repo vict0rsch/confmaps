@@ -20,6 +20,16 @@ describe('seriesOf', () => {
     ['EMNLP (Industry Track)', 'emnlp'],
     ['EMNLP (System Demonstrations Track)', 'emnlp'],
     ['Béta Conf (Industry Track)', 'beta-conf-industry-track'], // no alias: stays separate
+    // Historical names (backfill spec §1.3)
+    ['NIPS', 'neurips'],
+    ['NAACL-HLT', 'naacl'],
+    ['EMNLP-IJCNLP', 'emnlp'],
+    ['IJCAI-PRICAI', 'ijcai'],
+    ['IJCAI-ECAI', 'ijcai'],
+    ['AACL-IJCNLP', 'ijcnlp-aacl'],
+    ['MM', 'acm-mm'],
+    ['AutoML-Conf', 'automl'],
+    ['LREC-COLING', 'lrec-coling'], // its own series
   ])('%s → %s', (title, series) => expect(seriesOf(title)).toBe(series));
 });
 
