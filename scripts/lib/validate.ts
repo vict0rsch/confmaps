@@ -2,6 +2,7 @@
 import type { z } from 'zod';
 import {
   DataFileSchema,
+  isVirtual,
   type ArchiveFile,
   type DataFile,
   type Geocache,
@@ -68,7 +69,10 @@ export function validateDataset(input: ValidationInput): string[] {
     if (l.start > l.end) errors.push(`location ${l.id}: start ${l.start} > end ${l.end}`);
     if (!confIds.has(l.conferenceId))
       errors.push(`location ${l.id}: unknown conference "${l.conferenceId}"`);
-    if (!Number.isFinite(l.lat) || !Number.isFinite(l.lng) || (l.lat === 0 && l.lng === 0)) {
+    if (
+      !isVirtual(l) &&
+      (!Number.isFinite(l.lat) || !Number.isFinite(l.lng) || (l.lat === 0 && l.lng === 0))
+    ) {
       errors.push(`location ${l.id}: not geocoded (${l.lat}, ${l.lng})`);
     }
   }
@@ -178,7 +182,7 @@ export function sanityCheck(
         );
     }
     const o = overrides[l.id];
-    if (o?.lat !== undefined && o.lng !== undefined) {
+    if (o?.lat !== undefined && o.lng !== undefined && !isVirtual(l)) {
       const country = geocacheKey('', l.country);
       const refs = Object.entries(geocache)
         .filter(([key]) => key.endsWith(country))

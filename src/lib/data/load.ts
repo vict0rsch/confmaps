@@ -2,10 +2,19 @@
 // and data are always deployed atomically (no cache skew, no loading state, typed at build time).
 // It only changes with the daily sync, so the cache-busting cost is negligible.
 import raw from '../../../data/build/data.json';
-import type { Conference, DataFile, EventLocation } from './types';
+import {
+  isVirtual,
+  type Conference,
+  type DataFile,
+  type EventLocation,
+  type PinnedLocation,
+} from './types';
 
-/** A location joined to its conference (filters test `loc.conference`, DESIGN §6.3). */
-export type JoinedLocation = EventLocation & { conference: Conference };
+/**
+ * A location joined to its conference (filters test `loc.conference`, DESIGN §6.3). Interim:
+ * pinned only, `joinData` drops virtual locations until the app handles them (backfill spec §4).
+ */
+export type JoinedLocation = PinnedLocation & { conference: Conference };
 
 export type AppData = {
   generatedAt: string;
@@ -68,7 +77,7 @@ export function joinData(file: DataFile): AppData {
   const locationsByConference = new Map<string, JoinedLocation[]>();
   for (const loc of file.locations) {
     const conference = conferenceById.get(loc.conferenceId);
-    if (!conference) continue;
+    if (!conference || isVirtual(loc)) continue;
     const joined = { ...loc, conference };
     locations.push(joined);
     const list = locationsByConference.get(conference.id) ?? [];

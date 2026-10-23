@@ -1,18 +1,24 @@
 // Upstream / satellites / overrides → normalized records (DESIGN.md §3.5), before geocoding.
-import type {
-  Conference,
-  Deadline,
-  EventLocation,
-  Override,
-  Overrides,
-  Satellite,
-  UpstreamConference,
+import {
+  isVirtual,
+  type Conference,
+  type Deadline,
+  type Override,
+  type Overrides,
+  type PinnedLocation,
+  type Satellite,
+  type UpstreamConference,
+  type VirtualLocation,
 } from '../schema';
 import { canonicalCountry } from './countries';
 import { toUtcIso } from './timezone';
 
-/** A location whose coordinates are not resolved yet. */
-export type PendingLocation = Omit<EventLocation, 'lat' | 'lng'> & { lat?: number; lng?: number };
+/** `Omit` distributed over each member of a union. */
+type DOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
+
+/** A location whose coordinates are not resolved yet (a virtual one never has any). */
+export type PendingLocation =
+  (DOmit<PinnedLocation, 'lat' | 'lng'> & { lat?: number; lng?: number }) | VirtualLocation;
 
 export const mainLocationId = (conferenceId: string) => `${conferenceId}@main`;
 
@@ -33,6 +39,15 @@ export function seriesKey(title: string): string {
 export const SERIES_ALIASES: Record<string, string> = {
   'emnlp-industry-track': 'emnlp',
   'emnlp-system-demonstrations-track': 'emnlp',
+  // Historical names of a series (past editions, docs/backfill-spec.md §1.3).
+  nips: 'neurips',
+  'naacl-hlt': 'naacl',
+  'emnlp-ijcnlp': 'emnlp',
+  'ijcai-pricai': 'ijcai',
+  'ijcai-ecai': 'ijcai',
+  'aacl-ijcnlp': 'ijcnlp-aacl',
+  mm: 'acm-mm',
+  'automl-conf': 'automl',
 };
 
 /** Series of a conference title: the normalized title, rolled up through SERIES_ALIASES. */
@@ -256,10 +271,14 @@ export function applyOverrides(
   return { errors, warnings };
 }
 
-/** Replace each location's country by its canonical name. Returns errors for unknown ones. */
+/**
+ * Replace each location's country by its canonical name (virtual ones have none). Returns errors
+ * for unknown ones.
+ */
 export function canonicalizeCountries(locations: Iterable<PendingLocation>): string[] {
   const errors: string[] = [];
   for (const loc of locations) {
+    if (isVirtual(loc)) continue;
     const c = canonicalCountry(loc.country);
     if (c) loc.country = c;
     else

@@ -1,4 +1,4 @@
-import type { EventLocation } from '../data/types';
+import type { EventLocation, PinnedLocation } from '../data/types';
 
 export type Access = EventLocation['access'];
 
@@ -17,4 +17,5 @@ export const kindLabel = (l: Pick<EventLocation, 'official'>) =>
   l.official ? 'Official' : 'Community';
 
 /** "Paris, France". */
-export const placeLabel = (l: Pick<EventLocation, 'city' | 'country'>) => `${l.city}, ${l.country}`;
+export const placeLabel = (l: Pick<PinnedLocation, 'city' | 'country'>) =>
+  `${l.city}, ${l.country}`;

@@ -1,5 +1,5 @@
 // City-level geocoding (DESIGN.md §3.3): override lat/lng > data/geocache.json > Nominatim.
-import type { Geocache, GeocacheEntry } from '../schema';
+import { isVirtual, type Geocache, type GeocacheEntry } from '../schema';
 import { countryCode } from './countries';
 import type { PendingLocation } from './normalize';
 
@@ -153,7 +153,7 @@ export function nominatimGeocoder(opts: NominatimOptions = {}): Geocoder {
 
 /**
  * Fill `lat`/`lng` on every location in place, adding new cache entries to `geocache`. Locations
- * that already carry coordinates (from an override) are left alone. Without a `geocoder`
+ * that already carry coordinates (from an override) and virtual ones are left alone. Without a `geocoder`
  * (offline), a cache miss is an error. Returns errors for unresolved locations and warnings for
  * doubtful new hits.
  */
@@ -166,7 +166,7 @@ export async function resolveCoordinates(
   const errors: string[] = [];
   const warnings: string[] = [];
   for (const loc of [...locations].sort((a, b) => a.id.localeCompare(b.id))) {
-    if (loc.lat !== undefined && loc.lng !== undefined) continue;
+    if (isVirtual(loc) || (loc.lat !== undefined && loc.lng !== undefined)) continue;
     const key = geocacheKey(loc.city, loc.country);
     let hit: GeocacheEntry | undefined = geocache[key];
     if (!hit && geocoder) {

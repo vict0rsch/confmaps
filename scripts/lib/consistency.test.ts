@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { geocache, satellite, UPSTREAM_DIR } from '../__fixtures__';
-import type { DataFile, Overrides } from '../schema';
+import type { DataFile, Overrides, PinnedLocation } from '../schema';
 import { mergeArchiveFiles } from './archive';
 import { checkConsistency, type ConsistencyInput } from './consistency';
 import { buildDataset } from './pipeline';
@@ -37,7 +37,7 @@ const check = (over: Partial<ConsistencyInput> = {}) =>
     archive,
     ...over,
   });
-const loc = (d: DataFile, id: string) => d.locations.find((l) => l.id === id)!;
+const loc = (d: DataFile, id: string) => d.locations.find((l) => l.id === id) as PinnedLocation;
 const conf = (d: DataFile, id: string) => d.conferences.find((c) => c.id === id)!;
 
 describe('checkConsistency', () => {
