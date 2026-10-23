@@ -1,6 +1,8 @@
 // `radius`: within X km/mi of home (great-circle). Needs home: without it the filter has no
 // effect and its control is disabled. State is in km (integer) whatever the display units.
+// Virtual editions always pass (attending online is no distance); hybrid ones use their city.
 import RadiusControl from '../../components/filters/RadiusControl.svelte';
+import { isVirtual } from '../data/types';
 import { haversineKm } from '../geo/distance';
 import { param, parsePositiveInt, readParam, type Filter } from './types';
 
@@ -20,6 +22,7 @@ export const radiusFilter: Filter<RadiusState> = {
   isActive: (s) => s !== null,
   test: (loc, ctx, s) => {
     if (s === null || !ctx.home) return true;
+    if (isVirtual(loc)) return true;
     const d = haversineKm(ctx.home, loc);
     return !Number.isFinite(d) || d <= s;
   },

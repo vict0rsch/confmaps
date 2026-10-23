@@ -1,5 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { flushSync } from 'svelte';
+import { joinData } from '../data/load';
+import type { DataFile } from '../data/types';
+import { hybridLocation, location, virtualLocation } from '../filters/fixtures';
 import { AppState } from './app.svelte';
 
 describe('AppState', () => {
@@ -42,6 +45,39 @@ describe('AppState', () => {
     expect(app.selectedSites.map((s) => s.id)).toEqual(first.sites.map((s) => s.id));
     app.select(null);
     expect(app.selectedSites).toEqual([]);
+  });
+});
+
+describe('virtual and hybrid editions', () => {
+  const now = new Date(2026, 9, 22, 12);
+  const sites = [location(), virtualLocation(), hybridLocation()];
+  const file: DataFile = {
+    generatedAt: '2026-10-22T00:00:00.000Z',
+    conferences: sites.map((s) => s.conference),
+    locations: sites.map(
+      (l) => Object.fromEntries(Object.entries(l).filter(([k]) => k !== 'conference')) as never,
+    ),
+  };
+
+  it('lists a virtual edition but draws no pin for it; hybrid editions are pins', () => {
+    const app = new AppState({ now, data: joinData(file) });
+    app.predicate = () => true;
+    flushSync();
+    expect(app.listItems.map((i) => i.conference.id).sort()).toEqual([
+      'neurips20',
+      'neurips22',
+      'neurips26',
+    ]);
+    expect(app.mapLocations.map((l) => l.id).sort()).toEqual(['neurips22@main', 'neurips26@main']);
+  });
+
+  it('selecting a virtual edition keeps its site for the detail, with no pin to show', () => {
+    const app = new AppState({ now, data: joinData(file) });
+    app.select('neurips20');
+    expect(app.selectedSites.map((s) => s.id)).toEqual(['neurips20@main']);
+    expect(app.selectedPins).toEqual([]);
+    app.select('neurips22');
+    expect(app.selectedPins.map((s) => s.id)).toEqual(['neurips22@main']);
   });
 });
 

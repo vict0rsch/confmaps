@@ -7,6 +7,7 @@ import {
   type TripEstimate,
 } from '../co2/model';
 import { compareTrips } from '../co2/format';
+import { isPinned, type JoinedLocation, type PinnedJoined } from '../data/load';
 import { haversineKm, type LatLng } from '../geo/distance';
 
 type Site = LatLng & { id: string; city: string };
@@ -38,15 +39,27 @@ export function nearestSite<S extends LatLng>(home: LatLng, sites: readonly S[])
   return best;
 }
 
-/** Nearest site with its trip estimate (global mode, no per-trip override). */
-export function nearestTrip<S extends LatLng>(
+/** How to attend a conference from home: travel to its nearest site, or attend online. */
+export type SiteOption<S> =
+  { kind: 'trip'; site: S & PinnedJoined; trip: TripEstimate } | { kind: 'online'; site: S };
+
+/**
+ * The best option among a conference's sites (global mode, no per-trip override): online if any
+ * site is virtual (no trip is estimated), else the nearest pinned site with its trip estimate.
+ */
+export function nearestOption<S extends JoinedLocation>(
   home: LatLng,
   sites: readonly S[],
   opts: Omit<EstimateOptions, 'override'>,
-): { site: S; trip: TripEstimate } | undefined {
-  const site = nearestSite(home, sites);
+): SiteOption<S> | undefined {
+  const online = sites.find((s) => !isPinned(s));
+  if (online) return { kind: 'online', site: online };
+  const site = nearestSite(
+    home,
+    sites.filter((s): s is S & PinnedJoined => isPinned(s)),
+  );
   const trip = site && safeTrip(home, site, opts);
-  return site && trip ? { site, trip } : undefined;
+  return site && trip ? { kind: 'trip', site, trip } : undefined;
 }
 
 export const tripVerb = (mode: TravelMode): string =>

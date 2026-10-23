@@ -8,7 +8,13 @@
 //   off it.
 import { safeStorage } from './storage';
 import { MediaQuery } from 'svelte/reactivity';
-import { loadData, type AppData, type JoinedLocation } from '../data/load';
+import {
+  isPinned,
+  loadData,
+  type AppData,
+  type JoinedLocation,
+  type PinnedJoined,
+} from '../data/load';
 import type { Conference } from '../data/types';
 import type { LatLng } from '../geo/distance';
 import {
@@ -64,13 +70,16 @@ export class AppState {
   readonly listItems: ListItem[] = $derived.by(() =>
     foldTracks(groupByConference(this.visibleLocations), this.data.trackGroups),
   );
-  /** What the map draws: visible locations, without those of tracks folded into another row. */
-  readonly mapLocations: JoinedLocation[] = $derived.by(() => {
+  /**
+   * What the map draws: visible locations with a pin (virtual editions have none), without those
+   * of tracks folded into another row.
+   */
+  readonly mapLocations: PinnedJoined[] = $derived.by(() => {
     // eslint-disable-next-line svelte/prefer-svelte-reactivity -- local, rebuilt on each derive
     const folded = new Set(this.listItems.flatMap((i) => i.tracks.map((t) => t.id)));
-    return folded.size
-      ? this.visibleLocations.filter((l) => !folded.has(l.conferenceId))
-      : this.visibleLocations;
+    return this.visibleLocations.filter(
+      (l): l is PinnedJoined => isPinned(l) && !folded.has(l.conferenceId),
+    );
   });
 
   readonly selectedConference: Conference | null = $derived.by(() =>
@@ -85,6 +94,8 @@ export class AppState {
     const visible = this.visibleLocations.filter((l) => l.conferenceId === id);
     return visible.length ? visible : (this.data.locationsByConference.get(id) ?? []);
   });
+  /** The selected sites with a pin: what the map highlights and fits (none for a virtual event). */
+  readonly selectedPins: PinnedJoined[] = $derived(this.selectedSites.filter(isPinned));
 
   readonly resolvedTheme: ResolvedTheme = $derived(
     resolveTheme(this.theme, this.#systemDark.current),

@@ -10,6 +10,7 @@
   import {
     axisTicks,
     coverDomain,
+    dataSpan,
     dayNumber,
     histogram,
     toDay,
@@ -17,6 +18,7 @@
     type Domain,
   } from '../lib/timeline/scale';
   import {
+    axisSpan,
     centerWindow,
     datePresets,
     dayLabel,
@@ -39,10 +41,18 @@
   let trackEl: HTMLDivElement | undefined = $state();
   let width = $state(0);
 
-  // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play.
+  // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
+  // starts at most 5 years back ("All years" or history mode reach further).
   let extent: Domain | undefined;
   const domain: Domain = $derived.by(
-    () => (extent = coverDomain(extent, scope.span, dates, { from: app.today, to: app.today })),
+    () =>
+      (extent = coverDomain(
+        extent,
+        axisSpan(scope.span, app.today),
+        dates,
+        { from: app.today, to: app.today },
+        inHistory ? dataSpan(app.visibleLocations) : null,
+      )),
   );
   const x = (day: number) => toX(day, domain, width);
 
@@ -62,7 +72,7 @@
   );
 
   const win = $derived({ x0: x(dayNumber(dates.from)), x1: x(dayNumber(dates.to) + 1) });
-  const presets = $derived(datePresets(app.today));
+  const presets = $derived(datePresets(app.today, scope.span.from));
 
   // ---- History mode: stops on the axis, progress along them ----------------
   const stopXs = $derived(historyMode.stops.map((s) => x(dayNumber(s.start))));
@@ -230,6 +240,12 @@
       <span class="history-title">
         <Icon name="history" size={14} />
         {historyMode.title}{compact ? '' : ' history'}
+        <!-- Compact bar: no room; the list marks those editions Virtual. -->
+        {#if historyMode.onlineYears.length && !compact}
+          <span class="history-online tabular" data-testid="history-online">
+            Online: {historyMode.onlineYears.join(' · ')}
+          </span>
+        {/if}
       </span>
       <span class="history-meta tabular" data-testid="history-meta">
         {compact ? yearsText : editionsText}
@@ -750,6 +766,12 @@
   .history-meta {
     color: var(--ink-muted);
     font-size: var(--text-xs);
+  }
+  .history-online {
+    color: var(--ink-muted);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    white-space: nowrap;
   }
 
   .compact .history-label {

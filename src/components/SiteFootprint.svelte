@@ -4,7 +4,7 @@
   import { track } from '../lib/analytics';
   import { formatCo2, formatDistance, modeIcon } from '../lib/co2/format';
   import type { TravelMode } from '../lib/co2/model';
-  import type { JoinedLocation } from '../lib/data/load';
+  import { isPinned, type JoinedLocation, type PinnedJoined } from '../lib/data/load';
   import { comparisonLine, nearestSite, safeTrip } from '../lib/home/footprint';
   import { myclimateUrl } from '../lib/home/myclimate';
   import { tripOverrides } from '../lib/home/overrides.svelte';
@@ -17,24 +17,33 @@
   let { site }: { site: JoinedLocation } = $props();
 
   const sites = $derived(app.data.locationsByConference.get(site.conferenceId) ?? [site]);
+  /** Nearest and the comparison only consider sites one can travel to. */
+  const pinned = $derived(sites.filter(isPinned));
+  /** The site as a place to travel to; undefined for a virtual edition (attended online). */
+  const pin = $derived(isPinned(site) ? site : undefined);
   const settings = $derived({ mode: travel.mode, thresholdKm: travel.threshold });
 
-  const estimate = (s: JoinedLocation, override?: TravelMode) =>
+  const estimate = (s: PinnedJoined, override?: TravelMode) =>
     app.home ? safeTrip(app.home, s, { ...settings, override }) : undefined;
 
-  const autoMode = $derived(estimate(site)?.mode);
-  const trip = $derived(estimate(site, tripOverrides.get(site.id)));
+  const autoMode = $derived(pin && estimate(pin)?.mode);
+  const trip = $derived(pin && estimate(pin, tripOverrides.get(pin.id)));
   const isNearest = $derived(
-    sites.length > 1 && !!app.home && nearestSite(app.home, sites)?.id === site.id,
+    !!pin && pinned.length > 1 && !!app.home && nearestSite(app.home, pinned)?.id === pin.id,
   );
   const isFirst = $derived(sites[0]?.id === site.id);
 
-  /** "Paris: roughly 54× less than flying to Sydney", on the nearest site when it is a satellite. */
+  /**
+   * "Paris: roughly 54× less than flying to Sydney", on the nearest site when it is a satellite
+   * (needs a pinned main venue).
+   */
   const comparison = $derived.by(() => {
-    const main = sites.find((s) => s.role === 'main');
-    if (!isNearest || site.role !== 'satellite' || !main || !trip) return undefined;
+    const main = pinned.find((s) => s.role === 'main');
+    if (!isNearest || !pin || pin.role !== 'satellite' || !main || !trip) return undefined;
     const mainTrip = estimate(main, tripOverrides.get(main.id));
-    return mainTrip ? comparisonLine({ site, trip }, { site: main, trip: mainTrip }) : undefined;
+    return mainTrip
+      ? comparisonLine({ site: pin, trip }, { site: main, trip: mainTrip })
+      : undefined;
   });
 
   function setMode(mode: TravelMode) {
@@ -43,7 +52,19 @@
   }
 </script>
 
-{#if trip}
+{#if !pin}
+  <div class="footprint" data-testid="site-footprint">
+    <div class="figures">
+      <span class="co2 tabular">
+        Online · {formatCo2(0)}<span class="visually-hidden">, estimated</span>
+      </span>
+    </div>
+    <p class="caption">Attending online: no travel</p>
+    {#if isFirst}
+      <a class="how" href={METHODOLOGY_URL}>How is this estimated?</a>
+    {/if}
+  </div>
+{:else if trip}
   <div class="footprint" data-testid="site-footprint">
     <div class="figures">
       <span class="distance tabular">{formatDistance(trip.distanceKm, travel.units)}</span>
@@ -55,6 +76,7 @@
       {#if isNearest}<span class="nearest">Nearest</span>{/if}
     </div>
     <p class="caption">Estimated CO₂e, round trip</p>
+    {#if pin.format === 'hybrid'}<p class="also">Also online ({formatCo2(0)})</p>{/if}
 
     <div class="mode-toggle">
       <Segmented
@@ -134,6 +156,10 @@
   .note {
     color: var(--ink-muted);
     font-size: var(--text-xs);
+  }
+
+  .also {
+    font-size: var(--text-sm);
   }
 
   .mode-toggle {

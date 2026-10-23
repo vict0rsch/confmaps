@@ -44,6 +44,23 @@ const loc = (conferenceId: string, over: Partial<EventLocation> = {}): EventLoca
   ...over,
 });
 
+/** A virtual main edition: no city or coordinates. */
+const virtual = (conferenceId: string, over: Partial<EventLocation> = {}): EventLocation =>
+  ({
+    id: `${conferenceId}@main`,
+    conferenceId,
+    role: 'main',
+    format: 'virtual',
+    name: conferenceId,
+    start: '2026-12-01',
+    end: '2026-12-05',
+    official: true,
+    presentsPapers: true,
+    access: 'registration',
+    link: 'https://x.example',
+    ...over,
+  }) as EventLocation;
+
 const file = (conferences: Conference[], locations: EventLocation[]): DataFile => ({
   generatedAt: '2026-10-22T00:00:00.000Z',
   conferences,
@@ -66,6 +83,13 @@ describe('joinData', () => {
     expect(d.locations[0].conference.id).toBe('a26');
     expect(d.locationsByConference.get('a26')!.map((l) => l.id)).toEqual(['a26@main', 'a26-sat']);
     expect(d.conferenceById.get('a26')?.title).toBe('A26');
+  });
+
+  it('keeps virtual locations (listed), but only pinned ones are pins', () => {
+    const d = joinData(file([conf('a26'), conf('v20')], [loc('a26'), virtual('v20')]));
+    expect(d.locations.map((l) => l.id)).toEqual(['a26@main', 'v20@main']);
+    expect(d.pinnedLocations.map((l) => l.id)).toEqual(['a26@main']);
+    expect(d.locationsByConference.get('v20')).toHaveLength(1);
   });
 });
 
@@ -173,6 +197,19 @@ describe('tracks of one event', () => {
     expect(d.trackGroups.has('emnlp26y')).toBe(false);
     expect(trackName(d.conferenceById.get('emnlp26ind')!)).toBe('Industry Track');
     expect(trackName(d.conferenceById.get('emnlp26')!)).toBeNull();
+  });
+
+  it('never groups virtual editions (no city to match)', () => {
+    const d = joinData(
+      file(
+        [
+          conf('emnlp20', { series: 'emnlp', title: 'EMNLP' }),
+          conf('emnlp20ind', { series: 'emnlp', title: 'EMNLP (Industry Track)' }),
+        ],
+        [virtual('emnlp20'), virtual('emnlp20ind')],
+      ),
+    );
+    expect(d.trackGroups.size).toBe(0);
   });
 
   it('folds tracks into one list row, led by the highest-ranked visible member', () => {

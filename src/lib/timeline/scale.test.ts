@@ -61,6 +61,11 @@ describe('histogram', () => {
     expect(bins[0].end).toBe(bins[1].start);
   });
 
+  it('counts virtual editions too (events, not pins)', () => {
+    const online = { start: '2026-02-10', end: '2026-02-12', format: 'virtual' as const };
+    expect(histogram([online], d).map((b) => b.count)).toEqual([0, 1, 0, 0]);
+  });
+
   it('counts an event in every month it overlaps, clipped to the domain', () => {
     const bins = histogram([loc('2026-01-30', '2026-02-02'), loc('2025-12-30', '2026-01-02')], d);
     expect(bins.map((b) => b.count)).toEqual([2, 1, 0, 0]);
@@ -89,10 +94,26 @@ describe('axisTicks', () => {
     expect(axisTicks(d, 36 * 45).length).toBe(36);
   });
 
+  it('thins year labels when years are narrow (phones, many years)', () => {
+    const decade = coverDomain(undefined, { from: '2016-01-01', to: '2027-12-31' });
+    expect(axisTicks(decade, 12 * 40).map((t) => t.label)).toHaveLength(12);
+    expect(axisTicks(decade, 12 * 20).map((t) => t.label)).toEqual([
+      '2016',
+      '2018',
+      '2020',
+      '2022',
+      '2024',
+      '2026',
+    ]);
+    expect(axisTicks(decade, 12 * 8).map((t) => t.label)).toEqual(['2020', '2025']);
+  });
+
   it('labels a leading partial year when it has room', () => {
     const late = coverDomain(undefined, { from: '2024-10-01', to: '2025-12-31' });
     expect(axisTicks(late, 200)[0]).toMatchObject({ label: '2024', kind: 'year' });
     const tooLate = coverDomain(undefined, { from: '2024-11-01', to: '2025-12-31' });
     expect(axisTicks(tooLate, 200)[0].label).toBe('2025');
+    // Three months, but too narrow for a label (would run into the next year's).
+    expect(axisTicks(late, 150)[0].label).toBe('2025');
   });
 });

@@ -1,6 +1,6 @@
 // History mode geometry (DESIGN §6.4), pure: a series' editions as chronological stops (main
 // venues), the curved path linking them, its year labels, and travel progress for Play.
-import type { JoinedLocation } from '../data/load';
+import { isPinned, type JoinedLocation, type PinnedJoined } from '../data/load';
 import { trimLine } from '../map/geojson';
 import { easeInOut } from './motion';
 
@@ -25,11 +25,12 @@ const samePlace = (a: LngLat, b: LngLat) =>
 /**
  * Chronological stops of a series from its visible locations: one per edition's main venue
  * (ordered by start date, then id). Consecutive editions at the same place merge into one stop,
- * e.g. EMNLP's main conference and its industry track.
+ * e.g. EMNLP's main conference and its industry track. Virtual editions have no place: the path
+ * skips them (the leg joins the neighbouring stops); hybrid ones are stops at their city.
  */
 export function historyStops(visible: readonly JoinedLocation[]): Stop[] {
   const mains = visible
-    .filter((l) => l.role === 'main')
+    .filter((l): l is PinnedJoined => l.role === 'main' && isPinned(l))
     .sort((a, b) => a.start.localeCompare(b.start) || a.conferenceId.localeCompare(b.conferenceId));
   const stops: Stop[] = [];
   let prevLng: number | undefined;
@@ -56,6 +57,15 @@ export function historyStops(visible: readonly JoinedLocation[]): Stop[] {
     });
   }
   return stops;
+}
+
+/** Distinct years of the visible virtual main editions (off the path), ascending. */
+export function onlineYears(visible: readonly JoinedLocation[]): number[] {
+  const ys = visible
+    .filter((l) => l.role === 'main' && !isPinned(l))
+    .map((l) => l.conference.year)
+    .sort((a, b) => a - b);
+  return ys.filter((y, i) => y !== ys[i - 1]);
 }
 
 /**

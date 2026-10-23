@@ -1,6 +1,7 @@
 <script lang="ts">
   import { formatCo2, formatDistance, modeIcon } from '../lib/co2/format';
-  import { nearestTrip } from '../lib/home/footprint';
+  import { isVirtual } from '../lib/data/types';
+  import { nearestOption } from '../lib/home/footprint';
   import { app } from '../lib/state/app.svelte';
   import { travel } from '../lib/state/travel.svelte';
   import type { ListItem } from '../lib/state/derive';
@@ -8,26 +9,28 @@
   import { placeLabel } from '../lib/format/labels';
   import AccessBadge from './AccessBadge.svelte';
   import SiteMarker from './SiteMarker.svelte';
+  import VirtualBadge from './VirtualBadge.svelte';
 
   let listEl: HTMLUListElement | undefined = $state();
 
   let nearestFirst = $state(false);
 
-  // With a home set, each conference gets its nearest visible site and the estimated trip there.
+  // With a home set, each conference gets its nearest visible site and the estimated trip there,
+  // or "Online · ~0 kg" for a virtual edition (sorted first by "Nearest first", at distance 0).
   const near = $derived.by(() => {
     const home = app.home;
     const opts = { mode: travel.mode, thresholdKm: travel.threshold };
     return new Map(
-      home ? app.listItems.map((i) => [i.conference.id, nearestTrip(home, i.sites, opts)]) : [],
+      home ? app.listItems.map((i) => [i.conference.id, nearestOption(home, i.sites, opts)]) : [],
     );
   });
+  const distance = (id: string) => {
+    const n = near.get(id);
+    return !n ? Infinity : n.kind === 'online' ? 0 : n.trip.distanceKm;
+  };
   const items = $derived(
     nearestFirst && app.home
-      ? app.listItems.toSorted(
-          (a, b) =>
-            (near.get(a.conference.id)?.trip.distanceKm ?? Infinity) -
-            (near.get(b.conference.id)?.trip.distanceKm ?? Infinity),
-        )
+      ? app.listItems.toSorted((a, b) => distance(a.conference.id) - distance(b.conference.id))
       : app.listItems,
   );
 
@@ -105,12 +108,17 @@
             <span class="sites">
               {#each item.sites as s, i (s.id)}
                 <span class="site">
-                  <SiteMarker
-                    official={s.official}
-                    main={s.role === 'main'}
-                    locked={s.access === 'authors_only'}
-                  />
+                  {#if isVirtual(s)}
+                    <VirtualBadge />
+                  {:else}
+                    <SiteMarker
+                      official={s.official}
+                      main={s.role === 'main'}
+                      locked={s.access === 'authors_only'}
+                    />
+                  {/if}
                   <span class="place">{placeLabel(s)}</span>
+                  {#if s.format === 'hybrid'}<span class="tag">Hybrid</span>{/if}
                   {#if s.role === 'satellite'}<span class="tag">Satellite</span>{/if}
                   {#if i === 0 || mixedAccess(item)}
                     <span class="badge-slot"><AccessBadge access={s.access} /></span>
@@ -127,15 +135,22 @@
             {#if near.get(c.id)}
               {@const n = near.get(c.id)!}
               <span class="near tabular" data-testid="row-footprint">
-                {#if item.sites.length > 1}<span class="near-place">{n.site.city}</span>{/if}
-                <span>{formatDistance(n.trip.distanceKm, travel.units)}</span>
-                <span>
-                  {formatCo2(n.trip.kgCO2e)}
-                  <span aria-hidden="true">{modeIcon(n.trip.mode)}</span>
-                  <span class="visually-hidden">
-                    estimated, {n.trip.mode === 'rail' ? 'by train' : 'by plane'}
+                {#if n.kind === 'online'}
+                  <span>
+                    Online · {formatCo2(0)}
+                    <span class="visually-hidden">attend online, estimated</span>
                   </span>
-                </span>
+                {:else}
+                  {#if item.sites.length > 1}<span class="near-place">{n.site.city}</span>{/if}
+                  <span>{formatDistance(n.trip.distanceKm, travel.units)}</span>
+                  <span>
+                    {formatCo2(n.trip.kgCO2e)}
+                    <span aria-hidden="true">{modeIcon(n.trip.mode)}</span>
+                    <span class="visually-hidden">
+                      estimated, {n.trip.mode === 'rail' ? 'by train' : 'by plane'}
+                    </span>
+                  </span>
+                {/if}
               </span>
             {/if}
           </button>

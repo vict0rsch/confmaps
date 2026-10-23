@@ -56,7 +56,7 @@ const data = joinData({
 
 describe('pinFeatures', () => {
   it('encodes role, kind and access as numeric props', () => {
-    const fc = pinFeatures(data.locations);
+    const fc = pinFeatures(data.pinnedLocations);
     expect(fc.features.map((f) => f.properties)).toMatchObject([
       { id: 'n26@main', main: 1, official: 1, locked: 0, label: 'N 2026' },
       { id: 'n26-paris', main: 0, official: 0, locked: 1 },
@@ -67,9 +67,9 @@ describe('pinFeatures', () => {
 
 describe('linkFeatures', () => {
   it('links satellites to a visible main venue only', () => {
-    expect(linkFeatures(data.locations).features).toHaveLength(1);
+    expect(linkFeatures(data.pinnedLocations).features).toHaveLength(1);
     expect(
-      linkFeatures(data.locations.filter((l) => l.role === 'satellite')).features,
+      linkFeatures(data.pinnedLocations.filter((l) => l.role === 'satellite')).features,
     ).toHaveLength(0);
   });
 });

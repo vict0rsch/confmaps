@@ -1,9 +1,11 @@
 // `co2`: "Estimated footprint under ~X kg" — round-trip estimate from home with the global travel
 // mode and threshold (DESIGN §5). Needs home: without it (or if the estimate cannot be computed)
-// the filter has no effect.
+// the filter has no effect. A virtual edition counts as ~0 kg (attending online, no travel); a
+// hybrid one is estimated to its city.
 import Co2Control from '../../components/filters/Co2Control.svelte';
 import { param, parsePositiveInt, readParam, type Ctx, type Filter } from './types';
 import type { JoinedLocation } from '../data/load';
+import { isVirtual } from '../data/types';
 
 /** Slider stops, kg CO₂e (≤ 2 significant figures, so "~X kg" reads exactly). */
 export const CO2_STOPS: readonly number[] = [
@@ -13,9 +15,13 @@ export const CO2_MAX_KG = 100_000;
 
 export type Co2State = number | null;
 
-/** Round-trip kg CO₂e from home, or `undefined` without home / on invalid input. */
+/**
+ * Round-trip kg CO₂e from home (`0` for a virtual edition), or `undefined` without home / on
+ * invalid input.
+ */
 export function tripKg(loc: JoinedLocation, ctx: Ctx): number | undefined {
   if (!ctx.home) return undefined;
+  if (isVirtual(loc)) return 0;
   try {
     return ctx.co2.estimateTrip(ctx.home, loc, { mode: ctx.mode, thresholdKm: ctx.threshold })
       .kgCO2e;

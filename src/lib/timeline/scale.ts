@@ -97,21 +97,28 @@ export function histogram(locs: readonly { start: string; end: string }[], d: Do
 
 export type Tick = { day: number; label: string; kind: 'year' | 'month' };
 
+/** Years are labelled every 1, 2, 5 or 10 years: the first step that keeps labels this far apart. */
+const YEAR_LABEL_PX = 32;
+const YEAR_STEPS = [1, 2, 5, 10];
+
 /**
- * Sparse axis labels: every January as the year; quarters (Apr/Jul/Oct) when months are ≥ 16 px
+ * Sparse axis labels: every January as the year (every 2nd, 5th or 10th year when years are too
+ * narrow, e.g. on a phone or over many years); quarters (Apr/Jul/Oct) when months are ≥ 16 px
  * wide; every month when ≥ 40 px. A leading partial year is labelled at the domain start when it
- * has room (≥ 3 months).
+ * has room (≥ 3 months and ≥ 36 px, so it does not run into the next year's label).
  */
 export function axisTicks(d: Domain, width: number): Tick[] {
   const first = monthIndex(isoFromDay(d.start));
   const last = monthIndex(isoFromDay(d.end - 1));
   const monthPx = width / (last - first + 1);
+  const step = YEAR_STEPS.find((n) => n * 12 * monthPx >= YEAR_LABEL_PX) ?? 10;
   const ticks: Tick[] = [];
   for (let i = first; i <= last; i++) {
     const m = i % 12;
     const day = monthFirstDay(i);
-    if (m === 0) ticks.push({ day, label: String(i / 12), kind: 'year' });
-    else if (i === first && 12 - m >= 3) {
+    if (m === 0) {
+      if ((i / 12) % step === 0) ticks.push({ day, label: String(i / 12), kind: 'year' });
+    } else if (i === first && step === 1 && 12 - m >= 3 && (12 - m) * monthPx >= 36) {
       ticks.push({ day, label: String(Math.floor(i / 12)), kind: 'year' });
     } else if (monthPx >= 40 || (monthPx >= 16 && m % 3 === 0)) {
       ticks.push({ day, label: MONTHS[m], kind: 'month' });

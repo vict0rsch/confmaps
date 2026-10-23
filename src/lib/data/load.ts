@@ -2,24 +2,25 @@
 // and data are always deployed atomically (no cache skew, no loading state, typed at build time).
 // It only changes with the daily sync, so the cache-busting cost is negligible.
 import raw from '../../../data/build/data.json';
-import {
-  isVirtual,
-  type Conference,
-  type DataFile,
-  type EventLocation,
-  type PinnedLocation,
-} from './types';
+import { isVirtual, type Conference, type DataFile, type EventLocation } from './types';
 
 /**
- * A location joined to its conference (filters test `loc.conference`, DESIGN §6.3). Interim:
- * pinned only, `joinData` drops virtual locations until the app handles them (backfill spec §4).
+ * A location joined to its conference (filters test `loc.conference`, DESIGN §6.3). Virtual
+ * (online-only) editions have no city or coordinates: narrow with `isVirtual` before using them.
  */
-export type JoinedLocation = PinnedLocation & { conference: Conference };
+export type JoinedLocation = EventLocation & { conference: Conference };
+/** A location with a map pin (in person or hybrid). */
+export type PinnedJoined = Extract<JoinedLocation, { lat: number }>;
+
+/** Narrows to the locations that have a pin. */
+export const isPinned = (l: JoinedLocation): l is PinnedJoined => !isVirtual(l);
 
 export type AppData = {
   generatedAt: string;
   conferences: Conference[];
   locations: JoinedLocation[];
+  /** The locations with a map pin (every location but virtual editions). */
+  pinnedLocations: PinnedJoined[];
   conferenceById: ReadonlyMap<string, Conference>;
   /** All locations of a conference, main first. */
   locationsByConference: ReadonlyMap<string, JoinedLocation[]>;
@@ -77,7 +78,7 @@ export function joinData(file: DataFile): AppData {
   const locationsByConference = new Map<string, JoinedLocation[]>();
   for (const loc of file.locations) {
     const conference = conferenceById.get(loc.conferenceId);
-    if (!conference || isVirtual(loc)) continue;
+    if (!conference) continue;
     const joined = { ...loc, conference };
     locations.push(joined);
     const list = locationsByConference.get(conference.id) ?? [];
@@ -87,12 +88,16 @@ export function joinData(file: DataFile): AppData {
   for (const list of locationsByConference.values()) {
     list.sort((a, b) => roleOrder(a) - roleOrder(b) || a.start.localeCompare(b.start));
   }
-  const mainCity = (id: string) =>
-    locationsByConference.get(id)?.find((l) => l.role === 'main')?.city;
+  // A virtual main has no city, so its conference is never grouped with tracks.
+  const mainCity = (id: string) => {
+    const main = locationsByConference.get(id)?.find((l) => l.role === 'main');
+    return main && isPinned(main) ? main.city : undefined;
+  };
   return {
     generatedAt: file.generatedAt,
     conferences: file.conferences,
     locations,
+    pinnedLocations: locations.filter(isPinned),
     conferenceById,
     locationsByConference,
     trackGroups: groupTracks(file.conferences, mainCity),

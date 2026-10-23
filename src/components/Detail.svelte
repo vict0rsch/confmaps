@@ -5,7 +5,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import { trackName, type JoinedLocation } from '../lib/data/load';
-  import type { Conference } from '../lib/data/types';
+  import { isVirtual, type Conference } from '../lib/data/types';
   import { formatDateRange, formatInstant } from '../lib/format/dates';
   import { kindLabel, placeLabel, roleLabel } from '../lib/format/labels';
   import { app } from '../lib/state/app.svelte';
@@ -13,6 +13,7 @@
   import AccessBadge from './AccessBadge.svelte';
   import Icon from './Icon.svelte';
   import SiteMarker from './SiteMarker.svelte';
+  import VirtualBadge from './VirtualBadge.svelte';
 
   let {
     conference,
@@ -32,6 +33,8 @@
 
   const sites = $derived(app.data.locationsByConference.get(conference.id) ?? []);
   const deadlines = $derived(deadlineSummary(conference, app.now));
+  /** A past edition without deadlines on record (imported history): nothing to say about them. */
+  const showDeadlines = $derived(conference.deadlines.length > 0 || conference.end >= app.today);
   /** The event's tracks (EMNLP + Industry + System Demonstrations), when it has several. */
   const tracks = $derived(app.data.trackGroups.get(conference.id) ?? []);
   const host = $derived.by(() => {
@@ -82,29 +85,31 @@
       <dt><Icon name="external" size={15} label="Website" /></dt>
       <dd><a href={conference.link} target="_blank" rel="noopener noreferrer">{host}</a></dd>
     </div>
-    <div class="fact quiet">
-      <dt><Icon name="paper" size={15} label="Deadlines" /></dt>
-      <dd>
-        <span class="tabular">
-          {#if deadlines.paper}
-            Paper deadline:
-            {#if deadlines.paper.passed}passed{:else}{formatInstant(
-                deadlines.paper.deadline.date,
-              )}{/if}
-          {:else}
-            No paper deadline listed
-          {/if}
-        </span>
-        {#if deadlines.next && deadlines.next !== deadlines.paper?.deadline}
-          <span class="next tabular">
-            Next: {deadlines.next.label}, {formatInstant(deadlines.next.date)}
+    {#if showDeadlines}
+      <div class="fact quiet">
+        <dt><Icon name="paper" size={15} label="Deadlines" /></dt>
+        <dd>
+          <span class="tabular">
+            {#if deadlines.paper}
+              Paper deadline:
+              {#if deadlines.paper.passed}passed{:else}{formatInstant(
+                  deadlines.paper.deadline.date,
+                )}{/if}
+            {:else}
+              No paper deadline listed
+            {/if}
           </span>
-        {/if}
-        <a class="hf" href={HF_DEADLINES_URL} target="_blank" rel="noopener noreferrer">
-          Countdowns on the HF site
-        </a>
-      </dd>
-    </div>
+          {#if deadlines.next && deadlines.next !== deadlines.paper?.deadline}
+            <span class="next tabular">
+              Next: {deadlines.next.label}, {formatInstant(deadlines.next.date)}
+            </span>
+          {/if}
+          <a class="hf" href={HF_DEADLINES_URL} target="_blank" rel="noopener noreferrer">
+            Countdowns on the HF site
+          </a>
+        </dd>
+      </div>
+    {/if}
   </dl>
 
   {#if tracks.length}
@@ -153,18 +158,25 @@
         <li class="site">
           <div class="site-top">
             <span class="role">
-              <SiteMarker
-                official={s.official}
-                main={s.role === 'main'}
-                locked={s.access === 'authors_only'}
-              />
+              {#if !isVirtual(s)}
+                <SiteMarker
+                  official={s.official}
+                  main={s.role === 'main'}
+                  locked={s.access === 'authors_only'}
+                />
+              {/if}
               {roleLabel(s)} · {kindLabel(s)}
             </span>
             <span class="site-dates tabular">{formatDateRange(s.start, s.end)}</span>
           </div>
-          <p class="place">{placeLabel(s)}</p>
+          <p class="place">
+            {placeLabel(s)}
+            {#if isVirtual(s)}<VirtualBadge />{:else if s.format === 'hybrid'}<VirtualBadge
+                format="hybrid"
+              />{/if}
+          </p>
           {#if s.role === 'satellite' && s.name}<p class="muted">{s.name}</p>{/if}
-          {#if s.venue}<p class="muted">{s.venue}</p>{/if}
+          {#if !isVirtual(s) && s.venue}<p class="muted">{s.venue}</p>{/if}
           <div class="site-tags">
             <AccessBadge access={s.access} />
             <span class="papers">
@@ -353,6 +365,10 @@
   }
 
   .place {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
     font-weight: var(--weight-semibold);
   }
 

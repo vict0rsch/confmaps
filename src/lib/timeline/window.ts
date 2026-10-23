@@ -13,16 +13,35 @@ import {
   type Domain,
 } from './scale';
 
-export type PresetId = '6m' | '12m' | '5y';
+export type PresetId = '6m' | '12m' | '5y' | 'all';
 export type Preset = { id: PresetId; label: string; w: DateWindow };
 
-/** Shared by the timeline and the filter panel's Dates control. */
-export function datePresets(today: string): Preset[] {
-  return [
+/** How far back the timeline axis reaches by default (the "All years" preset reaches the rest). */
+export const AXIS_PAST_MONTHS = 60;
+
+/**
+ * Shared by the timeline and the filter panel's Dates control. `dataFrom` (the first event's
+ * start) adds "All years": from it to today.
+ */
+export function datePresets(today: string, dataFrom?: string): Preset[] {
+  const presets: Preset[] = [
     { id: '6m', label: '6 months', w: planWindow(today, 6) },
     { id: '12m', label: '12 months', w: planWindow(today, 12) },
     { id: '5y', label: 'Past 5 years', w: { from: addMonthsISO(today, -60), to: today } },
   ];
+  if (dataFrom && dataFrom < today) {
+    presets.push({ id: 'all', label: 'All years', w: { from: dataFrom, to: today } });
+  }
+  return presets;
+}
+
+/**
+ * The span the axis covers by default: the data, but no further back than the last
+ * `AXIS_PAST_MONTHS` months (whole months), so decades of history don't squeeze the months ahead.
+ */
+export function axisSpan(span: DateWindow, today: string): DateWindow {
+  const recent = monthStart(addMonthsISO(today, -AXIS_PAST_MONTHS));
+  return { from: span.from > recent ? span.from : recent, to: span.to };
 }
 
 export const sameWindow = (a: DateWindow, b: DateWindow): boolean =>
