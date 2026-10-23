@@ -180,12 +180,17 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   `paperswithcode/ai-deadlines` `_data/conferences.yml` in its git history (bare clone, pinned
   `gh-pages` HEAD `b230d247`, per-entry fallback for unparseable versions), keeps the latest value
   per PwC id, parses free-text `place`/`date` deterministically, dedupes by series|year (several
-  PwC ids → one edition) and drops editions upstream already has. Corrections live in
+  PwC ids → one edition) and drops editions upstream already has (data.json's own `pwc`
+  editions, and `curated` ones under the same id, are the import's earlier output and do not
+  count, so a re-import reproduces the PwC set). Corrections live in
   `scripts/pwc/fixes.ts` (`TITLE_FIXES`, `EXCLUDE`, `PLACE_FIXES`, `FIELD_FIXES`, each with a
   reason; an entry for an unknown or unused PwC id is an error). It is a **one-time writer**: it
   refuses a non-empty file without `--force` and always refuses one with curated entries; after
   the import the file is edited by hand or by the discovery agent (§4), and the research
   corrections below are not encoded in the importer (only its exclusions are, in `EXCLUDE`).
+  **After the import, `data/past_conferences.yml` is the source of truth:** a forced re-import
+  (`--force`) rebuilds it from PwC alone and discards every curated correction, so it should
+  not be run on the committed file (`--force --dry-run` regenerates the report safely).
 - **Review-marker gate:** the importer marks suspicious entries with an end-of-line
   `# review: <reasons>` comment: `covid` (in person between 2020-03 and 2021-12), `stale` (PwC
   never updated after the event), `multi-id`, `fixes-applied`. `pnpm data:validate` fails while

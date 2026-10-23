@@ -183,6 +183,27 @@ describe('convert', () => {
     expect(r.collisions).toEqual([{ id: 'aistats25', ids: ['aistats25'], existing: 'aistats25' }]);
   });
 
+  it('does not count editions an earlier import wrote (pwc, or curated under the same id)', () => {
+    const imported: KnownConference[] = [
+      ...conferences,
+      { id: 'icra20', series: 'icra', title: 'ICRA', year: 2020, source: 'pwc' },
+      { id: 'sem17', series: 'sem', title: '*SEM', year: 2017, source: 'curated' },
+    ];
+    const r = convert([icra20, sem17], imported, noFixes);
+    expect(r.collisions).toEqual([]);
+    expect(r.unresolved).toEqual([]);
+    expect(r.entries.map((e) => e.id)).toEqual(['sem17', 'icra20']);
+  });
+
+  it('still drops an edition curated under another id', () => {
+    const curated: KnownConference[] = [
+      { id: 'icra2020', series: 'icra', title: 'ICRA', year: 2020, source: 'curated' },
+    ];
+    const r = convert([icra20], curated, noFixes);
+    expect(r.entries).toEqual([]);
+    expect(r.collisions).toEqual([{ id: 'icra20', ids: ['icra20'], existing: 'icra2020' }]);
+  });
+
   it('refuses an id that data.json uses for another edition', () => {
     const r = convert(
       [icra20],
@@ -368,11 +389,8 @@ describe.runIf(process.env.PWC_NETWORK)('network run against the pinned PwC HEAD
     const clone = clonePwc();
     try {
       const { records } = unionHistory(readVersions(clone.gitDir));
-      // data.json now also holds the imported editions themselves; only HF/archive ones collide.
-      const known = data.conferences.filter(
-        (c: KnownConference) => c.source !== 'pwc' && c.source !== 'curated',
-      );
-      const r = convert(records.values(), known);
+      // data.json also holds the imported editions themselves; convert does not count them.
+      const r = convert(records.values(), data.conferences);
       expect(r.unresolved).toEqual([]);
       expect(r.entries.length).toBeGreaterThan(330);
       expect(r.entries.length).toBeLessThan(360);

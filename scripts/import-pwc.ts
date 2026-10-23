@@ -5,6 +5,11 @@
 //   --data-dir <dir>  default: data
 //   --force           overwrite a non-empty past_conferences.yml (never one with curated entries)
 //   --dry-run         print the report, write nothing
+//
+// After the import, data/past_conferences.yml is the source of truth: the research corrections
+// (formats, dates, places, links, sources) live only in that file, not in pwc/fixes.ts. A forced
+// re-import rebuilds the file from PwC alone and discards them, so do not run one on the
+// committed data; use --dry-run to regenerate the report.
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -174,14 +179,20 @@ export function convert(
     const ids = group.map((c) => c.record.key);
     const label = ids.join('/');
     const id = pastEditionId(best.series, best.year, conferences);
-    const known = conferences.find(
+    // data.json already holds what an earlier import wrote (source pwc), possibly hand-edited
+    // into curated under the same id: that is this import's own output, not a collision, so a
+    // forced re-import reproduces the PwC set.
+    const others = conferences.filter(
+      (c) => c.source !== 'pwc' && !(c.source === 'curated' && c.id === id),
+    );
+    const known = others.find(
       (c) => editionKey(c.series, c.year) === editionKey(best.series, best.year),
     );
     if (known) {
       result.collisions.push({ id, ids, existing: known.id });
       continue;
     }
-    const sameId = conferences.find((c) => c.id === id);
+    const sameId = others.find((c) => c.id === id);
     if (sameId) {
       result.unresolved.push(
         `${label}: id ${id} is already data.json's ${sameId.series} ${sameId.year}`,
