@@ -1,6 +1,6 @@
 // GeoJSON builders for the map's data sources (pure; unit-tested).
 import type { Feature, FeatureCollection, LineString, Point } from 'geojson';
-import type { JoinedLocation } from '../data/load';
+import type { PinnedJoined } from '../data/load';
 
 export type PinProps = {
   id: string;
@@ -18,7 +18,8 @@ export type PinFeature = Feature<Point, PinProps>;
 export type PinCollection = FeatureCollection<Point, PinProps>;
 export type LinkCollection = FeatureCollection<LineString, { conferenceId: string }>;
 
-export function pinFeatures(locations: readonly JoinedLocation[]): PinCollection {
+/** Pins only: a virtual edition has no place on the map (the type rules it out). */
+export function pinFeatures(locations: readonly PinnedJoined[]): PinCollection {
   return {
     type: 'FeatureCollection',
     features: locations.map((l) => ({
@@ -105,9 +106,12 @@ export function trimLine(coords: readonly [number, number][], f: number): [numbe
   return out;
 }
 
-/** Main ↔ satellite arcs, for conferences whose main venue and ≥1 satellite are both visible. */
-export function linkFeatures(locations: readonly JoinedLocation[]): LinkCollection {
-  const mains = new Map<string, JoinedLocation>();
+/**
+ * Main ↔ satellite arcs, for conferences whose main venue and ≥1 satellite are both visible (a
+ * link needs a pinned main).
+ */
+export function linkFeatures(locations: readonly PinnedJoined[]): LinkCollection {
+  const mains = new Map<string, PinnedJoined>();
   for (const l of locations) if (l.role === 'main') mains.set(l.conferenceId, l);
   const features: LinkCollection['features'] = [];
   for (const l of locations) {

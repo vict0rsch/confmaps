@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { coverDomain, dayNumber, windowDays } from './scale';
+import { coverDomain, dayNumber, isoFromDay, windowDays } from './scale';
 import {
   advanceMonths,
+  axisSpan,
   canPlay,
   centerWindow,
   clampAtEnd,
@@ -27,6 +28,35 @@ describe('presets', () => {
       ['12m', plan],
       ['5y', { from: '2021-10-22', to: '2026-10-22' }],
     ]);
+  });
+
+  it('"All years" reaches back to the first event', () => {
+    const all = datePresets('2026-10-22', '2016-12-05').at(-1)!;
+    expect(all).toEqual({
+      id: 'all',
+      label: 'All years',
+      w: { from: '2016-12-05', to: '2026-10-22' },
+    });
+    expect(datePresets('2026-10-22', '2026-12-01').map((p) => p.id)).not.toContain('all');
+  });
+});
+
+describe('axis span', () => {
+  it('starts at most 5 years back (whole months), the data end unchanged', () => {
+    const span = { from: '2016-12-05', to: '2027-12-12' };
+    expect(axisSpan(span, '2026-10-22')).toEqual({ from: '2021-10-01', to: '2027-12-12' });
+    // Younger data keeps its own start.
+    const recent = { from: '2025-01-13', to: '2027-12-12' };
+    expect(axisSpan(recent, '2026-10-22')).toEqual(recent);
+  });
+
+  it('the "All years" window grows the axis back to the data start', () => {
+    const today = '2026-10-22';
+    const span = { from: '2016-12-05', to: '2027-12-12' };
+    const base = coverDomain(undefined, axisSpan(span, today));
+    expect(isoFromDay(base.start)).toBe('2021-10-01');
+    const all = datePresets(today, span.from).find((p) => p.id === 'all')!.w;
+    expect(isoFromDay(coverDomain(base, all).start)).toBe('2016-12-01');
   });
 });
 

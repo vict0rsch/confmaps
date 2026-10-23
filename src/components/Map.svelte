@@ -87,17 +87,18 @@
     if (hov && hov !== sel) {
       features.push(...tag(pinFeatures(app.mapLocations.filter((l) => l.conferenceId === hov)), 0));
     }
-    if (sel) features.push(...tag(pinFeatures(app.selectedSites), 1));
+    if (sel) features.push(...tag(pinFeatures(app.selectedPins), 1));
     return { type: 'FeatureCollection', features };
   });
 
   // Home (DESIGN §6.5): a marker, and lines to the selected conference's sites only (lines to
   // every pin would be clutter), drawn in on selection; the nearest site's line is the strongest.
+  // A virtual event has no pin, hence no line.
   const homeDraw = new Tween(1, { easing: cubicOut });
   const homeLineCoords = $derived.by(() => {
     const home = app.home;
     if (!home || !app.selectedConferenceId) return [];
-    const sites = app.selectedSites.map((s) => ({ s, km: haversineKm(home, s) }));
+    const sites = app.selectedPins.map((s) => ({ s, km: haversineKm(home, s) }));
     const nearest = Math.min(...sites.map((x) => x.km));
     return sites.map(({ s, km }) => ({ coords: greatCircle(home, s), nearest: km === nearest }));
   });
@@ -128,7 +129,7 @@
   // ---- Timeline choreography (Play, history mode) ---------------------------
   // While the timeline animates, an unclustered presentation of every location replaces the
   // clustered one (per-pin fades can't be clustered); it hands back once motion settles.
-  const anim = animFeatures(app.data.locations);
+  const anim = animFeatures(app.data.pinnedLocations);
   const motion = $derived(motionConfig(prefersReducedMotion.current));
   const wantAnim = $derived(play.playing || !!historyMode.series);
   let animMode = $state(false);
@@ -240,7 +241,7 @@
     });
     choreo = new Choreographer(
       m,
-      app.data.locations,
+      app.data.pinnedLocations,
       untrack(() => motion),
     );
     map = m;
@@ -517,18 +518,19 @@
     return margins((container?.clientWidth ?? 0) < 640 ? 24 : MARGIN);
   }
 
+  /** No pins (a virtual event): no camera move. */
   function fitSelection() {
-    const b = boundsOf(app.selectedSites);
+    const b = boundsOf(app.selectedPins);
     if (!map || !b) return;
     map.setPadding(insets);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
   }
 
   function updateOffscreen() {
-    if (!map || !app.selectedConferenceId) return (selectionOffscreen = false);
+    if (!map || !app.selectedPins.length) return (selectionOffscreen = false);
     const w = container.clientWidth - insets.right;
     const h = container.clientHeight - insets.bottom;
-    selectionOffscreen = !app.selectedSites.some((s) => {
+    selectionOffscreen = !app.selectedPins.some((s) => {
       const p = map!.project([s.lng, s.lat]);
       return p.x >= insets.left && p.x <= w && p.y >= insets.top && p.y <= h;
     });

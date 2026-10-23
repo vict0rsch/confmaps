@@ -31,6 +31,12 @@
     <a href="https://github.com/huggingface/ai-deadlines" target="_blank" rel="noopener noreferrer"
       >huggingface/ai-deadlines</a
     >
+    (MIT); past editions from
+    <a
+      href="https://github.com/paperswithcode/ai-deadlines"
+      target="_blank"
+      rel="noopener noreferrer">paperswithcode/ai-deadlines</a
+    >
     (MIT). Map:
     <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>
     ©

@@ -8,7 +8,7 @@
 // of them animates. Timing is pure (../timeline/motion.ts); this class only applies it.
 import type { FeatureCollection, LineString } from 'geojson';
 import type { GeoJSONSource, Map as MLMap } from 'maplibre-gl';
-import type { JoinedLocation } from '../data/load';
+import type { JoinedLocation, PinnedJoined } from '../data/load';
 import { stopIndexOf, type Stop } from '../timeline/history';
 import {
   linkAt,
@@ -25,8 +25,8 @@ import {
 import { greatCircle, pinFeatures, trimLine, type PinCollection } from './geojson';
 import { SRC } from './style';
 
-/** Every location as an animation feature; the numeric id (its index) keys its feature-state. */
-export function animFeatures(locs: readonly JoinedLocation[]): PinCollection {
+/** Every pin as an animation feature; the numeric id (its index) keys its feature-state. */
+export function animFeatures(locs: readonly PinnedJoined[]): PinCollection {
   const pins = pinFeatures(locs);
   return { ...pins, features: pins.features.map((f, i) => ({ ...f, id: i })) };
 }
@@ -67,7 +67,7 @@ export function liveIds(
 }
 
 type Pin = {
-  loc: JoinedLocation;
+  loc: PinnedJoined;
   track: Track;
   cur: Visual;
   /** Active ripple: started at `t0`, may stop at `until` (Infinity while live). */
@@ -96,7 +96,7 @@ export class Choreographer {
   #cfg: MotionConfig;
   #linksDirty = true;
 
-  constructor(map: MLMap, locs: readonly JoinedLocation[], cfg: MotionConfig) {
+  constructor(map: MLMap, locs: readonly PinnedJoined[], cfg: MotionConfig) {
     this.#map = map;
     this.#cfg = cfg;
     this.#pins = locs.map((loc) => ({

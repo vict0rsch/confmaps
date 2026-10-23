@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { location } from '../filters/fixtures';
+import { hybridLocation, location, oldEditionLocation, virtualLocation } from '../filters/fixtures';
 import { trimLine } from '../map/geojson';
 import {
   curve,
   historyFitPoints,
   historyLegs,
   historyStops,
+  onlineYears,
   pathAt,
   stopIndexOf,
   stopLabels,
@@ -63,6 +64,41 @@ describe('historyStops', () => {
     expect(stopIndexOf(stops, { id: 'icml25', start: '2025-07-13' })).toBe(1);
     expect(stopIndexOf(stops, { id: 'x', start: '2025-12-01' })).toBe(1);
     expect(stopIndexOf(stops, { id: 'x', start: '2020-01-01' })).toBe(0);
+  });
+});
+
+describe('virtual and hybrid editions', () => {
+  // NeurIPS: NIPS 2017 Long Beach, online 2020 and 2021, hybrid 2022 New Orleans.
+  const nips17 = oldEditionLocation();
+  const v20 = virtualLocation();
+  const v21 = virtualLocation(
+    {},
+    { id: 'neurips21', year: 2021, start: '2021-12-06', end: '2021-12-14' },
+  );
+  const h22 = hybridLocation();
+
+  it('the path skips virtual editions: the leg joins the neighbouring stops', () => {
+    const stops = historyStops([h22, v21, nips17, v20]);
+    expect(stops.map((s) => [s.city, s.years])).toEqual([
+      ['Long Beach', [2017]],
+      ['New Orleans', [2022]],
+    ]);
+    expect(historyLegs(stops)).toHaveLength(1);
+    expect(stopLabels(stops, 1).map((l) => l.years)).toEqual(['2017', '2022']);
+  });
+
+  it('lists the online years, distinct and ascending; none without virtual editions', () => {
+    const v21ind = virtualLocation(
+      { id: 'neurips21ind@main', conferenceId: 'neurips21ind' },
+      { id: 'neurips21ind', year: 2021 },
+    );
+    expect(onlineYears([h22, v21, nips17, v20, v21ind])).toEqual([2020, 2021]);
+    expect(onlineYears([nips17, h22])).toEqual([]);
+  });
+
+  it('keeps the historical title on the edition (series unchanged)', () => {
+    expect(`${nips17.conference.title} ${nips17.conference.year}`).toBe('NIPS 2017');
+    expect(nips17.conference.series).toBe('neurips');
   });
 });
 

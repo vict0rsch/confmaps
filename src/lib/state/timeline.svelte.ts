@@ -11,7 +11,7 @@ import { prefersReducedMotion } from 'svelte/motion';
 import { track } from '../analytics';
 import type { JoinedLocation } from '../data/load';
 import { composePredicate } from '../filters/store.svelte';
-import { historyStops, LEG_MS, travelDisplay, type Stop } from '../timeline/history';
+import { historyStops, LEG_MS, onlineYears, travelDisplay, type Stop } from '../timeline/history';
 import { dataSpan } from '../timeline/scale';
 import {
   advanceMonths,
@@ -60,6 +60,8 @@ export class HistoryState {
     const ys = app.visibleLocations.map((l) => l.conference.year).sort((a, b) => a - b);
     return ys.filter((y, i) => y !== ys[i - 1]);
   });
+  /** Years of the visible virtual editions, which have no stop on the path. */
+  readonly onlineYears: number[] = $derived(this.series ? onlineYears(app.visibleLocations) : []);
   /** Display name, from the latest edition (e.g. "NeurIPS"). */
   readonly title: string = $derived.by(() => {
     const s = this.series;

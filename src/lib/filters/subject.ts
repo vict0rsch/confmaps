@@ -56,7 +56,13 @@ export const SUBJECTS: readonly Subject[] = [
     code: 'KR',
     label: 'Knowledge & reasoning',
     group: 'Machine learning',
-    tags: ['reasoning', 'knowledge-representation', 'knowledge-graphs', 'semantics-and-knowledge'],
+    tags: [
+      'reasoning',
+      'knowledge-representation',
+      'knowledge-graphs',
+      'semantics-and-knowledge',
+      'automated-planning',
+    ],
   },
   { code: 'FAIR', label: 'Fairness', group: 'Machine learning', tags: ['fairness'] },
   {

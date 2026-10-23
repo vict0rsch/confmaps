@@ -4,7 +4,8 @@ vi.mock('../analytics', () => ({ track: vi.fn() }));
 
 import { track } from '../analytics';
 import { liveIds, shownIds } from '../map/choreography';
-import { windowDays } from '../timeline/scale';
+import { historyStops } from '../timeline/history';
+import { addDays, windowDays } from '../timeline/scale';
 import { app } from './app.svelte';
 import { defaultDates, filterState, getDates, setDates } from './filters.svelte';
 import { historyMode, play, PlayState, scope } from './timeline.svelte';
@@ -81,7 +82,7 @@ describe('PlayState', () => {
   });
 
   it('cannot play a window wider than the data', () => {
-    setDates({ from: '2021-10-22', to: '2028-10-22' });
+    setDates({ from: addDays(scope.span.from, -1), to: addDays(scope.span.to, 1) });
     expect(play.canPlay).toBe(false);
   });
 });
@@ -90,11 +91,14 @@ describe('history mode', () => {
   it('shows every edition of the series, ignoring (but keeping) the dates window', () => {
     setDates({ from: '2026-01-01', to: '2026-01-31' });
     historyMode.enter('neurips');
+    // However far back the data goes (past editions may be imported).
+    const editions = app.data.conferences.filter((c) => c.series === 'neurips');
     const confs = new Set(app.visibleLocations.map((l) => l.conferenceId));
-    expect([...confs].sort()).toEqual(['neurips25', 'neurips26']);
+    expect([...confs].sort()).toEqual(editions.map((c) => c.id).sort());
     expect(getDates()).toEqual({ from: '2026-01-01', to: '2026-01-31' }); // not mutated
-    expect(historyMode.stops.map((s) => s.city)).toEqual(['San Diego', 'Sydney']);
-    expect(historyMode.years).toEqual([2025, 2026]);
+    expect(historyMode.stops.slice(-2).map((s) => s.city)).toEqual(['San Diego', 'Sydney']);
+    expect(historyMode.years.slice(-2)).toEqual([2025, 2026]);
+    expect(historyMode.years).toHaveLength(new Set(editions.map((c) => c.year)).size);
     expect(vi.mocked(track)).toHaveBeenCalledWith('history_mode_opened');
     historyMode.exit();
     expect(
@@ -136,20 +140,25 @@ describe('history mode', () => {
     p.play();
     expect(p.travel).toBe(0);
     const stops = historyMode.stops;
-    expect(stops.map((s) => s.years[0])).toEqual([2025, 2026, 2027]);
+    expect(stops.slice(-3).map((s) => s.years[0])).toEqual([2025, 2026, 2027]);
+    const mains = (i: number) => stops[i].conferenceIds.map((id) => `${id}@main`);
     const at = () => shownIds(app.visibleLocations, stops, p.travelShown);
-    expect([...at()]).toEqual(['iclr25@main']);
+    expect([...at()]).toEqual(mains(0));
     p.step(1800); // one leg at 1×
-    expect([...at()].sort()).toEqual(['iclr25@main', 'iclr26@main']);
-    expect([...liveIds(app.visibleLocations, null, stops, p.travelShown)]).toEqual(['iclr26@main']);
-    p.step(1800);
+    expect([...at()].sort()).toEqual([...mains(0), ...mains(1)].sort());
+    expect([...liveIds(app.visibleLocations, null, stops, p.travelShown)]).toEqual(mains(1));
+    p.step(1800 * (stops.length - 1));
     expect(p.playing).toBe(false);
     expect(p.travel).toBeNull(); // complete: whole path shown
-    expect(at().size).toBe(3);
+    expect(at().size).toBe(app.visibleLocations.length);
   });
 
   it('a single edition cannot play', () => {
-    historyMode.enter('coling');
+    const series = [...new Set(app.data.conferences.map((c) => c.series))];
+    const single = series.find(
+      (s) => historyStops(app.data.locations.filter((l) => l.conference.series === s)).length === 1,
+    )!;
+    historyMode.enter(single);
     expect(historyMode.stops).toHaveLength(1);
     expect(play.canPlay).toBe(false);
   });

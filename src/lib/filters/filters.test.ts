@@ -1,9 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { co2Model } from '../co2/model';
 import { haversineKm } from '../geo/distance';
 import { accessFilter } from './access';
 import { co2Filter, tripKg } from './co2';
 import { createDatesFilter, parseDay } from './dates';
-import { ctx, LONDON, location, PARIS } from './fixtures';
+import { ctx, hybridLocation, LONDON, location, PARIS, virtualLocation } from './fixtures';
 import { createFilters } from './index';
 import { kindFilter } from './kind';
 import { openFilter, submissionOpen } from './open';
@@ -124,6 +125,7 @@ describe('subject', () => {
     expect(subjectOfTag('computer vision').code).toBe('CV');
     expect(subjectOfTag('image processing').code).toBe('CV');
     expect(subjectOfTag('semantics and knowledge').code).toBe('KR');
+    expect(subjectOfTag('automated-planning').code).toBe('KR'); // PwC's "AP"
   });
 
   it('labels unknown tags HF-style in the Other group', () => {
@@ -222,6 +224,16 @@ describe('radius', () => {
     expect(radiusFilter.test(paris, c, Math.ceil(d))).toBe(true);
   });
 
+  it('virtual editions always pass; hybrid ones are measured to their city', () => {
+    const c = ctx({ home: LONDON });
+    expect(radiusFilter.test(virtualLocation(), c, 1)).toBe(true);
+    expect(radiusFilter.test(virtualLocation(), ctx(), 1)).toBe(true);
+    const hybridParis = hybridLocation({ lat: PARIS.lat, lng: PARIS.lng });
+    expect(radiusFilter.test(hybridParis, c, 400)).toBe(true);
+    expect(radiusFilter.test(hybridParis, c, 300)).toBe(false);
+    expect(radiusFilter.test(hybridLocation(), c, 50)).toBe(false); // New Orleans
+  });
+
   it('has no effect without home, or with an unusable home', () => {
     expect(radiusFilter.test(paris, ctx(), 1)).toBe(true);
     expect(radiusFilter.test(paris, ctx({ home: { lat: NaN, lng: 0 } }), 1)).toBe(true);
@@ -255,6 +267,23 @@ describe('co2', () => {
   it('has no effect without home', () => {
     expect(co2Filter.test(paris, ctx(), 1)).toBe(true);
     expect(tripKg(paris, ctx())).toBeUndefined();
+    expect(tripKg(virtualLocation(), ctx())).toBeUndefined();
+  });
+
+  it('a virtual edition is ~0 kg: passes any limit, never estimated', () => {
+    const estimateTrip = vi.fn(co2Model.estimateTrip);
+    const c = ctx({ home: LONDON, co2: { estimateTrip } });
+    expect(tripKg(virtualLocation(), c)).toBe(0);
+    expect(co2Filter.test(virtualLocation(), c, 1)).toBe(true);
+    expect(estimateTrip).not.toHaveBeenCalled();
+  });
+
+  it('a hybrid edition is estimated to its city', () => {
+    const hybridParis = hybridLocation({ lat: PARIS.lat, lng: PARIS.lng });
+    expect(tripKg(hybridParis, ctx({ home: LONDON }))).toBeCloseTo(
+      tripKg(paris, ctx({ home: LONDON }))!,
+    );
+    expect(co2Filter.test(hybridLocation(), ctx({ home: LONDON }), 25)).toBe(false);
   });
 
   it('guards estimateTrip RangeErrors (invalid home or threshold): no effect, no throw', () => {

@@ -1,8 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import * as model from '../co2/model';
 import { estimateTrip } from '../co2/model';
+import { hybridLocation, location, virtualLocation } from '../filters/fixtures';
 import { formatCo2, formatDistance, modeIcon } from '../co2/format';
 import { cityLabel, indexCities, nearestCity, normalize, searchCities } from './cities';
-import { comparisonLine, nearestSite, nearestTrip, safeTrip } from './footprint';
+import { comparisonLine, nearestOption, nearestSite, safeTrip } from './footprint';
 import { MYCLIMATE_URL, myclimateUrl } from './myclimate';
 import type { CitiesFile } from './types';
 
@@ -128,14 +130,18 @@ describe('nearest site and footprint', () => {
     expect(nearestSite(berlin, [])).toBeUndefined();
   });
 
+  const at = (s: typeof paris) => location({ id: s.id, city: s.city, lat: s.lat, lng: s.lng });
+
   it('formats Berlin to Paris by rail and Berlin to Sydney by air as estimates', () => {
-    const near = nearestTrip(berlin, [sydney, paris], opts)!;
+    const near = nearestOption(berlin, [at(sydney), at(paris)], opts)!;
+    if (near.kind !== 'trip') throw new Error('expected a trip');
     expect(near.site.city).toBe('Paris');
     expect(near.trip.mode).toBe('rail');
     expect(formatDistance(near.trip.distanceKm, 'km')).toBe('~880 km');
     expect(modeIcon(near.trip.mode)).toBe('🚆');
     expect(formatCo2(near.trip.kgCO2e)).toMatch(/^~\d+ kg$/);
-    const far = nearestTrip(berlin, [sydney], opts)!;
+    const far = nearestOption(berlin, [at(sydney)], opts)!;
+    if (far.kind !== 'trip') throw new Error('expected a trip');
     expect(far.trip.mode).toBe('flight');
     expect(formatCo2(far.trip.kgCO2e)).toMatch(/^~\d(\.\d)? t$/);
   });
@@ -147,7 +153,25 @@ describe('nearest site and footprint', () => {
   it('never throws on invalid input', () => {
     expect(safeTrip({ lat: NaN, lng: 0 }, paris, opts)).toBeUndefined();
     expect(safeTrip(berlin, paris, { mode: 'auto', thresholdKm: -1 })).toBeUndefined();
-    expect(nearestTrip(berlin, [{ lat: NaN, lng: 1 }], opts)).toBeUndefined();
+    expect(nearestOption(berlin, [location({ lat: NaN, lng: 1 })], opts)).toBeUndefined();
+    expect(nearestOption(berlin, [], opts)).toBeUndefined();
+  });
+
+  it('a virtual edition is attended online: no trip is estimated', () => {
+    const spy = vi.spyOn(model, 'estimateTrip');
+    const online = virtualLocation();
+    expect(nearestOption(berlin, [online], opts)).toEqual({ kind: 'online', site: online });
+    expect(spy).not.toHaveBeenCalled();
+    nearestOption(berlin, [at(paris)], opts); // the spy does see trips
+    expect(spy).toHaveBeenCalledOnce();
+    spy.mockRestore();
+    expect(formatCo2(0)).toBe('~0 kg');
+  });
+
+  it('a hybrid edition is a trip to its city', () => {
+    const option = nearestOption(berlin, [hybridLocation()], opts)!;
+    expect(option.kind).toBe('trip');
+    if (option.kind === 'trip') expect(option.site.city).toBe('New Orleans');
   });
 });
 
