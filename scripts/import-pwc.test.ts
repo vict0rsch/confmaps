@@ -368,7 +368,11 @@ describe.runIf(process.env.PWC_NETWORK)('network run against the pinned PwC HEAD
     const clone = clonePwc();
     try {
       const { records } = unionHistory(readVersions(clone.gitDir));
-      const r = convert(records.values(), data.conferences);
+      // data.json now also holds the imported editions themselves; only HF/archive ones collide.
+      const known = data.conferences.filter(
+        (c: KnownConference) => c.source !== 'pwc' && c.source !== 'curated',
+      );
+      const r = convert(records.values(), known);
       expect(r.unresolved).toEqual([]);
       expect(r.entries.length).toBeGreaterThan(330);
       expect(r.entries.length).toBeLessThan(360);
