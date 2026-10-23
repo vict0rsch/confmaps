@@ -21,11 +21,14 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await page.getByTestId('detail').getByRole('button', { name: 'View history' }).click();
   await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
   await expect(page).not.toHaveURL(/[?&]c=/);
-  await expect(page.getByTestId('history-meta')).toHaveText(/2 editions/);
-  await expect(page.locator('#list-heading .count')).toHaveText('(2)');
+  // One list row per edition (the count depends on how far back the data goes).
+  const meta = page.getByTestId('history-meta');
+  await expect(meta).toHaveText(/^\d+ editions/);
+  const editions = (await meta.textContent())!.match(/\d+/)![0];
+  await expect(page.locator('#list-heading .count')).toHaveText(`(${editions})`);
 
   await page.reload();
-  await expect(page.getByTestId('history-meta')).toHaveText(/2 editions/);
+  await expect(meta).toHaveText(new RegExp(`^${editions} editions`));
 
   await page.getByRole('button', { name: 'Exit history' }).click();
   await expect(page).not.toHaveURL(/[?&]h=/);
