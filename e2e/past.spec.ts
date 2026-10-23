@@ -108,3 +108,27 @@ test('the axis starts 5 years back; "All years" reaches the first edition', asyn
   await expect(page).toHaveURL(/[?&]from=2017-12-04/);
   await expect(page.locator('#list-heading .count')).not.toHaveText('(0)');
 });
+
+test.describe('phone', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test('opening a short past detail never scrolls the sheet area (no blank band)', async ({
+    page,
+  }) => {
+    const areaScroll = () => page.locator('.sheet-area').evaluate((el) => el.scrollTop);
+    await open(page, '?h=neurips');
+    // Selected at once, while the sheet is still sliding in: scrolling the row into view used to
+    // scroll the clipped sheet area too.
+    await row(page, 'neurips17').click();
+    await expect(
+      page.getByTestId('detail').getByRole('heading', { name: 'NIPS 2017' }),
+    ).toBeVisible();
+    expect(await areaScroll()).toBe(0);
+    await page.keyboard.press('Escape');
+    await row(page, 'neurips25').click();
+    await expect(
+      page.getByTestId('detail').getByRole('heading', { name: 'NeurIPS 2025' }),
+    ).toBeVisible();
+    expect(await areaScroll()).toBe(0);
+  });
+});

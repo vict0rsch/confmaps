@@ -52,13 +52,20 @@
     dataLayers,
     dataSources,
     fade,
+    historyLabelProps,
     linkOpacity,
     lockImageId,
     pinOpacity,
     quietBasemap,
     readPalette,
   } from '../lib/map/style';
-  import { historyFitPoints, historyLegs, pathAt, stopLabels } from '../lib/timeline/history';
+  import {
+    historyFitPoints,
+    historyLegs,
+    mergeCloseLabels,
+    pathAt,
+    stopLabels,
+  } from '../lib/timeline/history';
   import { motionConfig } from '../lib/timeline/motion';
   import type { ResolvedTheme } from '../lib/state/theme';
   import Icon from './Icon.svelte';
@@ -68,11 +75,15 @@
   let container: HTMLDivElement;
   let map: MLMap | undefined = $state.raw();
   let styleReady = $state(false);
+  /** Settled zoom: nearby history labels merge by their on-screen distance. */
+  let zoom = $state(0);
   let selectionOffscreen = $state(false);
   type CoLocated = { lng: number; lat: number; x: number; y: number; ids: string[] };
   let coLocated: CoLocated | null = $state(null);
 
   const MARGIN = 48;
+  /** The overview of a few nearby pins (or one) stays regional, never street level. */
+  const OVERVIEW_MAX_ZOOM = 5;
   const duration = (ms: number) => (prefersReducedMotion.current ? 0 : ms);
 
   // ---- Source data ---------------------------------------------------------
@@ -223,6 +234,7 @@
     });
     m.on('zoomstart', () => (coLocated = null));
     m.on('moveend', updateOffscreen);
+    m.on('zoomend', () => (zoom = m.getZoom()));
     // A drag released over an overlay (drawer, legend) never reaches MapLibre and leaves the map
     // stuck panning; while dragging, everything but the canvas ignores the pointer (base.css).
     const root = document.documentElement;
@@ -237,7 +249,13 @@
     untrack(() => {
       m.setPadding(insets);
       const initial = boundsOf(app.mapLocations, false);
-      if (initial) m.fitBounds(initial, { padding: overviewMargins(), duration: 0 });
+      if (initial)
+        m.fitBounds(initial, {
+          padding: overviewMargins(),
+          maxZoom: OVERVIEW_MAX_ZOOM,
+          duration: 0,
+        });
+      zoom = m.getZoom();
     });
     choreo = new Choreographer(
       m,
@@ -392,10 +410,10 @@
     });
     source(SRC.historyLabels)?.setData({
       type: 'FeatureCollection',
-      features: labels.map(({ lng, lat, years, city }) => ({
+      features: mergeCloseLabels(labels, zoom).map(({ lng, lat, rows }) => ({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lng, lat] },
-        properties: { years, city },
+        properties: historyLabelProps(rows),
       })),
     });
   });
@@ -423,7 +441,12 @@
         else if (!app.selectedConferenceId) {
           const b = boundsOf(app.mapLocations, false);
           m.setPadding(insets);
-          if (b) m.fitBounds(b, { padding: overviewMargins(), duration: duration(800) });
+          if (b)
+            m.fitBounds(b, {
+              padding: overviewMargins(),
+              maxZoom: OVERVIEW_MAX_ZOOM,
+              duration: duration(800),
+            });
         }
       });
     });

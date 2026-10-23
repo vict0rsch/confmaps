@@ -123,7 +123,10 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    overflow: hidden;
+    /* Not `hidden`: that is still a scroll container, and the translated sheet overflows it, so
+       focus or scroll-into-view inside the sheet (mid-transition) scrolled it, leaving a blank band.
+       `clip` can't scroll; only the inner `.content` does. */
+    overflow: clip;
   }
 
   .sheet {

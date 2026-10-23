@@ -238,6 +238,39 @@ export const lockImageId = (theme: ResolvedTheme) => `lock-badge-${theme}`;
 /** A transparent 1×1 image: `collide` scales it to each pin's / cluster's footprint. */
 export const COLLIDER_IMAGE = 'collider';
 
+/** Rows a history label shows; a larger merged label folds the rest into its last row. */
+const LABEL_ROWS = 6;
+
+/**
+ * Feature properties of a history label: years over the city for one stop, or one
+ * "years  city" row per stop when nearby stops share a label.
+ */
+export function historyLabelProps(rows: readonly { years: string; city: string }[]) {
+  const fit =
+    rows.length <= LABEL_ROWS
+      ? rows
+      : [
+          ...rows.slice(0, LABEL_ROWS - 1),
+          {
+            years: rows
+              .slice(LABEL_ROWS - 1)
+              .map((r) => r.years)
+              .join(' · '),
+            city: rows
+              .slice(LABEL_ROWS - 1)
+              .map((r) => r.city)
+              .join(' · '),
+          },
+        ];
+  if (fit.length === 1) return { y0: fit[0].years, c0: `\n${fit[0].city}` };
+  return Object.fromEntries(
+    fit.flatMap((r, i) => [
+      [`y${i}`, `${i ? '\n' : ''}${r.years}`],
+      [`c${i}`, `  ${r.city}`],
+    ]),
+  );
+}
+
 /** Animated pins (Play, history mode) are drawn a little smaller: crowded areas stay legible. */
 const ANIM_SCALE = 0.85;
 
@@ -613,13 +646,13 @@ export function dataLayers(
       layout: {
         'text-field': [
           'format',
-          ['get', 'years'],
-          { 'text-font': ['literal', ['Noto Sans Bold']] },
-          '\n',
-          {},
-          ['get', 'city'],
-          { 'font-scale': 0.85, 'text-font': ['literal', ['Noto Sans Regular']] },
-        ],
+          ...Array.from({ length: LABEL_ROWS }, (_, i) => [
+            ['coalesce', ['get', `y${i}`], ''],
+            { 'text-font': ['literal', ['Noto Sans Bold']] },
+            ['coalesce', ['get', `c${i}`], ''],
+            { 'font-scale': 0.85, 'text-font': ['literal', ['Noto Sans Regular']] },
+          ]).flat(),
+        ] as ExpressionSpecification,
         'text-font': ['Noto Sans Regular'],
         'text-size': 12,
         'text-line-height': 1.15,

@@ -6,6 +6,7 @@ import {
   historyFitPoints,
   historyLegs,
   historyStops,
+  mergeCloseLabels,
   onlineYears,
   pathAt,
   stopIndexOf,
@@ -144,6 +145,20 @@ describe('path progress', () => {
     const back = edition('icml27', 2027, '2027-07-01', 'Vienna', 48.21, 16.37);
     const labels = stopLabels(historyStops([vienna, seoul, back]), 2);
     expect(labels.map((l) => l.years)).toEqual(['2024 · 2027', '2026']);
+  });
+
+  it('merges labels that would overlap at this zoom into one stacked label, keeping every year', () => {
+    const near = [
+      { lng: -117.16, lat: 32.72, years: '2025', city: 'San Diego' },
+      { lng: -118.19, lat: 33.77, years: '2017', city: 'Long Beach' },
+      { lng: 16.37, lat: 48.21, years: '2024', city: 'Vienna' },
+    ];
+    const world = mergeCloseLabels(near, 2);
+    expect(world).toHaveLength(2);
+    // Anchored at the northernmost stop (Long Beach), rows in year order.
+    expect(world[0]).toMatchObject({ lat: 33.77, rows: [{ years: '2017' }, { years: '2025' }] });
+    expect(world[1].rows).toEqual([{ years: '2024', city: 'Vienna' }]);
+    expect(mergeCloseLabels(near, 9).map((g) => g.rows.length)).toEqual([1, 1, 1]);
   });
 
   it('fit points include the arcs, with others unwrapped next to the path', () => {
