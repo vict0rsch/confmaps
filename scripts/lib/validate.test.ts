@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { geocache, satellite, UPSTREAM_DIR } from '../__fixtures__';
+import { geocache, pastEntries, pastEntry, satellite, UPSTREAM_DIR } from '../__fixtures__';
 import type { ArchiveFile, DataFile, Overrides } from '../schema';
 import { archiveIds, mergeArchiveFiles } from './archive';
 import { buildDataset } from './pipeline';
@@ -9,6 +9,7 @@ import { sanityCheck, validateDataset, type ValidationInput } from './validate';
 const result = await buildDataset({
   upstream: readUpstreamDir(UPSTREAM_DIR).entries,
   satellites: [satellite()],
+  past: [],
   overrides: {},
   archive: { conferences: [], locations: [] },
   geocache: geocache(),
@@ -26,6 +27,7 @@ const validate = (over: Partial<ValidationInput> = {}) =>
   validateDataset({
     data: data(),
     satellites: [satellite()],
+    past: [],
     overrides: {},
     geocache: geocache(),
     archive,
@@ -111,6 +113,76 @@ describe('validateDataset', () => {
   });
 });
 
+const past = pastEntries();
+const pastResult = await buildDataset({
+  upstream: readUpstreamDir(UPSTREAM_DIR).entries,
+  satellites: [],
+  past,
+  overrides: {},
+  archive: { conferences: [], locations: [] },
+  geocache: geocache(),
+  today: '2025-10-01',
+});
+
+describe('validateDataset on past editions', () => {
+  const validatePast = (over: Partial<ValidationInput> = {}) =>
+    validateDataset({
+      data: {
+        generatedAt: '2025-10-01T00:00:00.000Z',
+        conferences: pastResult.conferences,
+        locations: pastResult.locations,
+      },
+      satellites: [],
+      past,
+      overrides: {},
+      geocache: geocache(),
+      archive: mergeArchiveFiles(pastResult.archive),
+      ...over,
+    });
+
+  it('accepts the build', () => {
+    expect(pastResult.errors).toEqual([]);
+    expect(validatePast()).toEqual([]);
+  });
+
+  it('rejects duplicate ids and editions, and an id shared with a satellite', () => {
+    expect(validatePast({ past: [...past, pastEntry('alpha18')] })).toEqual([
+      'past_conferences.yml: duplicate id "alpha18"',
+    ]);
+    expect(validatePast({ past: [...past, pastEntry('alpha18', { id: 'alpha2018' })] })).toEqual([
+      'past_conferences.yml: "alpha18" and "alpha2018" are the same edition (alpha|2018)',
+    ]);
+    // Same year, another series: fine.
+    expect(
+      validatePast({ past: [...past, pastEntry('alpha19', { id: 'nips19', title: 'NIPS' })] }),
+    ).toEqual([]);
+    expect(
+      validatePast({
+        satellites: [satellite({ id: 'alpha20', parent: 'alpha25' })],
+      }),
+    ).toEqual(['past_conferences.yml: "alpha20" is also a satellite id']);
+  });
+
+  it('requires pinned entries to be geocoded unless overridden (not virtual or shadowed ones)', () => {
+    const gc = geocache();
+    delete gc['vienna|austria'];
+    expect(validatePast({ geocache: gc })).toEqual([
+      'past_conferences.yml: alpha18: "Vienna, Austria" is not geocoded (run pnpm data:build)',
+    ]);
+    expect(
+      validatePast({ geocache: gc, overrides: { 'alpha18@main': { lat: 48.2, lng: 16.37 } } }),
+    ).toEqual([]);
+    expect(
+      validatePast({
+        geocache: gc,
+        overrides: { 'alpha18@main': { city: 'Paris', country: 'France' } },
+      }),
+    ).toEqual([]);
+    const shadowed = pastEntry('alpha18', { id: 'alpha25', year: 2025, city: 'Atlantis' });
+    expect(validatePast({ past: [...past, shadowed] })).toEqual([]);
+  });
+});
+
 describe('sanityCheck', () => {
   const sane = (d: DataFile = data(), over: Overrides = {}) => sanityCheck(d, over, geocache());
 
@@ -142,6 +214,34 @@ describe('sanityCheck', () => {
       'conference alpha26: year 2025 but starts 2026-07-01 (upstream typo?)',
       'conference alpha26: deadline "paper" (2026-06-01T11:00:00Z) is far from 2025',
       'conferences alpha25, alpha26 are the same edition (alpha 2025)',
+    ]);
+  });
+
+  it('keys same-edition warnings on the series (NIPS = NeurIPS), not across tracks', () => {
+    const d = data();
+    const base = { ...d.conferences.find((x) => x.id === 'alpha25')!, deadlines: [] };
+    d.conferences.push(
+      { ...base, id: 'nips18', title: 'NIPS', series: 'neurips', year: 2018, start: '2018-12-02' },
+      {
+        ...base,
+        id: 'neurips18',
+        title: 'NeurIPS',
+        series: 'neurips',
+        year: 2018,
+        start: '2018-12-02',
+      },
+      { ...base, id: 'emnlp18', title: 'EMNLP', series: 'emnlp', year: 2018, start: '2018-11-01' },
+      {
+        ...base,
+        id: 'emnlp18ind',
+        title: 'EMNLP (Industry Track)',
+        series: 'emnlp',
+        year: 2018,
+        start: '2018-11-01',
+      },
+    );
+    expect(sane(d).warnings).toEqual([
+      'conferences nips18, neurips18 are the same edition (neurips 2018)',
     ]);
   });
 

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { geocache, satellite, UPSTREAM_DIR } from '../__fixtures__';
+import { geocache, pastEntries, pastEntry, satellite, UPSTREAM_DIR } from '../__fixtures__';
 import type { ArchiveFile, Overrides, Satellite } from '../schema';
 import { mergeArchiveFiles } from './archive';
 import type { Geocoder } from './geocode';
@@ -13,6 +13,7 @@ const build = (over: Partial<BuildInputs> = {}) =>
   buildDataset({
     upstream,
     satellites: [satellite()],
+    past: [],
     overrides: {},
     archive: EMPTY,
     geocache: geocache(),
@@ -238,5 +239,167 @@ describe('deadline overrides, stale overrides, series', () => {
     });
     expect(r.warnings).toEqual(['alpha26@main: geocoding "paris|france": doubtful']);
     expect(cache['paris|france']).toEqual({ lat: 48.8, lng: 2.3, display_name: 'Paris' });
+  });
+});
+
+describe('past editions', () => {
+  const past = pastEntries();
+  const loc = (r: Awaited<ReturnType<typeof build>>, id: string) =>
+    r.locations.find((l) => l.id === id);
+  const conf = (r: Awaited<ReturnType<typeof build>>, id: string) =>
+    r.conferences.find((c) => c.id === id);
+
+  it('become a conference (no deadlines, source kept) and a default @main location', async () => {
+    const r = await build({ past });
+    expect(r.errors).toEqual([]);
+    expect(r.warnings).toEqual([]);
+    expect(conf(r, 'alpha18')).toEqual({
+      id: 'alpha18',
+      series: 'alpha',
+      title: 'Alpha',
+      year: 2018,
+      fullName: 'Alpha Conference on Learning',
+      link: 'https://alpha.example/2018',
+      tags: ['machine-learning'],
+      deadlines: [],
+      start: '2018-06-04',
+      end: '2018-06-08',
+      source: 'pwc',
+    });
+    expect(conf(r, 'alpha20')?.source).toBe('curated');
+    expect(loc(r, 'alpha18@main')).toEqual({
+      id: 'alpha18@main',
+      conferenceId: 'alpha18',
+      role: 'main',
+      name: 'Alpha 2018',
+      city: 'Vienna',
+      country: 'Austria',
+      venue: 'Hofburg',
+      lat: 48.2,
+      lng: 16.37,
+      start: '2018-06-04',
+      end: '2018-06-08',
+      official: true,
+      presentsPapers: true,
+      access: 'registration',
+      link: 'https://alpha.example/2018',
+    });
+    expect(loc(r, 'alpha19@main')).toMatchObject({ format: 'hybrid', city: 'Paris', lat: 48.85 });
+    expect(loc(r, 'alpha20@main')).toEqual({
+      id: 'alpha20@main',
+      conferenceId: 'alpha20',
+      role: 'main',
+      format: 'virtual',
+      name: 'Alpha 2020',
+      start: '2020-06-01',
+      end: '2020-06-05',
+      official: true,
+      presentsPapers: true,
+      access: 'registration',
+      link: 'https://alpha.example/2020',
+      notes: 'Held online (nominal host Vienna).',
+    });
+  });
+
+  it('never geocode a virtual edition', async () => {
+    const geocoder = vi.fn<Geocoder>(async () => ({ lat: 1, lng: 2, display_name: 'x' }));
+    const r = await build({
+      upstream: [],
+      satellites: [],
+      past: [pastEntry('alpha20')],
+      geocache: {},
+      geocoder,
+    });
+    expect(r.errors).toEqual([]);
+    expect(geocoder).not.toHaveBeenCalled();
+  });
+
+  it('lose to upstream on an id clash, with a warning (not an error)', async () => {
+    const clash = pastEntry('alpha18', {
+      id: 'alpha25',
+      year: 2025,
+      start: '2025-05-01',
+      end: '2025-05-02',
+      city: 'Paris',
+      country: 'France',
+    });
+    const r = await build({ past: [clash] });
+    expect(r.errors).toEqual([]);
+    expect(r.warnings).toEqual([
+      'past_conferences.yml: "alpha25" is also upstream (HF wins); remove it',
+    ]);
+    expect(conf(r, 'alpha25')).toMatchObject({ source: 'hf', start: '2025-06-01' });
+    expect(loc(r, 'alpha25@main')).toMatchObject({ city: 'Vienna', venue: 'Messe Wien' });
+  });
+
+  it('replace their archived copy, which is kept if the entry goes', async () => {
+    const archive = mergeArchiveFiles((await build({ past })).archive);
+    const edited = past.map((e) => (e.id === 'alpha18' ? { ...e, venue: 'New Hall' } : e));
+    const r = await build({ past: edited, archive });
+    expect(r.errors).toEqual([]);
+    expect(r.archive.get(2018)!.locations).toEqual([
+      expect.objectContaining({ id: 'alpha18@main', venue: 'New Hall' }),
+    ]);
+    const dropped = await build({ past: [], archive });
+    expect(conf(dropped, 'alpha18')?.source).toBe('pwc');
+    expect(loc(dropped, 'alpha20@main')).toMatchObject({ format: 'virtual' });
+  });
+
+  it('freeze into the year file of the conference year (a postponed edition stays)', async () => {
+    const postponed = pastEntry('alpha20', { start: '2021-01-10', end: '2021-01-15' });
+    const r = await build({ past: [...past.filter((e) => e.id !== 'alpha20'), postponed] });
+    expect([...r.archive.keys()].sort()).toEqual([2018, 2019, 2020, 2025]);
+    expect(r.archive.get(2018)).toEqual({
+      conferences: [conf(r, 'alpha18')],
+      locations: [loc(r, 'alpha18@main')],
+    });
+    expect(r.archive.get(2020)!.locations.map((l) => l.id)).toEqual(['alpha20@main']);
+  });
+
+  it('must have started by today (upcoming editions come from upstream)', async () => {
+    const upcoming = pastEntry('alpha18', {
+      id: 'gamma25',
+      year: 2025,
+      start: '2025-12-01',
+      end: '2025-12-03',
+    });
+    const r = await build({ past: [upcoming] });
+    expect(r.errors).toEqual([
+      'past_conferences.yml: "gamma25" starts 2025-12-01, after today (2025-10-01); ' +
+        'upcoming editions come from upstream',
+    ]);
+  });
+
+  it('take overrides on their @main location (dates reach the conference)', async () => {
+    const r = await build({
+      past,
+      overrides: {
+        'alpha18@main': { venue: 'Messe', start: '2018-06-05', lat: 1.5, lng: 2.5 },
+        'alpha20@main': { notes: 'Online only.', access: 'open' },
+      },
+    });
+    expect(r.errors).toEqual([]);
+    expect(r.warnings).toEqual([]);
+    expect(loc(r, 'alpha18@main')).toMatchObject({
+      venue: 'Messe',
+      start: '2018-06-05',
+      lat: 1.5,
+      lng: 2.5,
+    });
+    expect(conf(r, 'alpha18')?.start).toBe('2018-06-05');
+    expect(loc(r, 'alpha20@main')).toMatchObject({ notes: 'Online only.', access: 'open' });
+  });
+
+  it('reject an override that would place a virtual location', async () => {
+    const r = await build({
+      past,
+      overrides: { 'alpha20@main': { city: 'Vienna', lat: 48.2, lng: 16.37, notes: 'x' } },
+    });
+    expect(r.errors).toEqual([
+      'overrides.yml: alpha20@main: lat, lng, city not allowed on a virtual location ' +
+        '(edit its format in data/past_conferences.yml instead)',
+    ]);
+    expect(loc(r, 'alpha20@main')).not.toHaveProperty('city');
+    expect(loc(r, 'alpha20@main')).not.toHaveProperty('lat');
   });
 });

@@ -80,6 +80,7 @@ export async function main(argv: string[], now = new Date()): Promise<number> {
     result = await buildDataset({
       upstream: upstream.entries,
       satellites: inputs.satellites,
+      past: inputs.past,
       overrides: inputs.overrides,
       archive: inputs.archive,
       geocache: inputs.geocache,
@@ -115,6 +116,7 @@ export async function main(argv: string[], now = new Date()): Promise<number> {
   const errors = validateDataset({
     data,
     satellites: inputs.satellites,
+    past: inputs.past,
     overrides: inputs.overrides,
     geocache: inputs.geocache,
     archive,
@@ -125,6 +127,7 @@ export async function main(argv: string[], now = new Date()): Promise<number> {
       ...checkConsistency({
         data,
         satellites: inputs.satellites,
+        past: inputs.past,
         overrides: inputs.overrides,
         geocache: inputs.geocache,
         archive,

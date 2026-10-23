@@ -1,8 +1,9 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { copyFileSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { writeDataJson } from './files';
+import { PAST_FILE, pastEntries } from '../__fixtures__';
+import { dataPaths, loadInputs, writeDataJson } from './files';
 
 let dir: string;
 beforeEach(() => {
@@ -25,5 +26,22 @@ describe('writeDataJson provenance', () => {
     const loc = { id: 'x' } as never;
     expect(writeDataJson(path, [], [loc], new Date('2025-01-03T00:00:00Z'), b)).toBe(true);
     expect(read()).toMatchObject({ upstream: b, generatedAt: '2025-01-03T00:00:00.000Z' });
+  });
+});
+
+describe('loadInputs: past_conferences.yml', () => {
+  it('is [] when the file is missing or empty', () => {
+    expect(loadInputs(dir)).toMatchObject({ past: [], errors: [] });
+    writeFileSync(dataPaths(dir).past, '');
+    expect(loadInputs(dir)).toMatchObject({ past: [], errors: [] });
+  });
+
+  it('parses entries and reports schema errors', () => {
+    copyFileSync(PAST_FILE, dataPaths(dir).past);
+    expect(loadInputs(dir)).toMatchObject({ past: pastEntries(), errors: [] });
+    writeFileSync(dataPaths(dir).past, '- id: Bad\n');
+    expect(loadInputs(dir).errors).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^past_conferences\.yml: 0\.id: /)]),
+    );
   });
 });
