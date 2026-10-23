@@ -1,0 +1,1090 @@
+{
+  "description": "Every distinct place string of the latest version of each PwC id (paperswithcode/ai-deadlines gh-pages @ b230d247, docs/backfill-spec.md §3.3), with the parsed place or \"unresolved\". Derived from the history once and reviewed by hand; scripts/pwc/place.test.ts checks parsePlace against it.",
+  "places": {
+    "Aberdeen, UK": {
+      "format": "in_person",
+      "city": "Aberdeen",
+      "country": "United Kingdom"
+    },
+    "Abu Dhabi, UAE": {
+      "format": "in_person",
+      "city": "Abu Dhabi",
+      "country": "United Arab Emirates"
+    },
+    "Albuquerque, New Mexico, USA": {
+      "format": "in_person",
+      "city": "Albuquerque",
+      "country": "United States"
+    },
+    "Amherst, Massachusetts, USA": {
+      "format": "in_person",
+      "city": "Amherst",
+      "country": "United States"
+    },
+    "Amsterdam, Netherlands": {
+      "format": "in_person",
+      "city": "Amsterdam",
+      "country": "Netherlands"
+    },
+    "Anchorage, Alaska, USA": {
+      "format": "in_person",
+      "city": "Anchorage",
+      "country": "United States"
+    },
+    "Athens, Greece": {
+      "format": "in_person",
+      "city": "Athens",
+      "country": "Greece"
+    },
+    "Atlanta, Georgia AND Online": "unresolved",
+    "Atlanta, Georgia, USA": {
+      "format": "in_person",
+      "city": "Atlanta",
+      "country": "United States"
+    },
+    "Atlanta, USA": {
+      "format": "in_person",
+      "city": "Atlanta",
+      "country": "United States"
+    },
+    "Auckland, New Zealand": {
+      "format": "in_person",
+      "city": "Auckland",
+      "country": "New Zealand"
+    },
+    "Auckland, New Zealand, and virtual": {
+      "format": "hybrid",
+      "city": "Auckland",
+      "country": "New Zealand"
+    },
+    "Austin, Texas": {
+      "format": "in_person",
+      "city": "Austin",
+      "country": "United States"
+    },
+    "Bali, Indonesia": {
+      "format": "in_person",
+      "city": "Bali",
+      "country": "Indonesia"
+    },
+    "Baltimore, Maryland USA": "unresolved",
+    "Baltimore, US": {
+      "format": "in_person",
+      "city": "Baltimore",
+      "country": "United States"
+    },
+    "Banff, Canada": {
+      "format": "in_person",
+      "city": "Banff",
+      "country": "Canada"
+    },
+    "Bangalore, India": {
+      "format": "in_person",
+      "city": "Bangalore",
+      "country": "India"
+    },
+    "Bangaluru, India": {
+      "format": "in_person",
+      "city": "Bangalore",
+      "country": "India"
+    },
+    "Bangkok, Thailand": {
+      "format": "in_person",
+      "city": "Bangkok",
+      "country": "Thailand"
+    },
+    "Barcelona, Spain": {
+      "format": "in_person",
+      "city": "Barcelona",
+      "country": "Spain"
+    },
+    "Beijing, China": {
+      "format": "in_person",
+      "city": "Beijing",
+      "country": "China"
+    },
+    "Belgrade, Serbia": {
+      "format": "in_person",
+      "city": "Belgrade",
+      "country": "Serbia"
+    },
+    "Bilbao, Basque Country (Spain)": {
+      "format": "in_person",
+      "city": "Bilbao",
+      "country": "Spain"
+    },
+    "Birmingham, UK": {
+      "format": "in_person",
+      "city": "Birmingham",
+      "country": "United Kingdom"
+    },
+    "Boise, Idaho, USA": {
+      "format": "in_person",
+      "city": "Boise",
+      "country": "United States"
+    },
+    "Bordeaux, France": {
+      "format": "in_person",
+      "city": "Bordeaux",
+      "country": "France"
+    },
+    "Boston, Massachusetts": {
+      "format": "in_person",
+      "city": "Boston",
+      "country": "United States"
+    },
+    "Boulder, Colorado, USA": {
+      "format": "in_person",
+      "city": "Boulder",
+      "country": "United States"
+    },
+    "Brighton, UK": {
+      "format": "in_person",
+      "city": "Brighton",
+      "country": "United Kingdom"
+    },
+    "Brisbane, Australia": {
+      "format": "in_person",
+      "city": "Brisbane",
+      "country": "Australia"
+    },
+    "Brno, Czech Republic": {
+      "format": "in_person",
+      "city": "Brno",
+      "country": "Czech Republic"
+    },
+    "Brno, Czechia": {
+      "format": "in_person",
+      "city": "Brno",
+      "country": "Czech Republic"
+    },
+    "Brussels, Belgium": {
+      "format": "in_person",
+      "city": "Brussels",
+      "country": "Belgium"
+    },
+    "Busan, South Korea": {
+      "format": "in_person",
+      "city": "Busan",
+      "country": "South Korea"
+    },
+    "Calgary, Alberta, Canada": {
+      "format": "in_person",
+      "city": "Calgary",
+      "country": "Canada"
+    },
+    "Cambridge, Massachusetts, USA": {
+      "format": "in_person",
+      "city": "Cambridge",
+      "country": "United States"
+    },
+    "Cambridge, UK": {
+      "format": "in_person",
+      "city": "Cambridge",
+      "country": "United Kingdom"
+    },
+    "Cambridge, USA": {
+      "format": "in_person",
+      "city": "Cambridge",
+      "country": "United States"
+    },
+    "Cardiff, Wales, UK": {
+      "format": "in_person",
+      "city": "Cardiff",
+      "country": "United Kingdom"
+    },
+    "Chengdu, China": {
+      "format": "in_person",
+      "city": "Chengdu",
+      "country": "China"
+    },
+    "Coimbra, Portugal": {
+      "format": "in_person",
+      "city": "Coimbra",
+      "country": "Portugal"
+    },
+    "Copenhagen, Denmark": {
+      "format": "in_person",
+      "city": "Copenhagen",
+      "country": "Denmark"
+    },
+    "Cosenza, Italy": {
+      "format": "in_person",
+      "city": "Cosenza",
+      "country": "Italy"
+    },
+    "Daegu, South Korea": {
+      "format": "in_person",
+      "city": "Daegu",
+      "country": "South Korea"
+    },
+    "Davos, Switzerland": {
+      "format": "in_person",
+      "city": "Davos",
+      "country": "Switzerland"
+    },
+    "Delft, Netherlands": {
+      "format": "in_person",
+      "city": "Delft",
+      "country": "Netherlands"
+    },
+    "Delft, The Netherlands": {
+      "format": "in_person",
+      "city": "Delft",
+      "country": "Netherlands"
+    },
+    "Denver, USA": {
+      "format": "in_person",
+      "city": "Denver",
+      "country": "United States"
+    },
+    "Detroit, Michigan, USA": {
+      "format": "in_person",
+      "city": "Detroit",
+      "country": "United States"
+    },
+    "Detroit, USA": {
+      "format": "in_person",
+      "city": "Detroit",
+      "country": "United States"
+    },
+    "Dublin, Ireland": {
+      "format": "in_person",
+      "city": "Dublin",
+      "country": "Ireland"
+    },
+    "ECSAT, Harwell, United Kingdom": {
+      "format": "in_person",
+      "city": "Harwell",
+      "country": "United Kingdom",
+      "venue": "ECSAT"
+    },
+    "ETH Zurich,Switzerland": "unresolved",
+    "Eindhoven, The Netherlands": {
+      "format": "in_person",
+      "city": "Eindhoven",
+      "country": "Netherlands"
+    },
+    "ExCeL London, UK": "unresolved",
+    "Florence, Italy": {
+      "format": "in_person",
+      "city": "Florence",
+      "country": "Italy"
+    },
+    "Fort Lauderdale, Florida": {
+      "format": "in_person",
+      "city": "Fort Lauderdale",
+      "country": "United States"
+    },
+    "Freiburg, Germany": {
+      "format": "in_person",
+      "city": "Freiburg",
+      "country": "Germany"
+    },
+    "Fukuoka, Japan": {
+      "format": "in_person",
+      "city": "Fukuoka",
+      "country": "Japan"
+    },
+    "Galway, Ireland": {
+      "format": "in_person",
+      "city": "Galway",
+      "country": "Ireland"
+    },
+    "Ghent, Belgium": {
+      "format": "in_person",
+      "city": "Ghent",
+      "country": "Belgium"
+    },
+    "Glasgow, Scotland": {
+      "format": "in_person",
+      "city": "Glasgow",
+      "country": "United Kingdom"
+    },
+    "Glasgow, Scotland, UK": {
+      "format": "in_person",
+      "city": "Glasgow",
+      "country": "United Kingdom"
+    },
+    "Glasgow, UK": {
+      "format": "in_person",
+      "city": "Glasgow",
+      "country": "United Kingdom"
+    },
+    "Gold Coast, Queensland, Australia": {
+      "format": "in_person",
+      "city": "Gold Coast",
+      "country": "Australia"
+    },
+    "Graz, Austria": {
+      "format": "in_person",
+      "city": "Graz",
+      "country": "Austria"
+    },
+    "Greenville, South Carolina, USA": {
+      "format": "in_person",
+      "city": "Greenville",
+      "country": "United States"
+    },
+    "Grenoble, France": {
+      "format": "in_person",
+      "city": "Grenoble",
+      "country": "France"
+    },
+    "Guangzhou, China": {
+      "format": "in_person",
+      "city": "Guangzhou",
+      "country": "China"
+    },
+    "Gyeongju, Republic of Korea": {
+      "format": "in_person",
+      "city": "Gyeongju",
+      "country": "South Korea"
+    },
+    "Halifax, Nova Scotia, Canada": {
+      "format": "in_person",
+      "city": "Halifax",
+      "country": "Canada"
+    },
+    "Hannover, Germany": {
+      "format": "in_person",
+      "city": "Hannover",
+      "country": "Germany"
+    },
+    "Hanoi, Vietnam": {
+      "format": "in_person",
+      "city": "Hanoi",
+      "country": "Vietnam"
+    },
+    "Hawai'i, USA": "unresolved",
+    "Hawaii, EEUU": "unresolved",
+    "Hilton Hawaiian Village, Honolulu, Hawaii, USA": {
+      "format": "in_person",
+      "city": "Honolulu",
+      "country": "United States",
+      "venue": "Hilton Hawaiian Village"
+    },
+    "Hong Kong": {
+      "format": "in_person",
+      "city": "Hong Kong",
+      "country": "Hong Kong"
+    },
+    "Honolulu, Hawaii": {
+      "format": "in_person",
+      "city": "Honolulu",
+      "country": "United States"
+    },
+    "Houston, Texas, USA": {
+      "format": "in_person",
+      "city": "Houston",
+      "country": "United States"
+    },
+    "Hybrid (Dubrovnik, Croatia)": {
+      "format": "hybrid",
+      "city": "Dubrovnik",
+      "country": "Croatia"
+    },
+    "Hyderabad, India": {
+      "format": "in_person",
+      "city": "Hyderabad",
+      "country": "India"
+    },
+    "Incheon, South Korea": {
+      "format": "in_person",
+      "city": "Incheon",
+      "country": "South Korea"
+    },
+    "Irvine, United States": {
+      "format": "in_person",
+      "city": "Irvine",
+      "country": "United States"
+    },
+    "Istanbul, Türkiye": {
+      "format": "in_person",
+      "city": "Istanbul",
+      "country": "Turkey"
+    },
+    "Jeju Island, South Korea": {
+      "format": "in_person",
+      "city": "Jeju",
+      "country": "South Korea"
+    },
+    "Jeju, South Korea": {
+      "format": "in_person",
+      "city": "Jeju",
+      "country": "South Korea"
+    },
+    "Jerusalem, Israel": {
+      "format": "in_person",
+      "city": "Jerusalem",
+      "country": "Israel"
+    },
+    "Jodhpur, India": {
+      "format": "in_person",
+      "city": "Jodhpur",
+      "country": "India"
+    },
+    "Kigali, Rwanda": {
+      "format": "in_person",
+      "city": "Kigali",
+      "country": "Rwanda"
+    },
+    "Kraków, Poland": {
+      "format": "in_person",
+      "city": "Kraków",
+      "country": "Poland"
+    },
+    "Kuala Lumpur, Malaysia": {
+      "format": "in_person",
+      "city": "Kuala Lumpur",
+      "country": "Malaysia"
+    },
+    "Kyoto, Japan": {
+      "format": "in_person",
+      "city": "Kyoto",
+      "country": "Japan"
+    },
+    "Lake Tahoe, Nevada, USA": {
+      "format": "in_person",
+      "city": "Lake Tahoe",
+      "country": "United States"
+    },
+    "Lanzarote, Spain": {
+      "format": "in_person",
+      "city": "Lanzarote",
+      "country": "Spain"
+    },
+    "Las Vegas, USA": {
+      "format": "in_person",
+      "city": "Las Vegas",
+      "country": "United States"
+    },
+    "Lima, Peru": {
+      "format": "in_person",
+      "city": "Lima",
+      "country": "Peru"
+    },
+    "Lisbon, Portugal": {
+      "format": "in_person",
+      "city": "Lisbon",
+      "country": "Portugal"
+    },
+    "Ljubljana, Slovenia": {
+      "format": "in_person",
+      "city": "Ljubljana",
+      "country": "Slovenia"
+    },
+    "London": "unresolved",
+    "London, UK": {
+      "format": "in_person",
+      "city": "London",
+      "country": "United Kingdom"
+    },
+    "London, UK, and virtual": {
+      "format": "hybrid",
+      "city": "London",
+      "country": "United Kingdom"
+    },
+    "London, United Kingdom": {
+      "format": "in_person",
+      "city": "London",
+      "country": "United Kingdom"
+    },
+    "Long Beach Convention Center, California": "unresolved",
+    "Long Beach, California, USA": {
+      "format": "in_person",
+      "city": "Long Beach",
+      "country": "United States"
+    },
+    "Long Beach, USA": {
+      "format": "in_person",
+      "city": "Long Beach",
+      "country": "United States"
+    },
+    "Los Angeles, California": {
+      "format": "in_person",
+      "city": "Los Angeles",
+      "country": "United States"
+    },
+    "Los Angeles, California, USA": {
+      "format": "in_person",
+      "city": "Los Angeles",
+      "country": "United States"
+    },
+    "Los Angeles, USA": {
+      "format": "in_person",
+      "city": "Los Angeles",
+      "country": "United States"
+    },
+    "Lucca, Tuscany, Italy": {
+      "format": "in_person",
+      "city": "Lucca",
+      "country": "Italy"
+    },
+    "Luebeck, Germany": {
+      "format": "in_person",
+      "city": "Lübeck",
+      "country": "Germany"
+    },
+    "Lyon, France": {
+      "format": "in_person",
+      "city": "Lyon",
+      "country": "France"
+    },
+    "Macao, S.A.R.": "unresolved",
+    "Macau, China": {
+      "format": "in_person",
+      "city": "Macao",
+      "country": "China"
+    },
+    "Madrid, Spain": {
+      "format": "in_person",
+      "city": "Madrid",
+      "country": "Spain"
+    },
+    "Manchester, UK": {
+      "format": "in_person",
+      "city": "Manchester",
+      "country": "United Kingdom"
+    },
+    "Marrakech, Morocco": {
+      "format": "in_person",
+      "city": "Marrakech",
+      "country": "Morocco"
+    },
+    "Marseille, France": {
+      "format": "in_person",
+      "city": "Marseille",
+      "country": "France"
+    },
+    "Melbourne, Australia": {
+      "format": "in_person",
+      "city": "Melbourne",
+      "country": "Australia"
+    },
+    "Mexico City, Mexico": {
+      "format": "in_person",
+      "city": "Mexico City",
+      "country": "Mexico"
+    },
+    "Miami, Florida, USA": {
+      "format": "in_person",
+      "city": "Miami",
+      "country": "United States"
+    },
+    "Milan, Italy": {
+      "format": "in_person",
+      "city": "Milan",
+      "country": "Italy"
+    },
+    "Milano, Italy": {
+      "format": "in_person",
+      "city": "Milan",
+      "country": "Italy"
+    },
+    "Minneapolis, USA": {
+      "format": "in_person",
+      "city": "Minneapolis",
+      "country": "United States"
+    },
+    "Monterey, California, USA": {
+      "format": "in_person",
+      "city": "Monterey",
+      "country": "United States"
+    },
+    "Montevideo, Uruguay": {
+      "format": "in_person",
+      "city": "Montevideo",
+      "country": "Uruguay"
+    },
+    "Montreal, Canada": {
+      "format": "in_person",
+      "city": "Montreal",
+      "country": "Canada"
+    },
+    "Mountain View, California": {
+      "format": "in_person",
+      "city": "Mountain View",
+      "country": "United States"
+    },
+    "Munich, Germany": {
+      "format": "in_person",
+      "city": "Munich",
+      "country": "Germany"
+    },
+    "Naha, Okinawa, Japan": {
+      "format": "in_person",
+      "city": "Naha",
+      "country": "Japan"
+    },
+    "Nancy, France": {
+      "format": "in_person",
+      "city": "Nancy",
+      "country": "France"
+    },
+    "Naples, Italy": {
+      "format": "in_person",
+      "city": "Naples",
+      "country": "Italy"
+    },
+    "Nashville, Tennessee, USA": {
+      "format": "in_person",
+      "city": "Nashville",
+      "country": "United States"
+    },
+    "Nashville, USA": {
+      "format": "in_person",
+      "city": "Nashville",
+      "country": "United States"
+    },
+    "New Orleans, Louisiana, US": {
+      "format": "in_person",
+      "city": "New Orleans",
+      "country": "United States"
+    },
+    "New Orleans, Louisiana, USA": {
+      "format": "in_person",
+      "city": "New Orleans",
+      "country": "United States"
+    },
+    "New Orleans, Louisiana, USA; and virtual": {
+      "format": "hybrid",
+      "city": "New Orleans",
+      "country": "United States"
+    },
+    "New Orleans, Lousiana, USA": {
+      "format": "in_person",
+      "city": "New Orleans",
+      "country": "United States"
+    },
+    "New Orleans, USA": {
+      "format": "in_person",
+      "city": "New Orleans",
+      "country": "United States"
+    },
+    "New York City, New York, USA": {
+      "format": "in_person",
+      "city": "New York",
+      "country": "United States"
+    },
+    "New York City, USA": {
+      "format": "in_person",
+      "city": "New York",
+      "country": "United States"
+    },
+    "New York, NY, USA": {
+      "format": "in_person",
+      "city": "New York",
+      "country": "United States"
+    },
+    "New York, New York": {
+      "format": "in_person",
+      "city": "New York",
+      "country": "United States"
+    },
+    "New York, USA": {
+      "format": "in_person",
+      "city": "New York",
+      "country": "United States"
+    },
+    "Newcastle upon Tyne": "unresolved",
+    "Online": {
+      "format": "virtual"
+    },
+    "Online (Kyiv, Ukraine)": {
+      "format": "virtual",
+      "notes": "Held online (nominal host: Kyiv, Ukraine)."
+    },
+    "Oregon State University at Corvallis, Oregon": "unresolved",
+    "Orlando, Florida, USA": {
+      "format": "in_person",
+      "city": "Orlando",
+      "country": "United States"
+    },
+    "Osaka, Japan": {
+      "format": "in_person",
+      "city": "Osaka",
+      "country": "Japan"
+    },
+    "Ottawa, Canada": {
+      "format": "in_person",
+      "city": "Ottawa",
+      "country": "Canada"
+    },
+    "Palais des Congrès Neptune, Toulon, France": {
+      "format": "in_person",
+      "city": "Toulon",
+      "country": "France",
+      "venue": "Palais des Congrès Neptune"
+    },
+    "Palais des Congrès de Montréal, Montréal, Canada": {
+      "format": "in_person",
+      "city": "Montréal",
+      "country": "Canada",
+      "venue": "Palais des Congrès de Montréal"
+    },
+    "Palermo, Sicily, Italy": {
+      "format": "in_person",
+      "city": "Palermo",
+      "country": "Italy"
+    },
+    "Paris, France": {
+      "format": "in_person",
+      "city": "Paris",
+      "country": "France"
+    },
+    "Perth, Western Australia": {
+      "format": "in_person",
+      "city": "Perth",
+      "country": "Australia"
+    },
+    "Philadelphia (PA), USA": {
+      "format": "in_person",
+      "city": "Philadelphia",
+      "country": "United States"
+    },
+    "Philadelphia, USA": {
+      "format": "in_person",
+      "city": "Philadelphia",
+      "country": "United States"
+    },
+    "Phoenix, AZ": {
+      "format": "in_person",
+      "city": "Phoenix",
+      "country": "United States"
+    },
+    "Phoenix, Arizona, USA": {
+      "format": "in_person",
+      "city": "Phoenix",
+      "country": "United States"
+    },
+    "Phuket, Thailand": {
+      "format": "in_person",
+      "city": "Phuket",
+      "country": "Thailand"
+    },
+    "Pisa, Italy": {
+      "format": "in_person",
+      "city": "Pisa",
+      "country": "Italy"
+    },
+    "Pittsburgh, Pennsylvania, USA": {
+      "format": "in_person",
+      "city": "Pittsburgh",
+      "country": "United States"
+    },
+    "Pittsburgh, USA": {
+      "format": "in_person",
+      "city": "Pittsburgh",
+      "country": "United States"
+    },
+    "Porto de Galinhas, Brazil": {
+      "format": "in_person",
+      "city": "Porto de Galinhas",
+      "country": "Brazil"
+    },
+    "Potsdam/Berlin, Germany": "unresolved",
+    "Prague, Czech Republic": {
+      "format": "in_person",
+      "city": "Prague",
+      "country": "Czech Republic"
+    },
+    "Punta Cana, Dominican Republic": {
+      "format": "in_person",
+      "city": "Punta Cana",
+      "country": "Dominican Republic"
+    },
+    "Qingdao, China": {
+      "format": "in_person",
+      "city": "Qingdao",
+      "country": "China"
+    },
+    "Quebec City, Canada": {
+      "format": "in_person",
+      "city": "Quebec City",
+      "country": "Canada"
+    },
+    "Rabat, Morocco": {
+      "format": "in_person",
+      "city": "Rabat",
+      "country": "Morocco"
+    },
+    "Rhodes Island, Greece": {
+      "format": "in_person",
+      "city": "Rhodes",
+      "country": "Greece"
+    },
+    "Rhodes, Greece": {
+      "format": "in_person",
+      "city": "Rhodes",
+      "country": "Greece"
+    },
+    "Salt Lake City, Utah": {
+      "format": "in_person",
+      "city": "Salt Lake City",
+      "country": "United States"
+    },
+    "San Diego, CA, United States": {
+      "format": "in_person",
+      "city": "San Diego",
+      "country": "United States"
+    },
+    "San Diego, California": {
+      "format": "in_person",
+      "city": "San Diego",
+      "country": "United States"
+    },
+    "San Diego, California, USA": {
+      "format": "in_person",
+      "city": "San Diego",
+      "country": "United States"
+    },
+    "San Francisco, California": {
+      "format": "in_person",
+      "city": "San Francisco",
+      "country": "United States"
+    },
+    "San Francisco, California, USA": {
+      "format": "in_person",
+      "city": "San Francisco",
+      "country": "United States"
+    },
+    "San Jose, USA": {
+      "format": "in_person",
+      "city": "San Jose",
+      "country": "United States"
+    },
+    "San José, Costa Rica": {
+      "format": "in_person",
+      "city": "San José",
+      "country": "Costa Rica"
+    },
+    "Santa Fe, New Mexico, USA": {
+      "format": "in_person",
+      "city": "Santa Fe",
+      "country": "United States"
+    },
+    "Santiago de Compostela, Spain": {
+      "format": "in_person",
+      "city": "Santiago de Compostela",
+      "country": "Spain"
+    },
+    "Santiago de Compostella, Spain": {
+      "format": "in_person",
+      "city": "Santiago de Compostela",
+      "country": "Spain"
+    },
+    "Schiaparelli, Mars": "unresolved",
+    "Seattle, USA": {
+      "format": "in_person",
+      "city": "Seattle",
+      "country": "United States"
+    },
+    "Seattle, Washington, USA": {
+      "format": "in_person",
+      "city": "Seattle",
+      "country": "United States"
+    },
+    "Seoul, Korea": {
+      "format": "in_person",
+      "city": "Seoul",
+      "country": "South Korea"
+    },
+    "Seoul, South Korea": {
+      "format": "in_person",
+      "city": "Seoul",
+      "country": "South Korea"
+    },
+    "Shanghai, China": {
+      "format": "in_person",
+      "city": "Shanghai",
+      "country": "China"
+    },
+    "Shenzhen, China": {
+      "format": "in_person",
+      "city": "Shenzhen",
+      "country": "China"
+    },
+    "Singapore": {
+      "format": "in_person",
+      "city": "Singapore",
+      "country": "Singapore"
+    },
+    "Singapore Management University, Singapore": "unresolved",
+    "Skopje, Macedonia": {
+      "format": "in_person",
+      "city": "Skopje",
+      "country": "North Macedonia"
+    },
+    "Snowmass village, Colorado, USA": {
+      "format": "in_person",
+      "city": "Snowmass village",
+      "country": "United States"
+    },
+    "Sorrento, Italy": {
+      "format": "in_person",
+      "city": "Sorrento",
+      "country": "Italy"
+    },
+    "St. Julians, Malta": {
+      "format": "in_person",
+      "city": "St. Julians",
+      "country": "Malta"
+    },
+    "Stanford University, CA, USA": "unresolved",
+    "Stanford, USA": {
+      "format": "in_person",
+      "city": "Stanford",
+      "country": "United States"
+    },
+    "Stockholm, Sweden": {
+      "format": "in_person",
+      "city": "Stockholm",
+      "country": "Sweden"
+    },
+    "Suzhou, China": {
+      "format": "in_person",
+      "city": "Suzhou",
+      "country": "China"
+    },
+    "Sydney, Australia": {
+      "format": "in_person",
+      "city": "Sydney",
+      "country": "Australia"
+    },
+    "TBD": "unresolved",
+    "Taipei, Taiwan": {
+      "format": "in_person",
+      "city": "Taipei",
+      "country": "Taiwan"
+    },
+    "Tel Aviv, Israel": {
+      "format": "in_person",
+      "city": "Tel Aviv",
+      "country": "Israel"
+    },
+    "Texas, USA": "unresolved",
+    "Tokyo, Japan": {
+      "format": "in_person",
+      "city": "Tokyo",
+      "country": "Japan"
+    },
+    "Torino, Italy": {
+      "format": "in_person",
+      "city": "Turin",
+      "country": "Italy"
+    },
+    "Toronto, Canada": {
+      "format": "in_person",
+      "city": "Toronto",
+      "country": "Canada"
+    },
+    "Toronto, Ontario, Canada": {
+      "format": "in_person",
+      "city": "Toronto",
+      "country": "Canada"
+    },
+    "Tucson, Arizona": {
+      "format": "in_person",
+      "city": "Tucson",
+      "country": "United States"
+    },
+    "University of Amsterdam, The Netherlands": "unresolved",
+    "Valencia, Spain": {
+      "format": "in_person",
+      "city": "Valencia",
+      "country": "Spain"
+    },
+    "Vancouver": "unresolved",
+    "Vancouver Convention Center, Vancouver, Canada": {
+      "format": "in_person",
+      "city": "Vancouver",
+      "country": "Canada",
+      "venue": "Vancouver Convention Center"
+    },
+    "Vancouver Convention Centre, Canada": "unresolved",
+    "Vancouver, Canada": {
+      "format": "in_person",
+      "city": "Vancouver",
+      "country": "Canada"
+    },
+    "Varna, Bulgaria": {
+      "format": "in_person",
+      "city": "Varna",
+      "country": "Bulgaria"
+    },
+    "Venice, Italy": {
+      "format": "in_person",
+      "city": "Venice",
+      "country": "Italy"
+    },
+    "Verona, Italy": {
+      "format": "in_person",
+      "city": "Verona",
+      "country": "Italy"
+    },
+    "Vienna, Austria": {
+      "format": "in_person",
+      "city": "Vienna",
+      "country": "Austria"
+    },
+    "Vilnius (Lithuania)": {
+      "format": "in_person",
+      "city": "Vilnius",
+      "country": "Lithuania"
+    },
+    "Virtual, free to attend": {
+      "format": "virtual"
+    },
+    "Waikoloa Village, Hawaii": {
+      "format": "in_person",
+      "city": "Waikoloa",
+      "country": "United States"
+    },
+    "Waikoloa, Hawaii, USA": {
+      "format": "in_person",
+      "city": "Waikoloa",
+      "country": "United States"
+    },
+    "Washington D.C., USA": {
+      "format": "in_person",
+      "city": "Washington DC",
+      "country": "United States"
+    },
+    "Washington, D.C., USA": {
+      "format": "in_person",
+      "city": "Washington DC",
+      "country": "United States"
+    },
+    "Washington, DC, USA": {
+      "format": "in_person",
+      "city": "Washington DC",
+      "country": "United States"
+    },
+    "Würzburg, Germany": {
+      "format": "in_person",
+      "city": "Würzburg",
+      "country": "Germany"
+    },
+    "Xi'an, China": {
+      "format": "in_person",
+      "city": "Xi'an",
+      "country": "China"
+    },
+    "Yokohama, Japan": {
+      "format": "in_person",
+      "city": "Yokohama",
+      "country": "Japan"
+    },
+    "York, UK": {
+      "format": "in_person",
+      "city": "York",
+      "country": "United Kingdom"
+    },
+    "Zurich, Switzerland": {
+      "format": "in_person",
+      "city": "Zurich",
+      "country": "Switzerland"
+    }
+  }
+}

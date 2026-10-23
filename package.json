@@ -20,6 +20,7 @@
     "test:a11y": "PW_A11Y=1 playwright test",
     "data:build": "tsx scripts/build-data.ts",
     "data:validate": "tsx scripts/validate-data.ts",
+    "data:import-pwc": "tsx scripts/import-pwc.ts",
     "cities:build": "tsx scripts/build-cities.ts"
   },
   "dependencies": {
