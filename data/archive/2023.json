@@ -1,0 +1,1490 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2023-02-14",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai23",
+      "link": "https://aaai.org/Conferences/AAAI-23/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2023-02-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-02",
+      "id": "aamas23",
+      "link": "https://aamas2023.soton.ac.uk/",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2023-05-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-14",
+      "id": "acl23",
+      "link": "https://2023.aclweb.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2023-07-09",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-03",
+      "id": "acm23",
+      "link": "https://www.acmmm2023.org/",
+      "series": "acm-mm",
+      "source": "pwc",
+      "start": "2023-10-29",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACM MM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-14",
+      "id": "acml23",
+      "link": "https://www.acml-conf.org/2023",
+      "series": "acml",
+      "source": "pwc",
+      "start": "2023-11-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-04-27",
+      "id": "aistats23",
+      "link": "https://www.aistats.org/aistats2023/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2023-04-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-15",
+      "id": "automl23",
+      "link": "https://2023.automl.cc",
+      "series": "automl",
+      "source": "pwc",
+      "start": "2023-09-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AutoML-Conf",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-24",
+      "id": "bmvc23",
+      "link": "https://www.bmvc2023.org",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2023-11-20",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-24",
+      "id": "chil23",
+      "link": "https://www.chilconference.org/",
+      "series": "chil",
+      "source": "pwc",
+      "start": "2023-06-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-25",
+      "fullName": "International Conference on Information and Knowledge Managements",
+      "id": "cikm23",
+      "link": "https://cikm2023.github.io/",
+      "series": "cikm",
+      "source": "pwc",
+      "start": "2023-10-23",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "CIKM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-25",
+      "id": "collas23",
+      "link": "https://lifelong-ml.cc",
+      "series": "collas",
+      "source": "pwc",
+      "start": "2023-08-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CoLLAs",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-07",
+      "id": "conll23",
+      "link": "https://conll.org/",
+      "series": "conll",
+      "source": "pwc",
+      "start": "2023-12-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-09",
+      "id": "corl23",
+      "link": "https://corl2023.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2023-11-06",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-22",
+      "id": "cvpr23",
+      "link": "http://cvpr2023.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2023-06-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-05-06",
+      "id": "eacl23",
+      "link": "https://2023.eacl.org/",
+      "series": "eacl",
+      "source": "pwc",
+      "start": "2023-05-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-05",
+      "id": "ecai23",
+      "link": "https://ecai2023.eu/",
+      "series": "ecai",
+      "source": "pwc",
+      "start": "2023-09-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-22",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd23",
+      "link": "https://2023.ecmlpkdd.org/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2023-09-18",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ECML/PKDD",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-10",
+      "id": "emnlp23",
+      "link": "https://2023.emnlp.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2023-12-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-04-14",
+      "fullName": "12th International Conference on Artificial Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart23",
+      "link": "https://www.evostar.org/2023/evomusart/",
+      "series": "evomusart",
+      "source": "pwc",
+      "start": "2023-04-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "evoMUSART",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-13",
+      "id": "icaps23",
+      "link": "https://icaps23.icaps-conference.org/",
+      "series": "icaps",
+      "source": "pwc",
+      "start": "2023-07-08",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-09",
+      "id": "icassp23",
+      "link": "https://2023.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2023-06-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-06",
+      "id": "iccv23",
+      "link": "http://iccv2023.thecvf.com/",
+      "series": "iccv",
+      "source": "pwc",
+      "start": "2023-10-02",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-04",
+      "id": "icdm23",
+      "link": "https://www.cloud-conf.net/icdm2023/",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2023-12-01",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-11",
+      "id": "icip23",
+      "link": "https://2023.ieeeicip.org/",
+      "series": "icip",
+      "source": "pwc",
+      "start": "2023-10-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-05-05",
+      "id": "iclr23",
+      "link": "https://iclr.cc/Conferences/2023",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2023-05-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-29",
+      "id": "icml23",
+      "link": "https://icml.cc/Conferences/2023",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2023-07-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-02",
+      "id": "icra23",
+      "link": "https://www.icra2023.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2023-05-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-25",
+      "id": "ijcai23",
+      "link": "https://ijcai-23.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2023-08-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-04",
+      "id": "ijcnlpaacl23",
+      "link": "http://www.ijcnlp-aacl2023.org/",
+      "series": "ijcnlp-aacl",
+      "source": "pwc",
+      "start": "2023-11-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "IJCNLP-AACL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-24",
+      "id": "interspeech2023",
+      "link": "http://www.interspeech2023.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2023-08-20",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-05",
+      "id": "iros23",
+      "link": "https://ieee-iros.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2023-10-01",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-10",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc23",
+      "link": "https://iswc2023.semanticweb.org/",
+      "series": "iswc",
+      "source": "pwc",
+      "start": "2023-11-06",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-10",
+      "id": "kdd23",
+      "link": "https://kdd.org/kdd2023/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2023-08-06",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-08",
+      "id": "kr23",
+      "link": "https://kr.org/KR2023/",
+      "series": "kr",
+      "source": "pwc",
+      "start": "2023-09-02",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-10-12",
+      "id": "miccai23",
+      "link": "https://conferences.miccai.org/2023/en/",
+      "series": "miccai",
+      "source": "pwc",
+      "start": "2023-10-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-16",
+      "id": "neurips23",
+      "link": "https://neurips.cc/Conferences/2023/",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2023-12-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-05-28",
+      "id": "pakdd23",
+      "link": "https://pakdd2023.org",
+      "series": "pakdd",
+      "source": "pwc",
+      "start": "2023-05-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-22",
+      "id": "recsys23",
+      "link": "https://recsys.acm.org/recsys23/",
+      "series": "recsys",
+      "source": "pwc",
+      "start": "2023-09-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-31",
+      "id": "roman23",
+      "link": "http://ro-man2023.org/main",
+      "series": "ro-man",
+      "source": "pwc",
+      "start": "2023-08-28",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-14",
+      "id": "rss23",
+      "link": "https://roboticsconference.org/2023",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2023-07-10",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-14",
+      "fullName": "*SEM 2023",
+      "id": "sem23",
+      "link": "https://sites.google.com/view/starsem2023",
+      "series": "sem",
+      "source": "pwc",
+      "start": "2023-07-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-10",
+      "id": "siggraph23",
+      "link": "https://s2023.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2023-08-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-15",
+      "fullName": "SIGGRAPH ASIA 2023",
+      "id": "siggraphasia23",
+      "link": "https://asia.siggraph.org/2023/",
+      "series": "siggraph-asia",
+      "source": "pwc",
+      "start": "2023-12-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-27",
+      "id": "sigir23",
+      "link": "https://sigir.org/sigir2023/",
+      "series": "sigir",
+      "source": "pwc",
+      "start": "2023-07-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-29",
+      "fullName": "1st International ACM SIGIR Conference on Information Retrieval in the Asia Pacific",
+      "id": "sigirap23",
+      "link": "http://www.sigir-ap.org/sigir-ap-2023/",
+      "series": "sigir-ap",
+      "source": "pwc",
+      "start": "2023-11-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR-AP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-08-04",
+      "id": "uai23",
+      "link": "https://www.auai.org/uai2023/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2023-07-31",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-01-07",
+      "id": "wacv23",
+      "link": "http://wacv2023.thecvf.com/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2023-01-03",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-03-03",
+      "id": "wsdm23",
+      "link": "https://www.wsdm-conference.org/2023/",
+      "series": "wsdm",
+      "source": "pwc",
+      "start": "2023-02-27",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-05-04",
+      "id": "www23",
+      "link": "https://www2023.thewebconf.org/",
+      "series": "www",
+      "source": "pwc",
+      "start": "2023-04-30",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WWW",
+      "year": 2023
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Washington DC",
+      "conferenceId": "aaai23",
+      "country": "United States",
+      "end": "2023-02-14",
+      "id": "aaai23@main",
+      "lat": 38.8950982,
+      "link": "https://aaai.org/Conferences/AAAI-23/",
+      "lng": -77.0363849,
+      "name": "AAAI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-02-07"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "aamas23",
+      "country": "United Kingdom",
+      "end": "2023-06-02",
+      "id": "aamas23@main",
+      "lat": 51.5074456,
+      "link": "https://aamas2023.soton.ac.uk/",
+      "lng": -0.1277653,
+      "name": "AAMAS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-29"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "acl23",
+      "country": "Canada",
+      "end": "2023-07-14",
+      "id": "acl23@main",
+      "lat": 43.6534817,
+      "link": "https://2023.aclweb.org/",
+      "lng": -79.3839347,
+      "name": "ACL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Ottawa",
+      "conferenceId": "acm23",
+      "country": "Canada",
+      "end": "2023-11-03",
+      "id": "acm23@main",
+      "lat": 45.4208777,
+      "link": "https://www.acmmm2023.org/",
+      "lng": -75.6901106,
+      "name": "ACM MM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-29"
+    },
+    {
+      "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "acml23",
+      "country": "Turkey",
+      "end": "2023-11-14",
+      "id": "acml23@main",
+      "lat": 41.006381,
+      "link": "https://www.acml-conf.org/2023",
+      "lng": 28.9758715,
+      "name": "ACML 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-11"
+    },
+    {
+      "access": "registration",
+      "city": "Valencia",
+      "conferenceId": "aistats23",
+      "country": "Spain",
+      "end": "2023-04-27",
+      "id": "aistats23@main",
+      "lat": 39.4697065,
+      "link": "https://www.aistats.org/aistats2023/",
+      "lng": -0.3763353,
+      "name": "AISTATS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-04-25"
+    },
+    {
+      "access": "registration",
+      "city": "Potsdam",
+      "conferenceId": "automl23",
+      "country": "Germany",
+      "end": "2023-09-15",
+      "id": "automl23@main",
+      "lat": 52.4009309,
+      "link": "https://2023.automl.cc",
+      "lng": 13.0591397,
+      "name": "AutoML-Conf 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-12",
+      "venue": "Hasso Plattner Institute"
+    },
+    {
+      "access": "registration",
+      "city": "Aberdeen",
+      "conferenceId": "bmvc23",
+      "country": "United Kingdom",
+      "end": "2023-11-24",
+      "id": "bmvc23@main",
+      "lat": 57.1482429,
+      "link": "https://www.bmvc2023.org",
+      "lng": -2.0928095,
+      "name": "BMVC 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-20"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "chil23",
+      "country": "United States",
+      "end": "2023-06-24",
+      "id": "chil23@main",
+      "lat": 42.3656347,
+      "link": "https://www.chilconference.org/",
+      "lng": -71.1040018,
+      "name": "CHIL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-06-22"
+    },
+    {
+      "access": "registration",
+      "city": "Birmingham",
+      "conferenceId": "cikm23",
+      "country": "United Kingdom",
+      "end": "2023-10-25",
+      "id": "cikm23@main",
+      "lat": 52.4948994,
+      "link": "https://cikm2023.github.io/",
+      "lng": -1.8518439,
+      "name": "CIKM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-23"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "collas23",
+      "country": "Canada",
+      "end": "2023-08-25",
+      "id": "collas23@main",
+      "lat": 45.5031824,
+      "link": "https://lifelong-ml.cc",
+      "lng": -73.5698065,
+      "name": "CoLLAs 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "conll23",
+      "country": "Singapore",
+      "end": "2023-12-07",
+      "id": "conll23@main",
+      "lat": 1.2899175,
+      "link": "https://conll.org/",
+      "lng": 103.8519072,
+      "name": "CoNLL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-12-06"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "corl23",
+      "country": "United States",
+      "end": "2023-11-09",
+      "id": "corl23@main",
+      "lat": 33.7544657,
+      "link": "https://corl2023.org",
+      "lng": -84.3898151,
+      "name": "CoRL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-06"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "cvpr23",
+      "country": "Canada",
+      "end": "2023-06-22",
+      "id": "cvpr23@main",
+      "lat": 49.2608724,
+      "link": "http://cvpr2023.thecvf.com/",
+      "lng": -123.113952,
+      "name": "CVPR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-06-18"
+    },
+    {
+      "access": "registration",
+      "city": "Dubrovnik",
+      "conferenceId": "eacl23",
+      "country": "Croatia",
+      "end": "2023-05-06",
+      "format": "hybrid",
+      "id": "eacl23@main",
+      "lat": 42.6491029,
+      "link": "https://2023.eacl.org/",
+      "lng": 18.0939501,
+      "name": "EACL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-02"
+    },
+    {
+      "access": "registration",
+      "city": "Kraków",
+      "conferenceId": "ecai23",
+      "country": "Poland",
+      "end": "2023-10-05",
+      "id": "ecai23@main",
+      "lat": 50.0619474,
+      "link": "https://ecai2023.eu/",
+      "lng": 19.9368564,
+      "name": "ECAI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-30"
+    },
+    {
+      "access": "registration",
+      "city": "Turin",
+      "conferenceId": "ecmlpkdd23",
+      "country": "Italy",
+      "end": "2023-09-22",
+      "id": "ecmlpkdd23@main",
+      "lat": 45.0677551,
+      "link": "https://2023.ecmlpkdd.org/",
+      "lng": 7.6824892,
+      "name": "ECML/PKDD 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "emnlp23",
+      "country": "Singapore",
+      "end": "2023-12-10",
+      "id": "emnlp23@main",
+      "lat": 1.2899175,
+      "link": "https://2023.emnlp.org/",
+      "lng": 103.8519072,
+      "name": "EMNLP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-12-06"
+    },
+    {
+      "access": "registration",
+      "city": "Brno",
+      "conferenceId": "evomusart23",
+      "country": "Czech Republic",
+      "end": "2023-04-14",
+      "id": "evomusart23@main",
+      "lat": 49.1922443,
+      "link": "https://www.evostar.org/2023/evomusart/",
+      "lng": 16.6113382,
+      "name": "evoMUSART 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-04-12"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "icaps23",
+      "country": "Czech Republic",
+      "end": "2023-07-13",
+      "id": "icaps23@main",
+      "lat": 50.0874654,
+      "link": "https://icaps23.icaps-conference.org/",
+      "lng": 14.4212535,
+      "name": "ICAPS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Rhodes",
+      "conferenceId": "icassp23",
+      "country": "Greece",
+      "end": "2023-06-09",
+      "id": "icassp23@main",
+      "lat": 36.4437233,
+      "link": "https://2023.ieeeicassp.org/",
+      "lng": 28.227369,
+      "name": "ICASSP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-06-04"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "iccv23",
+      "country": "France",
+      "end": "2023-10-06",
+      "id": "iccv23@main",
+      "lat": 48.8534951,
+      "link": "http://iccv2023.thecvf.com/",
+      "lng": 2.3483915,
+      "name": "ICCV 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-02"
+    },
+    {
+      "access": "registration",
+      "city": "Shanghai",
+      "conferenceId": "icdm23",
+      "country": "China",
+      "end": "2023-12-04",
+      "id": "icdm23@main",
+      "lat": 31.2323437,
+      "link": "https://www.cloud-conf.net/icdm2023/",
+      "lng": 121.4691024,
+      "name": "ICDM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-12-01"
+    },
+    {
+      "access": "registration",
+      "city": "Kuala Lumpur",
+      "conferenceId": "icip23",
+      "country": "Malaysia",
+      "end": "2023-10-11",
+      "id": "icip23@main",
+      "lat": 3.1516964,
+      "link": "https://2023.ieeeicip.org/",
+      "lng": 101.6942371,
+      "name": "ICIP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "Kigali",
+      "conferenceId": "iclr23",
+      "country": "Rwanda",
+      "end": "2023-05-05",
+      "id": "iclr23@main",
+      "lat": -1.9534357,
+      "link": "https://iclr.cc/Conferences/2023",
+      "lng": 30.1140089,
+      "name": "ICLR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-01"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "icml23",
+      "country": "United States",
+      "end": "2023-07-29",
+      "id": "icml23@main",
+      "lat": 21.304547,
+      "link": "https://icml.cc/Conferences/2023",
+      "lng": -157.855676,
+      "name": "ICML 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "icra23",
+      "country": "United Kingdom",
+      "end": "2023-06-02",
+      "id": "icra23@main",
+      "lat": 51.5074456,
+      "link": "https://www.icra2023.org/",
+      "lng": -0.1277653,
+      "name": "ICRA 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-29",
+      "venue": "ExCeL London"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "ijcai23",
+      "country": "China",
+      "end": "2023-08-25",
+      "id": "ijcai23@main",
+      "lat": 22.1899448,
+      "link": "https://ijcai-23.org/",
+      "lng": 113.5380454,
+      "name": "IJCAI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Bali",
+      "conferenceId": "ijcnlpaacl23",
+      "country": "Indonesia",
+      "end": "2023-11-04",
+      "id": "ijcnlpaacl23@main",
+      "lat": -8.8016777,
+      "link": "http://www.ijcnlp-aacl2023.org/",
+      "lng": 115.2239305,
+      "name": "IJCNLP-AACL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-01"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "interspeech2023",
+      "country": "Ireland",
+      "end": "2023-08-24",
+      "id": "interspeech2023@main",
+      "lat": 53.3493795,
+      "link": "http://www.interspeech2023.org/",
+      "lng": -6.2605593,
+      "name": "Interspeech 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Detroit",
+      "conferenceId": "iros23",
+      "country": "United States",
+      "end": "2023-10-05",
+      "id": "iros23@main",
+      "lat": 42.3315509,
+      "link": "https://ieee-iros.org/",
+      "lng": -83.0466403,
+      "name": "IROS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-01"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "iswc23",
+      "country": "Greece",
+      "end": "2023-11-10",
+      "id": "iswc23@main",
+      "lat": 37.9755648,
+      "link": "https://iswc2023.semanticweb.org/",
+      "lng": 23.7348324,
+      "name": "ISWC 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-06"
+    },
+    {
+      "access": "registration",
+      "city": "Long Beach",
+      "conferenceId": "kdd23",
+      "country": "United States",
+      "end": "2023-08-10",
+      "id": "kdd23@main",
+      "lat": 33.7690164,
+      "link": "https://kdd.org/kdd2023/",
+      "lng": -118.191604,
+      "name": "KDD 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Rhodes",
+      "conferenceId": "kr23",
+      "country": "Greece",
+      "end": "2023-09-08",
+      "id": "kr23@main",
+      "lat": 36.4437233,
+      "link": "https://kr.org/KR2023/",
+      "lng": 28.227369,
+      "name": "KR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-02"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "miccai23",
+      "country": "Canada",
+      "end": "2023-10-12",
+      "id": "miccai23@main",
+      "lat": 49.2608724,
+      "link": "https://conferences.miccai.org/2023/en/",
+      "lng": -123.113952,
+      "name": "MICCAI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "neurips23",
+      "country": "United States",
+      "end": "2023-12-16",
+      "id": "neurips23@main",
+      "lat": 29.9574657,
+      "link": "https://neurips.cc/Conferences/2023/",
+      "lng": -90.0629493,
+      "name": "NeurIPS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-12-10"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "pakdd23",
+      "country": "Japan",
+      "end": "2023-05-28",
+      "id": "pakdd23@main",
+      "lat": 34.6937569,
+      "link": "https://pakdd2023.org",
+      "lng": 135.5014539,
+      "name": "PAKDD 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-25"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "recsys23",
+      "country": "Singapore",
+      "end": "2023-09-22",
+      "id": "recsys23@main",
+      "lat": 1.2899175,
+      "link": "https://recsys.acm.org/recsys23/",
+      "lng": 103.8519072,
+      "name": "RecSys 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Busan",
+      "conferenceId": "roman23",
+      "country": "South Korea",
+      "end": "2023-08-31",
+      "id": "roman23@main",
+      "lat": 35.1799528,
+      "link": "http://ro-man2023.org/main",
+      "lng": 129.0752365,
+      "name": "RO-MAN 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-28"
+    },
+    {
+      "access": "registration",
+      "city": "Daegu",
+      "conferenceId": "rss23",
+      "country": "South Korea",
+      "end": "2023-07-14",
+      "id": "rss23@main",
+      "lat": 35.8713,
+      "link": "https://roboticsconference.org/2023",
+      "lng": 128.6018,
+      "name": "RSS 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-10"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "sem23",
+      "country": "Canada",
+      "end": "2023-07-14",
+      "id": "sem23@main",
+      "lat": 43.6534817,
+      "link": "https://sites.google.com/view/starsem2023",
+      "lng": -79.3839347,
+      "name": "*SEM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph23",
+      "country": "United States",
+      "end": "2023-08-10",
+      "id": "siggraph23@main",
+      "lat": 34.0536923,
+      "link": "https://s2023.siggraph.org/",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "siggraphasia23",
+      "country": "Australia",
+      "end": "2023-12-15",
+      "id": "siggraphasia23@main",
+      "lat": -33.8698439,
+      "link": "https://asia.siggraph.org/2023/",
+      "lng": 151.2082848,
+      "name": "SIGGRAPH Asia 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "sigir23",
+      "country": "Taiwan",
+      "end": "2023-07-27",
+      "id": "sigir23@main",
+      "lat": 25.0375198,
+      "link": "https://sigir.org/sigir2023/",
+      "lng": 121.5636796,
+      "name": "SIGIR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "sigirap23",
+      "country": "China",
+      "end": "2023-11-29",
+      "id": "sigirap23@main",
+      "lat": 39.9057136,
+      "link": "http://www.sigir-ap.org/sigir-ap-2023/",
+      "lng": 116.3912972,
+      "name": "SIGIR-AP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "uai23",
+      "country": "United States",
+      "end": "2023-08-04",
+      "id": "uai23@main",
+      "lat": 40.4406968,
+      "link": "https://www.auai.org/uai2023/",
+      "lng": -80.0025666,
+      "name": "UAI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "wacv23",
+      "country": "United States",
+      "end": "2023-01-07",
+      "id": "wacv23@main",
+      "lat": 19.9469278,
+      "link": "http://wacv2023.thecvf.com/",
+      "lng": -155.787398,
+      "name": "WACV 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-01-03"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "wsdm23",
+      "country": "Singapore",
+      "end": "2023-03-03",
+      "id": "wsdm23@main",
+      "lat": 1.2899175,
+      "link": "https://www.wsdm-conference.org/2023/",
+      "lng": 103.8519072,
+      "name": "WSDM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-02-27"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "www23",
+      "country": "United States",
+      "end": "2023-05-04",
+      "id": "www23@main",
+      "lat": 30.2649261,
+      "link": "https://www2023.thewebconf.org/",
+      "lng": -97.7474086,
+      "name": "WWW 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-04-30"
+    }
+  ]
+}

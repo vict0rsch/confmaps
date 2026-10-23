@@ -1,0 +1,971 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2019-09-19",
+      "id": "3dv19",
+      "link": "http://3dv19.gel.ulaval.ca/",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2019-09-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-02-01",
+      "id": "aaai19",
+      "link": "https://aaai.org/Conferences/AAAI-19/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2019-01-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-17",
+      "id": "aamas19",
+      "link": "http://aamas2019.encs.concordia.ca/",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2019-05-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-02",
+      "id": "acl19",
+      "link": "http://acl2019.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2019-07-28",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-04-18",
+      "id": "aistats19",
+      "link": "https://www.aistats.org/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2019-04-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-09-12",
+      "id": "bmvc19",
+      "link": "https://bmvc2019.org",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2019-09-09",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-28",
+      "id": "colt19",
+      "link": "http://www.learningtheory.org/colt2019/",
+      "series": "colt",
+      "source": "pwc",
+      "start": "2019-06-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-04",
+      "id": "conll19",
+      "link": "http://www.conll.org/2019",
+      "series": "conll",
+      "source": "pwc",
+      "start": "2019-11-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-01",
+      "id": "corl19",
+      "link": "http://www.robot-learning.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2019-10-30",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-21",
+      "id": "cvpr19",
+      "link": "http://cvpr2019.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2019-06-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-09-20",
+      "id": "ecmlpkdd19",
+      "link": "https://ecmlpkdd2019.org/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2019-09-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECML/PKDD",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-07",
+      "id": "emnlp19",
+      "link": "http://emnlp-ijcnlp2019.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2019-11-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP-IJCNLP",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-07-17",
+      "id": "gecco19",
+      "link": "https://gecco-2019.sigevo.org/index.html/tiki-index.php",
+      "series": "gecco",
+      "source": "pwc",
+      "start": "2019-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-03-14",
+      "id": "hri19",
+      "link": "https://humanrobotinteraction.org/2019/",
+      "series": "hri",
+      "source": "pwc",
+      "start": "2019-03-11",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-17",
+      "id": "icassp19",
+      "link": "http://icassp2019.com/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2019-05-12",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-02",
+      "id": "iccv19",
+      "link": "http://iccv2019.thecvf.com/",
+      "series": "iccv",
+      "source": "pwc",
+      "start": "2019-10-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-11",
+      "id": "icdm19",
+      "link": "http://icdm2019.bigke.org/",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2019-11-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-09",
+      "id": "iclr19",
+      "link": "http://iclr.cc/",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2019-05-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-15",
+      "id": "icml19",
+      "link": "https://icml.cc/Conferences/2019",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2019-06-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-24",
+      "id": "icra19",
+      "link": "https://icra2019.org//",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2019-05-20",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-16",
+      "id": "ijcai19",
+      "link": "https://www.ijcai19.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2019-08-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-09-19",
+      "id": "interspeech2019",
+      "link": "https://www.interspeech2019.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2019-09-15",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "InterSpeech",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-09",
+      "id": "iros19",
+      "link": "https://www.iros2019.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2019-11-03",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-08",
+      "id": "ismir19",
+      "link": "http://ismir2019.ewi.tudelft.nl/",
+      "series": "ismir",
+      "source": "pwc",
+      "start": "2019-11-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-07",
+      "id": "kdd19",
+      "link": "https://www.kdd.org/kdd2019",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2019-08-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-10-17",
+      "id": "miccai19",
+      "link": "http://www.miccai2019.org/",
+      "series": "miccai",
+      "source": "pwc",
+      "start": "2019-10-13",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-07",
+      "id": "naacl19",
+      "link": "http://naacl2019.org/",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2019-06-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-12-14",
+      "id": "neurips19",
+      "link": "https://neurips.cc/Conferences/2019",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2019-12-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-26",
+      "id": "rss19",
+      "link": "http://www.roboticsconference.org/",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2019-06-22",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-01",
+      "id": "siggraph19",
+      "link": "https://s2019.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2019-07-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-07-26",
+      "id": "uai19",
+      "link": "http://auai.org/uai2019/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2019-07-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-01-11",
+      "id": "wacv19",
+      "link": "http://wacv19.uccs.us/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2019-01-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2019
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Quebec City",
+      "conferenceId": "3dv19",
+      "country": "Canada",
+      "end": "2019-09-19",
+      "id": "3dv19@main",
+      "lat": 46.8137431,
+      "link": "http://3dv19.gel.ulaval.ca/",
+      "lng": -71.2084061,
+      "name": "3DV 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-16"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "aaai19",
+      "country": "United States",
+      "end": "2019-02-01",
+      "id": "aaai19@main",
+      "lat": 21.304547,
+      "link": "https://aaai.org/Conferences/AAAI-19/",
+      "lng": -157.855676,
+      "name": "AAAI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-01-27",
+      "venue": "Hilton Hawaiian Village"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "aamas19",
+      "country": "Canada",
+      "end": "2019-05-17",
+      "id": "aamas19@main",
+      "lat": 45.5031824,
+      "link": "http://aamas2019.encs.concordia.ca/",
+      "lng": -73.5698065,
+      "name": "AAMAS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-13"
+    },
+    {
+      "access": "registration",
+      "city": "Florence",
+      "conferenceId": "acl19",
+      "country": "Italy",
+      "end": "2019-08-02",
+      "id": "acl19@main",
+      "lat": 43.7697955,
+      "link": "http://acl2019.org/",
+      "lng": 11.2556404,
+      "name": "ACL 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-28"
+    },
+    {
+      "access": "registration",
+      "city": "Naha",
+      "conferenceId": "aistats19",
+      "country": "Japan",
+      "end": "2019-04-18",
+      "id": "aistats19@main",
+      "lat": 26.2122345,
+      "link": "https://www.aistats.org/",
+      "lng": 127.6791452,
+      "name": "AISTATS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-04-16"
+    },
+    {
+      "access": "registration",
+      "city": "Cardiff",
+      "conferenceId": "bmvc19",
+      "country": "United Kingdom",
+      "end": "2019-09-12",
+      "id": "bmvc19@main",
+      "lat": 51.4816546,
+      "link": "https://bmvc2019.org",
+      "lng": -3.1791934,
+      "name": "BMVC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Phoenix",
+      "conferenceId": "colt19",
+      "country": "United States",
+      "end": "2019-06-28",
+      "id": "colt19@main",
+      "lat": 33.4484367,
+      "link": "http://www.learningtheory.org/colt2019/",
+      "lng": -112.074141,
+      "name": "COLT 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "conll19",
+      "country": "Hong Kong",
+      "end": "2019-11-04",
+      "id": "conll19@main",
+      "lat": 22.2818333,
+      "link": "http://www.conll.org/2019",
+      "lng": 114.1582831,
+      "name": "CoNLL 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "corl19",
+      "country": "Japan",
+      "end": "2019-11-01",
+      "id": "corl19@main",
+      "lat": 34.6937569,
+      "link": "http://www.robot-learning.org",
+      "lng": 135.5014539,
+      "name": "CoRL 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-30"
+    },
+    {
+      "access": "registration",
+      "city": "Long Beach",
+      "conferenceId": "cvpr19",
+      "country": "United States",
+      "end": "2019-06-21",
+      "id": "cvpr19@main",
+      "lat": 33.7690164,
+      "link": "http://cvpr2019.thecvf.com/",
+      "lng": -118.191604,
+      "name": "CVPR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-16"
+    },
+    {
+      "access": "registration",
+      "city": "Würzburg",
+      "conferenceId": "ecmlpkdd19",
+      "country": "Germany",
+      "end": "2019-09-20",
+      "id": "ecmlpkdd19@main",
+      "lat": 49.7780356,
+      "link": "https://ecmlpkdd2019.org/",
+      "lng": 9.9434769,
+      "name": "ECML/PKDD 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-16"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "emnlp19",
+      "country": "Hong Kong",
+      "end": "2019-11-07",
+      "id": "emnlp19@main",
+      "lat": 22.2818333,
+      "link": "http://emnlp-ijcnlp2019.org/",
+      "lng": 114.1582831,
+      "name": "EMNLP-IJCNLP 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "gecco19",
+      "country": "Czech Republic",
+      "end": "2019-07-17",
+      "id": "gecco19@main",
+      "lat": 50.0874654,
+      "link": "https://gecco-2019.sigevo.org/index.html/tiki-index.php",
+      "lng": 14.4212535,
+      "name": "GECCO 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Daegu",
+      "conferenceId": "hri19",
+      "country": "South Korea",
+      "end": "2019-03-14",
+      "id": "hri19@main",
+      "lat": 35.8713,
+      "link": "https://humanrobotinteraction.org/2019/",
+      "lng": 128.6018,
+      "name": "HRI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-03-11"
+    },
+    {
+      "access": "registration",
+      "city": "Brighton",
+      "conferenceId": "icassp19",
+      "country": "United Kingdom",
+      "end": "2019-05-17",
+      "id": "icassp19@main",
+      "lat": 50.8214626,
+      "link": "http://icassp2019.com/",
+      "lng": -0.1400561,
+      "name": "ICASSP 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-12"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "iccv19",
+      "country": "South Korea",
+      "end": "2019-11-02",
+      "id": "iccv19@main",
+      "lat": 37.5666791,
+      "link": "http://iccv2019.thecvf.com/",
+      "lng": 126.9782914,
+      "name": "ICCV 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-27"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "icdm19",
+      "country": "China",
+      "end": "2019-11-11",
+      "id": "icdm19@main",
+      "lat": 39.9057136,
+      "link": "http://icdm2019.bigke.org/",
+      "lng": 116.3912972,
+      "name": "ICDM 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-08"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "iclr19",
+      "country": "United States",
+      "end": "2019-05-09",
+      "id": "iclr19@main",
+      "lat": 29.9574657,
+      "link": "http://iclr.cc/",
+      "lng": -90.0629493,
+      "name": "ICLR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Long Beach",
+      "conferenceId": "icml19",
+      "country": "United States",
+      "end": "2019-06-15",
+      "id": "icml19@main",
+      "lat": 33.7690164,
+      "link": "https://icml.cc/Conferences/2019",
+      "lng": -118.191604,
+      "name": "ICML 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icra19",
+      "country": "Canada",
+      "end": "2019-05-24",
+      "id": "icra19@main",
+      "lat": 45.5031824,
+      "link": "https://icra2019.org//",
+      "lng": -73.5698065,
+      "name": "ICRA 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "ijcai19",
+      "country": "China",
+      "end": "2019-08-16",
+      "id": "ijcai19@main",
+      "lat": 22.1899448,
+      "link": "https://www.ijcai19.org/",
+      "lng": 113.5380454,
+      "name": "IJCAI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-08-10"
+    },
+    {
+      "access": "registration",
+      "city": "Graz",
+      "conferenceId": "interspeech2019",
+      "country": "Austria",
+      "end": "2019-09-19",
+      "id": "interspeech2019@main",
+      "lat": 47.0708678,
+      "link": "https://www.interspeech2019.org/",
+      "lng": 15.4382786,
+      "name": "InterSpeech 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-15"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "iros19",
+      "country": "China",
+      "end": "2019-11-09",
+      "id": "iros19@main",
+      "lat": 22.1899448,
+      "link": "https://www.iros2019.org/",
+      "lng": 113.5380454,
+      "name": "IROS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Delft",
+      "conferenceId": "ismir19",
+      "country": "Netherlands",
+      "end": "2019-11-08",
+      "id": "ismir19@main",
+      "lat": 52.0114017,
+      "link": "http://ismir2019.ewi.tudelft.nl/",
+      "lng": 4.35839,
+      "name": "ISMIR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-04"
+    },
+    {
+      "access": "registration",
+      "city": "Anchorage",
+      "conferenceId": "kdd19",
+      "country": "United States",
+      "end": "2019-08-07",
+      "id": "kdd19@main",
+      "lat": 61.2163129,
+      "link": "https://www.kdd.org/kdd2019",
+      "lng": -149.894852,
+      "name": "KDD 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Shenzhen",
+      "conferenceId": "miccai19",
+      "country": "China",
+      "end": "2019-10-17",
+      "id": "miccai19@main",
+      "lat": 22.5445741,
+      "link": "http://www.miccai2019.org/",
+      "lng": 114.0545429,
+      "name": "MICCAI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-13"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "naacl19",
+      "country": "United States",
+      "end": "2019-06-07",
+      "id": "naacl19@main",
+      "lat": 44.9772995,
+      "link": "http://naacl2019.org/",
+      "lng": -93.2654692,
+      "name": "NAACL 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-02"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips19",
+      "country": "Canada",
+      "end": "2019-12-14",
+      "id": "neurips19@main",
+      "lat": 49.2608724,
+      "link": "https://neurips.cc/Conferences/2019",
+      "lng": -123.113952,
+      "name": "NeurIPS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-12-08",
+      "venue": "Vancouver Convention Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Freiburg",
+      "conferenceId": "rss19",
+      "country": "Germany",
+      "end": "2019-06-26",
+      "id": "rss19@main",
+      "lat": 47.9960901,
+      "link": "http://www.roboticsconference.org/",
+      "lng": 7.8494005,
+      "name": "RSS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-22"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph19",
+      "country": "United States",
+      "end": "2019-08-01",
+      "id": "siggraph19@main",
+      "lat": 34.0536923,
+      "link": "https://s2019.siggraph.org/",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-28"
+    },
+    {
+      "access": "registration",
+      "city": "Tel Aviv",
+      "conferenceId": "uai19",
+      "country": "Israel",
+      "end": "2019-07-26",
+      "id": "uai19@main",
+      "lat": 32.0852997,
+      "link": "http://auai.org/uai2019/",
+      "lng": 34.7818064,
+      "name": "UAI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-22"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "wacv19",
+      "country": "United States",
+      "end": "2019-01-11",
+      "id": "wacv19@main",
+      "lat": 19.9469278,
+      "link": "http://wacv19.uccs.us/",
+      "lng": -155.787398,
+      "name": "WACV 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-01-08"
+    }
+  ]
+}

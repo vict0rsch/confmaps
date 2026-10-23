@@ -554,6 +554,11 @@
     "lat": 31.6258257,
     "lng": -7.9891608
   },
+  "marrakesh|morocco": {
+    "display_name": "Marrakesh, Pachalik de Marrakech, Marrakesh Prefecture, Marrakech-Safi, Morocco",
+    "lat": 31.6258257,
+    "lng": -7.9891608
+  },
   "marseille|france": {
     "display_name": "Marseille, Bouches-du-Rhône, Provence-Alpes-Côte d'Azur, Metropolitan France, France",
     "lat": 43.2963986,

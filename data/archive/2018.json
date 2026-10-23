@@ -1,0 +1,941 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2018-09-08",
+      "id": "3dv18",
+      "link": "http://3dv18.uniud.it",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2018-09-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-02-07",
+      "id": "aaai18",
+      "link": "http://www.aaai.org/Conferences/AAAI/aaai18.php",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2018-02-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-13",
+      "id": "aamas18",
+      "link": "http://celweb.vuse.vanderbilt.edu/aamas18",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2018-07-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-12-06",
+      "id": "accv18",
+      "link": "http://accv2018.net/",
+      "series": "accv",
+      "source": "pwc",
+      "start": "2018-12-02",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-20",
+      "id": "acl18",
+      "link": "http://acl2018.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2018-07-15",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-11",
+      "id": "aistats18",
+      "link": "http://www.aistats.org/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2018-04-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-06",
+      "id": "bmvc18",
+      "link": "http://bmvc2018.org/",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2018-09-03",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-25",
+      "id": "coling18",
+      "link": "http://coling2018.org/",
+      "series": "coling",
+      "source": "pwc",
+      "start": "2018-08-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-09",
+      "id": "colt18",
+      "link": "http://www.learningtheory.org/colt2018/",
+      "series": "colt",
+      "source": "pwc",
+      "start": "2018-07-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-01",
+      "id": "conll18",
+      "link": "http://www.conll.org/",
+      "series": "conll",
+      "source": "pwc",
+      "start": "2018-10-31",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-31",
+      "id": "corl18",
+      "link": "http://www.robot-learning.org/",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2018-10-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-23",
+      "id": "cvpr18",
+      "link": "http://cvpr2018.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2018-06-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-14",
+      "id": "eccv18",
+      "link": "https://eccv2018.org/",
+      "series": "eccv",
+      "source": "pwc",
+      "start": "2018-09-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-04",
+      "id": "emnlp18",
+      "link": "http://emnlp2018.org",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2018-11-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-20",
+      "id": "icassp18",
+      "link": "https://2018.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2018-04-15",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-20",
+      "id": "icdm18",
+      "link": "http://icdm2018.org/",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2018-11-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICDM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-03",
+      "id": "iclr18",
+      "link": "http://iclr.cc/",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2018-04-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-15",
+      "id": "icml18",
+      "link": "https://icml.cc/Conferences/2018",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2018-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-25",
+      "id": "icra18",
+      "link": "http://www.icra2018.org/",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2018-05-21",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-19",
+      "id": "ijcai18",
+      "link": "https://www.ijcai-18.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2018-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-06",
+      "id": "interspeech2018",
+      "link": "http://interspeech2018.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2018-09-02",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-05",
+      "id": "iros18",
+      "link": "https://www.iros2018.org/",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2018-10-01",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-23",
+      "id": "kdd18",
+      "link": "http://www.kdd.org/kdd2018/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2018-08-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-19",
+      "id": "mldm18",
+      "link": "http://www.mldm.de/mldm2018.php",
+      "series": "mldm",
+      "source": "pwc",
+      "start": "2018-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-04",
+      "id": "naacl18",
+      "link": "http://naacl2018.org/",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2018-06-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-12-08",
+      "id": "neurips18",
+      "link": "https://neurips.cc/Conferences/2018",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2018-12-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-30",
+      "id": "rss18",
+      "link": "http://www.roboticsconference.org/",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2018-06-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-16",
+      "id": "siggraph18",
+      "link": "http://s2018.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2018-08-12",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-12-21",
+      "id": "slt18",
+      "link": "http://slt2018.org/",
+      "series": "slt",
+      "source": "pwc",
+      "start": "2018-12-18",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-10",
+      "id": "uai18",
+      "link": "http://auai.org/uai2018/index.php",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2018-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-03-14",
+      "id": "wacv18",
+      "link": "http://wacv18.uccs.us/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2018-03-12",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2018
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Verona",
+      "conferenceId": "3dv18",
+      "country": "Italy",
+      "end": "2018-09-08",
+      "id": "3dv18@main",
+      "lat": 45.4384958,
+      "link": "http://3dv18.uniud.it",
+      "lng": 10.9924122,
+      "name": "3DV 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-05"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "aaai18",
+      "country": "United States",
+      "end": "2018-02-07",
+      "id": "aaai18@main",
+      "lat": 29.9574657,
+      "link": "http://www.aaai.org/Conferences/AAAI/aaai18.php",
+      "lng": -90.0629493,
+      "name": "AAAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-02-02"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "aamas18",
+      "country": "Sweden",
+      "end": "2018-07-13",
+      "id": "aamas18@main",
+      "lat": 59.3251172,
+      "link": "http://celweb.vuse.vanderbilt.edu/aamas18",
+      "lng": 18.0710935,
+      "name": "AAMAS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-11"
+    },
+    {
+      "access": "registration",
+      "city": "Perth",
+      "conferenceId": "accv18",
+      "country": "Australia",
+      "end": "2018-12-06",
+      "id": "accv18@main",
+      "lat": -31.9558967,
+      "link": "http://accv2018.net/",
+      "lng": 115.8605784,
+      "name": "ACCV 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-12-02"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "acl18",
+      "country": "Australia",
+      "end": "2018-07-20",
+      "id": "acl18@main",
+      "lat": -37.8142454,
+      "link": "http://acl2018.org/",
+      "lng": 144.9631732,
+      "name": "ACL 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Lanzarote",
+      "conferenceId": "aistats18",
+      "country": "Spain",
+      "end": "2018-04-11",
+      "id": "aistats18@main",
+      "lat": 28.8631949,
+      "link": "http://www.aistats.org/",
+      "lng": -13.8298966,
+      "name": "AISTATS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-09"
+    },
+    {
+      "access": "registration",
+      "city": "Newcastle upon Tyne",
+      "conferenceId": "bmvc18",
+      "country": "United Kingdom",
+      "end": "2018-09-06",
+      "id": "bmvc18@main",
+      "lat": 54.9738474,
+      "link": "http://bmvc2018.org/",
+      "lng": -1.6131572,
+      "name": "BMVC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-03"
+    },
+    {
+      "access": "registration",
+      "city": "Santa Fe",
+      "conferenceId": "coling18",
+      "country": "United States",
+      "end": "2018-08-25",
+      "id": "coling18@main",
+      "lat": 35.6876096,
+      "link": "http://coling2018.org/",
+      "lng": -105.938456,
+      "name": "COLING 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "colt18",
+      "country": "Sweden",
+      "end": "2018-07-09",
+      "id": "colt18@main",
+      "lat": 59.3251172,
+      "link": "http://www.learningtheory.org/colt2018/",
+      "lng": 18.0710935,
+      "name": "COLT 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-05"
+    },
+    {
+      "access": "registration",
+      "city": "Brussels",
+      "conferenceId": "conll18",
+      "country": "Belgium",
+      "end": "2018-11-01",
+      "id": "conll18@main",
+      "lat": 50.8467372,
+      "link": "http://www.conll.org/",
+      "lng": 4.352493,
+      "name": "CoNLL 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-31"
+    },
+    {
+      "access": "registration",
+      "city": "Zurich",
+      "conferenceId": "corl18",
+      "country": "Switzerland",
+      "end": "2018-10-31",
+      "id": "corl18@main",
+      "lat": 47.3744489,
+      "link": "http://www.robot-learning.org/",
+      "lng": 8.5410422,
+      "name": "CoRL 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-29"
+    },
+    {
+      "access": "registration",
+      "city": "Salt Lake City",
+      "conferenceId": "cvpr18",
+      "country": "United States",
+      "end": "2018-06-23",
+      "id": "cvpr18@main",
+      "lat": 40.7596198,
+      "link": "http://cvpr2018.thecvf.com/",
+      "lng": -111.886797,
+      "name": "CVPR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-18"
+    },
+    {
+      "access": "registration",
+      "city": "Munich",
+      "conferenceId": "eccv18",
+      "country": "Germany",
+      "end": "2018-09-14",
+      "id": "eccv18@main",
+      "lat": 48.1371079,
+      "link": "https://eccv2018.org/",
+      "lng": 11.5753822,
+      "name": "ECCV 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "Brussels",
+      "conferenceId": "emnlp18",
+      "country": "Belgium",
+      "end": "2018-11-04",
+      "id": "emnlp18@main",
+      "lat": 50.8467372,
+      "link": "http://emnlp2018.org",
+      "lng": 4.352493,
+      "name": "EMNLP 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-02"
+    },
+    {
+      "access": "registration",
+      "city": "Calgary",
+      "conferenceId": "icassp18",
+      "country": "Canada",
+      "end": "2018-04-20",
+      "id": "icassp18@main",
+      "lat": 51.0456064,
+      "link": "https://2018.ieeeicassp.org/",
+      "lng": -114.057541,
+      "name": "ICASSP 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-15"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "icdm18",
+      "country": "Singapore",
+      "end": "2018-11-20",
+      "id": "icdm18@main",
+      "lat": 1.2899175,
+      "link": "http://icdm2018.org/",
+      "lng": 103.8519072,
+      "name": "ICDM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-17"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "iclr18",
+      "country": "Canada",
+      "end": "2018-05-03",
+      "id": "iclr18@main",
+      "lat": 49.2608724,
+      "link": "http://iclr.cc/",
+      "lng": -123.113952,
+      "name": "ICLR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-30",
+      "venue": "Vancouver Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "icml18",
+      "country": "Sweden",
+      "end": "2018-07-15",
+      "id": "icml18@main",
+      "lat": 59.3251172,
+      "link": "https://icml.cc/Conferences/2018",
+      "lng": 18.0710935,
+      "name": "ICML 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-10"
+    },
+    {
+      "access": "registration",
+      "city": "Brisbane",
+      "conferenceId": "icra18",
+      "country": "Australia",
+      "end": "2018-05-25",
+      "id": "icra18@main",
+      "lat": -27.4689623,
+      "link": "http://www.icra2018.org/",
+      "lng": 153.0235009,
+      "name": "ICRA 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-05-21"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "ijcai18",
+      "country": "Sweden",
+      "end": "2018-07-19",
+      "id": "ijcai18@main",
+      "lat": 59.3251172,
+      "link": "https://www.ijcai-18.org/",
+      "lng": 18.0710935,
+      "name": "IJCAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "interspeech2018",
+      "country": "India",
+      "end": "2018-09-06",
+      "id": "interspeech2018@main",
+      "lat": 17.360589,
+      "link": "http://interspeech2018.org/",
+      "lng": 78.4740613,
+      "name": "Interspeech 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-02"
+    },
+    {
+      "access": "registration",
+      "city": "Madrid",
+      "conferenceId": "iros18",
+      "country": "Spain",
+      "end": "2018-10-05",
+      "id": "iros18@main",
+      "lat": 40.416782,
+      "link": "https://www.iros2018.org/",
+      "lng": -3.703507,
+      "name": "IROS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-01"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "kdd18",
+      "country": "United Kingdom",
+      "end": "2018-08-23",
+      "id": "kdd18@main",
+      "lat": 51.5074456,
+      "link": "http://www.kdd.org/kdd2018/",
+      "lng": -0.1277653,
+      "name": "KDD 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm18",
+      "country": "United States",
+      "end": "2018-07-19",
+      "id": "mldm18@main",
+      "lat": 40.7127281,
+      "link": "http://www.mldm.de/mldm2018.php",
+      "lng": -74.0060152,
+      "name": "MLDM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "naacl18",
+      "country": "United States",
+      "end": "2018-06-04",
+      "id": "naacl18@main",
+      "lat": 29.9574657,
+      "link": "http://naacl2018.org/",
+      "lng": -90.0629493,
+      "name": "NAACL 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-02"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "neurips18",
+      "country": "Canada",
+      "end": "2018-12-08",
+      "id": "neurips18@main",
+      "lat": 45.5031824,
+      "link": "https://neurips.cc/Conferences/2018",
+      "lng": -73.5698065,
+      "name": "NeurIPS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-12-02",
+      "venue": "Palais des Congrès de Montréal"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "rss18",
+      "country": "United States",
+      "end": "2018-06-30",
+      "id": "rss18@main",
+      "lat": 40.4406968,
+      "link": "http://www.roboticsconference.org/",
+      "lng": -80.0025666,
+      "name": "RSS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-26"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "siggraph18",
+      "country": "Canada",
+      "end": "2018-08-16",
+      "id": "siggraph18@main",
+      "lat": 49.2608724,
+      "link": "http://s2018.siggraph.org/",
+      "lng": -123.113952,
+      "name": "SIGGRAPH 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-12"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "slt18",
+      "country": "Greece",
+      "end": "2018-12-21",
+      "id": "slt18@main",
+      "lat": 37.9755648,
+      "link": "http://slt2018.org/",
+      "lng": 23.7348324,
+      "name": "SLT 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-12-18"
+    },
+    {
+      "access": "registration",
+      "city": "Monterey",
+      "conferenceId": "uai18",
+      "country": "United States",
+      "end": "2018-08-10",
+      "id": "uai18@main",
+      "lat": 36.600256,
+      "link": "http://auai.org/uai2018/index.php",
+      "lng": -121.8946388,
+      "name": "UAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Lake Tahoe",
+      "conferenceId": "wacv18",
+      "country": "United States",
+      "end": "2018-03-14",
+      "id": "wacv18@main",
+      "lat": 38.9630669,
+      "link": "http://wacv18.uccs.us/",
+      "lng": -119.939946,
+      "name": "WACV 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-03-12"
+    }
+  ]
+}

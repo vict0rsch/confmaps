@@ -1,0 +1,1229 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2021-02-09",
+      "id": "aaai21",
+      "link": "https://aaai.org/Conferences/AAAI-21/",
+      "series": "aaai",
+      "source": "pwc",
+      "start": "2021-02-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAAI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-05-07",
+      "id": "aamas21",
+      "link": "https://aamas2021.soton.ac.uk/",
+      "series": "aamas",
+      "source": "pwc",
+      "start": "2021-05-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AAMAS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-06",
+      "fullName": "59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021)",
+      "id": "acl21",
+      "link": "https://2021.aclweb.org/",
+      "series": "acl",
+      "source": "pwc",
+      "start": "2021-08-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-24",
+      "id": "acm21",
+      "link": "https://2021.acmmm.org/",
+      "series": "acm-mm",
+      "source": "pwc",
+      "start": "2021-10-20",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACM MM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-19",
+      "id": "acml21",
+      "link": "http://www.acml-conf.org/2021",
+      "series": "acml",
+      "source": "pwc",
+      "start": "2021-11-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-04-15",
+      "id": "aistats21",
+      "link": "https://www.aistats.org/aistats2021/",
+      "series": "aistats",
+      "source": "pwc",
+      "start": "2021-04-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-08",
+      "id": "akbc21",
+      "link": "https://www.akbc.ws/2021/",
+      "series": "akbc",
+      "source": "pwc",
+      "start": "2021-10-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AKBC",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-25",
+      "id": "bmvc21",
+      "link": "https://www.bmvc2021.com",
+      "series": "bmvc",
+      "source": "pwc",
+      "start": "2021-11-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-04-10",
+      "id": "chil21",
+      "link": "https://www.chilconference.org/",
+      "series": "chil",
+      "source": "pwc",
+      "start": "2021-04-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-05",
+      "id": "cikm21",
+      "link": "https://cikm2021.org/",
+      "series": "cikm",
+      "source": "pwc",
+      "start": "2021-11-01",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "CIKM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-11",
+      "id": "corl21",
+      "link": "http://www.robot-learning.org",
+      "series": "corl",
+      "source": "pwc",
+      "start": "2021-11-08",
+      "tags": [
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-06-25",
+      "id": "cvpr21",
+      "link": "http://cvpr2021.thecvf.com/",
+      "series": "cvpr",
+      "source": "pwc",
+      "start": "2021-06-19",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "CVPR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-04-23",
+      "id": "eacl21",
+      "link": "https://2021.eacl.org/",
+      "series": "eacl",
+      "source": "pwc",
+      "start": "2021-04-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-09-17",
+      "id": "ecmlpkdd21",
+      "link": "https://2021.ecmlpkdd.org/",
+      "series": "ecml-pkdd",
+      "source": "pwc",
+      "start": "2021-09-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECML PKDD",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-11",
+      "id": "emnlp21",
+      "link": "https://2021.emnlp.org/",
+      "series": "emnlp",
+      "source": "pwc",
+      "start": "2021-11-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-12-18",
+      "id": "fg21",
+      "link": "http://iab-rubric.org/fg2021/",
+      "series": "fg",
+      "source": "pwc",
+      "start": "2021-12-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-13",
+      "id": "icaps21",
+      "link": "https://icaps21.icaps-conference.org/",
+      "series": "icaps",
+      "source": "pwc",
+      "start": "2021-08-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICAPS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-06-11",
+      "id": "icassp21",
+      "link": "https://2021.ieeeicassp.org/",
+      "series": "icassp",
+      "source": "pwc",
+      "start": "2021-06-06",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-17",
+      "id": "iccv21",
+      "link": "http://iccv2021.thecvf.com/",
+      "series": "iccv",
+      "source": "pwc",
+      "start": "2021-10-11",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-12-10",
+      "id": "icdm21",
+      "link": "https://icdm2021.auckland.ac.nz",
+      "series": "icdm",
+      "source": "pwc",
+      "start": "2021-12-07",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-09-22",
+      "id": "icip21",
+      "link": "https://2021.ieeeicip.org",
+      "series": "icip",
+      "source": "pwc",
+      "start": "2021-09-19",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-05-07",
+      "id": "iclr21",
+      "link": "https://iclr.cc/Conferences/2021",
+      "series": "iclr",
+      "source": "pwc",
+      "start": "2021-05-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICLR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-09",
+      "id": "icme21",
+      "link": "https://2021.ieeeicme.org/",
+      "series": "icme",
+      "source": "pwc",
+      "start": "2021-07-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-22",
+      "id": "icmi21",
+      "link": "https://icmi.acm.org/2021/",
+      "series": "icmi",
+      "source": "pwc",
+      "start": "2021-10-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-24",
+      "id": "icml21",
+      "link": "https://icml.cc/Conferences/2021",
+      "series": "icml",
+      "source": "pwc",
+      "start": "2021-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-06-05",
+      "id": "icra21",
+      "link": "https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021",
+      "series": "icra",
+      "source": "pwc",
+      "start": "2021-05-30",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICRA",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-26",
+      "id": "ijcai21",
+      "link": "https://ijcai-21.org/",
+      "series": "ijcai",
+      "source": "pwc",
+      "start": "2021-08-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-09-03",
+      "id": "interspeech2021",
+      "link": "http://www.interspeech2021.org/",
+      "series": "interspeech",
+      "source": "pwc",
+      "start": "2021-08-30",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-01",
+      "id": "iros21",
+      "link": "https://www.iros2021.org/important-dates",
+      "series": "iros",
+      "source": "pwc",
+      "start": "2021-09-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-18",
+      "id": "kdd21",
+      "link": "https://www.kdd.org/kdd2021/",
+      "series": "kdd",
+      "source": "pwc",
+      "start": "2021-08-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "KDD",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-01",
+      "id": "miccai21",
+      "link": "http://www.miccai2021.org/",
+      "series": "miccai",
+      "source": "pwc",
+      "start": "2021-09-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-09",
+      "id": "midl21",
+      "link": "https://2021.midl.io/",
+      "series": "midl",
+      "source": "pwc",
+      "start": "2021-07-07",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-06-11",
+      "id": "naacl21",
+      "link": "https://2021.naacl.org/",
+      "series": "naacl",
+      "source": "pwc",
+      "start": "2021-06-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL-HLT",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-12-14",
+      "id": "neurips21",
+      "link": "https://neurips.cc/Conferences/2021/",
+      "series": "neurips",
+      "source": "pwc",
+      "start": "2021-12-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-01",
+      "id": "recsys21",
+      "link": "https://recsys.acm.org/recsys21/",
+      "series": "recsys",
+      "source": "pwc",
+      "start": "2021-09-27",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-16",
+      "id": "rss21",
+      "link": "https://roboticsconference.org/2021",
+      "series": "rss",
+      "source": "pwc",
+      "start": "2021-07-12",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RSS",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-05-01",
+      "id": "sdm21",
+      "link": "https://www.siam.org/conferences/cm/conference/sdm21",
+      "series": "sdm",
+      "source": "pwc",
+      "start": "2021-04-29",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-05",
+      "id": "siggraph21",
+      "link": "https://s2021.siggraph.org/",
+      "series": "siggraph",
+      "source": "pwc",
+      "start": "2021-08-01",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-15",
+      "id": "sigir21",
+      "link": "http://sigir.org/sigir2021/",
+      "series": "sigir",
+      "source": "pwc",
+      "start": "2021-07-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-30",
+      "id": "uai21",
+      "link": "http://auai.org/uai2021/",
+      "series": "uai",
+      "source": "pwc",
+      "start": "2021-07-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-01-09",
+      "id": "wacv21",
+      "link": "http://wacv2021.thecvf.com/",
+      "series": "wacv",
+      "source": "pwc",
+      "start": "2021-01-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-03-12",
+      "id": "wsdm21",
+      "link": "http://www.wsdm-conference.org/2021/",
+      "series": "wsdm",
+      "source": "pwc",
+      "start": "2021-03-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-04-23",
+      "id": "www21",
+      "link": "http://www2021.thewebconf.org/",
+      "series": "www",
+      "source": "pwc",
+      "start": "2021-04-19",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "WWW",
+      "year": 2021
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "conferenceId": "aaai21",
+      "end": "2021-02-09",
+      "format": "virtual",
+      "id": "aaai21@main",
+      "link": "https://aaai.org/Conferences/AAAI-21/",
+      "name": "AAAI 2021",
+      "notes": "Held online (planned: Vancouver, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-02-02"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aamas21",
+      "end": "2021-05-07",
+      "format": "virtual",
+      "id": "aamas21@main",
+      "link": "https://aamas2021.soton.ac.uk/",
+      "name": "AAMAS 2021",
+      "notes": "Held online (planned: London, United Kingdom).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-05-03"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "acl21",
+      "end": "2021-08-06",
+      "format": "virtual",
+      "id": "acl21@main",
+      "link": "https://2021.aclweb.org/",
+      "name": "ACL 2021",
+      "notes": "Held online (planned: Bangkok, Thailand).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Chengdu",
+      "conferenceId": "acm21",
+      "country": "China",
+      "end": "2021-10-24",
+      "format": "hybrid",
+      "id": "acm21@main",
+      "lat": 30.659867,
+      "link": "https://2021.acmmm.org/",
+      "lng": 104.063315,
+      "name": "ACM MM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-10-20"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "acml21",
+      "end": "2021-11-19",
+      "format": "virtual",
+      "id": "acml21@main",
+      "link": "http://www.acml-conf.org/2021",
+      "name": "ACML 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-17"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aistats21",
+      "end": "2021-04-15",
+      "format": "virtual",
+      "id": "aistats21@main",
+      "link": "https://www.aistats.org/aistats2021/",
+      "name": "AISTATS 2021",
+      "notes": "Held online (planned: San Diego, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-13"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "akbc21",
+      "end": "2021-10-08",
+      "format": "virtual",
+      "id": "akbc21@main",
+      "link": "https://www.akbc.ws/2021/",
+      "name": "AKBC 2021",
+      "notes": "Held online (planned: Irvine, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-10-04"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "bmvc21",
+      "end": "2021-11-25",
+      "format": "virtual",
+      "id": "bmvc21@main",
+      "link": "https://www.bmvc2021.com",
+      "name": "BMVC 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-22"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "chil21",
+      "end": "2021-04-10",
+      "format": "virtual",
+      "id": "chil21@main",
+      "link": "https://www.chilconference.org/",
+      "name": "CHIL 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-08"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "cikm21",
+      "end": "2021-11-05",
+      "format": "virtual",
+      "id": "cikm21@main",
+      "link": "https://cikm2021.org/",
+      "name": "CIKM 2021",
+      "notes": "Held online (planned: Gold Coast, Australia).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-01"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "corl21",
+      "country": "United Kingdom",
+      "end": "2021-11-11",
+      "format": "hybrid",
+      "id": "corl21@main",
+      "lat": 51.5074456,
+      "link": "http://www.robot-learning.org",
+      "lng": -0.1277653,
+      "name": "CoRL 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-08"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "cvpr21",
+      "end": "2021-06-25",
+      "format": "virtual",
+      "id": "cvpr21@main",
+      "link": "http://cvpr2021.thecvf.com/",
+      "name": "CVPR 2021",
+      "notes": "Held online (planned: Nashville, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-06-19"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "eacl21",
+      "end": "2021-04-23",
+      "format": "virtual",
+      "id": "eacl21@main",
+      "link": "https://2021.eacl.org/",
+      "name": "EACL 2021",
+      "notes": "Held online (nominal host: Kyiv, Ukraine).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-21"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ecmlpkdd21",
+      "end": "2021-09-17",
+      "format": "virtual",
+      "id": "ecmlpkdd21@main",
+      "link": "https://2021.ecmlpkdd.org/",
+      "name": "ECML PKDD 2021",
+      "notes": "Held online (planned: Bilbao, Spain).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-13"
+    },
+    {
+      "access": "registration",
+      "city": "Punta Cana",
+      "conferenceId": "emnlp21",
+      "country": "Dominican Republic",
+      "end": "2021-11-11",
+      "format": "hybrid",
+      "id": "emnlp21@main",
+      "lat": 18.556551,
+      "link": "https://2021.emnlp.org/",
+      "lng": -68.3691611,
+      "name": "EMNLP 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "fg21",
+      "end": "2021-12-18",
+      "format": "virtual",
+      "id": "fg21@main",
+      "link": "http://iab-rubric.org/fg2021/",
+      "name": "FG 2021",
+      "notes": "Held online (planned: Jodhpur, India).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-12-15"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icaps21",
+      "end": "2021-08-13",
+      "format": "virtual",
+      "id": "icaps21@main",
+      "link": "https://icaps21.icaps-conference.org/",
+      "name": "ICAPS 2021",
+      "notes": "Held online (planned: Guangzhou, China).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-02"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icassp21",
+      "end": "2021-06-11",
+      "format": "virtual",
+      "id": "icassp21@main",
+      "link": "https://2021.ieeeicassp.org/",
+      "name": "ICASSP 2021",
+      "notes": "Held online (planned: Toronto, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-06-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iccv21",
+      "end": "2021-10-17",
+      "format": "virtual",
+      "id": "iccv21@main",
+      "link": "http://iccv2021.thecvf.com/",
+      "name": "ICCV 2021",
+      "notes": "Held online (planned: Montreal, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-10-11"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icdm21",
+      "end": "2021-12-10",
+      "format": "virtual",
+      "id": "icdm21@main",
+      "link": "https://icdm2021.auckland.ac.nz",
+      "name": "ICDM 2021",
+      "notes": "Held online (planned: Auckland, New Zealand).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-12-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icip21",
+      "end": "2021-09-22",
+      "format": "virtual",
+      "id": "icip21@main",
+      "link": "https://2021.ieeeicip.org",
+      "name": "ICIP 2021",
+      "notes": "Held online (planned: Anchorage, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-19"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iclr21",
+      "end": "2021-05-07",
+      "format": "virtual",
+      "id": "iclr21@main",
+      "link": "https://iclr.cc/Conferences/2021",
+      "name": "ICLR 2021",
+      "notes": "Held online (planned: Vienna, Austria).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-05-03"
+    },
+    {
+      "access": "registration",
+      "city": "Shenzhen",
+      "conferenceId": "icme21",
+      "country": "China",
+      "end": "2021-07-09",
+      "id": "icme21@main",
+      "lat": 22.5445741,
+      "link": "https://2021.ieeeicme.org/",
+      "lng": 114.0545429,
+      "name": "ICME 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-05"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icmi21",
+      "country": "Canada",
+      "end": "2021-10-22",
+      "format": "hybrid",
+      "id": "icmi21@main",
+      "lat": 45.5031824,
+      "link": "https://icmi.acm.org/2021/",
+      "lng": -73.5698065,
+      "name": "ICMI 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-10-18"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icml21",
+      "end": "2021-07-24",
+      "format": "virtual",
+      "id": "icml21@main",
+      "link": "https://icml.cc/Conferences/2021",
+      "name": "ICML 2021",
+      "notes": "Held online (planned: Vienna, Austria).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Xi'an",
+      "conferenceId": "icra21",
+      "country": "China",
+      "end": "2021-06-05",
+      "format": "hybrid",
+      "id": "icra21@main",
+      "lat": 34.261004,
+      "link": "https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021",
+      "lng": 108.9423363,
+      "name": "ICRA 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-05-30",
+      "venue": "Xi'an International Convention and Exhibition Center"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ijcai21",
+      "end": "2021-08-26",
+      "format": "virtual",
+      "id": "ijcai21@main",
+      "link": "https://ijcai-21.org/",
+      "name": "IJCAI 2021",
+      "notes": "Held online (planned: Montreal, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Brno",
+      "conferenceId": "interspeech2021",
+      "country": "Czech Republic",
+      "end": "2021-09-03",
+      "format": "hybrid",
+      "id": "interspeech2021@main",
+      "lat": 49.1922443,
+      "link": "http://www.interspeech2021.org/",
+      "lng": 16.6113382,
+      "name": "Interspeech 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-30"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iros21",
+      "end": "2021-10-01",
+      "format": "virtual",
+      "id": "iros21@main",
+      "link": "https://www.iros2021.org/important-dates",
+      "name": "IROS 2021",
+      "notes": "Held online (planned: Prague, Czech Republic).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-27"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "kdd21",
+      "end": "2021-08-18",
+      "format": "virtual",
+      "id": "kdd21@main",
+      "link": "https://www.kdd.org/kdd2021/",
+      "name": "KDD 2021",
+      "notes": "Held online (planned: Singapore, Singapore).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "miccai21",
+      "end": "2021-10-01",
+      "format": "virtual",
+      "id": "miccai21@main",
+      "link": "http://www.miccai2021.org/",
+      "name": "MICCAI 2021",
+      "notes": "Held online (planned: Strasbourg, France).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-27"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "midl21",
+      "end": "2021-07-09",
+      "format": "virtual",
+      "id": "midl21@main",
+      "link": "https://2021.midl.io/",
+      "name": "MIDL 2021",
+      "notes": "Held online (planned: Lübeck, Germany).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "naacl21",
+      "end": "2021-06-11",
+      "format": "virtual",
+      "id": "naacl21@main",
+      "link": "https://2021.naacl.org/",
+      "name": "NAACL-HLT 2021",
+      "notes": "Held online (planned: Mexico City, Mexico).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-06-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "neurips21",
+      "end": "2021-12-14",
+      "format": "virtual",
+      "id": "neurips21@main",
+      "link": "https://neurips.cc/Conferences/2021/",
+      "name": "NeurIPS 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-12-05"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "recsys21",
+      "country": "Netherlands",
+      "end": "2021-10-01",
+      "format": "hybrid",
+      "id": "recsys21@main",
+      "lat": 52.3730796,
+      "link": "https://recsys.acm.org/recsys21/",
+      "lng": 4.8924534,
+      "name": "RecSys 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-27"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "rss21",
+      "end": "2021-07-16",
+      "format": "virtual",
+      "id": "rss21@main",
+      "link": "https://roboticsconference.org/2021",
+      "name": "RSS 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sdm21",
+      "end": "2021-05-01",
+      "format": "virtual",
+      "id": "sdm21@main",
+      "link": "https://www.siam.org/conferences/cm/conference/sdm21",
+      "name": "SDM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-29"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "siggraph21",
+      "end": "2021-08-05",
+      "format": "virtual",
+      "id": "siggraph21@main",
+      "link": "https://s2021.siggraph.org/",
+      "name": "SIGGRAPH 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-01"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sigir21",
+      "end": "2021-07-15",
+      "format": "virtual",
+      "id": "sigir21@main",
+      "link": "http://sigir.org/sigir2021/",
+      "name": "SIGIR 2021",
+      "notes": "Held online (planned: Montreal, Canada).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-11"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "uai21",
+      "end": "2021-07-30",
+      "format": "virtual",
+      "id": "uai21@main",
+      "link": "http://auai.org/uai2021/",
+      "name": "UAI 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-27"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "wacv21",
+      "end": "2021-01-09",
+      "format": "virtual",
+      "id": "wacv21@main",
+      "link": "http://wacv2021.thecvf.com/",
+      "name": "WACV 2021",
+      "notes": "Held online (planned: Waikoloa, United States).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-05"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "wsdm21",
+      "end": "2021-03-12",
+      "format": "virtual",
+      "id": "wsdm21@main",
+      "link": "http://www.wsdm-conference.org/2021/",
+      "name": "WSDM 2021",
+      "notes": "Held online (planned: Jerusalem, Israel).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-03-08"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "www21",
+      "end": "2021-04-23",
+      "format": "virtual",
+      "id": "www21@main",
+      "link": "http://www2021.thewebconf.org/",
+      "name": "WWW 2021",
+      "notes": "Held online (planned: Ljubljana, Slovenia).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-19"
+    }
+  ]
+}

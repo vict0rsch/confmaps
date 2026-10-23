@@ -1,6 +1,21 @@
 {
   "conferences": [
     {
+      "deadlines": [],
+      "end": "2025-03-28",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv25",
+      "link": "https://3dvconf.github.io/2025/",
+      "series": "3dv",
+      "source": "pwc",
+      "start": "2025-03-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2024-08-08T11:59:59Z",
@@ -1682,6 +1697,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "3dv25",
+      "country": "Singapore",
+      "end": "2025-03-28",
+      "id": "3dv25@main",
+      "lat": 1.2899175,
+      "link": "https://3dvconf.github.io/2025/",
+      "lng": 103.8519072,
+      "name": "3DV 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-25"
+    },
     {
       "access": "registration",
       "city": "Philadelphia",
