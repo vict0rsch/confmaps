@@ -220,10 +220,14 @@ function overrideFields(o: Override): Partial<PendingLocation> {
   return { ...rest, ...(presents_papers !== undefined ? { presentsPapers: presents_papers } : {}) };
 }
 
+/** Override fields that would give a virtual location a place. */
+const VIRTUAL_FORBIDDEN = ['lat', 'lng', 'city', 'country', 'venue'] as const;
+
 /**
  * Apply overrides in place (they win over upstream, satellites and archive). Start/end on a
  * `@main` location also set the conference's dates; `deadlines` replaces the conference's.
- * Returns errors for unknown location ids, and warnings for override fields that already equal
+ * Returns errors for unknown location ids and for overrides that would place a virtual location
+ * (not applied), and warnings for override fields that already equal
  * the computed value (stale: upstream was fixed). `fresh` holds the ids whose record came from
  * upstream or satellites.yml in this build; archive-only records already carry their overrides,
  * so they are not checked for staleness.
@@ -241,6 +245,16 @@ export function applyOverrides(
     if (!loc) {
       errors.push(`overrides.yml: "${id}" matches no location`);
       continue;
+    }
+    if (isVirtual(loc)) {
+      const placed = VIRTUAL_FORBIDDEN.filter((k) => o[k] !== undefined);
+      if (placed.length) {
+        errors.push(
+          `overrides.yml: ${id}: ${placed.join(', ')} not allowed on a virtual location ` +
+            `(edit its format in data/past_conferences.yml instead)`,
+        );
+        continue;
+      }
     }
     const conf = loc.role === 'main' ? conferences.get(loc.conferenceId) : undefined;
     const fields = overrideFields(o);

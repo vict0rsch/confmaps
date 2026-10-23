@@ -14,6 +14,7 @@ const build = (archive: ArchiveFile, up = upstream) =>
   buildDataset({
     upstream: up,
     satellites: [satellite()],
+    past: [],
     overrides: {},
     archive,
     geocache: geocache(),

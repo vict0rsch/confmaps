@@ -1,0 +1,56 @@
+# Fixture for the pipeline tests: one in-person, one hybrid and one virtual past edition of the
+# fixture series, geocodable offline with the fixture geocache (Vienna, Paris).
+- id: alpha18
+  title: Alpha
+  year: 2018
+  full_name: Alpha Conference on Learning
+  link: https://alpha.example/2018
+  start: '2018-06-04'
+  end: '2018-06-08'
+  format: in_person
+  city: Vienna
+  country: Austria
+  venue: Hofburg
+  tags:
+    - machine-learning
+  source: pwc
+  pwc:
+    ids:
+      - alpha18
+      - alpha2018
+    first_sha: '1111111111111111111111111111111111111111'
+    first_date: '2017-09-01'
+    last_sha: '2222222222222222222222222222222222222222'
+    last_date: '2018-07-01'
+- id: alpha19
+  title: Alpha
+  year: 2019
+  link: https://alpha.example/2019
+  start: '2019-06-03'
+  end: '2019-06-07'
+  format: hybrid
+  city: Paris
+  country: France
+  tags:
+    - machine-learning
+  source: pwc
+  pwc:
+    ids:
+      - alpha19
+    first_sha: '3333333333333333333333333333333333333333'
+    first_date: '2018-09-01'
+    last_sha: '4444444444444444444444444444444444444444'
+    last_date: '2019-07-01'
+- id: alpha20
+  title: Alpha
+  year: 2020
+  link: https://alpha.example/2020
+  start: '2020-06-01'
+  end: '2020-06-05'
+  format: virtual
+  tags:
+    - machine-learning
+  notes: Held online (nominal host Vienna).
+  source: curated
+  sources:
+    - https://alpha.example/2020/announcement

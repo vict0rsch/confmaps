@@ -1,8 +1,26 @@
 // Shared test fixtures for the data pipeline.
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import type { Geocache, Satellite } from '../schema';
+import { parse } from 'yaml';
+import {
+  PastConferencesFileSchema,
+  type Geocache,
+  type PastConference,
+  type Satellite,
+} from '../schema';
 
 export const UPSTREAM_DIR = fileURLToPath(new URL('./upstream', import.meta.url));
+/** alpha18 (Vienna, in person), alpha19 (Paris, hybrid), alpha20 (virtual, curated). */
+export const PAST_FILE = fileURLToPath(new URL('./past_conferences.yml', import.meta.url));
+
+export const pastEntries = (): PastConference[] =>
+  PastConferencesFileSchema.parse(parse(readFileSync(PAST_FILE, 'utf8')));
+
+/** One past entry by id from PAST_FILE, with fields replaced. */
+export const pastEntry = (id: string, over: Partial<PastConference> = {}): PastConference => ({
+  ...pastEntries().find((e) => e.id === id)!,
+  ...over,
+});
 
 export const geocache = (): Geocache => ({
   'vienna|austria': { lat: 48.2, lng: 16.37, display_name: 'Vienna, Austria' },

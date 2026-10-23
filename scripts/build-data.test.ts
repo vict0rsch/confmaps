@@ -13,8 +13,16 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { stringify } from 'yaml';
-import { geocache, satellite, UPSTREAM_DIR } from './__fixtures__';
+import {
+  geocache,
+  PAST_FILE,
+  pastEntries,
+  pastEntry,
+  satellite,
+  UPSTREAM_DIR,
+} from './__fixtures__';
 import { main as build, massDropError } from './build-data';
+import { stableStringify } from './lib/json';
 import { main as validate } from './validate-data';
 
 let dir: string;
@@ -199,5 +207,61 @@ describe('data:validate CLI', () => {
     expect(console.error).toHaveBeenCalledWith(
       expect.stringContaining('satellite alpha25-copenhagen.name is "Edited"'),
     );
+  });
+});
+
+describe('past editions end to end', () => {
+  it('builds, freezes and validates data/past_conferences.yml offline', async () => {
+    copyFileSync(PAST_FILE, join(dir, 'past_conferences.yml'));
+    expect(await run('2025-10-01', '2025-10-01T05:00:00Z')).toBe(0);
+    const files = readdirSync(join(dir, 'archive'));
+    expect(files).toEqual(['2018.json', '2019.json', '2020.json', '2025.json']);
+    expect(read('build/data.json')).toMatchSnapshot('data.json');
+    for (const f of files) expect(read(`archive/${f}`)).toMatchSnapshot(`archive/${f}`);
+    expect(read('geocache.json')).toBe(stableStringify(geocache()));
+    expect(validate(['--data-dir', dir])).toBe(0);
+
+    // Rebuilding is a no-op.
+    const before = read('build/data.json');
+    expect(await run('2025-10-02', '2025-10-02T05:00:00Z')).toBe(0);
+    expect(read('build/data.json')).toBe(before);
+  });
+
+  it('data:validate fails while a "# review:" comment is left', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const path = join(dir, 'past_conferences.yml');
+    copyFileSync(PAST_FILE, path);
+    expect(await run('2025-10-01', '2025-10-01T05:00:00Z')).toBe(0);
+    const text = read('past_conferences.yml');
+    writeFileSync(
+      path,
+      text
+        .replace('- id: alpha19', '- id: alpha19 #  Review: covid')
+        .replace('format: virtual', 'format: virtual # review: stale'),
+    );
+    expect(await run('2025-10-01', '2025-10-01T05:00:00Z')).toBe(0); // the build does not care
+    expect(validate(['--data-dir', dir])).toBe(1);
+    const at = (s: string) => text.split('\n').findIndex((l) => l.includes(s)) + 1;
+    expect(console.error).toHaveBeenCalledWith(
+      `  ✗ past_conferences.yml: 2 unresolved "# review:" comment(s) (line ${at('- id: alpha19')}, ` +
+        `${at('format: virtual')}); resolve each one and delete the comment before merging`,
+    );
+    writeFileSync(path, text);
+    expect(validate(['--data-dir', dir])).toBe(0);
+  });
+
+  it('warns, without failing, when upstream has the same id (HF wins)', async () => {
+    const clash = { ...pastEntry('alpha18'), id: 'alpha25', year: 2025 };
+    Object.assign(clash, { start: '2025-05-01', end: '2025-05-02' });
+    writeFileSync(join(dir, 'past_conferences.yml'), stringify([...pastEntries(), clash]));
+    expect(await run('2025-10-01', '2025-10-01T05:00:00Z')).toBe(0);
+    expect(console.warn).toHaveBeenCalledWith(
+      '  ⚠ past_conferences.yml: "alpha25" is also upstream (HF wins); remove it',
+    );
+    const alpha25 = JSON.parse(read('build/data.json')).conferences.find(
+      (c: { id: string }) => c.id === 'alpha25',
+    );
+    expect(alpha25).toMatchObject({ source: 'hf', start: '2025-06-01' });
+    expect(validate(['--data-dir', dir])).toBe(0);
   });
 });

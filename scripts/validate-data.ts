@@ -1,7 +1,8 @@
 // `pnpm data:validate`: offline checks of the committed data files (DESIGN.md §9): schemas,
 // references, the archive (never shrinks, no id in two year files), plausibility (sanityCheck)
 // and that data.json matches the inputs as far as they can be re-derived offline (see
-// lib/consistency.ts for exactly what that covers).
+// lib/consistency.ts for exactly what that covers). Also fails while `past_conferences.yml`
+// still has a `# review:` comment (importer flags must be resolved before merge).
 //
 //   --against <git-ref>          the archive at this ref must still be fully present (default:
 //                                HEAD); if the ref is missing/unreadable, warn and skip the check
@@ -41,6 +42,19 @@ export function archiveIdsAtRef(dataDir: string, ref: string): ArchiveIds | stri
   return archiveIds(archive);
 }
 
+/** One error listing the lines of `path` that still carry a `# review:` comment, if any. */
+export function reviewMarkers(path: string): string[] {
+  if (!existsSync(path)) return [];
+  const lines = readFileSync(path, 'utf8')
+    .split('\n')
+    .flatMap((line, i) => (/#\s*review:/i.test(line) ? [i + 1] : []));
+  if (!lines.length) return [];
+  return [
+    `past_conferences.yml: ${lines.length} unresolved "# review:" comment(s) ` +
+      `(line ${lines.join(', ')}); resolve each one and delete the comment before merging`,
+  ];
+}
+
 export function main(argv: string[]): number {
   const { values } = parseArgs({
     args: argv,
@@ -53,7 +67,7 @@ export function main(argv: string[]): number {
   const dataDir = values['data-dir'];
   const paths = dataPaths(dataDir);
   const inputs = loadInputs(dataDir);
-  const errors = [...inputs.errors, ...inputs.archiveDuplicates];
+  const errors = [...inputs.errors, ...inputs.archiveDuplicates, ...reviewMarkers(paths.past)];
 
   let data: unknown;
   if (!existsSync(paths.output))
@@ -71,6 +85,7 @@ export function main(argv: string[]): number {
   if (data !== undefined && inputs.errors.length === 0) {
     const common = {
       satellites: inputs.satellites,
+      past: inputs.past,
       overrides: inputs.overrides,
       geocache: inputs.geocache,
       archive: inputs.archive,

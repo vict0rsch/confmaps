@@ -4,6 +4,10 @@
 // does NOT depend on them and diffs it against data.json:
 //   - satellites: each `satellites.yml` entry (+ its override, canonical country, coordinates from
 //     the override or geocache) must equal its data.json location field for field;
+//   - past editions: each `past_conferences.yml` entry not shadowed by an `hf` conference (+ its
+//     `@main` override, canonical country, coordinates) must equal its data.json conference and
+//     location field for field, and every `pwc`/`curated` conference must be in that file or
+//     the archive;
 //   - archive: each archived conference/location must equal its data.json record, and every
 //     `source: archive` conference / satellite location not in `satellites.yml` must be archived;
 //   - overrides: every overridden field (incl. `@main` start/end/deadlines on the conference) must
@@ -17,10 +21,12 @@
 import {
   isVirtual,
   type ArchiveFile,
+  type Conference,
   type DataFile,
   type EventLocation,
   type Geocache,
   type Overrides,
+  type PastConference,
   type Satellite,
 } from '../schema';
 import { canonicalCountry } from './countries';
@@ -34,10 +40,12 @@ import {
   seriesOf,
   type PendingLocation,
 } from './normalize';
+import { pastToConference, pastToLocation } from './past';
 
 export interface ConsistencyInput {
   data: DataFile;
   satellites: Satellite[];
+  past: PastConference[];
   overrides: Overrides;
   geocache: Geocache;
   archive: ArchiveFile;
@@ -76,25 +84,48 @@ export function checkConsistency(input: ConsistencyInput): string[] {
   for (const l of archive.locations)
     errors.push(...diff(l.id, 'archived location', l, locs.get(l.id)));
 
-  // Satellites: fully re-derivable from satellites.yml + overrides + geocache.
-  for (const s of satellites) {
-    const pending = new Map<string, PendingLocation>([[s.id, satelliteToLocation(s)]]);
-    const own = overrides[s.id] ? { [s.id]: overrides[s.id] } : {};
-    applyOverrides(new Map(), pending, own);
-    const loc = pending.get(s.id)!;
-    if (isVirtual(loc)) continue; // satellites are always pinned
+  /** `loc` after its own override, canonical country and coordinates; undefined if not geocoded. */
+  const resolve = (loc: PendingLocation, conf?: Conference): PendingLocation | undefined => {
+    const pending = new Map([[loc.id, loc]]);
+    const own = overrides[loc.id] ? { [loc.id]: overrides[loc.id] } : {};
+    applyOverrides(new Map(conf ? [[conf.id, conf]] : []), pending, own);
+    if (isVirtual(loc)) return loc;
     loc.country = canonicalCountry(loc.country) ?? loc.country;
     if (loc.lat === undefined) {
       const hit = geocache[geocacheKey(loc.city, loc.country)];
-      if (!hit) continue; // reported by validateDataset
+      if (!hit) return undefined; // reported by validateDataset
       Object.assign(loc, { lat: hit.lat, lng: hit.lng });
     }
-    errors.push(...diff(s.id, 'satellite', loc, locs.get(s.id)));
+    return loc;
+  };
+
+  // Satellites: fully re-derivable from satellites.yml + overrides + geocache.
+  for (const s of satellites) {
+    const loc = resolve(satelliteToLocation(s));
+    if (loc) errors.push(...diff(s.id, 'satellite', loc, locs.get(s.id)));
+  }
+
+  // Past editions: likewise, unless upstream has the same id (it wins).
+  const pastIds = new Set(input.past.map((e) => e.id));
+  for (const e of input.past) {
+    if (confs.get(e.id)?.source === 'hf') continue;
+    const conf = pastToConference(e);
+    const loc = resolve(pastToLocation(e), conf);
+    errors.push(...diff(e.id, 'past conference', conf, confs.get(e.id)));
+    if (loc) errors.push(...diff(loc.id, 'past location', loc, locs.get(loc.id)));
   }
 
   for (const c of data.conferences) {
     if (c.source === 'archive' && !archivedConfs.has(c.id))
       errors.push(`conference ${c.id} has source "archive" but is not in data/archive/`);
+    if (
+      (c.source === 'pwc' || c.source === 'curated') &&
+      !pastIds.has(c.id) &&
+      !archivedConfs.has(c.id)
+    )
+      errors.push(
+        `conference ${c.id} has source "${c.source}" but is in neither past_conferences.yml nor data/archive/`,
+      );
     if (c.series !== seriesOf(c.title))
       errors.push(`conference ${c.id}: series "${c.series}", title gives "${seriesOf(c.title)}"`);
   }

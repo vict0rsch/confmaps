@@ -1,0 +1,473 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`past editions end to end > builds, freezes and validates data/past_conferences.yml offline > archive/2018.json 1`] = `
+"{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2018-06-08",
+      "fullName": "Alpha Conference on Learning",
+      "id": "alpha18",
+      "link": "https://alpha.example/2018",
+      "series": "alpha",
+      "source": "pwc",
+      "start": "2018-06-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2018
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "alpha18",
+      "country": "Austria",
+      "end": "2018-06-08",
+      "id": "alpha18@main",
+      "lat": 48.2,
+      "link": "https://alpha.example/2018",
+      "lng": 16.37,
+      "name": "Alpha 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-04",
+      "venue": "Hofburg"
+    }
+  ]
+}
+"
+`;
+
+exports[`past editions end to end > builds, freezes and validates data/past_conferences.yml offline > archive/2019.json 1`] = `
+"{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2019-06-07",
+      "id": "alpha19",
+      "link": "https://alpha.example/2019",
+      "series": "alpha",
+      "source": "pwc",
+      "start": "2019-06-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2019
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "alpha19",
+      "country": "France",
+      "end": "2019-06-07",
+      "format": "hybrid",
+      "id": "alpha19@main",
+      "lat": 48.85,
+      "link": "https://alpha.example/2019",
+      "lng": 2.35,
+      "name": "Alpha 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-03"
+    }
+  ]
+}
+"
+`;
+
+exports[`past editions end to end > builds, freezes and validates data/past_conferences.yml offline > archive/2020.json 1`] = `
+"{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2020-06-05",
+      "id": "alpha20",
+      "link": "https://alpha.example/2020",
+      "series": "alpha",
+      "source": "curated",
+      "start": "2020-06-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2020
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "conferenceId": "alpha20",
+      "end": "2020-06-05",
+      "format": "virtual",
+      "id": "alpha20@main",
+      "link": "https://alpha.example/2020",
+      "name": "Alpha 2020",
+      "notes": "Held online (nominal host Vienna).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-01"
+    }
+  ]
+}
+"
+`;
+
+exports[`past editions end to end > builds, freezes and validates data/past_conferences.yml offline > archive/2025.json 1`] = `
+"{
+  "conferences": [
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-11T11:59:59Z",
+          "label": "Abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-01-15T21:59:59Z",
+          "label": "Paper deadline",
+          "timezone": "UTC+02",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-06-05",
+      "fullName": "Alpha Conference on Learning",
+      "id": "alpha25",
+      "link": "https://alpha.example/2025",
+      "series": "alpha",
+      "source": "hf",
+      "start": "2025-06-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-25T07:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "UTC-8",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-01T17:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC-8",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-07-04",
+      "id": "beta25",
+      "link": "https://beta.example/",
+      "series": "beta-conf-industry-track",
+      "source": "hf",
+      "start": "2025-06-30",
+      "tags": [],
+      "title": "Béta Conf (Industry Track)",
+      "year": 2025
+    }
+  ],
+  "locations": [
+    {
+      "access": "open",
+      "city": "Copenhagen",
+      "conferenceId": "alpha25",
+      "country": "Denmark",
+      "end": "2025-06-06",
+      "id": "alpha25-copenhagen",
+      "lat": 55.69,
+      "link": "https://alpha.example/cph",
+      "lng": 12.57,
+      "name": "Alpha 2025 Copenhagen",
+      "official": false,
+      "presentsPapers": true,
+      "role": "satellite",
+      "start": "2025-06-02"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "alpha25",
+      "country": "Austria",
+      "end": "2025-06-05",
+      "id": "alpha25@main",
+      "lat": 48.2,
+      "link": "https://alpha.example/2025",
+      "lng": 16.37,
+      "name": "Alpha 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-01",
+      "venue": "Messe Wien"
+    },
+    {
+      "access": "registration",
+      "city": "Nashville",
+      "conferenceId": "beta25",
+      "country": "United States",
+      "end": "2025-07-04",
+      "id": "beta25@main",
+      "lat": 36.16,
+      "link": "https://beta.example/",
+      "lng": -86.77,
+      "name": "Béta Conf (Industry Track) 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
+    }
+  ]
+}
+"
+`;
+
+exports[`past editions end to end > builds, freezes and validates data/past_conferences.yml offline > data.json 1`] = `
+"{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2018-06-08",
+      "fullName": "Alpha Conference on Learning",
+      "id": "alpha18",
+      "link": "https://alpha.example/2018",
+      "series": "alpha",
+      "source": "pwc",
+      "start": "2018-06-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-07",
+      "id": "alpha19",
+      "link": "https://alpha.example/2019",
+      "series": "alpha",
+      "source": "pwc",
+      "start": "2019-06-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-05",
+      "id": "alpha20",
+      "link": "https://alpha.example/2020",
+      "series": "alpha",
+      "source": "curated",
+      "start": "2020-06-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2020
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2025-01-11T11:59:59Z",
+          "label": "Abstract deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2025-01-15T21:59:59Z",
+          "label": "Paper deadline",
+          "timezone": "UTC+02",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-06-05",
+      "fullName": "Alpha Conference on Learning",
+      "id": "alpha25",
+      "link": "https://alpha.example/2025",
+      "series": "alpha",
+      "source": "hf",
+      "start": "2025-06-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "Alpha",
+      "year": 2025
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-06-01T11:00:00Z",
+          "label": "Paper deadline",
+          "timezone": "Europe/London",
+          "type": "paper"
+        }
+      ],
+      "end": "2026-07-04",
+      "id": "alpha26",
+      "link": "https://alpha.example/2026",
+      "series": "alpha",
+      "source": "hf",
+      "start": "2026-07-01",
+      "tags": [],
+      "title": "Alpha",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2024-09-25T07:59:59Z",
+          "label": "Abstract submission deadline",
+          "timezone": "UTC-8",
+          "type": "abstract"
+        },
+        {
+          "date": "2024-10-01T17:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC-8",
+          "type": "paper"
+        }
+      ],
+      "end": "2025-07-04",
+      "id": "beta25",
+      "link": "https://beta.example/",
+      "series": "beta-conf-industry-track",
+      "source": "hf",
+      "start": "2025-06-30",
+      "tags": [],
+      "title": "Béta Conf (Industry Track)",
+      "year": 2025
+    }
+  ],
+  "generatedAt": "2025-10-01T05:00:00.000Z",
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "alpha18",
+      "country": "Austria",
+      "end": "2018-06-08",
+      "id": "alpha18@main",
+      "lat": 48.2,
+      "link": "https://alpha.example/2018",
+      "lng": 16.37,
+      "name": "Alpha 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-04",
+      "venue": "Hofburg"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "alpha19",
+      "country": "France",
+      "end": "2019-06-07",
+      "format": "hybrid",
+      "id": "alpha19@main",
+      "lat": 48.85,
+      "link": "https://alpha.example/2019",
+      "lng": 2.35,
+      "name": "Alpha 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-03"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "alpha20",
+      "end": "2020-06-05",
+      "format": "virtual",
+      "id": "alpha20@main",
+      "link": "https://alpha.example/2020",
+      "name": "Alpha 2020",
+      "notes": "Held online (nominal host Vienna).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-01"
+    },
+    {
+      "access": "open",
+      "city": "Copenhagen",
+      "conferenceId": "alpha25",
+      "country": "Denmark",
+      "end": "2025-06-06",
+      "id": "alpha25-copenhagen",
+      "lat": 55.69,
+      "link": "https://alpha.example/cph",
+      "lng": 12.57,
+      "name": "Alpha 2025 Copenhagen",
+      "official": false,
+      "presentsPapers": true,
+      "role": "satellite",
+      "start": "2025-06-02"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "alpha25",
+      "country": "Austria",
+      "end": "2025-06-05",
+      "id": "alpha25@main",
+      "lat": 48.2,
+      "link": "https://alpha.example/2025",
+      "lng": 16.37,
+      "name": "Alpha 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-01",
+      "venue": "Messe Wien"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "alpha26",
+      "country": "France",
+      "end": "2026-07-04",
+      "id": "alpha26@main",
+      "lat": 48.85,
+      "link": "https://alpha.example/2026",
+      "lng": 2.35,
+      "name": "Alpha 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-07-01"
+    },
+    {
+      "access": "registration",
+      "city": "Nashville",
+      "conferenceId": "beta25",
+      "country": "United States",
+      "end": "2025-07-04",
+      "id": "beta25@main",
+      "lat": 36.16,
+      "link": "https://beta.example/",
+      "lng": -86.77,
+      "name": "Béta Conf (Industry Track) 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
+    }
+  ]
+}
+"
+`;

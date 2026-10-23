@@ -7,16 +7,18 @@ import {
   type DataFile,
   type Geocache,
   type Overrides,
+  type PastConference,
   type Satellite,
 } from '../schema';
 import { archiveIds, type ArchiveIds } from './archive';
 import { canonicalCountry } from './countries';
 import { geocacheKey, haversineKm } from './geocode';
-import { seriesKey } from './normalize';
+import { mainLocationId, seriesKey, seriesOf } from './normalize';
 
 export interface ValidationInput {
   data: unknown;
   satellites: Satellite[];
+  past: PastConference[];
   overrides: Overrides;
   geocache: Geocache;
   /** The archive as it is after the build (on disk for `data:validate`). */
@@ -93,8 +95,32 @@ export function validateDataset(input: ValidationInput): string[] {
     }
   }
 
-  // Overrides must target a known location
+  // Past editions (one per id and per series|year; pinned ones geocoded, like satellites)
   const satIds = new Set(input.satellites.map((s) => s.id));
+  const hfIds = new Set(data.conferences.filter((c) => c.source === 'hf').map((c) => c.id));
+  for (const id of duplicates(input.past.map((e) => e.id)))
+    errors.push(`past_conferences.yml: duplicate id "${id}"`);
+  const editions = new Map<string, string>();
+  for (const e of input.past) {
+    const k = `${seriesOf(e.title)}|${e.year}`;
+    const first = editions.get(k);
+    if (first === undefined) editions.set(k, e.id);
+    else if (first !== e.id)
+      errors.push(`past_conferences.yml: "${first}" and "${e.id}" are the same edition (${k})`);
+    if (satIds.has(e.id)) errors.push(`past_conferences.yml: "${e.id}" is also a satellite id`);
+    if (e.format === 'virtual' || hfIds.has(e.id)) continue; // no place, or upstream wins
+    const o = input.overrides[mainLocationId(e.id)];
+    if (o?.lat !== undefined) continue;
+    const country = canonicalCountry(o?.country ?? e.country!);
+    const key = country && geocacheKey(o?.city ?? e.city!, country);
+    if (!key || !input.geocache[key]) {
+      errors.push(
+        `past_conferences.yml: ${e.id}: "${e.city}, ${e.country}" is not geocoded (run pnpm data:build)`,
+      );
+    }
+  }
+
+  // Overrides must target a known location
   for (const id of Object.keys(input.overrides)) {
     if (!locIds.has(id) && !satIds.has(id))
       errors.push(`overrides.yml: "${id}" matches no location`);
@@ -125,6 +151,9 @@ export function validateDataset(input: ValidationInput): string[] {
 const DAY = 86_400_000;
 const addDays = (date: string, days: number) =>
   new Date(Date.parse(`${date}T00:00:00Z`) + days * DAY).toISOString().slice(0, 10);
+
+/** A track title such as "EMNLP (Industry Track)" (same rule as the app's trackName). */
+const TRACK_RE = /\(([^)]+)\)\s*$/;
 
 /** Override coordinates farther than this from every geocoded place in their country warn. */
 export const OVERRIDE_COUNTRY_KM = 1500;
@@ -161,9 +190,11 @@ export function sanityCheck(
     }
   }
 
+  // Keyed on the series (NIPS 2018 = NeurIPS 2018); a track keeps its own title, so EMNLP and its
+  // Industry Track are not reported.
   const byEdition = new Map<string, string[]>();
   for (const c of data.conferences) {
-    const k = `${seriesKey(c.title)} ${c.year}`;
+    const k = `${TRACK_RE.test(c.title) ? seriesKey(c.title) : c.series} ${c.year}`;
     byEdition.set(k, [...(byEdition.get(k) ?? []), c.id]);
   }
   for (const [k, ids] of byEdition) {

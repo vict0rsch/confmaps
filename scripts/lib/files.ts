@@ -5,12 +5,14 @@ import { parse } from 'yaml';
 import {
   GeocacheSchema,
   OverridesFileSchema,
+  PastConferencesFileSchema,
   SatellitesFileSchema,
   type ArchiveFile,
   type Conference,
   type EventLocation,
   type Geocache,
   type Overrides,
+  type PastConference,
   type Satellite,
   type UpstreamRef,
 } from '../schema';
@@ -20,6 +22,7 @@ import { formatIssues } from './validate';
 
 export const dataPaths = (dataDir: string) => ({
   satellites: join(dataDir, 'satellites.yml'),
+  past: join(dataDir, 'past_conferences.yml'),
   overrides: join(dataDir, 'overrides.yml'),
   geocache: join(dataDir, 'geocache.json'),
   archive: join(dataDir, 'archive'),
@@ -28,6 +31,8 @@ export const dataPaths = (dataDir: string) => ({
 
 export interface Inputs {
   satellites: Satellite[];
+  /** `[]` when `past_conferences.yml` is missing or empty. */
+  past: PastConference[];
   overrides: Overrides;
   geocache: Geocache;
   archive: ArchiveFile;
@@ -48,6 +53,10 @@ export function loadInputs(dataDir: string): Inputs {
   const sat = SatellitesFileSchema.safeParse(satRaw);
   if (!sat.success) errors.push(...formatIssues('satellites.yml', sat.error));
 
+  const pastRaw = readYaml(p.past) ?? [];
+  const past = PastConferencesFileSchema.safeParse(pastRaw);
+  if (!past.success) errors.push(...formatIssues('past_conferences.yml', past.error));
+
   const ovRaw = readYaml(p.overrides) ?? {};
   const ov = OverridesFileSchema.safeParse(ovRaw);
   if (!ov.success) errors.push(...formatIssues('overrides.yml', ov.error));
@@ -61,6 +70,7 @@ export function loadInputs(dataDir: string): Inputs {
 
   return {
     satellites: sat.data ?? [],
+    past: past.data ?? [],
     overrides: ov.data ?? {},
     geocache: gc.data ?? {},
     archive: ar.archive,

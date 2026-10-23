@@ -1,5 +1,6 @@
 // Pure build core (no file or network IO besides the injected geocoder):
-// normalize → merge archive → apply overrides → canonicalize countries → geocode → freeze.
+// normalize → merge archive, past editions, upstream, satellites → apply overrides →
+// canonicalize countries → geocode → freeze.
 import {
   isVirtual,
   type ArchiveFile,
@@ -7,6 +8,7 @@ import {
   type EventLocation,
   type Geocache,
   type Overrides,
+  type PastConference,
   type Satellite,
   type UpstreamConference,
 } from '../schema';
@@ -21,10 +23,13 @@ import {
   seriesOf,
   type PendingLocation,
 } from './normalize';
+import { pastToConference, pastToLocation } from './past';
 
 export interface BuildInputs {
   upstream: UpstreamConference[];
   satellites: Satellite[];
+  /** `data/past_conferences.yml`: past main editions (upstream wins on an id clash). */
+  past: PastConference[];
   overrides: Overrides;
   /** Archive as read at the start of the build (the committed one). */
   archive: ArchiveFile;
@@ -59,7 +64,18 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
   const norm = normalizeUpstream(inp.upstream);
   errors.push(...norm.errors);
 
-  // Current records win over archived ones; archived ones are kept when upstream drops them.
+  for (const e of inp.past) {
+    if (e.start > inp.today)
+      errors.push(
+        `past_conferences.yml: "${e.id}" starts ${e.start}, after today (${inp.today}); ` +
+          `upcoming editions come from upstream`,
+      );
+    if (upstreamIds.has(e.id))
+      warnings.push(`past_conferences.yml: "${e.id}" is also upstream (HF wins); remove it`);
+  }
+
+  // Precedence: upstream > past entry > archived copy. Archived records are kept when their
+  // source drops them.
   const conferences = new Map<string, Conference>();
   for (const c of inp.archive.conferences) {
     conferences.set(c.id, {
@@ -68,6 +84,7 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
       source: c.source === 'hf' ? 'archive' : c.source,
     });
   }
+  for (const e of inp.past) conferences.set(e.id, pastToConference(e));
   for (const c of norm.conferences) conferences.set(c.id, c);
 
   const locations = new Map<string, PendingLocation>();
@@ -81,9 +98,15 @@ export async function buildDataset(inp: BuildInputs): Promise<BuildResult> {
     void lng;
     locations.set(l.id, rest);
   }
+  const pastLocations = inp.past.map(pastToLocation);
+  for (const l of pastLocations) locations.set(l.id, l);
   for (const l of norm.locations) locations.set(l.id, l);
   for (const s of inp.satellites) locations.set(s.id, satelliteToLocation(s));
-  const fresh = new Set([...norm.locations.map((l) => l.id), ...inp.satellites.map((s) => s.id)]);
+  const fresh = new Set([
+    ...pastLocations.map((l) => l.id),
+    ...norm.locations.map((l) => l.id),
+    ...inp.satellites.map((s) => s.id),
+  ]);
 
   const applied = applyOverrides(conferences, locations, inp.overrides, fresh);
   errors.push(...applied.errors);
