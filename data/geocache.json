@@ -4,6 +4,11 @@
     "lat": 50.776351,
     "lng": 6.083862
   },
+  "aberdeen|united kingdom": {
+    "display_name": "Aberdeen City, Scotland, United Kingdom",
+    "lat": 57.1482429,
+    "lng": -2.0928095
+  },
   "abu dhabi|united arab emirates": {
     "display_name": "Abu Dhabi, Abu Dhabi Emirate, United Arab Emirates",
     "lat": 24.4538352,
@@ -13,6 +18,11 @@
     "display_name": "Albuquerque, Bernalillo County, New Mexico, United States",
     "lat": 35.0841034,
     "lng": -106.650985
+  },
+  "amherst|united states": {
+    "display_name": "Amherst, Hampshire County, Massachusetts, United States",
+    "lat": 42.3731948,
+    "lng": -72.5198761
   },
   "amsterdam|netherlands": {
     "display_name": "Amsterdam, North Holland, Netherlands",
@@ -24,20 +34,65 @@
     "lat": 33.8347516,
     "lng": -117.911732
   },
+  "anchorage|united states": {
+    "display_name": "Anchorage, Alaska, United States",
+    "lat": 61.2163129,
+    "lng": -149.894852
+  },
+  "athens|greece": {
+    "display_name": "Athens, Municipality of Athens, Regional Unit of Central Athens, Attica, 105 57, Greece",
+    "lat": 37.9755648,
+    "lng": 23.7348324
+  },
   "atlanta|united states": {
     "display_name": "Atlanta, Fulton County, Georgia, United States",
     "lat": 33.7544657,
     "lng": -84.3898151
+  },
+  "auckland|new zealand": {
+    "display_name": "Auckland, Waitematā, Auckland, 1010, New Zealand",
+    "lat": -36.852095,
+    "lng": 174.7631803
   },
   "austin|united states": {
     "display_name": "Austin, Travis County, Texas, United States",
     "lat": 30.2649261,
     "lng": -97.7474086
   },
+  "baltimore|united states": {
+    "display_name": "Baltimore, Maryland, United States",
+    "lat": 39.2908816,
+    "lng": -76.610759
+  },
+  "banff|canada": {
+    "display_name": "Banff, Alberta, Canada",
+    "lat": 51.175076,
+    "lng": -115.5720773
+  },
+  "bangalore|india": {
+    "display_name": "Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, India",
+    "lat": 12.9767936,
+    "lng": 77.590082
+  },
+  "bangkok|thailand": {
+    "display_name": "Bangkok, Thailand",
+    "lat": 13.7524938,
+    "lng": 100.4935089
+  },
   "barcelona|spain": {
     "display_name": "Barcelona, Barcelonès, Barcelona, Catalonia, Spain",
     "lat": 41.3825802,
     "lng": 2.177073
+  },
+  "beijing|china": {
+    "display_name": "Beijing, China",
+    "lat": 39.9057136,
+    "lng": 116.3912972
+  },
+  "belgrade|serbia": {
+    "display_name": "Belgrade, City of Belgrade, Central Serbia, Serbia",
+    "lat": 44.8153318,
+    "lng": 20.4456588
   },
   "bern|switzerland": {
     "display_name": "Bern, Bern-Mittelland administrative district, Bernese Mittelland administrative region, Bern, Switzerland",
@@ -49,6 +104,11 @@
     "lat": 43.2630018,
     "lng": -2.9350039
   },
+  "birmingham|united kingdom": {
+    "display_name": "Birmingham, West Midlands, England, United Kingdom",
+    "lat": 52.4948994,
+    "lng": -1.8518439
+  },
   "boise|united states": {
     "display_name": "Boise, Ada County, Idaho, United States",
     "lat": 43.6166163,
@@ -59,15 +119,50 @@
     "lat": 44.4938203,
     "lng": 11.3426327
   },
+  "bordeaux|france": {
+    "display_name": "Bordeaux, Gironde, Nouvelle-Aquitaine, Metropolitan France, France",
+    "lat": 44.841225,
+    "lng": -0.5800364
+  },
+  "boston|united states": {
+    "display_name": "Boston, Suffolk County, Massachusetts, United States",
+    "lat": 42.3588336,
+    "lng": -71.0578303
+  },
+  "boulder|united states": {
+    "display_name": "Boulder, Boulder County, Colorado, United States",
+    "lat": 40.0149856,
+    "lng": -105.270545
+  },
   "bremen|germany": {
     "display_name": "Bremen, Germany",
     "lat": 53.0758196,
     "lng": 8.8071646
   },
+  "brighton|united kingdom": {
+    "display_name": "Brighton, Brighton and Hove, England, BN1 1HJ, United Kingdom",
+    "lat": 50.8214626,
+    "lng": -0.1400561
+  },
+  "brisbane|australia": {
+    "display_name": "Brisbane, Queensland, Australia",
+    "lat": -27.4689623,
+    "lng": 153.0235009
+  },
+  "brno|czech republic": {
+    "display_name": "Brno, okres Brno-město, South Moravian Region, Czechia",
+    "lat": 49.1922443,
+    "lng": 16.6113382
+  },
   "bruges|belgium": {
     "display_name": "Bruges, Brugge, West Flanders, Flanders, Belgium",
     "lat": 51.2085526,
     "lng": 3.226772
+  },
+  "brussels|belgium": {
+    "display_name": "Brussels, Brussels-Capital, Belgium",
+    "lat": 50.8467372,
+    "lng": 4.352493
   },
   "bucharest|romania": {
     "display_name": "Bucharest, Romania",
@@ -84,10 +179,65 @@
     "lat": 28.3716746,
     "lng": -81.5239625
   },
+  "busan|south korea": {
+    "display_name": "Busan, South Korea",
+    "lat": 35.1799528,
+    "lng": 129.0752365
+  },
+  "calgary|canada": {
+    "display_name": "Calgary, Alberta, Canada",
+    "lat": 51.0456064,
+    "lng": -114.057541
+  },
+  "cambridge|united kingdom": {
+    "display_name": "Cambridge, Cambridgeshire, Cambridgeshire and Peterborough, England, United Kingdom",
+    "lat": 52.1975846,
+    "lng": 0.1391537
+  },
+  "cambridge|united states": {
+    "display_name": "Cambridge, Middlesex County, Massachusetts, United States",
+    "lat": 42.3656347,
+    "lng": -71.1040018
+  },
+  "cardiff|united kingdom": {
+    "display_name": "Cardiff, Wales, CF10 2AF, United Kingdom",
+    "lat": 51.4816546,
+    "lng": -3.1791934
+  },
+  "chengdu|china": {
+    "display_name": "Chengdu, Sichuan, China",
+    "lat": 30.659867,
+    "lng": 104.063315
+  },
+  "coimbra|portugal": {
+    "display_name": "Coimbra, Portugal",
+    "lat": 40.2111874,
+    "lng": -8.4291478
+  },
   "copenhagen|denmark": {
     "display_name": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark",
     "lat": 55.6867243,
     "lng": 12.5700724
+  },
+  "corvallis|united states": {
+    "display_name": "Corvallis, Benton County, Oregon, United States",
+    "lat": 44.5645659,
+    "lng": -123.2620435
+  },
+  "cosenza|italy": {
+    "display_name": "Cosenza, Calabria, 87100, Italy",
+    "lat": 39.3099931,
+    "lng": 16.2501929
+  },
+  "daegu|south korea": {
+    "display_name": "Daegu, South Korea",
+    "lat": 35.8713,
+    "lng": 128.6018
+  },
+  "davos|switzerland": {
+    "display_name": "Davos, Prättigau/Davos, Grisons, Switzerland",
+    "lat": 46.796198,
+    "lng": 9.8236892
   },
   "delft|netherlands": {
     "display_name": "Delft, South Holland, Netherlands",
@@ -114,6 +264,11 @@
     "lat": 53.3493795,
     "lng": -6.2605593
   },
+  "dubrovnik|croatia": {
+    "display_name": "Dubrovnik, Dubrovnik-Neretva County, Croatia",
+    "lat": 42.6491029,
+    "lng": 18.0939501
+  },
   "edinburgh|united kingdom": {
     "display_name": "City of Edinburgh, Scotland, United Kingdom",
     "lat": 55.9533456,
@@ -124,10 +279,85 @@
     "lat": 53.5462055,
     "lng": -113.491241
   },
+  "eindhoven|netherlands": {
+    "display_name": "Eindhoven, North Brabant, Netherlands",
+    "lat": 51.4392648,
+    "lng": 5.478633
+  },
+  "florence|italy": {
+    "display_name": "Florence, Tuscany, Italy",
+    "lat": 43.7697955,
+    "lng": 11.2556404
+  },
+  "fort lauderdale|united states": {
+    "display_name": "Fort Lauderdale, Broward County, Florida, United States",
+    "lat": 26.1223084,
+    "lng": -80.1433786
+  },
+  "freiburg|germany": {
+    "display_name": "Freiburg im Breisgau, Baden-Württemberg, Germany",
+    "lat": 47.9960901,
+    "lng": 7.8494005
+  },
+  "fukuoka|japan": {
+    "display_name": "Fukuoka, Fukuoka Prefecture, Japan",
+    "lat": 33.5898988,
+    "lng": 130.4017509
+  },
+  "galway|ireland": {
+    "display_name": "Galway, County Galway, Connacht, Ireland",
+    "lat": 53.2744122,
+    "lng": -9.0490601
+  },
+  "ghent|belgium": {
+    "display_name": "Ghent, Gent, East Flanders, Flanders, Belgium",
+    "lat": 51.0538286,
+    "lng": 3.7250121
+  },
+  "glasgow|united kingdom": {
+    "display_name": "Glasgow, Glasgow City, Scotland, G2 1AL, United Kingdom",
+    "lat": 55.861155,
+    "lng": -4.2501687
+  },
   "goiania|brazil": {
     "display_name": "Goiânia, Goiás, Central-West Region, Brazil",
     "lat": -16.680882,
     "lng": -49.2532691
+  },
+  "gold coast|australia": {
+    "display_name": "Gold Coast, Queensland, 4217, Australia",
+    "lat": -28.0023731,
+    "lng": 153.4145987
+  },
+  "graz|austria": {
+    "display_name": "Graz, Styria, Austria",
+    "lat": 47.0708678,
+    "lng": 15.4382786
+  },
+  "greenville|united states": {
+    "display_name": "Greenville, Greenville County, South Carolina, United States",
+    "lat": 34.851354,
+    "lng": -82.3984882
+  },
+  "grenoble|france": {
+    "display_name": "Grenoble, Isère, Auvergne-Rhône-Alpes, Metropolitan France, France",
+    "lat": 45.1875602,
+    "lng": 5.7357819
+  },
+  "guangzhou|china": {
+    "display_name": "Guangzhou City, Guangdong, China",
+    "lat": 23.1288429,
+    "lng": 113.2589581
+  },
+  "gyeongju|south korea": {
+    "display_name": "Gyeongju-si, North Gyeongsang, South Korea",
+    "lat": 35.8556705,
+    "lng": 129.2248811
+  },
+  "halifax|canada": {
+    "display_name": "Halifax, Halifax Regional Municipality, Halifax County, Nova Scotia, Canada",
+    "lat": 44.648618,
+    "lng": -63.5859487
   },
   "hangzhou|china": {
     "display_name": "Hangzhou City, Zhejiang, China",
@@ -144,6 +374,11 @@
     "lat": 21.0283334,
     "lng": 105.854041
   },
+  "harwell|united kingdom": {
+    "display_name": "Harwell, Vale of White Horse, Oxfordshire, England, United Kingdom",
+    "lat": 51.5999743,
+    "lng": -1.2909164
+  },
   "hong kong|hong kong": {
     "display_name": "Hong Kong, China",
     "lat": 22.2818333,
@@ -154,20 +389,60 @@
     "lat": 21.304547,
     "lng": -157.855676
   },
+  "houston|united states": {
+    "display_name": "Houston, Harris County, Texas, United States",
+    "lat": 29.7589382,
+    "lng": -95.3676974
+  },
   "hyderabad|india": {
     "display_name": "Hyderabad, Bahadurpura mandal, Hyderabad, Telangana, India",
     "lat": 17.360589,
     "lng": 78.4740613
+  },
+  "incheon|south korea": {
+    "display_name": "Incheon, South Korea",
+    "lat": 37.456,
+    "lng": 126.7052
+  },
+  "irvine|united states": {
+    "display_name": "Irvine, Orange County, California, United States",
+    "lat": 33.6856969,
+    "lng": -117.825981
+  },
+  "istanbul|turkey": {
+    "display_name": "Istanbul, Fatih, Istanbul, Marmara Region, 34122, Turkey",
+    "lat": 41.006381,
+    "lng": 28.9758715
   },
   "jeju|south korea": {
     "display_name": "Jeju, South Korea",
     "lat": 33.4998289,
     "lng": 126.5313902
   },
+  "jerusalem|israel": {
+    "display_name": "Jerusalem, Jerusalem Subdistrict, Jerusalem District, Israel",
+    "lat": 31.7788472,
+    "lng": 35.2257856
+  },
+  "jodhpur|india": {
+    "display_name": "Jodhpur, Jodhpur Tehsil, Jodhpur, Rajasthan, India",
+    "lat": 26.2967719,
+    "lng": 73.0351433
+  },
   "kaunas|lithuania": {
     "display_name": "Kaunas, Kauno miesto savivaldybė, Kaunas County, Lithuania",
     "lat": 54.8982139,
     "lng": 23.9044817
+  },
+  "kigali|rwanda": {
+    "display_name": "City of Kigali, Rwanda",
+    "lat": -1.9534357,
+    "lng": 30.1140089
+  },
+  "krakow|poland": {
+    "display_name": "Krakow, Lesser Poland Voivodeship, Poland",
+    "lat": 50.0619474,
+    "lng": 19.9368564
   },
   "kuala lumpur|malaysia": {
     "display_name": "Kuala Lumpur, Malaysia",
@@ -179,20 +454,55 @@
     "lat": 35.0115754,
     "lng": 135.7681441
   },
+  "lanzarote|spain": {
+    "display_name": "Lanzarote, Las Palmas, Canary Islands, Spain",
+    "lat": 29.0397081,
+    "lng": -13.6362916
+  },
+  "las vegas|united states": {
+    "display_name": "Las Vegas, Clark County, Nevada, United States",
+    "lat": 36.1674263,
+    "lng": -115.1484131
+  },
   "limassol|cyprus": {
     "display_name": "Limassol, Limassol Municipality, Limassol District, Cyprus, 3085, Cyprus",
     "lat": 34.6852901,
     "lng": 33.0332657
+  },
+  "lima|peru": {
+    "display_name": "Lima, Province of Lima, Lima Metropolitan Area, Lima, 15001, Peru",
+    "lat": -12.0459808,
+    "lng": -77.0305912
+  },
+  "lisbon|portugal": {
+    "display_name": "Lisbon, Portugal",
+    "lat": 38.7077507,
+    "lng": -9.1365919
+  },
+  "ljubljana|slovenia": {
+    "display_name": "Ljubljana, Upravna Enota Ljubljana, 1000, Slovenia",
+    "lat": 46.0500268,
+    "lng": 14.5069289
   },
   "london|united kingdom": {
     "display_name": "Greater London, England, United Kingdom",
     "lat": 51.5074456,
     "lng": -0.1277653
   },
+  "long beach|united states": {
+    "display_name": "Long Beach, Los Angeles County, California, United States",
+    "lat": 33.7690164,
+    "lng": -118.191604
+  },
   "los angeles|united states": {
     "display_name": "Los Angeles, Los Angeles County, California, United States",
     "lat": 34.0536923,
     "lng": -118.2427676
+  },
+  "lubeck|germany": {
+    "display_name": "Lübeck, Schleswig-Holstein, Germany",
+    "lat": 53.866444,
+    "lng": 10.684738
   },
   "lucca|italy": {
     "display_name": "Lucca, Tuscany, Italy",
@@ -219,6 +529,11 @@
     "lat": 22.1899448,
     "lng": 113.5380454
   },
+  "madrid|spain": {
+    "display_name": "Madrid, Community of Madrid, Spain",
+    "lat": 40.416782,
+    "lng": -3.703507
+  },
   "mai khao|thailand": {
     "display_name": "Mai Khao, Si Sunthon, Thalang District, Phuket Province, Thailand",
     "lat": 8.1255701,
@@ -228,6 +543,21 @@
     "display_name": "Malmö, Malmö kommun, Skåne County, Sweden",
     "lat": 55.6052931,
     "lng": 13.0001566
+  },
+  "manchester|united kingdom": {
+    "display_name": "Manchester, Greater Manchester, England, United Kingdom",
+    "lat": 53.4424618,
+    "lng": -2.2324547
+  },
+  "marrakech|morocco": {
+    "display_name": "Marrakesh, Pachalik de Marrakech, Marrakesh Prefecture, Marrakech-Safi, Morocco",
+    "lat": 31.6258257,
+    "lng": -7.9891608
+  },
+  "marseille|france": {
+    "display_name": "Marseille, Bouches-du-Rhône, Provence-Alpes-Côte d'Azur, Metropolitan France, France",
+    "lat": 43.2963986,
+    "lng": 5.3777888
   },
   "melbourne|australia": {
     "display_name": "Melbourne, Victoria, Australia",
@@ -239,20 +569,60 @@
     "lat": 19.4326296,
     "lng": -99.1331785
   },
+  "miami|united states": {
+    "display_name": "Miami, Miami-Dade County, Florida, United States",
+    "lat": 25.7741566,
+    "lng": -80.1935973
+  },
   "milan|italy": {
     "display_name": "Milan, Rodano, Milan, Lombardy, Italy",
     "lat": 45.4641943,
     "lng": 9.1896346
+  },
+  "minneapolis|united states": {
+    "display_name": "Minneapolis, Hennepin County, Minnesota, United States",
+    "lat": 44.9772995,
+    "lng": -93.2654692
+  },
+  "monterey|united states": {
+    "display_name": "Monterey, Monterey County, California, United States",
+    "lat": 36.600256,
+    "lng": -121.8946388
+  },
+  "montevideo|uruguay": {
+    "display_name": "Montevideo, Uruguay",
+    "lat": -34.9058916,
+    "lng": -56.1913095
   },
   "montreal|canada": {
     "display_name": "Montreal, Urban agglomeration of Montreal, Montreal (administrative region), Quebec, Canada",
     "lat": 45.5031824,
     "lng": -73.5698065
   },
+  "mountain view|united states": {
+    "display_name": "Mountain View, Santa Clara County, California, United States",
+    "lat": 37.3893889,
+    "lng": -122.0832101
+  },
   "mumbai|india": {
     "display_name": "Mumbai, Mumbai Suburban District, Maharashtra, 400051, India",
     "lat": 19.054999,
     "lng": 72.8692035
+  },
+  "munich|germany": {
+    "display_name": "Munich, Bavaria, Germany",
+    "lat": 48.1371079,
+    "lng": 11.5753822
+  },
+  "naha|japan": {
+    "display_name": "Naha, Okinawa Prefecture, 900-8585, Japan",
+    "lat": 26.2122345,
+    "lng": 127.6791452
+  },
+  "nancy|france": {
+    "display_name": "Nancy, Meurthe-et-Moselle, Grand Est, Metropolitan France, 54100, France",
+    "lat": 48.6937223,
+    "lng": 6.1834097
   },
   "naples|italy": {
     "display_name": "Naples, Campania, Italy",
@@ -264,10 +634,45 @@
     "lat": 36.1622767,
     "lng": -86.7742984
   },
+  "new orleans|united states": {
+    "display_name": "New Orleans, Orleans Parish, Louisiana, United States",
+    "lat": 29.9574657,
+    "lng": -90.0629493
+  },
+  "new york|united states": {
+    "display_name": "New York, United States",
+    "lat": 40.7127281,
+    "lng": -74.0060152
+  },
+  "newcastle upon tyne|united kingdom": {
+    "display_name": "Newcastle upon Tyne, Tyne and Wear, North East, England, United Kingdom",
+    "lat": 54.9738474,
+    "lng": -1.6131572
+  },
+  "orlando|united states": {
+    "display_name": "Orlando, Orange County, Florida, United States",
+    "lat": 28.5421218,
+    "lng": -81.379045
+  },
+  "osaka|japan": {
+    "display_name": "Osaka, Osaka Prefecture, Japan",
+    "lat": 34.6937569,
+    "lng": 135.5014539
+  },
+  "ottawa|canada": {
+    "display_name": "Ottawa, Eastern Ontario, Ontario, Canada",
+    "lat": 45.4208777,
+    "lng": -75.6901106
+  },
   "padua|italy": {
     "display_name": "Padua, Province of Padua, Veneto, 35121-35143, Italy",
     "lat": 45.3984428,
     "lng": 11.8956829
+  },
+  "palermo|italy": {
+    "display_name": "Palermo, Sicily, Italy",
+    "lat": 38.1112268,
+    "lng": 13.3524434
   },
   "paphos|cyprus": {
     "display_name": "Paphos Municipality, Paphos District, Cyprus",
@@ -279,25 +684,70 @@
     "lat": 48.8534951,
     "lng": 2.3483915
   },
+  "perth|australia": {
+    "display_name": "Perth, Western Australia, 6000, Australia",
+    "lat": -31.9558967,
+    "lng": 115.8605784
+  },
   "philadelphia|united states": {
     "display_name": "Philadelphia, Philadelphia County, Pennsylvania, United States",
     "lat": 39.9527237,
     "lng": -75.1635262
+  },
+  "phoenix|united states": {
+    "display_name": "Phoenix, Maricopa County, Arizona, United States",
+    "lat": 33.4484367,
+    "lng": -112.074141
+  },
+  "pisa|italy": {
+    "display_name": "Pisa, Tuscany, Italy",
+    "lat": 43.7159395,
+    "lng": 10.4018624
   },
   "pittsburgh|united states": {
     "display_name": "Pittsburgh, Allegheny County, Pennsylvania, United States",
     "lat": 40.4406968,
     "lng": -80.0025666
   },
+  "porto de galinhas|brazil": {
+    "display_name": "Porto de Galinhas, Ipojuca, Pernambuco, Northeast Region, 55159-000, Brazil",
+    "lat": -8.5046818,
+    "lng": -35.0049962
+  },
   "porto|portugal": {
     "display_name": "Porto, Portugal",
     "lat": 41.1502195,
     "lng": -8.6103497
   },
+  "potsdam|germany": {
+    "display_name": "Potsdam, Brandenburg, Germany",
+    "lat": 52.4009309,
+    "lng": 13.0591397
+  },
   "prague|czech republic": {
     "display_name": "Prague, Czechia",
     "lat": 50.0874654,
     "lng": 14.4212535
+  },
+  "punta cana|dominican republic": {
+    "display_name": "Punta Cana, Higüey, La Altagracia, 41201, Dominican Republic",
+    "lat": 18.556551,
+    "lng": -68.3691611
+  },
+  "qingdao|china": {
+    "display_name": "Qingdao, Shandong, 266000, China",
+    "lat": 36.0663249,
+    "lng": 120.3777659
+  },
+  "quebec city|canada": {
+    "display_name": "Quebec, Urban agglomeration of Québec, Capitale-Nationale, Quebec, Canada",
+    "lat": 46.8137431,
+    "lng": -71.2084061
+  },
+  "rhodes|greece": {
+    "display_name": "Rhodes, Municipal Unit of Rhodes, Municipality of Rhodes, Rhodes Regional Unit, South Aegean, Aegean, 851 00, Greece",
+    "lat": 36.4437233,
+    "lng": 28.227369
   },
   "rio de janeiro|brazil": {
     "display_name": "Rio de Janeiro, Southeast Region, Brazil",
@@ -309,6 +759,11 @@
     "lat": 41.8933203,
     "lng": 12.4829321
   },
+  "salt lake city|united states": {
+    "display_name": "Salt Lake City, Salt Lake County, Utah, United States",
+    "lat": 40.7596198,
+    "lng": -111.886797
+  },
   "san diego|united states": {
     "display_name": "San Diego, San Diego County, California, United States",
     "lat": 32.7157062,
@@ -318,6 +773,26 @@
     "display_name": "San Francisco, California, United States",
     "lat": 37.7879363,
     "lng": -122.4075201
+  },
+  "san jose|costa rica": {
+    "display_name": "San José, San Jose Province, Costa Rica",
+    "lat": 9.9327373,
+    "lng": -84.0796683
+  },
+  "san jose|united states": {
+    "display_name": "San Jose, Santa Clara County, California, United States",
+    "lat": 37.3361663,
+    "lng": -121.890591
+  },
+  "santa fe|united states": {
+    "display_name": "Santa Fe, Santa Fe County, New Mexico, United States",
+    "lat": 35.6876096,
+    "lng": -105.938456
+  },
+  "santiago de compostela|spain": {
+    "display_name": "Santiago de Compostela, Santiago, A Coruña, Galicia, Spain",
+    "lat": 42.9064576,
+    "lng": -8.5192983
   },
   "seattle|united states": {
     "display_name": "Seattle, King County, Washington, United States",
@@ -329,30 +804,65 @@
     "lat": 37.5666791,
     "lng": 126.9782914
   },
+  "shanghai|china": {
+    "display_name": "Shanghai, Huangpu District, Shanghai, 200001, China",
+    "lat": 31.2323437,
+    "lng": 121.4691024
+  },
   "shenyang|china": {
     "display_name": "Shenyang City, Liaoning, China",
     "lat": 41.8026095,
     "lng": 123.4279105
+  },
+  "shenzhen|china": {
+    "display_name": "Shenzhen, Guangdong, China",
+    "lat": 22.5445741,
+    "lng": 114.0545429
   },
   "singapore|singapore": {
     "display_name": "Singapore",
     "lat": 1.2899175,
     "lng": 103.8519072
   },
+  "skopje|north macedonia": {
+    "display_name": "Skopje, City of Skopje, North Macedonia",
+    "lat": 41.9962054,
+    "lng": 21.4318881
+  },
+  "snowmass village|united states": {
+    "display_name": "Snowmass Village, Pitkin County, Colorado, 81615, United States",
+    "lat": 39.2130418,
+    "lng": -106.9378207
+  },
   "sochi|russia": {
     "display_name": "Sochi, town district of Sochi, Krasnodar Krai, Southern Federal District, Russia",
     "lat": 43.5854823,
     "lng": 39.723109
+  },
+  "sorrento|italy": {
+    "display_name": "Sorrento, Naples, Campania, 80067, Italy",
+    "lat": 40.624906,
+    "lng": 14.374836
   },
   "southampton|united kingdom": {
     "display_name": "Southampton, England, United Kingdom",
     "lat": 50.9025349,
     "lng": -1.404189
   },
+  "st. julian's|malta": {
+    "display_name": "Saint Julian's, Eastern Region, Malta",
+    "lat": 35.9199225,
+    "lng": 14.4877119
+  },
   "stanford|united states": {
     "display_name": "Stanford, Santa Clara County, California, 94305, United States",
     "lat": 37.427467,
     "lng": -122.1702445
+  },
+  "stockholm|sweden": {
+    "display_name": "Stockholm, Stockholm Municipality, Stockholm County, 111 29, Sweden",
+    "lat": 59.3251172,
+    "lng": 18.0710935
   },
   "strasbourg|france": {
     "display_name": "Strasbourg, Bas-Rhin, European Collectivity of Alsace, Grand Est, Metropolitan France, France",
@@ -369,20 +879,40 @@
     "lat": -33.8698439,
     "lng": 151.2082848
   },
+  "taipei|taiwan": {
+    "display_name": "Taipei, Taiwan",
+    "lat": 25.0375198,
+    "lng": 121.5636796
+  },
   "tangier|morocco": {
     "display_name": "Tangier, Pachalik de Tanger باشوية طنجة, Prefecture of Tangier - Assilah, Tangier-Tetouan-Al Hoceima, Morocco",
     "lat": 35.7694908,
     "lng": -5.8044679
+  },
+  "tel aviv|israel": {
+    "display_name": "Tel-Aviv, Tel Aviv Subdistrict, Tel-Aviv District, Israel",
+    "lat": 32.0852997,
+    "lng": 34.7818064
   },
   "thessaloniki|greece": {
     "display_name": "Thessaloniki, Thessaloniki Municipal Unit, Municipality of Thessaloniki, Thessaloniki Regional Unit, Central Macedonia, Macedonia and Thrace, 540 12, Greece",
     "lat": 40.6403167,
     "lng": 22.9352716
   },
+  "tokyo|japan": {
+    "display_name": "Tokyo, Japan",
+    "lat": 35.6768601,
+    "lng": 139.7638947
+  },
   "toronto|canada": {
     "display_name": "Toronto, Ontario, Canada",
     "lat": 43.6534817,
     "lng": -79.3839347
+  },
+  "toulon|france": {
+    "display_name": "Toulon, Var, Provence-Alpes-Côte d'Azur, Metropolitan France, France",
+    "lat": 43.1257311,
+    "lng": 5.9304919
   },
   "tubingen|germany": {
     "display_name": "Tübingen, Landkreis Tübingen, Baden-Württemberg, Germany",
@@ -399,15 +929,40 @@
     "lat": 32.2228765,
     "lng": -110.974847
   },
+  "turin|italy": {
+    "display_name": "Turin, Piedmont, Italy",
+    "lat": 45.0677551,
+    "lng": 7.6824892
+  },
   "utrecht|netherlands": {
     "display_name": "Utrecht, Netherlands",
     "lat": 52.0907006,
     "lng": 5.1215634
   },
+  "valencia|spain": {
+    "display_name": "Valencia, Comarca de València, Valencia, Valencian Community, Spain",
+    "lat": 39.4697065,
+    "lng": -0.3763353
+  },
   "vancouver|canada": {
     "display_name": "Vancouver, Metro Vancouver Regional District, British Columbia, Canada",
     "lat": 49.2608724,
     "lng": -123.113952
+  },
+  "varna|bulgaria": {
+    "display_name": "Varna, Odessos, Varna, Bulgaria",
+    "lat": 43.2073873,
+    "lng": 27.9166653
+  },
+  "venice|italy": {
+    "display_name": "Venice, Venezia, Veneto, 30121-30176, Italy",
+    "lat": 45.4371908,
+    "lng": 12.3345898
+  },
+  "verona|italy": {
+    "display_name": "Verona, Veneto, 37121-37142, Italy",
+    "lat": 45.4384958,
+    "lng": 10.9924122
   },
   "vienna|austria": {
     "display_name": "Vienna, Austria",
@@ -434,6 +989,16 @@
     "lat": 30.578891,
     "lng": 114.2921197
   },
+  "wurzburg|germany": {
+    "display_name": "Würzburg, Bavaria, Germany",
+    "lat": 49.7780356,
+    "lng": 9.9434769
+  },
+  "xi'an|china": {
+    "display_name": "Xi'an, Shaanxi, China",
+    "lat": 34.261004,
+    "lng": 108.9423363
+  },
   "yerevan|armenia": {
     "display_name": "Yerevan, Armenia",
     "lat": 40.1777112,
@@ -443,5 +1008,15 @@
     "display_name": "Yokohama, Kanagawa Prefecture, 231-0017, Japan",
     "lat": 35.4503381,
     "lng": 139.6343802
+  },
+  "york|united kingdom": {
+    "display_name": "York, York and North Yorkshire, England, YO1 8SG, United Kingdom",
+    "lat": 53.9590555,
+    "lng": -1.0815361
+  },
+  "zurich|switzerland": {
+    "display_name": "Zurich, District Zurich, Zurich, Switzerland",
+    "lat": 47.3744489,
+    "lng": 8.5410422
   }
 }
