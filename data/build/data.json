@@ -1594,7 +1594,7 @@
       "source": "pwc",
       "start": "2024-11-25",
       "tags": [
-        "machine-learning"
+        "computer-vision"
       ],
       "title": "BMVC",
       "year": 2024
@@ -3429,7 +3429,7 @@
       "deadlines": [],
       "end": "2024-10-04",
       "id": "eccv24",
-      "link": "https://eccv2024.ecva.net/",
+      "link": "https://eccv2024.ecva.net/Conferences/2024",
       "series": "eccv",
       "source": "pwc",
       "start": "2024-09-29",
@@ -6129,7 +6129,7 @@
       "deadlines": [],
       "end": "2021-06-05",
       "id": "icra21",
-      "link": "https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021",
+      "link": "https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/icra2021/icra2021/web.archive.org/web/20210531183741/https_/www.ieee-icra.org/index.html",
       "series": "icra",
       "source": "pwc",
       "start": "2021-05-30",
@@ -10225,7 +10225,7 @@
       "year": 2027
     }
   ],
-  "generatedAt": "2026-10-23T10:45:34.663Z",
+  "generatedAt": "2026-10-23T11:24:07.014Z",
   "locations": [
     {
       "access": "registration",
@@ -10883,6 +10883,7 @@
       "conferenceId": "acm22",
       "country": "Portugal",
       "end": "2022-10-14",
+      "format": "hybrid",
       "id": "acm22@main",
       "lat": 38.7077507,
       "link": "https://2022.acmmm.org/",
@@ -11185,7 +11186,7 @@
       "id": "akbc21@main",
       "link": "https://www.akbc.ws/2021/",
       "name": "AKBC 2021",
-      "notes": "Held online (planned: Irvine, United States).",
+      "notes": "Held online.",
       "official": true,
       "presentsPapers": true,
       "role": "main",
@@ -12746,7 +12747,7 @@
       "end": "2024-10-04",
       "id": "eccv24@main",
       "lat": 45.4641943,
-      "link": "https://eccv2024.ecva.net/",
+      "link": "https://eccv2024.ecva.net/Conferences/2024",
       "lng": 9.1896346,
       "name": "ECCV 2024",
       "official": true,
@@ -13479,7 +13480,7 @@
       "id": "hri20@main",
       "link": "https://humanrobotinteraction.org/2020/",
       "name": "HRI 2020",
-      "notes": "Held online (planned: Cambridge, United Kingdom).",
+      "notes": "In-person event (Cambridge, UK) cancelled; content released online from April 2020.",
       "official": true,
       "presentsPapers": true,
       "role": "main",
@@ -14287,15 +14288,13 @@
     },
     {
       "access": "registration",
-      "city": "Shenzhen",
       "conferenceId": "icme21",
-      "country": "China",
       "end": "2021-07-09",
+      "format": "virtual",
       "id": "icme21@main",
-      "lat": 22.5445741,
       "link": "https://2021.ieeeicme.org/",
-      "lng": 114.0545429,
       "name": "ICME 2021",
+      "notes": "Held online (planned: Shenzhen, China).",
       "official": true,
       "presentsPapers": true,
       "role": "main",
@@ -14424,7 +14423,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2022-07-17"
+      "start": "2022-07-17",
+      "venue": "Baltimore Convention Center"
     },
     {
       "access": "registration",
@@ -14639,7 +14639,7 @@
       "format": "hybrid",
       "id": "icra21@main",
       "lat": 34.261004,
-      "link": "https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021",
+      "link": "https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/icra2021/icra2021/web.archive.org/web/20210531183741/https_/www.ieee-icra.org/index.html",
       "lng": 108.9423363,
       "name": "ICRA 2021",
       "official": true,
@@ -14763,7 +14763,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2022-06-06"
+      "start": "2022-06-06",
+      "venue": "Georgia Tech Hotel and Conference Center"
     },
     {
       "access": "registration",
@@ -15654,20 +15655,20 @@
     },
     {
       "access": "registration",
-      "city": "Stanford",
+      "city": "Palo Alto",
       "conferenceId": "l4dc22",
       "country": "United States",
       "end": "2022-06-24",
       "id": "l4dc22@main",
-      "lat": 37.427467,
+      "lat": 37.4443293,
       "link": "https://l4dc.stanford.edu/",
-      "lng": -122.1702445,
+      "lng": -122.1598465,
       "name": "L4DC 2022",
       "official": true,
       "presentsPapers": true,
       "role": "main",
       "start": "2022-06-23",
-      "venue": "Stanford University"
+      "venue": "Palo Alto Event Center"
     },
     {
       "access": "registration",
@@ -17103,6 +17104,7 @@
       "conferenceId": "specom24",
       "country": "Serbia",
       "end": "2024-11-28",
+      "format": "hybrid",
       "id": "specom24@main",
       "lat": 44.8153318,
       "link": "https://specom2024.ftn.uns.ac.rs",
@@ -17111,7 +17113,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2024-11-25"
+      "start": "2024-11-25",
+      "venue": "Crowne Plaza Belgrade"
     },
     {
       "access": "registration",
@@ -17330,7 +17333,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2020-03-02"
+      "start": "2020-03-02",
+      "venue": "Westin Snowmass Resort"
     },
     {
       "access": "registration",

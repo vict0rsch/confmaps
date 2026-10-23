@@ -125,7 +125,7 @@
       "source": "pwc",
       "start": "2024-11-25",
       "tags": [
-        "machine-learning"
+        "computer-vision"
       ],
       "title": "BMVC",
       "year": 2024
@@ -294,7 +294,7 @@
       "deadlines": [],
       "end": "2024-10-04",
       "id": "eccv24",
-      "link": "https://eccv2024.ecva.net/",
+      "link": "https://eccv2024.ecva.net/Conferences/2024",
       "series": "eccv",
       "source": "pwc",
       "start": "2024-09-29",
@@ -1118,7 +1118,7 @@
       "end": "2024-10-04",
       "id": "eccv24@main",
       "lat": 45.4641943,
-      "link": "https://eccv2024.ecva.net/",
+      "link": "https://eccv2024.ecva.net/Conferences/2024",
       "lng": 9.1896346,
       "name": "ECCV 2024",
       "official": true,
@@ -1612,6 +1612,7 @@
       "conferenceId": "specom24",
       "country": "Serbia",
       "end": "2024-11-28",
+      "format": "hybrid",
       "id": "specom24@main",
       "lat": 44.8153318,
       "link": "https://specom2024.ftn.uns.ac.rs",
@@ -1620,7 +1621,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2024-11-25"
+      "start": "2024-11-25",
+      "venue": "Crowne Plaza Belgrade"
     },
     {
       "access": "registration",

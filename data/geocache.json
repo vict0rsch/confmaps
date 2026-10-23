@@ -679,6 +679,11 @@
     "lat": 38.1112268,
     "lng": 13.3524434
   },
+  "palo alto|united states": {
+    "display_name": "Palo Alto, Santa Clara County, California, United States",
+    "lat": 37.4443293,
+    "lng": -122.1598465
+  },
   "paphos|cyprus": {
     "display_name": "Paphos Municipality, Paphos District, Cyprus",
     "lat": 34.7743988,

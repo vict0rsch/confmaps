@@ -721,6 +721,7 @@
       "conferenceId": "acm22",
       "country": "Portugal",
       "end": "2022-10-14",
+      "format": "hybrid",
       "id": "acm22@main",
       "lat": 38.7077507,
       "link": "https://2022.acmmm.org/",
@@ -1058,7 +1059,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2022-07-17"
+      "start": "2022-07-17",
+      "venue": "Baltimore Convention Center"
     },
     {
       "access": "registration",
@@ -1091,7 +1093,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2022-06-06"
+      "start": "2022-06-06",
+      "venue": "Georgia Tech Hotel and Conference Center"
     },
     {
       "access": "registration",
@@ -1207,20 +1210,20 @@
     },
     {
       "access": "registration",
-      "city": "Stanford",
+      "city": "Palo Alto",
       "conferenceId": "l4dc22",
       "country": "United States",
       "end": "2022-06-24",
       "id": "l4dc22@main",
-      "lat": 37.427467,
+      "lat": 37.4443293,
       "link": "https://l4dc.stanford.edu/",
-      "lng": -122.1702445,
+      "lng": -122.1598465,
       "name": "L4DC 2022",
       "official": true,
       "presentsPapers": true,
       "role": "main",
       "start": "2022-06-23",
-      "venue": "Stanford University"
+      "venue": "Palo Alto Event Center"
     },
     {
       "access": "registration",

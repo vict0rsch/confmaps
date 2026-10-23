@@ -40,9 +40,9 @@ export const EXCLUDE: Record<string, string> = {
   aes2018: 'AES Convention: audio engineering trade/professional event, outside AI/CS scope',
   aes2019:
     'AES conference on immersive and interactive audio: audio engineering, outside AI/CS scope',
-  aiworldbarcelona23: 'AI World Barcelona: commercial industry expo, not a scholarly conference',
+  aiworldbarcelona23: 'AI World Barcelona: industry/business event, not a scholarly conference',
   aabi24: 'AABI 2024: one-day symposium co-located with ICML, not a main conference',
-  wmt20: 'WMT 2020: workshop co-located with EMNLP, not a standalone conference',
+  wmt20: 'WMT 2020: satellite of EMNLP 2020 (co-located; not a main conference)',
 };
 
 const PWC_VENUE = 'PwC gives the venue in place of the city';
