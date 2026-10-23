@@ -103,7 +103,7 @@
     last_sha: 'e7470b66ae6cd2da5228b1938325b5a168d9e7f3'
     last_date: '2017-09-29'
   sources:
-    - https://dblp.dagstuhl.de/db/conf/3dim/3dv2017.html
+    - https://web.archive.org/web/20171205225344/http://irc.cs.sdu.edu.cn/3dv/
 
 - id: aaai17
   title: AAAI
@@ -161,7 +161,7 @@
     fixes:
       - 'link: http://www.aaai.org/Conferences/AAAI/aaai17.php → https://www.aistats.org/aistats2017/ (the PwC link is the AAAI-17 page)'
   sources:
-    - https://www.aistats.org/aistats2017/
+    - https://aistats.org/aistats2017/
 
 - id: bmvc17
   title: BMVC
@@ -202,7 +202,8 @@
     fixes:
       - 'place: University of Amsterdam, The Netherlands → University of Amsterdam, Amsterdam, Netherlands (PwC gives the venue in place of the city)'
   sources:
-    - https://learningtheory.org/colt2017
+    - https://proceedings.mlr.press/v65/
+    - https://web.archive.org/web/20180228131520/http://www.learningtheory.org/colt2017/
 
 - id: conll17
   title: CONLL
@@ -562,6 +563,7 @@
       - 'title: <span>*</span>SEM → *SEM'
   sources:
     - https://aclanthology.org/S17-1000/
+    - https://listserv.linguistlist.org/pipermail/linguist/2017-February/083901.html
 
 - id: siggraph17
   title: SIGGRAPH
@@ -676,6 +678,7 @@
     last_date: '2018-07-03'
   sources:
     - https://research-repository.uwa.edu.au/en/activities/14th-asian-conference-on-computer-vision-accv-2018-2/
+    - https://www.accv2018.net/
 
 - id: acl18
   title: ACL
@@ -695,7 +698,7 @@
     last_sha: 'bbaadbbf78bef122cd5361385ee12ca50a1a21c8'
     last_date: '2018-02-26'
   sources:
-    - https://acl2018.org/2018/07/04/handbook
+    - https://web.archive.org/web/20210926040215/https://acl2018.org/2018/07/04/handbook
 
 - id: aistats18
   title: AISTATS
@@ -736,6 +739,7 @@
       - 'place: Newcastle upon Tyne → Newcastle upon Tyne, United Kingdom (PwC gives no country)'
   sources:
     - http://bmvc2018.org/
+    - https://bmva-archive.org.uk/bmvc/2018/
 
 - id: coling18
   title: COLING
@@ -956,7 +960,7 @@
     last_sha: 'a548c07b01ca9aafc9cba84d453825dd82046517'
     last_date: '2018-05-07'
   sources:
-    - http://www.icra2018.org/
+    - https://web.archive.org/web/20181229082836/http://icra2018.org/
 
 - id: ijcai18
   title: IJCAI
@@ -1050,8 +1054,9 @@
     last_sha: '439f72c2631350de7cfd696d34b2fc19adc011f9'
     last_date: '2018-02-26'
   sources:
-    - https://link.springer.com/10.1007/978-3-319-96133-0
+    - https://web.archive.org/web/20180628172556/http://www.mldm.de/
     - https://easychair.org/cfp/MLDM2018
+    - https://api.crossref.org/works/10.1007/978-3-319-96133-0
 
 - id: naacl18
   title: NAACL
@@ -1150,6 +1155,7 @@
       - 'end: 2019-12-21 → 2018-12-21 (the date text says 2019; SLT 2018 ran December 18-21, 2018)'
   sources:
     - https://signalprocessingsociety.org/node/6859
+    - http://www.slt2018.org/
 
 - id: uai18
   title: UAI
@@ -1187,7 +1193,8 @@
     last_sha: '439f72c2631350de7cfd696d34b2fc19adc011f9'
     last_date: '2018-02-26'
   sources:
-    - https://conferences.visionbib.com/2018/wacv-3-18-call.html
+    - https://web.archive.org/web/20180302193444/http://wacv18.uccs.us/
+    - https://web.archive.org/web/20180314211428/http://wacv18.uccs.us/program
 
 - id: 3dv19
   title: 3DV
@@ -1788,8 +1795,8 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
+    - https://web.archive.org/web/20201125022639/http://3dv2020.dgcv.nii.ac.jp/index.html
     - https://openresearch.surrey.ac.uk/esploro/outputs/conferenceProceeding/Message-from-the-3DV-2020-Program/99822198502346
-    - https://dblp.dagstuhl.de/db/conf/3dim
 
 - id: aaai20
   title: AAAI
@@ -1826,8 +1833,8 @@
     last_sha: '60956c79209a5bb1b44f9ad60d27d23d26a07344'
     last_date: '2020-07-30'
   sources:
+    - https://aamas2020.conference.auckland.ac.nz/
     - https://underline.io/case-studies/3-how-aamas-boosted-their-conference-attendance-with-virtual
-    - https://lists.cs.umbc.edu/pipermail/agents/Week-of-Mon-20200504/009795.html
 
 - id: accv20
   title: ACCV
@@ -1862,8 +1869,9 @@
     last_sha: '5d499b3d254c0846d32e2088d41fca65cdb46384'
     last_date: '2020-10-10'
   sources:
-    - https://virtual.acl2020.org/
-    - https://acl2020.org/
+    - https://web.archive.org/web/20200702015620/https://acl2020.org/
+    - https://web.archive.org/web/20191210045449/https://acl2020.org/
+    - https://aclanthology.org/2020.acl-main.0/
 
 - id: acm20
   title: ACM MM
@@ -1903,7 +1911,9 @@
     last_sha: 'e72f65d257fd0e8cafa4d92e457d0c4a3dc8ac13'
     last_date: '2020-08-20'
   sources:
-    - https://www.aistats.org/aistats2020
+    - https://aistats.org/aistats2020/
+    - https://proceedings.mlr.press/v108/
+    - https://www.confident-conference.org/index.php/Event:AISTATS_2020
 
 - id: alt2020
   title: ALT
@@ -1923,8 +1933,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://algorithmiclearningtheory.org/alt2020
-    - https://dblp.dagstuhl.de/db/conf/alt/alt2020.html
+    - https://algorithmiclearningtheory.org/alt2020/
 
 - id: bmvc20
   title: BMVC
@@ -1944,7 +1953,7 @@
     last_date: '2021-04-22'
   sources:
     - https://bmva-archive.org.uk/bmvc/2020/
-    - https://dblp.dagstuhl.de/db/conf/bmvc/index.html
+    - https://mailman.srv.cs.cmu.edu/pipermail/connectionists/2020-April/034205.html
 
 - id: chil20
   title: CHIL
@@ -1963,6 +1972,7 @@
     last_sha: 'eb3ee9a752c4c32574e50766d2b131e12bc38461'
     last_date: '2020-11-05'
   sources:
+    - https://chilold.ahli.cc/2020/highlights.html
     - https://vectorinstitute.ai/vector-researchers-co-lead-first-acm-conference-on-health-inference-and-learning/
 
 - id: cikm20
@@ -1983,6 +1993,7 @@
     last_date: '2021-04-22'
   sources:
     - https://universityofgalway.ie/about-us/news-and-events/news-archive/2020/october/nui-galway-host-international-conference-on-information-and-knowledge-management.html
+    - https://web.archive.org/web/20201020120427/https://www.cikm2020.org/
 
 - id: coling20
   title: COLING
@@ -2001,7 +2012,7 @@
     last_sha: 'a117453f869db13f140ff8e9e1041be4149f4b4d'
     last_date: '2022-02-16'
   sources:
-    - https://preview.aclanthology.org/credits/2020.coling-main.0
+    - https://aclanthology.org/2020.coling-main.0.pdf
     - https://underline.io/news/32--underline-hosts-28th-international-conference-on-computational-linguistics-(coling-2020)
 
 - id: colt20
@@ -2021,7 +2032,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://www.learningtheory.org/colt2020
+    - https://www.learningtheory.org/colt2020/
 
 - id: conll20
   title: CoNLL
@@ -2056,8 +2067,9 @@
     last_sha: '6628c994bba53cdb7d34ed4a5e20558660d7eb06'
     last_date: '2021-04-02'
   sources:
-    - https://proceedings.mlr.press/v155/
     - https://2020.corl.org/
+    - https://proceedings.mlr.press/v155/
+    - https://web.archive.org/web/20200510182704/https://www.robot-learning.org/
 
 - id: cvpr20
   title: CVPR
@@ -2076,7 +2088,8 @@
     last_sha: 'a06a5b54e1652cd1858ff87239bcb2351499e57e'
     last_date: '2020-06-25'
   sources:
-    - https://computer.org/press-room/2020-news/cvpr-2020-transitions-to-all-virtual-event
+    - https://www.computer.org/press-room/2020-news/cvpr-2020-transitions-to-all-virtual-event
+    - https://web.archive.org/web/20201221125705/http://cvpr2020.thecvf.com/
 
 - id: ecai20
   title: ECAI
@@ -2095,8 +2108,8 @@
     last_sha: '910682990c6c1f7cb3f36b027a8d330310472361'
     last_date: '2020-08-20'
   sources:
-    - https://citius.gal/en/research/publications/24th-european-conference-on-artificial-intelligence/
     - https://mailman.zih.tu-dresden.de/groups/public/dl/2020/005152.html
+    - https://citius.gal/en/research/publications/24th-european-conference-on-artificial-intelligence/
 
 - id: eccv20
   title: ECCV
@@ -2118,8 +2131,9 @@
       - 'start: 2022-08-23 → 2020-08-23 (the date text says 2022; eccv2020, the same edition, says August 23-28, 2020)'
       - 'end: 2022-08-28 → 2020-08-28 (the date text says 2022; eccv2020, the same edition, says August 23-28, 2020)'
   sources:
+    - https://eccv2020.eu/
     - https://informatics.ed.ac.uk/ipab/news/2020-european-conference-on-computer-vision-eccv-goes-online
-    - https://link.springer.com/10.1007/978-3-030-66415-2
+    - https://www.ecva.net/index.php
 
 - id: ecmlpkdd20
   title: ECML PKDD
@@ -2164,7 +2178,7 @@
   end: '2020-03-26'
   format: virtual
   tags: [robotics]
-  notes: 'Held online (planned: Cambridge, United Kingdom).'
+  notes: In-person event (Cambridge, UK) cancelled; content released online from April 2020.
   source: pwc
   pwc:
     ids: [hri20, hri2020]
@@ -2174,6 +2188,7 @@
     last_date: '2024-09-15'
   sources:
     - https://humanrobotinteraction.org/2020/
+    - https://humanrobotinteraction.org/2020/sponsors/index.html
     - https://robohub.org/human-robot-interaction-conference-launches-online/
 
 - id: icaps20
@@ -2213,7 +2228,8 @@
     last_sha: 'cc24067f2fdd583bdbd2ba5a41bb57ea714fbe9e'
     last_date: '2020-07-22'
   sources:
-    - https://cttc.cat/?p=14217
+    - https://www.cttc.cat/events/announcing-icassp-2020-as-a-fully-virtual-conference/
+    - https://web.archive.org/web/20200513002242/https://2020.ieeeicassp.org/
 
 - id: iccc20
   title: ICCC
@@ -2251,6 +2267,8 @@
     last_sha: '877c9c07715a375bec2586d6b3e4c5eda8e435c6'
     last_date: '2021-05-15'
   sources:
+    - https://www.proceedings.com/57822.html
+    - https://pure.qub.ac.uk/en/activities/20th-ieee-international-conference-on-data-mining-icdm-2020-event/
     - https://data-mining.philippe-fournier-viger.com/a-brief-report-about-the-ieee-icdm-2020-conference/
 
 - id: iclr20
@@ -2270,8 +2288,9 @@
     last_sha: 'f362c3d78f36ee99f04778346317e6948a7d086b'
     last_date: '2020-07-07'
   sources:
-    - https://syncedreview.com/2020/03/10/iclr-2020-cancelled-over-coronavirus-virtual-conference-arranged/
     - https://iclr.cc/Conferences/2020
+    - https://syncedreview.com/2020/03/10/iclr-2020-cancelled-over-coronavirus-virtual-conference-arranged/
+    - https://iclr.cc/virtual_2020/
 
 - id: icml20
   title: ICML
@@ -2306,6 +2325,9 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
+    - http://icmr2020.org/
+    - https://cvim.ipsj.or.jp/imageml-archive/image/2020-October/004137.html
+    - https://api.crossref.org/works/10.1145/3372278
     - https://repositum.tuwien.at/cris/events/events37224
     - https://confident-conference.org/index.php/Event:ICMR_2020
 
@@ -2329,6 +2351,8 @@
       - 'year: 2020 kept although the edition starts later (ICPR 2020 was postponed to January 2021; it stays the 2020 edition)'
   sources:
     - https://www.micc.unifi.it/icpr2020/
+    - https://cvim.ipsj.or.jp/imageml-archive/image/2020-March/003946.html
+    - https://vision.unipv.it/ettac2020/venue.html
 
 - id: icra20
   title: ICRA
@@ -2347,6 +2371,7 @@
     last_sha: 'c1c7659a8dab061ed9897a916c366b4bd0d3b4e2'
     last_date: '2020-09-16'
   sources:
+    - https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/ICRA2020/www.icra2020.org/
     - https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/ICRA2020/www.icra2020.org/about/press-kit.html
     - https://spectrum.ieee.org/virtual-icra-robotics-research-conference
 
@@ -2368,6 +2393,7 @@
     last_date: '2020-10-03'
   sources:
     - https://www.ijcai20.org/
+    - https://web.archive.org/web/20200105120643/http://ijcai20.org/
 
 - id: ijcnlpaacl20
   title: AACL-IJCNLP
@@ -2386,8 +2412,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://aaclweb.org/posts/2020-03-27-AACL-IJCNLP-2020
-    - https://aclweb.org/anthology/2020.aacl-main.0.pdf
+    - https://aclanthology.org/2020.aacl-main.0.pdf
 
 - id: inlg2020
   title: INLG
@@ -2406,7 +2431,8 @@
     last_sha: 'd0dc7648fd9e2f880fa4f0a78bda81cb6faf5ca5'
     last_date: '2020-05-22'
   sources:
-    - https://aclanthology.org/2020.inlg-1.0
+    - https://inlg2020.org/
+    - https://aclanthology.org/2020.inlg-1.0/
     - https://www.adaptcentre.ie/news-and-events/adapt-brings-major-digital-media-technology-conference-inlg-2020-to-dublin-next-week/
 
 - id: interspeech2020
@@ -2426,7 +2452,8 @@
     last_sha: '70e822a21dbcb1f68c987178755df2235266319d'
     last_date: '2021-01-22'
   sources:
-    - https://interspeech2020.org/
+    - https://www.interspeech2020.org/
+    - https://www.isca-archive.org/interspeech_2020/index.html
     - https://tech-blog.sonos.com/posts/takeaways-from-interspeech-2020-part-1/
 
 - id: iros20
@@ -2446,9 +2473,10 @@
     last_sha: '2feffc2fe53730b2912c9f41b1ee178c49ff1faa'
     last_date: '2020-11-10'
   sources:
-    - https://publica.fraunhofer.de/handle/publica/166128
     - https://ewh.ieee.org/soc/ras/conf/financiallycosponsored/IROS/IROS2020/www.iros2020.org/index-2.html
     - https://spectrum.ieee.org/iros-2020-online
+    - https://api.crossref.org/works?query.container-title=2020+IEEE/RSJ+International+Conference+on+Intelligent+Robots+and+Systems+(IROS)
+    - https://publica.fraunhofer.de/handle/publica/166128
 
 - id: ismir20
   title: ISMIR
@@ -2467,8 +2495,9 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://www.ismir2020.net/assets/img/ISMIR2020_Exit_Report.pdf
     - https://ismir2020.ismir.net/vISMIR2020/
+    - https://www.ismir2020.net/assets/img/ISMIR2020_Exit_Report.pdf
+    - https://ismir.github.io/ISMIR2020/
 
 - id: kdd20
   title: KDD
@@ -2487,8 +2516,8 @@
     last_sha: '591dee05c12f5f4dfbbcf4d809ffb3291ca50d2b'
     last_date: '2020-11-17'
   sources:
-    - https://www.acm.org/media-center/2020/august/sigkdd-2020
-    - https://www.kdnuggets.com/2020/08/kdd-2020-virtual-august.html
+    - https://www.kdd.org/kdd2020/
+    - https://web.archive.org/web/20191214075300/https://www.kdd.org/kdd2020/
 
 - id: miccai20
   title: MICCAI
@@ -2507,7 +2536,8 @@
     last_sha: 'c43c66be8f46d8d037f4e565b75e55fb9fb8b778'
     last_date: '2021-01-27'
   sources:
-    - https://miccai.org/index.php/news/2020/05/16/miccai-2020-goes-virtual
+    - https://www.miccai2020.org/en/
+    - https://web.archive.org/web/20200920001221/https://www.miccai.org/index.php/news/2020/05/16/miccai-2020-goes-virtual
 
 - id: midl20
   title: MIDL
@@ -2526,7 +2556,10 @@
     last_sha: '5a7561d23c7b62c7b93db6cb32aa3818a8edeffd'
     last_date: '2021-01-29'
   sources:
-    - https://2020.midl.io
+    - https://2020.midl.io/
+    - https://2020.midl.io/covid-19.html
+    - https://proceedings.mlr.press/v121/
+    - https://web.archive.org/web/20200128112741/https://2020.midl.io/
 
 - id: neurips20
   title: NeurIPS
@@ -2548,6 +2581,7 @@
       - 'place: Vancouver Convention Centre, Canada → Vancouver Convention Centre, Vancouver, Canada (PwC gives the venue in place of the city; the planned place, see the covid flag)'
   sources:
     - https://nips.cc/Conferences/2020
+    - https://web.archive.org/web/20200205230314/https://nips.cc/Conferences/2020/
 
 - id: recsys20
   title: RecSys
@@ -2584,7 +2618,9 @@
     fixes:
       - 'place: Oregon State University at Corvallis, Oregon → Oregon State University, Corvallis, United States (PwC gives the venue in place of the city; the planned place, see the covid flag)'
   sources:
-    - https://roboticsconference.org/2020
+    - https://roboticsconference.org/2020/
+    - https://web.archive.org/web/20191215033204/https://roboticsconference.org/
+    - https://www.roboticsproceedings.org/rss16/p001.html
 
 - id: siggraph20
   title: SIGGRAPH
@@ -2603,8 +2639,9 @@
     last_sha: '5010842aa2635c2001c1022e8739c64acadb5895'
     last_date: '2020-12-09'
   sources:
-    - https://cgw.com/Press-Center/Siggraph/2020/SIGGRAPH-2020-Now-Will-Be-Virtual.aspx
-    - https://blog.siggraph.org/2020/04/a-statement-on-behalf-of-the-siggraph-2020-conference.html
+    - https://blog.siggraph.org/2020/04/a-statement-on-behalf-of-the-siggraph-2020-conference.html/
+    - https://web.archive.org/web/20200819062532/https://s2020.siggraph.org/
+    - https://web.archive.org/web/20210723191121/https://s2020.siggraph.org/siggraph-2020-conference-goes-virtual-with-2-week-event-in-august/
 
 - id: sigir20
   title: SIGIR
@@ -2624,6 +2661,7 @@
     last_date: '2020-09-03'
   sources:
     - https://sigir.org/sigir2020/
+    - https://sigir.org/general-information/history/
 
 - id: uai20
   title: UAI
@@ -2643,7 +2681,8 @@
     last_date: '2020-12-02'
   sources:
     - https://proceedings.mlr.press/v124/
-    - http://auai.org/uai2020/
+    - https://www.auai.org/uai2020/
+    - https://web.archive.org/web/20191220110357/http://www.auai.org/uai2020/
 
 - id: wacv20
   title: WACV
@@ -2654,6 +2693,7 @@
   format: in_person
   city: Snowmass Village
   country: United States
+  venue: Westin Snowmass Resort
   tags: [computer-vision]
   source: pwc
   pwc:
@@ -2663,7 +2703,7 @@
     last_sha: '910682990c6c1f7cb3f36b027a8d330310472361'
     last_date: '2020-08-20'
   sources:
-    - https://visionscience.com/pipermail/visionlist_visionscience.com/2019/003244.html
+    - https://web.archive.org/web/20200304051527/http://wacv20.wacv.net/
 
 - id: wsdm20
   title: WSDM
@@ -2700,8 +2740,7 @@
     last_sha: 'd9d15b5c4fa7ac7d3639955a23372efa08691e2e'
     last_date: '2019-11-24'
   sources:
-    - https://www2020.thewebconf.org
-    - https://archives.iw3c2.org/www2020
+    - https://archives.iw3c2.org/www2020/
 
 - id: aaai21
   title: AAAI
@@ -2720,6 +2759,7 @@
     last_sha: '877c9c07715a375bec2586d6b3e4c5eda8e435c6'
     last_date: '2021-05-15'
   sources:
+    - https://aaai.org/conference/aaai/aaai-21/
     - https://ojs.aaai.org/index.php/AAAI/issue/view/387
 
 - id: aamas21
@@ -2739,6 +2779,7 @@
     last_sha: 'c3091fa2ca194c4299467faa187579af52455f35'
     last_date: '2023-01-23'
   sources:
+    - https://aamas2021.soton.ac.uk/
     - https://aamas2021.soton.ac.uk/?p=749
 
 - id: acl21
@@ -2759,8 +2800,9 @@
     last_sha: '53feb6fa2088b7bb7a9b9d3fc8a162bbcae290cb'
     last_date: '2021-07-04'
   sources:
-    - https://2021.aclweb.org/
+    - https://web.archive.org/web/20210730133848/https://2021.aclweb.org/
     - https://aclanthology.org/events/acl-2021/
+    - https://2021.aclweb.org/
 
 - id: acm21
   title: ACM MM
@@ -2782,7 +2824,7 @@
     fixes:
       - 'title: MM → ACM MM'
   sources:
-    - https://records.sigmm.org/reports-from-acm-multimedia-2021/
+    - https://records.sigmm.org/2021/11/23/reports-from-acm-multimedia-2021/
 
 - id: acml21
   title: ACML
@@ -2819,7 +2861,8 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://www.aistats.org/aistats2021/
+    - https://aistats.org/aistats2021/
+    - https://proceedings.mlr.press/v130/
 
 - id: akbc21
   title: AKBC
@@ -2829,7 +2872,7 @@
   end: '2021-10-08'
   format: virtual
   tags: [natural-language-processing]
-  notes: 'Held online (planned: Irvine, United States).'
+  notes: Held online.
   source: pwc
   pwc:
     ids: [akbc21]
@@ -2839,6 +2882,8 @@
     last_date: '2024-09-15'
   sources:
     - https://www.akbc.ws/2021/
+    - https://www.akbc.ws/2021/cfp/
+    - https://www.akbc.ws/2020/
 
 - id: bmvc21
   title: BMVC
@@ -2889,8 +2934,9 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://ir.webis.de/anthology/venues/streams+conf+cikm/2021
+    - https://www.cikm2021.org/
     - https://research.cs.wisc.edu/dbworld/messages/2021-04/1618560701.html
+    - https://ir.webis.de/anthology/venues/streams+conf+cikm/2021
 
 - id: corl21
   title: CoRL
@@ -2927,8 +2973,9 @@
     last_sha: 'fad30b8a1e15c9fe160d4982379650d496167a74'
     last_date: '2021-06-29'
   sources:
-    - https://cvpr2021.thecvf.com/
-    - https://computer.org/press-room/2021-news/cvpr-2021-to-unveil-latest-research
+    - https://www.computer.org/press-room/2021-news/cvpr-2021-to-unveil-latest-research
+    - https://web.archive.org/web/20220101172450/https://cvpr2021.thecvf.com/
+    - https://web.archive.org/web/20200608132539/http://cvpr2021.thecvf.com/
 
 - id: eacl21
   title: EACL
@@ -2964,8 +3011,8 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://link.springer.com/10.1007/978-3-030-86517-7
-    - https://www.bcamath.org/eclm-pkdd-2021
+    - https://web.archive.org/web/20211215165933/https://2021.ecmlpkdd.org/
+    - https://www.bcamath.org/en/eclm-pkdd-2021
 
 - id: emnlp21
   title: EMNLP
@@ -2986,6 +3033,7 @@
     last_date: '2024-09-15'
   sources:
     - https://2021.emnlp.org/
+    - https://aclanthology.org/2021.emnlp-main.0.pdf
 
 - id: fg21
   title: FG
@@ -3004,6 +3052,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
+    - https://iab-rubric.org/fg2021/
     - https://ieee-biometrics.org/conferences/flagship/fg/
 
 - id: icaps21
@@ -3043,6 +3092,7 @@
     last_sha: '124b444e0de11eee4083a486828b29e3211bfcbb'
     last_date: '2021-06-28'
   sources:
+    - https://web.archive.org/web/20210419083128/https://2021.ieeeicassp.org/
     - https://www.2021.ieeeicassp.org/2021.ieeeicassp.org/
 
 - id: iccv21
@@ -3062,8 +3112,8 @@
     last_sha: '24f66552caaf32917daaefd0274e0c1336a7e149'
     last_date: '2022-06-22'
   sources:
-    - https://iccv2021.thecvf.com/
-    - https://infoscience.epfl.ch/entities/event/d8f8f025-0c36-4097-bcea-96d95ec25430/statistics
+    - https://web.archive.org/web/20211016060451/https://iccv2021.thecvf.com/
+    - https://web.archive.org/web/20200726095029/http://iccv2021.thecvf.com/
 
 - id: icdm21
   title: ICDM
@@ -3101,7 +3151,8 @@
     last_sha: '9d65060e01fb88b8fa99ffd841833562ec6580be'
     last_date: '2023-01-23'
   sources:
-    - https://www2.securecms.com/ICIP2021
+    - https://www.2021.ieeeicip.org/
+    - https://web.archive.org/web/20210921045344/https://www.2021.ieeeicip.org/
 
 - id: iclr21
   title: ICLR
@@ -3121,6 +3172,7 @@
     last_date: '2021-06-24'
   sources:
     - https://iclr.cc/Conferences/2021
+    - https://iclr.cc/Conferences/2021/CallForSocials
 
 - id: icme21
   title: ICME
@@ -3128,10 +3180,9 @@
   link: https://2021.ieeeicme.org/
   start: '2021-07-05'
   end: '2021-07-09'
-  format: in_person
-  city: Shenzhen
-  country: China
+  format: virtual
   tags: [computer-vision]
+  notes: 'Held online (planned: Shenzhen, China).'
   source: pwc
   pwc:
     ids: [icme21]
@@ -3140,6 +3191,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
+    - https://2021.ieeeicme.org/2021.ieeeicme.org/index.html
     - https://signalprocessingsociety.org/events/icme-2021-2021-ieee-international-conference-multimedia-and-expo
 
 - id: icmi21
@@ -3161,6 +3213,7 @@
     last_date: '2022-02-16'
   sources:
     - https://icmi.acm.org/2021/
+    - https://api.crossref.org/works/10.1145/3462244
 
 - id: icml21
   title: ICML
@@ -3180,12 +3233,13 @@
     last_date: '2021-11-16'
   sources:
     - https://icml.cc/Conferences/2021
-    - https://www.dfg.de/en/about-us/international-cooperation/research-marketing/reports/2021/210630-ankuendigung-icml2021
+    - https://icml.cc/Conferences/2021/Dates
+    - https://web.archive.org/web/20200929001816/https://icml.cc/Conferences/2021
 
 - id: icra21
   title: ICRA
   year: 2021
-  link: https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021
+  link: https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/icra2021/icra2021/web.archive.org/web/20210531183741/https_/www.ieee-icra.org/index.html
   start: '2021-05-30'
   end: '2021-06-05'
   format: hybrid
@@ -3203,8 +3257,9 @@
     fixes:
       - 'year: 2020 → 2021 (year says 2020, but the dates and place are those of ICRA 2021)'
   sources:
-    - https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021
-    - https://dblp.dagstuhl.de/db/conf/icra/index.html
+    - https://ewh.ieee.org/soc/ras/conf/fullysponsored/icra/icra2021/icra2021/web.archive.org/web/20210531183741/https_/www.ieee-icra.org/index.html
+    - https://ieeexplore.ieee.org/abstract/document/9535348
+    - https://web.archive.org/web/20210507001744/https://www.ieee-ras.org/about-ras/ras-calendar/event/1920-icra-2021
 
 - id: ijcai21
   title: IJCAI
@@ -3244,6 +3299,7 @@
     last_date: '2023-01-23'
   sources:
     - https://www.interspeech2021.org/
+    - https://www.isca-archive.org/interspeech_2021/index.html
 
 - id: iros21
   title: IROS
@@ -3262,9 +3318,8 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://dblp.uni-trier.de/db/conf/iros
-    - https://infoscience.epfl.ch/handle/20.500.14299/180555
-    - https://guarant.cz/?p=8765
+    - https://web.archive.org/web/20210926225537/https://www.iros2021.org/
+    - https://api.crossref.org/works?query.container-title=2021+IEEE/RSJ+International+Conference+on+Intelligent+Robots+and+Systems+(IROS)
 
 - id: kdd21
   title: KDD
@@ -3283,7 +3338,9 @@
     last_sha: '3313490094a4590ea8a803bc8e403f922f173a68'
     last_date: '2021-12-16'
   sources:
-    - https://www.datanami.com/this-just-in/kdd-2021-data-science-conference-will-convene-aug-14-18/
+    - https://www.kdd.org/kdd2021/
+    - https://computing.smu.edu.sg/news/2021/jul/27/kdd-2021-data-science-conference-welcomes-singapore-senior-minister-state-dr-janil
+    - https://web.archive.org/web/20201023050529/https://www.kdd.org/kdd2021/
 
 - id: miccai21
   title: MICCAI
@@ -3302,6 +3359,7 @@
     last_sha: '9d65060e01fb88b8fa99ffd841833562ec6580be'
     last_date: '2023-01-23'
   sources:
+    - https://www.miccai2021.org/en/
     - https://healthtech.unistra.fr/events/miccai-conference
     - https://www.healthmanagement.org/s/miccai-2021
 
@@ -3323,6 +3381,7 @@
     last_date: '2024-09-15'
   sources:
     - https://2021.midl.io/
+    - https://2021.midl.io/covid-19.html
 
 - id: naacl21
   title: NAACL-HLT
@@ -3342,6 +3401,8 @@
     last_date: '2021-08-02'
   sources:
     - https://2021.naacl.org/
+    - https://aclanthology.org/events/naacl-2021/
+    - https://web.archive.org/web/20200724011052/https://2021.naacl.org/
 
 - id: neurips21
   title: NeurIPS
@@ -3444,7 +3505,9 @@
     last_sha: 'b954cb30367cfcd96374bede67e4a942ff397717'
     last_date: '2021-11-17'
   sources:
-    - https://ir.webis.de/anthology/2021.sigirconf_conference-2021.0
+    - https://sigir.org/sigir2021/
+    - https://web.archive.org/web/20200805075946/http://sigir.org/sigir2021/
+    - https://sigir.org/general-information/history/
     - https://research.engineering.nyu.edu/~suel/papers/sigir21-report.pdf
 
 - id: uai21
@@ -3465,7 +3528,7 @@
     fixes:
       - 'place: TBD → virtual (PwC place is "TBD"; UAI 2021 was held online, per auai.org/uai2021)'
   sources:
-    - http://auai.org/uai2021/
+    - https://www.auai.org/uai2021/
 
 - id: wacv21
   title: WACV
@@ -3484,7 +3547,8 @@
     last_sha: 'e917f18a1408ff2e4889381539b2a4b622edb006'
     last_date: '2021-04-22'
   sources:
-    - https://wacv2021.thecvf.com/
+    - https://web.archive.org/web/20220101172357/https://wacv2021.thecvf.com/
+    - https://web.archive.org/web/20200728122000/http://wacv2021.thecvf.com/
 
 - id: wsdm21
   title: WSDM
@@ -3503,8 +3567,8 @@
     last_sha: 'f6a01e54e53e727315b5b1603846150404e0df06'
     last_date: '2020-09-08'
   sources:
+    - http://www.wsdm-conference.org/2021/
     - https://easychair.org/cfp/WSDM2021
-    - https://ir.webis.de/anthology/2021.wsdm_conference-2021.0
 
 - id: www21
   title: WWW
@@ -3523,7 +3587,7 @@
     last_sha: '877c9c07715a375bec2586d6b3e4c5eda8e435c6'
     last_date: '2021-05-15'
   sources:
-    - https://archives.iw3c2.org/www2021
+    - https://archives.iw3c2.org/www2021/
 
 - id: aaai22
   title: AAAI
@@ -3567,7 +3631,7 @@
   link: https://2022.acmmm.org/
   start: '2022-10-10'
   end: '2022-10-14'
-  format: in_person
+  format: hybrid
   city: Lisbon
   country: Portugal
   tags: [computer-vision]
@@ -3581,7 +3645,8 @@
     fixes:
       - 'title: MM → ACM MM'
   sources:
-    - https://2022.acmmm.org/
+    - https://web.archive.org/web/20230102054405/https://2022.acmmm.org/
+    - https://records.sigmm.org/2022/12/14/students-report-from-acm-multimedia-2022/
 
 - id: acml22
   title: ACML
@@ -3658,8 +3723,8 @@
     fixes:
       - 'place: London → London, United Kingdom (PwC gives no country)'
   sources:
-    - https://conferences.visionbib.com/2022/bmvc-11-22-call.html
-    - https://www.citystgeorges.ac.uk/news-and-events/news/2022/11/dr-constantino-carlos-reyes-aldasoro-co-chairs-british-machine-vision-conference-bmvc
+    - https://bmvc2022.cvml.group/
+    - https://bmvc2022.cvml.group/attending/venue/
 
 - id: chil22
   title: CHIL
@@ -3958,6 +4023,7 @@
   format: hybrid
   city: Baltimore
   country: United States
+  venue: Baltimore Convention Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -3970,7 +4036,8 @@
       - 'place: Baltimore, Maryland USA → Baltimore, United States ("Maryland USA" lacks a comma)'
   sources:
     - https://icml.cc/Conferences/2022
-    - https://media.icml.cc/Conferences/ICML2024/ICML2024_Fact_Sheet.pdf
+    - https://icml.cc/Conferences/2022/Pricing
+    - https://icml.cc/Conferences/2022/Dates
 
 - id: icra22
   title: ICRA
@@ -3999,6 +4066,7 @@
   format: hybrid
   city: Atlanta
   country: United States
+  venue: Georgia Tech Hotel and Conference Center
   tags: [data-mining]
   source: pwc
   pwc:
@@ -4148,9 +4216,9 @@
   start: '2022-06-23'
   end: '2022-06-24'
   format: in_person
-  city: Stanford
+  city: Palo Alto
   country: United States
-  venue: Stanford University
+  venue: Palo Alto Event Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -4183,7 +4251,7 @@
     fixes:
       - 'title: LOG → LoG'
   sources:
-    - https://logconference.org/
+    - https://web.archive.org/web/20221210135146/https://logconference.org/
 
 - id: lrec22
   title: LREC
@@ -4500,6 +4568,7 @@
       - 'title: MM → ACM MM'
   sources:
     - https://www.acmmm2023.org/
+    - https://www.acmmm2023.org/dates/
 
 - id: acml23
   title: ACML
@@ -4935,7 +5004,7 @@
     fixes:
       - 'place: ExCeL London, UK → ExCeL London, London, United Kingdom (PwC gives the venue in place of the city)'
   sources:
-    - https://www.icra2023.org/
+    - https://www.ieee-ras.org/icra-2023-registration-now-open/
 
 - id: ijcai23
   title: IJCAI
@@ -4998,7 +5067,8 @@
       - 'start: 2023-08-30 → 2023-08-20 (start/end say August 30 - September 3; Interspeech 2023 ran August 20-24, as the date text says)'
       - 'end: 2023-09-03 → 2023-08-24 (start/end say August 30 - September 3; Interspeech 2023 ran August 20-24, as the date text says)'
   sources:
-    - http://www.interspeech2023.org/
+    - https://interspeech2023.org/
+    - https://www.isca-archive.org/interspeech_2023/index.html
 
 - id: iros23
   title: IROS
@@ -5350,7 +5420,7 @@
       - "end: 2022-05-04 → 2023-05-04 (start/end and date text say 2022; WWW '23 ran April 30 - May 4, 2023)"
       - "place: Texas, USA → Austin, United States (PwC gives only the state; WWW '23 was in Austin, Texas)"
   sources:
-    - https://www2023.thewebconf.org/
+    - https://archives.iw3c2.org/www2023/
 
 - id: 3dv24
   title: 3DV
@@ -5513,7 +5583,7 @@
   format: in_person
   city: Glasgow
   country: United Kingdom
-  tags: [machine-learning]
+  tags: [computer-vision]
   source: pwc
   pwc:
     ids: [bmvc24]
@@ -5585,7 +5655,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://cikm2024.org/
+    - https://web.archive.org/web/20240927153220/https://cikm2024.org/
 
 - id: clear24
   title: CLeaR
@@ -5684,6 +5754,7 @@
     last_date: '2024-09-15'
   sources:
     - https://cscw.acm.org/2024/
+    - https://cscw.acm.org/2024/index.php/hybrid-experience/
     - https://sigchi.org/events/cscw-2024/
 
 - id: cvpr24
@@ -5746,7 +5817,7 @@
 - id: eccv24
   title: ECCV
   year: 2024
-  link: https://eccv2024.ecva.net/
+  link: https://eccv2024.ecva.net/Conferences/2024
   start: '2024-09-29'
   end: '2024-10-04'
   format: in_person
@@ -5761,7 +5832,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://eccv2024.ecva.net/
+    - https://eccv2024.ecva.net/Conferences/2024
 
 - id: ecir24
   title: ECIR
@@ -5857,6 +5928,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
+    - https://www.iberamia.org/iberamia/iberamia2024/
     - https://www.iberamia.org/iberamia/?p=39
 
 - id: icaps24
@@ -6101,8 +6173,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://logconference.org
-    - https://vu.nl/en/events/2024/local-meeet-up-learning-on-graphs-conference
+    - https://web.archive.org/web/20241207015835/https://logconference.org/
 
 - id: lreccoling24
   title: LREC-COLING
@@ -6259,6 +6330,7 @@
       - 'start: 2024-04-01 → 2024-04-09 (start/end are a placeholder for "April 2024"; SaTML 2024 ran April 9-11, per dblp)'
       - 'end: 2024-04-01 → 2024-04-11 (start/end are a placeholder for "April 2024"; SaTML 2024 ran April 9-11, per dblp)'
   sources:
+    - https://web.archive.org/web/20240229174142/https://satml.org/
     - https://srinstitute.utoronto.ca/news/satml-secure-trustworthy-machine-learning-24
     - https://computer.org/csdl/proceedings/satml/2024/1WPEAxGltfi
 
@@ -6340,8 +6412,8 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://spaice.esa.int/2024/
-    - https://esa.int/gsp/ACT/news/2024-01-26-SPAICE2024
+    - https://web.archive.org/web/20250119215113/https://spaice.esa.int/
+    - https://zenodo.org/api/records/13889941
     - https://zenodo.org/records/13889941
 
 - id: specom24
@@ -6351,9 +6423,10 @@
   link: https://specom2024.ftn.uns.ac.rs
   start: '2024-11-25'
   end: '2024-11-28'
-  format: in_person
+  format: hybrid
   city: Belgrade
   country: Serbia
+  venue: Crowne Plaza Belgrade
   tags: [speech, signal-processing]
   source: pwc
   pwc:
@@ -6363,7 +6436,7 @@
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
   sources:
-    - https://specom2024.ftn.uns.ac.rs
+    - https://web.archive.org/web/20241126141414/https://specom2024.ftn.uns.ac.rs/
 
 - id: uai24
   title: UAI
@@ -6421,4 +6494,4 @@
     last_sha: 'adb937804f063de8ede3298b576acbcd991b228c'
     last_date: '2024-09-15'
   sources:
-    - https://conferences.visionbib.com/2025/3dv-3-25-call.html
+    - https://web.archive.org/web/20241010071243/https://conferences.visionbib.com/2025/3dv-3-25-call.html

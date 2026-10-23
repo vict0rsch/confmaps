@@ -966,7 +966,7 @@
       "id": "hri20@main",
       "link": "https://humanrobotinteraction.org/2020/",
       "name": "HRI 2020",
-      "notes": "Held online (planned: Cambridge, United Kingdom).",
+      "notes": "In-person event (Cambridge, UK) cancelled; content released online from April 2020.",
       "official": true,
       "presentsPapers": true,
       "role": "main",
@@ -1320,7 +1320,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2020-03-02"
+      "start": "2020-03-02",
+      "venue": "Westin Snowmass Resort"
     },
     {
       "access": "registration",
