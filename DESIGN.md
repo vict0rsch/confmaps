@@ -247,7 +247,8 @@ Purpose: find satellites the owner would never hear about, especially community 
 - **Workflow (`discover.yml`):** two jobs. `research` runs in the `discovery` environment (the only
   place `ANTHROPIC_API_KEY` exists), with a read-only token; it validates and uploads the proposal as
   an artifact. `propose` has no Anthropic key and runs no repository code (git, gh, jq only): it
-  commits the two data files, pushes a branch and opens the PR.
+  commits the allowlisted generated files (`satellites.yml`, `geocache.json`,
+  `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
 - **CI on agent PRs:** PRs opened with `GITHUB_TOKEN` do not trigger `pull_request` workflows, so the
   `propose` job runs `gh workflow run ci.yml --ref <branch>` (`ci.yml` has `workflow_dispatch`). A
   GitHub App token or fine-grained PAT would make this unnecessary (§11).
@@ -388,7 +389,9 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   (`confmaps:home`) only (wrapped in try/catch; app works without it).
 - **Not in URLs by default.** Share dialog has an opt-in "Include my city in the link", which adds
   `home=<geonameid>` (the id only). A recipient's `home` applies **for that visit only**: it is
-  not persisted and is stripped from the address bar afterwards.
+  not persisted and is stripped from the address bar afterwards. Likewise, shared CO₂ views carry all
+  travel settings (`mode`, `thr`, `units`), applied for that visit only with a notice and a "Use mine"
+  button. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
 
 ### 6.6 URL state
@@ -497,7 +500,9 @@ All third-party actions are pinned to commit SHAs.
   manual runs) so the **archive-shrink check** compares against the base commit's archive.
 - `deploy.yml` — runs via `workflow_run` **after a green CI on a push to `main`** (never for PRs),
   via `workflow_call` from `sync.yml` (its `GITHUB_TOKEN` push triggers no CI), and manually.
-  Builds with `VITE_GOATCOUNTER_CODE` and publishes to Pages.
+  A gate job skips (with a notice) any SHA that is not the current tip of `main`, so a late CI
+  completion cannot roll production back, and manual dispatch on a non-main ref; the check is
+  repeated right before `deploy-pages`. Builds with `VITE_GOATCOUNTER_CODE` and publishes to Pages.
 - `sync.yml` — daily cron + manual. Two jobs: `build` (read-only token; runs `data:build`,
   `data:validate --require-against HEAD`, tests; uploads `data/`) and `commit` (write token, runs
   no project code: commits the data if changed, citing the upstream SHA, and pushes). Then calls

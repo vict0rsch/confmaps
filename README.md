@@ -62,3 +62,8 @@ Do Not Track and Global Privacy Control are respected.
 
 Full licence texts, attributions and the modification notices are in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), also shown in the app under "Data & credits".
+
+## License
+
+Code: [Apache License 2.0](LICENSE). Third-party data, fonts and tiles keep their own licences; see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
