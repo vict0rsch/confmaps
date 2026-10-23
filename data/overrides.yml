@@ -36,3 +36,25 @@ lrec26@main:
   reason: >-
     Nominatim resolves "Palma, Mallorca, Spain" to Palma de Mallorca Airport; these are the
     coordinates of the Palma municipality (Nominatim "Palma", countrycodes=es).
+
+aistats18@main:
+  lat: 28.8631949
+  lng: -13.8298966
+  reason: >-
+    Nominatim resolves "Lanzarote, Spain" to the island's centroid; AISTATS 2018 was held in Playa
+    Blanca, Lanzarote (Nominatim "Playa Blanca, Yaiza", countrycodes=es).
+
+ijcnlpaacl23@main:
+  lat: -8.8016777
+  lng: 115.2239305
+  reason: >-
+    Nominatim resolves "Bali, Indonesia" to the province's centroid; IJCNLP-AACL 2023 was held in
+    Nusa Dua, Bali (Nominatim "Nusa Dua, Bali", countrycodes=id).
+
+wacv18@main:
+  lat: 38.9630669
+  lng: -119.939946
+  reason: >-
+    Nominatim resolves "Lake Tahoe, United States" to the lake itself; WACV 2018 was held at the
+    Stateline, Nevada casino resorts on the lake's south shore (Nominatim "Stateline, Nevada",
+    village).
