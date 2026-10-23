@@ -31,7 +31,7 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 
 import httpx
 
-from .agent import ACCESS_VALUES, FIELD_SCHEMAS, REQUIRED_FIELDS
+from .agent import FIELD_SCHEMAS, REQUIRED_FIELDS
 from .geo import GeoHit
 
 USER_AGENT = "confmaps.org discovery (+https://confmaps.org)"
@@ -55,7 +55,13 @@ LINKED = "linked from source page"
 SAME_SITE = "same site as source page"
 DERIVED = "derived from geocoded city"
 JUDGEMENT = "model judgement (quote shown)"
-VERIFIED_KINDS = {VALUE_IN_QUOTE, DATE_IN_QUOTE, LINKED, SAME_SITE, DERIVED}
+# Past editions (``past_verify``): a virtual / hybrid format stated by the quote, and the
+# in-person default for editions held before the COVID-19 pandemic.
+FORMAT_IN_QUOTE = "quote on page, format in quote"
+PRE2020_DEFAULT = "derived: in person (pre-2020 default)"
+VERIFIED_KINDS = {
+    VALUE_IN_QUOTE, DATE_IN_QUOTE, LINKED, SAME_SITE, DERIVED, FORMAT_IN_QUOTE, PRE2020_DEFAULT
+}  # fmt: skip
 
 _DASHES = dict.fromkeys(map(ord, "\u2010\u2011\u2012\u2013\u2014\u2015\u2212"), "-")
 _QUOTES = {ord(c): "'" for c in "\u2018\u2019\u201a\u201b\u2032"} | {
@@ -691,14 +697,33 @@ def date_in_quote(iso: str, quote: str) -> bool:
     return small.count(d.month) >= needed
 
 
-def coerce_value(name: str, value: Any) -> tuple[Any, str]:
+def coerce_value(
+    name: str, value: Any, schemas: dict[str, dict[str, Any]] = FIELD_SCHEMAS
+) -> tuple[Any, str]:
     """Validate a field value. Returns ``(value, "")`` or ``(None, reason)``.
 
     Strings are stripped and single-lined; ``link`` must be a safe http(s) URL (stored in
-    canonical form); dates must be valid ISO dates; booleans must be booleans; ``access`` must
-    be one of the allowed values.
+    canonical form); dates must be valid ISO dates; booleans must be booleans; enum fields
+    (``access``, past ``format``) must be one of the allowed values.
+
+    Parameters
+    ----------
+    name : str
+        Field name.
+    value : Any
+        The model's value.
+    schemas : dict, optional
+        Field name → JSON schema of the value (satellite fields by default).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        coerce_value("access", "open")  # ("open", "")
+        coerce_value("start", "2026-2-1")  # (None, "not a YYYY-MM-DD date")
     """
-    kind = FIELD_SCHEMAS[name]["type"]
+    schema = schemas[name]
+    kind = schema["type"]
     if kind == "boolean":
         return (value, "") if isinstance(value, bool) else (None, "not a boolean")
     if not isinstance(value, str):
@@ -711,8 +736,8 @@ def coerce_value(name: str, value: Any) -> tuple[Any, str]:
     value = re.sub(r"\s+", " ", value).strip()
     if not value:
         return None, "empty"
-    if name == "access" and value not in ACCESS_VALUES:
-        return None, f"access must be one of {', '.join(ACCESS_VALUES)}"
+    if "enum" in schema and value not in schema["enum"]:
+        return None, f"{name} must be one of {', '.join(schema['enum'])}"
     if name in DATE_FIELDS:
         try:
             date.fromisoformat(value)
@@ -770,13 +795,58 @@ class Checked:
 Geocode = Callable[[str, str], GeoHit | None]
 
 
-def _check_field(name: str, ev: dict[str, Any], get_page: Callable[[str], Page]) -> FieldCheck:
+# How each satellite field is checked (see the module docstring).
+RULES: dict[str, str] = {
+    **dict.fromkeys(STRING_FIELDS, "string"),
+    **dict.fromkeys(DATE_FIELDS, "date"),
+    "link": "link",
+    **dict.fromkeys(JUDGEMENT_FIELDS, "judgement"),
+}
+
+
+def check_field(
+    name: str,
+    ev: dict[str, Any],
+    get_page: Callable[[str], Page],
+    rule: str | None = None,
+    schemas: dict[str, dict[str, Any]] = FIELD_SCHEMAS,
+) -> FieldCheck:
+    """Check one ``{value, source_url, quote}`` field against its downloaded source page.
+
+    Parameters
+    ----------
+    name : str
+        Field name.
+    ev : dict
+        The model's evidence object.
+    get_page : callable
+        ``url -> Page``.
+    rule : {"string", "date", "link", "judgement"}, optional
+        Check to apply; :data:`RULES` of ``name`` by default. ``string``: value in quote;
+        ``date``: date in quote; ``link``: on the source page or same site; ``judgement``: a
+        longer quote on the page (whether it supports the value is the model's judgement).
+    schemas : dict, optional
+        Field name → value schema, for :func:`coerce_value`.
+
+    Returns
+    -------
+    FieldCheck
+        ``kind`` set when the check passed, else ``reason`` (and ``detail``).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        chk = check_field("city", ev("Atlanta", url, "held in Atlanta, GA"), fetcher.get)
+        chk.kind  # VALUE_IN_QUOTE
+    """
+    rule = rule or RULES[name]
     url, quote = ev.get("source_url"), ev.get("quote")
     check = FieldCheck(name, ev.get("value"), str(url or ""), str(quote or ""))
     if not isinstance(url, str) or not isinstance(quote, str):
         check.reason = "malformed evidence"
         return check
-    value, problem = coerce_value(name, ev.get("value"))
+    value, problem = coerce_value(name, ev.get("value"), schemas)
     if problem:
         check.reason, check.detail = "invalid value", problem
         return check
@@ -791,7 +861,7 @@ def _check_field(name: str, ev: dict[str, Any], get_page: Callable[[str], Page])
         check.detail = f"{page.error} {page.detail}".strip()
         return check
 
-    if name == "link":
+    if rule == "link":
         if _link_key(value) in page.links:
             check.kind = LINKED
         elif same_site(value, check.source_url):
@@ -800,25 +870,44 @@ def _check_field(name: str, ev: dict[str, Any], get_page: Callable[[str], Page])
             check.reason = "link neither on the source page nor on its site"
         return check
 
-    min_chars = MIN_JUDGEMENT_QUOTE_CHARS if name in JUDGEMENT_FIELDS else MIN_QUOTE_CHARS
+    min_chars = MIN_JUDGEMENT_QUOTE_CHARS if rule == "judgement" else MIN_QUOTE_CHARS
     if not quote_long_enough(quote, min_chars):
         check.reason = "quote too short"
         check.detail = f"needs {min_chars}+ characters and {MIN_QUOTE_WORDS}+ words"
     elif not quote_on_page(quote, page.text):
         check.reason = "quote not found on source page"
-    elif name in STRING_FIELDS and not value_in_quote(value, quote):
+    elif rule == "string" and not value_in_quote(value, quote):
         check.reason = "value not in quote"
-    elif name in DATE_FIELDS and not date_in_quote(value, quote):
+    elif rule == "date" and not date_in_quote(value, quote):
         check.reason = "date not in quote"
     else:
-        check.kind = (
-            VALUE_IN_QUOTE
-            if name in STRING_FIELDS
-            else DATE_IN_QUOTE
-            if name in DATE_FIELDS
-            else JUDGEMENT
-        )
+        check.kind = {"string": VALUE_IN_QUOTE, "date": DATE_IN_QUOTE}.get(rule, JUDGEMENT)
     return check
+
+
+def resolve_country(out: Checked, geocode: Geocode) -> None:
+    """Geocode the verified city in the claimed country; derive the country from a hit.
+
+    The country is kept if a quote names it (:data:`VALUE_IN_QUOTE`) or, failing that, if the
+    verified city geocodes in that country (:data:`DERIVED`). ``out.geo`` is the hit, or
+    ``None`` when the city is not found there (callers drop such candidates).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        resolve_country(checked, Geocoder(geocache))
+        checked.kinds.get("country")  # VALUE_IN_QUOTE, DERIVED or None
+    """
+    country_check = next((c for c in out.checks if c.field == "country"), None)
+    country = country_check.value if country_check and isinstance(country_check.value, str) else ""
+    if "city" in out.fields and country:
+        out.geo = geocode(out.fields["city"], country)
+        if out.geo is not None and "country" not in out.fields:
+            assert country_check is not None
+            country_check.kind, country_check.reason, country_check.detail = DERIVED, "", ""
+            out.fields["country"] = country
+            out.kinds["country"] = DERIVED
 
 
 def check_candidate(
@@ -859,23 +948,14 @@ def check_candidate(
         ev = raw.get(name)
         if not isinstance(ev, dict):
             continue
-        check = _check_field(name, ev, get_page)
+        check = check_field(name, ev, get_page)
         out.checks.append(check)
         if check.kept:
             out.fields[name] = check.value
             out.kinds[name] = check.kind
             out.sources[name] = check.source_url
 
-    # Country: a quote naming it, or derived from the verified city via the geocoder.
-    country_check = next((c for c in out.checks if c.field == "country"), None)
-    country = country_check.value if country_check and isinstance(country_check.value, str) else ""
-    if "city" in out.fields and country:
-        out.geo = geocode(out.fields["city"], country)
-        if out.geo is not None and "country" not in out.fields:
-            assert country_check is not None
-            country_check.kind, country_check.reason, country_check.detail = DERIVED, "", ""
-            out.fields["country"] = country
-            out.kinds["country"] = DERIVED
+    resolve_country(out, geocode)
 
     def drop(reason: str, detail: str = "") -> Checked:
         out.dropped, out.dropped_detail = reason, detail
