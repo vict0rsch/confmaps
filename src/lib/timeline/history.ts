@@ -162,6 +162,65 @@ export function stopLabels(stops: readonly Stop[], upTo: number): StopLabel[] {
   return out.map(({ list, ...l }) => ({ ...l, years: list.sort().join(' · ') }));
 }
 
+/** Labels drawn as one: anchored at the topmost stop, one row per stop, earliest first. */
+export type LabelGroup = { lng: number; lat: number; rows: { years: string; city: string }[] };
+
+/**
+ * Merge labels that would overlap on screen at `zoom` (e.g. Long Beach 2017 and San Diego 2025
+ * at world scale) into one stacked label, so every year stays readable and none is hidden.
+ * Label boxes are estimated from their text (12 px years over a smaller city, above the pin).
+ */
+export function mergeCloseLabels(labels: readonly StopLabel[], zoom: number): LabelGroup[] {
+  const world = 512 * 2 ** zoom;
+  const px = (l: LngLat) => ({
+    x: ((l.lng + 180) / 360) * world,
+    y: ((1 - Math.asinh(Math.tan((l.lat * Math.PI) / 180)) / Math.PI) / 2) * world,
+  });
+  // A box above the anchor (bottom 12 px over it): stacked rows when merged, two lines otherwise.
+  const box = (g: LabelGroup) => {
+    const { x, y } = px(g);
+    const one = g.rows.length === 1;
+    const w = Math.max(
+      ...g.rows.map((r) =>
+        one
+          ? Math.max(r.years.length * 7, r.city.length * 6)
+          : (r.years.length + r.city.length) * 7,
+      ),
+    );
+    const h = one ? 30 : g.rows.length * 15;
+    return { left: x - w / 2, right: x + w / 2, top: y - 12 - h, bottom: y - 12 };
+  };
+  const GAP = 4;
+  const overlap = (a: LabelGroup, b: LabelGroup) => {
+    const [p, q] = [box(a), box(b)];
+    return (
+      p.left < q.right + GAP &&
+      q.left < p.right + GAP &&
+      p.top < q.bottom + GAP &&
+      q.top < p.bottom + GAP
+    );
+  };
+  const groups: LabelGroup[] = labels.map((l) => ({
+    lng: l.lng,
+    lat: l.lat,
+    rows: [{ years: l.years, city: l.city }],
+  }));
+  for (let i = 0; i < groups.length; i++) {
+    const j = groups.findIndex((g, k) => k > i && overlap(groups[i], g));
+    if (j < 0) continue;
+    const [a, b] = [groups[i], groups[j]];
+    const top = px(a).y <= px(b).y ? a : b;
+    groups[i] = {
+      lng: top.lng,
+      lat: top.lat,
+      rows: [...a.rows, ...b.rows].sort((r, s) => r.years.localeCompare(s.years)),
+    };
+    groups.splice(j, 1);
+    i = -1; // the merged label is larger: check every pair again
+  }
+  return groups;
+}
+
 /**
  * Points to fit the camera to: the stops, their arcs (which bow out) and other locations (e.g.
  * satellites), unwrapped next to the path so the box takes the short way round.
