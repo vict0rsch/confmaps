@@ -3595,10 +3595,9 @@
   link: https://web.archive.org/web/20220223171426/https://aaai.org/Conferences/AAAI-22/
   start: '2022-02-22'
   end: '2022-03-01'
-  format: in_person
-  city: Vancouver
-  country: Canada
+  format: virtual
   tags: [machine-learning]
+  notes: 'Held online (planned: Vancouver, Canada).'
   source: pwc
   pwc:
     ids: [aaai22]
@@ -3606,6 +3605,8 @@
     first_date: '2021-06-05'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20211219222214/https://aaai.org/Conferences/AAAI-22/registration/
 
 - id: acl22
   title: ACL
@@ -3613,7 +3614,7 @@
   link: https://web.archive.org/web/20220520032714/https://2022.aclweb.org/
   start: '2022-05-22'
   end: '2022-05-27'
-  format: in_person
+  format: hybrid
   city: Dublin
   country: Ireland
   tags: [natural-language-processing]
@@ -3624,6 +3625,8 @@
     first_date: '2021-08-02'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220520032714/https://2022.aclweb.org/
 
 - id: acm22
   title: ACM MM
@@ -3654,7 +3657,7 @@
   link: https://web.archive.org/web/20221212072152/https://www.acml-conf.org/2022
   start: '2022-12-12'
   end: '2022-12-14'
-  format: in_person
+  format: hybrid
   city: Hyderabad
   country: India
   tags: [machine-learning]
@@ -3665,6 +3668,8 @@
     first_date: '2022-05-31'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221212072152/https://www.acml-conf.org/2022
 
 - id: aistats22
   title: AISTATS
@@ -3672,10 +3677,9 @@
   link: https://web.archive.org/web/20220514164142/https://www.aistats.org/aistats2022/
   start: '2022-03-30'
   end: '2022-04-01'
-  format: in_person
-  city: Valencia
-  country: Spain
+  format: virtual
   tags: [machine-learning]
+  notes: 'Held online (planned: Valencia, Spain).'
   source: pwc
   pwc:
     ids: [aistats22]
@@ -3683,6 +3687,8 @@
     first_date: '2021-07-04'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220514164142/https://www.aistats.org/aistats2022/
 
 - id: automl22
   title: AutoML-Conf
@@ -3748,7 +3754,7 @@
   link: https://web.archive.org/web/20221010174617/https://www.cikm2022.org/
   start: '2022-10-17'
   end: '2022-10-22'
-  format: in_person
+  format: hybrid
   city: Atlanta
   country: United States
   tags: [data-mining]
@@ -3759,6 +3765,8 @@
     first_date: '2022-03-10'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221010174617/https://www.cikm2022.org/
 
 - id: coling22
   title: COLING
@@ -3766,7 +3774,7 @@
   link: https://web.archive.org/web/20221014003828/https://coling2022.org/
   start: '2022-10-12'
   end: '2022-10-17'
-  format: in_person
+  format: hybrid
   city: Gyeongju
   country: South Korea
   tags: [natural-language-processing]
@@ -3777,14 +3785,19 @@
     first_date: '2022-02-15'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://aclanthology.org/2022.coling-1.0.pdf
 
 - id: collas22
   title: CoLLAs
   year: 2022
   link: https://web.archive.org/web/20220902033805/https://lifelong-ml.cc
-  start: '2022-08-29'
-  end: '2022-08-31'
-  format: virtual
+  start: '2022-08-22'
+  end: '2022-08-24'
+  format: hybrid
+  city: Montreal
+  country: Canada
+  venue: McGill University
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -3793,6 +3806,9 @@
     first_date: '2022-01-25'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220902033805/https://lifelong-ml.cc
+    - https://proceedings.mlr.press/v199/
 
 - id: corl22
   title: CoRL
@@ -3818,7 +3834,7 @@
   link: https://web.archive.org/web/20220621183831/http://cvpr2022.thecvf.com/
   start: '2022-06-21'
   end: '2022-06-24'
-  format: in_person
+  format: hybrid
   city: New Orleans
   country: United States
   tags: [computer-vision]
@@ -3829,6 +3845,8 @@
     first_date: '2021-07-02'
     last_sha: 'ec28e641912bb3e57afb32343b510500e8e06726'
     last_date: '2022-07-05'
+  sources:
+    - https://web.archive.org/web/20220621183831/http://cvpr2022.thecvf.com/
 
 - id: eccv22
   title: ECCV
@@ -3836,7 +3854,7 @@
   link: https://web.archive.org/web/20221024155449/https://eccv2022.ecva.net/
   start: '2022-10-24'
   end: '2022-10-28'
-  format: in_person
+  format: hybrid
   city: Tel Aviv
   country: Israel
   tags: [computer-vision]
@@ -3847,6 +3865,9 @@
     first_date: '2021-12-14'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221013195445/https://eccv2022.ecva.net/attend/
+    - https://web.archive.org/web/20221129085950/https://www.ortra.com/events/eccv/Registration.aspx
 
 - id: ecmlpkdd22
   title: ECML/PKDD
@@ -3855,7 +3876,7 @@
   link: https://web.archive.org/web/20220917042941/https://2022.ecmlpkdd.org/
   start: '2022-09-19'
   end: '2022-09-23'
-  format: in_person
+  format: hybrid
   city: Grenoble
   country: France
   tags: [speech, signal-processing]
@@ -3866,6 +3887,8 @@
     first_date: '2022-02-25'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220909140607/http://2022.ecmlpkdd.org/index.php/registration/
 
 - id: emnlp22
   title: EMNLP
@@ -3873,7 +3896,7 @@
   link: https://web.archive.org/web/20221209093033/https://2022.emnlp.org/
   start: '2022-12-07'
   end: '2022-12-11'
-  format: in_person
+  format: hybrid
   city: Abu Dhabi
   country: United Arab Emirates
   tags: [natural-language-processing]
@@ -3884,6 +3907,8 @@
     first_date: '2022-04-04'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221209093033/https://2022.emnlp.org/
 
 - id: facct22
   title: FAccT
@@ -3891,7 +3916,7 @@
   link: https://web.archive.org/web/20220627075114/https://facctconference.org/2022/
   start: '2022-06-21'
   end: '2022-06-24'
-  format: in_person
+  format: hybrid
   city: Seoul
   country: South Korea
   tags: [machine-learning]
@@ -3902,6 +3927,8 @@
     first_date: '2021-12-05'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220627075114/https://facctconference.org/2022/
 
 - id: icaps22
   title: ICAPS
@@ -3931,7 +3958,7 @@
   link: https://web.archive.org/web/20220520212232/https://2022.ieeeicassp.org/
   start: '2022-05-22'
   end: '2022-05-27'
-  format: in_person
+  format: hybrid
   city: Singapore
   country: Singapore
   tags: [speech, signal-processing]
@@ -3942,6 +3969,8 @@
     first_date: '2021-06-28'
     last_sha: '807d1e42cca2370b98dd654e3e5f671df90cc130'
     last_date: '2022-07-28'
+  sources:
+    - https://web.archive.org/web/20220518053719/https://2022.ieeeicassp.org/hybrid_format.php
 
 - id: icdm22
   title: ICDM
@@ -3968,7 +3997,7 @@
   link: https://web.archive.org/web/20221020035758/https://2022.ieeeicip.org
   start: '2022-10-16'
   end: '2022-10-19'
-  format: in_person
+  format: hybrid
   city: Bordeaux
   country: France
   tags: [computer-vision]
@@ -3979,6 +4008,8 @@
     first_date: '2022-02-03'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221018082511/https://2022.ieeeicip.org/hybrid-event/
 
 - id: iclr22
   title: ICLR
@@ -4002,7 +4033,7 @@
   link: https://web.archive.org/web/20221130044738/https://icmi.acm.org/2022/
   start: '2022-11-07'
   end: '2022-11-11'
-  format: in_person
+  format: hybrid
   city: Bangalore
   country: India
   tags: [computer-vision]
@@ -4013,6 +4044,8 @@
     first_date: '2022-02-17'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221027110559/https://icmi.acm.org/2022/registration/
 
 - id: icml22
   title: ICML
@@ -4045,7 +4078,7 @@
   link: https://web.archive.org/web/20220523232304/https://icra2022.org/
   start: '2022-05-23'
   end: '2022-05-27'
-  format: in_person
+  format: hybrid
   city: Philadelphia
   country: United States
   tags: [robotics]
@@ -4056,6 +4089,8 @@
     first_date: '2021-06-09'
     last_sha: 'c3091fa2ca194c4299467faa187579af52455f35'
     last_date: '2023-01-23'
+  sources:
+    - https://web.archive.org/web/20220524012606/https://icra2022.org/contribute/person-and-virtual-presentation-instructions
 
 - id: icwsm22
   title: ICWSM
@@ -4107,10 +4142,9 @@
   link: https://web.archive.org/web/20221208004406/https://www.aacl2022.org/
   start: '2022-11-21'
   end: '2022-11-24'
-  format: in_person
-  city: Taipei
-  country: Taiwan
+  format: virtual
   tags: [natural-language-processing]
+  notes: 'Held online (planned: Taipei, Taiwan).'
   source: pwc
   pwc:
     ids: [aacl22]
@@ -4118,6 +4152,8 @@
     first_date: '2022-03-08'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221208004406/https://www.aacl2022.org/
 
 - id: interspeech2022
   title: InterSpeech
@@ -4125,7 +4161,7 @@
   link: https://web.archive.org/web/20220910160233/http://www.interspeech2022.org/
   start: '2022-09-18'
   end: '2022-09-22'
-  format: in_person
+  format: hybrid
   city: Incheon
   country: South Korea
   tags: [speech, signal-processing]
@@ -4136,6 +4172,8 @@
     first_date: '2022-02-08'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220813235543/https://www.interspeech2022.org/registration/
 
 - id: iros22
   title: IROS
@@ -4143,7 +4181,7 @@
   link: https://web.archive.org/web/20221024051353/https://iros2022.org/
   start: '2022-10-23'
   end: '2022-10-27'
-  format: in_person
+  format: hybrid
   city: Kyoto
   country: Japan
   tags: [robotics]
@@ -4154,6 +4192,8 @@
     first_date: '2022-01-07'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221024051353/https://iros2022.org/
 
 - id: ismir22
   title: ISMIR
@@ -4161,7 +4201,7 @@
   link: https://web.archive.org/web/20221201033627/https://ismir2022.ismir.net/
   start: '2022-12-04'
   end: '2022-12-08'
-  format: in_person
+  format: hybrid
   city: Bangalore
   country: India
   tags: [speech, signal-processing]
@@ -4172,6 +4212,8 @@
     first_date: '2022-02-24'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221201033627/https://ismir2022.ismir.net/
 
 - id: ismis22
   title: ISMIS
@@ -4179,7 +4221,7 @@
   link: https://web.archive.org/web/20221004220313/https://ismis2022.icar.cnr.it/
   start: '2022-10-03'
   end: '2022-10-05'
-  format: in_person
+  format: hybrid
   city: Cosenza
   country: Italy
   tags: [data-mining]
@@ -4190,6 +4232,8 @@
     first_date: '2022-03-22'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221004220313/https://ismis2022.icar.cnr.it/
 
 - id: kdd22
   title: KDD
@@ -4259,7 +4303,7 @@
   link: https://web.archive.org/web/20221111142440/http://elra.info/en/lrec/lrec-2022/
   start: '2022-06-20'
   end: '2022-06-25'
-  format: in_person
+  format: hybrid
   city: Marseille
   country: France
   tags: [natural-language-processing]
@@ -4270,6 +4314,9 @@
     first_date: '2021-06-05'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230201230925/https://lrec2022.lrec-conf.org/en/submission2022/lrec2022-presentations/
+    - https://web.archive.org/web/20221205121930/https://lrec2022.lrec-conf.org/en/registration/registration-fees-2022-remote/
 
 - id: naacl22
   title: NAACL
@@ -4277,7 +4324,7 @@
   link: https://web.archive.org/web/20220712212235/https://2022.naacl.org/
   start: '2022-07-10'
   end: '2022-07-15'
-  format: in_person
+  format: hybrid
   city: Seattle
   country: United States
   tags: [natural-language-processing]
@@ -4288,6 +4335,8 @@
     first_date: '2021-08-22'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220712212235/https://2022.naacl.org/
 
 - id: neurips22
   title: NeurIPS
@@ -4313,7 +4362,7 @@
   link: https://web.archive.org/web/20220916060251/https://recsys.acm.org/recsys22/
   start: '2022-09-18'
   end: '2022-09-23'
-  format: in_person
+  format: hybrid
   city: Seattle
   country: United States
   tags: [data-mining]
@@ -4324,6 +4373,8 @@
     first_date: '2022-03-30'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220916060251/https://recsys.acm.org/recsys22/
 
 - id: roman22
   title: RO-MAN
@@ -4331,7 +4382,7 @@
   link: https://web.archive.org/web/20220929184345/http://www.ro-man2022.org/
   start: '2022-08-29'
   end: '2022-09-02'
-  format: in_person
+  format: hybrid
   city: Naples
   country: Italy
   tags: [robotics]
@@ -4342,6 +4393,8 @@
     first_date: '2022-02-01'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220816051637/http://www.smile.unina.it/ro-man2022/
 
 - id: rss22
   title: RSS
@@ -4349,7 +4402,7 @@
   link: https://web.archive.org/web/20220625034951/https://roboticsconference.org/2022
   start: '2022-06-27'
   end: '2022-07-01'
-  format: in_person
+  format: hybrid
   city: New York
   country: United States
   tags: [robotics]
@@ -4360,6 +4413,8 @@
     first_date: '2022-01-07'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220625050029/https://roboticsconference.org/
 
 - id: siggraph22
   title: SIGGRAPH
@@ -4408,7 +4463,7 @@
   link: https://web.archive.org/web/20220716072003/https://sigir.org/sigir2022/
   start: '2022-07-11'
   end: '2022-07-15'
-  format: in_person
+  format: hybrid
   city: Madrid
   country: Spain
   tags: [data-mining]
@@ -4419,6 +4474,8 @@
     first_date: '2021-11-18'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220716072003/https://sigir.org/sigir2022/
 
 - id: uai22
   title: UAI
@@ -4426,7 +4483,7 @@
   link: https://web.archive.org/web/20220802095505/https://www.auai.org/uai2022/
   start: '2022-08-01'
   end: '2022-08-05'
-  format: in_person
+  format: hybrid
   city: Eindhoven
   country: Netherlands
   tags: [machine-learning]
@@ -4437,6 +4494,8 @@
     first_date: '2022-01-09'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221205183110/https://www.auai.org/uai2022/registration
 
 - id: wacv22
   title: WACV
@@ -4444,7 +4503,7 @@
   link: https://web.archive.org/web/20220204101858/http://wacv2022.thecvf.com/
   start: '2022-01-04'
   end: '2022-01-08'
-  format: in_person
+  format: hybrid
   city: Waikoloa
   country: United States
   tags: [computer-vision]
@@ -4455,6 +4514,8 @@
     first_date: '2021-05-07'
     last_sha: '33adf4fe464d36c5c94c0d8eed9d458f3ed43143'
     last_date: '2022-05-31'
+  sources:
+    - https://web.archive.org/web/20230306211141/https://wacv2022.thecvf.com/node/86
 
 - id: wsdm22
   title: WSDM
@@ -4462,10 +4523,9 @@
   link: https://web.archive.org/web/20220224010610/https://www.wsdm-conference.org/2022/
   start: '2022-02-21'
   end: '2022-02-25'
-  format: in_person
-  city: Phoenix
-  country: United States
+  format: virtual
   tags: [data-mining]
+  notes: 'Held online (planned: Tempe, United States).'
   source: pwc
   pwc:
     ids: [wsdm22]
@@ -4473,6 +4533,8 @@
     first_date: '2021-06-23'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20220224010610/https://www.wsdm-conference.org/2022/
 
 - id: www22
   title: WWW
@@ -4480,10 +4542,9 @@
   link: https://web.archive.org/web/20220425111035/https://www2022.thewebconf.org/
   start: '2022-04-25'
   end: '2022-04-29'
-  format: in_person
-  city: Lyon
-  country: France
+  format: virtual
   tags: [data-mining]
+  notes: 'Held online (planned: Lyon, France).'
   source: pwc
   pwc:
     ids: [www22]
@@ -4491,6 +4552,8 @@
     first_date: '2021-06-05'
     last_sha: 'c3091fa2ca194c4299467faa187579af52455f35'
     last_date: '2023-01-23'
+  sources:
+    - https://web.archive.org/web/20220425111035/https://www2022.thewebconf.org/
 
 - id: aaai23
   title: AAAI
@@ -4499,7 +4562,7 @@
   link: https://web.archive.org/web/20230203000242/https://aaai.org/Conferences/AAAI-23/
   start: '2023-02-07'
   end: '2023-02-14'
-  format: in_person
+  format: hybrid
   city: Washington DC
   country: United States
   tags: [machine-learning]
@@ -4510,6 +4573,8 @@
     first_date: '2022-05-25'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230131055527/https://aaai.org/Conferences/AAAI-23/registration/
 
 - id: aamas23
   title: AAMAS
@@ -4744,7 +4809,7 @@
   link: https://web.archive.org/web/20230621185420/http://cvpr2023.thecvf.com/
   start: '2023-06-18'
   end: '2023-06-22'
-  format: in_person
+  format: hybrid
   city: Vancouver
   country: Canada
   tags: [computer-vision]
@@ -4760,6 +4825,7 @@
       - 'end: 2022-06-23 → 2023-06-23 (start/end say 2022; the PwC date text says June 17-23, 2023)'
   sources:
     - https://cvpr2023.thecvf.com/Conferences/2023
+    - https://web.archive.org/web/20230621185420/http://cvpr2023.thecvf.com/
 
 - id: eacl23
   title: EACL
@@ -4841,7 +4907,7 @@
   link: https://web.archive.org/web/20230402092325/https://www.evostar.org/2023/evomusart/
   start: '2023-04-12'
   end: '2023-04-14'
-  format: in_person
+  format: hybrid
   city: Brno
   country: Czech Republic
   tags: [computer-graphics]
@@ -4852,6 +4918,8 @@
     first_date: '2022-07-28'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230402080219/https://www.evostar.org/2023/registration/
 
 - id: icaps23
   title: ICAPS
@@ -4949,7 +5017,7 @@
   link: https://web.archive.org/web/20230505021224/https://iclr.cc/Conferences/2023
   start: '2023-05-01'
   end: '2023-05-05'
-  format: in_person
+  format: hybrid
   city: Kigali
   country: Rwanda
   tags: [machine-learning]
@@ -4960,6 +5028,8 @@
     first_date: '2022-07-15'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230505021224/https://iclr.cc/Conferences/2023
 
 - id: icml23
   title: ICML
@@ -4989,7 +5059,7 @@
   link: https://web.archive.org/web/20230601004821/https://www.icra2023.org/
   start: '2023-05-29'
   end: '2023-06-02'
-  format: in_person
+  format: hybrid
   city: London
   country: United Kingdom
   venue: ExCeL London
@@ -5005,6 +5075,7 @@
       - 'place: ExCeL London, UK → ExCeL London, London, United Kingdom (PwC gives the venue in place of the city)'
   sources:
     - https://www.ieee-ras.org/icra-2023-registration-now-open/
+    - https://web.archive.org/web/20230607060555/https://www.icra2023.org/virtual-progamme
 
 - id: ijcai23
   title: IJCAI
@@ -5185,7 +5256,7 @@
   link: https://web.archive.org/web/20230525100840/https://pakdd2023.org
   start: '2023-05-25'
   end: '2023-05-28'
-  format: in_person
+  format: hybrid
   city: Osaka
   country: Japan
   tags: [data-mining]
@@ -5196,6 +5267,8 @@
     first_date: '2022-09-27'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230525100840/https://pakdd2023.org
 
 - id: recsys23
   title: RecSys
@@ -5368,7 +5441,7 @@
   link: https://web.archive.org/web/20230101202124/http://wacv2023.thecvf.com/
   start: '2023-01-03'
   end: '2023-01-07'
-  format: in_person
+  format: hybrid
   city: Waikoloa
   country: United States
   tags: [computer-vision]
@@ -5379,6 +5452,8 @@
     first_date: '2022-06-14'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20221204154733/https://wacv2023.thecvf.com/node/78
 
 - id: wsdm23
   title: WSDM
@@ -5386,7 +5461,7 @@
   link: https://web.archive.org/web/20230306024516/https://www.wsdm-conference.org/2023/
   start: '2023-02-27'
   end: '2023-03-03'
-  format: in_person
+  format: hybrid
   city: Singapore
   country: Singapore
   tags: [data-mining]
@@ -5397,6 +5472,9 @@
     first_date: '2022-06-22'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://web.archive.org/web/20230306024516/https://www.wsdm-conference.org/2023/
+    - https://web.archive.org/web/20230205035408/https://www.wsdm-conference.org/2023/attending/participation
 
 - id: www23
   title: WWW
