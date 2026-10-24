@@ -10,7 +10,7 @@
   let text = $state('');
   let timer: ReturnType<typeof setTimeout> | undefined;
 
-  // Follow outside changes (Reset all, URL) unless they are just this input's own echo.
+  // Follow outside changes (Clear all, URL) unless they are just this input's own echo.
   $effect.pre(() => {
     const s = value;
     untrack(() => {
@@ -33,7 +33,7 @@
     id="filter-search"
     class="input"
     type="search"
-    placeholder="NeurIPS, vision, robotics…"
+    placeholder="Search conferences"
     autocomplete="off"
     spellcheck="false"
     maxlength={SEARCH_MAX_LENGTH}
@@ -51,13 +51,13 @@
 
   .search :global(.icon) {
     position: absolute;
-    left: 9px;
+    left: 13px;
     color: var(--ink-faint);
     pointer-events: none;
   }
 
   .input {
     width: 100%;
-    padding-left: 30px;
+    padding-left: 34px;
   }
 </style>

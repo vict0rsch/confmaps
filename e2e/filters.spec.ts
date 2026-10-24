@@ -6,14 +6,12 @@ test('a shared link restores filters and selection; changes are written back', a
   const listCount = page.locator('#list-heading .count');
   const filtered = await listCount.textContent();
 
-  await page.locator('.filters > summary').click();
-  await page.locator('details[data-filter="search"] summary').click();
   await page.getByLabel('Search conferences').fill('zzzz-no-match');
   await expect(page).toHaveURL(/[?&]q=zzzz-no-match/);
-  await expect(listCount).toHaveText('(0)');
+  await expect(listCount).toHaveText('No');
   await expect(page).toHaveURL(/bogus=1/); // params it does not own are kept
 
-  await page.getByRole('button', { name: 'Reset all' }).click();
+  await page.getByRole('button', { name: /^Clear all/ }).click();
   await expect(page.getByTestId('filters-badge')).toHaveCount(0);
   await expect(page).not.toHaveURL(/sub=|q=|open=/);
   expect(await listCount.textContent()).not.toBe(filtered);

@@ -1,6 +1,6 @@
 <div class="brand">
   <h1>
-    <svg class="mark" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+    <svg class="mark" width="20" height="20" viewBox="0 0 18 18" aria-hidden="true">
       <circle cx="6" cy="11" r="4.5" fill="var(--pin-official)" />
       <circle
         cx="13"
@@ -20,9 +20,9 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-size: var(--text-lg);
+    font-size: 1.0625rem;
     font-weight: var(--weight-semibold);
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     line-height: 1;
   }
 

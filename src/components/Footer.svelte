@@ -72,7 +72,7 @@
   .footer {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
     color: var(--ink-muted);
     font-size: var(--text-xs);
     line-height: var(--leading-normal);
@@ -80,12 +80,16 @@
 
   .footer a {
     color: var(--ink-muted);
-    text-decoration: underline;
-    text-decoration-color: var(--border-strong);
   }
 
   .footer a:hover {
     color: var(--ink);
+  }
+
+  /* Links inside running text stay underlined, so they never rely on colour alone. */
+  .credits a {
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
   }
 
   .links {
@@ -101,11 +105,13 @@
     background: none;
     color: var(--ink-muted);
     font: inherit;
-    text-decoration: underline;
-    text-decoration-color: var(--border-strong);
   }
 
-  .credits-toggle:hover,
+  .credits-toggle:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+
   .credits-toggle[aria-expanded='true'] {
     color: var(--ink);
   }

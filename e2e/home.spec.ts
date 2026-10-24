@@ -4,6 +4,7 @@ import { expect, test } from './fixtures';
 const BERLIN_ID = 2950159;
 
 async function setHome(page: Page, query = 'Berlin') {
+  await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill(query);
@@ -19,7 +20,7 @@ test('the city list is not fetched on page load, only on first focus of the sear
   await page.goto('/');
   await expect(page.locator('button.row').first()).toBeVisible();
   expect(requests.some((u) => u.endsWith('cities.json'))).toBe(false);
-  await page.getByRole('combobox', { name: 'Your city' }).focus();
+  await page.getByTestId('home-pill').click();
   await expect.poll(() => requests.some((u) => u.endsWith('cities.json'))).toBe(true);
 });
 
@@ -49,13 +50,15 @@ test('the radius filter narrows the list', async ({ page }) => {
   await page.goto('/?radius=300');
   await expect(page.getByTestId('home-city')).toHaveText('Berlin, Germany');
   await expect(page.getByTestId('filters-badge')).toHaveText(/^\s*1/);
-  await expect(count).not.toHaveText(`(${all})`);
+  await expect(count).not.toHaveText(`${all}`);
   expect(await rows.count()).toBeLessThan(all);
-  await expect(count).toHaveText(`(${await rows.count()})`);
+  const shown = await rows.count();
+  await expect(count).toHaveText(shown ? `${shown}` : 'No');
 });
 
 test('combobox is keyboard accessible', async ({ page }) => {
   await page.goto('/');
+  await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill('par');
@@ -171,6 +174,7 @@ test.describe('geolocation', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.getByTestId('home-pill').click();
     await page.getByRole('button', { name: 'Use my location' }).click();
     await expect(page.getByTestId('home-city')).toHaveText('Berlin, Germany');
     const stored = await page.evaluate(() => localStorage.getItem('confmaps:home'));
@@ -184,8 +188,8 @@ test.describe('mobile', () => {
 
   test('the location sheet sets home and the list shows distances', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: /Set location/ }).click();
-    const dialog = page.getByRole('dialog', { name: 'Your location' });
+    await page.getByRole('button', { name: /Set your city/ }).click();
+    const dialog = page.getByRole('dialog', { name: 'Where are you travelling from?' });
     const input = dialog.getByRole('combobox', { name: 'Your city' });
     await input.fill('Berlin');
     await expect(dialog.getByRole('option').first()).toBeVisible();
@@ -193,4 +197,23 @@ test.describe('mobile', () => {
     await dialog.getByRole('button', { name: 'Done' }).click();
     await expect(page.getByTestId('home-button-label')).toHaveText('Berlin');
   });
+});
+
+test('Escape closes the home panel and a filter tray, and focus returns to their trigger', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const pill = page.getByTestId('home-pill');
+  await pill.click();
+  await expect(pill).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Escape');
+  await expect(pill).toHaveAttribute('aria-expanded', 'false');
+  await expect(pill).toBeFocused();
+
+  const chip = page.locator('button.chip[data-filter="subject"]');
+  await chip.click();
+  await expect(chip).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Escape');
+  await expect(chip).toHaveAttribute('aria-expanded', 'false');
+  await expect(chip).toBeFocused();
 });

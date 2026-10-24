@@ -180,6 +180,11 @@
     m.touchZoomRotate.disableRotation();
     m.keyboard.disableRotation();
     m.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
+    // Zoom and attribution are glass capsules (the .glass class owns the blur, see base.css).
+    m.getContainer()
+      .querySelectorAll('.maplibregl-ctrl-group, .maplibregl-ctrl-attrib')
+      .forEach((el) => el.classList.add('glass'));
+    m.once('load', fitAttribution);
 
     m.on('style.load', () => (styleReady = true));
     m.setMissingStyleImageResolver((id) => {
@@ -241,13 +246,16 @@
     m.on('dragstart', () => root.toggleAttribute('data-map-dragging', true));
     m.on('dragend', () => root.toggleAttribute('data-map-dragging', false));
 
-    const ro = new ResizeObserver(() => m.resize());
+    const ro = new ResizeObserver(() => {
+      m.resize();
+      fitAttribution();
+    });
     ro.observe(container);
     // Overlays (drawer, sheet) are camera padding, so "centre" means the visible area's centre.
     // Initial overview: no antimeridian wrap, so a world-wide set centres on the Atlantic.
     // Untracked: camera calls fire map events synchronously, and their handlers read state.
     untrack(() => {
-      m.setPadding(insets);
+      m.setPadding(camPad);
       const initial = boundsOf(app.mapLocations, false);
       if (initial)
         m.fitBounds(initial, {
@@ -440,7 +448,7 @@
         if (series) fitHistory(first ? 0 : duration(900));
         else if (!app.selectedConferenceId) {
           const b = boundsOf(app.mapLocations, false);
-          m.setPadding(insets);
+          m.setPadding(camPad);
           if (b)
             m.fitBounds(b, {
               padding: overviewMargins(),
@@ -491,7 +499,7 @@
   // selection, just follow the overlays (the visible centre stays put).
   $effect(() => {
     const id = app.selectedConferenceId;
-    const pad = insets;
+    const pad = camPad;
     const m = map;
     if (!m) return;
     untrack(() => {
@@ -523,9 +531,41 @@
     const b = boundsOf(pts.length ? pts : sites, false);
     if (!map || !b) return;
     const m = margins(96);
-    map.setPadding(insets);
+    map.setPadding(camPad);
     map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
   }
+
+  /**
+   * The map spans the window under the panels, so MapLibre's width-based compact switch never
+   * fires. Show the attribution in full when the free area (between the stage insets) is wide
+   * enough, otherwise collapse it to its (i) toggle, which still expands on click.
+   */
+  const ATTRIBUTION_MIN_FREE_WIDTH = 560;
+  function fitAttribution() {
+    const el = map?.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
+    if (!el || !container) return;
+    const cs = getComputedStyle(container);
+    const inset = (side: string) => parseFloat(cs.getPropertyValue(`--stage-inset-${side}`)) || 0;
+    const free = container.clientWidth - inset('left') - inset('right');
+    const wide = free >= ATTRIBUTION_MIN_FREE_WIDTH;
+    if (el.classList.contains('maplibregl-compact') === wide) {
+      el.classList.toggle('maplibregl-compact', !wide);
+      el.classList.remove('maplibregl-compact-show');
+      el.open = wide;
+    }
+  }
+  // The drawer opening or closing changes the free width (after the stage props update).
+  const insetLR = $derived(insets.left + insets.right);
+  $effect(() => {
+    void insetLR;
+    requestAnimationFrame(fitAttribution);
+  });
+
+  /**
+   * Camera padding. The top is left out: the top bar is translucent, so the world renders behind
+   * it (its height is added to the fitBounds margins instead, see margins()).
+   */
+  const camPad = $derived({ ...insets, top: 0 });
 
   /** fitBounds margins inside the camera padding, shrunk when the visible area is small. */
   function margins(max = MARGIN) {
@@ -533,7 +573,7 @@
     const h = (container?.clientHeight ?? 0) - insets.top - insets.bottom;
     const x = Math.max(0, Math.min(max, (w - 80) / 2));
     const y = Math.max(0, Math.min(max, (h - 80) / 2));
-    return { top: y, bottom: y, left: x, right: x };
+    return { top: y + insets.top, bottom: y, left: x, right: x };
   }
 
   /** The world overview: on a phone every pixel of width counts, but edge pins keep their halo. */
@@ -545,7 +585,7 @@
   function fitSelection() {
     const b = boundsOf(app.selectedPins);
     if (!map || !b) return;
-    map.setPadding(insets);
+    map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
   }
 
@@ -655,28 +695,59 @@
     inset: 0;
   }
 
-  /* Keep MapLibre controls clear of overlays (drawer, bottom sheet). */
+  /* Keep MapLibre controls in the free map area: above the timeline and bottom sheet, left of the
+     drawer. The insets already include the gap to the neighbouring panel on desktop. */
   .map-wrap :global(.maplibregl-ctrl-bottom-right) {
-    bottom: var(--inset-bottom);
-    right: var(--inset-right);
+    bottom: var(--stage-inset-bottom, var(--panel-gap));
+    right: var(--stage-inset-right, var(--panel-gap));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-2);
     transition: right var(--duration-base) var(--ease-out);
+  }
+  .map-wrap :global(.maplibregl-ctrl-bottom-right .maplibregl-ctrl) {
+    margin: 0;
   }
   .map-wrap :global(.maplibregl-ctrl-bottom-left) {
     bottom: var(--inset-bottom);
   }
+  @media (max-width: 1023px) {
+    .map-wrap :global(.maplibregl-ctrl-bottom-right) {
+      bottom: calc(var(--stage-inset-bottom, var(--inset-bottom)) + var(--space-2));
+    }
+  }
 
+  /* MapLibre's own stylesheet sets a white background at the same specificity as .glass and loads
+     later, so restate the glass fill here (and its reduced-transparency fallback). */
+  .map-wrap :global(.maplibregl-ctrl.glass) {
+    background: var(--glass-fill);
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .map-wrap :global(.maplibregl-ctrl.glass) {
+      background: var(--glass-fill-solid);
+    }
+  }
+
+  /* Zoom: a small vertical capsule. Fill, border, shadow and blur come from .glass. */
   .map-wrap :global(.maplibregl-ctrl-group) {
-    background: var(--surface-raised);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-full);
     overflow: hidden;
   }
   .map-wrap :global(.maplibregl-ctrl-group button) {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  .map-wrap :global(.maplibregl-ctrl-group button:hover) {
+    background-color: var(--glass-tint-hover);
+  }
+  .map-wrap :global(.maplibregl-ctrl-group button:active) {
+    background-color: var(--glass-tint-press);
   }
   .map-wrap :global(.maplibregl-ctrl-group button + button) {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--hairline);
   }
   .map-wrap :global(.maplibregl-ctrl-group button:focus-visible) {
     box-shadow: inset 0 0 0 2px var(--focus);
@@ -684,16 +755,21 @@
   :global(:root[data-theme='dark']) .map-wrap :global(.maplibregl-ctrl-icon) {
     filter: invert(1) brightness(0.9);
   }
+
+  /* Attribution: a small capsule that stays readable (text is --ink-muted over glass). */
   .map-wrap :global(.maplibregl-ctrl-attrib) {
-    background: color-mix(in srgb, var(--surface) 82%, transparent);
     color: var(--ink-muted);
     font-size: var(--text-xs);
+    border-radius: var(--radius-full);
+  }
+  .map-wrap :global(.maplibregl-ctrl-attrib.maplibregl-compact) {
+    min-height: 28px;
   }
   .map-wrap :global(.maplibregl-ctrl-attrib a) {
     color: var(--ink-muted);
   }
-  .map-wrap :global(.maplibregl-ctrl-attrib.maplibregl-compact) {
-    border-radius: var(--radius-full);
+  .map-wrap :global(.maplibregl-ctrl-attrib-inner) {
+    padding: 0 var(--space-2);
   }
   :global(:root[data-theme='dark']) .map-wrap :global(.maplibregl-ctrl-attrib-button) {
     filter: invert(1);

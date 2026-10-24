@@ -40,7 +40,8 @@ async function scan(page: Page, name: string, testInfo: TestInfo) {
 }
 
 async function setHome(page: Page, phone: boolean) {
-  if (phone) await page.getByRole('button', { name: /Set location/ }).click();
+  if (phone) await page.getByRole('button', { name: /Set your city/ }).click();
+  if (!phone) await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill('Berlin');
@@ -48,7 +49,7 @@ async function setHome(page: Page, phone: boolean) {
   await page.keyboard.press('Enter');
   if (phone)
     await page
-      .getByRole('dialog', { name: 'Your location' })
+      .getByRole('dialog', { name: 'Where are you travelling from?' })
       .getByRole('button', { name: 'Done' })
       .click();
   await expect(page.getByTestId(phone ? 'home-button-label' : 'home-city')).toContainText('Berlin');
@@ -58,8 +59,7 @@ const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {
   default: async () => {},
   'filters open': async (page, phone) => {
     if (phone) await page.getByRole('button', { name: 'Filters' }).click();
-    else await page.locator('.filters > summary').click();
-    await page.locator('details[data-filter="search"] summary').click();
+    else await page.locator('button.chip[data-filter="subject"]').click();
   },
   'detail with home': async (page, phone) => {
     await setHome(page, phone);

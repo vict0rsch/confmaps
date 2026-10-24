@@ -58,12 +58,12 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    height: 28px;
-    padding: 0 10px;
-    border: 1px solid var(--border-strong);
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid var(--hairline);
     border-radius: var(--radius-full);
-    background: var(--surface);
-    color: var(--ink-muted);
+    background: var(--control-fill);
+    color: var(--ink);
     font-size: var(--text-sm);
     line-height: 1;
     cursor: pointer;
@@ -75,15 +75,22 @@
   }
 
   .chip:hover {
-    color: var(--ink);
-    background: var(--surface-hover);
+    background: var(--control-fill-hover);
   }
 
   .chip.on {
-    border-color: var(--accent);
+    border-color: transparent;
     background: var(--accent-soft);
     color: var(--accent);
     font-weight: var(--weight-medium);
+  }
+
+  .chip :global(.icon) {
+    color: var(--ink-muted);
+  }
+
+  .chip.on :global(.icon) {
+    color: var(--accent);
   }
 
   .chip:has(input:focus-visible) {

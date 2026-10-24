@@ -30,7 +30,16 @@
           },
         },
       });
-      html = await marked.parse(source);
+      // Wide tables scroll sideways on phones: keyboard users reach the scroll box (axe
+      // scrollable-region-focusable), and screen readers hear what it is (one name per table).
+      let tables = 0;
+      html = (await marked.parse(source))
+        .replaceAll(
+          '<table>',
+          () =>
+            `<div class="table-scroll" tabindex="0" role="region" aria-label="Table ${++tables}"><table>`,
+        )
+        .replaceAll('</table>', '</table></div>');
     } catch {
       failed = true;
     }
@@ -57,7 +66,7 @@
 
 <svelte:window onhashchange={sync} />
 
-<dialog bind:this={dialog} aria-labelledby="{hash}-title" onclose={onClose}>
+<dialog class="glass-thick" bind:this={dialog} aria-labelledby="{hash}-title" onclose={onClose}>
   <header>
     <h2 id="{hash}-title" class="visually-hidden">{title}</h2>
     <button
@@ -83,15 +92,13 @@
 </dialog>
 
 <style>
+  /* Fill, border and shadow from .glass-thick (base.css). */
   dialog {
     width: min(720px, calc(100% - 2 * var(--space-4)));
     max-height: calc(100% - 2 * var(--space-6));
     padding: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    background: var(--surface-raised);
+    border-radius: var(--radius-panel);
     color: var(--ink);
-    box-shadow: var(--shadow-lg);
   }
 
   dialog::backdrop {
@@ -103,36 +110,44 @@
     top: 0;
     display: flex;
     justify-content: flex-end;
-    padding: var(--space-2) var(--space-2) 0;
-    background: var(--surface-raised);
+    padding: var(--space-3) var(--space-3) 0;
+    background: inherit; /* the dialog's opaque fill, in every transparency mode */
   }
 
+  /* Comfortable reading measure (~68 characters a line). */
   .doc {
-    padding: 0 var(--space-6) var(--space-6);
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 0 var(--space-8) var(--space-8);
     font-size: var(--text-md);
-    line-height: 1.55;
+    line-height: 1.6;
     overflow-wrap: anywhere;
   }
 
   .doc :global(h1) {
-    margin: 0 0 var(--space-3);
+    margin: 0 0 var(--space-4);
     font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
   }
 
   .doc :global(h2) {
-    margin: var(--space-5) 0 var(--space-2);
+    margin: var(--space-8) 0 var(--space-2);
     font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
   }
 
   .doc :global(h3) {
-    margin: var(--space-4) 0 var(--space-2);
+    margin: var(--space-5) 0 var(--space-2);
     font-size: var(--text-md);
+    font-weight: var(--weight-semibold);
   }
 
   .doc :global(p),
   .doc :global(ul),
   .doc :global(ol),
-  .doc :global(table) {
+  .doc :global(.table-scroll) {
     margin: 0 0 var(--space-3);
   }
 
@@ -141,24 +156,42 @@
     padding-left: var(--space-5);
   }
 
-  .doc :global(table) {
-    display: block;
+  /* Numbers stay whole; a wide table scrolls instead. */
+  .doc :global(.table-scroll) {
     overflow-x: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  /* A floor width: on a phone the columns scroll instead of breaking every other word. */
+  .doc :global(table) {
+    min-width: 32rem;
     border-collapse: collapse;
     font-size: var(--text-sm);
+    overflow-wrap: normal;
   }
 
   .doc :global(th),
   .doc :global(td) {
-    padding: 4px var(--space-2);
-    border: 1px solid var(--border);
+    padding: 6px var(--space-2);
+    border-bottom: 1px solid var(--hairline);
     text-align: left;
   }
 
+  .doc :global(th) {
+    color: var(--ink-muted);
+    font-weight: var(--weight-semibold);
+  }
+
   .doc :global(code) {
-    padding: 1px 4px;
+    padding: 1px 5px;
     border-radius: var(--radius-sm);
-    background: var(--surface-sunken);
+    background: var(--glass-tint-press);
     font-size: 0.92em;
+  }
+
+  @media (max-width: 600px) {
+    .doc {
+      padding: 0 var(--space-5) var(--space-6);
+    }
   }
 </style>

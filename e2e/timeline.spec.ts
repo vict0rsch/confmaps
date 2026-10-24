@@ -25,7 +25,7 @@ test('history mode opens from a conference detail and lives in the URL', async (
   const meta = page.getByTestId('history-meta');
   await expect(meta).toHaveText(/^\d+ editions/);
   const editions = (await meta.textContent())!.match(/\d+/)![0];
-  await expect(page.locator('#list-heading .count')).toHaveText(`(${editions})`);
+  await expect(page.locator('#list-heading .count')).toHaveText(`${editions}`);
 
   await page.reload();
   await expect(meta).toHaveText(new RegExp(`^${editions} editions`));

@@ -17,7 +17,7 @@ export function submissionOpen(c: Pick<Conference, 'deadlines'>, now: Date): boo
 
 export const openFilter: Filter<boolean> = {
   id: 'open',
-  label: 'Submissions',
+  label: 'Open for papers',
   defaultState: false,
   isActive: (s) => s,
   test: (loc, ctx) => submissionOpen(loc.conference, ctx.now),

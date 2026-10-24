@@ -61,18 +61,20 @@
     </div>
     <p class="caption">Attending online: no travel</p>
     {#if isFirst}
-      <a class="how" href={METHODOLOGY_URL}>How is this estimated?</a>
+      <div class="footnote">
+        <a class="how" href={METHODOLOGY_URL}>How is this estimated?</a>
+      </div>
     {/if}
   </div>
 {:else if trip}
   <div class="footprint" data-testid="site-footprint">
     <div class="figures">
-      <span class="distance tabular">{formatDistance(trip.distanceKm, travel.units)}</span>
       <span class="co2 tabular">
         {formatCo2(trip.kgCO2e)}
         <span aria-hidden="true">{modeIcon(trip.mode)}</span>
         <span class="visually-hidden">{trip.mode === 'rail' ? 'by train' : 'by plane'}</span>
       </span>
+      <span class="distance tabular">{formatDistance(trip.distanceKm, travel.units)}</span>
       {#if isNearest}<span class="nearest">Nearest</span>{/if}
     </div>
     <p class="caption">Estimated CO₂e, round trip</p>
@@ -93,23 +95,24 @@
 
     {#if comparison}<p class="comparison">{comparison}</p>{/if}
 
-    {#if trip.mode === 'flight'}
-      <a
-        class="myclimate"
-        href={myclimateUrl()}
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick={() => track('myclimate_clicked')}
-      >
-        Cross-check this flight on myclimate <Icon name="external" size={12} />
-      </a>
-      <p class="note">
-        Different methods give different figures — same order of magnitude is expected.
-      </p>
-    {/if}
-
-    {#if isFirst}
-      <a class="how" href={METHODOLOGY_URL}>How is this estimated?</a>
+    <!-- Method notes: one small footnote block, below the figures they qualify. -->
+    {#if trip.mode === 'flight' || isFirst}
+      <div class="footnote">
+        {#if trip.mode === 'flight'}
+          <a
+            href={myclimateUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick={() => track('myclimate_clicked')}
+          >
+            Cross-check this flight on myclimate <Icon name="external" size={11} />
+          </a>
+          <p>Different methods give different figures — same order of magnitude is expected.</p>
+        {/if}
+        {#if isFirst}
+          <a class="how" href={METHODOLOGY_URL}>How is this estimated?</a>
+        {/if}
+      </div>
     {/if}
   </div>
 {/if}
@@ -119,41 +122,43 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
-    margin-top: var(--space-2);
-    padding-top: var(--space-2);
-    border-top: 1px dashed var(--border-strong);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
   }
 
   .figures {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: var(--space-2) var(--space-3);
-  }
-
-  .distance {
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
+    gap: var(--space-1) var(--space-3);
   }
 
   .co2 {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.01em;
+  }
+
+  .distance {
+    color: var(--ink);
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
   }
 
   .nearest {
+    align-self: center;
     margin-left: auto;
-    padding: 1px 8px;
+    padding: 2px 10px;
     border-radius: var(--radius-full);
     background: var(--accent-soft);
     color: var(--accent);
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
   }
 
-  .caption,
-  .note {
+  .caption {
     color: var(--ink-muted);
     font-size: var(--text-xs);
   }
@@ -163,30 +168,37 @@
   }
 
   .mode-toggle {
-    margin-top: var(--space-1);
+    align-self: flex-start;
+    min-width: 200px;
+    margin-top: var(--space-2);
   }
 
   .comparison {
-    margin-top: var(--space-1);
+    margin-top: var(--space-2);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
   }
 
-  .myclimate {
+  .footnote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-top: var(--space-3);
+    color: var(--ink-muted);
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal);
+  }
+
+  .footnote a {
     display: inline-flex;
     align-items: center;
-    align-self: flex-start;
     gap: 4px;
-    margin-top: var(--space-1);
-    font-size: var(--text-sm);
   }
 
   .how {
-    align-self: flex-start;
-    margin-top: var(--space-1);
     color: var(--ink-muted);
-    font-size: var(--text-xs);
     text-decoration: underline;
-    text-decoration-color: var(--border-strong);
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   }
 </style>

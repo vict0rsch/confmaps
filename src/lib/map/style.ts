@@ -179,6 +179,7 @@ export const SRC = {
 
 export const LAYER = {
   links: 'links',
+  clusterHalo: 'cluster-halo',
   clusters: 'clusters',
   clusterCount: 'cluster-count',
   pinHalo: 'pin-halo',
@@ -209,6 +210,7 @@ export const PIN_LAYERS = [LAYER.pin, LAYER.focusPin, LAYER.animPin];
 /** The resting (clustered) presentation, swapped out while the timeline animates. */
 export const CLUSTER_LAYERS = [
   LAYER.links,
+  LAYER.clusterHalo,
   LAYER.clusters,
   LAYER.clusterCount,
   LAYER.pinHalo,
@@ -318,12 +320,12 @@ export function fade(
 
 export function linkOpacity(e: Emphasis): ExpressionSpecification | number {
   const ids = [e.selectedId, e.hoveredId].filter((x): x is string => !!x);
-  if (!ids.length) return 0.5;
+  if (!ids.length) return 0.4;
   return [
     'case',
     ['in', ['get', 'conferenceId'], ['literal', ids]],
-    0.9,
-    e.selectedId ? 0.15 : 0.5,
+    0.75,
+    e.selectedId ? 0.12 : 0.4,
   ];
 }
 
@@ -431,7 +433,7 @@ export function dataLayers(
       layout: { ...lineLayout, ...resting },
       paint: {
         'line-color': p.link,
-        'line-width': 1.5,
+        'line-width': 1.25,
         'line-dasharray': [2, 2],
         'line-opacity': linkOpacity(e),
       },
@@ -444,8 +446,8 @@ export function dataLayers(
       layout: lineLayout,
       paint: {
         'line-color': p.selected,
-        'line-width': ['case', ['==', ['get', 'nearest'], 1], 1.75, 1.25],
-        'line-opacity': ['case', ['==', ['get', 'nearest'], 1], 0.7, 0.3],
+        'line-width': ['case', ['==', ['get', 'nearest'], 1], 1.5, 1],
+        'line-opacity': ['case', ['==', ['get', 'nearest'], 1], 0.55, 0.22],
       },
     },
     // History mode: the editions' path, on a halo so it reads over borders.
@@ -470,9 +472,23 @@ export function dataLayers(
       layout: { ...lineLayout, ...anim },
       paint: {
         'line-color': p.link,
-        'line-width': 1.5,
+        'line-width': 1.25,
         'line-dasharray': [2, 2],
         'line-opacity': animLinkOpacity(e, history),
+      },
+    },
+    // Soft glow under each cluster disc: reads as a shadow without a real one.
+    {
+      id: LAYER.clusterHalo,
+      type: 'circle',
+      source: SRC.pins,
+      filter: ['has', 'point_count'],
+      layout: resting,
+      paint: {
+        'circle-color': p.clusterRing,
+        'circle-radius': ['step', ['get', 'point_count'], 18, 5, 21, 15, 25],
+        'circle-blur': 0.9,
+        'circle-opacity': e.selectedId ? 0.12 : 0.2,
       },
     },
     {
@@ -485,7 +501,7 @@ export function dataLayers(
         'circle-color': p.clusterFill,
         'circle-radius': ['step', ['get', 'point_count'], 13, 5, 16, 15, 20],
         'circle-stroke-color': p.clusterRing,
-        'circle-stroke-width': 2,
+        'circle-stroke-width': 1.5,
         'circle-opacity': e.selectedId ? 0.6 : 1,
         'circle-stroke-opacity': e.selectedId ? 0.6 : 1,
       },
@@ -512,7 +528,7 @@ export function dataLayers(
       filter: unclustered,
       layout: resting,
       paint: {
-        'circle-radius': plus(2.5),
+        'circle-radius': plus(2),
         'circle-color': p.pinHalo,
         'circle-opacity': pinOpacity(e.selectedId),
       },
@@ -558,7 +574,7 @@ export function dataLayers(
       source: SRC.anim,
       layout: anim,
       paint: {
-        'circle-radius': scaled(plus(1.5)),
+        'circle-radius': scaled(plus(2)),
         'circle-color': p.pinHalo,
         'circle-opacity': animOpacity(e.selectedId),
       },

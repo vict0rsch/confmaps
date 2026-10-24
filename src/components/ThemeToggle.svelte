@@ -35,9 +35,8 @@
     margin: 0;
     padding: 2px;
     border: 0;
-    border-radius: var(--radius-md);
-    background: var(--surface-sunken);
-    box-shadow: inset 0 0 0 1px var(--border);
+    border-radius: var(--radius-full);
+    background: var(--glass-tint-press);
   }
 
   label {
@@ -45,8 +44,8 @@
     display: grid;
     place-items: center;
     width: 28px;
-    height: 24px;
-    border-radius: var(--radius-sm);
+    height: 28px;
+    border-radius: var(--radius-full);
     color: var(--ink-muted);
     cursor: pointer;
     transition:
@@ -59,11 +58,11 @@
   }
 
   label:has(input:checked) {
-    background: var(--surface-raised);
+    background: var(--control-fill-hover);
     color: var(--ink);
     box-shadow:
       var(--shadow-sm),
-      0 0 0 1px var(--border-strong);
+      0 0 0 0.5px var(--hairline);
   }
 
   label:has(input:focus-visible) {

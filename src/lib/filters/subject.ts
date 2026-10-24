@@ -189,7 +189,7 @@ export const normalizeCodes = (codes: Iterable<string>): SubjectState => [...new
 
 export const subjectFilter: Filter<SubjectState> = {
   id: 'subject',
-  label: 'Subject',
+  label: 'Topics',
   defaultState: [],
   isActive: (s) => s.length > 0,
   test: (loc, _ctx, s) => {

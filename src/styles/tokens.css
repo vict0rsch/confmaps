@@ -5,6 +5,11 @@
  *
  * Theme resolution: <html data-theme="light|dark"> is always set (index.html pre-paint script,
  * then the app state). "system" is resolved to light/dark before it reaches the DOM.
+ *
+ * Glass material: the map fills the window and panels float above it. `--glass-*` tokens feed
+ * the `.glass` / `.glass-thick` classes in base.css (the only place that sets backdrop-filter).
+ * Text colours are checked for WCAG AA against `--glass-fill` composited over the lightest and
+ * darkest `--map-*` land/water colour of each theme.
  */
 
 :root {
@@ -15,7 +20,7 @@
   --gray-75: #efeff1;
   --gray-100: #e4e4e7;
   --gray-200: #d4d4d8;
-  --gray-400: #8b8e96;
+  --gray-400: #7d8088;
   --gray-500: #5c5f66;
   --gray-900: #18181b;
 
@@ -24,21 +29,21 @@
   --gray-d-850: #25262a;
   --gray-d-800: #2e3034;
   --gray-d-700: #3a3c41;
-  --gray-d-500: #71747c;
+  --gray-d-500: #8a8d95;
   --gray-d-300: #a0a3ab;
   --gray-d-100: #ececef;
 
   /* ---- Primitives: accent (indigo) ---- */
   --indigo-200: #c7d2fe;
-  --indigo-300: #a5b4fc;
+  --indigo-300: #a5a3ff; /* UI accent, dark theme */
   --indigo-400: #8b93ff;
-  --indigo-600: #4f46e5;
-  --indigo-700: #4338ca;
+  --indigo-500: #5250cc; /* UI accent, light theme (systemIndigo, darkened for AA over glass) */
+  --indigo-550: #5b54e8; /* softened indigo-600, for map pins */
   --indigo-950: #1e1b4b;
 
   /* ---- Primitives: data (community pins) ---- */
   --orange-400: #fb923c;
-  --orange-700: #c2410c;
+  --orange-650: #c9480f; /* softened orange-700, for map pins */
 
   /* ---- Spacing (4 px grid) ---- */
   --space-1: 4px;
@@ -53,17 +58,18 @@
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 999px;
+  --radius-card: 16px; /* cards and trays inside a panel */
+  --radius-panel: 24px; /* floating glass panels */
+  --radius-full: 999px; /* capsule controls */
 
   /* ---- Type scale ---- */
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --text-xs: 0.75rem; /* 12 */
   --text-sm: 0.8125rem; /* 13 */
-  --text-md: 0.875rem; /* 14 */
+  --text-md: 0.9375rem; /* 15, body */
   --text-lg: 1rem; /* 16 */
-  --text-xl: 1.25rem; /* 20 */
+  --text-xl: 1.375rem; /* 22 */
   --leading-tight: 1.25;
   --leading-normal: 1.45;
   --weight-regular: 420;
@@ -71,6 +77,7 @@
   --weight-semibold: 600;
 
   /* ---- Motion (no bounce; ease-out on enter, ease-in on exit) ---- */
+  --duration-press: 120ms; /* press feedback (scale) */
   --duration-fast: 150ms;
   --duration-base: 200ms;
   --duration-slow: 250ms;
@@ -78,11 +85,11 @@
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
 
   /* ---- Layout ---- */
-  --sidebar-width: 360px;
+  --panel-gap: 16px; /* inset of floating panels from the window edges and between panels */
+  --sidebar-width: 368px;
   --drawer-width: 384px;
   --timeline-height: 56px;
   --timeline-height-compact: 44px;
-  --topbar-height: 56px;
 }
 
 /* ---- Semantic tokens: light ---- */
@@ -93,18 +100,33 @@
   --canvas: var(--gray-50);
   --surface: var(--gray-0);
   --surface-raised: var(--gray-0);
-  --surface-sunken: var(--gray-50);
   --surface-hover: var(--gray-75);
-  --surface-selected: #eef0ff;
   --ink: var(--gray-900);
   --ink-muted: var(--gray-500);
-  --ink-faint: var(--gray-400);
+  --ink-faint: var(--gray-400); /* 3:1 over glass: icons and non-text UI, not text */
   --border: var(--gray-100);
   --border-strong: var(--gray-200);
-  --accent: var(--indigo-700);
+  --accent: var(--indigo-500);
   --accent-ink: var(--gray-0);
-  --accent-soft: #eef0ff;
-  --focus: var(--indigo-600);
+  --accent-soft: rgb(82 80 204 / 0.12);
+  --focus: var(--indigo-500);
+
+  /* Glass material (panels over the map) */
+  --glass-fill: rgb(255 255 255 / 0.62);
+  /* Popovers, trays, dialogs. Opaque: without blur (base.css), any see-through shows the text
+     it covers. Stroke, highlight and shadow still make it read as glass. */
+  --glass-fill-thick: rgb(255 255 255);
+  --glass-fill-solid: #fbfbfd; /* fallback when transparency is off or unsupported */
+  --glass-stroke: rgb(255 255 255 / 0.75);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 0 0 0.5px rgb(255 255 255 / 0.4);
+  --glass-shadow: 0 1px 2px rgb(28 32 56 / 0.06), 0 10px 36px rgb(28 32 56 / 0.14);
+  --glass-tint-hover: rgb(20 24 48 / 0.05); /* a white tint vanishes on light glass */
+  --glass-tint-press: rgb(20 24 48 / 0.06);
+
+  /* Shared controls (.button, .icon-button, .input in base.css) */
+  --control-fill: rgb(255 255 255 / 0.7);
+  --control-fill-hover: rgb(255 255 255 / 0.95);
+  --hairline: rgb(20 24 48 / 0.1);
 
   --shadow-sm: 0 1px 2px rgb(24 24 27 / 0.06);
   --shadow-md: 0 2px 6px rgb(24 24 27 / 0.06), 0 8px 24px rgb(24 24 27 / 0.08);
@@ -112,23 +134,23 @@
   --scrim: rgb(24 24 27 / 0.32);
 
   /* Map data (the only saturated colours on screen) */
-  --pin-official: var(--indigo-600);
-  --pin-community: var(--orange-700);
+  --pin-official: var(--indigo-550); /* 4.1:1 on water, 4.8:1 on land */
+  --pin-community: var(--orange-650); /* 3.6:1 on water, 4.2:1 on land */
   --pin-halo: var(--gray-0);
-  --pin-link: var(--indigo-600);
+  --pin-link: var(--indigo-550);
   --pin-selected: var(--gray-900);
   --cluster-fill: var(--gray-0);
-  --cluster-ring: var(--indigo-600);
+  --cluster-ring: var(--indigo-550);
   --cluster-ink: var(--gray-900);
 
-  /* Quiet basemap */
-  --map-land: #f2f2f0;
-  --map-water: #dde1e6;
-  --map-boundary: #c8cacf;
-  --map-road: #e4e4e2;
-  --map-label: #8b8e96;
-  --map-label-strong: #6b6e76;
-  --map-label-halo: #f2f2f0;
+  /* Quiet basemap, warm and soft */
+  --map-land: #f3f2ee;
+  --map-water: #d6e2ec;
+  --map-boundary: #cbc9c3;
+  --map-road: #e7e5e0;
+  --map-label: #8c8b86;
+  --map-label-strong: #6c6b66;
+  --map-label-halo: #f3f2ee;
 }
 
 /* ---- Semantic tokens: dark (designed dark gray, not inverted) ---- */
@@ -138,18 +160,30 @@
   --canvas: var(--gray-d-950);
   --surface: var(--gray-d-900);
   --surface-raised: var(--gray-d-850);
-  --surface-sunken: var(--gray-d-950);
   --surface-hover: var(--gray-d-850);
-  --surface-selected: #262842;
   --ink: var(--gray-d-100);
   --ink-muted: var(--gray-d-300);
-  --ink-faint: var(--gray-d-500);
+  --ink-faint: var(--gray-d-500); /* 3:1 over glass: icons and non-text UI, not text */
   --border: var(--gray-d-800);
   --border-strong: var(--gray-d-700);
   --accent: var(--indigo-300);
   --accent-ink: var(--indigo-950);
-  --accent-soft: #262842;
+  --accent-soft: rgb(165 163 255 / 0.16);
   --focus: var(--indigo-300);
+
+  --glass-fill: rgb(32 34 40 / 0.58);
+  --glass-fill-thick: rgb(36 38 44);
+  --glass-fill-solid: #24262b;
+  --glass-stroke: rgb(255 255 255 / 0.12);
+  --glass-highlight:
+    inset 0 1px 0 rgb(255 255 255 / 0.14), inset 0 0 0 0.5px rgb(255 255 255 / 0.06);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 40px rgb(0 0 0 / 0.45);
+  --glass-tint-hover: rgb(255 255 255 / 0.08);
+  --glass-tint-press: rgb(0 0 0 / 0.2);
+
+  --control-fill: rgb(255 255 255 / 0.1);
+  --control-fill-hover: rgb(255 255 255 / 0.16);
+  --hairline: rgb(255 255 255 / 0.1);
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
   --shadow-md: 0 2px 6px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.35);
@@ -165,11 +199,11 @@
   --cluster-ring: var(--indigo-400);
   --cluster-ink: var(--gray-d-100);
 
-  --map-land: #242528;
-  --map-water: #191a1d;
-  --map-boundary: #3c3e43;
-  --map-road: #2d2e32;
+  --map-land: #1f2124;
+  --map-water: #15191e;
+  --map-boundary: #3a3c40;
+  --map-road: #2a2c30;
   --map-label: #7d8088;
   --map-label-strong: #979aa2;
-  --map-label-halo: #242528;
+  --map-label-halo: #1f2124;
 }

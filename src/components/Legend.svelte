@@ -16,11 +16,13 @@
     gap: var(--space-1) var(--space-4);
     color: var(--ink-muted);
     font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
   }
 
   li {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 6px;
+    white-space: nowrap;
   }
 </style>

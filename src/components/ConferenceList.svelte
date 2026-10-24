@@ -42,6 +42,9 @@
 
   /** One access badge on the first site, or one per site when their access levels differ. */
   const mixedAccess = (item: ListItem) => new Set(item.sites.map((s) => s.access)).size > 1;
+  /** "Registration" is the common case: only "Open to all" and "Authors only" get a badge here. */
+  const showAccess = (item: ListItem, i: number) =>
+    item.sites[i].access !== 'registration' && (i === 0 || mixedAccess(item));
 
   // Keep the selected row in view when selection comes from the map.
   $effect(() => {
@@ -65,7 +68,8 @@
 <section class="list" aria-labelledby="list-heading">
   <header>
     <h2 id="list-heading">
-      List <span class="count tabular">({items.length})</span>
+      <span class="count tabular">{items.length || 'No'}</span>
+      {items.length === 1 ? 'conference' : items.length ? 'conferences' : 'conferences match'}
     </h2>
     {#if app.home}
       <button
@@ -120,7 +124,7 @@
                   <span class="place">{placeLabel(s)}</span>
                   {#if s.format === 'hybrid'}<span class="tag">Hybrid</span>{/if}
                   {#if s.role === 'satellite'}<span class="tag">Satellite</span>{/if}
-                  {#if i === 0 || mixedAccess(item)}
+                  {#if showAccess(item, i)}
                     <span class="badge-slot"><AccessBadge access={s.access} /></span>
                   {/if}
                 </span>
@@ -158,11 +162,12 @@
       {/each}
     </ul>
   {:else}
-    <p class="empty">No conferences match the current view.</p>
+    <p class="empty">Try clearing a filter or widening the dates on the timeline.</p>
   {/if}
 </section>
 
 <style>
+  /* Transparent: the sidebar / bottom sheet around this list is the glass panel. */
   .list {
     display: flex;
     flex-direction: column;
@@ -171,27 +176,23 @@
 
   header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-    padding: var(--space-4) var(--space-4) var(--space-2);
+    gap: var(--space-3);
+    min-height: 44px;
+    padding: var(--space-2) var(--space-4);
   }
 
   h2 {
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
     color: var(--ink-muted);
-  }
-
-  .count {
-    font-weight: var(--weight-medium);
   }
 
   ul {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: var(--space-1);
     padding: 0 var(--space-2) var(--space-4);
   }
 
@@ -199,11 +200,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-2);
     width: 100%;
-    padding: var(--space-3);
+    padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
     border: 0;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-card);
     background: transparent;
     text-align: left;
     transition: background-color var(--duration-fast) var(--ease-out);
@@ -211,19 +212,20 @@
 
   .row:hover,
   .row.hovered {
-    background: var(--surface-hover);
+    background: var(--glass-tint-hover);
   }
 
   .row.selected {
-    background: var(--surface-selected);
+    background: var(--accent-soft);
   }
 
+  /* Shape cue for the selected row, so selection does not rely on the tint alone. */
   .row.selected::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 12px;
-    bottom: 12px;
+    left: 5px;
+    top: 14px;
+    bottom: 14px;
     width: 3px;
     border-radius: var(--radius-full);
     background: var(--accent);
@@ -231,7 +233,7 @@
 
   .row:focus-visible {
     outline-offset: -2px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-card);
   }
 
   .top {
@@ -256,7 +258,7 @@
   .sites {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
   .site {
@@ -300,18 +302,32 @@
   }
 
   .sort {
-    padding: 2px var(--space-2);
-    border: 1px solid var(--border-strong);
+    height: 28px;
+    padding: 0 var(--space-3);
+    border: 0;
     border-radius: var(--radius-full);
-    background: transparent;
+    background: var(--control-fill);
+    box-shadow: inset 0 0 0 1px var(--hairline);
     color: var(--ink-muted);
     font-size: var(--text-xs);
     font-weight: var(--weight-medium);
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-press) var(--ease-out);
+  }
+
+  .sort:hover {
+    background: var(--control-fill-hover);
+    color: var(--ink);
+  }
+
+  .sort:active {
+    transform: scale(0.97);
   }
 
   .sort[aria-pressed='true'] {
-    border-color: var(--accent);
     background: var(--accent-soft);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
     color: var(--accent);
   }
 
@@ -328,7 +344,8 @@
   }
 
   .empty {
-    padding: var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-4);
     color: var(--ink-muted);
+    font-size: var(--text-sm);
   }
 </style>

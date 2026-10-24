@@ -83,7 +83,7 @@
 
 <div class="sheet-area" bind:clientHeight={containerHeight}>
   <section
-    class="sheet"
+    class="sheet glass"
     class:dragging={!!drag}
     aria-label={label}
     style:transform="translateY({containerHeight - height}px)"
@@ -135,9 +135,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--surface);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    box-shadow: var(--shadow-lg);
+    /* Surface from .glass (base.css); open at the bottom edge of the screen. */
+    border-bottom: 0;
+    border-radius: var(--radius-panel) var(--radius-panel) 0 0;
     pointer-events: auto;
     transition: transform var(--duration-slow) var(--ease-out);
     will-change: transform;
@@ -165,9 +165,10 @@
 
   .grip span {
     width: 36px;
-    height: 4px;
+    height: 5px;
     border-radius: var(--radius-full);
-    background: var(--border-strong);
+    background: var(--ink-faint);
+    opacity: 0.55;
   }
 
   .grip:focus-visible {

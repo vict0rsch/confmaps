@@ -15,6 +15,7 @@ test.afterAll(async () => fixture?.close());
 const open = (page: Page, query = '') => page.goto(`${fixture.url}/${query}`);
 
 async function setHome(page: Page) {
+  await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill('Berlin');
@@ -45,7 +46,7 @@ test('a virtual edition: Virtual badge, "Online · ~0 kg"; distance filters keep
   await expect(neurips20.getByTestId('format-badge')).toHaveText('Virtual');
   await expect(neurips20).toContainText('Online');
   await expect(neurips20.getByTestId('row-footprint')).toContainText('Online · ~0 kg');
-  await expect(page.locator('#list-heading .count')).toHaveText('(3)');
+  await expect(page.locator('#list-heading .count')).toHaveText('3');
 
   // "Nearest first": attending online counts as distance 0.
   await open(page, '?from=2019-12&to=2020-12');
@@ -57,12 +58,12 @@ test('a virtual edition: Virtual badge, "Online · ~0 kg"; distance filters keep
 
   // Vancouver 2019 + three virtual 2020 editions; 50 km and 25 kg from Berlin keep the virtual ones.
   await open(page, '?from=2019-12&to=2020-12');
-  await expect(page.locator('#list-heading .count')).toHaveText('(4)');
+  await expect(page.locator('#list-heading .count')).toHaveText('4');
   await open(page, '?from=2019-12&to=2020-12&radius=50');
-  await expect(page.locator('#list-heading .count')).toHaveText('(3)');
+  await expect(page.locator('#list-heading .count')).toHaveText('3');
   await expect(row(page, 'neurips19')).toHaveCount(0);
   await open(page, '?from=2019-12&to=2020-12&co2=25');
-  await expect(page.locator('#list-heading .count')).toHaveText('(3)');
+  await expect(page.locator('#list-heading .count')).toHaveText('3');
   await expect(row(page, 'iclr20')).toBeVisible();
 });
 
@@ -106,7 +107,7 @@ test('the axis starts 5 years back; "All years" reaches the first edition', asyn
   await page.getByRole('button', { name: 'All years' }).click();
   await expect(page.getByTestId('timeline-range')).toContainText('2017');
   await expect(page).toHaveURL(/[?&]from=2017-12-04/);
-  await expect(page.locator('#list-heading .count')).not.toHaveText('(0)');
+  await expect(page.locator('#list-heading .count')).not.toHaveText('No');
 });
 
 test.describe('phone', () => {
