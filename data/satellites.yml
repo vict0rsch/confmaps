@@ -49,6 +49,7 @@
   link: https://neurips-europe.cc/
   city: Paris
   country: France
+  venue: Paris Congress Center
   start: '2026-12-09'
   end: '2026-12-13'
   official: true
@@ -61,3 +62,24 @@
     - https://neurips-europe.cc/
     - https://neurips.cc/Conferences/2026
     - https://blog.neurips.cc/2026/04/22/neurips-newsletter-april-2026/
+
+- id: neurips26-atlanta
+  parent: neurips26
+  name: NeurIPS 2026 — Atlanta
+  link: https://neurips.cc/Conferences/2026
+  city: Atlanta
+  country: United States
+  venue: Georgia World Congress Center
+  start: '2026-12-09'
+  end: '2026-12-13'
+  official: true
+  presents_papers: true
+  access: registration
+  notes: >-
+    Separate registrations for conference sessions & tutorials and for workshops & competitions.
+    General-public registration is first come, first served, with a waiting list per site.
+  sources:
+    - https://neurips.cc/Conferences/2026/Children
+    - https://neurips.cc/Conferences/2026/Pricing
+    - https://blog.neurips.cc/2026/04/22/neurips-newsletter-april-2026/
+    - https://blog.neurips.cc/2026/08/27/navigating-neurips-2026-a-breakdown-of-the-multi-site-registration-process/

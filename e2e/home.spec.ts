@@ -89,20 +89,20 @@ test('detail shows per-site estimates, the nearest site, and the myclimate cross
   await page.locator('[data-conference-id="neurips26"]').click();
   const detail = page.getByTestId('detail');
   const sites = detail.getByTestId('site-footprint');
-  await expect(sites).toHaveCount(2);
+  await expect(sites).toHaveCount(3);
   await expect(detail.getByText('Estimated CO₂e, round trip').first()).toBeVisible();
   await expect(detail.getByText('Nearest')).toHaveCount(1);
   await expect(detail.getByText(/^Paris: roughly \d+× less than flying to Sydney$/)).toBeVisible();
 
-  // Paris (rail) has no cross-check; Sydney (flight) has, with the caveat line.
+  // Paris (rail) has no cross-check; Sydney and Atlanta (flights) have, each with the caveat line.
   const link = detail.getByRole('link', { name: /Cross-check this flight on myclimate/ });
-  await expect(link).toHaveCount(1);
-  await expect(link).toHaveAttribute('href', /^https:\/\/co2\.myclimate\.org\//);
-  await expect(detail.getByText(/same order of magnitude is expected/)).toHaveCount(1);
+  await expect(link).toHaveCount(2);
+  await expect(link.first()).toHaveAttribute('href', /^https:\/\/co2\.myclimate\.org\//);
+  await expect(detail.getByText(/same order of magnitude is expected/)).toHaveCount(2);
 
-  // Per-trip override: flying to Paris adds a second cross-check link.
-  await sites.last().getByLabel('✈️ Flight').check({ force: true });
-  await expect(detail.getByRole('link', { name: /Cross-check this flight/ })).toHaveCount(2);
+  // Per-trip override: flying to Paris adds a third cross-check link.
+  await sites.filter({ hasText: 'Paris' }).getByLabel('✈️ Flight').check({ force: true });
+  await expect(detail.getByRole('link', { name: /Cross-check this flight/ })).toHaveCount(3);
 
   await expect(detail.getByRole('link', { name: 'How is this estimated?' })).toBeVisible();
 });

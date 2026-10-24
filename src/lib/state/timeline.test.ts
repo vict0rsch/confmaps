@@ -168,7 +168,11 @@ describe('live pins during Play', () => {
   it('are visible events under the window start', () => {
     const locs = app.data.locations.filter((l) => l.conferenceId === 'neurips26');
     const t = '2026-12-10';
-    expect([...liveIds(locs, t, null, null)].sort()).toEqual(['neurips26-paris', 'neurips26@main']);
+    expect([...liveIds(locs, t, null, null)].sort()).toEqual([
+      'neurips26-atlanta',
+      'neurips26-paris',
+      'neurips26@main',
+    ]);
     expect(liveIds(locs, '2026-12-20', null, null).size).toBe(0);
   });
 });

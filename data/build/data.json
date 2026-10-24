@@ -10225,7 +10225,7 @@
       "year": 2027
     }
   ],
-  "generatedAt": "2026-10-23T14:00:04.410Z",
+  "generatedAt": "2026-10-24T19:20:41.985Z",
   "locations": [
     {
       "access": "registration",
@@ -16245,6 +16245,24 @@
       "venue": "San Diego Convention Center"
     },
     {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "neurips26",
+      "country": "United States",
+      "end": "2026-12-13",
+      "id": "neurips26-atlanta",
+      "lat": 33.7544657,
+      "link": "https://neurips.cc/Conferences/2026",
+      "lng": -84.3898151,
+      "name": "NeurIPS 2026 — Atlanta",
+      "notes": "Separate registrations for conference sessions & tutorials and for workshops & competitions. General-public registration is first come, first served, with a waiting list per site.",
+      "official": true,
+      "presentsPapers": true,
+      "role": "satellite",
+      "start": "2026-12-09",
+      "venue": "Georgia World Congress Center"
+    },
+    {
       "access": "authors_only",
       "city": "Paris",
       "conferenceId": "neurips26",
@@ -16259,7 +16277,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "satellite",
-      "start": "2026-12-09"
+      "start": "2026-12-09",
+      "venue": "Paris Congress Center"
     },
     {
       "access": "registration",
