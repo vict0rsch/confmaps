@@ -208,7 +208,9 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   (gambling, link farms, injected spam). Without such a capture: a stable proceedings page (ACL
   Anthology, IEEE Xplore, …), else the live site if it still shows that edition. The detail
   panel labels a snapshot "Archived site · <original host>". `sources` hold only URLs that
-  currently load and support the facts, or snapshots.
+  currently load and support the facts, or snapshots. The discovery agent archives the link of
+  each new edition the same way (closest capture in that window); with none, it writes the live
+  link marked `UNARCHIVED` and opens its PR as a draft.
 - **2022–23 hybrid sweep:** every 2022–23 edition was checked against its own site or proceedings for a
   hybrid format; those with a cited quote are marked `hybrid`, the rest are left as they were.
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions

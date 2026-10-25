@@ -6,6 +6,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+import httpx
 import pytest
 from conftest import REPO, FakeClient, FakeFetcher, FakeGeocoder, ev, json_message
 from ruamel.yaml import YAML
@@ -18,6 +19,7 @@ from discover.merge import Update
 from discover.past import plan_batches
 from discover.past_ids import SERIES_ALIASES, past_edition_id, series_of
 from discover.past_merge import (
+    UNARCHIVED_COMMENT,
     UNVERIFIED_COMMENT,
     WIDTH,
     PastPlan,
@@ -33,9 +35,11 @@ from discover.past_verify import (
     CheckedEdition,
     check_edition,
     format_problem,
+    strip_ordinal,
 )
 from discover.report import PAST_INTRO, ConferenceRun, applied_section, build_body
 from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
+from discover.wayback import NO_SNAPSHOT_FLAG, Snapshots
 from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
 TODAY = date(2026, 10, 23)
@@ -812,13 +816,25 @@ def repo(tmp_path: Path) -> Path:
     return root
 
 
-def run_past(repo: Path, *args: str, client: Any = None) -> int:
+def run_past(repo: Path, *args: str, client: Any = None, snapshots: Any = None) -> int:
     argv = ["--repo-root", str(repo), "--mode", "past", *args]
     if "--from-results" not in args:
         argv += ["--results-dir", str(repo.parent / "results")]
     if "--workers" not in args:
         argv += ["--workers", "1"]  # FakeClient answers in call order
-    return main(argv, client or FakeClient(), FakeFetcher(PAGES), FakeGeocoder(GEO), today=TODAY)
+    return main(
+        argv,
+        client or FakeClient(),
+        FakeFetcher(PAGES),
+        FakeGeocoder(GEO),
+        today=TODAY,
+        snapshots=snapshots or archived,
+    )
+
+
+def archived(url: str, day: str) -> str:
+    """A fake Wayback lookup: every page has a capture on ``day``."""
+    return f"https://web.archive.org/web/{day.replace('-', '')}000000/{url}"
 
 
 def test_dry_run_reports_and_writes_nothing(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:
@@ -868,6 +884,83 @@ def test_write_mode_recheck_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> N
     assert "## Applied changes" in body
     assert "- `neurips20` `city`: `Vancouver` → (removed)" in body
     assert "--mode past --recheck" in body
+
+
+def test_new_edition_links_are_archived_copies(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    client = FakeClient(json_message({"editions": [ed2018()]}))
+    args = ["--series", "neurips", "--since", "2016", "--until", "2018"]
+    assert run_past(repo, *args, client=client) == 0
+    written = load_entries((repo / "data" / "past_conferences.yml").read_text())
+    (new,) = [e for e in written if e["id"] == "neurips18"]
+    assert new["link"] == f"https://web.archive.org/web/20181208000000/{U18}"
+
+
+def test_no_snapshot_writes_the_live_link_marked_and_makes_a_draft(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    client = FakeClient(json_message({"editions": [ed2018()]}))
+    out_dir = repo.parent / "out"
+    args = ["--series", "neurips", "--since", "2016", "--until", "2018", "--out-dir", str(out_dir)]
+    assert run_past(repo, *args, client=client, snapshots=lambda url, day: None) == 0
+    text = (out_dir / "data" / "past_conferences.yml").read_text()
+    assert f"  link: {U18}  # {UNARCHIVED_COMMENT}\n" in text
+    assert json.loads((out_dir / "pr.json").read_text())["draft"] is True
+    assert NO_SNAPSHOT_FLAG in (out_dir / "pr-body.md").read_text()
+
+
+def test_a_wayback_link_never_gets_a_live_link_suggested() -> None:
+    page = "NeurIPS 2020 was held as a virtual-only conference, December 6–12, 2020."
+    recorded = {e["id"]: e for e in PAST}["neurips20"]
+    snapshot = f"https://web.archive.org/web/20201206000000/{U20}"
+    u = _update({**recorded, "link": snapshot}, checked(ed2020(), {U20: page}))
+    assert u is None or "link" not in u.suggested
+    u = _update({**recorded, "link": "https://old.example/neurips20"}, checked(ed2020()))
+    assert u is not None and u.suggested["link"] == ("https://old.example/neurips20", U20)
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "5th International Conference on Learning Representations",
+        "The Twelfth International Conference on Learning Representations",
+        "the 32nd Annual International Conference on Learning Representations",
+        "Thirty-First International Conference on Learning Representations",
+        "International Conference on Learning Representations",
+    ],
+)
+def test_strip_ordinal(name: str) -> None:
+    assert strip_ordinal(name) == "International Conference on Learning Representations"
+
+
+def test_full_name_is_kept_without_its_ordinal() -> None:
+    quote = "The Thirty-Second Annual Conference on Neural Information Processing Systems"
+    c = checked(ed2018(full_name=ev(quote, U18, quote)), {U18: f"{PAGES[U18]} {quote}."})
+    assert c.fields["full_name"] == "Conference on Neural Information Processing Systems"
+
+
+def test_snapshots_reads_the_availability_api() -> None:
+    def reply(body: Any, status: int = 200) -> Snapshots:
+        transport = httpx.MockTransport(lambda request: httpx.Response(status, json=body))
+        return Snapshots(httpx.Client(transport=transport))
+
+    capture = "http://web.archive.org/web/20181208010203/https://neurips.cc/Conferences/2018"
+    ok = {"archived_snapshots": {"closest": {"available": True, "status": "200", "url": capture}}}
+    assert reply(ok)(U18, "2018-12-08") == capture.replace("http://", "https://")
+    assert reply({"archived_snapshots": {}})(U18, "2018-12-08") is None
+    bad_status = {"archived_snapshots": {"closest": {**ok["archived_snapshots"]["closest"],
+                                                     "status": "404"}}}  # fmt: skip
+    assert reply(bad_status)(U18, "2018-12-08") is None
+    elsewhere = {"archived_snapshots": {"closest": {"available": True, "status": "200",
+                                                    "url": "https://evil.example/x"}}}  # fmt: skip
+    assert reply(elsewhere)(U18, "2018-12-08") is None
+    assert reply(["not", "a", "dict"])(U18, "2018-12-08") is None
+    # Outside 18 months before / 6 months after the end: may already show a hijacked domain.
+    late = {"archived_snapshots": {"closest": {"available": True, "status": "200",
+                                               "url": capture.replace("20181208", "20230101")}}}  # fmt: skip
+    assert reply(late)(U18, "2018-12-08") is None
+    assert reply(ok, status=503)(U18, "2018-12-08") is None
 
 
 def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:

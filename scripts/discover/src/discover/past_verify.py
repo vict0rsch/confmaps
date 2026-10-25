@@ -58,6 +58,33 @@ PAST_RULES: dict[str, str] = {
     "cancelled": "judgement",
 }
 PLACE_FIELDS = ("city", "country", "venue")
+_NTH = (
+    r"first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|"
+    r"thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth|nineteenth"
+)
+# A leading edition number ("5th", "The Twelfth", "Thirty-First Annual"): recorded full names
+# carry none, so a page stating one must neither change nor be suggested for an entry.
+ORDINAL_RE = re.compile(
+    rf"^(?:the\s+)?(?:\d+(?:st|nd|rd|th)|{_NTH}|(?:twent|thirt|fort|fift)ieth|"
+    rf"(?:twenty|thirty|forty|fifty)[- ](?:{_NTH}))\s+(?:annual\s+)?",
+    re.IGNORECASE,
+)
+
+
+def strip_ordinal(name: str) -> str:
+    """``name`` without a leading edition number.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        strip_ordinal("The Twelfth International Conference on Learning Representations")
+        # "International Conference on Learning Representations"
+    """
+    stripped = ORDINAL_RE.sub("", name, count=1)
+    return stripped[:1].upper() + stripped[1:] if stripped else name
+
+
 FORMAT_HEDGED = "quote negates or hedges the format"
 # A format is asserted by a clause that names it with no negation or hedge in that clause.
 _CLAUSE_BREAK = re.compile(r"[.;:!?,()\[\]]|\s-\s|\b(?:but|however|whereas|although|though)\b")
@@ -222,6 +249,9 @@ def check_edition(
             out.fields[name] = check.value
             out.kinds[name] = check.kind
             out.sources[name] = check.source_url
+
+    if "full_name" in out.fields:
+        out.fields["full_name"] = strip_ordinal(out.fields["full_name"])
 
     def drop(reason: str, detail: str = "") -> CheckedEdition:
         out.dropped, out.dropped_detail = reason, detail

@@ -103,7 +103,9 @@ without a quote naming it (it is then checked by geocoding the city). Never gues
 Field values:
 - year: the target year of the edition, exactly as given.
 - title: the conference's short name as written that year (it may be a historical name, for \
-example "NIPS"), without the year. full_name: the long name, only if a page states it.
+example "NIPS"), without the year. full_name: the long name, only if a page states it, \
+without the year or an edition number ("International Conference on Learning \
+Representations", not "5th International Conference on Learning Representations").
 - link: the edition's own web page (http or https), or the series page for that edition.
 - city: the city name only. country: the English short name ("United States", "United \
 Kingdom", "South Korea", "Germany"). venue: the venue name, only if the page states it. Omit \

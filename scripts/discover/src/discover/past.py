@@ -17,6 +17,7 @@ from .past_merge import PastPlan, apply_past_plan, plan_past_changes, series_pro
 from .past_verify import CheckedEdition, check_edition_safely
 from .report import ConferenceRun
 from .verify import LimitedPages
+from .wayback import NO_SNAPSHOT_FLAG, is_wayback
 
 MAX_FETCHES_PER_BATCH = 40  # quote-verification downloads per request (up to six editions)
 RECHECK_FIELDS = ["id", "title", "year", "link", "start", "end", "format", "city", "country",
@@ -146,10 +147,14 @@ def check_and_plan(
     geocoder: Any,
     today: date,
     on_checked: Callable[[ConferenceRun], None] | None = None,
+    snapshot: Callable[[str, str], str | None] | None = None,
 ) -> tuple[PastPlan, str]:
     """Verify every returned edition, then plan and apply the changes to the file text.
 
     ``on_checked(run)`` is called once each request's editions are checked (progress display).
+    ``snapshot(url, day)`` (a :class:`~discover.wayback.Snapshots`) replaces each new edition's
+    live ``link`` with its Wayback copy closest to the edition's end; without one, the live link
+    is written with a review comment and a flag.
 
     Examples
     --------
@@ -168,4 +173,13 @@ def check_and_plan(
                 on_checked(run)
     editions = [c for run in runs for c in run.checked if isinstance(c, CheckedEdition)]
     plan = plan_past_changes(past, data, editions, series_profiles(data, past))
+    for a in plan.additions:
+        live = a.entry["link"]
+        if snapshot is not None and not is_wayback(live):
+            # Past links are archived copies: old conference domains get hijacked.
+            archived = snapshot(live, a.entry["end"])
+            if archived:
+                a.entry["link"] = archived
+            else:
+                a.candidate.flags.append(NO_SNAPSHOT_FLAG)
     return plan, apply_past_plan(past_text, plan)

@@ -30,6 +30,7 @@ from .merge import UNVERIFIED_COMMENT, Addition, Plan, Update
 from .past_ids import is_track, past_edition_id, series_of
 from .past_verify import PLACE_FIELDS, CheckedEdition
 from .verify import norm_city
+from .wayback import NO_SNAPSHOT_FLAG, is_wayback
 from .yamlio import append_item, delete_key, dump, load_for_edit, set_ordered
 
 FIELD_ORDER = [
@@ -40,6 +41,7 @@ APPLIED_UPDATES = ["format", "city", "country", "venue", "start", "end"]
 SUGGESTED_UPDATES = [*APPLIED_UPDATES, "title", "full_name", "link"]
 DATE_FIELDS = {"start", "end"}
 DEFAULT_FORMAT = "in_person"
+UNARCHIVED_COMMENT = "UNARCHIVED live link — replace with a Wayback snapshot before merging"
 WIDTH = 4096  # the importer never folds long strings (e.g. `pwc.fixes` notes)
 HEADER = """\
 # Past main editions (docs/backfill-spec.md §1): imported from paperswithcode/ai-deadlines
@@ -211,7 +213,11 @@ def _update(current: dict[str, Any], c: CheckedEdition) -> Update | None:
     suggested = {
         k: (cur[k], c.fields[k])
         for k in SUGGESTED_UPDATES
-        if k in c.fields and c.fields[k] != cur[k] and k not in changes
+        if k in c.fields
+        and c.fields[k] != cur[k]
+        and k not in changes
+        # A past link stays archived: never suggest the live page for a Wayback snapshot.
+        and not (k == "link" and is_wayback(cur["link"] or "") and not is_wayback(c.fields[k]))
     }
     if not changes and not suggested:
         return None
@@ -232,6 +238,9 @@ def _new_entry(a: Addition) -> CommentedMap:
     for f in a.defaulted:
         # The column counts the 4-space indent this entry gets before `dump` dedents it.
         entry.yaml_add_eol_comment(UNVERIFIED_COMMENT, f, column=4 + len(f"{f}: {a.entry[f]}") + 2)
+    if NO_SNAPSHOT_FLAG in getattr(a.candidate, "flags", []):
+        column = 4 + len(f"link: {a.entry['link']}") + 2
+        entry.yaml_add_eol_comment(UNARCHIVED_COMMENT, "link", column=column)
     return entry
 
 

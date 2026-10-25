@@ -73,6 +73,7 @@ from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
 from .past import check_and_plan, plan_batches
 from .report import PAST_INTRO, ConferenceRun, build_body, tool_log
 from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
+from .wayback import NO_SNAPSHOT_FLAG, Snapshots
 from .yamlio import load_entries
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
@@ -603,8 +604,10 @@ def main(
     fetcher: Any = None,
     geocoder: Any = None,
     today: date | None = None,
+    snapshots: Any = None,
 ) -> int:
-    """Entry point. ``client``, ``fetcher``, ``geocoder`` and ``today`` are injectable for tests.
+    """Entry point. ``client``, ``fetcher``, ``geocoder``, ``today`` and ``snapshots`` (Wayback
+    lookups for past-mode links) are injectable for tests.
 
     Returns
     -------
@@ -621,7 +624,7 @@ def main(
     args = _parse_args(argv)
     start = time.monotonic()
     try:
-        return _main(args, client, fetcher, geocoder, today)
+        return _main(args, client, fetcher, geocoder, today, snapshots)
     finally:
         minutes, seconds = divmod(round(time.monotonic() - start), 60)
         step(f"Finished in {minutes}m{seconds:02d}s")
@@ -633,13 +636,14 @@ def _main(
     fetcher: Any,
     geocoder: Any,
     today: date | None,
+    snapshots: Any = None,
 ) -> int:
     """:func:`main` after argument parsing: route to a mode, research or replay, then propose."""
     repo: Path = args.repo_root
     today = today or datetime.now(UTC).date()
     data = json.loads((repo / DATA_JSON).read_text())
     if args.mode == "past":
-        return _main_past(args, repo, today, data, client, fetcher, geocoder)
+        return _main_past(args, repo, today, data, client, fetcher, geocoder, snapshots)
     sat_text = (repo / SATELLITES).read_text()
     existing = load_satellites(sat_text)
 
@@ -709,6 +713,7 @@ def _main_past(
     client: Any,
     fetcher: Any,
     geocoder: Any,
+    snapshots: Any = None,
 ) -> int:
     """``--mode past``: research (or replay), check, merge and propose past editions."""
     past_path = repo / PAST
@@ -758,7 +763,10 @@ def _main_past(
         fetcher = fetcher or PageFetcher()
         geocache = _load_geocache(repo)
         geocoder = geocoder or Geocoder(geocache)
-        step("Checking evidence: fetching cited pages and geocoding cities, then planning changes")
+        step(
+            "Checking evidence: fetching cited pages and geocoding cities, then planning "
+            "changes and archiving new links"
+        )
         with CheckProgress(runs) as progress:
             plan, new_text = check_and_plan(
                 runs,
@@ -769,6 +777,7 @@ def _main_past(
                 progress.geocoder(geocoder),
                 today,
                 on_checked=progress.checked,
+                snapshot=snapshots or Snapshots(),
             )
         counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
         summary = (
@@ -789,7 +798,9 @@ def _main_past(
             {
                 "title": f"Past editions: {counts}",
                 # Unverified defaults and cancellations need a human before the PR can merge.
-                "draft": any(a.defaulted for a in plan.additions) or bool(plan.removals),
+                "draft": any(a.defaulted for a in plan.additions)
+                or bool(plan.removals)
+                or any(NO_SNAPSHOT_FLAG in a.candidate.flags for a in plan.additions),
             },
         )
     finally:
