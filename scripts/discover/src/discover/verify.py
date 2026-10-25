@@ -420,6 +420,7 @@ class Page:
     error: str = ""  # static reason when unavailable
     detail: str = ""  # dynamic detail (server- or exception-provided; escaped in reports)
     links: frozenset[str] = frozenset()  # canonical href targets (see _link_key)
+    archived: str = ""  # the Wayback copy the text came from, when the live page was unreadable
 
 
 def page_from_markup(raw: str, base_url: str, is_html: bool = True) -> Page:
@@ -433,14 +434,33 @@ def page_from_markup(raw: str, base_url: str, is_html: bool = True) -> Page:
         page.links  # frozenset({"https://a.org/x"})
     """
     if not is_html:
-        return Page(normalize(raw))
+        return _unless_bot_check(Page(normalize(raw)))
     text, hrefs = _parse_html(raw)
     links = set()
     for href in hrefs:
         target = urljoin(base_url, href.strip())
         if unsafe_url_reason(target) is None:
             links.add(_link_key(target))
-    return Page(normalize(text), links=frozenset(links))
+    return _unless_bot_check(Page(normalize(text), links=frozenset(links)))
+
+
+# Anti-bot interstitials served instead of the page (dblp's Anubis, Cloudflare): their text
+# never holds the content, so they are unreadable, not pages without the quote. Only short
+# pages count, so a real page that mentions these words is never mistaken for one.
+BOT_CHECK_RE = re.compile(
+    r"making sure you.?re not a bot|protected by anubis|just a moment\.\.\.|"
+    r"checking (?:if the site connection is secure|your browser)|"
+    r"enable javascript and cookies to continue",
+    re.IGNORECASE,
+)
+MAX_BOT_CHECK_CHARS = 2000
+
+
+def _unless_bot_check(page: Page) -> Page:
+    text = page.text or ""
+    if len(text) <= MAX_BOT_CHECK_CHARS and BOT_CHECK_RE.search(text):
+        return Page(None, "bot check instead of the page")
+    return page
 
 
 class PageFetcher:
@@ -856,6 +876,8 @@ def check_field(
         return check
     check.source_url = canonical_url(url)
     page = get_page(check.source_url)
+    if page.archived:
+        check.source_url = page.archived  # what was checked: cite the archived copy
     if page.text is None:
         check.reason = "source page not readable"
         check.detail = f"{page.error} {page.detail}".strip()

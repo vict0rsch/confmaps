@@ -97,6 +97,10 @@ characters. The link must be a link on the source page or on the same site. Fiel
 are dropped, then editions that lack start, end, link, or city and country (unless held \
 online). Cite the HTML page that contains the text (not a search-result snippet, PDF or \
 image).
+- Copy each quote from a page you opened with web_fetch in this request, never from a search \
+result's title or snippet. The program cannot read pages behind a bot check or built by \
+JavaScript (dblp, IEEE Xplore): cite another page, such as the edition's own site or its \
+web.archive.org copy.
 - Omit a field entirely when you have no such quote, except country, which may be given \
 without a quote naming it (it is then checked by geocoding the city). Never guess a value.
 

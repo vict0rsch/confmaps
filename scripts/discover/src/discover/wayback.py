@@ -48,7 +48,8 @@ def is_wayback(url: str) -> bool:
 class Snapshots:
     """``(url, day) -> snapshot URL | None``: the capture of ``url`` closest to ``day``.
 
-    ``day`` is the edition's end (``YYYY-MM-DD``). Network or parsing problems, no successful
+    ``day`` is the edition's end (``YYYY-MM-DD``), or ``""`` for the latest capture with no
+    window (an archived copy of an evidence page). Network or parsing problems, no successful
     capture, or one outside the window around ``day`` give ``None``.
 
     Examples
@@ -77,7 +78,7 @@ class Snapshots:
         self.last = self.now()
         return self.client.get(
             AVAILABLE_URL,
-            params={"url": url, "timestamp": day.replace("-", "")},
+            params={"url": url, **({"timestamp": day.replace("-", "")} if day else {})},
             headers={"User-Agent": USER_AGENT},
         )
 
@@ -100,6 +101,8 @@ class Snapshots:
         m = SNAPSHOT_RE.match(snapshot)
         if not m:
             return None
+        if not day:
+            return snapshot
         # Months from the capture to the edition's end: positive when taken before it.
         taken = int(m[1][:4]) * 12 + int(m[1][4:6])
         months = int(day[:4]) * 12 + int(day[5:7]) - taken

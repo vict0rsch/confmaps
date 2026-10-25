@@ -13,10 +13,11 @@ from ruamel.yaml import YAML
 from test_report import HOSTILE, MARKERS, _strip_safe_spans
 
 from discover import past_agent
+from discover.agent import Research
 from discover.geo import GeoHit
 from discover.main import main, proposed_files, select_conferences
 from discover.merge import Update
-from discover.past import plan_batches
+from discover.past import UNOPENED_NOTE, _note_unopened, archived_fallback, plan_batches
 from discover.past_ids import SERIES_ALIASES, past_edition_id, series_of
 from discover.past_merge import (
     UNARCHIVED_COMMENT,
@@ -38,7 +39,13 @@ from discover.past_verify import (
     strip_ordinal,
 )
 from discover.report import PAST_INTRO, ConferenceRun, applied_section, build_body
-from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
+from discover.verify import (
+    FORMAT_IN_QUOTE,
+    JUDGEMENT,
+    PRE2020_DEFAULT,
+    VALUE_IN_QUOTE,
+    page_from_markup,
+)
 from discover.wayback import MIN_INTERVAL_S, NO_SNAPSHOT_FLAG, RETRY_AFTER_429_S, Snapshots
 from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
@@ -973,6 +980,46 @@ def test_snapshots_pause_between_lookups_and_retry_once_after_429() -> None:
     )
     assert lookup(U18, "2018-12-08") is None and not answers  # both answers were used
     assert slept == [RETRY_AFTER_429_S, MIN_INTERVAL_S - 0.5]
+
+
+ANUBIS = (
+    "<html><head><title>Making sure you're not a bot!</title></head><body>Loading... Please "
+    "wait a moment while we ensure the security of your connection. Protected by Anubis</body>"
+)
+DBLP = "https://dblp.org/rec/conf/cvpr/2005.html"
+DBLP_COPY = f"https://web.archive.org/web/20240101000000/{DBLP}"
+
+
+def test_a_bot_check_page_is_unreadable_not_a_page_without_the_quote() -> None:
+    assert page_from_markup(ANUBIS, DBLP).error == "bot check instead of the page"
+    long_page = f"<p>{P18} Why we are making sure you're not a bot. {'More text. ' * 300}</p>"
+    assert page_from_markup(long_page, U18).text is not None  # a real page mentioning it
+
+
+def test_an_unreadable_page_is_checked_on_its_archived_copy() -> None:
+    # The CVPR 2005 case: dblp serves a bot check; its archived copy holds the quote.
+    fetcher = FakeFetcher({DBLP: ANUBIS, DBLP_COPY: f"<p>{P18}</p>"})
+    get = archived_fallback(fetcher.get, lambda url, day: DBLP_COPY if not day else None)
+    page = get(DBLP)
+    assert page.text is not None and page.archived == DBLP_COPY
+    raw = ed2018(city=ev("Montréal", DBLP, "held in Montréal, Canada"))
+    c = check_edition(raw, BATCH, get, FakeGeocoder(GEO), TODAY)
+    assert c.kinds["city"] == VALUE_IN_QUOTE and c.sources["city"] == DBLP_COPY
+    # No archived copy: the page stays unreadable, with its reason.
+    no_copy = archived_fallback(fetcher.get, lambda url, day: None)(DBLP)
+    assert no_copy.text is None and no_copy.error == "bot check instead of the page"
+
+
+def test_a_quote_from_a_page_the_agent_never_opened_is_explained() -> None:
+    raw = ed2018(city=ev("Montréal", U21, "held in Montréal, Canada"))
+    research = Research(conference_id=BATCH["id"], status="ok", tool_calls=[f"web_fetch: {U18}"])
+    run = ConferenceRun(BATCH, research)
+    run.checked = [checked(raw)]
+    _note_unopened(run)
+    (city,) = [chk for chk in run.checked[0].checks if chk.field == "city"]
+    assert city.reason == "quote not found on source page" and city.detail == UNOPENED_NOTE
+    (start,) = [chk for chk in run.checked[0].checks if chk.field == "start"]
+    assert start.kind and not start.detail  # on U18, which the agent opened
 
 
 def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:
