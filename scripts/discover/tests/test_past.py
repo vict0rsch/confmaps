@@ -39,7 +39,7 @@ from discover.past_verify import (
 )
 from discover.report import PAST_INTRO, ConferenceRun, applied_section, build_body
 from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
-from discover.wayback import NO_SNAPSHOT_FLAG, Snapshots
+from discover.wayback import MIN_INTERVAL_S, NO_SNAPSHOT_FLAG, RETRY_AFTER_429_S, Snapshots
 from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
 TODAY = date(2026, 10, 23)
@@ -943,7 +943,7 @@ def test_full_name_is_kept_without_its_ordinal() -> None:
 def test_snapshots_reads_the_availability_api() -> None:
     def reply(body: Any, status: int = 200) -> Snapshots:
         transport = httpx.MockTransport(lambda request: httpx.Response(status, json=body))
-        return Snapshots(httpx.Client(transport=transport))
+        return Snapshots(httpx.Client(transport=transport), sleep=lambda s: None)
 
     capture = "http://web.archive.org/web/20181208010203/https://neurips.cc/Conferences/2018"
     ok = {"archived_snapshots": {"closest": {"available": True, "status": "200", "url": capture}}}
@@ -961,6 +961,18 @@ def test_snapshots_reads_the_availability_api() -> None:
                                                "url": capture.replace("20181208", "20230101")}}}  # fmt: skip
     assert reply(late)(U18, "2018-12-08") is None
     assert reply(ok, status=503)(U18, "2018-12-08") is None
+
+
+def test_snapshots_pause_between_lookups_and_retry_once_after_429() -> None:
+    answers = [httpx.Response(429), httpx.Response(200, json={"archived_snapshots": {}})]
+    transport = httpx.MockTransport(lambda request: answers.pop(0))
+    slept: list[float] = []
+    clock = iter([0.0, 0.0, 0.5, 0.5])
+    lookup = Snapshots(
+        httpx.Client(transport=transport), sleep=slept.append, now=lambda: next(clock)
+    )
+    assert lookup(U18, "2018-12-08") is None and not answers  # both answers were used
+    assert slept == [RETRY_AFTER_429_S, MIN_INTERVAL_S - 0.5]
 
 
 def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:

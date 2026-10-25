@@ -7,7 +7,10 @@ archived closest to the edition's end through the Wayback Machine availability A
 may already show a hijacked domain.
 """
 
+import math
 import re
+import time
+from collections.abc import Callable
 from typing import Any
 from urllib.parse import urlsplit
 
@@ -17,6 +20,10 @@ from .geo import USER_AGENT
 
 AVAILABLE_URL = "https://archive.org/wayback/available"
 TIMEOUT_S = 20.0
+# The archive answers "429 Too Many Requests" to quick successive lookups: pause between them,
+# and once more after a 429.
+MIN_INTERVAL_S = 2.0
+RETRY_AFTER_429_S = 30.0
 # What the API returns for a capture: web.archive.org/web/<timestamp>/<original URL>.
 SNAPSHOT_RE = re.compile(r"^https://web\.archive\.org/web/(\d{6})\d{0,8}/https?://\S+$")
 MONTHS_BEFORE, MONTHS_AFTER = 18, 6
@@ -52,16 +59,34 @@ class Snapshots:
         # "https://web.archive.org/web/20181208…/https://neurips.cc/Conferences/2018"
     """
 
-    def __init__(self, client: httpx.Client | None = None) -> None:
+    def __init__(
+        self,
+        client: httpx.Client | None = None,
+        sleep: Callable[[float], None] = time.sleep,
+        now: Callable[[], float] = time.monotonic,
+    ) -> None:
         self.client = client or httpx.Client(timeout=TIMEOUT_S, trust_env=False)
+        self.sleep = sleep
+        self.now = now
+        self.last = -math.inf
+
+    def _get(self, url: str, day: str) -> httpx.Response:
+        wait = self.last + MIN_INTERVAL_S - self.now()
+        if wait > 0:
+            self.sleep(wait)
+        self.last = self.now()
+        return self.client.get(
+            AVAILABLE_URL,
+            params={"url": url, "timestamp": day.replace("-", "")},
+            headers={"User-Agent": USER_AGENT},
+        )
 
     def __call__(self, url: str, day: str) -> str | None:
         try:
-            response = self.client.get(
-                AVAILABLE_URL,
-                params={"url": url, "timestamp": day.replace("-", "")},
-                headers={"User-Agent": USER_AGENT},
-            )
+            response = self._get(url, day)
+            if response.status_code == 429:
+                self.sleep(RETRY_AFTER_429_S)
+                response = self._get(url, day)
             response.raise_for_status()
             closest: Any = response.json()["archived_snapshots"].get("closest") or {}
         except (httpx.HTTPError, ValueError, KeyError, TypeError, AttributeError):
