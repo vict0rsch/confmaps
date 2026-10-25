@@ -20,6 +20,7 @@ from discover.past_merge import (
     UNVERIFIED_COMMENT,
     WIDTH,
     apply_past_plan,
+    insert_sorted,
     plan_past_changes,
     series_profiles,
 )
@@ -654,20 +655,37 @@ def test_hostile_strings_in_a_past_report_stay_in_code_spans() -> None:
         assert marker not in outside, marker
 
 
-def test_additions_append_without_touching_existing_text() -> None:
+def test_additions_are_inserted_in_order_without_touching_existing_text() -> None:
     plan = plan_for(checked(ed2018()), checked(ed2021()))
     text = apply_past_plan(PAST_TEXT, plan)
-    assert text.startswith(PAST_TEXT.rstrip("\n") + "\n\n- id: neurips18\n")
-    added = text[len(PAST_TEXT) :]
+    header, rest = PAST_TEXT.split("- id: neurips19", 1)
+    # 2018 goes before the first entry, right after the header; 2021 sorts last and is appended.
+    assert text.startswith(header + "- id: neurips18\n")
+    added = text[len(header) : text.index("- id: neurips19")]
     assert "  start: '2018-12-02'\n" in added and "  tags: [machine-learning]\n" in added
-    assert "\n\n- id: neurips21\n  title: NeurIPS\n  year: 2021\n" in text
+    assert ("- id: neurips19" + rest).rstrip("\n") in text  # existing entries byte for byte
+    assert text.endswith("\n\n" + text[text.index("- id: neurips21") :])
     parsed = YAML(typ="safe").load(text)
     ids = [e["id"] for e in parsed]
-    assert ids == ["neurips19", "neurips20", "icml19", "neurips18", "neurips21"]
+    assert ids == ["neurips18", "neurips19", "neurips20", "icml19", "neurips21"]
     assert parsed[4]["format"] == "virtual" and "city" not in parsed[4]
     # A missing file is created with a header comment.
     fresh = apply_past_plan("", plan)
     assert fresh.startswith("# Past main editions") and YAML(typ="safe").load(fresh)[0]["year"]
+
+
+def test_insert_sorted_keeps_year_then_id_order() -> None:
+    text = (
+        "# header\n\n- id: a16\n  year: 2016\n\n- id: b19 # review: x\n  year: 2019\n\n"
+        "- id: c19\n  year: 2019\n"
+    )
+    out = insert_sorted(text, "- id: bb19\n  year: 2019\n", (2019, "bb19"))
+    assert out == text.replace("- id: c19", "- id: bb19\n  year: 2019\n\n- id: c19")
+    out = insert_sorted(text, "- id: z00\n  year: 2000\n", (2000, "z00"))
+    assert out.startswith("# header\n\n- id: z00\n  year: 2000\n\n- id: a16\n")
+    assert insert_sorted(text, "- id: d20\n  year: 2020\n", (2020, "d20")).endswith(
+        "- id: c19\n  year: 2019\n\n- id: d20\n  year: 2020\n"
+    )
 
 
 def test_round_trip_is_byte_identical() -> None:
@@ -815,10 +833,8 @@ def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPat
     args = ["--series", "neurips", "--since", "2016", "--until", "2021", "--recheck"]
     assert run_past(repo, *args, "--out-dir", str(out_dir), client=client) == 0
     assert json.loads((out_dir / "pr.json").read_text())["draft"] is True
-    assert (
-        "neurips20"
-        in load_entries((out_dir / "data" / "past_conferences.yml").read_text())[1]["id"]
-    )
+    written = load_entries((out_dir / "data" / "past_conferences.yml").read_text())
+    assert "neurips20" in [e["id"] for e in written]  # a reported cancellation is never applied
 
 
 def test_unknown_series_fails(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:

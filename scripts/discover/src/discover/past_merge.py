@@ -18,6 +18,7 @@ Rules (deterministic, never deletes an entry; docs/backfill-spec.md §5.5):
 - ``cancelled`` is never applied: the entry is listed for human removal before merge.
 """
 
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
@@ -227,6 +228,33 @@ def _new_entry(a: Addition) -> CommentedMap:
     return entry
 
 
+ENTRY_START = re.compile(r"^- id: *([^\s#]+)", re.MULTILINE)
+ENTRY_YEAR = re.compile(r"^  year: *(\d+)", re.MULTILINE)
+
+
+def insert_sorted(text: str, block: str, key: tuple[int, str]) -> str:
+    """Insert one dumped entry before the first entry that sorts after it by ``(year, id)``.
+
+    The file is kept sorted by ``(year, id)`` (``scripts/import-pwc.test.ts``). The text around
+    the insertion is unchanged; an entry that sorts after every other one is appended.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        insert_sorted("- id: a16\n  year: 2016\n", "- id: a00\n  year: 2000\n", (2000, "a00"))
+        # "- id: a00\n  year: 2000\n\n- id: a16\n  year: 2016\n"
+    """
+    starts = [m.start() for m in ENTRY_START.finditer(text)]
+    for pos, end in zip(starts, [*starts[1:], len(text)], strict=False):
+        entry = text[pos:end]
+        year = ENTRY_YEAR.search(entry)
+        id_ = ENTRY_START.match(entry)
+        if year and id_ and (int(year[1]), id_[1]) > key:
+            return text[:pos] + block.rstrip("\n") + "\n\n" + text[pos:]
+    return text.rstrip("\n") + "\n\n" + block
+
+
 def apply_past_plan(text: str, plan: PastPlan) -> str:
     """Apply additions and applied updates; other entries and all comments are kept.
 
@@ -241,7 +269,8 @@ def apply_past_plan(text: str, plan: PastPlan) -> str:
     -------
     str
         New file content (identical to ``text`` for an empty plan). Without applied updates the
-        existing text is kept byte for byte and the additions are appended.
+        existing text is kept byte for byte, and each addition is inserted in ``(year, id)``
+        order (:func:`insert_sorted`).
 
     Examples
     --------
@@ -269,5 +298,6 @@ def apply_past_plan(text: str, plan: PastPlan) -> str:
                     append_item(entry["sources"], url)
         out = dump(data, WIDTH)
     for a in plan.additions:
-        out = out.rstrip("\n") + "\n\n" + dump(CommentedSeq([_new_entry(a)]), WIDTH)
+        block = dump(CommentedSeq([_new_entry(a)]), WIDTH)
+        out = insert_sorted(out, block, (int(a.entry["year"]), a.entry["id"]))
     return out
