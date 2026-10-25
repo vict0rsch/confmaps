@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2001-12-08",
+      "id": "neurips01",
+      "link": "https://neurips.cc/Conferences/2001/CMUPage",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2001-12-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2001
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips01",
+      "country": "Canada",
+      "end": "2001-12-08",
+      "id": "neurips01@main",
+      "lat": 49.2608724,
+      "link": "https://neurips.cc/Conferences/2001/CMUPage",
+      "lng": -123.113952,
+      "name": "NeurIPS 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-12-03",
+      "venue": "Hyatt Regency Vancouver"
+    }
+  ]
+}

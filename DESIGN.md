@@ -208,7 +208,9 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   (gambling, link farms, injected spam). Without such a capture: a stable proceedings page (ACL
   Anthology, IEEE Xplore, …), else the live site if it still shows that edition. The detail
   panel labels a snapshot "Archived site · <original host>". `sources` hold only URLs that
-  currently load and support the facts, or snapshots.
+  currently load and support the facts, or snapshots. The discovery agent archives the link of
+  each new edition the same way (closest capture in that window); with none, it writes the live
+  link marked `UNARCHIVED` and opens its PR as a draft.
 - **2022–23 hybrid sweep:** every 2022–23 edition was checked against its own site or proceedings for a
   hybrid format; those with a cited quote are marked `hybrid`, the rest are left as they were.
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions
@@ -283,8 +285,9 @@ Purpose: find satellites the owner would never hear about, especially community 
   quote}`, verified as for satellites, plus: `start ≤ end`, at most 21 days, `start` in the year
   or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so; `in_person` is
   derived for a verified city before 2020-03, else needs a judgement quote, else it is written
-  `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported). Additions are appended as `source: curated` with
-  the evidence URLs in `sources` and the series' latest tags. `--recheck` also re-verifies the
+  `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported).
+  Additions are inserted in (year, id) order as `source: curated`, with the evidence URLs in
+  `sources` and the series' latest tags. `--recheck` also re-verifies the
   `source: pwc` editions in range and **applies** verified format/place/date changes to them
   (a switch to virtual drops the place); on curated entries differences are only suggested. A
   reported cancellation is never applied: it is listed under "Needs human removal (before merge)".
@@ -302,7 +305,10 @@ Purpose: find satellites the owner would never hear about, especially community 
     page, but whether it supports the value is **model judgement**. Labelled as such in the PR and
     never allowed to overwrite curated entries.
   Failing fields are dropped; candidates missing `name`, `link`, `city`, `country`, `start` or `end`
-  afterwards are dropped.
+  afterwards are dropped. A bot-check page (Anubis, Cloudflare) counts as unreadable, not as a
+  page without the quote. In past mode, an unreadable page is checked on its latest Wayback copy,
+  which then becomes the cited source, and a failed quote on a page the agent never opened says
+  so (the quote may come from a search result).
 - **Unverified defaults:** `satellites.yml` requires `official`, `presents_papers` and `access`.
   Where no evidence exists an addition gets the conservative defaults `official: false`,
   `presents_papers: false`, `access: authors_only`, marked `# UNVERIFIED default` in the YAML and

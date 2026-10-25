@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2004-07-01",
+      "id": "cvpr04",
+      "link": "http://tab.computer.org/pamitc/conference/CVPR.html",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2004-06-29",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2004
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "cvpr04",
+      "country": "United States",
+      "end": "2004-07-01",
+      "id": "cvpr04@main",
+      "lat": 38.8950982,
+      "link": "http://tab.computer.org/pamitc/conference/CVPR.html",
+      "lng": -77.0363849,
+      "name": "CVPR 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-06-29"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2015-07-11",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml15",
+      "link": "https://icml.cc/2015/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2015-07-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2015
+    },
+    {
+      "deadlines": [],
+      "end": "2015-12-12",
+      "id": "neurips15",
+      "link": "https://nips.cc/Conferences/2015",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2015-12-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2015
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Lille",
+      "conferenceId": "icml15",
+      "country": "France",
+      "end": "2015-07-11",
+      "id": "icml15@main",
+      "lat": 50.6365654,
+      "link": "https://icml.cc/2015/",
+      "lng": 3.0635282,
+      "name": "ICML 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-07-06",
+      "venue": "Lille Grand Palais"
+    },
+    {
+      "access": "registration",
+      "city": "Montréal",
+      "conferenceId": "neurips15",
+      "country": "Canada",
+      "end": "2015-12-12",
+      "id": "neurips15@main",
+      "lat": 45.5031824,
+      "link": "https://nips.cc/Conferences/2015",
+      "lng": -73.5698065,
+      "name": "NIPS 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-12-07",
+      "venue": "Palais des Congrès de Montréal"
+    }
+  ]
+}

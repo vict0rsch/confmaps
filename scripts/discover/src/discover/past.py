@@ -8,6 +8,7 @@ source, or in ``data/past_conferences.yml``); with ``--recheck``, also the recor
 """
 
 from collections.abc import Callable
+from dataclasses import replace
 from datetime import date
 from typing import Any
 
@@ -16,7 +17,8 @@ from .past_ids import series_of
 from .past_merge import PastPlan, apply_past_plan, plan_past_changes, series_profiles
 from .past_verify import CheckedEdition, check_edition_safely
 from .report import ConferenceRun
-from .verify import LimitedPages
+from .verify import LimitedPages, Page, canonical_url
+from .wayback import NO_SNAPSHOT_FLAG, is_wayback
 
 MAX_FETCHES_PER_BATCH = 40  # quote-verification downloads per request (up to six editions)
 RECHECK_FIELDS = ["id", "title", "year", "link", "start", "end", "format", "city", "country",
@@ -137,6 +139,50 @@ def plan_batches(
     return batches, unknown
 
 
+def archived_fallback(
+    get_page: Callable[[str], Page], snapshot: Callable[[str, str], str | None]
+) -> Callable[[str], Page]:
+    """``get_page`` that reads the latest Wayback copy of a page it cannot read live (a bot
+    check, a timeout), so a quote is verified on the archived text; the page records the copy.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        get_page = archived_fallback(PageFetcher().get, Snapshots())
+    """
+
+    def get(url: str) -> Page:
+        page = get_page(url)
+        if page.text is not None or is_wayback(url):
+            return page
+        copy = snapshot(url, "")
+        if not copy:
+            return page
+        archived = get_page(copy)
+        return replace(archived, archived=copy) if archived.text is not None else page
+
+    return get
+
+
+UNOPENED_NOTE = "the agent never opened this page: the quote may come from a search result"
+
+
+def _note_unopened(run: ConferenceRun) -> None:
+    """Explain a quote missing from a page the agent cited without opening it."""
+    assert run.research is not None
+    opened = {
+        canonical_url(call.removeprefix("web_fetch: ").strip())
+        for call in run.research.tool_calls
+        if call.startswith("web_fetch: ")
+    }
+    for edition in run.checked:
+        for check in edition.checks:
+            failed = check.reason in ("quote not found on source page", "source page not readable")
+            if failed and check.source_url and canonical_url(check.source_url) not in opened:
+                check.detail = f"{check.detail}; {UNOPENED_NOTE}" if check.detail else UNOPENED_NOTE
+
+
 def check_and_plan(
     runs: list[ConferenceRun],
     data: dict[str, Any],
@@ -146,10 +192,15 @@ def check_and_plan(
     geocoder: Any,
     today: date,
     on_checked: Callable[[ConferenceRun], None] | None = None,
+    snapshot: Callable[[str, str], str | None] | None = None,
 ) -> tuple[PastPlan, str]:
     """Verify every returned edition, then plan and apply the changes to the file text.
 
     ``on_checked(run)`` is called once each request's editions are checked (progress display).
+    ``snapshot(url, day)`` (a :class:`~discover.wayback.Snapshots`) replaces each new edition's
+    live ``link`` with its Wayback copy closest to the edition's end; without one, the live link
+    is written with a review comment and a flag. It also lets checks read the archived copy of
+    a source page that cannot be read live (:func:`archived_fallback`).
 
     Examples
     --------
@@ -157,6 +208,8 @@ def check_and_plan(
 
         plan, new_text = check_and_plan(runs, data, past, text, PageFetcher().get, geo, today)
     """
+    if snapshot is not None:
+        get_page = archived_fallback(get_page, snapshot)
     for run in runs:
         if run.research and run.research.status == "ok":
             pages = LimitedPages(get_page, MAX_FETCHES_PER_BATCH)
@@ -164,8 +217,18 @@ def check_and_plan(
                 check_edition_safely(raw, run.conference, pages, geocoder, today)
                 for raw in run.research.candidates
             ]
+            _note_unopened(run)
             if on_checked is not None:
                 on_checked(run)
     editions = [c for run in runs for c in run.checked if isinstance(c, CheckedEdition)]
     plan = plan_past_changes(past, data, editions, series_profiles(data, past))
+    for a in plan.additions:
+        live = a.entry["link"]
+        if snapshot is not None and not is_wayback(live):
+            # Past links are archived copies: old conference domains get hijacked.
+            archived = snapshot(live, a.entry["end"])
+            if archived:
+                a.entry["link"] = archived
+            else:
+                a.candidate.flags.append(NO_SNAPSHOT_FLAG)
     return plan, apply_past_plan(past_text, plan)

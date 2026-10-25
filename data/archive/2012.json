@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2012-07-01",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml12",
+      "link": "https://icml.cc/2012/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2012-06-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2012
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Edinburgh",
+      "conferenceId": "icml12",
+      "country": "United Kingdom",
+      "end": "2012-07-01",
+      "id": "icml12@main",
+      "lat": 55.9533456,
+      "link": "https://icml.cc/2012/",
+      "lng": -3.1883749,
+      "name": "ICML 2012",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2012-06-26",
+      "venue": "University of Edinburgh"
+    }
+  ]
+}

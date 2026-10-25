@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2002-07-12",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml02",
+      "link": "https://icml.cc/Conferences/2002/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2002-07-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2002
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "icml02",
+      "country": "Australia",
+      "end": "2002-07-12",
+      "id": "icml02@main",
+      "lat": -33.8698439,
+      "link": "https://icml.cc/Conferences/2002/",
+      "lng": 151.2082848,
+      "name": "ICML 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-07-08",
+      "venue": "University of New South Wales"
+    }
+  ]
+}

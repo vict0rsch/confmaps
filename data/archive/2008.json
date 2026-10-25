@@ -1,0 +1,69 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2008-07-09",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml08",
+      "link": "https://icml.cc/Conferences/2008/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2008-07-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-12-11",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips08",
+      "link": "https://nips.cc/Conferences/2008",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2008-12-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2008
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Helsinki",
+      "conferenceId": "icml08",
+      "country": "Finland",
+      "end": "2008-07-09",
+      "id": "icml08@main",
+      "lat": 60.1666204,
+      "link": "https://icml.cc/Conferences/2008/",
+      "lng": 24.9435408,
+      "name": "ICML 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-05"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips08",
+      "country": "Canada",
+      "end": "2008-12-11",
+      "id": "neurips08@main",
+      "lat": 49.2608724,
+      "link": "https://nips.cc/Conferences/2008",
+      "lng": -123.113952,
+      "name": "NIPS 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-12-08",
+      "venue": "Hyatt Regency Vancouver"
+    }
+  ]
+}

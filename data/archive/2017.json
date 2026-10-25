@@ -114,12 +114,12 @@
     },
     {
       "deadlines": [],
-      "end": "2017-07-25",
+      "end": "2017-07-26",
       "id": "cvpr17",
       "link": "https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/",
       "series": "cvpr",
       "source": "pwc",
-      "start": "2017-07-22",
+      "start": "2017-07-21",
       "tags": [
         "computer-vision"
       ],
@@ -213,6 +213,7 @@
     {
       "deadlines": [],
       "end": "2017-04-26",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr17",
       "link": "https://web.archive.org/web/20170425002323/http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1",
       "series": "iclr",
@@ -227,6 +228,7 @@
     {
       "deadlines": [],
       "end": "2017-08-11",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml17",
       "link": "https://web.archive.org/web/20170919070005/http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838",
       "series": "icml",
@@ -297,6 +299,7 @@
     {
       "deadlines": [],
       "end": "2017-12-09",
+      "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips17",
       "link": "https://web.archive.org/web/20171204231754/https://nips.cc/Conferences/2017",
       "series": "neurips",
@@ -514,7 +517,7 @@
       "city": "Honolulu",
       "conferenceId": "cvpr17",
       "country": "United States",
-      "end": "2017-07-25",
+      "end": "2017-07-26",
       "id": "cvpr17@main",
       "lat": 21.304547,
       "link": "https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/",
@@ -523,7 +526,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2017-07-22"
+      "start": "2017-07-21",
+      "venue": "Hawaii Convention Center"
     },
     {
       "access": "registration",
@@ -653,7 +657,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2017-08-06"
+      "start": "2017-08-06",
+      "venue": "International Convention Centre"
     },
     {
       "access": "registration",

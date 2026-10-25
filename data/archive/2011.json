@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2011-12-15",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips11",
+      "link": "https://neurips.cc/Conferences/2011",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2011-12-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2011
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Granada",
+      "conferenceId": "neurips11",
+      "country": "Spain",
+      "end": "2011-12-15",
+      "id": "neurips11@main",
+      "lat": 37.1734995,
+      "link": "https://neurips.cc/Conferences/2011",
+      "lng": -3.5995337,
+      "name": "NeurIPS 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-12-12",
+      "venue": "Granada Congress and Exhibition Centre"
+    }
+  ]
+}

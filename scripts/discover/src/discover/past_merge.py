@@ -18,6 +18,7 @@ Rules (deterministic, never deletes an entry; docs/backfill-spec.md §5.5):
 - ``cancelled`` is never applied: the entry is listed for human removal before merge.
 """
 
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
@@ -28,6 +29,8 @@ from ruamel.yaml.scalarstring import SingleQuotedScalarString
 from .merge import UNVERIFIED_COMMENT, Addition, Plan, Update
 from .past_ids import is_track, past_edition_id, series_of
 from .past_verify import PLACE_FIELDS, CheckedEdition
+from .verify import norm_city
+from .wayback import NO_SNAPSHOT_FLAG, is_wayback
 from .yamlio import append_item, delete_key, dump, load_for_edit, set_ordered
 
 FIELD_ORDER = [
@@ -38,6 +41,7 @@ APPLIED_UPDATES = ["format", "city", "country", "venue", "start", "end"]
 SUGGESTED_UPDATES = [*APPLIED_UPDATES, "title", "full_name", "link"]
 DATE_FIELDS = {"start", "end"}
 DEFAULT_FORMAT = "in_person"
+UNARCHIVED_COMMENT = "UNARCHIVED live link — replace with a Wayback snapshot before merging"
 WIDTH = 4096  # the importer never folds long strings (e.g. `pwc.fixes` notes)
 HEADER = """\
 # Past main editions (docs/backfill-spec.md §1): imported from paperswithcode/ai-deadlines
@@ -190,8 +194,14 @@ def _update(current: dict[str, Any], c: CheckedEdition) -> Update | None:
             for k in PLACE_FIELDS:
                 if c.verified(k) and c.fields[k] != cur[k]:
                     changes[k] = (cur[k], c.fields[k])
-            if "city" in changes and "venue" not in changes and cur["venue"] is not None:
-                changes["venue"] = (cur["venue"], None)  # the old venue was in the old city
+            # The old venue was in the old city: drop it when the city really changes (not just
+            # its spelling, e.g. Montreal → Montréal), unless the venue was verified unchanged.
+            moved = "city" in changes and norm_city(changes["city"][0] or "") != norm_city(
+                changes["city"][1]
+            )
+            kept = c.verified("venue") and c.fields["venue"] == cur["venue"]
+            if moved and "venue" not in changes and cur["venue"] is not None and not kept:
+                changes["venue"] = (cur["venue"], None)
         for k in DATE_FIELDS:
             if c.verified(k) and c.fields[k] != cur[k]:
                 changes[k] = (cur[k], c.fields[k])
@@ -203,7 +213,11 @@ def _update(current: dict[str, Any], c: CheckedEdition) -> Update | None:
     suggested = {
         k: (cur[k], c.fields[k])
         for k in SUGGESTED_UPDATES
-        if k in c.fields and c.fields[k] != cur[k] and k not in changes
+        if k in c.fields
+        and c.fields[k] != cur[k]
+        and k not in changes
+        # A past link stays archived: never suggest the live page for a Wayback snapshot.
+        and not (k == "link" and is_wayback(cur["link"] or "") and not is_wayback(c.fields[k]))
     }
     if not changes and not suggested:
         return None
@@ -224,7 +238,37 @@ def _new_entry(a: Addition) -> CommentedMap:
     for f in a.defaulted:
         # The column counts the 4-space indent this entry gets before `dump` dedents it.
         entry.yaml_add_eol_comment(UNVERIFIED_COMMENT, f, column=4 + len(f"{f}: {a.entry[f]}") + 2)
+    if NO_SNAPSHOT_FLAG in getattr(a.candidate, "flags", []):
+        column = 4 + len(f"link: {a.entry['link']}") + 2
+        entry.yaml_add_eol_comment(UNARCHIVED_COMMENT, "link", column=column)
     return entry
+
+
+ENTRY_START = re.compile(r"^- id: *([^\s#]+)", re.MULTILINE)
+ENTRY_YEAR = re.compile(r"^  year: *(\d+)", re.MULTILINE)
+
+
+def insert_sorted(text: str, block: str, key: tuple[int, str]) -> str:
+    """Insert one dumped entry before the first entry that sorts after it by ``(year, id)``.
+
+    The file is kept sorted by ``(year, id)`` (``scripts/import-pwc.test.ts``). The text around
+    the insertion is unchanged; an entry that sorts after every other one is appended.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        insert_sorted("- id: a16\n  year: 2016\n", "- id: a00\n  year: 2000\n", (2000, "a00"))
+        # "- id: a00\n  year: 2000\n\n- id: a16\n  year: 2016\n"
+    """
+    starts = [m.start() for m in ENTRY_START.finditer(text)]
+    for pos, end in zip(starts, [*starts[1:], len(text)], strict=False):
+        entry = text[pos:end]
+        year = ENTRY_YEAR.search(entry)
+        id_ = ENTRY_START.match(entry)
+        if year and id_ and (int(year[1]), id_[1]) > key:
+            return text[:pos] + block.rstrip("\n") + "\n\n" + text[pos:]
+    return text.rstrip("\n") + "\n\n" + block
 
 
 def apply_past_plan(text: str, plan: PastPlan) -> str:
@@ -241,7 +285,8 @@ def apply_past_plan(text: str, plan: PastPlan) -> str:
     -------
     str
         New file content (identical to ``text`` for an empty plan). Without applied updates the
-        existing text is kept byte for byte and the additions are appended.
+        existing text is kept byte for byte, and each addition is inserted in ``(year, id)``
+        order (:func:`insert_sorted`).
 
     Examples
     --------
@@ -269,5 +314,6 @@ def apply_past_plan(text: str, plan: PastPlan) -> str:
                     append_item(entry["sources"], url)
         out = dump(data, WIDTH)
     for a in plan.additions:
-        out = out.rstrip("\n") + "\n\n" + dump(CommentedSeq([_new_entry(a)]), WIDTH)
+        block = dump(CommentedSeq([_new_entry(a)]), WIDTH)
+        out = insert_sorted(out, block, (int(a.entry["year"]), a.entry["id"]))
     return out

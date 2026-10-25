@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2005-08-11",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml05",
+      "link": "https://icml.cc/Conferences/2005/invited_speakers.php.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "2005-08-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2005
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Bonn",
+      "conferenceId": "icml05",
+      "country": "Germany",
+      "end": "2005-08-11",
+      "id": "icml05@main",
+      "lat": 50.7352621,
+      "link": "https://icml.cc/Conferences/2005/invited_speakers.php.html",
+      "lng": 7.1024635,
+      "name": "ICML 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-08-07"
+    }
+  ]
+}

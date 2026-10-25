@@ -97,13 +97,19 @@ characters. The link must be a link on the source page or on the same site. Fiel
 are dropped, then editions that lack start, end, link, or city and country (unless held \
 online). Cite the HTML page that contains the text (not a search-result snippet, PDF or \
 image).
+- Copy each quote from a page you opened with web_fetch in this request, never from a search \
+result's title or snippet. The program cannot read pages behind a bot check or built by \
+JavaScript (dblp, IEEE Xplore): cite another page, such as the edition's own site or its \
+web.archive.org copy.
 - Omit a field entirely when you have no such quote, except country, which may be given \
 without a quote naming it (it is then checked by geocoding the city). Never guess a value.
 
 Field values:
 - year: the target year of the edition, exactly as given.
 - title: the conference's short name as written that year (it may be a historical name, for \
-example "NIPS"), without the year. full_name: the long name, only if a page states it.
+example "NIPS"), without the year. full_name: the long name, only if a page states it, \
+without the year or an edition number ("International Conference on Learning \
+Representations", not "5th International Conference on Learning Representations").
 - link: the edition's own web page (http or https), or the series page for that edition.
 - city: the city name only. country: the English short name ("United States", "United \
 Kingdom", "South Korea", "Germany"). venue: the venue name, only if the page states it. Omit \

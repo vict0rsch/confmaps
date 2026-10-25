@@ -6,20 +6,27 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+import httpx
 import pytest
 from conftest import REPO, FakeClient, FakeFetcher, FakeGeocoder, ev, json_message
 from ruamel.yaml import YAML
 from test_report import HOSTILE, MARKERS, _strip_safe_spans
 
 from discover import past_agent
+from discover.agent import Research
 from discover.geo import GeoHit
 from discover.main import main, proposed_files, select_conferences
-from discover.past import plan_batches
+from discover.merge import Update
+from discover.past import UNOPENED_NOTE, _note_unopened, archived_fallback, plan_batches
 from discover.past_ids import SERIES_ALIASES, past_edition_id, series_of
 from discover.past_merge import (
+    UNARCHIVED_COMMENT,
     UNVERIFIED_COMMENT,
     WIDTH,
+    PastPlan,
+    _update,
     apply_past_plan,
+    insert_sorted,
     plan_past_changes,
     series_profiles,
 )
@@ -29,9 +36,17 @@ from discover.past_verify import (
     CheckedEdition,
     check_edition,
     format_problem,
+    strip_ordinal,
 )
-from discover.report import PAST_INTRO, ConferenceRun, build_body
-from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
+from discover.report import PAST_INTRO, ConferenceRun, applied_section, build_body
+from discover.verify import (
+    FORMAT_IN_QUOTE,
+    JUDGEMENT,
+    PRE2020_DEFAULT,
+    VALUE_IN_QUOTE,
+    page_from_markup,
+)
+from discover.wayback import MIN_INTERVAL_S, NO_SNAPSHOT_FLAG, RETRY_AFTER_429_S, Snapshots
 from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
 TODAY = date(2026, 10, 23)
@@ -617,6 +632,52 @@ def test_recheck_new_city_replaces_the_old_venue_and_keeps_format() -> None:
     }
 
 
+def test_recheck_respelled_city_keeps_the_venue() -> None:
+    # The neurips18 case: Montreal → Montréal is the same city, so the venue stays.
+    url = "https://neurips.cc/2020-respelled"
+    page = "NeurIPS 2020 was held in Montréal, Canada, December 6–12, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "held in Montréal, Canada"),
+        country=ev("Canada", url, "held in Montréal, Canada"),
+    )
+    recorded = {e["id"]: e for e in PAST}["neurips20"]
+    current = {**recorded, "city": "Montreal", "venue": "Palais des Congrès de Montréal"}
+    u = _update(current, checked(raw, {url: page}))
+    assert u is not None and u.changes == {"city": ("Montreal", "Montréal")}
+
+
+def test_recheck_never_drops_a_venue_verified_unchanged() -> None:
+    url = "https://neurips.cc/2020-moved-venue"
+    page = "NeurIPS 2020 at Vancouver Convention Center, Montréal, Canada, December 6–12, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "Vancouver Convention Center, Montréal, Canada"),
+        country=ev("Canada", url, "Vancouver Convention Center, Montréal, Canada"),
+        venue=ev("Vancouver Convention Center", url, "at Vancouver Convention Center"),
+    )
+    (u,) = plan_for(checked(raw, {url: page})).applied
+    assert u.changes == {"city": ("Vancouver", "Montréal")}
+
+
+def test_applied_section_tells_additions_from_removals() -> None:
+    url = "https://neurips.cc/2020-moved"
+    page = "NeurIPS 2020 moved to Montréal, Canada, December 7–13, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "moved to Montréal, Canada"),
+        country=ev("Canada", url, "moved to Montréal, Canada"),
+    )
+    section = applied_section(plan_for(checked(raw, {url: page})))
+    assert "- `neurips20` `venue`: `Vancouver Convention Center` → (removed)" in section
+    assert applied_section(
+        PastPlan(updates=[Update("x", {"venue": (None, "Hall A")}, {}, [], checked(raw))])
+    ).startswith("- `x` `venue`: (missing) → `Hall A`")
+
+
 def test_cancelled_is_never_applied_and_listed_for_removal() -> None:
     raw = {
         "year": 2020,
@@ -654,20 +715,37 @@ def test_hostile_strings_in_a_past_report_stay_in_code_spans() -> None:
         assert marker not in outside, marker
 
 
-def test_additions_append_without_touching_existing_text() -> None:
+def test_additions_are_inserted_in_order_without_touching_existing_text() -> None:
     plan = plan_for(checked(ed2018()), checked(ed2021()))
     text = apply_past_plan(PAST_TEXT, plan)
-    assert text.startswith(PAST_TEXT.rstrip("\n") + "\n\n- id: neurips18\n")
-    added = text[len(PAST_TEXT) :]
+    header, rest = PAST_TEXT.split("- id: neurips19", 1)
+    # 2018 goes before the first entry, right after the header; 2021 sorts last and is appended.
+    assert text.startswith(header + "- id: neurips18\n")
+    added = text[len(header) : text.index("- id: neurips19")]
     assert "  start: '2018-12-02'\n" in added and "  tags: [machine-learning]\n" in added
-    assert "\n\n- id: neurips21\n  title: NeurIPS\n  year: 2021\n" in text
+    assert ("- id: neurips19" + rest).rstrip("\n") in text  # existing entries byte for byte
+    assert text.endswith("\n\n" + text[text.index("- id: neurips21") :])
     parsed = YAML(typ="safe").load(text)
     ids = [e["id"] for e in parsed]
-    assert ids == ["neurips19", "neurips20", "icml19", "neurips18", "neurips21"]
+    assert ids == ["neurips18", "neurips19", "neurips20", "icml19", "neurips21"]
     assert parsed[4]["format"] == "virtual" and "city" not in parsed[4]
     # A missing file is created with a header comment.
     fresh = apply_past_plan("", plan)
     assert fresh.startswith("# Past main editions") and YAML(typ="safe").load(fresh)[0]["year"]
+
+
+def test_insert_sorted_keeps_year_then_id_order() -> None:
+    text = (
+        "# header\n\n- id: a16\n  year: 2016\n\n- id: b19 # review: x\n  year: 2019\n\n"
+        "- id: c19\n  year: 2019\n"
+    )
+    out = insert_sorted(text, "- id: bb19\n  year: 2019\n", (2019, "bb19"))
+    assert out == text.replace("- id: c19", "- id: bb19\n  year: 2019\n\n- id: c19")
+    out = insert_sorted(text, "- id: z00\n  year: 2000\n", (2000, "z00"))
+    assert out.startswith("# header\n\n- id: z00\n  year: 2000\n\n- id: a16\n")
+    assert insert_sorted(text, "- id: d20\n  year: 2020\n", (2020, "d20")).endswith(
+        "- id: c19\n  year: 2019\n\n- id: d20\n  year: 2020\n"
+    )
 
 
 def test_round_trip_is_byte_identical() -> None:
@@ -745,13 +823,25 @@ def repo(tmp_path: Path) -> Path:
     return root
 
 
-def run_past(repo: Path, *args: str, client: Any = None) -> int:
+def run_past(repo: Path, *args: str, client: Any = None, snapshots: Any = None) -> int:
     argv = ["--repo-root", str(repo), "--mode", "past", *args]
     if "--from-results" not in args:
         argv += ["--results-dir", str(repo.parent / "results")]
     if "--workers" not in args:
         argv += ["--workers", "1"]  # FakeClient answers in call order
-    return main(argv, client or FakeClient(), FakeFetcher(PAGES), FakeGeocoder(GEO), today=TODAY)
+    return main(
+        argv,
+        client or FakeClient(),
+        FakeFetcher(PAGES),
+        FakeGeocoder(GEO),
+        today=TODAY,
+        snapshots=snapshots or archived,
+    )
+
+
+def archived(url: str, day: str) -> str:
+    """A fake Wayback lookup: every page has a capture on ``day``."""
+    return f"https://web.archive.org/web/{day.replace('-', '')}000000/{url}"
 
 
 def test_dry_run_reports_and_writes_nothing(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:
@@ -803,6 +893,135 @@ def test_write_mode_recheck_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> N
     assert "--mode past --recheck" in body
 
 
+def test_new_edition_links_are_archived_copies(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    client = FakeClient(json_message({"editions": [ed2018()]}))
+    args = ["--series", "neurips", "--since", "2016", "--until", "2018"]
+    assert run_past(repo, *args, client=client) == 0
+    written = load_entries((repo / "data" / "past_conferences.yml").read_text())
+    (new,) = [e for e in written if e["id"] == "neurips18"]
+    assert new["link"] == f"https://web.archive.org/web/20181208000000/{U18}"
+
+
+def test_no_snapshot_writes_the_live_link_marked_and_makes_a_draft(
+    repo: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
+    client = FakeClient(json_message({"editions": [ed2018()]}))
+    out_dir = repo.parent / "out"
+    args = ["--series", "neurips", "--since", "2016", "--until", "2018", "--out-dir", str(out_dir)]
+    assert run_past(repo, *args, client=client, snapshots=lambda url, day: None) == 0
+    text = (out_dir / "data" / "past_conferences.yml").read_text()
+    assert f"  link: {U18}  # {UNARCHIVED_COMMENT}\n" in text
+    assert json.loads((out_dir / "pr.json").read_text())["draft"] is True
+    assert NO_SNAPSHOT_FLAG in (out_dir / "pr-body.md").read_text()
+
+
+def test_a_wayback_link_never_gets_a_live_link_suggested() -> None:
+    page = "NeurIPS 2020 was held as a virtual-only conference, December 6–12, 2020."
+    recorded = {e["id"]: e for e in PAST}["neurips20"]
+    snapshot = f"https://web.archive.org/web/20201206000000/{U20}"
+    u = _update({**recorded, "link": snapshot}, checked(ed2020(), {U20: page}))
+    assert u is None or "link" not in u.suggested
+    u = _update({**recorded, "link": "https://old.example/neurips20"}, checked(ed2020()))
+    assert u is not None and u.suggested["link"] == ("https://old.example/neurips20", U20)
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "5th International Conference on Learning Representations",
+        "The Twelfth International Conference on Learning Representations",
+        "the 32nd Annual International Conference on Learning Representations",
+        "Thirty-First International Conference on Learning Representations",
+        "International Conference on Learning Representations",
+    ],
+)
+def test_strip_ordinal(name: str) -> None:
+    assert strip_ordinal(name) == "International Conference on Learning Representations"
+
+
+def test_full_name_is_kept_without_its_ordinal() -> None:
+    quote = "The Thirty-Second Annual Conference on Neural Information Processing Systems"
+    c = checked(ed2018(full_name=ev(quote, U18, quote)), {U18: f"{PAGES[U18]} {quote}."})
+    assert c.fields["full_name"] == "Conference on Neural Information Processing Systems"
+
+
+def test_snapshots_reads_the_availability_api() -> None:
+    def reply(body: Any, status: int = 200) -> Snapshots:
+        transport = httpx.MockTransport(lambda request: httpx.Response(status, json=body))
+        return Snapshots(httpx.Client(transport=transport), sleep=lambda s: None)
+
+    capture = "http://web.archive.org/web/20181208010203/https://neurips.cc/Conferences/2018"
+    ok = {"archived_snapshots": {"closest": {"available": True, "status": "200", "url": capture}}}
+    assert reply(ok)(U18, "2018-12-08") == capture.replace("http://", "https://")
+    assert reply({"archived_snapshots": {}})(U18, "2018-12-08") is None
+    bad_status = {"archived_snapshots": {"closest": {**ok["archived_snapshots"]["closest"],
+                                                     "status": "404"}}}  # fmt: skip
+    assert reply(bad_status)(U18, "2018-12-08") is None
+    elsewhere = {"archived_snapshots": {"closest": {"available": True, "status": "200",
+                                                    "url": "https://evil.example/x"}}}  # fmt: skip
+    assert reply(elsewhere)(U18, "2018-12-08") is None
+    assert reply(["not", "a", "dict"])(U18, "2018-12-08") is None
+    # Outside 18 months before / 6 months after the end: may already show a hijacked domain.
+    late = {"archived_snapshots": {"closest": {"available": True, "status": "200",
+                                               "url": capture.replace("20181208", "20230101")}}}  # fmt: skip
+    assert reply(late)(U18, "2018-12-08") is None
+    assert reply(ok, status=503)(U18, "2018-12-08") is None
+
+
+def test_snapshots_pause_between_lookups_and_retry_once_after_429() -> None:
+    answers = [httpx.Response(429), httpx.Response(200, json={"archived_snapshots": {}})]
+    transport = httpx.MockTransport(lambda request: answers.pop(0))
+    slept: list[float] = []
+    clock = iter([0.0, 0.0, 0.5, 0.5])
+    lookup = Snapshots(
+        httpx.Client(transport=transport), sleep=slept.append, now=lambda: next(clock)
+    )
+    assert lookup(U18, "2018-12-08") is None and not answers  # both answers were used
+    assert slept == [RETRY_AFTER_429_S, MIN_INTERVAL_S - 0.5]
+
+
+ANUBIS = (
+    "<html><head><title>Making sure you're not a bot!</title></head><body>Loading... Please "
+    "wait a moment while we ensure the security of your connection. Protected by Anubis</body>"
+)
+DBLP = "https://dblp.org/rec/conf/cvpr/2005.html"
+DBLP_COPY = f"https://web.archive.org/web/20240101000000/{DBLP}"
+
+
+def test_a_bot_check_page_is_unreadable_not_a_page_without_the_quote() -> None:
+    assert page_from_markup(ANUBIS, DBLP).error == "bot check instead of the page"
+    long_page = f"<p>{P18} Why we are making sure you're not a bot. {'More text. ' * 300}</p>"
+    assert page_from_markup(long_page, U18).text is not None  # a real page mentioning it
+
+
+def test_an_unreadable_page_is_checked_on_its_archived_copy() -> None:
+    # The CVPR 2005 case: dblp serves a bot check; its archived copy holds the quote.
+    fetcher = FakeFetcher({DBLP: ANUBIS, DBLP_COPY: f"<p>{P18}</p>"})
+    get = archived_fallback(fetcher.get, lambda url, day: DBLP_COPY if not day else None)
+    page = get(DBLP)
+    assert page.text is not None and page.archived == DBLP_COPY
+    raw = ed2018(city=ev("Montréal", DBLP, "held in Montréal, Canada"))
+    c = check_edition(raw, BATCH, get, FakeGeocoder(GEO), TODAY)
+    assert c.kinds["city"] == VALUE_IN_QUOTE and c.sources["city"] == DBLP_COPY
+    # No archived copy: the page stays unreadable, with its reason.
+    no_copy = archived_fallback(fetcher.get, lambda url, day: None)(DBLP)
+    assert no_copy.text is None and no_copy.error == "bot check instead of the page"
+
+
+def test_a_quote_from_a_page_the_agent_never_opened_is_explained() -> None:
+    raw = ed2018(city=ev("Montréal", U21, "held in Montréal, Canada"))
+    research = Research(conference_id=BATCH["id"], status="ok", tool_calls=[f"web_fetch: {U18}"])
+    run = ConferenceRun(BATCH, research)
+    run.checked = [checked(raw)]
+    _note_unopened(run)
+    (city,) = [chk for chk in run.checked[0].checks if chk.field == "city"]
+    assert city.reason == "quote not found on source page" and city.detail == UNOPENED_NOTE
+    (start,) = [chk for chk in run.checked[0].checks if chk.field == "start"]
+    assert start.kind and not start.detail  # on U18, which the agent opened
+
+
 def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr("discover.main._run", lambda cmd, cwd: 0)
     cancelled = {
@@ -815,10 +1034,8 @@ def test_cancellation_makes_a_draft_pr(repo: Path, monkeypatch: pytest.MonkeyPat
     args = ["--series", "neurips", "--since", "2016", "--until", "2021", "--recheck"]
     assert run_past(repo, *args, "--out-dir", str(out_dir), client=client) == 0
     assert json.loads((out_dir / "pr.json").read_text())["draft"] is True
-    assert (
-        "neurips20"
-        in load_entries((out_dir / "data" / "past_conferences.yml").read_text())[1]["id"]
-    )
+    written = load_entries((out_dir / "data" / "past_conferences.yml").read_text())
+    assert "neurips20" in [e["id"] for e in written]  # a reported cancellation is never applied
 
 
 def test_unknown_series_fails(repo: Path, capsys: pytest.CaptureFixture[str]) -> None:

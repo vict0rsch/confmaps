@@ -1,0 +1,73 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2003-06-22",
+      "fullName": "Computer Vision and Pattern Recognition",
+      "id": "cvpr03",
+      "link": "http://www.cs.toronto.edu/cvpr2003/",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2003-06-16",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-12-13",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips03",
+      "link": "http://www.cs.cmu.edu/Groups/NIPS/NIPS2003/nips-main-old.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2003-12-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NeurIPS",
+      "year": 2003
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Madison",
+      "conferenceId": "cvpr03",
+      "country": "United States",
+      "end": "2003-06-22",
+      "id": "cvpr03@main",
+      "lat": 43.07469,
+      "link": "http://www.cs.toronto.edu/cvpr2003/",
+      "lng": -89.3841663,
+      "name": "CVPR 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-06-16",
+      "venue": "Monona Terrace Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips03",
+      "country": "Canada",
+      "end": "2003-12-13",
+      "id": "neurips03@main",
+      "lat": 49.2608724,
+      "link": "http://www.cs.cmu.edu/Groups/NIPS/NIPS2003/nips-main-old.html",
+      "lng": -123.113952,
+      "name": "NeurIPS 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-12-08"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2007-12-06",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips07",
+      "link": "https://nips.cc/Conferences/2007",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2007-12-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2007
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips07",
+      "country": "Canada",
+      "end": "2007-12-06",
+      "id": "neurips07@main",
+      "lat": 49.2608724,
+      "link": "https://nips.cc/Conferences/2007",
+      "lng": -123.113952,
+      "name": "NIPS 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-12-03",
+      "venue": "Hyatt Regency Vancouver"
+    }
+  ]
+}

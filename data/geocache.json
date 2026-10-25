@@ -119,6 +119,11 @@
     "lat": 44.4938203,
     "lng": 11.3426327
   },
+  "bonn|germany": {
+    "display_name": "Bonn, North Rhine-Westphalia, Germany",
+    "lat": 50.7352621,
+    "lng": 7.1024635
+  },
   "bordeaux|france": {
     "display_name": "Bordeaux, Gironde, Nouvelle-Aquitaine, Metropolitan France, France",
     "lat": 44.841225,
@@ -213,6 +218,11 @@
     "display_name": "Coimbra, Portugal",
     "lat": 40.2111874,
     "lng": -8.4291478
+  },
+  "columbus|united states": {
+    "display_name": "Columbus, Franklin County, Ohio, United States",
+    "lat": 39.9622601,
+    "lng": -83.0007065
   },
   "copenhagen|denmark": {
     "display_name": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark",
@@ -329,6 +339,11 @@
     "lat": -28.0023731,
     "lng": 153.4145987
   },
+  "granada|spain": {
+    "display_name": "Granada, Comarca de la Vega de Granada, Granada, Andalusia, Spain",
+    "lat": 37.1734995,
+    "lng": -3.5995337
+  },
   "graz|austria": {
     "display_name": "Graz, Styria, Austria",
     "lat": 47.0708678,
@@ -354,6 +369,11 @@
     "lat": 35.8556705,
     "lng": 129.2248811
   },
+  "haifa|israel": {
+    "display_name": "Haifa, Haifa Subdistrict, Haifa District, Israel",
+    "lat": 32.8191218,
+    "lng": 34.9983856
+  },
   "halifax|canada": {
     "display_name": "Halifax, Halifax Regional Municipality, Halifax County, Nova Scotia, Canada",
     "lat": 44.648618,
@@ -378,6 +398,16 @@
     "display_name": "Harwell, Vale of White Horse, Oxfordshire, England, United Kingdom",
     "lat": 51.5999743,
     "lng": -1.2909164
+  },
+  "helsinki|finland": {
+    "display_name": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland",
+    "lat": 60.1666204,
+    "lng": 24.9435408
+  },
+  "hilton head|united states": {
+    "display_name": "Hilton Head Island, Beaufort County, South Carolina, United States",
+    "lat": 32.1618488,
+    "lng": -80.7512616
   },
   "hong kong|hong kong": {
     "display_name": "Hong Kong, China",
@@ -464,6 +494,11 @@
     "lat": 36.1674263,
     "lng": -115.1484131
   },
+  "lille|france": {
+    "display_name": "Lille, Nord, Hauts-de-France, Metropolitan France, France",
+    "lat": 50.6365654,
+    "lng": 3.0635282
+  },
   "limassol|cyprus": {
     "display_name": "Limassol, Limassol Municipality, Limassol District, Cyprus, 3085, Cyprus",
     "lat": 34.6852901,
@@ -529,6 +564,11 @@
     "lat": 22.1899448,
     "lng": 113.5380454
   },
+  "madison|united states": {
+    "display_name": "Madison, Dane County, Wisconsin, United States",
+    "lat": 43.07469,
+    "lng": -89.3841663
+  },
   "madrid|spain": {
     "display_name": "Madrid, Community of Madrid, Spain",
     "lat": 40.416782,
@@ -573,6 +613,11 @@
     "display_name": "Mexico City, Cuauhtémoc, Mexico City, Mexico",
     "lat": 19.4326296,
     "lng": -99.1331785
+  },
+  "miami beach|united states": {
+    "display_name": "Miami Beach, Miami-Dade County, Florida, United States",
+    "lat": 25.7929198,
+    "lng": -80.1353006
   },
   "miami|united states": {
     "display_name": "Miami, Miami-Dade County, Florida, United States",
@@ -643,6 +688,11 @@
     "display_name": "New Orleans, Orleans Parish, Louisiana, United States",
     "lat": 29.9574657,
     "lng": -90.0629493
+  },
+  "new york city|united states": {
+    "display_name": "New York, United States",
+    "lat": 40.7127281,
+    "lng": -74.0060152
   },
   "new york|united states": {
     "display_name": "New York, United States",
@@ -718,6 +768,11 @@
     "display_name": "Pittsburgh, Allegheny County, Pennsylvania, United States",
     "lat": 40.4406968,
     "lng": -80.0025666
+  },
+  "portland|united states": {
+    "display_name": "Portland, Multnomah County, Oregon, United States",
+    "lat": 45.5202471,
+    "lng": -122.674194
   },
   "porto de galinhas|brazil": {
     "display_name": "Porto de Galinhas, Ipojuca, Pernambuco, Northeast Region, 55159-000, Brazil",
@@ -803,6 +858,11 @@
     "display_name": "Santiago de Compostela, Santiago, A Coruña, Galicia, Spain",
     "lat": 42.9064576,
     "lng": -8.5192983
+  },
+  "scottsdale|united states": {
+    "display_name": "Scottsdale, Maricopa County, Arizona, United States",
+    "lat": 33.4942189,
+    "lng": -111.926018
   },
   "seattle|united states": {
     "display_name": "Seattle, King County, Washington, United States",
@@ -990,6 +1050,11 @@
     "lng": -155.787398
   },
   "washington dc|united states": {
+    "display_name": "Washington, District of Columbia, United States",
+    "lat": 38.8950982,
+    "lng": -77.0363849
+  },
+  "washington|united states": {
     "display_name": "Washington, District of Columbia, United States",
     "lat": 38.8950982,
     "lng": -77.0363849

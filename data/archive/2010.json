@@ -1,0 +1,69 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2010-06-24",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml10",
+      "link": "https://icml.cc/Conferences/2010/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2010-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-12-09",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips10",
+      "link": "https://nips.cc/Conferences/2010/Overview",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2010-12-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2010
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Haifa",
+      "conferenceId": "icml10",
+      "country": "Israel",
+      "end": "2010-06-24",
+      "id": "icml10@main",
+      "lat": 32.8191218,
+      "link": "https://icml.cc/Conferences/2010/",
+      "lng": 34.9983856,
+      "name": "ICML 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips10",
+      "country": "Canada",
+      "end": "2010-12-09",
+      "id": "neurips10@main",
+      "lat": 49.2608724,
+      "link": "https://nips.cc/Conferences/2010/Overview",
+      "lng": -123.113952,
+      "name": "NIPS 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-12-06",
+      "venue": "Hyatt Regency Vancouver"
+    }
+  ]
+}
