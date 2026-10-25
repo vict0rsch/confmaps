@@ -1,6 +1,7 @@
 <script lang="ts">
-  // The map's pin encoding in miniature (legend, list, detail): official = filled,
-  // community = ring, main venue = larger, authors only = dot badge.
+  // The map's pin encoding in miniature (legend, list, detail): main venue = filled, satellite =
+  // ring, official satellite = ring with a centre dot; indigo = official, orange = community;
+  // authors only = dot badge.
   let {
     official,
     main,
@@ -11,8 +12,8 @@
 <span
   class="marker"
   class:official
-  class:community={!official}
   class:main
+  class:satellite={!main}
   class:locked
   aria-hidden="true"
 ></span>
@@ -22,34 +23,45 @@
     position: relative;
     flex: none;
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--surface);
-  }
-  .main {
     width: 12px;
     height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--surface);
+    color: var(--pin-community);
   }
   .official {
-    background: var(--pin-official);
+    color: var(--pin-official);
   }
-  .community {
+  .main {
+    background: currentColor;
+  }
+  .satellite {
     background: var(--surface);
-    border: 2px solid var(--pin-community);
+    border: 2px solid;
   }
-  .main.community {
-    border-width: 2.5px;
+  .satellite.official::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: currentColor;
   }
+  /* The badge sits on the upper-right edge, sized and placed like the map's (icons.ts,
+     lockLayout): it clears the centre dot and stays off the text. Offsets count from inside the
+     ring's border. */
   .locked::after {
     content: '';
     position: absolute;
     top: -4px;
-    right: -5px;
-    width: 7px;
-    height: 7px;
+    right: -4px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--ink);
-    box-shadow: 0 0 0 1.5px var(--surface);
+    box-shadow: 0 0 0 1px var(--surface);
+  }
+  .main.locked::after {
+    top: -3px;
+    right: -3px;
   }
 </style>

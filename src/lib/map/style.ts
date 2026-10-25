@@ -184,15 +184,18 @@ export const LAYER = {
   clusterCount: 'cluster-count',
   pinHalo: 'pin-halo',
   pin: 'pin',
+  pinDot: 'pin-dot',
   pinLock: 'pin-lock',
   focusRing: 'focus-ring',
   focusHalo: 'focus-halo',
   focusPin: 'focus-pin',
+  focusDot: 'focus-dot',
   focusLock: 'focus-lock',
   animLinks: 'anim-links',
   animRing: 'anim-ring',
   animHalo: 'anim-halo',
   animPin: 'anim-pin',
+  animDot: 'anim-dot',
   animLock: 'anim-lock',
   historyCasing: 'history-casing',
   historyPath: 'history-path',
@@ -215,6 +218,7 @@ export const CLUSTER_LAYERS = [
   LAYER.clusterCount,
   LAYER.pinHalo,
   LAYER.pin,
+  LAYER.pinDot,
   LAYER.pinLock,
 ];
 /** The animated presentation (Play, history mode): every location, one pin each, no clusters. */
@@ -223,6 +227,7 @@ export const ANIM_LAYERS = [
   LAYER.animRing,
   LAYER.animHalo,
   LAYER.animPin,
+  LAYER.animDot,
   LAYER.animLock,
 ];
 
@@ -235,6 +240,13 @@ const R_MAIN = 7;
 const R_SAT = 5;
 const radius: ExpressionSpecification = ['case', ['==', ['get', 'main'], 1], R_MAIN, R_SAT];
 const plus = (n: number): ExpressionSpecification => ['+', radius, n];
+/** Centre dot of an official satellite's ring (a bullseye). */
+const R_DOT = 2;
+const officialSatellite: ExpressionSpecification = [
+  'all',
+  ['==', ['get', 'official'], 1],
+  ['==', ['get', 'main'], 0],
+];
 
 export const lockImageId = (theme: ResolvedTheme) => `lock-badge-${theme}`;
 /** A transparent 1×1 image: `collide` scales it to each pin's / cluster's footprint. */
@@ -342,21 +354,26 @@ const pinColor = (p: MapPalette): ExpressionSpecification => [
 function pinPaint(p: MapPalette, r: ExpressionSpecification = radius) {
   const color = pinColor(p);
   return {
-    // Official = filled; community = ring (hollow centre). Never colour alone.
+    // Main venue = filled; satellite = ring (hollow centre), with a centre dot when official
+    // (dotPaint). Never colour alone.
     'circle-radius': r,
     'circle-color': [
       'case',
-      ['==', ['get', 'official'], 1],
+      ['==', ['get', 'main'], 1],
       color,
       p.pinHalo,
     ] as ExpressionSpecification,
     'circle-stroke-color': color,
-    'circle-stroke-width': [
-      'case',
-      ['==', ['get', 'official'], 1],
-      0,
-      2.25,
-    ] as ExpressionSpecification,
+    'circle-stroke-width': ['case', ['==', ['get', 'main'], 1], 0, 2.25] as ExpressionSpecification,
+    'circle-pitch-alignment': 'map' as const,
+  };
+}
+
+/** The official satellite's centre dot, drawn over its ring (filter: `officialSatellite`). */
+function dotPaint(p: MapPalette, r: ExpressionSpecification | number = R_DOT) {
+  return {
+    'circle-radius': r,
+    'circle-color': p.pinOfficial,
     'circle-pitch-alignment': 'map' as const,
   };
 }
@@ -421,7 +438,7 @@ export function dataLayers(
   const unclustered: ExpressionSpecification = ['!', ['has', 'point_count']];
   const resting = { visibility: animated ? 'none' : 'visible' } as const;
   const anim = { visibility: animated ? 'visible' : 'none' } as const;
-  const scaled = (r: ExpressionSpecification): ExpressionSpecification => [
+  const scaled = (r: ExpressionSpecification | number): ExpressionSpecification => [
     '*',
     r,
     fs('s', 1),
@@ -549,6 +566,14 @@ export function dataLayers(
       },
     },
     {
+      id: LAYER.pinDot,
+      type: 'circle',
+      source: SRC.pins,
+      filter: ['all', unclustered, officialSatellite],
+      layout: resting,
+      paint: { ...dotPaint(p), 'circle-opacity': pinOpacity(e.selectedId) },
+    },
+    {
       id: LAYER.pinLock,
       type: 'symbol',
       source: SRC.pins,
@@ -592,6 +617,14 @@ export function dataLayers(
         'circle-opacity': animOpacity(e.selectedId),
         'circle-stroke-opacity': animOpacity(e.selectedId),
       },
+    },
+    {
+      id: LAYER.animDot,
+      type: 'circle',
+      source: SRC.anim,
+      filter: officialSatellite,
+      layout: anim,
+      paint: { ...dotPaint(p, scaled(R_DOT)), 'circle-opacity': animOpacity(e.selectedId) },
     },
     {
       id: LAYER.animLock,
@@ -707,6 +740,13 @@ export function dataLayers(
       type: 'circle',
       source: SRC.focus,
       paint: pinPaint(p),
+    },
+    {
+      id: LAYER.focusDot,
+      type: 'circle',
+      source: SRC.focus,
+      filter: officialSatellite,
+      paint: dotPaint(p),
     },
     {
       id: LAYER.focusLock,

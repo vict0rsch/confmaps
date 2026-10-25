@@ -133,7 +133,9 @@
   --shadow-lg: 0 4px 12px rgb(24 24 27 / 0.08), 0 16px 40px rgb(24 24 27 / 0.12);
   --scrim: rgb(24 24 27 / 0.32);
 
-  /* Map data (the only saturated colours on screen) */
+  /* Map data (the only saturated colours on screen). Rings and dots are thin: each pin colour
+     keeps at least 3:1 on land and water in both themes, and indigo vs orange stays apart under
+     protanopia, deuteranopia and tritanopia (simulated). */
   --pin-official: var(--indigo-550); /* 4.1:1 on water, 4.8:1 on land */
   --pin-community: var(--orange-650); /* 3.6:1 on water, 4.2:1 on land */
   --pin-halo: var(--gray-0);
@@ -190,8 +192,8 @@
   --shadow-lg: 0 4px 12px rgb(0 0 0 / 0.35), 0 16px 40px rgb(0 0 0 / 0.45);
   --scrim: rgb(0 0 0 / 0.5);
 
-  --pin-official: var(--indigo-400);
-  --pin-community: var(--orange-400);
+  --pin-official: var(--indigo-400); /* 6.5:1 on water, 5.9:1 on land */
+  --pin-community: var(--orange-400); /* 7.8:1 on water, 7.1:1 on land */
   --pin-halo: var(--gray-d-900);
   --pin-link: var(--indigo-400);
   --pin-selected: var(--gray-d-100);

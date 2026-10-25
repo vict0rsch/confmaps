@@ -506,12 +506,14 @@
     paint(LAYER.pin, 'circle-opacity', op);
     paint(LAYER.pin, 'circle-stroke-opacity', op);
     paint(LAYER.pinHalo, 'circle-opacity', op);
+    paint(LAYER.pinDot, 'circle-opacity', op);
     paint(LAYER.pinLock, 'icon-opacity', op);
     paint(LAYER.links, 'line-opacity', fade(linkOpacity(emphasis), kc));
     const aop = fade(animOpacity(sel), ka);
     paint(LAYER.animPin, 'circle-opacity', aop);
     paint(LAYER.animPin, 'circle-stroke-opacity', aop);
     paint(LAYER.animHalo, 'circle-opacity', aop);
+    paint(LAYER.animDot, 'circle-opacity', aop);
     paint(LAYER.animLock, 'icon-opacity', aop);
     paint(LAYER.animRing, 'circle-stroke-opacity', fade(animRingOpacity(sel), ka));
     paint(

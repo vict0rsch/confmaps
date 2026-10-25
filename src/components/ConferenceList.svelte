@@ -274,10 +274,6 @@
     margin-inline: 2px;
   }
 
-  .site :global(.marker:not(.main)) {
-    margin-inline: 4px;
-  }
-
   .place {
     overflow: hidden;
     text-overflow: ellipsis;
