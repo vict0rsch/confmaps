@@ -536,8 +536,13 @@ MOBILE
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that.
 - **Legend:** beside an open drawer it is hidden below 1280 px, because the strip of map is too
-  narrow. It returns when the drawer closes.
-- Hover list row → highlight its pins. Click pin/row → detail panel + fit map to the conference's sites.
+  narrow. It returns when the drawer closes. A "Satellite link" item (the dashed line) appears only
+  while the map shows a main ↔ satellite line.
+- Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
+- **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
+  the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
+  it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
+  empty map keeps MapLibre's zoom in.
 - Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
   "View history".
 - Selection stays highlighted while panning; "back to selection" control.

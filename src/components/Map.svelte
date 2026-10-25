@@ -18,6 +18,7 @@
     NavigationControl,
     type GeoJSONSource,
     type MapGeoJSONFeature,
+    type PointLike,
   } from 'maplibre-gl';
   import { untrack } from 'svelte';
   import { cubicOut } from 'svelte/easing';
@@ -80,6 +81,10 @@
   let selectionOffscreen = $state(false);
   type CoLocated = { lng: number; lat: number; x: number; y: number; ids: string[] };
   let coLocated: CoLocated | null = $state(null);
+  /** The site of a selection made by clicking its pin: the camera keeps its zoom for it. */
+  let clickedSite: { id: string; lngLat: [number, number] } | null = null;
+  /** The conference the camera was last fitted to (double-clicking its pin zooms back out). */
+  let zoomedTo: string | null = null;
 
   const MARGIN = 48;
   /** The overview of a few nearby pins (or one) stays regional, never street level. */
@@ -214,24 +219,39 @@
     });
     m.on('mouseenter', LAYER.clusters, () => (m.getCanvas().style.cursor = 'pointer'));
     m.on('mouseleave', LAYER.clusters, () => (m.getCanvas().style.cursor = ''));
+    // A click on a pin selects without moving the camera; a double-click zooms to the
+    // conference, and a second one back out to the overview.
     m.on('click', (e) => {
-      const hit = m.queryRenderedFeatures(e.point, { layers: [...PIN_LAYERS, LAYER.clusters] });
-      const onCluster = hit.some((f) => f.layer.id === LAYER.clusters);
-      // A hover highlight drawn over a cluster must not hide the cluster's other events.
-      const pin = hit.find(
-        (f) =>
-          f.layer.id === LAYER.pin ||
-          (f.layer.id === LAYER.animPin && isTarget(f)) ||
-          (f.layer.id === LAYER.focusPin && (f.properties.selected === 1 || !onCluster)),
-      );
+      const { pin, cluster } = hitAt(e.point);
       if (pin) {
         coLocated = null;
-        app.select(pin.properties.conferenceId);
-      } else if (onCluster) {
-        void openCluster(hit.find((f) => f.layer.id === LAYER.clusters)!);
+        const id = pin.properties.conferenceId;
+        if (id !== app.selectedConferenceId) clickedSite = { id, lngLat: pinLngLat(pin) };
+        app.select(id);
+      } else if (cluster) {
+        void openCluster(cluster);
       } else {
         coLocated = null;
       }
+    });
+    m.on('dblclick', (e) => {
+      const { pin } = hitAt(e.point);
+      if (!pin) return; // elsewhere: MapLibre's double-click zoom
+      e.preventDefault();
+      const id = pin.properties.conferenceId;
+      const lngLat = pinLngLat(pin);
+      // Next frame: MapLibre stops camera moves started while it handles the prevented event.
+      requestAnimationFrame(() => {
+        if (zoomedTo === id) {
+          clickedSite = { id, lngLat };
+          zoomedTo = null;
+          fitOverview(duration(800));
+        } else {
+          clickedSite = null;
+          app.select(id);
+          fitSelection();
+        }
+      });
     });
     m.on('move', () => {
       if (coLocated) {
@@ -239,7 +259,10 @@
         coLocated = { ...coLocated, x: p.x, y: p.y };
       }
     });
-    m.on('zoomstart', () => (coLocated = null));
+    m.on('zoomstart', (e) => {
+      coLocated = null;
+      if (e.originalEvent) zoomedTo = null; // the viewer zoomed: no longer the fitted view
+    });
     m.on('moveend', updateOffscreen);
     m.on('zoomend', () => (zoom = m.getZoom()));
     // A drag released over an overlay (drawer, legend) never reaches MapLibre and leaves the map
@@ -460,16 +483,7 @@
       requestAnimationFrame(() => {
         if (map !== m || historyMode.series !== series) return;
         if (series) fitHistory(first ? 0 : duration(900));
-        else if (!app.selectedConferenceId) {
-          const b = boundsOf(app.mapLocations, false);
-          m.setPadding(camPad);
-          if (b)
-            m.fitBounds(b, {
-              padding: overviewMargins(),
-              maxZoom: OVERVIEW_MAX_ZOOM,
-              duration: duration(800),
-            });
-        }
+        else if (!app.selectedConferenceId) fitOverview(duration(800));
       });
     });
   });
@@ -509,15 +523,18 @@
     paint(LAYER.clusterCount, 'text-opacity', clusterOp);
   });
 
-  // On select, or when overlays resize: fit the selection into the visible area. Without a
-  // selection, just follow the overlays (the visible centre stays put).
+  // On select, or when overlays resize: fit the selection into the visible area. A selection
+  // clicked on the map keeps the zoom, only kept clear of the overlays. Without a selection,
+  // just follow the overlays (the visible centre stays put).
   $effect(() => {
     const id = app.selectedConferenceId;
     const pad = camPad;
     const m = map;
     if (!m) return;
     untrack(() => {
-      if (id) fitSelection();
+      if (clickedSite && clickedSite.id !== id) clickedSite = null;
+      if (clickedSite) keepInView(clickedSite.lngLat);
+      else if (id) fitSelection();
       else m.easeTo({ padding: pad, duration: duration(250) });
     });
   });
@@ -528,6 +545,22 @@
   });
 
   // ---- Helpers -------------------------------------------------------------
+  /** The pin (if any) and the cluster (if any) under a point. */
+  function hitAt(point: PointLike) {
+    const hit = map!.queryRenderedFeatures(point, { layers: [...PIN_LAYERS, LAYER.clusters] });
+    const cluster = hit.find((f) => f.layer.id === LAYER.clusters);
+    // A hover highlight drawn over a cluster must not hide the cluster's other events.
+    const pin = hit.find(
+      (f) =>
+        f.layer.id === LAYER.pin ||
+        (f.layer.id === LAYER.animPin && isTarget(f)) ||
+        (f.layer.id === LAYER.focusPin && (f.properties.selected === 1 || !cluster)),
+    );
+    return { pin, cluster };
+  }
+
+  const pinLngLat = (f: MapGeoJSONFeature) => (f.geometry as Point).coordinates as [number, number];
+
   /** Hidden animated pins are still hit-tested by MapLibre: ignore them. */
   function isTarget(f: MapGeoJSONFeature) {
     return f.layer.id !== LAYER.animPin || shownNow.has(f.properties.id);
@@ -599,8 +632,37 @@
   function fitSelection() {
     const b = boundsOf(app.selectedPins);
     if (!map || !b) return;
+    zoomedTo = app.selectedConferenceId;
     map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
+  }
+
+  /** Every visible pin (no antimeridian wrap, so a world-wide set centres on the Atlantic). */
+  function fitOverview(ms: number) {
+    const b = boundsOf(app.mapLocations, false);
+    if (!map) return;
+    map.setPadding(camPad);
+    if (b)
+      map.fitBounds(b, { padding: overviewMargins(), maxZoom: OVERVIEW_MAX_ZOOM, duration: ms });
+  }
+
+  /**
+   * Adopt the overlays' padding at the same zoom. The map stays still while the clicked site is
+   * in the visible area; otherwise it pans to centre the site.
+   */
+  function keepInView(lngLat: [number, number]) {
+    if (!map) return;
+    const pad = camPad;
+    const right = container.clientWidth - pad.right;
+    const bottom = container.clientHeight - pad.bottom;
+    const p = map.project(lngLat);
+    const inView =
+      p.x >= pad.left + MARGIN &&
+      p.x <= right - MARGIN &&
+      p.y >= insets.top + MARGIN &&
+      p.y <= bottom - MARGIN;
+    const center = inView ? map.unproject([(pad.left + right) / 2, bottom / 2]) : lngLat;
+    map.easeTo({ padding: pad, center, duration: duration(250) });
   }
 
   function updateOffscreen() {

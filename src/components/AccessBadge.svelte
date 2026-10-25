@@ -6,7 +6,7 @@
 </script>
 
 <span class="badge" class:restricted={access === 'authors_only'}>
-  <Icon name={ACCESS_ICON[access]} size={12} />
+  {#if access !== 'authors_only'}<Icon name={ACCESS_ICON[access]} size={12} />{/if}
   {ACCESS_LABEL[access]}
 </span>
 

@@ -1,5 +1,10 @@
 <script lang="ts">
+  import { linkFeatures } from '../lib/map/geojson';
+  import { app } from '../lib/state/app.svelte';
   import SiteMarker from './SiteMarker.svelte';
+
+  /** The dashed main ↔ satellite line is explained only while the map draws one. */
+  const showLink = $derived(linkFeatures(app.mapLocations).features.length > 0);
 </script>
 
 <ul class="legend" role="list" aria-label="Map legend">
@@ -7,6 +12,9 @@
   <li><SiteMarker official={false} main={false} /> Community</li>
   <li><SiteMarker official main /> Main venue</li>
   <li><SiteMarker official main={false} locked /> Authors only</li>
+  {#if showLink}
+    <li><span class="link" aria-hidden="true"></span> Satellite link</li>
+  {/if}
 </ul>
 
 <style>
@@ -24,5 +32,12 @@
     align-items: center;
     gap: 6px;
     white-space: nowrap;
+  }
+
+  /* The map's dashed main ↔ satellite line in miniature (style.ts). */
+  .link {
+    flex: none;
+    width: 16px;
+    border-top: 1.5px dashed var(--pin-link);
   }
 </style>
