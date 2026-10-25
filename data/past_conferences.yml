@@ -13,6 +13,433 @@
 # An entry the importer wants a human to check carries an end-of-line review marker listing its
 # reasons (covid, stale, multi-id, fixes-applied). `pnpm data:validate` fails while any remains.
 
+- id: cvpr00
+  title: CVPR
+  year: 2000
+  full_name: Conference on Computer Vision and Pattern Recognition
+  link: http://tab.computer.org/pamitc/conference/CVPR.html
+  start: '2000-06-13'
+  end: '2000-06-15'
+  format: in_person
+  city: Hilton Head
+  country: United States
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - http://tab.computer.org/pamitc/conference/history.html
+
+- id: neurips01
+  title: NeurIPS
+  year: 2001
+  link: https://neurips.cc/Conferences/2001/CMUPage
+  start: '2001-12-03'
+  end: '2001-12-08'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  venue: Hyatt Regency Vancouver
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://neurips.cc/Conferences/2001/CMUPage
+
+- id: icml02
+  title: ICML
+  year: 2002
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2002/
+  start: '2002-07-08'
+  end: '2002-07-12'
+  format: in_person
+  city: Sydney
+  country: Australia
+  venue: University of New South Wales
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/Conferences/2002/
+
+- id: cvpr03
+  title: CVPR
+  year: 2003
+  full_name: Computer Vision and Pattern Recognition
+  link: http://www.cs.toronto.edu/cvpr2003/
+  start: '2003-06-16'
+  end: '2003-06-22'
+  format: in_person
+  city: Madison
+  country: United States
+  venue: Monona Terrace Convention Center
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - http://www.cs.toronto.edu/cvpr2003/
+
+- id: neurips03
+  title: NeurIPS
+  year: 2003
+  full_name: Conference on Neural Information Processing Systems
+  link: http://www.cs.cmu.edu/Groups/NIPS/NIPS2003/nips-main-old.html
+  start: '2003-12-08'
+  end: '2003-12-13'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - http://www.cs.cmu.edu/Groups/NIPS/NIPS2003/nips-main-old.html
+
+- id: cvpr04
+  title: CVPR
+  year: 2004
+  link: http://tab.computer.org/pamitc/conference/CVPR.html
+  start: '2004-06-29'
+  end: '2004-07-01'
+  format: in_person
+  city: Washington
+  country: United States
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - http://tab.computer.org/pamitc/conference/history.html
+
+- id: icml05
+  title: ICML
+  year: 2005
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2005/invited_speakers.php.html
+  start: '2005-08-07'
+  end: '2005-08-11'
+  format: in_person
+  city: Bonn
+  country: Germany
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://www.illc.uva.nl/NewsandEvents/Events/Upcoming-Events/newsitem/842/7-11-August-2005-The-22nd-International-Conference-On-Machine-Learning-ICML-2005-Bonn-Germany
+    - https://icml.cc/Conferences/2005/invited_speakers.php.html
+
+- id: icml06
+  title: ICML
+  year: 2006
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2006/
+  start: '2006-06-25'
+  end: '2006-06-29'
+  format: in_person
+  city: Pittsburgh
+  country: United States
+  venue: Carnegie Mellon University
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/Conferences/2006/
+
+- id: neurips06
+  title: NIPS
+  year: 2006
+  full_name: Conference on Neural Information Processing Systems
+  link: https://neurips.cc/Conferences/2006
+  start: '2006-12-04'
+  end: '2006-12-07'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  venue: Hyatt Regency Vancouver
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://neurips.cc/Conferences/2006
+
+- id: neurips07
+  title: NIPS
+  year: 2007
+  full_name: Conference on Neural Information Processing Systems
+  link: https://nips.cc/Conferences/2007
+  start: '2007-12-03'
+  end: '2007-12-06'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  venue: Hyatt Regency Vancouver
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://nips.cc/Conferences/2007
+    - http://www.sigmod.org/publications/dblp/db/conf/nips/index.html
+
+- id: icml08
+  title: ICML
+  year: 2008
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2008/
+  start: '2008-07-05'
+  end: '2008-07-09'
+  format: in_person
+  city: Helsinki
+  country: Finland
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/Conferences/2008/
+
+- id: neurips08
+  title: NIPS
+  year: 2008
+  full_name: Conference on Neural Information Processing Systems
+  link: https://nips.cc/Conferences/2008
+  start: '2008-12-08'
+  end: '2008-12-11'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  venue: Hyatt Regency Vancouver
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://nips.cc/Conferences/2008
+
+- id: cvpr09
+  title: CVPR
+  year: 2009
+  link: http://tab.computer.org/pamitc/archive/cvpr2009/index.html
+  start: '2009-06-22'
+  end: '2009-06-24'
+  format: in_person
+  city: Miami Beach
+  country: United States
+  venue: Fontainebleau Miami Beach
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - http://tab.computer.org/pamitc/archive/cvpr2009/index.html
+
+- id: icml09
+  title: ICML
+  year: 2009
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2009/
+  start: '2009-06-14'
+  end: '2009-06-18'
+  format: in_person
+  city: Montreal
+  country: Canada
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/Conferences/2009/
+
+- id: icml10
+  title: ICML
+  year: 2010
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/Conferences/2010/
+  start: '2010-06-21'
+  end: '2010-06-24'
+  format: in_person
+  city: Haifa
+  country: Israel
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/Conferences/2010/
+
+- id: neurips10
+  title: NIPS
+  year: 2010
+  full_name: Conference on Neural Information Processing Systems
+  link: https://nips.cc/Conferences/2010/Overview
+  start: '2010-12-06'
+  end: '2010-12-09'
+  format: in_person
+  city: Vancouver
+  country: Canada
+  venue: Hyatt Regency Vancouver
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://nips.cc/Conferences/2010/Overview
+
+- id: neurips11
+  title: NeurIPS
+  year: 2011
+  full_name: Conference on Neural Information Processing Systems
+  link: https://neurips.cc/Conferences/2011
+  start: '2011-12-12'
+  end: '2011-12-15'
+  format: in_person
+  city: Granada
+  country: Spain
+  venue: Granada Congress and Exhibition Centre
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://neurips.cc/Conferences/2011
+    - http://www.wikicfp.com/cfp/program?id=2212
+
+- id: icml12
+  title: ICML
+  year: 2012
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/2012/
+  start: '2012-06-26'
+  end: '2012-07-01'
+  format: in_person
+  city: Edinburgh
+  country: United Kingdom
+  venue: University of Edinburgh
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/2012/call-for-papers/index.html
+    - https://icml.cc/2012/
+    - https://icml.cc/2012/venues/index.html
+
+- id: cvpr13
+  title: CVPR
+  year: 2013
+  link: https://cvpr2013.thecvf.com/
+  start: '2013-06-25'
+  end: '2013-06-27'
+  format: in_person
+  city: Portland
+  country: United States
+  venue: Oregon Convention Center
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - https://cvpr2013.thecvf.com/
+
+- id: iclr13
+  title: ICLR
+  year: 2013
+  full_name: International Conference on Learning Representations
+  link: https://www.iclr.cc/archive/2013/
+  start: '2013-05-02'
+  end: '2013-05-04'
+  format: in_person
+  city: Scottsdale
+  country: United States
+  venue: DoubleTree Paradise Valley Resort
+  tags: [machine-learning, computer-vision, natural-language-processing, signal-processing, representation-learning]
+  source: curated
+  sources:
+    - https://iclr.cc/archive/2013/attending-iclr/venue-hotels.html
+    - https://www.iclr.cc/archive/
+
+- id: icml13
+  title: ICML
+  year: 2013
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/2013/
+  start: '2013-06-16'
+  end: '2013-06-21'
+  format: in_person
+  city: Atlanta
+  country: United States
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/2013/
+
+- id: cvpr14
+  title: CVPR
+  year: 2014
+  full_name: IEEE Conference on Computer Vision and Pattern Recognition
+  link: http://www.pamitc.org/cvpr14/
+  start: '2014-06-24'
+  end: '2014-06-27'
+  format: in_person
+  city: Columbus
+  country: United States
+  venue: Greater Columbus Convention Center
+  tags: [computer-vision, robotics, machine-learning, optimization-methods, representation-learning]
+  source: curated
+  sources:
+    - http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=31712
+
+- id: iclr14
+  title: ICLR
+  year: 2014
+  full_name: International Conference on Learning Representations
+  link: https://www.iclr.cc/archive/2014
+  start: '2014-04-14'
+  end: '2014-04-16'
+  format: in_person
+  city: Banff
+  country: Canada
+  venue: Rimrock Resort
+  tags: [machine-learning, computer-vision, natural-language-processing, signal-processing, representation-learning]
+  source: curated
+  sources:
+    - https://iclr.cc/archive/2014/old-site/attending-iclr/hotel-venue.html
+    - https://www.iclr.cc/archive/
+
+- id: icml14
+  title: ICML
+  year: 2014
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/2014/
+  start: '2014-06-21'
+  end: '2014-06-26'
+  format: in_person
+  city: Beijing
+  country: China
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/2014/
+
+- id: neurips14
+  title: NIPS
+  year: 2014
+  full_name: Conference on Neural Information Processing Systems
+  link: https://nips.cc/Conferences/2014
+  start: '2014-12-08'
+  end: '2014-12-13'
+  format: in_person
+  city: Montreal
+  country: Canada
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://neurips.cc/Conferences/2014/CallForPapers
+    - https://nips.cc/Conferences/2014
+    - https://nips.cc/Conferences/2014/Dates
+
+- id: icml15
+  title: ICML
+  year: 2015
+  full_name: International Conference on Machine Learning
+  link: https://icml.cc/2015/
+  start: '2015-07-06'
+  end: '2015-07-11'
+  format: in_person
+  city: Lille
+  country: France
+  venue: Lille Grand Palais
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/2015/index.html%3Fp=47.html
+    - https://icml.cc/2015/
+
+- id: neurips15
+  title: NIPS
+  year: 2015
+  link: https://nips.cc/Conferences/2015
+  start: '2015-12-07'
+  end: '2015-12-12'
+  format: in_person
+  city: Montréal
+  country: Canada
+  venue: Palais des Congrès de Montréal
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://nips.cc/Conferences/2015
+
 - id: coling16
   title: COLING
   year: 2016
@@ -49,6 +476,20 @@
     last_sha: '59a5a7b9c026fb1c38f93f21f1a3abb275f831c3'
     last_date: '2016-12-05'
 
+- id: icml16
+  title: ICML
+  year: 2016
+  link: https://icml.cc/2016/index.html
+  start: '2016-06-19'
+  end: '2016-06-24'
+  format: in_person
+  city: New York City
+  country: United States
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://icml.cc/2016/index.html
+
 - id: naacl16
   title: NAACL-HLT
   year: 2016
@@ -66,6 +507,21 @@
     first_date: '2016-11-20'
     last_sha: '44a659ecba9d86578ef19a6a030b1ab7fc420d0e'
     last_date: '2017-08-09'
+
+- id: neurips16
+  title: NIPS
+  year: 2016
+  link: https://nips.cc/Conferences/2016
+  start: '2016-12-05'
+  end: '2016-12-10'
+  format: in_person
+  city: Barcelona
+  country: Spain
+  venue: Centre Convencions Internacional Barcelona
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://nips.cc/Conferences/2016
 
 - id: uai16
   title: UAI
@@ -245,11 +701,12 @@
   title: CVPR
   year: 2017
   link: https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/
-  start: '2017-07-22'
-  end: '2017-07-25'
+  start: '2017-07-21'
+  end: '2017-07-26'
   format: in_person
   city: Honolulu
   country: United States
+  venue: Hawaii Convention Center
   tags: [computer-vision]
   source: pwc
   pwc:
@@ -402,6 +859,7 @@
   format: in_person
   city: Sydney
   country: Australia
+  venue: International Convention Centre
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -410,6 +868,8 @@
     first_date: '2016-11-18'
     last_sha: 'e7470b66ae6cd2da5228b1938325b5a168d9e7f3'
     last_date: '2017-09-29'
+  sources:
+    - https://icml.cc/Conferences/2017/VenueAndLocal
 
 - id: icra17
   title: ICRA
@@ -820,10 +1280,11 @@
   year: 2018
   link: https://web.archive.org/web/20180618220802/http://cvpr2018.thecvf.com/
   start: '2018-06-18'
-  end: '2018-06-23'
+  end: '2018-06-22'
   format: in_person
   city: Salt Lake City
   country: United States
+  venue: Calvin L. Rampton Salt Palace Convention Center
   tags: [computer-vision]
   source: pwc
   pwc:
@@ -832,6 +1293,8 @@
     first_date: '2017-06-11'
     last_sha: 'a046260018f93fe9ab150a3d8409b0af15d572fd'
     last_date: '2018-07-10'
+  sources:
+    - https://cvpr2018.thecvf.com/
 
 - id: eccv18
   title: ECCV
@@ -933,6 +1396,7 @@
   format: in_person
   city: Stockholm
   country: Sweden
+  venue: Stockholmsmässan
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -941,6 +1405,8 @@
     first_date: '2017-08-28'
     last_sha: 'db4eefd3ef9503bd858183c1bbc0c9f9333315cb'
     last_date: '2018-10-02'
+  sources:
+    - https://icml.cc/Conferences/2018
 
 - id: icra18
   title: ICRA
@@ -1083,9 +1549,8 @@
   start: '2018-12-02'
   end: '2018-12-08'
   format: in_person
-  city: Montreal
+  city: Montréal
   country: Canada
-  venue: Palais des Congrès de Montréal
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -1364,10 +1829,11 @@
   year: 2019
   link: https://web.archive.org/web/20190618024449/http://cvpr2019.thecvf.com/
   start: '2019-06-16'
-  end: '2019-06-21'
+  end: '2019-06-20'
   format: in_person
   city: Long Beach
   country: United States
+  venue: Long Beach Convention Center
   tags: [computer-vision]
   source: pwc
   pwc:
@@ -1376,6 +1842,8 @@
     first_date: '2018-07-14'
     last_sha: '091974aa59af884adf3c4de19721baaaaf08f80c'
     last_date: '2020-02-03'
+  sources:
+    - https://cvpr2019.thecvf.com/attend/travel
 
 - id: ecmlpkdd19
   title: ECML/PKDD
@@ -1525,11 +1993,12 @@
   title: ICML
   year: 2019
   link: https://web.archive.org/web/20190615210823/https://icml.cc/Conferences/2019
-  start: '2019-06-10'
+  start: '2019-06-09'
   end: '2019-06-15'
   format: in_person
   city: Long Beach
   country: United States
+  venue: Long Beach Convention Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -1538,6 +2007,8 @@
     first_date: '2018-07-20'
     last_sha: '091974aa59af884adf3c4de19721baaaaf08f80c'
     last_date: '2020-02-03'
+  sources:
+    - https://icml.cc/Conferences/2019
 
 - id: icra19
   title: ICRA
@@ -5020,6 +5491,7 @@
   format: hybrid
   city: Kigali
   country: Rwanda
+  venue: Kigali Convention Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -5030,6 +5502,7 @@
     last_date: '2024-09-15'
   sources:
     - https://web.archive.org/web/20230505021224/https://iclr.cc/Conferences/2023
+    - https://blog.iclr.cc/2023/02/17/get-ready-for-iclr-2023/
 
 - id: icml23
   title: ICML
@@ -5040,6 +5513,7 @@
   format: in_person
   city: Honolulu
   country: United States
+  venue: Hawaiʻi Convention Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -5052,6 +5526,7 @@
       - "place: Hawai'i, USA → Honolulu, United States (PwC gives only the state)"
   sources:
     - https://icml.cc/Conferences/2023/Dates
+    - https://icml.cc/Conferences/2023
 
 - id: icra23
   title: ICRA
@@ -6054,6 +6529,7 @@
   format: in_person
   city: Vienna
   country: Austria
+  venue: Messe Wien Exhibition and Congress Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -6062,6 +6538,8 @@
     first_date: '2023-07-16'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://iclr.cc/Conferences/2024
 
 - id: icml24
   title: ICML
@@ -6072,6 +6550,7 @@
   format: in_person
   city: Vienna
   country: Austria
+  venue: Messe Wien Exhibition Congress Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -6080,6 +6559,8 @@
     first_date: '2023-10-25'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+  sources:
+    - https://icml.cc/Conferences/2024
 
 - id: icprai24
   title: ICPRAI
@@ -6339,6 +6820,7 @@
   format: in_person
   city: Vancouver
   country: Canada
+  venue: Vancouver Convention Center
   tags: [machine-learning]
   source: pwc
   pwc:
@@ -6349,6 +6831,7 @@
     last_date: '2024-09-15'
   sources:
     - https://nips.cc/Conferences/2024
+    - https://neurips.cc/Conferences/2024
 
 - id: rlc24
   title: RLC

@@ -128,7 +128,7 @@
     },
     {
       "deadlines": [],
-      "end": "2019-06-21",
+      "end": "2019-06-20",
       "id": "cvpr19",
       "link": "https://web.archive.org/web/20190618024449/http://cvpr2019.thecvf.com/",
       "series": "cvpr",
@@ -260,7 +260,7 @@
       "link": "https://web.archive.org/web/20190615210823/https://icml.cc/Conferences/2019",
       "series": "icml",
       "source": "pwc",
-      "start": "2019-06-10",
+      "start": "2019-06-09",
       "tags": [
         "machine-learning"
       ],
@@ -603,7 +603,7 @@
       "city": "Long Beach",
       "conferenceId": "cvpr19",
       "country": "United States",
-      "end": "2019-06-21",
+      "end": "2019-06-20",
       "id": "cvpr19@main",
       "lat": 33.7690164,
       "link": "https://web.archive.org/web/20190618024449/http://cvpr2019.thecvf.com/",
@@ -612,7 +612,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2019-06-16"
+      "start": "2019-06-16",
+      "venue": "Long Beach Convention Center"
     },
     {
       "access": "registration",
@@ -756,7 +757,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2019-06-10"
+      "start": "2019-06-09",
+      "venue": "Long Beach Convention Center"
     },
     {
       "access": "registration",

@@ -1,0 +1,140 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2014-06-27",
+      "fullName": "IEEE Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr14",
+      "link": "http://www.pamitc.org/cvpr14/",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2014-06-24",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-16",
+      "fullName": "International Conference on Learning Representations",
+      "id": "iclr14",
+      "link": "https://www.iclr.cc/archive/2014",
+      "series": "iclr",
+      "source": "curated",
+      "start": "2014-04-14",
+      "tags": [
+        "machine-learning",
+        "computer-vision",
+        "natural-language-processing",
+        "signal-processing",
+        "representation-learning"
+      ],
+      "title": "ICLR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-26",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml14",
+      "link": "https://icml.cc/2014/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2014-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-12-13",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips14",
+      "link": "https://nips.cc/Conferences/2014",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2014-12-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2014
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Columbus",
+      "conferenceId": "cvpr14",
+      "country": "United States",
+      "end": "2014-06-27",
+      "id": "cvpr14@main",
+      "lat": 39.9622601,
+      "link": "http://www.pamitc.org/cvpr14/",
+      "lng": -83.0007065,
+      "name": "CVPR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-24",
+      "venue": "Greater Columbus Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Banff",
+      "conferenceId": "iclr14",
+      "country": "Canada",
+      "end": "2014-04-16",
+      "id": "iclr14@main",
+      "lat": 51.175076,
+      "link": "https://www.iclr.cc/archive/2014",
+      "lng": -115.5720773,
+      "name": "ICLR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-14",
+      "venue": "Rimrock Resort"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "icml14",
+      "country": "China",
+      "end": "2014-06-26",
+      "id": "icml14@main",
+      "lat": 39.9057136,
+      "link": "https://icml.cc/2014/",
+      "lng": 116.3912972,
+      "name": "ICML 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "neurips14",
+      "country": "Canada",
+      "end": "2014-12-13",
+      "id": "neurips14@main",
+      "lat": 45.5031824,
+      "link": "https://nips.cc/Conferences/2014",
+      "lng": -73.5698065,
+      "name": "NIPS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-12-08"
+    }
+  ]
+}

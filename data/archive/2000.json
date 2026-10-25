@@ -1,0 +1,41 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2000-06-15",
+      "fullName": "Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr00",
+      "link": "http://tab.computer.org/pamitc/conference/CVPR.html",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2000-06-13",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2000
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Hilton Head",
+      "conferenceId": "cvpr00",
+      "country": "United States",
+      "end": "2000-06-15",
+      "id": "cvpr00@main",
+      "lat": 32.1618488,
+      "link": "http://tab.computer.org/pamitc/conference/CVPR.html",
+      "lng": -80.7512616,
+      "name": "CVPR 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-06-13"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2009-06-24",
+      "id": "cvpr09",
+      "link": "http://tab.computer.org/pamitc/archive/cvpr2009/index.html",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2009-06-22",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2009
+    },
+    {
+      "deadlines": [],
+      "end": "2009-06-18",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml09",
+      "link": "https://icml.cc/Conferences/2009/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2009-06-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2009
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Miami Beach",
+      "conferenceId": "cvpr09",
+      "country": "United States",
+      "end": "2009-06-24",
+      "id": "cvpr09@main",
+      "lat": 25.7929198,
+      "link": "http://tab.computer.org/pamitc/archive/cvpr2009/index.html",
+      "lng": -80.1353006,
+      "name": "CVPR 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-06-22",
+      "venue": "Fontainebleau Miami Beach"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icml09",
+      "country": "Canada",
+      "end": "2009-06-18",
+      "id": "icml09@main",
+      "lat": 45.5031824,
+      "link": "https://icml.cc/Conferences/2009/",
+      "lng": -73.5698065,
+      "name": "ICML 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-06-14"
+    }
+  ]
+}

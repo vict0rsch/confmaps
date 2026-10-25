@@ -114,12 +114,12 @@
     },
     {
       "deadlines": [],
-      "end": "2017-07-25",
+      "end": "2017-07-26",
       "id": "cvpr17",
       "link": "https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/",
       "series": "cvpr",
       "source": "pwc",
-      "start": "2017-07-22",
+      "start": "2017-07-21",
       "tags": [
         "computer-vision"
       ],
@@ -514,7 +514,7 @@
       "city": "Honolulu",
       "conferenceId": "cvpr17",
       "country": "United States",
-      "end": "2017-07-25",
+      "end": "2017-07-26",
       "id": "cvpr17@main",
       "lat": 21.304547,
       "link": "https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/",
@@ -523,7 +523,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2017-07-22"
+      "start": "2017-07-21",
+      "venue": "Hawaii Convention Center"
     },
     {
       "access": "registration",
@@ -653,7 +654,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2017-08-06"
+      "start": "2017-08-06",
+      "venue": "International Convention Centre"
     },
     {
       "access": "registration",

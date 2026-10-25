@@ -30,6 +30,20 @@
     },
     {
       "deadlines": [],
+      "end": "2016-06-24",
+      "id": "icml16",
+      "link": "https://icml.cc/2016/index.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "2016-06-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
       "end": "2016-06-15",
       "id": "naacl16",
       "link": "https://web.archive.org/web/20160613114946/http://naacl.org/naacl-hlt-2016/",
@@ -40,6 +54,20 @@
         "natural-language-processing"
       ],
       "title": "NAACL-HLT",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-12-10",
+      "id": "neurips16",
+      "link": "https://nips.cc/Conferences/2016",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2016-12-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
       "year": 2016
     },
     {
@@ -92,6 +120,22 @@
     },
     {
       "access": "registration",
+      "city": "New York City",
+      "conferenceId": "icml16",
+      "country": "United States",
+      "end": "2016-06-24",
+      "id": "icml16@main",
+      "lat": 40.7127281,
+      "link": "https://icml.cc/2016/index.html",
+      "lng": -74.0060152,
+      "name": "ICML 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-06-19"
+    },
+    {
+      "access": "registration",
       "city": "San Diego",
       "conferenceId": "naacl16",
       "country": "United States",
@@ -105,6 +149,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2016-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "neurips16",
+      "country": "Spain",
+      "end": "2016-12-10",
+      "id": "neurips16@main",
+      "lat": 41.3825802,
+      "link": "https://nips.cc/Conferences/2016",
+      "lng": 2.177073,
+      "name": "NIPS 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-12-05",
+      "venue": "Centre Convencions Internacional Barcelona"
     },
     {
       "access": "registration",

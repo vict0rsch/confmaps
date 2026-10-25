@@ -1,0 +1,70 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2006-06-29",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml06",
+      "link": "https://icml.cc/Conferences/2006/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2006-06-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2006
+    },
+    {
+      "deadlines": [],
+      "end": "2006-12-07",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips06",
+      "link": "https://neurips.cc/Conferences/2006",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2006-12-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2006
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "icml06",
+      "country": "United States",
+      "end": "2006-06-29",
+      "id": "icml06@main",
+      "lat": 40.4406968,
+      "link": "https://icml.cc/Conferences/2006/",
+      "lng": -80.0025666,
+      "name": "ICML 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-06-25",
+      "venue": "Carnegie Mellon University"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips06",
+      "country": "Canada",
+      "end": "2006-12-07",
+      "id": "neurips06@main",
+      "lat": 49.2608724,
+      "link": "https://neurips.cc/Conferences/2006",
+      "lng": -123.113952,
+      "name": "NIPS 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-12-04",
+      "venue": "Hyatt Regency Vancouver"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "2013-06-27",
+      "id": "cvpr13",
+      "link": "https://cvpr2013.thecvf.com/",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "2013-06-25",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-04",
+      "fullName": "International Conference on Learning Representations",
+      "id": "iclr13",
+      "link": "https://www.iclr.cc/archive/2013/",
+      "series": "iclr",
+      "source": "curated",
+      "start": "2013-05-02",
+      "tags": [
+        "machine-learning",
+        "computer-vision",
+        "natural-language-processing",
+        "signal-processing",
+        "representation-learning"
+      ],
+      "title": "ICLR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-21",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml13",
+      "link": "https://icml.cc/2013/",
+      "series": "icml",
+      "source": "curated",
+      "start": "2013-06-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 2013
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "cvpr13",
+      "country": "United States",
+      "end": "2013-06-27",
+      "id": "cvpr13@main",
+      "lat": 45.5202471,
+      "link": "https://cvpr2013.thecvf.com/",
+      "lng": -122.674194,
+      "name": "CVPR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-25",
+      "venue": "Oregon Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Scottsdale",
+      "conferenceId": "iclr13",
+      "country": "United States",
+      "end": "2013-05-04",
+      "id": "iclr13@main",
+      "lat": 33.4942189,
+      "link": "https://www.iclr.cc/archive/2013/",
+      "lng": -111.926018,
+      "name": "ICLR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-02",
+      "venue": "DoubleTree Paradise Valley Resort"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "icml13",
+      "country": "United States",
+      "end": "2013-06-21",
+      "id": "icml13@main",
+      "lat": 33.7544657,
+      "link": "https://icml.cc/2013/",
+      "lng": -84.3898151,
+      "name": "ICML 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-16"
+    }
+  ]
+}

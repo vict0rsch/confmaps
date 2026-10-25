@@ -1103,7 +1103,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2023-05-01"
+      "start": "2023-05-01",
+      "venue": "Kigali Convention Center"
     },
     {
       "access": "registration",
@@ -1119,7 +1120,8 @@
       "official": true,
       "presentsPapers": true,
       "role": "main",
-      "start": "2023-07-23"
+      "start": "2023-07-23",
+      "venue": "Hawaiʻi Convention Center"
     },
     {
       "access": "registration",
