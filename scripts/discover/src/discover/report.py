@@ -124,8 +124,8 @@ def needs_verification_section(plan: Plan) -> str:
     return "\n".join(lines) or "Nothing: every written field passed a deterministic check."
 
 
-def _shown(value: Any) -> str:
-    return "(removed)" if value is None else code(value)
+def _shown(value: Any, empty: str) -> str:
+    return empty if value is None else code(value)
 
 
 def applied_section(plan: Plan) -> str:
@@ -134,7 +134,9 @@ def applied_section(plan: Plan) -> str:
     for u in plan.applied:
         for f, (old, new) in u.changes.items():
             kind = u.candidate.kinds.get(f) or "follows from the verified format or city"
-            lines.append(f"- {code(u.id)} `{f}`: {_shown(old)} → {_shown(new)} — {kind}")
+            # An empty old value is a field being added; an empty new value is a removal.
+            before, after = _shown(old, "(missing)"), _shown(new, "(removed)")
+            lines.append(f"- {code(u.id)} `{f}`: {before} → {after} — {kind}")
     return "\n".join(lines)
 
 

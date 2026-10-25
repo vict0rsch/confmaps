@@ -29,6 +29,7 @@ from ruamel.yaml.scalarstring import SingleQuotedScalarString
 from .merge import UNVERIFIED_COMMENT, Addition, Plan, Update
 from .past_ids import is_track, past_edition_id, series_of
 from .past_verify import PLACE_FIELDS, CheckedEdition
+from .verify import norm_city
 from .yamlio import append_item, delete_key, dump, load_for_edit, set_ordered
 
 FIELD_ORDER = [
@@ -191,8 +192,14 @@ def _update(current: dict[str, Any], c: CheckedEdition) -> Update | None:
             for k in PLACE_FIELDS:
                 if c.verified(k) and c.fields[k] != cur[k]:
                     changes[k] = (cur[k], c.fields[k])
-            if "city" in changes and "venue" not in changes and cur["venue"] is not None:
-                changes["venue"] = (cur["venue"], None)  # the old venue was in the old city
+            # The old venue was in the old city: drop it when the city really changes (not just
+            # its spelling, e.g. Montreal → Montréal), unless the venue was verified unchanged.
+            moved = "city" in changes and norm_city(changes["city"][0] or "") != norm_city(
+                changes["city"][1]
+            )
+            kept = c.verified("venue") and c.fields["venue"] == cur["venue"]
+            if moved and "venue" not in changes and cur["venue"] is not None and not kept:
+                changes["venue"] = (cur["venue"], None)
         for k in DATE_FIELDS:
             if c.verified(k) and c.fields[k] != cur[k]:
                 changes[k] = (cur[k], c.fields[k])

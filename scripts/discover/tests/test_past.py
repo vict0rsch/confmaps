@@ -14,11 +14,14 @@ from test_report import HOSTILE, MARKERS, _strip_safe_spans
 from discover import past_agent
 from discover.geo import GeoHit
 from discover.main import main, proposed_files, select_conferences
+from discover.merge import Update
 from discover.past import plan_batches
 from discover.past_ids import SERIES_ALIASES, past_edition_id, series_of
 from discover.past_merge import (
     UNVERIFIED_COMMENT,
     WIDTH,
+    PastPlan,
+    _update,
     apply_past_plan,
     insert_sorted,
     plan_past_changes,
@@ -31,7 +34,7 @@ from discover.past_verify import (
     check_edition,
     format_problem,
 )
-from discover.report import PAST_INTRO, ConferenceRun, build_body
+from discover.report import PAST_INTRO, ConferenceRun, applied_section, build_body
 from discover.verify import FORMAT_IN_QUOTE, JUDGEMENT, PRE2020_DEFAULT
 from discover.yamlio import delete_key, dump, load_entries, load_for_edit
 
@@ -616,6 +619,52 @@ def test_recheck_new_city_replaces_the_old_venue_and_keeps_format() -> None:
         "start": ("2020-12-06", "2020-12-07"),
         "end": ("2020-12-12", "2020-12-13"),
     }
+
+
+def test_recheck_respelled_city_keeps_the_venue() -> None:
+    # The neurips18 case: Montreal → Montréal is the same city, so the venue stays.
+    url = "https://neurips.cc/2020-respelled"
+    page = "NeurIPS 2020 was held in Montréal, Canada, December 6–12, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "held in Montréal, Canada"),
+        country=ev("Canada", url, "held in Montréal, Canada"),
+    )
+    recorded = {e["id"]: e for e in PAST}["neurips20"]
+    current = {**recorded, "city": "Montreal", "venue": "Palais des Congrès de Montréal"}
+    u = _update(current, checked(raw, {url: page}))
+    assert u is not None and u.changes == {"city": ("Montreal", "Montréal")}
+
+
+def test_recheck_never_drops_a_venue_verified_unchanged() -> None:
+    url = "https://neurips.cc/2020-moved-venue"
+    page = "NeurIPS 2020 at Vancouver Convention Center, Montréal, Canada, December 6–12, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "Vancouver Convention Center, Montréal, Canada"),
+        country=ev("Canada", url, "Vancouver Convention Center, Montréal, Canada"),
+        venue=ev("Vancouver Convention Center", url, "at Vancouver Convention Center"),
+    )
+    (u,) = plan_for(checked(raw, {url: page})).applied
+    assert u.changes == {"city": ("Vancouver", "Montréal")}
+
+
+def test_applied_section_tells_additions_from_removals() -> None:
+    url = "https://neurips.cc/2020-moved"
+    page = "NeurIPS 2020 moved to Montréal, Canada, December 7–13, 2020."
+    raw = ed2020(
+        format=None,
+        link=ev(url, url, "NeurIPS 2020"),
+        city=ev("Montréal", url, "moved to Montréal, Canada"),
+        country=ev("Canada", url, "moved to Montréal, Canada"),
+    )
+    section = applied_section(plan_for(checked(raw, {url: page})))
+    assert "- `neurips20` `venue`: `Vancouver Convention Center` → (removed)" in section
+    assert applied_section(
+        PastPlan(updates=[Update("x", {"venue": (None, "Hall A")}, {}, [], checked(raw))])
+    ).startswith("- `x` `venue`: (missing) → `Hall A`")
 
 
 def test_cancelled_is_never_applied_and_listed_for_removal() -> None:
