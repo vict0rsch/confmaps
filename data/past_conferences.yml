@@ -1551,6 +1551,7 @@
   format: in_person
   city: Montréal
   country: Canada
+  venue: Palais des Congrès de Montréal
   tags: [machine-learning]
   source: pwc
   pwc:
