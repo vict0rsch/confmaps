@@ -77,7 +77,9 @@
       <span class="distance tabular">{formatDistance(trip.distanceKm, travel.units)}</span>
       {#if isNearest}<span class="nearest">Nearest</span>{/if}
     </div>
-    <p class="caption">Estimated CO₂e, round trip</p>
+    <p class="caption">
+      Estimated CO₂e, round trip{trip.mode === 'flight' ? ', nonstop flights' : ''}
+    </p>
     {#if pin.format === 'hybrid'}<p class="also">Also online ({formatCo2(0)})</p>{/if}
 
     <div class="mode-toggle">

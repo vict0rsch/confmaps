@@ -33,6 +33,9 @@ UK_ (average passenger) and _International rail_ (Eurostar).
 ## What's included
 
 - **Round trip.** Every figure is home → event → home, for one traveller.
+- **Nonstop flights.** Each flight figure assumes a direct flight each way, because DESNZ's
+  factors are "for direct (non-stop) flights only" (DESNZ §8.10). A connection usually adds
+  0–20%; see [Layovers](#layovers-not-modelled).
 - **Economy class.** Premium seats take more space per passenger, so they carry a larger share
   of the emissions (DESNZ §8.18–8.20). Business class long-haul is about 2.9× economy.
 - **Radiative forcing (RF) included.** Aviation's non-CO₂ effects (contrails, water vapour,
@@ -120,6 +123,38 @@ settings. Where people do take long train trips, raise it.
   are not electrified. It is the cautious choice: it avoids understating rail, which would
   exaggerate how much better the train is.
 
+### Layovers (not modelled)
+
+A connecting flight emits more than a nonstop one for two reasons: the route through the hub is
+longer, and there is one more take-off and landing. The app doesn't know your route, so it
+shows the nonstop figure. As a rough guide:
+
+- **Detour through the hub.** Through a well-placed hub, long-haul trips are typically 0–6%
+  longer than the great circle. Our spot checks between city centres: Paris → Singapore →
+  Sydney +0.4%, Paris → Dubai → Sydney +2%, Berlin → Frankfurt → Vancouver +6%. A badly placed
+  hub adds much more: Berlin → New York → Vancouver is +29%.
+- **Extra take-off and landing.** A standard landing and take-off cycle burns about 770 kg of
+  fuel for an A320 and about 2,560 kg for a Boeing 777 (IPCC 2006 Guidelines, Vol. 2, Ch. 3,
+  Table 3.6.9). At 80% of seats filled, that is about 17 kg and 29 kg of CO₂ per passenger for
+  each extra stop (our arithmetic, CO₂ from burnt fuel only).
+- **Combined.** On US domestic routes, flying nonstop instead of connecting cut fuel by about
+  10% on average: about 4% from the shorter distance and 6% from the avoided take-off and
+  landing (Jamin et al. 2004, _Transportation Research Part D_ 9:295–317, as cited by Baumeister
+  2017, _Transportation Research Part D_ 57:1–9).
+- **Our estimate of the range: +0–20% for short-haul and +0–10% for long-haul.** The extra
+  take-off and landing weighs more on a short trip. This range is our own inference from the
+  figures above, not a published factor.
+- **Exceptions both ways.** On very long trips (over about 5,500 km), a stop near the midpoint
+  can save fuel, because the aircraft carries less fuel for the remaining distance (Poll 2011,
+  _The Aeronautical Journal_ 115:273–283). Real connections rarely fall at the midpoint with the
+  same efficient aircraft, so we don't count it as a saving. The aircraft type and how full it is
+  often matter more than the stop itself: Baumeister found Los Angeles → London itineraries
+  ranging from about 590 kg to 1,210 kg of CO₂ per passenger.
+
+Calculators that model connections, such as the ICAO Carbon Emissions Calculator and Google's
+Travel Impact Model, estimate each flight segment separately and add them up. That needs the
+actual route, which this app doesn't ask for.
+
 ### Formulas
 
 ```
@@ -143,9 +178,9 @@ From Berlin, Paris by train is therefore roughly 54× less than flying to Sydney
 
 ## Assumptions and limitations
 
-- **Great-circle, city to city.** Real routes, connections and stopovers are longer. A
-  connecting flight adds an extra take-off and landing, which DESNZ's direct-flight factors do
-  not capture (DESNZ §8.10).
+- **Great-circle, city to city, nonstop.** Real routes are longer, and many trips need a
+  connection, which adds a detour and an extra take-off and landing that DESNZ's direct-flight
+  factors do not capture (DESNZ §8.10). See [Layovers](#layovers-not-modelled).
 - **No accommodation**, food or conference venue emissions. DESNZ publishes hotel factors, but
   stay length varies too much to guess.
 - **No local transport** to and from airports or stations.
