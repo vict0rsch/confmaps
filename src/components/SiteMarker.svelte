@@ -23,8 +23,6 @@
     position: relative;
     flex: none;
     display: inline-block;
-    width: 12px;
-    height: 12px;
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--surface);
     color: var(--pin-community);
@@ -32,10 +30,17 @@
   .official {
     color: var(--pin-official);
   }
+  /* Main ~1.36× the satellite, as on the map (style.ts R_MAIN / R_SAT). The satellite's margin
+     gives both the same footprint, so the text beside them lines up. */
   .main {
+    width: 15px;
+    height: 15px;
     background: currentColor;
   }
   .satellite {
+    width: 11px;
+    height: 11px;
+    margin-inline: 2px;
     background: var(--surface);
     border: 2px solid;
   }

@@ -235,9 +235,12 @@ export const CLUSTER_MAX_ZOOM = 12;
 export const MAP_MAX_ZOOM = 12;
 const CLUSTER_RADIUS = 36;
 
-/** Pin radii (px): main venue larger than satellites. */
-const R_MAIN = 7;
-const R_SAT = 5;
+/**
+ * Pin radii (px). A satellite's ring stroke (2.25) is drawn outside its radius, so the main venue
+ * (17 px across) is still ~1.36× the satellite ring (12.5 px across).
+ */
+const R_MAIN = 8.5;
+const R_SAT = 4;
 const radius: ExpressionSpecification = ['case', ['==', ['get', 'main'], 1], R_MAIN, R_SAT];
 const plus = (n: number): ExpressionSpecification => ['+', radius, n];
 /** Centre dot of an official satellite's ring (a bullseye). */
@@ -383,8 +386,13 @@ function lockLayout(theme: ResolvedTheme) {
     'icon-image': lockImageId(theme),
     'icon-allow-overlap': true,
     'icon-ignore-placement': true,
-    // Badge sits on the pin's upper-right edge.
-    'icon-offset': ['case', ['==', ['get', 'main'], 1], ['literal', [7, -7]], ['literal', [5, -5]]],
+    // Badge sits on the pin's upper-right edge, clear of a satellite's centre dot.
+    'icon-offset': [
+      'case',
+      ['==', ['get', 'main'], 1],
+      ['literal', [R_MAIN, -R_MAIN]],
+      ['literal', [5, -5]],
+    ],
   } as SymbolLayerSpecification['layout'];
 }
 
@@ -659,7 +667,7 @@ export function dataLayers(
           'case',
           ['has', 'point_count'],
           ['step', ['get', 'point_count'], 32, 5, 38, 15, 46],
-          ['case', ['==', ['get', 'main'], 1], 20, 16],
+          ['case', ['==', ['get', 'main'], 1], 23, 14],
         ],
         'icon-allow-overlap': true,
         'icon-ignore-placement': false,
@@ -673,7 +681,7 @@ export function dataLayers(
       source: SRC.focus,
       layout: {
         'icon-image': COLLIDER_IMAGE,
-        'icon-size': ['case', ['==', ['get', 'main'], 1], 28, 24],
+        'icon-size': ['case', ['==', ['get', 'main'], 1], 31, 22],
         'icon-allow-overlap': true,
         'icon-ignore-placement': false,
         'icon-padding': 4,

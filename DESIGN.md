@@ -590,11 +590,12 @@ float above it as translucent glass panels. Modern, simple, clear.
 - **Quiet basemap:** warm land (`#f3f2ee` light, `#1f2124` dark) with soft blue water (`#d6e2ec`
   light, `#15191e` dark); POIs / most roads / minor labels removed. Data is the only saturated
   element.
-- **Never color alone:** a main venue is a filled pin and a satellite is a ring. An official
-  satellite's ring has a centre dot; a community satellite's ring is empty. Colour repeats the
-  official / community split (indigo / orange). Authors-only sites carry a dot badge. Colour
-  reinforces only (~8% of men have color-vision impairment). Both pin colours keep at least 3:1
-  on land and water in both themes, and stay distinct under simulated colour blindness.
+- **Never color alone:** a main venue is a filled pin and a satellite is a ring. The main pin is
+  also larger, about 1.4 times the ring's width. An official satellite's ring has a centre dot; a
+  community satellite's ring is empty. Colour repeats the official / community split (indigo /
+  orange). Authors-only sites carry a dot badge. Colour reinforces only (~8% of men have
+  color-vision impairment). Both pin colours keep at least 3:1 on land and water in both themes,
+  and stay distinct under simulated colour blindness.
 - Pins are soft and legible on both themes (halo/outline); clusters get a halo ring.
 - **Single accent color** with contrast in both themes: a softer **indigo** (chosen over teal), **not** eco-green.
 - **Design tokens:** primitives → semantic tokens (`--surface`, `--ink`, `--accent`,
