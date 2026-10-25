@@ -313,7 +313,13 @@ Purpose: find satellites the owner would never hear about, especially community 
   new cities), and produce one PR title/body with an evidence table per run.
 - **Never auto-merges.** The same CI (§9) runs on the PR.
 - **Cost control:** `--max-usd` (default 5) stops further API calls once the estimated cost passes
-  it. `--dry-run` writes nothing and prints evidence, cost, tool calls and the diff.
+  it. `--workers N` (default 4) researches N conferences at once; a request starts only if the
+  cost so far, plus the average cost of a finished request for each one in flight, stays under the
+  cap, so requests in flight can still take the total past it. `--dry-run` writes nothing and
+  prints evidence, cost, tool calls and the diff.
+- **Progress:** on a terminal, a rich display shows the run's progress and cost and one row per
+  request in flight. In CI logs, each request gets a start line and an end line (candidates,
+  turns, tool calls, cost), all prefixed like every other log line.
 - **Results persistence:** each conference's raw API result is saved (`--results-dir`) and uploaded
   as an `api-results` artifact (14 days). `--from-results DIR` re-runs verification, merge and
   report on them with no API calls.

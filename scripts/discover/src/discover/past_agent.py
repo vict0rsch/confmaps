@@ -6,6 +6,7 @@ output schema and tool caps (docs/backfill-spec.md §5).
 """
 
 import json
+from collections.abc import Callable
 from typing import Any
 
 from .agent import Research, ask, evidence_schema
@@ -174,7 +175,11 @@ def user_message(batch: dict[str, Any], today: str) -> str:
 
 
 def research(
-    client: Any, batch: dict[str, Any], today: str, usd_limit: float | None = None
+    client: Any,
+    batch: dict[str, Any],
+    today: str,
+    usd_limit: float | None = None,
+    on_response: Callable[[Research], None] | None = None,
 ) -> Research:
     """Ask the model for the editions of one batch (see :func:`discover.agent.ask`).
 
@@ -194,4 +199,5 @@ def research(
         tools=PAST_TOOLS,
         items_key="editions",
         usd_limit=usd_limit,
+        on_response=on_response,
     )

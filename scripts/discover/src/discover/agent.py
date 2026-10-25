@@ -9,6 +9,7 @@ touches the repository; everything it returns is checked by deterministic code (
 """
 
 import json
+from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -275,6 +276,7 @@ def research(
     existing: list[dict[str, Any]],
     today: str,
     usd_limit: float | None = None,
+    on_response: Callable[[Research], None] | None = None,
 ) -> Research:
     """Ask the model for candidate satellites of one conference (see :func:`ask`).
 
@@ -290,6 +292,8 @@ def research(
         ISO date of the run.
     usd_limit : float, optional
         Budget for this conference; a paused turn is not resumed beyond it.
+    on_response : callable, optional
+        Called with the result so far after each API response (progress display).
 
     Returns
     -------
@@ -315,6 +319,7 @@ def research(
         tools=TOOLS,
         items_key="candidates",
         usd_limit=usd_limit,
+        on_response=on_response,
     )
 
 
@@ -328,6 +333,7 @@ def ask(
     tools: list[dict[str, Any]],
     items_key: str,
     usd_limit: float | None = None,
+    on_response: Callable[[Research], None] | None = None,
 ) -> Research:
     """One research request: web tools in, a JSON list of evidence-backed items out.
 
@@ -355,6 +361,8 @@ def ask(
         Key of the item list in the output (``"candidates"``, ``"editions"``).
     usd_limit : float, optional
         Budget for this request; a paused turn is not resumed beyond it.
+    on_response : callable, optional
+        Called with the result so far (usage, tool calls) after each API response.
 
     Returns
     -------
@@ -393,6 +401,8 @@ def ask(
         iterations = getattr(message.usage, "iterations", None) or []
         if any(getattr(it, "type", None) == "fallback_message" for it in iterations):
             result.served_by = message.model
+        if on_response is not None:
+            on_response(result)
         if message.stop_reason != "pause_turn":
             break
         if usd_limit is not None and result.usage.usd > usd_limit:

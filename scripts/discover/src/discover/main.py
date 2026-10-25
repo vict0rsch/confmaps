@@ -20,6 +20,10 @@ Common:
 
 --dry-run                  write nothing; print evidence, cost, tool calls and the diff
 --max-usd N                no further API calls once the estimated cost exceeds N (default 5)
+--workers N                research up to N conferences (or past batches) at once (default 4).
+                           A request starts only if the cost so far, plus the average cost of a
+                           finished request for each one in flight, stays under --max-usd; the
+                           requests in flight can still take the final cost past it.
 --results-dir DIR          save each request's API result there (default: a new temp dir)
 --from-results DIR         re-run checks, merge and report on saved results (no API calls;
                            with --mode past for past-mode results)
@@ -40,18 +44,32 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import Any, TextIO
+from typing import Any, Self, TextIO
 
 import anthropic
+from rich.console import Console
+from rich.markup import escape
+from rich.progress import (
+    BarColumn,
+    Progress,
+    SpinnerColumn,
+    TaskID,
+    TextColumn,
+    TimeElapsedColumn,
+)
+from rich.text import Text
 
 from . import agent, past_agent
+from .cost import Usage
 from .geo import Geocoder, cached_hit
 from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
 from .past import check_and_plan, plan_batches
-from .report import PAST_INTRO, ConferenceRun, build_body, tool_log, total_usage
+from .report import PAST_INTRO, ConferenceRun, build_body, tool_log
 from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
 from .yamlio import load_entries
 
@@ -64,6 +82,7 @@ ARCHIVE = Path("data/archive")
 UPCOMING_DAYS = 365
 MAX_PR_BODY = 60000  # GitHub limit is 65,536 characters
 DEFAULT_MAX_USD = 5.0
+DEFAULT_WORKERS = 4
 SERIES_RE = re.compile(r"^[a-z0-9-]+$")
 MIN_YEAR, MAX_YEAR = 1950, 2100  # PastConferenceSchema year range
 # Every log line starts with this, so no untrusted text can start a line (GitHub Actions reads
@@ -232,28 +251,160 @@ def load_results(results_dir: Path, mode: str = "satellites") -> list[Conference
     return sorted(runs, key=lambda r: (r.conference.get("start", ""), r.conference["id"]))
 
 
+class ResearchProgress:
+    """Live progress of :func:`research_all`, safe to call from worker threads.
+
+    On a terminal: a rich display with one bar for the whole run (requests done, estimated cost
+    against the budget) and one row per request in flight (turns, tool calls, cost so far), plus
+    one line per finished request. Elsewhere (CI logs, tests): one :func:`say` line when a
+    request starts and one when it ends, so every line keeps :data:`LOG_PREFIX`.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with ResearchProgress(total=len(targets), max_usd=5.0) as progress:
+            progress.start(conf)
+            progress.finish(run, spent=0.42)
+    """
+
+    def __init__(self, total: int, max_usd: float, console: Console | None = None) -> None:
+        self.max_usd = max_usd
+        self.console = console or Console(stderr=True)
+        self.rows: dict[str, TaskID] = {}
+        self.live: Progress | None = None
+        if self.console.is_terminal:
+            self.live = Progress(
+                SpinnerColumn(),
+                TextColumn("{task.description}"),
+                BarColumn(),
+                TextColumn("{task.fields[info]}"),
+                TimeElapsedColumn(),
+                console=self.console,
+            )
+            self.overall = self.live.add_task(
+                f"[bold]{total} request(s)", total=total, info=self._budget(0.0)
+            )
+
+    def __enter__(self) -> Self:
+        if self.live:
+            self.live.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self.live:
+            self.live.stop()
+
+    def _budget(self, spent: float) -> str:
+        return f"~${spent:.2f} of ${self.max_usd:.2f}"
+
+    @staticmethod
+    def _label(conf: dict[str, Any]) -> str:
+        return f"{conf['id']} ({conf['title']} {conf['year']})"
+
+    def start(self, conf: dict[str, Any]) -> None:
+        """A request is about to be sent."""
+        if not self.live:
+            say(f"Researching {self._label(conf)}…", file=sys.stderr)
+            return
+        # Titles come from upstream data: never read them as rich markup.
+        self.rows[conf["id"]] = self.live.add_task(
+            escape(self._label(conf)), total=None, info="waiting for the first response"
+        )
+
+    def update(self, conf: dict[str, Any], research: agent.Research) -> None:
+        """An API response arrived for ``conf`` (a request can take several turns)."""
+        if self.live and conf["id"] in self.rows:
+            info = (
+                f"{research.usage.requests} turn(s) · {len(research.tool_calls)} tool call(s)"
+                f" · ~${research.usage.usd:.2f}"
+            )
+            self.live.update(self.rows[conf["id"]], info=info)
+
+    def finish(self, run: ConferenceRun, spent: float) -> None:
+        """``run`` is done (researched, failed or skipped); ``spent`` is the run's total."""
+        r, cid = run.research, run.conference["id"]
+        if run.error or r is None:
+            line = f"✗ {cid}: {run.error}"
+        elif r.status == "ok":
+            line = (
+                f"✓ {cid}: {len(r.candidates)} candidate(s), {r.usage.requests} turn(s), "
+                f"{len(r.tool_calls)} tool call(s), ~${r.usage.usd:.2f}"
+            )
+        else:
+            line = f"✗ {cid}: {r.status} ({r.detail})"
+        if not self.live:
+            say(f"{line} (total ~${spent:.2f})", file=sys.stderr)
+            return
+        row = self.rows.pop(cid, None)
+        if row is not None:
+            self.live.remove_task(row)
+        self.live.console.print(Text(line))  # Text: no markup or highlighting of model output
+        self.live.update(self.overall, advance=1, info=self._budget(spent))
+
+
 def research_all(
     targets: list[dict[str, Any]],
-    ask_one: Callable[[dict[str, Any], float], agent.Research],
+    ask_one: Callable[[dict[str, Any], float, Callable[[agent.Research], None]], agent.Research],
     results_dir: Path,
     max_usd: float,
     mode: str = "satellites",
+    workers: int = 1,
+    console: Console | None = None,
 ) -> list[ConferenceRun]:
-    """One API call (plus continuations) per target, within the ``max_usd`` budget.
+    """One API call (plus continuations) per target, up to ``workers`` at once, within budget.
 
-    ``ask_one(target, usd_limit)`` makes the call (conference → satellites, batch → editions).
+    ``ask_one(target, usd_limit, on_response)`` makes the call (conference → satellites, batch →
+    editions) and calls ``on_response`` after each API response. A request starts only while the
+    estimated cost so far, plus the average cost of a finished request for each request still in
+    flight, is below ``max_usd``. Results keep the order of ``targets``. An authentication,
+    permission or bad-request error stops the run: queued requests are cancelled and requests in
+    flight finish (their results are saved).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        runs = research_all(confs, ask_one, Path("results"), max_usd=5.0, workers=4)
     """
-    runs: list[ConferenceRun] = []
-    for conf in targets:
-        run = ConferenceRun(conf)
-        runs.append(run)
-        spent = total_usage(runs).usd
-        if spent >= max_usd:
+    runs = [ConferenceRun(t) for t in targets]
+    usage: dict[int, Usage] = {}  # latest usage per request (by index), finished or in flight
+    in_flight: set[int] = set()
+    finished: set[int] = set()
+    lock = threading.Lock()
+
+    def spent() -> float:
+        with lock:
+            return sum(u.usd for u in usage.values())
+
+    def reserve(i: int) -> float | None:
+        """Start request ``i`` if the projected cost allows it; return the cost so far."""
+        with lock:
+            used = sum(u.usd for u in usage.values())
+            # Requests in flight will likely cost about as much as the finished ones did.
+            done = [usage[j].usd for j in finished if j in usage]
+            projected = used + (sum(done) / len(done) if done else 0.0) * len(in_flight)
+            if projected >= max_usd:
+                return None
+            in_flight.add(i)
+            return used
+
+    def research_one(i: int, run: ConferenceRun, progress: ResearchProgress) -> None:
+        conf = run.conference
+        used = reserve(i)
+        if used is None:
             run.error = f"not researched: --max-usd budget (${max_usd:.2f}) reached"
-            continue
-        say(f"Researching {conf['id']} ({conf['title']} {conf['year']})…", file=sys.stderr)
+            progress.finish(run, spent())
+            return
+        progress.start(conf)
+
+        def on_response(research: agent.Research) -> None:
+            with lock:
+                usage[i] = research.usage
+            progress.update(conf, research)
+
         try:
-            run.research = ask_one(conf, max_usd - spent)
+            run.research = ask_one(conf, max_usd - used, on_response)
         except (
             anthropic.AuthenticationError,
             anthropic.PermissionDeniedError,
@@ -262,8 +413,27 @@ def research_all(
             raise  # affects every conference: stop the run
         except (anthropic.APIStatusError, anthropic.APIConnectionError) as e:
             run.error = f"{type(e).__name__}: {e}"
-            continue
-        save_result(results_dir, conf, run.research, mode)
+        else:
+            with lock:
+                usage[i] = run.research.usage
+            save_result(results_dir, conf, run.research, mode)
+        finally:
+            with lock:
+                in_flight.discard(i)
+                finished.add(i)
+        progress.finish(run, spent())
+
+    with (
+        ResearchProgress(len(runs), max_usd, console) as progress,
+        ThreadPoolExecutor(max_workers=workers) as pool,
+    ):
+        futures = [pool.submit(research_one, i, run, progress) for i, run in enumerate(runs)]
+        try:
+            for future in as_completed(futures):
+                future.result()
+        except BaseException:
+            pool.shutdown(wait=False, cancel_futures=True)
+            raise
     return runs
 
 
@@ -282,6 +452,7 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--recheck", action="store_true", help="also re-verify source: pwc editions")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--max-usd", type=float, default=DEFAULT_MAX_USD)
+    p.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
     p.add_argument("--results-dir", type=Path)
     p.add_argument("--from-results", type=Path)
     p.add_argument("--out-dir", type=Path)
@@ -312,6 +483,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
                 p.error(f"{flag} only applies to --mode past")
     if args.max_usd < 0:
         p.error("--max-usd must not be negative")
+    if args.workers < 1:
+        p.error("--workers must be at least 1")
     if args.out_dir and args.dry_run:
         p.error("--out-dir cannot be combined with --dry-run")
     if args.from_results and not args.from_results.is_dir():
@@ -369,11 +542,17 @@ def main(
         results_dir = _results_dir(args)
         client = client or anthropic.Anthropic()
 
-        def ask_one(conf: dict[str, Any], usd_limit: float) -> agent.Research:
+        def ask_one(
+            conf: dict[str, Any],
+            usd_limit: float,
+            on_response: Callable[[agent.Research], None],
+        ) -> agent.Research:
             mine = [s for s in existing if s["parent"] == conf["id"]]
-            return agent.research(client, conf, mine, today.isoformat(), usd_limit=usd_limit)
+            return agent.research(
+                client, conf, mine, today.isoformat(), usd_limit=usd_limit, on_response=on_response
+            )
 
-        runs = research_all(confs, ask_one, results_dir, args.max_usd)
+        runs = research_all(confs, ask_one, results_dir, args.max_usd, workers=args.workers)
         mode = f"`--mode {args.mode}`"
     try:
         return _process(args, repo, today, data, sat_text, existing, runs, mode, fetcher, geocoder)
@@ -431,10 +610,18 @@ def _main_past(
         results_dir = _results_dir(args)
         client = client or anthropic.Anthropic()
 
-        def ask_one(batch: dict[str, Any], usd_limit: float) -> agent.Research:
-            return past_agent.research(client, batch, today.isoformat(), usd_limit=usd_limit)
+        def ask_one(
+            batch: dict[str, Any],
+            usd_limit: float,
+            on_response: Callable[[agent.Research], None],
+        ) -> agent.Research:
+            return past_agent.research(
+                client, batch, today.isoformat(), usd_limit=usd_limit, on_response=on_response
+            )
 
-        runs = research_all(batches, ask_one, results_dir, args.max_usd, mode="past")
+        runs = research_all(
+            batches, ask_one, results_dir, args.max_usd, mode="past", workers=args.workers
+        )
         mode = f"`--mode past{' --recheck' if args.recheck else ''}`"
     try:
         fetcher = fetcher or PageFetcher()
