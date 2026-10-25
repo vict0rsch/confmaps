@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 const isoDate = z.iso.date(); // YYYY-MM-DD
 const access = z.enum(['open', 'registration', 'authors_only']);
-/** Every `link`/`sources` URL must be http(s): it is rendered as an `<a href>` in the app. */
+/** Every `link`/`sources` URL must be http(s): `link` is rendered as an `<a href>` in the app. */
 const httpUrl = z
   .url({ protocol: /^https?$/, error: 'must be an http(s):// URL' })
   .regex(/^https?:\/\/\S+$/i, 'must be an http(s):// URL');

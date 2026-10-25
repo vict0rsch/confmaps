@@ -124,7 +124,8 @@ confmaps.org is a static Svelte 5 + MapLibre SPA showing AI conferences and thei
   - A merged edition can't be removed, because CI checks that the archive never shrinks. Fix its fields instead.
 - **Any end-of-line `# review:` marker in that file fails `data:validate`.** Resolve the marker before merging.
 - **Every data change needs cited sources** (`sources:` URLs, http(s) only).
-  - Past-edition links must be Wayback snapshots or proceedings pages: many old conference domains have been hijacked.
+  - Past-edition `link`s must be Wayback snapshots or proceedings pages, because many old conference domains have been hijacked. The live site is allowed only when no snapshot exists and the site still shows that edition.
+  - `sources` may be live URLs: they are evidence for reviewers, are not shown in the app, and must load today and support the fact (DESIGN.md "Links of past editions").
 - **Virtual locations have no coordinates.** Guard with `isVirtual()`. They never get pins, and their footprint is "Online · ~0 kg".
 - **Discovery agent PRs are drafts with evidence tables.**
   - Check "Needs human verification" and "Suggested changes" before merging.
