@@ -99,12 +99,12 @@ test('hybrid detail: its city, a Hybrid badge, the trip and "Also online"', asyn
   await expect(footprint).toContainText('Also online (~0 kg)');
 });
 
-test('the axis starts 5 years back; "All years" reaches the first edition', async ({ page }) => {
+test('the axis starts 5 years back; "Since <year>" reaches the first edition', async ({ page }) => {
   await open(page);
   const ticks = page.locator('.axis .tick.year');
   await expect(ticks.first()).toBeVisible();
   await expect(ticks.filter({ hasText: '2017' })).toHaveCount(0);
-  await page.getByRole('button', { name: 'All years' }).click();
+  await page.getByRole('button', { name: 'Since 2017' }).click();
   await expect(page.getByTestId('timeline-range')).toContainText('2017');
   await expect(page).toHaveURL(/[?&]from=2017-12-04/);
   await expect(page.locator('#list-heading .count')).not.toHaveText('No');

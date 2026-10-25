@@ -43,7 +43,7 @@
   let width = $state(0);
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
-  // starts at most 5 years back ("All years" or history mode reach further).
+  // starts at most 5 years back ("Since <year>" or history mode reach further).
   let extent: Domain | undefined;
   const domain: Domain = $derived.by(
     () =>
@@ -411,8 +411,10 @@
             <button
               type="button"
               class="preset"
+              aria-label={p.short === p.label ? undefined : p.label}
               aria-pressed={sameWindow(dates, p.w)}
-              onclick={() => applyPreset(p.w)}>{p.label}</button
+              onclick={() => applyPreset(p.w)}
+              ><span class="full">{p.label}</span><span class="short">{p.short}</span></button
             >
           {/each}
         </div>
@@ -778,6 +780,10 @@
       color var(--duration-fast) var(--ease-out);
   }
 
+  .preset .short {
+    display: none;
+  }
+
   .preset:hover {
     background: var(--glass-tint-hover);
     color: var(--ink);
@@ -825,6 +831,14 @@
     .preset {
       height: 24px;
       padding: 0 8px;
+    }
+
+    .preset .full {
+      display: none;
+    }
+
+    .preset .short {
+      display: inline;
     }
   }
 

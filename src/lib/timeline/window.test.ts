@@ -23,19 +23,20 @@ const d = coverDomain(undefined, { from: '2025-01-01', to: '2027-12-31' });
 const plan = { from: '2026-10-22', to: '2027-10-22' };
 
 describe('presets', () => {
-  it('6 / 12 months from today, and the past 5 years', () => {
-    expect(datePresets('2026-10-22').map((p) => [p.id, p.w])).toEqual([
-      ['6m', { from: '2026-10-22', to: '2027-04-22' }],
-      ['12m', plan],
-      ['5y', { from: '2021-10-22', to: '2026-10-22' }],
+  it('in time order: the past 5 years, then 6 / 12 months from today', () => {
+    expect(datePresets('2026-10-22').map((p) => [p.id, p.label, p.short, p.w])).toEqual([
+      ['5y', 'Past 5 years', 'Past 5 years', { from: '2021-10-22', to: '2026-10-22' }],
+      ['6m', 'Next 6 months', 'Next 6 mo', { from: '2026-10-22', to: '2027-04-22' }],
+      ['12m', 'Next 12 months', 'Next 12 mo', plan],
     ]);
   });
 
-  it('"All years" reaches back to the first event', () => {
-    const all = datePresets('2026-10-22', '2016-12-05').at(-1)!;
+  it('"Since <year>" comes first and reaches back to the first event', () => {
+    const all = datePresets('2026-10-22', '2016-12-05')[0];
     expect(all).toEqual({
       id: 'all',
-      label: 'All years',
+      label: 'Since 2016',
+      short: 'Since 2016',
       w: { from: '2016-12-05', to: '2026-10-22' },
     });
     expect(datePresets('2026-10-22', '2026-12-01').map((p) => p.id)).not.toContain('all');
@@ -51,7 +52,7 @@ describe('axis span', () => {
     expect(axisSpan(recent, '2026-10-22')).toEqual(recent);
   });
 
-  it('the "All years" window grows the axis back to the data start', () => {
+  it('the "Since <year>" window grows the axis back to the data start', () => {
     const today = '2026-10-22';
     const span = { from: '2016-12-05', to: '2027-12-12' };
     const base = coverDomain(undefined, axisSpan(span, today));

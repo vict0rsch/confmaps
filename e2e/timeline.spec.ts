@@ -2,7 +2,7 @@ import { expect, test } from './fixtures';
 
 test('Play advances the window; pausing stops it', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: '6 months' }).click();
+  await page.getByRole('button', { name: 'Next 6 months' }).click();
   const range = page.getByTestId('timeline-range');
   const before = (await range.textContent())!.trim();
   await page.getByRole('button', { name: 'Play timeline' }).click();

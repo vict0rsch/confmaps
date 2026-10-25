@@ -14,23 +14,31 @@ import {
 } from './scale';
 
 export type PresetId = '6m' | '12m' | '5y' | 'all';
-export type Preset = { id: PresetId; label: string; w: DateWindow };
+/** `short`: the label in the narrow timeline (the full one stays the accessible name). */
+export type Preset = { id: PresetId; label: string; short: string; w: DateWindow };
 
-/** How far back the timeline axis reaches by default (the "All years" preset reaches the rest). */
+/** How far back the timeline axis reaches by default (the "Since <year>" preset reaches the rest). */
 export const AXIS_PAST_MONTHS = 60;
 
 /**
- * Shared by the timeline and the filter panel's Dates control. `dataFrom` (the first event's
- * start) adds "All years": from it to today.
+ * Shared by the timeline and the filter panel's Dates control, in time order like the axis (past,
+ * then future), each label saying which side of today it covers. `dataFrom` (the first event's
+ * start) adds "Since <year>": from it to today.
  */
 export function datePresets(today: string, dataFrom?: string): Preset[] {
   const presets: Preset[] = [
-    { id: '6m', label: '6 months', w: planWindow(today, 6) },
-    { id: '12m', label: '12 months', w: planWindow(today, 12) },
-    { id: '5y', label: 'Past 5 years', w: { from: addMonthsISO(today, -60), to: today } },
+    {
+      id: '5y',
+      label: 'Past 5 years',
+      short: 'Past 5 years',
+      w: { from: addMonthsISO(today, -60), to: today },
+    },
+    { id: '6m', label: 'Next 6 months', short: 'Next 6 mo', w: planWindow(today, 6) },
+    { id: '12m', label: 'Next 12 months', short: 'Next 12 mo', w: planWindow(today, 12) },
   ];
   if (dataFrom && dataFrom < today) {
-    presets.push({ id: 'all', label: 'All years', w: { from: dataFrom, to: today } });
+    const label = `Since ${dataFrom.slice(0, 4)}`;
+    presets.unshift({ id: 'all', label, short: label, w: { from: dataFrom, to: today } });
   }
   return presets;
 }

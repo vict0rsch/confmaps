@@ -444,12 +444,15 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 ```
  ▁▂▁▃▅▂▁▁▂█▃▁▁▂▁▃▆▂▁▁▂█▄▁▁▂▁▃▅▂▁▁▂█▃   ← events/month histogram
                 ├────────────────────┤     ← window, both handles draggable
- [▶ play]  [Plan: 6m | 12m]  [Past 5y | All years]  [speed 1×]
+ [▶ play]  [Since 2017 | Past 5 years | Next 6 months | Next 12 months]  [speed 1×]
 ```
 
-- **Plan mode (default on load):** window = today → +12 months, static. Presets 6m / 12m. While a
-  Plan preset is active and untouched, the range label reads "Next 6 months" / "Next 12 months"
-  instead of the dates.
+- **Preset order:** the presets run in time order, like the axis: the past ones, then the future
+  ones. Each label says which side of today it covers ("Past", "Next", "Since"). In a narrow
+  timeline, "Next 6 mo" / "Next 12 mo" stand in visually; the full label stays the accessible name.
+- **Plan mode (default on load):** window = today → +12 months, static. Presets "Next 6 months" /
+  "Next 12 months". While a Plan preset is active and untouched, the range label reads
+  "Next 6 months" / "Next 12 months" instead of the dates.
 - **Play mode:** ▶ slides the current window forward (~1 month/s, speed control, pause, drag to
   scrub). Window width is whatever the viewer set.
   - Pins fade + scale in when entering, pulse while live, fade out when leaving. **Live** means
@@ -461,9 +464,9 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
     motion settles.
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
-- **History presets** ("Past 5 years", "All years" back to the oldest edition) only set the
+- **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
   handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
-  editions do not squeeze it; "All years" (or history mode) extends it. Play spans all data.
+  editions do not squeeze it; "Since <year>" (or history mode) extends it. Play spans all data.
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
