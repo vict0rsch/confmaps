@@ -13,6 +13,7 @@
     monitor: 'M3 5h18v11H3zM8 20h8M12 16v4',
     chevron: 'M9 6l6 6-6 6',
     filter: 'M4 6h16M7 12h10M10 18h4',
+    menu: 'M4 6h16M4 12h16M4 18h16',
     check: 'M5 12.5l4.5 4.5L19 7.5',
     search: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4',
     calendar: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',

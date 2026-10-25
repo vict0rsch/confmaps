@@ -507,7 +507,7 @@ Units, mode and threshold are also persisted in `localStorage`. Home is in the U
 DESKTOP (≥ 1024px): the map fills the window; every panel floats above it
 ┌─────────────────────────────────────────────────────────────────────┐
 │ ╭───────────────╮ ╭─ legend ─────╮                                  │
-│ │ brand  share ◐│                          MAP (full window,        │
+│ │brand share ◐ ☰│                          MAP (full window,        │
 │ │ 📍 Berlin · km│                          clustered pins,          │
 │ │ [ search     ]│                          home→site lines)  ╭────╮ │
 │ │ (Topics)(Open)│                                            │DET.│ │
@@ -517,6 +517,14 @@ DESKTOP (≥ 1024px): the map fills the window; every panel floats above it
 │ │  880km ~50kg🚆│ ╭─ timeline ───────────────────────────────────╮   │
 │ │ footer links  │ │ ▁▂▃█▂▁ ├──window──┤  ▶  Oct 2026 – Oct 2027  │   │
 │ ╰───────────────╯ ╰──────────────────────────────────────────────╯   │
+└─────────────────────────────────────────────────────────────────────┘
+
+DESKTOP, sidebar collapsed (☰ folds it into a pill; the pill opens it again)
+┌─────────────────────────────────────────────────────────────────────┐
+│ (brand ☰) ╭─ legend ─────╮                                          │
+│                        MAP                                          │
+│ ╭─ timeline ──────────────────────────────────────────────────────╮ │
+│ ╰─────────────────────────────────────────────────────────────────╯ │
 └─────────────────────────────────────────────────────────────────────┘
 
 MOBILE
@@ -533,9 +541,17 @@ MOBILE
 - **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
   detail drawer on the right and the legend at the top-left of the free map area. Zoom controls and
   the attribution sit bottom-right, above the timeline.
+- **Collapsible sidebar (desktop):** the menu button (☰) at the end of the sidebar's brand row folds
+  the sidebar into a glass pill at its top-left corner. The pill shows the logo, the wordmark and ☰,
+  and it is one button that opens the sidebar again. It is as tall as the legend chip, and the
+  legend sits just right of it. The timeline then starts at the left gap. Every visit starts with
+  the sidebar open; the state is not saved. The collapsed sidebar stays mounted, so search, filters
+  and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
+  collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
+  a conference selected.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
-  panel.
+  panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that.
 - **Legend:** beside an open drawer it is hidden below 1280 px, because the strip of map is too
