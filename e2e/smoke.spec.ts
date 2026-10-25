@@ -63,4 +63,13 @@ test('the sidebar collapses to a pill and back, keeping the search', async ({ pa
   await expect(hide).toBeFocused();
   await expect(search).toHaveValue('neurips');
   await expect(show).toHaveCount(0);
+
+  // Closing the detail while collapsed: the list is inert, so the pill takes the focus.
+  await page.locator('[data-conference-id="neurips26"]').click();
+  await hide.click();
+  const detail = page.getByTestId('detail');
+  await detail.getByRole('button', { name: 'Close details' }).focus();
+  await page.keyboard.press('Escape');
+  await expect(detail).toHaveCount(0);
+  await expect(show).toBeFocused();
 });

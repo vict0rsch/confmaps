@@ -547,7 +547,8 @@ MOBILE
   legend sits just right of it. The timeline then starts at the left gap. Every visit starts with
   the sidebar open; the state is not saved. The collapsed sidebar stays mounted, so search, filters
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
-  collapse and back to ☰ on expand.
+  collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
+  a conference selected.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill floats over the map like the legend, so it reserves nothing.

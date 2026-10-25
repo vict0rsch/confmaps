@@ -85,6 +85,8 @@
   let clickedSite: { id: string; lngLat: [number, number] } | null = null;
   /** The conference the camera was last fitted to (double-clicking its pin zooms back out). */
   let zoomedTo: string | null = null;
+  /** The selection and left inset the camera last followed (see the camera effect). */
+  let followed: { id: string | null; left: number } = { id: null, left: 0 };
 
   const MARGIN = 48;
   /** The overview of a few nearby pins (or one) stays regional, never street level. */
@@ -534,8 +536,10 @@
     untrack(() => {
       if (clickedSite && clickedSite.id !== id) clickedSite = null;
       if (clickedSite) keepInView(clickedSite.lngLat);
-      else if (id) fitSelection();
+      // Same selection, new left inset: the desktop sidebar was toggled. Keep the zoom, re-pad only.
+      else if (id && (id !== followed.id || pad.left === followed.left)) fitSelection();
       else m.easeTo({ padding: pad, duration: duration(250) });
+      followed = { id, left: pad.left };
     });
   });
 

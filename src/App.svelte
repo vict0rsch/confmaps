@@ -104,7 +104,9 @@
     app.select(null);
     await tick();
     if (hadFocus && id) {
-      document.querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)?.focus();
+      // The list is inert while the desktop sidebar is collapsed: the pill takes the focus.
+      if (desktop.current && !sidebarOpen) pill?.focus();
+      else document.querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)?.focus();
     }
   }
 </script>
@@ -345,11 +347,14 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-panel);
-    /* Folds toward the pill at its top-left corner. Hidden after the fade, shown at once. */
+    /* Folds toward the pill at its top-left corner. The two never show at once, and the legend and
+       timeline never slide over it. Collapse: the sidebar fades, then the pill fades in while the
+       legend and timeline slide left. Expand: the pill goes at once, the legend and timeline slide
+       right, then the sidebar fades in. */
     transform-origin: top left;
     transition:
-      opacity var(--duration-base) var(--ease-out),
-      transform var(--duration-base) var(--ease-out);
+      opacity var(--duration-fast) var(--ease-out) var(--duration-fast),
+      transform var(--duration-fast) var(--ease-out) var(--duration-fast);
   }
 
   .sidebar.collapsed {
@@ -380,10 +385,6 @@
     opacity: 0;
     /* Hidden, it sits over the sidebar's brand row, so the wordmark slides up into the pill. */
     transform: translate(var(--space-1), var(--space-5));
-    transition:
-      opacity var(--duration-fast) var(--ease-in),
-      transform var(--duration-fast) var(--ease-in),
-      visibility 0s var(--duration-fast);
   }
 
   .sidebar-pill.shown {
@@ -391,8 +392,8 @@
     opacity: 1;
     transform: none;
     transition:
-      opacity var(--duration-base) var(--ease-out),
-      transform var(--duration-base) var(--ease-out);
+      opacity var(--duration-fast) var(--ease-out) var(--duration-fast),
+      transform var(--duration-fast) var(--ease-out) var(--duration-fast);
   }
 
   .sidebar-pill :global(.icon) {
@@ -489,7 +490,7 @@
     padding: 6px var(--space-4);
     /* A capsule on one line; stays rounded if it wraps beside the drawer. */
     border-radius: var(--radius-card);
-    transition: left var(--duration-base) var(--ease-out);
+    transition: left var(--duration-fast) var(--ease-out);
   }
 
   .legend-chip.beside-drawer {
@@ -526,11 +527,27 @@
     z-index: 1;
     height: var(--timeline-height);
     border-radius: var(--radius-panel);
-    transition: left var(--duration-base) var(--ease-out);
+    transition: left var(--duration-fast) var(--ease-out);
   }
 
   .sidebar-collapsed .timeline {
     left: var(--panel-gap);
+  }
+
+  /* Collapse: they slide left once the sidebar has faded. */
+  .sidebar-collapsed .legend-chip,
+  .sidebar-collapsed .timeline {
+    transition-delay: var(--duration-fast);
+  }
+
+  /* The global reduced-motion rule shortens durations, not delays. */
+  @media (prefers-reduced-motion: reduce) {
+    .sidebar,
+    .sidebar-pill,
+    .legend-chip,
+    .timeline {
+      transition-delay: 0s !important;
+    }
   }
 
   /* ---- Mobile ---- */
