@@ -1,6 +1,6 @@
 <script lang="ts">
   // The map's pin encoding in miniature (legend, list, detail): official = filled,
-  // community = ring, main venue = larger, authors only = lock badge.
+  // community = ring, main venue = larger, authors only = dot badge.
   let {
     official,
     main,

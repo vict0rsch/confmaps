@@ -9,7 +9,7 @@ export type PinProps = {
   main: 0 | 1;
   /** 1 = official (filled pin), 0 = community (ring). */
   official: 0 | 1;
-  /** 1 = authors only (lock badge). */
+  /** 1 = authors only (dot badge). */
   locked: 0 | 1;
   label: string;
 };

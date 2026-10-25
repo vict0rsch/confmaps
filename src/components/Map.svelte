@@ -202,7 +202,7 @@
       const theme = id.replace('lock-badge-', '') as ResolvedTheme;
       if (id !== lockImageId(theme) || m.hasImage(id)) return;
       const p = readPalette();
-      const { image, options } = lockBadge(p.selected, p.pinHalo, p.pinHalo);
+      const { image, options } = lockBadge(p.selected, p.pinHalo);
       m.addImage(id, image, options);
     });
 
