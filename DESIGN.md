@@ -554,9 +554,11 @@ MOBILE
   panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that.
-- **Legend:** beside an open drawer it is hidden below 1280 px, because the strip of map is too
-  narrow. It returns when the drawer closes. A "Satellite link" item (the dashed line) appears only
-  while the map shows a main ↔ satellite line.
+- **Legend:** it reads "Main venue", then "Satellites:" with its two kinds ("official",
+  "community") as one inner list, then "Authors only" (an official satellite with the badge).
+  Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
+  returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
+  map shows a main ↔ satellite line.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
@@ -588,8 +590,12 @@ float above it as translucent glass panels. Modern, simple, clear.
 - **Quiet basemap:** warm land (`#f3f2ee` light, `#1f2124` dark) with soft blue water (`#d6e2ec`
   light, `#15191e` dark); POIs / most roads / minor labels removed. Data is the only saturated
   element.
-- **Never color alone:** official = filled pin, community = outlined; main venue = larger pin;
-  access = icon (🔒 authors only). Color reinforces only (~8% of men have color-vision impairment).
+- **Never color alone:** a main venue is a filled pin and a satellite is a ring. The main pin is
+  also larger, about 1.4 times the ring's width. An official satellite's ring has a centre dot; a
+  community satellite's ring is empty. Colour repeats the official / community split (indigo /
+  orange). Authors-only sites carry a dot badge. Colour reinforces only (~8% of men have
+  color-vision impairment). Both pin colours keep at least 3:1 on land and water in both themes,
+  and stay distinct under simulated colour blindness.
 - Pins are soft and legible on both themes (halo/outline); clusters get a halo ring.
 - **Single accent color** with contrast in both themes: a softer **indigo** (chosen over teal), **not** eco-green.
 - **Design tokens:** primitives → semantic tokens (`--surface`, `--ink`, `--accent`,

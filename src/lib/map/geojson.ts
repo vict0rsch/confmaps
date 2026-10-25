@@ -5,9 +5,9 @@ import type { PinnedJoined } from '../data/load';
 export type PinProps = {
   id: string;
   conferenceId: string;
-  /** 1 = main venue, 0 = satellite (numeric so style expressions stay simple). */
+  /** 1 = main venue (filled pin), 0 = satellite (ring); numeric so style expressions stay simple. */
   main: 0 | 1;
-  /** 1 = official (filled pin), 0 = community (ring). */
+  /** 1 = official (indigo; a satellite's ring gets a centre dot), 0 = community (orange). */
   official: 0 | 1;
   /** 1 = authors only (dot badge). */
   locked: 0 | 1;
