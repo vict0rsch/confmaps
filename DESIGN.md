@@ -67,6 +67,7 @@ src/
   components/             # map, list, detail, timeline, filter panel, settings
 public/cities.json        # GeoNames cities (pop. ≥ 50k) for home-city autocomplete (lazy-loaded)
 public/CNAME              # custom domain confmaps.org (§8)
+public/favicon.svg        # the brand mark, light and dark (prefers-color-scheme)
 .github/workflows/        # ci.yml, sync.yml (daily), discover.yml (manual), deploy.yml
 METHODOLOGY.md            # CO₂ estimation method, linked from the app
 PRIVACY.md                # what is (not) collected, linked from the footer
