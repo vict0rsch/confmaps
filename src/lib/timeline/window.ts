@@ -188,14 +188,3 @@ export function windowLabel(w: DateWindow, short = false): string {
 
 /** One day as text: "Oct 22, 2026". */
 export const dayLabel = (iso: string): string => formatDateRange(iso, iso);
-
-/**
- * The timeline's range label: "Next 12 months" / "Next 6 months" while a Plan preset is active
- * and untouched, otherwise the window as text (`windowLabel`).
- */
-export function rangeLabel(w: DateWindow, today: string, short = false): string {
-  for (const months of [6, 12]) {
-    if (sameWindow(w, planWindow(today, months))) return `Next ${months} months`;
-  }
-  return windowLabel(w, short);
-}

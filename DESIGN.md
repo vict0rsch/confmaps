@@ -451,8 +451,7 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   ones. Each label says which side of today it covers ("Past", "Next", "Since"). In a narrow
   timeline, "Next 6 mo" / "Next 12 mo" stand in visually; the full label stays the accessible name.
 - **Plan mode (default on load):** window = today → +12 months, static. Presets "Next 6 months" /
-  "Next 12 months". While a Plan preset is active and untouched, the range label reads
-  "Next 6 months" / "Next 12 months" instead of the dates.
+  "Next 12 months". The range label always shows the window's dates, whichever preset is active.
 - **Play mode:** ▶ slides the current window forward (~1 month/s, speed control, pause, drag to
   scrub). Window width is whatever the viewer set.
   - Pins fade + scale in when entering, pulse while live, fade out when leaving. **Live** means
@@ -515,7 +514,7 @@ DESKTOP (≥ 1024px): the map fills the window; every panel floats above it
 │ │ 23 conferences│                                            ╰────╯ │
 │ │ NeurIPS Paris │                            [+][−] attribution      │
 │ │  880km ~50kg🚆│ ╭─ timeline ───────────────────────────────────╮   │
-│ │ footer links  │ │ ▁▂▃█▂▁ ├──window──┤  ▶  Next 12 months       │   │
+│ │ footer links  │ │ ▁▂▃█▂▁ ├──window──┤  ▶  Oct 2026 – Oct 2027  │   │
 │ ╰───────────────╯ ╰──────────────────────────────────────────────╯   │
 └─────────────────────────────────────────────────────────────────────┘
 

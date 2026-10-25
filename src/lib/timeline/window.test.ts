@@ -14,7 +14,6 @@ import {
   nudge,
   playOrigin,
   playWindow,
-  rangeLabel,
   toDomainEdge,
   windowLabel,
 } from './window';
@@ -173,20 +172,5 @@ describe('windowLabel', () => {
     expect(windowLabel({ from: '2026-11-01', to: '2026-11-30' })).toBe('Nov 2026');
     expect(windowLabel(plan)).toBe('Oct 22, 2026 – Oct 22, 2027');
     expect(windowLabel(plan, true)).toBe('Oct ’26 – Oct ’27');
-  });
-});
-
-describe('rangeLabel', () => {
-  it('names an untouched Plan preset, otherwise shows the window', () => {
-    expect(rangeLabel(plan, '2026-10-22')).toBe('Next 12 months');
-    expect(rangeLabel({ from: '2026-10-22', to: '2027-04-22' }, '2026-10-22')).toBe(
-      'Next 6 months',
-    );
-    expect(rangeLabel(plan, '2026-10-22', true)).toBe('Next 12 months');
-    // Moved by a day (Play, drag) or another day's Plan: the dates again.
-    expect(rangeLabel({ from: '2026-10-23', to: '2027-10-23' }, '2026-10-22')).toBe(
-      'Oct 23, 2026 – Oct 23, 2027',
-    );
-    expect(rangeLabel(plan, '2026-10-21', true)).toBe('Oct ’26 – Oct ’27');
   });
 });

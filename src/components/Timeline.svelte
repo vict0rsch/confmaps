@@ -25,7 +25,6 @@
     dragHandle,
     moveWindow,
     nudge,
-    rangeLabel,
     sameWindow,
     toDomainEdge,
     windowLabel,
@@ -420,7 +419,7 @@
         </div>
       {/if}
       <span class="range tabular" data-testid="timeline-range"
-        >{rangeLabel(dates, app.today, compact)}</span
+        >{windowLabel(dates, compact)}</span
       >
     {/if}
   </div>
