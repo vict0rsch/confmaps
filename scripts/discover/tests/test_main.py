@@ -186,6 +186,10 @@ def test_progress_lines_in_logs_keep_the_prefix(
     assert all(line.startswith(LOG_PREFIX) for line in err)
     assert any("✓ emnlp26: 0 candidate(s), 1 turn(s)" in line for line in err)
     assert any("✓ neurips26: 0 candidate(s)" in line for line in err)
+    # High-level steps, then one line per request whose evidence was checked.
+    assert "> ▸ Checking evidence: fetching cited pages and geocoding cities" in err
+    assert any(line.startswith("> checked emnlp26: kept 0 of 0 item(s)") for line in err)
+    assert err[-1].startswith("> ▸ Finished in ")
 
 
 def test_workers_must_be_positive(repo: Path) -> None:

@@ -7,6 +7,7 @@ source, or in ``data/past_conferences.yml``); with ``--recheck``, also the recor
 :data:`~discover.past_agent.MAX_YEARS_PER_CALL` target years of one series, chronologically.
 """
 
+from collections.abc import Callable
 from datetime import date
 from typing import Any
 
@@ -144,8 +145,11 @@ def check_and_plan(
     get_page: Any,
     geocoder: Any,
     today: date,
+    on_checked: Callable[[ConferenceRun], None] | None = None,
 ) -> tuple[PastPlan, str]:
     """Verify every returned edition, then plan and apply the changes to the file text.
+
+    ``on_checked(run)`` is called once each request's editions are checked (progress display).
 
     Examples
     --------
@@ -160,6 +164,8 @@ def check_and_plan(
                 check_edition_safely(raw, run.conference, pages, geocoder, today)
                 for raw in run.research.candidates
             ]
+            if on_checked is not None:
+                on_checked(run)
     editions = [c for run in runs for c in run.checked if isinstance(c, CheckedEdition)]
     plan = plan_past_changes(past, data, editions, series_profiles(data, past))
     return plan, apply_past_plan(past_text, plan)

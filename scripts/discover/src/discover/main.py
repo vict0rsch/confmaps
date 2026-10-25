@@ -45,6 +45,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, date, datetime, timedelta
@@ -56,6 +57,7 @@ from rich.console import Console
 from rich.markup import escape
 from rich.progress import (
     BarColumn,
+    MofNCompleteColumn,
     Progress,
     SpinnerColumn,
     TaskID,
@@ -103,6 +105,18 @@ def say(text: Any = "", prefix: str = LOG_PREFIX, file: TextIO | None = None) ->
     """
     for line in str(text).splitlines() or [""]:
         print(prefix + line, file=file or sys.stdout)
+
+
+def step(text: str) -> None:
+    """Announce one high-level step of the run on stderr (stdout carries the report).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        step("Checking evidence")  # "> ▸ Checking evidence"
+    """
+    say(f"▸ {text}", file=sys.stderr)
 
 
 def scrubbed_env() -> dict[str, str]:
@@ -188,17 +202,19 @@ def select_conferences(
 
 def _run(cmd: list[str], cwd: Path) -> int:
     say(f"$ {' '.join(cmd)}", file=sys.stderr)
-    proc = subprocess.run(
+    # Stream the output line by line (data:build takes minutes), each line prefixed.
+    with subprocess.Popen(
         cmd,
         cwd=cwd,
         env=scrubbed_env(),
-        check=False,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
         errors="replace",
-    )
-    say(proc.stdout, prefix="pnpm> ", file=sys.stderr)
+    ) as proc:
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            say(line.rstrip("\n"), prefix="pnpm> ", file=sys.stderr)
     return proc.returncode
 
 
@@ -210,7 +226,11 @@ def rebuild_and_validate(repo: Path) -> bool:
     ``data/geocache.json``; ``data:build`` geocodes new cities (Nominatim) and regenerates
     ``data.json`` and ``data/archive/`` from a fresh upstream clone.
     """
-    return _run(["pnpm", "data:build"], repo) == 0 and _run(["pnpm", "data:validate"], repo) == 0
+    step("Rebuilding generated data (pnpm data:build: upstream clone, geocoding new cities)")
+    if _run(["pnpm", "data:build"], repo) != 0:
+        return False
+    step("Validating the data (pnpm data:validate)")
+    return _run(["pnpm", "data:validate"], repo) == 0
 
 
 def proposed_files(repo: Path) -> list[Path]:
@@ -341,6 +361,91 @@ class ResearchProgress:
             self.live.remove_task(row)
         self.live.console.print(Text(line))  # Text: no markup or highlighting of model output
         self.live.update(self.overall, advance=1, info=self._budget(spent))
+
+
+class CheckProgress:
+    """Live progress of the evidence checks (cited pages fetched, cities geocoded).
+
+    Wrap the page getter and the geocoder with :meth:`get_page` and :meth:`geocoder`, and call
+    :meth:`checked` once a request's items are checked. On a terminal, a rich bar shows the
+    requests checked and what is being fetched or geocoded right now; elsewhere, one
+    :func:`say` line per request.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with CheckProgress(runs) as progress:
+            get_page, geocode = progress.get_page(fetcher.get), progress.geocoder(geocoder)
+            ...
+            progress.checked(run)
+    """
+
+    def __init__(self, runs: list[ConferenceRun], console: Console | None = None) -> None:
+        self.pages = self.lookups = 0  # for the request being checked
+        self.console = console or Console(stderr=True)
+        self.live: Progress | None = None
+        if self.console.is_terminal:
+            total = sum(1 for r in runs if r.research and r.research.status == "ok")
+            self.live = Progress(
+                SpinnerColumn(),
+                TextColumn("{task.description}"),
+                BarColumn(),
+                MofNCompleteColumn(),
+                TextColumn("{task.fields[activity]}"),
+                TimeElapsedColumn(),
+                console=self.console,
+            )
+            self.task = self.live.add_task("Checking evidence", total=total, activity="")
+
+    def __enter__(self) -> Self:
+        if self.live:
+            self.live.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self.live:
+            self.live.stop()
+
+    def _activity(self, text: str) -> None:
+        if self.live:
+            text = text if len(text) <= 70 else text[:69] + "…"
+            # URLs and cities come from model output: never read them as rich markup.
+            self.live.update(self.task, activity=escape(text))
+
+    def get_page(self, get: Callable[[str], Any]) -> Callable[[str], Any]:
+        """``get`` that counts and shows each page fetch."""
+
+        def wrapped(url: str) -> Any:
+            self.pages += 1
+            self._activity(f"fetching {url}")
+            return get(url)
+
+        return wrapped
+
+    def geocoder(self, geocode: Callable[[str, str], Any]) -> Callable[[str, str], Any]:
+        """``geocode`` that counts and shows each city lookup."""
+
+        def wrapped(city: str, country: str) -> Any:
+            self.lookups += 1
+            self._activity(f"geocoding {city}, {country}")
+            return geocode(city, country)
+
+        return wrapped
+
+    def checked(self, run: ConferenceRun) -> None:
+        """``run``'s items are checked: report what was kept and what it took."""
+        kept = sum(1 for c in run.checked if not c.dropped)
+        line = (
+            f"checked {run.conference['id']}: kept {kept} of {len(run.checked)} item(s), "
+            f"{self.pages} page fetch(es), {self.lookups} geocoding lookup(s)"
+        )
+        self.pages = self.lookups = 0
+        if not self.live:
+            say(line, file=sys.stderr)
+            return
+        self.live.console.print(Text(line))  # Text: no markup or highlighting of model output
+        self.live.update(self.task, advance=1, activity="")
 
 
 def research_all(
@@ -514,6 +619,22 @@ def main(
         main(["--only", "neurips26", "--dry-run"])
     """
     args = _parse_args(argv)
+    start = time.monotonic()
+    try:
+        return _main(args, client, fetcher, geocoder, today)
+    finally:
+        minutes, seconds = divmod(round(time.monotonic() - start), 60)
+        step(f"Finished in {minutes}m{seconds:02d}s")
+
+
+def _main(
+    args: argparse.Namespace,
+    client: Any,
+    fetcher: Any,
+    geocoder: Any,
+    today: date | None,
+) -> int:
+    """:func:`main` after argument parsing: route to a mode, research or replay, then propose."""
     repo: Path = args.repo_root
     today = today or datetime.now(UTC).date()
     data = json.loads((repo / DATA_JSON).read_text())
@@ -529,6 +650,7 @@ def main(
             for r in load_results(args.from_results)
             if not args.only or r.conference["id"] in args.only
         ]
+        step(f"Loaded {len(runs)} saved result(s) from {args.from_results}")
         mode = "from saved results"
     else:
         confs = select_conferences(data, args.mode, today, args.since, args.only)
@@ -552,6 +674,10 @@ def main(
                 client, conf, mine, today.isoformat(), usd_limit=usd_limit, on_response=on_response
             )
 
+        step(
+            f"Researching {len(confs)} conference(s), {args.workers} at a time, "
+            f"budget ${args.max_usd:.2f}"
+        )
         runs = research_all(confs, ask_one, results_dir, args.max_usd, workers=args.workers)
         mode = f"`--mode {args.mode}`"
     try:
@@ -593,6 +719,7 @@ def _main_past(
         runs = load_results(args.from_results, "past")
         if args.series:
             runs = [r for r in runs if r.conference["series"] in args.series]
+        step(f"Loaded {len(runs)} saved result(s) from {args.from_results}")
         mode = "from saved results"
     else:
         until = args.until if args.until is not None else today.year - 1
@@ -619,6 +746,10 @@ def _main_past(
                 client, batch, today.isoformat(), usd_limit=usd_limit, on_response=on_response
             )
 
+        step(
+            f"Researching {len(batches)} batch(es) of years, {args.workers} at a time, "
+            f"budget ${args.max_usd:.2f}"
+        )
         runs = research_all(
             batches, ask_one, results_dir, args.max_usd, mode="past", workers=args.workers
         )
@@ -627,7 +758,18 @@ def _main_past(
         fetcher = fetcher or PageFetcher()
         geocache = _load_geocache(repo)
         geocoder = geocoder or Geocoder(geocache)
-        plan, new_text = check_and_plan(runs, data, past, past_text, fetcher.get, geocoder, today)
+        step("Checking evidence: fetching cited pages and geocoding cities, then planning changes")
+        with CheckProgress(runs) as progress:
+            plan, new_text = check_and_plan(
+                runs,
+                data,
+                past,
+                past_text,
+                progress.get_page(fetcher.get),
+                progress.geocoder(geocoder),
+                today,
+                on_checked=progress.checked,
+            )
         counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
         summary = (
             f"{counts}, {len(plan.suggestions)} suggestion(s) not applied, "
@@ -670,13 +812,18 @@ def _process(
     fetcher = fetcher or PageFetcher()
     geocache = _load_geocache(repo)
     geocoder = geocoder or Geocoder(geocache)
-    for run in runs:
-        if run.research and run.research.status == "ok":
-            pages = LimitedPages(fetcher.get, MAX_FETCHES_PER_CONFERENCE)
-            run.checked = [
-                check_candidate_safely(raw, run.conference, pages, geocoder)
-                for raw in run.research.candidates
-            ]
+    step("Checking evidence: fetching cited pages and geocoding cities")
+    with CheckProgress(runs) as progress:
+        get_page, geocode = progress.get_page(fetcher.get), progress.geocoder(geocoder)
+        for run in runs:
+            if run.research and run.research.status == "ok":
+                pages = LimitedPages(get_page, MAX_FETCHES_PER_CONFERENCE)
+                run.checked = [
+                    check_candidate_safely(raw, run.conference, pages, geocode)
+                    for raw in run.research.candidates
+                ]
+                progress.checked(run)
+    step("Planning changes")
 
     existing_coords = {
         s["id"]: (hit.lat, hit.lng)
@@ -727,6 +874,7 @@ def _propose(
     """
     rc = 1 if any(r.failed for r in runs) else 0
     geocache = _load_geocache(repo)
+    step(f"Planned: {summary}")
     if args.dry_run:
         say(body_for(geocache))
         say("\n## Server tool calls\n\n" + (tool_log(runs) or "(none)"))
@@ -738,6 +886,7 @@ def _propose(
         say(body_for(geocache))
         say(f"No changes to write. {summary}")
         return rc
+    step(f"Writing {rel}")
     (repo / rel).write_text(new_text)
     say(f"Wrote {rel}: {summary}")
     if not rebuild_and_validate(repo):
