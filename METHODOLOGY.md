@@ -35,7 +35,7 @@ UK_ (average passenger) and _International rail_ (Eurostar).
 - **Round trip.** Every figure is home → event → home, for one traveller.
 - **Nonstop flights.** Each flight figure assumes a direct flight each way, because DESNZ's
   factors are "for direct (non-stop) flights only" (DESNZ §8.10). A connection usually adds
-  0–20%; see [Layovers](#layovers-not-modelled).
+  0–20%; see [Layovers](#layovers).
 - **Economy class.** Premium seats take more space per passenger, so they carry a larger share
   of the emissions (DESNZ §8.18–8.20). Business class long-haul is about 2.9× economy.
 - **Radiative forcing (RF) included.** Aviation's non-CO₂ effects (contrails, water vapour,
@@ -123,11 +123,11 @@ settings. Where people do take long train trips, raise it.
   are not electrified. It is the cautious choice: it avoids understating rail, which would
   exaggerate how much better the train is.
 
-### Layovers (not modelled)
+### Layovers
 
 A connecting flight emits more than a nonstop one for two reasons: the route through the hub is
-longer, and there is one more take-off and landing. The app doesn't know your route, so it
-shows the nonstop figure. As a rough guide:
+longer, and there is one more take-off and landing. The app doesn't know your route, so its
+main figure is the nonstop one. As a rough guide:
 
 - **Detour through the hub.** Through a well-placed hub, long-haul trips are typically 0–6%
   longer than the great circle. Our spot checks between city centres: Paris → Singapore →
@@ -143,7 +143,9 @@ shows the nonstop figure. As a rough guide:
   2017, _Transportation Research Part D_ 57:1–9).
 - **Our estimate of the range: +0–20% for short-haul and +0–10% for long-haul.** The extra
   take-off and landing weighs more on a short trip. This range is our own inference from the
-  figures above, not a published factor.
+  figures above, not a published factor. The detail panel shows it under each flight estimate:
+  "~4.6–5.0 t depending on layovers" for Berlin → Sydney (4,560 × 1.1 = 5,016 kg). The list
+  and the footprint filter use the nonstop figure.
 - **Exceptions both ways.** On very long trips (over about 5,500 km), a stop near the midpoint
   can save fuel, because the aircraft carries less fuel for the remaining distance (Poll 2011,
   _The Aeronautical Journal_ 115:273–283). Real connections rarely fall at the midpoint with the
@@ -180,7 +182,7 @@ From Berlin, Paris by train is therefore roughly 54× less than flying to Sydney
 
 - **Great-circle, city to city, nonstop.** Real routes are longer, and many trips need a
   connection, which adds a detour and an extra take-off and landing that DESNZ's direct-flight
-  factors do not capture (DESNZ §8.10). See [Layovers](#layovers-not-modelled).
+  factors do not capture (DESNZ §8.10). See [Layovers](#layovers).
 - **No accommodation**, food or conference venue emissions. DESNZ publishes hotel factors, but
   stay length varies too much to guess.
 - **No local transport** to and from airports or stations.

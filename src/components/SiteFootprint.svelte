@@ -2,8 +2,8 @@
   // Distance and estimated footprint for one site of the open conference (DESIGN §5, §6.7).
   // Rendered by Detail through its `siteFootprint` snippet, only when a home is set.
   import { track } from '../lib/analytics';
-  import { formatCo2, formatDistance, modeIcon } from '../lib/co2/format';
-  import type { TravelMode } from '../lib/co2/model';
+  import { formatCo2, formatCo2Range, formatDistance, modeIcon } from '../lib/co2/format';
+  import { layoverRangeKg, type TravelMode } from '../lib/co2/model';
   import { isPinned, type JoinedLocation, type PinnedJoined } from '../lib/data/load';
   import { comparisonLine, nearestSite, safeTrip } from '../lib/home/footprint';
   import { myclimateUrl } from '../lib/home/myclimate';
@@ -28,6 +28,7 @@
 
   const autoMode = $derived(pin && estimate(pin)?.mode);
   const trip = $derived(pin && estimate(pin, tripOverrides.get(pin.id)));
+  const layovers = $derived(trip && layoverRangeKg(trip));
   const isNearest = $derived(
     !!pin && pinned.length > 1 && !!app.home && nearestSite(app.home, pinned)?.id === pin.id,
   );
@@ -80,6 +81,9 @@
     <p class="caption">
       Estimated CO₂e, round trip{trip.mode === 'flight' ? ', nonstop flights' : ''}
     </p>
+    {#if layovers}
+      <p class="layovers">{formatCo2Range(...layovers)} depending on layovers</p>
+    {/if}
     {#if pin.format === 'hybrid'}<p class="also">Also online ({formatCo2(0)})</p>{/if}
 
     <div class="mode-toggle">
@@ -165,7 +169,8 @@
     font-size: var(--text-xs);
   }
 
-  .also {
+  .also,
+  .layovers {
     font-size: var(--text-sm);
   }
 

@@ -95,6 +95,26 @@ export function estimateTrip(from: LatLng, to: LatLng, opts: EstimateOptions): T
   return { mode, distanceKm, kgCO2e, roundTrip: true, factorId };
 }
 
+/**
+ * The most a connection adds to a flight estimate, by haul band: a detour through the hub plus
+ * one more take-off and landing each way. Our rough range, not a DESNZ value (METHODOLOGY.md,
+ * "Layovers").
+ */
+export const LAYOVER_UPLIFT: Record<string, number> = {
+  [SHORT_HAUL_FACTOR_ID]: 0.2,
+  [LONG_HAUL_FACTOR_ID]: 0.1,
+};
+
+/**
+ * A flight's estimate from nonstop to one connection each way, kg CO2e `[low, high]`. Rail has
+ * no range (undefined). Shown in the detail panel only; the list and filters use the nonstop
+ * figure.
+ */
+export function layoverRangeKg(trip: TripEstimate): [number, number] | undefined {
+  const uplift = trip.mode === 'flight' ? LAYOVER_UPLIFT[trip.factorId] : undefined;
+  return uplift === undefined ? undefined : [trip.kgCO2e, trip.kgCO2e * (1 + uplift)];
+}
+
 /** Shape passed to filters as `ctx.co2` (DESIGN §6.3). */
 export type Co2Model = { estimateTrip: typeof estimateTrip };
 export const co2Model: Co2Model = { estimateTrip };

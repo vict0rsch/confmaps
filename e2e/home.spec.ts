@@ -94,6 +94,10 @@ test('detail shows per-site estimates, the nearest site, and the myclimate cross
   const sites = detail.getByTestId('site-footprint');
   await expect(sites).toHaveCount(3);
   await expect(detail.getByText('Estimated CO₂e, round trip').first()).toBeVisible();
+  // Flights (Sydney, Atlanta) are nonstop with a layover range; Paris (rail) has none.
+  await expect(
+    detail.getByText(/^~[\d.,]+(?: kg)?–[\d.,]+ (?:kg|t) depending on layovers$/),
+  ).toHaveCount(2);
   await expect(detail.getByText('Nearest')).toHaveCount(1);
   await expect(detail.getByText(/^Paris: roughly \d+× less than flying to Sydney$/)).toBeVisible();
 

@@ -544,7 +544,9 @@ MOBILE
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
   empty map keeps MapLibre's zoom in.
 - Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
-  "View history".
+  "View history". A flight estimate is nonstop, with a second line for one connection each way
+  ("~4.6–5.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
+  nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 
