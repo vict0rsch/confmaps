@@ -13,7 +13,7 @@ import pytest
 from conftest import (
     ATLANTA_PAGE,
     ATLANTA_URL,
-    REPO,
+    SATELLITES_FIXTURE,
     FakeClient,
     FakeFetcher,
     FakeGeocoder,
@@ -63,7 +63,7 @@ def test_backfill_and_only(data_json: dict[str, Any]) -> None:
 def repo(tmp_path: Path, data_json: dict[str, Any]) -> Path:
     (tmp_path / "repo" / "data" / "build").mkdir(parents=True)
     root = tmp_path / "repo"
-    shutil.copy(REPO / "data" / "satellites.yml", root / "data" / "satellites.yml")
+    shutil.copy(SATELLITES_FIXTURE, root / "data" / "satellites.yml")
     (root / "data" / "build" / "data.json").write_text(json.dumps(data_json))
     return root
 

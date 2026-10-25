@@ -11,6 +11,8 @@ from discover.geo import GeoHit, geocache_key
 from discover.verify import Page, page_from_markup
 
 REPO = Path(__file__).resolve().parents[3]
+# A frozen satellites.yml (as of 2026-10-23), so data PRs can't change what the tests start from.
+SATELLITES_FIXTURE = Path(__file__).parent / "fixtures" / "satellites.yml"
 
 
 def block(type_: str, **kw: Any) -> SimpleNamespace:
@@ -169,7 +171,7 @@ def atlanta_candidate(**overrides: Any) -> dict[str, Any]:
 
 @pytest.fixture
 def satellites_text() -> str:
-    return (REPO / "data" / "satellites.yml").read_text()
+    return SATELLITES_FIXTURE.read_text()
 
 
 @pytest.fixture
