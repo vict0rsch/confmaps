@@ -41,3 +41,26 @@ test("an event's tracks share one list row, and the detail lists them", async ({
   );
   await expect(row).toHaveAttribute('aria-current', 'true');
 });
+
+test('the sidebar collapses to a pill and back, keeping the search', async ({ page }) => {
+  await page.goto('/');
+  const search = page.getByLabel('Search conferences');
+  await search.fill('neurips');
+  const hide = page.getByRole('button', { name: 'Hide sidebar' });
+  await expect(hide).toHaveAttribute('aria-expanded', 'true');
+  await hide.click();
+
+  const show = page.getByRole('button', { name: 'Show sidebar' });
+  await expect(show).toBeVisible();
+  await expect(show).toBeFocused();
+  await expect(show).toHaveAttribute('aria-expanded', 'false');
+  // Out of the accessibility tree: no heading, no search field.
+  await expect(page.getByRole('heading', { name: 'confmaps' })).toHaveCount(0);
+  await expect(page.getByRole('searchbox', { name: 'Search conferences' })).toHaveCount(0);
+
+  await show.click();
+  await expect(page.getByRole('heading', { name: 'confmaps' })).toBeVisible();
+  await expect(hide).toBeFocused();
+  await expect(search).toHaveValue('neurips');
+  await expect(show).toHaveCount(0);
+});

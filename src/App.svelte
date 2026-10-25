@@ -42,6 +42,11 @@
   // Mobile: the floating top bar, safe-area padding included.
   let topbarHeight = $state(0);
   let filtersDialog: HTMLDialogElement | undefined = $state();
+  // Desktop: the sidebar folds into a pill at its top-left corner. Not persisted: every visit opens it.
+  let sidebarOpen = $state(true);
+  let collapseButton: HTMLButtonElement | undefined = $state();
+  let pill: HTMLButtonElement | undefined = $state();
+  let pillWidth = $state(0);
 
   $effect.pre(() => {
     document.documentElement.dataset.theme = app.resolvedTheme;
@@ -72,7 +77,7 @@
           top: 0,
           right: app.selectedConference ? DRAWER_WIDTH + PANEL_GAP * 2 : 0,
           bottom: TIMELINE_HEIGHT + PANEL_GAP * 2,
-          left: SIDEBAR_WIDTH + PANEL_GAP * 2,
+          left: sidebarOpen ? SIDEBAR_WIDTH + PANEL_GAP * 2 : 0,
         }
       : {
           top: topbarHeight + MOBILE_GAP,
@@ -86,6 +91,12 @@
   const shellGap = $derived(desktop.current ? PANEL_GAP : MOBILE_GAP);
 
   const motion = (ms: number) => (prefersReducedMotion.current ? 0 : ms);
+
+  async function toggleSidebar() {
+    sidebarOpen = !sidebarOpen;
+    await tick();
+    (sidebarOpen ? collapseButton : pill)?.focus();
+  }
 
   async function closeDetail() {
     const id = app.selectedConferenceId;
@@ -110,16 +121,35 @@
   load={() => import('../THIRD_PARTY_NOTICES.md?raw')}
 />
 
-<div class="app" class:desktop={desktop.current} class:mobile={!desktop.current}>
+<div
+  class="app"
+  class:desktop={desktop.current}
+  class:mobile={!desktop.current}
+  class:sidebar-collapsed={desktop.current && !sidebarOpen}
+  style:--pill-width="{pillWidth}px"
+>
   {#if desktop.current}
-    <!-- Floating glass panel. Only the list scrolls; header, home pill and filters stay put. -->
-    <aside class="sidebar glass">
+    <!-- Floating glass panel. Only the list scrolls; header, home pill and filters stay put.
+         Collapsed, it stays mounted (search, filters and scroll survive) but inert and hidden. -->
+    <aside id="sidebar" class="sidebar glass" class:collapsed={!sidebarOpen} inert={!sidebarOpen}>
       <header class="sidebar-header">
         <div class="header-row">
           <Brand />
           <div class="header-actions">
             <ShareDialog />
             <ThemeToggle />
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="Hide sidebar"
+              title="Hide sidebar"
+              aria-expanded="true"
+              aria-controls="sidebar"
+              bind:this={collapseButton}
+              onclick={toggleSidebar}
+            >
+              <Icon name="menu" size={17} />
+            </button>
           </div>
         </div>
         <p class="tagline">
@@ -139,6 +169,23 @@
         <Footer />
       </div>
     </aside>
+    <!-- The collapsed sidebar: its brand row, as one button. -->
+    <button
+      class="sidebar-pill glass"
+      class:shown={!sidebarOpen}
+      type="button"
+      title="Show sidebar"
+      aria-expanded="false"
+      aria-controls="sidebar"
+      inert={sidebarOpen}
+      bind:this={pill}
+      bind:offsetWidth={pillWidth}
+      onclick={toggleSidebar}
+    >
+      <Brand heading={false} />
+      <span class="visually-hidden">Show sidebar</span>
+      <Icon name="menu" size={16} />
+    </button>
   {:else}
     <!-- Floating glass capsules over the full-bleed map. -->
     <header class="topbar" bind:offsetHeight={topbarHeight}>
@@ -298,6 +345,68 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-panel);
+    /* Folds toward the pill at its top-left corner. Hidden after the fade, shown at once. */
+    transform-origin: top left;
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      transform var(--duration-base) var(--ease-out);
+  }
+
+  .sidebar.collapsed {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity var(--duration-fast) var(--ease-in),
+      transform var(--duration-fast) var(--ease-in),
+      visibility 0s var(--duration-fast);
+  }
+
+  /* Top-left, where the sidebar's brand row was. As tall as the legend chip beside it: one line of
+     its text, its 6 px padding and the border. */
+  .sidebar-pill {
+    position: absolute;
+    top: var(--panel-gap);
+    left: var(--panel-gap);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    height: calc(var(--text-xs) * var(--leading-normal) + 14px);
+    padding: 0 var(--space-3);
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    visibility: hidden;
+    opacity: 0;
+    /* Hidden, it sits over the sidebar's brand row, so the wordmark slides up into the pill. */
+    transform: translate(var(--space-1), var(--space-5));
+    transition:
+      opacity var(--duration-fast) var(--ease-in),
+      transform var(--duration-fast) var(--ease-in),
+      visibility 0s var(--duration-fast);
+  }
+
+  .sidebar-pill.shown {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      transform var(--duration-base) var(--ease-out);
+  }
+
+  .sidebar-pill :global(.icon) {
+    color: var(--ink-muted);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .sidebar-pill:hover :global(.icon) {
+    color: var(--ink);
+  }
+
+  .sidebar-pill.shown:active {
+    transform: scale(0.97);
+    transition: transform var(--duration-press) var(--ease-out);
   }
 
   .sidebar-header {
@@ -363,19 +472,28 @@
     line-height: 1;
   }
 
-  /* Top-left of the free map area, right of the sidebar. */
+  /* Top-left of the free map area: right of the sidebar, or of the pill when it is collapsed. */
+  .desktop {
+    --left-panel-width: var(--sidebar-width);
+  }
+
+  .sidebar-collapsed {
+    --left-panel-width: var(--pill-width);
+  }
+
   .legend-chip {
     position: absolute;
     top: var(--panel-gap);
-    left: calc(var(--sidebar-width) + 2 * var(--panel-gap));
-    max-width: calc(100% - var(--sidebar-width) - 3 * var(--panel-gap));
+    left: calc(var(--left-panel-width) + 2 * var(--panel-gap));
+    max-width: calc(100% - var(--left-panel-width) - 3 * var(--panel-gap));
     padding: 6px var(--space-4);
     /* A capsule on one line; stays rounded if it wraps beside the drawer. */
     border-radius: var(--radius-card);
+    transition: left var(--duration-base) var(--ease-out);
   }
 
   .legend-chip.beside-drawer {
-    max-width: calc(100% - var(--sidebar-width) - var(--drawer-width) - 4 * var(--panel-gap));
+    max-width: calc(100% - var(--left-panel-width) - var(--drawer-width) - 4 * var(--panel-gap));
   }
 
   /* Under ~1280 px the map between sidebar and drawer is too narrow for the legend: it would
@@ -398,7 +516,8 @@
     border-radius: var(--radius-panel);
   }
 
-  /* Bottom, from the sidebar's right edge to the window's right gap. */
+  /* Bottom, from the sidebar's right edge (the window's left gap when it is collapsed) to the
+     window's right gap. */
   .timeline {
     position: absolute;
     right: var(--panel-gap);
@@ -407,6 +526,11 @@
     z-index: 1;
     height: var(--timeline-height);
     border-radius: var(--radius-panel);
+    transition: left var(--duration-base) var(--ease-out);
+  }
+
+  .sidebar-collapsed .timeline {
+    left: var(--panel-gap);
   }
 
   /* ---- Mobile ---- */
