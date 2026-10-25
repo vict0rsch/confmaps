@@ -410,6 +410,7 @@
     {
       "deadlines": [],
       "end": "2024-05-11",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr24",
       "link": "https://web.archive.org/web/20240510204603/https://iclr.cc/Conferences/2024",
       "series": "iclr",
@@ -424,6 +425,7 @@
     {
       "deadlines": [],
       "end": "2024-07-27",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml24",
       "link": "https://web.archive.org/web/20240721183422/https://icml.cc/Conferences/2024",
       "series": "icml",

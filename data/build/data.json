@@ -5628,6 +5628,7 @@
     {
       "deadlines": [],
       "end": "2017-04-26",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr17",
       "link": "https://web.archive.org/web/20170425002323/http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1",
       "series": "iclr",
@@ -5642,6 +5643,7 @@
     {
       "deadlines": [],
       "end": "2018-05-03",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr18",
       "link": "https://web.archive.org/web/20180502193621/http://iclr.cc/",
       "series": "iclr",
@@ -5726,6 +5728,7 @@
     {
       "deadlines": [],
       "end": "2024-05-11",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr24",
       "link": "https://web.archive.org/web/20240510204603/https://iclr.cc/Conferences/2024",
       "series": "iclr",
@@ -6081,6 +6084,7 @@
     {
       "deadlines": [],
       "end": "2017-08-11",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml17",
       "link": "https://web.archive.org/web/20170919070005/http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838",
       "series": "icml",
@@ -6095,6 +6099,7 @@
     {
       "deadlines": [],
       "end": "2018-07-15",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml18",
       "link": "https://web.archive.org/web/20180724065152/https://icml.cc/Conferences/2018",
       "series": "icml",
@@ -6109,6 +6114,7 @@
     {
       "deadlines": [],
       "end": "2019-06-15",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml19",
       "link": "https://web.archive.org/web/20190615210823/https://icml.cc/Conferences/2019",
       "series": "icml",
@@ -6123,6 +6129,7 @@
     {
       "deadlines": [],
       "end": "2020-07-18",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml20",
       "link": "https://web.archive.org/web/20200715220747/https://icml.cc/Conferences/2020",
       "series": "icml",
@@ -6151,6 +6158,7 @@
     {
       "deadlines": [],
       "end": "2022-07-23",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml22",
       "link": "https://web.archive.org/web/20220719010533/https://icml.cc/Conferences/2022",
       "series": "icml",
@@ -6165,6 +6173,7 @@
     {
       "deadlines": [],
       "end": "2023-07-29",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml23",
       "link": "https://web.archive.org/web/20230807120944/https://icml.cc/Conferences/2023",
       "series": "icml",
@@ -6179,6 +6188,7 @@
     {
       "deadlines": [],
       "end": "2024-07-27",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml24",
       "link": "https://web.archive.org/web/20240721183422/https://icml.cc/Conferences/2024",
       "series": "icml",
@@ -8419,6 +8429,7 @@
     {
       "deadlines": [],
       "end": "2017-12-09",
+      "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips17",
       "link": "https://web.archive.org/web/20171204231754/https://nips.cc/Conferences/2017",
       "series": "neurips",
@@ -8433,6 +8444,7 @@
     {
       "deadlines": [],
       "end": "2018-12-08",
+      "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips18",
       "link": "https://web.archive.org/web/20181118115501/https://neurips.cc/Conferences/2018",
       "series": "neurips",
@@ -10685,7 +10697,7 @@
       "year": 2027
     }
   ],
-  "generatedAt": "2026-10-25T23:26:12.850Z",
+  "generatedAt": "2026-10-25T23:28:46.080Z",
   "locations": [
     {
       "access": "registration",

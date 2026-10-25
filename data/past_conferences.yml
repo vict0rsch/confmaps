@@ -834,6 +834,7 @@
 - id: iclr17
   title: ICLR
   year: 2017
+  full_name: International Conference on Learning Representations
   link: https://web.archive.org/web/20170425002323/http://www.iclr.cc/doku.php?id=ICLR2017:main&redirect=1
   start: '2017-04-24'
   end: '2017-04-26'
@@ -849,10 +850,13 @@
     first_date: '2016-11-18'
     last_sha: '44a659ecba9d86578ef19a6a030b1ab7fc420d0e'
     last_date: '2017-08-09'
+  sources:
+    - https://iclr.cc/archive/www/2017.html
 
 - id: icml17
   title: ICML
   year: 2017
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20170919070005/http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=53557&copyownerid=90838
   start: '2017-08-06'
   end: '2017-08-11'
@@ -870,6 +874,7 @@
     last_date: '2017-09-29'
   sources:
     - https://icml.cc/Conferences/2017/VenueAndLocal
+    - https://icml.cc/Conferences/2017
 
 - id: icra17
   title: ICRA
@@ -946,6 +951,7 @@
 - id: neurips17
   title: NIPS
   year: 2017
+  full_name: Conference on Neural Information Processing Systems
   link: https://web.archive.org/web/20171204231754/https://nips.cc/Conferences/2017
   start: '2017-12-04'
   end: '2017-12-09'
@@ -1371,6 +1377,7 @@
 - id: iclr18
   title: ICLR
   year: 2018
+  full_name: International Conference on Learning Representations
   link: https://web.archive.org/web/20180502193621/http://iclr.cc/
   start: '2018-04-30'
   end: '2018-05-03'
@@ -1386,10 +1393,13 @@
     first_date: '2017-08-15'
     last_sha: 'c21beb97dd1e02dc5d19760b56465a2bfb078e95'
     last_date: '2018-07-03'
+  sources:
+    - https://iclr.cc/archive/www/2018.html
 
 - id: icml18
   title: ICML
   year: 2018
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20180724065152/https://icml.cc/Conferences/2018
   start: '2018-07-10'
   end: '2018-07-15'
@@ -1545,6 +1555,7 @@
 - id: neurips18
   title: NeurIPS
   year: 2018
+  full_name: Conference on Neural Information Processing Systems
   link: https://web.archive.org/web/20181118115501/https://neurips.cc/Conferences/2018
   start: '2018-12-02'
   end: '2018-12-08'
@@ -1993,6 +2004,7 @@
 - id: icml19
   title: ICML
   year: 2019
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20190615210823/https://icml.cc/Conferences/2019
   start: '2019-06-09'
   end: '2019-06-15'
@@ -2767,6 +2779,7 @@
 - id: icml20
   title: ICML
   year: 2020
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20200715220747/https://icml.cc/Conferences/2020
   start: '2020-07-12'
   end: '2020-07-18'
@@ -2779,6 +2792,8 @@
     first_date: '2019-09-17'
     last_sha: 'bae7db66725c887a6f2b74e133d33dc4d02b4427'
     last_date: '2020-11-04'
+  sources:
+    - https://icml.cc/Conferences/2020
 
 - id: icmr20
   title: ICMR
@@ -4522,6 +4537,7 @@
 - id: icml22
   title: ICML
   year: 2022
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20220719010533/https://icml.cc/Conferences/2022
   start: '2022-07-17'
   end: '2022-07-23'
@@ -5508,6 +5524,7 @@
 - id: icml23
   title: ICML
   year: 2023
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20230807120944/https://icml.cc/Conferences/2023
   start: '2023-07-23'
   end: '2023-07-29'
@@ -6524,6 +6541,7 @@
 - id: iclr24
   title: ICLR
   year: 2024
+  full_name: International Conference on Learning Representations
   link: https://web.archive.org/web/20240510204603/https://iclr.cc/Conferences/2024
   start: '2024-05-07'
   end: '2024-05-11'
@@ -6545,6 +6563,7 @@
 - id: icml24
   title: ICML
   year: 2024
+  full_name: International Conference on Machine Learning
   link: https://web.archive.org/web/20240721183422/https://icml.cc/Conferences/2024
   start: '2024-07-21'
   end: '2024-07-27'

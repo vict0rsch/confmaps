@@ -228,6 +228,7 @@
     {
       "deadlines": [],
       "end": "2018-05-03",
+      "fullName": "International Conference on Learning Representations",
       "id": "iclr18",
       "link": "https://web.archive.org/web/20180502193621/http://iclr.cc/",
       "series": "iclr",
@@ -242,6 +243,7 @@
     {
       "deadlines": [],
       "end": "2018-07-15",
+      "fullName": "International Conference on Machine Learning",
       "id": "icml18",
       "link": "https://web.archive.org/web/20180724065152/https://icml.cc/Conferences/2018",
       "series": "icml",
@@ -355,6 +357,7 @@
     {
       "deadlines": [],
       "end": "2018-12-08",
+      "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips18",
       "link": "https://web.archive.org/web/20181118115501/https://neurips.cc/Conferences/2018",
       "series": "neurips",
