@@ -10,6 +10,8 @@ import {
   settled,
   staggerDelays,
   trackAt,
+  WINDOW_FADE_MIN,
+  windowFade,
 } from './motion';
 
 const full = motionConfig(false);
@@ -101,6 +103,19 @@ describe('pulse', () => {
     expect(pulseEnd(0, 100, full)).toBe(full.pulseMs);
     expect(pulseEnd(0, full.pulseMs * 1.5, full)).toBe(full.pulseMs * 2);
     expect(pulseAt(0, 500, reduced)).toEqual({ ro: 0, rs: 0 });
+  });
+});
+
+describe('window fade', () => {
+  const w = { from: '2026-01-01', to: '2026-01-11' };
+  it('is full on entering, minimal on leaving, linear between', () => {
+    expect(windowFade('2026-01-11', w)).toBe(1);
+    expect(windowFade('2026-01-06', w)).toBeCloseTo((1 + WINDOW_FADE_MIN) / 2);
+    expect(windowFade('2026-01-01', w)).toBeCloseTo(WINDOW_FADE_MIN);
+  });
+  it('clamps events that started before the window, and ignores an empty window', () => {
+    expect(windowFade('2025-12-20', w)).toBeCloseTo(WINDOW_FADE_MIN);
+    expect(windowFade('2026-01-01', { from: '2026-01-01', to: '2026-01-01' })).toBe(1);
   });
 });
 

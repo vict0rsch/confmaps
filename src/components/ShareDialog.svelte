@@ -37,10 +37,17 @@
   }
 </script>
 
-<button class="button share" type="button" aria-haspopup="dialog" onclick={show}>
+<button
+  class="icon-button share"
+  type="button"
+  aria-haspopup="dialog"
+  aria-label={label}
+  title={label}
+  onclick={show}
+>
   <svg
-    width="14"
-    height="14"
+    width="17"
+    height="17"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -51,10 +58,14 @@
   >
     <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13" />
   </svg>
-  {label}
 </button>
 
-<dialog bind:this={dialog} aria-labelledby="{uid}-title" data-testid="share-dialog">
+<dialog
+  class="glass-thick"
+  bind:this={dialog}
+  aria-labelledby="{uid}-title"
+  data-testid="share-dialog"
+>
   <header>
     <h2 id="{uid}-title">Share this view</h2>
     <button class="icon-button" type="button" aria-label="Close" onclick={() => dialog?.close()}>
@@ -100,7 +111,7 @@
           Adds {home.city.name} (the city only, no coordinates) so others see distances from it. Off by
           default.
         {:else}
-          Set your location first. Off by default.
+          Set your city first. Off by default.
         {/if}
       </span>
     </span>
@@ -111,11 +122,8 @@
   dialog {
     width: min(440px, calc(100% - 2 * var(--space-4)));
     padding: var(--space-5);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    background: var(--surface-raised);
+    border-radius: var(--radius-panel);
     color: var(--ink);
-    box-shadow: var(--shadow-lg);
   }
 
   dialog[open] {
@@ -167,7 +175,7 @@
     height: 36px;
     padding: 0 var(--space-4);
     border: 0;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-full);
     background: var(--accent);
     color: var(--accent-ink);
     font-weight: var(--weight-semibold);
@@ -186,9 +194,9 @@
     display: flex;
     align-items: flex-start;
     gap: var(--space-3);
-    padding: var(--space-3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-tint-press);
     cursor: pointer;
   }
 

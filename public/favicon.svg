@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0.7 16 16">
+  <!-- The Brand mark (src/components/Brand.svelte), in the pin-official colour of each theme. -->
+  <style>
+    .dot { fill: #5b54e8; }
+    .ring { fill: none; stroke: #5b54e8; stroke-width: 1.75; }
+    @media (prefers-color-scheme: dark) {
+      .dot { fill: #8b93ff; }
+      .ring { stroke: #8b93ff; }
+    }
+  </style>
+  <circle class="dot" cx="6" cy="11" r="4.5" />
+  <circle class="ring" cx="13" cy="5.5" r="2.75" />
+</svg>

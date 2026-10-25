@@ -1,6 +1,7 @@
 <script lang="ts">
-  // Home location and travel settings (DESIGN §6.5, §5.2). Desktop: a block in the sidebar.
-  // `compact` (mobile top bar): a button that opens the same panel in a sheet.
+  // Home location and travel settings (DESIGN §6.5, §5.2). Desktop: a pill summarising them that
+  // opens an anchored panel. `compact` (mobile top bar): a button that opens the same panel in a
+  // sheet.
   import { tick } from 'svelte';
   import { cityLabel, cityShortLabel, searchCities, type IndexedCity } from '../lib/home/cities';
   import { home } from '../lib/home/store.svelte';
@@ -8,6 +9,7 @@
   import { travel } from '../lib/state/travel.svelte';
   import Segmented from './filters/Segmented.svelte';
   import Icon from './Icon.svelte';
+  import { PRIVACY_URL } from './Footer.svelte';
 
   let { compact = false }: { compact?: boolean } = $props();
 
@@ -24,6 +26,10 @@
   let input: HTMLInputElement | undefined = $state();
   let changeButton: HTMLButtonElement | undefined = $state();
   let dialog: HTMLDialogElement | undefined = $state();
+  let pill: HTMLButtonElement | undefined = $state();
+  let section: HTMLElement | undefined = $state();
+  /** Desktop: the panel under the pill is open. */
+  let panelOpen = $state(false);
 
   const results: IndexedCity[] = $derived(home.cities ? searchCities(home.cities, query) : []);
   const typed = $derived(query.trim().length > 0);
@@ -33,6 +39,11 @@
   const mi = $derived(travel.units === 'mi');
   const threshold = $derived(mi ? Math.round(kmToMi(travel.threshold)) : travel.threshold);
   const fmt = (n: number) => n.toLocaleString('en-US');
+  const travelSummary = $derived(
+    travel.mode === 'auto'
+      ? `Train for trips under ${fmt(threshold)} ${travel.units}`
+      : `Always fly · ${travel.units}`,
+  );
 
   let status = $derived.by(() => {
     if (locating) return 'Finding the nearest city…';
@@ -55,8 +66,59 @@
     active = -1;
     message = '';
     changing = false;
+    await afterChosen();
+  }
+
+  /** A city was picked: desktop closes the panel back to the pill; the sheet stays open. */
+  async function afterChosen() {
+    if (!compact) return closePanel(true);
     await tick();
     changeButton?.focus();
+  }
+
+  async function openPanel() {
+    panelOpen = true;
+    await tick();
+    (searching ? input : changeButton)?.focus();
+  }
+
+  async function closePanel(refocus: boolean) {
+    panelOpen = false;
+    if (changing && home.city) {
+      changing = false;
+      query = '';
+    }
+    if (!refocus) return;
+    await tick();
+    pill?.focus();
+  }
+
+  function onPanelKeydown(e: KeyboardEvent) {
+    // The combobox handles Escape first (closing its list or cancelling a change).
+    if (e.key !== 'Escape' || !panelOpen || e.defaultPrevented) return;
+    e.preventDefault();
+    e.stopPropagation();
+    closePanel(true);
+  }
+
+  /** Outside click closes the panel (focus stays where the click put it). */
+  function onDocumentPointerdown(e: PointerEvent) {
+    const target = e.target as Node;
+    if (target instanceof Element && target.closest('dialog')) return; // modal opened from the panel
+    if (panelOpen && !section?.contains(target)) closePanel(false);
+  }
+
+  /** Tabbing out of the panel closes it, so it never covers the next focused control. */
+  function onFocusout(e: FocusEvent) {
+    const next = e.relatedTarget as Node | null;
+    if (next instanceof Element && next.closest('dialog')) return; // modal opened from the panel
+    if (panelOpen && next && !section?.contains(next)) closePanel(false);
+  }
+
+  async function clearHome() {
+    home.clear();
+    await tick();
+    input?.focus();
   }
 
   function onKeydown(e: KeyboardEvent) {
@@ -93,8 +155,7 @@
     if (!error) {
       changing = false;
       query = '';
-      await tick();
-      changeButton?.focus();
+      await afterChosen();
       return;
     }
     message = {
@@ -118,38 +179,47 @@
   }
 </script>
 
+<svelte:document onpointerdown={compact ? undefined : onDocumentPointerdown} />
+
+{#snippet notices()}
+  {#if home.shared}
+    <p class="shared" data-testid="shared-notice">
+      Showing distances from <strong>{cityShortLabel(home.shared)}</strong> (from the shared link) ·
+      <button class="text-button" type="button" onclick={() => home.useMine()}>Use mine</button>
+    </p>
+  {/if}
+
+  {#if travel.fromLink}
+    <p class="shared" data-testid="shared-travel-notice">
+      Using the travel settings from the shared link ({travel.units} ·
+      {travel.mode === 'auto' ? `train under ${fmt(threshold)} ${travel.units}` : 'always fly'}) ·
+      <button class="text-button" type="button" onclick={() => travel.useMine()}>Use mine</button>
+    </p>
+  {/if}
+{/snippet}
+
 {#snippet panel()}
   <div class="panel">
-    {#if home.shared}
-      <p class="shared" data-testid="shared-notice">
-        Showing distances from <strong>{cityShortLabel(home.shared)}</strong> (from the shared link)
-        ·
-        <button class="text-button" type="button" onclick={() => home.useMine()}>Use mine</button>
-      </p>
-    {/if}
-
-    {#if travel.fromLink}
-      <p class="shared" data-testid="shared-travel-notice">
-        Using the travel settings from the shared link ({travel.units} ·
-        {travel.mode === 'auto' ? `train under ${fmt(threshold)} ${travel.units}` : 'always fly'}) ·
-        <button class="text-button" type="button" onclick={() => travel.useMine()}>Use mine</button>
-      </p>
+    {#if !compact}
+      <h2 class="heading" id="{uid}-heading">Where are you travelling from?</h2>
     {/if}
 
     {#if home.city && !searching}
       <div class="current">
         <Icon name="pin" size={16} />
-        <span class="city" data-testid="home-city">{cityShortLabel(home.city)}</span>
+        <span class="city" data-testid={compact ? 'home-city' : undefined}
+          >{cityShortLabel(home.city)}</span
+        >
         <button class="text-button" type="button" bind:this={changeButton} onclick={startChanging}>
           Change<span class="visually-hidden"> location</span>
         </button>
-        <button class="text-button" type="button" onclick={() => home.clear()}>
+        <button class="text-button" type="button" onclick={clearHome}>
           Clear<span class="visually-hidden"> location</span>
         </button>
       </div>
     {:else}
       <div class="search">
-        <label class="field-label" for="{uid}-search">
+        <label class="visually-hidden" for="{uid}-search">
           {home.city ? 'Change your city' : 'Your city'}
         </label>
         <div class="combo">
@@ -163,7 +233,7 @@
             aria-controls={listboxId}
             aria-autocomplete="list"
             aria-activedescendant={showList && active >= 0 ? optionId(active) : undefined}
-            placeholder="Search a city"
+            placeholder="Search for a city"
             autocomplete="off"
             autocapitalize="off"
             spellcheck="false"
@@ -208,21 +278,23 @@
             </li>
           {/each}
         </ul>
-        <button class="button locate" type="button" disabled={locating} onclick={useLocation}>
-          <Icon name="target" size={14} />
-          {locating ? 'Locating…' : 'Use my location'}
-        </button>
-        {#if changing && home.city}
-          <button
-            class="text-button cancel"
-            type="button"
-            onclick={() => {
-              changing = false;
-              query = '';
-              tick().then(() => changeButton?.focus());
-            }}>Cancel</button
-          >
-        {/if}
+        <div class="search-actions">
+          <button class="button" type="button" disabled={locating} onclick={useLocation}>
+            <Icon name="target" size={14} />
+            {locating ? 'Locating…' : 'Use my location'}
+          </button>
+          {#if changing && home.city}
+            <button
+              class="text-button"
+              type="button"
+              onclick={() => {
+                changing = false;
+                query = '';
+                tick().then(() => changeButton?.focus());
+              }}>Cancel</button
+            >
+          {/if}
+        </div>
       </div>
     {/if}
     <p
@@ -235,72 +307,55 @@
     </p>
     {#if searching}
       <p class="privacy">
-        Your location stays on this device. Only the nearest city is saved, never coordinates.
+        Stays on this device — only the nearest city is saved. <a href={PRIVACY_URL}>Privacy</a>
       </p>
     {/if}
 
-    <details class="travel" open={compact}>
-      <summary>
-        <Icon name="chevron" size={14} />
-        <span>Travel</span>
-        <span class="summary tabular">
-          {travel.units} ·
-          {travel.mode === 'auto' ? `train under ${fmt(threshold)} ${travel.units}` : 'always fly'}
-        </span>
-      </summary>
-      <div class="travel-body">
-        <div class="row">
-          <span class="field-label">Units</span>
-          <Segmented
-            legend="Distance units"
-            name="{uid}-units"
-            options={[
-              { value: 'km', label: 'km' },
-              { value: 'mi', label: 'mi' },
-            ]}
-            value={travel.units}
-            onchange={(v) => travel.setUnits(v)}
-          />
-        </div>
-        <fieldset class="mode">
-          <legend class="field-label">Travel mode</legend>
-          <div class="mode-row">
-            <input
-              id="{uid}-mode-auto"
-              type="radio"
-              name="{uid}-mode"
-              checked={travel.mode === 'auto'}
-              onchange={() => travel.setMode('auto')}
-            />
-            <label for="{uid}-mode-auto">Auto</label>
-            <span class="auto-rest">
-              (train under
-              <input
-                class="input threshold tabular"
-                type="number"
-                min="0"
-                step="50"
-                inputmode="numeric"
-                aria-label="Train threshold in {travel.units}"
-                value={threshold}
-                onchange={setThreshold}
-              />
-              {travel.units})
-            </span>
-          </div>
-          <div class="mode-row">
-            <input
-              id="{uid}-mode-fly"
-              type="radio"
-              name="{uid}-mode"
-              checked={travel.mode === 'fly'}
-              onchange={() => travel.setMode('fly')}
-            />
-            <label for="{uid}-mode-fly">Always fly</label>
-          </div>
-        </fieldset>
+    <div class="travel">
+      <h3 class="subheading">Travel preferences</h3>
+      <div class="row">
+        <span class="field-label" aria-hidden="true">Units</span>
+        <Segmented
+          legend="Distance units"
+          name="{uid}-units"
+          options={[
+            { value: 'km', label: 'km' },
+            { value: 'mi', label: 'mi' },
+          ]}
+          value={travel.units}
+          onchange={(v) => travel.setUnits(v)}
+        />
       </div>
-    </details>
+      <div class="field">
+        <span class="field-label" aria-hidden="true">How do you travel?</span>
+        <Segmented
+          legend="How do you travel?"
+          name="{uid}-mode"
+          options={[
+            { value: 'auto', label: 'Train when possible' },
+            { value: 'fly', label: 'Always fly' },
+          ]}
+          value={travel.mode}
+          onchange={(v) => travel.setMode(v)}
+        />
+      </div>
+      {#if travel.mode === 'auto'}
+        <label class="threshold-row">
+          <span>Take the train under</span>
+          <input
+            class="input threshold tabular"
+            type="number"
+            min="0"
+            step="50"
+            inputmode="numeric"
+            aria-label="Train threshold in {travel.units}"
+            value={threshold}
+            onchange={setThreshold}
+          />
+          <span>{travel.units}</span>
+        </label>
+      {/if}
+    </div>
   </div>
 {/snippet}
 
@@ -313,12 +368,12 @@
   >
     <Icon name="pin" size={14} />
     <span class="label" data-testid="home-button-label">
-      {home.city ? home.city.name : 'Set location'}{home.shared ? ' · link' : ''}
+      {home.city ? home.city.name : 'Set your city'}{home.shared ? ' · link' : ''}
     </span>
   </button>
   <dialog class="sheet" bind:this={dialog} aria-labelledby="{uid}-title">
     <header>
-      <h2 id="{uid}-title">Your location</h2>
+      <h2 id="{uid}-title">Where are you travelling from?</h2>
       <button
         class="icon-button"
         type="button"
@@ -328,31 +383,172 @@
         <Icon name="close" size={18} />
       </button>
     </header>
-    <div class="sheet-body">{@render panel()}</div>
+    <div class="sheet-body">
+      {@render notices()}
+      {@render panel()}
+    </div>
     <footer>
       <button class="done" type="button" onclick={() => dialog?.close()}>Done</button>
     </footer>
   </dialog>
 {:else}
-  <section class="settings" aria-label="Location and travel" data-slot="settings">
-    {@render panel()}
+  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+  <section
+    class="settings"
+    aria-label="Location and travel"
+    data-slot="settings"
+    bind:this={section}
+    onkeydown={onPanelKeydown}
+    onfocusout={onFocusout}
+  >
+    <div class="anchor">
+      <button
+        class="pill"
+        type="button"
+        aria-expanded={panelOpen}
+        aria-controls="{uid}-panel"
+        data-testid="home-pill"
+        bind:this={pill}
+        onclick={() => (panelOpen ? closePanel(false) : openPanel())}
+      >
+        <Icon name="pin" size={16} />
+        <span class="pill-text">
+          {#if home.city}
+            <span class="pill-city" data-testid="home-city">{cityShortLabel(home.city)}</span>
+          {:else}
+            <span class="pill-city">Set your city</span>
+          {/if}
+          <span class="pill-prefs tabular">{travelSummary}</span>
+        </span>
+        <Icon name="chevron" size={14} />
+      </button>
+      <div
+        id="{uid}-panel"
+        class="popover glass-thick"
+        role="group"
+        aria-labelledby="{uid}-heading"
+        hidden={!panelOpen}
+      >
+        {@render panel()}
+      </div>
+    </div>
+    {@render notices()}
   </section>
 {/if}
 
 <style>
-  .panel,
-  .search {
+  .settings {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
   }
 
+  /* ---- Pill (desktop) ---- */
+  .anchor {
+    position: relative;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    min-height: 52px;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-full);
+    background: var(--control-fill);
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-press) var(--ease-out);
+  }
+
+  .pill:hover {
+    background: var(--control-fill-hover);
+  }
+
+  .pill:active {
+    transform: scale(0.99);
+  }
+
+  .pill > :global(.icon:first-child) {
+    color: var(--accent);
+  }
+
+  .pill > :global(.icon:last-child) {
+    color: var(--ink-muted);
+    transform: rotate(90deg);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .pill[aria-expanded='true'] > :global(.icon:last-child) {
+    transform: rotate(-90deg);
+  }
+
+  .pill-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pill-city,
+  .pill-prefs {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pill-city {
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
+  }
+
+  .pill-prefs {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+  }
+
+  /* Anchored under the pill, over the filters and list. */
+  .popover {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    left: 0;
+    z-index: 20;
+    max-height: min(560px, 70vh);
+    padding: var(--space-4);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: var(--radius-card);
+    animation: pop-in var(--duration-base) var(--ease-out);
+  }
+
+  .popover[hidden] {
+    display: none;
+  }
+
+  /* ---- Panel content (shared by the popover and the mobile sheet) ---- */
+  .panel,
+  .search,
+  .travel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .heading {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+  }
+
+  .subheading,
   .field-label {
     color: var(--ink-muted);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
   }
 
   .current {
@@ -360,10 +556,9 @@
     align-items: center;
     gap: var(--space-2);
     min-height: 40px;
-    padding: 0 var(--space-3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--surface-sunken);
+    padding: 0 var(--space-2) 0 var(--space-3);
+    border-radius: var(--radius-full);
+    background: var(--glass-tint-press);
   }
 
   .current > :global(.icon) {
@@ -380,11 +575,13 @@
   }
 
   .text-button {
-    padding: 2px 4px;
+    padding: 4px 6px;
     border: 0;
+    border-radius: var(--radius-full);
     background: none;
     color: var(--accent);
     font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
   }
 
   .text-button:hover {
@@ -393,7 +590,7 @@
 
   .shared {
     padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     background: var(--accent-soft);
     font-size: var(--text-sm);
   }
@@ -406,26 +603,27 @@
 
   .combo > :global(.icon) {
     position: absolute;
-    left: var(--space-2);
+    left: 13px;
     color: var(--ink-faint);
     pointer-events: none;
   }
 
   .combo .input {
     width: 100%;
-    height: 36px;
-    padding-left: 30px;
+    height: 40px;
+    padding-left: 36px;
+    font-size: var(--text-md);
   }
 
   .listbox {
     max-height: 240px;
-    margin: 0;
+    margin: calc(-1 * var(--space-1)) 0 0;
     padding: var(--space-1);
     overflow-y: auto;
     list-style: none;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-md);
-    background: var(--surface-raised);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-card);
+    background: var(--glass-fill-thick);
     box-shadow: var(--shadow-md);
   }
 
@@ -434,15 +632,15 @@
   }
 
   [role='option'] {
-    padding: 7px var(--space-2);
-    border-radius: var(--radius-sm);
+    padding: 8px var(--space-3);
+    border-radius: 12px; /* concentric: card radius − list padding */
     font-size: var(--text-sm);
     cursor: pointer;
   }
 
   [role='option']:hover,
   [role='option'].active {
-    background: var(--surface-selected);
+    background: var(--accent-soft);
   }
 
   [role='option'].active {
@@ -457,12 +655,10 @@
     color: var(--ink-muted);
   }
 
-  .locate {
-    align-self: flex-start;
-  }
-
-  .cancel {
-    align-self: flex-start;
+  .search-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
   }
 
   .status {
@@ -475,53 +671,22 @@
   }
 
   .privacy {
+    margin-top: calc(-1 * var(--space-1));
     color: var(--ink-muted);
     font-size: var(--text-xs);
     line-height: var(--leading-normal);
   }
 
-  /* ---- Travel settings ---- */
+  /* The link stays underlined, so it never relies on colour alone. */
+  .privacy a {
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+  }
+
+  /* ---- Travel preferences ---- */
   .travel {
-    margin-top: var(--space-1);
-  }
-
-  .travel summary {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-height: 32px;
-    list-style: none;
-    cursor: pointer;
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    user-select: none;
-  }
-
-  .travel summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .travel summary :global(.icon) {
-    color: var(--ink-muted);
-    transition: transform var(--duration-fast) var(--ease-out);
-  }
-
-  .travel[open] summary :global(.icon) {
-    transform: rotate(90deg);
-  }
-
-  .summary {
-    margin-left: auto;
-    color: var(--ink-muted);
-    font-size: var(--text-xs);
-    font-weight: var(--weight-regular);
-  }
-
-  .travel-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-2) 0 var(--space-1);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
   }
 
   .row {
@@ -535,48 +700,33 @@
     width: 120px;
   }
 
-  .mode {
+  .field {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    border: 0;
   }
 
-  .mode legend {
-    padding: 0;
-  }
-
-  .mode-row {
+  .threshold-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-2);
     font-size: var(--text-sm);
   }
 
-  .mode-row input[type='radio'] {
-    margin: 0;
-    accent-color: var(--accent);
-  }
-
-  .auto-rest {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--ink-muted);
-  }
-
   .threshold {
-    width: 76px;
-    height: 28px;
+    width: 88px;
+    height: 32px;
     text-align: right;
   }
 
   /* ---- Compact (mobile) ---- */
+  /* Shrinks (with an ellipsis) so a long city name never overflows the top bar. */
   .open-sheet {
-    max-width: 150px;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 160px;
+    padding: 0 var(--space-3);
   }
 
   .open-sheet :global(.icon) {
@@ -584,6 +734,7 @@
   }
 
   .label {
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -597,7 +748,7 @@
     margin: 0;
     padding: var(--space-4) var(--space-4) 0;
     border: 0;
-    background: var(--surface);
+    background: var(--glass-fill-solid);
     color: var(--ink);
   }
 
@@ -615,6 +766,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-3);
     margin-bottom: var(--space-4);
   }
 
@@ -624,7 +776,10 @@
   }
 
   .sheet-body {
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: var(--space-3);
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -632,18 +787,25 @@
 
   .sheet footer {
     padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--hairline);
   }
 
   .done {
     width: 100%;
     height: 44px;
     border: 0;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-full);
     background: var(--accent);
     color: var(--accent-ink);
     font-size: var(--text-md);
     font-weight: var(--weight-semibold);
+  }
+
+  @keyframes pop-in {
+    from {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
   }
 
   @keyframes sheet-in {

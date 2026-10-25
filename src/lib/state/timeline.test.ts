@@ -165,7 +165,7 @@ describe('history mode', () => {
 });
 
 describe('live pins during Play', () => {
-  it('are visible events under the window start', () => {
+  it("are visible events under the window's leading edge", () => {
     const locs = app.data.locations.filter((l) => l.conferenceId === 'neurips26');
     const t = '2026-12-10';
     expect([...liveIds(locs, t, null, null)].sort()).toEqual([

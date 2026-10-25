@@ -93,63 +93,121 @@ time {
   border: 0;
 }
 
-/* Quiet icon button used across the shell. */
+/*
+ * Glass material: a translucent panel floating over the map. This is the only place that sets
+ * backdrop-filter. A backdrop-filter element is the backdrop root (and the containing block for
+ * position: fixed) of its descendants, so anything floating INSIDE a .glass panel (popovers,
+ * trays, menus) uses .glass-thick. Never animate the blur radius.
+ */
+.glass {
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(24px) saturate(180%); /* literal: Safari ignores var() here */
+  backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Denser glass without blur: popovers and trays inside a .glass panel, dialogs. */
+.glass-thick {
+  background: var(--glass-fill-thick);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: var(--glass-fill-solid);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .glass,
+  .glass-thick {
+    background: var(--glass-fill-solid);
+    border-color: var(--border-strong);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .glass,
+  .glass-thick {
+    background: Canvas;
+    border: 1px solid CanvasText;
+  }
+}
+
+/* Quiet round icon button used across the shell. */
 .icon-button {
   display: inline-grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   border: 0;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   background: transparent;
   color: var(--ink-muted);
   transition:
     background-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out);
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-press) var(--ease-out);
 }
 
 .icon-button:hover {
-  background: var(--surface-hover);
+  background: var(--glass-tint-hover);
   color: var(--ink);
 }
 
-/* Small secondary button (bordered). */
+/* Secondary capsule button: soft fill and a hairline, no hard border. */
 .button {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  height: 32px;
-  padding: 0 var(--space-3);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  background: var(--surface);
+  height: 36px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-full);
+  background: var(--control-fill);
   color: var(--ink);
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   box-shadow: var(--shadow-sm);
-  transition: background-color var(--duration-fast) var(--ease-out);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-press) var(--ease-out);
 }
 
 .button:hover {
-  background: var(--surface-hover);
+  background: var(--control-fill-hover);
 }
 
-/* Text / number / date input (filters, settings). */
+/* Press feedback. */
+.button:active:not(:disabled),
+.icon-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.icon-button:active:not(:disabled) {
+  background: var(--glass-tint-press);
+}
+
+/* Text / number / date input (filters, settings): a soft filled field with a hairline. */
 .input {
-  height: 32px;
+  height: 36px;
   min-width: 0;
-  padding: 0 var(--space-2);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  background: var(--surface);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-full);
+  background: var(--glass-tint-press);
   color: var(--ink);
   font-size: var(--text-sm);
   transition: border-color var(--duration-fast) var(--ease-out);
 }
 
 .input:hover:not(:disabled) {
-  border-color: var(--ink-faint);
+  border-color: var(--border-strong);
 }
 
 .input:focus-visible {
@@ -160,11 +218,11 @@ time {
 
 .input:disabled {
   color: var(--ink-faint);
-  background: var(--surface-sunken);
 }
 
+/* --ink-muted, not --ink-faint: placeholder text needs 4.5:1 on the field. */
 .input::placeholder {
-  color: var(--ink-faint);
+  color: var(--ink-muted);
 }
 
 .button:disabled {
@@ -174,7 +232,7 @@ time {
 }
 
 .button:disabled:hover {
-  background: var(--surface);
+  background: var(--control-fill);
 }
 
 /* Set by Map.svelte while the map is being dragged. */

@@ -18,6 +18,18 @@ export function formatCo2(kg: number): string {
   return `~${t < 10 ? t.toFixed(1) : num(t)} t`;
 }
 
+/**
+ * A range with the same rounding as `formatCo2`: "~4.6–5.1 t", "~260–310 kg", or "~880 kg–1.1 t"
+ * across the kg/t switch. Ends that round alike give one figure.
+ */
+export function formatCo2Range(lo: number, hi: number): string {
+  const [a, b] = [formatCo2(lo), formatCo2(hi)];
+  if (a === PLACEHOLDER || b === PLACEHOLDER) return PLACEHOLDER;
+  if (a === b) return a;
+  const [aNum, aUnit] = a.split(' ');
+  return aUnit === b.split(' ')[1] ? `${aNum}–${b.slice(1)}` : `${a}–${b.slice(1)}`;
+}
+
 /** "~880 km" / "~550 mi". Non-finite or negative input gives "—". */
 export function formatDistance(km: number, units: 'km' | 'mi'): string {
   if (invalid(km)) return PLACEHOLDER;

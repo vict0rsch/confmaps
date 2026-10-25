@@ -4,6 +4,7 @@ import {
   RAIL_DETOUR_FACTOR,
   SHORT_HAUL_MAX_KM,
   estimateTrip,
+  layoverRangeKg,
   type EstimateOptions,
 } from './model';
 import { haversineKm, type LatLng } from '../geo/distance';
@@ -116,6 +117,21 @@ describe('estimateTrip golden values', () => {
     expect(flyTrip.mode).toBe('flight');
     expect(flyTrip.factorId).toBe('flight-short-haul-economy-rf');
     expect(flyTrip.kgCO2e).toBeCloseTo(101.8644, 3);
+  });
+});
+
+describe('layoverRangeKg', () => {
+  it('adds up to 20% short-haul, 10% long-haul, and nothing for rail', () => {
+    // Berlin → Paris flight 260.168 kg → 312.20; Berlin → Sydney 4559.57 kg → 5015.53
+    const [sLo, sHi] = layoverRangeKg(
+      estimateTrip(BERLIN, PARIS, { ...auto, override: 'flight' }),
+    )!;
+    expect(sLo).toBeCloseTo(260.168, 2);
+    expect(sHi).toBeCloseTo(312.2016, 2);
+    const [lLo, lHi] = layoverRangeKg(estimateTrip(BERLIN, SYDNEY, auto))!;
+    expect(lLo).toBeCloseTo(4559.572, 2);
+    expect(lHi).toBeCloseTo(5015.529, 2);
+    expect(layoverRangeKg(estimateTrip(BERLIN, PARIS, auto))).toBeUndefined();
   });
 });
 

@@ -82,12 +82,12 @@
   }
 
   .preset {
-    height: 28px;
-    padding: 0 10px;
-    border: 1px solid var(--border-strong);
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid var(--hairline);
     border-radius: var(--radius-full);
-    background: var(--surface);
-    color: var(--ink-muted);
+    background: var(--control-fill);
+    color: var(--ink);
     font-size: var(--text-sm);
     transition:
       background-color var(--duration-fast) var(--ease-out),
@@ -95,12 +95,11 @@
   }
 
   .preset:hover {
-    background: var(--surface-hover);
-    color: var(--ink);
+    background: var(--control-fill-hover);
   }
 
   .preset[aria-pressed='true'] {
-    border-color: var(--accent);
+    border-color: transparent;
     background: var(--accent-soft);
     color: var(--accent);
     font-weight: var(--weight-medium);

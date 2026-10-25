@@ -67,6 +67,7 @@ src/
   components/             # map, list, detail, timeline, filter panel, settings
 public/cities.json        # GeoNames cities (pop. ≥ 50k) for home-city autocomplete (lazy-loaded)
 public/CNAME              # custom domain confmaps.org (§8)
+public/favicon.svg        # the brand mark, light and dark (prefers-color-scheme)
 .github/workflows/        # ci.yml, sync.yml (daily), discover.yml (manual), deploy.yml
 METHODOLOGY.md            # CO₂ estimation method, linked from the app
 PRIVACY.md                # what is (not) collected, linked from the footer
@@ -423,13 +424,19 @@ Initial filters:
 | `dates` | `{from, to}` window | Same state as the timeline (§6.4); test uses `end ≥ from && start ≤ to` |
 | `subject` | conference tags | Upstream's free-form tags grouped into subjects with short URL codes (`sub=ML,CV`; e.g. `ML` machine learning, `RL`, `LLM`); near-duplicate tags merge; unknown tags become their own subject under "Other" |
 | `search` | text match on title/full name | aideadlin.es-style |
-| `radius` | within X km/mi of home | Needs home; greyed with "Set your location" otherwise. Virtual editions pass; hybrid ones use their city |
+| `radius` | within X km/mi of home | Needs home; greyed with "Set your city" otherwise. Virtual editions pass; hybrid ones use their city |
 | `co2` | estimated footprint under ~X kg | Needs home; uses global mode/threshold. Virtual editions count as 0 kg and pass; hybrid ones use their city |
 | `access` | open / registration / authors only | |
 | `kind` | official / community | |
 | `open` | submission still open | Next upstream deadline (abstract or paper) after today |
 
-Filter panel renders only registered filters, collapsed by default, with an active-count badge.
+The filter panel renders only registered filters, so adding a filter still means adding a file.
+In the sidebar it is a **search field** (the `search` filter's control, always visible) above a row
+of **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip
+opens that filter's control in a tray under the row, and only one tray is open at a time (Esc closes
+it and returns focus to the chip). In the mobile full-screen dialog there are no trays: every
+filter is a stacked section with its control open. Both layouts show **"Clear all"** with the
+active-filter count once any filter is active.
 
 ### 6.4 Timeline / scrubber
 
@@ -438,23 +445,28 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 ```
  ▁▂▁▃▅▂▁▁▂█▃▁▁▂▁▃▆▂▁▁▂█▄▁▁▂▁▃▅▂▁▁▂█▃   ← events/month histogram
                 ├────────────────────┤     ← window, both handles draggable
- [▶ play]  [Plan: 6m | 12m]  [Past 5y | All years]  [speed 1×]
+ [▶ play]  [Since 2017 | Past 5 years | Next 6 months | Next 12 months]  [speed 1×]
 ```
 
-- **Plan mode (default on load):** window = today → +12 months, static. Presets 6m / 12m.
+- **Preset order:** the presets run in time order, like the axis: the past ones, then the future
+  ones. Each label says which side of today it covers ("Past", "Next", "Since"). In a narrow
+  timeline, "Next 6 mo" / "Next 12 mo" stand in visually; the full label stays the accessible name.
+- **Plan mode (default on load):** window = today → +12 months, static. Presets "Next 6 months" /
+  "Next 12 months". The range label always shows the window's dates, whichever preset is active.
 - **Play mode:** ▶ slides the current window forward (~1 month/s, speed control, pause, drag to
   scrub). Window width is whatever the viewer set.
   - Pins fade + scale in when entering, pulse while live, fade out when leaving. **Live** means
-    `start ≤ t ≤ end` where t is the window's `from` edge (in Plan mode that is today, so Play moves a
-    simulated "today").
+    `start ≤ t ≤ end` where t is the window's `to` edge, so a pin pulses as it enters.
+  - While Play runs, a pin dims as it crosses the window: full opacity when its start enters at the
+    `to` edge, down to 30% as it reaches the `from` edge and leaves.
   - **Clustering is off during Play and history travel**: per-pin fades cannot be clustered, so an
     unclustered presentation of every location replaces the clustered one and crossfades back once
     motion settles.
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
-- **History presets** ("Past 5 years", "All years" back to the oldest edition) only set the
+- **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
   handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
-  editions do not squeeze it; "All years" (or history mode) extends it. Play spans all data.
+  editions do not squeeze it; "Since <year>" (or history mode) extends it. Play spans all data.
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
@@ -467,8 +479,11 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 
 ### 6.5 Home location & privacy
 
-- Home set via **city autocomplete** (GeoNames cities with population ≥ 50,000, `public/cities.json`, lazy-loaded) or **"Use my location"**
-  (browser geolocation).
+- Home is set from the **home pill** at the top of the sidebar, which shows the city (or "Set your
+  city") and opens a panel. The panel holds the **city autocomplete** (GeoNames cities with
+  population ≥ 50,000, `public/cities.json`, lazy-loaded), **"Use my location"** (browser
+  geolocation), a one-line privacy note and the travel preferences. On mobile the same content
+  opens in a full-screen sheet.
 - Geolocation results are **snapped to the nearest city on-device**; only the city is used/stored.
 - Home is stored as a **GeoNames city** (id, name, country, coordinates) in `localStorage`
   (`confmaps:home`) only (wrapped in try/catch; app works without it).
@@ -489,54 +504,85 @@ Units, mode and threshold are also persisted in `localStorage`. Home is in the U
 ### 6.7 Layout
 
 ```
-DESKTOP (≥ 1024px)
-┌───────────────┬──────────────────────────────────────────┐
-│ 📍 Berlin ▾ km│                                          │
-│ 🚆<700km ✈️   │                                          │
-├───────────────┤                 MAP                      │
-│ FILTERS  [3]  │        (full bleed, clustered pins,      │
-│ ▸ Subject     │         home→site lines when set)        │
-│ ▸ Within km   │                                          │
-│ ▸ CO₂ budget  │                               ┌────────┐ │
-│ ▸ ...         │                               │ DETAIL │ │
-├───────────────┤                               │ drawer │ │
-│ LIST (n)      │                               └────────┘ │
-│ NeurIPS · Paris 880km ~50kg🚆                            │
-├───────────────┴──────────────────────────────────────────┤
-│ ▁▂▃█▂▁ timeline / scrubber  ├──────window──────┤  ▶      │
-└──────────────────────────────────────────────────────────┘
+DESKTOP (≥ 1024px): the map fills the window; every panel floats above it
+┌─────────────────────────────────────────────────────────────────────┐
+│ ╭───────────────╮ ╭─ legend ─────╮                                  │
+│ │ brand  share ◐│                          MAP (full window,        │
+│ │ 📍 Berlin · km│                          clustered pins,          │
+│ │ [ search     ]│                          home→site lines)  ╭────╮ │
+│ │ (Topics)(Open)│                                            │DET.│ │
+│ │ ...  Clear all│                                            │    │ │
+│ │ 23 conferences│                                            ╰────╯ │
+│ │ NeurIPS Paris │                            [+][−] attribution      │
+│ │  880km ~50kg🚆│ ╭─ timeline ───────────────────────────────────╮   │
+│ │ footer links  │ │ ▁▂▃█▂▁ ├──window──┤  ▶  Oct 2026 – Oct 2027  │   │
+│ ╰───────────────╯ ╰──────────────────────────────────────────────╯   │
+└─────────────────────────────────────────────────────────────────────┘
 
 MOBILE
 ┌──────────────────────┐
-│ 📍Berlin  [Filters 3]│  ← filters open as full-screen sheet
+│ (brand)(📍Berlin)(≡) │
 │        MAP           │
-├──────────────────────┤
-│ ═══ bottom sheet ═══ │
-│ ▶ ▁▂█▂▁ ├──window──┤ │  ← compact scrubber, docked in the sheet (visible at every snap)
-│ list / detail        │  ← detail replaces list on select
-└──────────────────────┘
+│ ╭──────────────────╮ │
+│ │═══ glass sheet ══│ │
+│ │ ▶ ▁▂█▂▁ ├window┤ │ │  ← compact scrubber, docked in the sheet
+│ │ list / detail    │ │  ← detail replaces list on select
+└─┴──────────────────┴─┘
 ```
 
-- Hover list row → highlight its pins. Click pin/row → detail panel + fit map to the conference's sites.
+- **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
+  detail drawer on the right and the legend at the top-left of the free map area. Zoom controls and
+  the attribution sit bottom-right, above the timeline.
+- **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
+  size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
+  panel.
+- **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
+  form below that.
+- **Legend:** beside an open drawer it is hidden below 1280 px, because the strip of map is too
+  narrow. It returns when the drawer closes. A "Satellite link" item (the dashed line) appears only
+  while the map shows a main ↔ satellite line.
+- Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
+- **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
+  the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
+  it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
+  empty map keeps MapLibre's zoom in.
 - Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
-  "View history".
+  "View history". A flight estimate is nonstop, with a second line for one connection each way
+  ("~4.6–5.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
+  nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 
 ### 6.8 Visual design
 
-Tone: **calm and neutral** (Apple Maps × Linear). Modern, simple, clear.
+Tone: **calm and soft**, inspired by Apple's Liquid Glass. The map is the content and controls
+float above it as translucent glass panels. Modern, simple, clear.
 
-- **Quiet basemap:** muted grayscale, POIs / most roads / minor labels removed. Data is the only
-  saturated element.
+- **Glass material:** semantic `--glass-*` tokens (fill, thick fill, solid fill, stroke, highlight,
+  shadow, hover and press tints), redefined per theme. Two classes in `base.css` apply them.
+  - `.glass` is the frosted panel: blur plus saturation. It is the only place that declares
+    `backdrop-filter`, with literal values because Safari ignores `var()` there.
+  - `.glass-thick` is opaque, with no blur. Use it for anything that sits over text, such as trays,
+    the home panel and dialogs. A nested `.glass` would blur only its glass parent, not the map.
+  - Fallbacks: without `backdrop-filter` support, and under `prefers-reduced-transparency` or
+    `prefers-contrast: more`, both classes use the solid fill (the contrast case adds a strong
+    border). Under `forced-colors` they use system colours.
+  - CSS only. There is no SVG refraction, because it works only in Chromium and is heavy on the GPU.
+
+- **Quiet basemap:** warm land (`#f3f2ee` light, `#1f2124` dark) with soft blue water (`#d6e2ec`
+  light, `#15191e` dark); POIs / most roads / minor labels removed. Data is the only saturated
+  element.
 - **Never color alone:** official = filled pin, community = outlined; main venue = larger pin;
   access = icon (🔒 authors only). Color reinforces only (~8% of men have color-vision impairment).
-- Pins legible on both themes (halo/outline).
-- **Single accent color** with contrast in both themes: **indigo** (chosen over teal), **not** eco-green.
+- Pins are soft and legible on both themes (halo/outline); clusters get a halo ring.
+- **Single accent color** with contrast in both themes: a softer **indigo** (chosen over teal), **not** eco-green.
 - **Design tokens:** primitives → semantic tokens (`--surface`, `--ink`, `--accent`,
   `--pin-official`, …) as CSS custom properties, redefined per theme.
 - **Themes:** follow system, with a toggle. Dark mode designed, not inverted (dark gray canvas, not
   pure black); basemap swaps to its dark variant.
+- **Shape and type:** 15 px base text and sentence-case headings. Controls are capsules. Radii are
+  concentric: `--radius-panel` 24 px for floating panels, `--radius-card` 16 px for cards and trays
+  inside them.
 - One typeface: **Inter Variable**, self-hosted (`@fontsource-variable/inter`, no font CDN); **tabular numerals** for distance/CO₂ columns.
 - WCAG AA: 4.5:1 text, 3:1 UI components.
 - **Motion:** UI transitions 150–250 ms, ease-out on enter / ease-in on exit, no bounce/elastic.

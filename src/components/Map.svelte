@@ -18,6 +18,7 @@
     NavigationControl,
     type GeoJSONSource,
     type MapGeoJSONFeature,
+    type PointLike,
   } from 'maplibre-gl';
   import { untrack } from 'svelte';
   import { cubicOut } from 'svelte/easing';
@@ -80,6 +81,10 @@
   let selectionOffscreen = $state(false);
   type CoLocated = { lng: number; lat: number; x: number; y: number; ids: string[] };
   let coLocated: CoLocated | null = $state(null);
+  /** The site of a selection made by clicking its pin: the camera keeps its zoom for it. */
+  let clickedSite: { id: string; lngLat: [number, number] } | null = null;
+  /** The conference the camera was last fitted to (double-clicking its pin zooms back out). */
+  let zoomedTo: string | null = null;
 
   const MARGIN = 48;
   /** The overview of a few nearby pins (or one) stays regional, never street level. */
@@ -154,8 +159,10 @@
   const stops = $derived(historyMode.series ? historyMode.stops : null);
   const shown = $derived(shownIds(app.mapLocations, stops, play.travelShown));
   const live = $derived(
-    play.playing ? liveIds(app.mapLocations, getDates().from, stops, play.travelShown) : null,
+    play.playing ? liveIds(app.mapLocations, getDates().to, stops, play.travelShown) : null,
   );
+  /** Play's window, which pins dim across (not in history mode, whose travel has no window). */
+  const fadeWindow = $derived(play.playing && !historyMode.series ? getDates() : null);
 
   // History mode: the path between editions, drawn in on entry and along with Play's travel.
   const legs = $derived(historyLegs(historyMode.stops));
@@ -180,6 +187,11 @@
     m.touchZoomRotate.disableRotation();
     m.keyboard.disableRotation();
     m.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
+    // Zoom and attribution are glass capsules (the .glass class owns the blur, see base.css).
+    m.getContainer()
+      .querySelectorAll('.maplibregl-ctrl-group, .maplibregl-ctrl-attrib')
+      .forEach((el) => el.classList.add('glass'));
+    m.once('load', fitAttribution);
 
     m.on('style.load', () => (styleReady = true));
     m.setMissingStyleImageResolver((id) => {
@@ -190,7 +202,7 @@
       const theme = id.replace('lock-badge-', '') as ResolvedTheme;
       if (id !== lockImageId(theme) || m.hasImage(id)) return;
       const p = readPalette();
-      const { image, options } = lockBadge(p.selected, p.pinHalo, p.pinHalo);
+      const { image, options } = lockBadge(p.selected, p.pinHalo);
       m.addImage(id, image, options);
     });
 
@@ -207,24 +219,39 @@
     });
     m.on('mouseenter', LAYER.clusters, () => (m.getCanvas().style.cursor = 'pointer'));
     m.on('mouseleave', LAYER.clusters, () => (m.getCanvas().style.cursor = ''));
+    // A click on a pin selects without moving the camera; a double-click zooms to the
+    // conference, and a second one back out to the overview.
     m.on('click', (e) => {
-      const hit = m.queryRenderedFeatures(e.point, { layers: [...PIN_LAYERS, LAYER.clusters] });
-      const onCluster = hit.some((f) => f.layer.id === LAYER.clusters);
-      // A hover highlight drawn over a cluster must not hide the cluster's other events.
-      const pin = hit.find(
-        (f) =>
-          f.layer.id === LAYER.pin ||
-          (f.layer.id === LAYER.animPin && isTarget(f)) ||
-          (f.layer.id === LAYER.focusPin && (f.properties.selected === 1 || !onCluster)),
-      );
+      const { pin, cluster } = hitAt(e.point);
       if (pin) {
         coLocated = null;
-        app.select(pin.properties.conferenceId);
-      } else if (onCluster) {
-        void openCluster(hit.find((f) => f.layer.id === LAYER.clusters)!);
+        const id = pin.properties.conferenceId;
+        if (id !== app.selectedConferenceId) clickedSite = { id, lngLat: pinLngLat(pin) };
+        app.select(id);
+      } else if (cluster) {
+        void openCluster(cluster);
       } else {
         coLocated = null;
       }
+    });
+    m.on('dblclick', (e) => {
+      const { pin } = hitAt(e.point);
+      if (!pin) return; // elsewhere: MapLibre's double-click zoom
+      e.preventDefault();
+      const id = pin.properties.conferenceId;
+      const lngLat = pinLngLat(pin);
+      // Next frame: MapLibre stops camera moves started while it handles the prevented event.
+      requestAnimationFrame(() => {
+        if (zoomedTo === id) {
+          clickedSite = { id, lngLat };
+          zoomedTo = null;
+          fitOverview(duration(800));
+        } else {
+          clickedSite = null;
+          app.select(id);
+          fitSelection();
+        }
+      });
     });
     m.on('move', () => {
       if (coLocated) {
@@ -232,7 +259,10 @@
         coLocated = { ...coLocated, x: p.x, y: p.y };
       }
     });
-    m.on('zoomstart', () => (coLocated = null));
+    m.on('zoomstart', (e) => {
+      coLocated = null;
+      if (e.originalEvent) zoomedTo = null; // the viewer zoomed: no longer the fitted view
+    });
     m.on('moveend', updateOffscreen);
     m.on('zoomend', () => (zoom = m.getZoom()));
     // A drag released over an overlay (drawer, legend) never reaches MapLibre and leaves the map
@@ -241,13 +271,16 @@
     m.on('dragstart', () => root.toggleAttribute('data-map-dragging', true));
     m.on('dragend', () => root.toggleAttribute('data-map-dragging', false));
 
-    const ro = new ResizeObserver(() => m.resize());
+    const ro = new ResizeObserver(() => {
+      m.resize();
+      fitAttribution();
+    });
     ro.observe(container);
     // Overlays (drawer, sheet) are camera padding, so "centre" means the visible area's centre.
     // Initial overview: no antimeridian wrap, so a world-wide set centres on the Atlantic.
     // Untracked: camera calls fire map events synchronously, and their handlers read state.
     untrack(() => {
-      m.setPadding(insets);
+      m.setPadding(camPad);
       const initial = boundsOf(app.mapLocations, false);
       if (initial)
         m.fitBounds(initial, {
@@ -362,6 +395,18 @@
     });
   });
 
+  // Play: pins dim as they cross the window. On pause the dimmed pins crossfade out as they are,
+  // so they are reset only when history mode takes over the animated presentation.
+  $effect(() => {
+    const w = fadeWindow;
+    if (!styleReady || !choreo) return;
+    untrack(() => {
+      if (!w && !historyMode.series) return;
+      choreo!.setWindow(w);
+      kick();
+    });
+  });
+
   // A style reload (theme switch) drops feature-state: re-send it.
   $effect(() => {
     if (!styleReady || !choreo) return;
@@ -438,16 +483,7 @@
       requestAnimationFrame(() => {
         if (map !== m || historyMode.series !== series) return;
         if (series) fitHistory(first ? 0 : duration(900));
-        else if (!app.selectedConferenceId) {
-          const b = boundsOf(app.mapLocations, false);
-          m.setPadding(insets);
-          if (b)
-            m.fitBounds(b, {
-              padding: overviewMargins(),
-              maxZoom: OVERVIEW_MAX_ZOOM,
-              duration: duration(800),
-            });
-        }
+        else if (!app.selectedConferenceId) fitOverview(duration(800));
       });
     });
   });
@@ -487,15 +523,18 @@
     paint(LAYER.clusterCount, 'text-opacity', clusterOp);
   });
 
-  // On select, or when overlays resize: fit the selection into the visible area. Without a
-  // selection, just follow the overlays (the visible centre stays put).
+  // On select, or when overlays resize: fit the selection into the visible area. A selection
+  // clicked on the map keeps the zoom, only kept clear of the overlays. Without a selection,
+  // just follow the overlays (the visible centre stays put).
   $effect(() => {
     const id = app.selectedConferenceId;
-    const pad = insets;
+    const pad = camPad;
     const m = map;
     if (!m) return;
     untrack(() => {
-      if (id) fitSelection();
+      if (clickedSite && clickedSite.id !== id) clickedSite = null;
+      if (clickedSite) keepInView(clickedSite.lngLat);
+      else if (id) fitSelection();
       else m.easeTo({ padding: pad, duration: duration(250) });
     });
   });
@@ -506,6 +545,22 @@
   });
 
   // ---- Helpers -------------------------------------------------------------
+  /** The pin (if any) and the cluster (if any) under a point. */
+  function hitAt(point: PointLike) {
+    const hit = map!.queryRenderedFeatures(point, { layers: [...PIN_LAYERS, LAYER.clusters] });
+    const cluster = hit.find((f) => f.layer.id === LAYER.clusters);
+    // A hover highlight drawn over a cluster must not hide the cluster's other events.
+    const pin = hit.find(
+      (f) =>
+        f.layer.id === LAYER.pin ||
+        (f.layer.id === LAYER.animPin && isTarget(f)) ||
+        (f.layer.id === LAYER.focusPin && (f.properties.selected === 1 || !cluster)),
+    );
+    return { pin, cluster };
+  }
+
+  const pinLngLat = (f: MapGeoJSONFeature) => (f.geometry as Point).coordinates as [number, number];
+
   /** Hidden animated pins are still hit-tested by MapLibre: ignore them. */
   function isTarget(f: MapGeoJSONFeature) {
     return f.layer.id !== LAYER.animPin || shownNow.has(f.properties.id);
@@ -523,9 +578,41 @@
     const b = boundsOf(pts.length ? pts : sites, false);
     if (!map || !b) return;
     const m = margins(96);
-    map.setPadding(insets);
+    map.setPadding(camPad);
     map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
   }
+
+  /**
+   * The map spans the window under the panels, so MapLibre's width-based compact switch never
+   * fires. Show the attribution in full when the free area (between the stage insets) is wide
+   * enough, otherwise collapse it to its (i) toggle, which still expands on click.
+   */
+  const ATTRIBUTION_MIN_FREE_WIDTH = 560;
+  function fitAttribution() {
+    const el = map?.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
+    if (!el || !container) return;
+    const cs = getComputedStyle(container);
+    const inset = (side: string) => parseFloat(cs.getPropertyValue(`--stage-inset-${side}`)) || 0;
+    const free = container.clientWidth - inset('left') - inset('right');
+    const wide = free >= ATTRIBUTION_MIN_FREE_WIDTH;
+    if (el.classList.contains('maplibregl-compact') === wide) {
+      el.classList.toggle('maplibregl-compact', !wide);
+      el.classList.remove('maplibregl-compact-show');
+      el.open = wide;
+    }
+  }
+  // The drawer opening or closing changes the free width (after the stage props update).
+  const insetLR = $derived(insets.left + insets.right);
+  $effect(() => {
+    void insetLR;
+    requestAnimationFrame(fitAttribution);
+  });
+
+  /**
+   * Camera padding. The top is left out: the top bar is translucent, so the world renders behind
+   * it (its height is added to the fitBounds margins instead, see margins()).
+   */
+  const camPad = $derived({ ...insets, top: 0 });
 
   /** fitBounds margins inside the camera padding, shrunk when the visible area is small. */
   function margins(max = MARGIN) {
@@ -533,7 +620,7 @@
     const h = (container?.clientHeight ?? 0) - insets.top - insets.bottom;
     const x = Math.max(0, Math.min(max, (w - 80) / 2));
     const y = Math.max(0, Math.min(max, (h - 80) / 2));
-    return { top: y, bottom: y, left: x, right: x };
+    return { top: y + insets.top, bottom: y, left: x, right: x };
   }
 
   /** The world overview: on a phone every pixel of width counts, but edge pins keep their halo. */
@@ -545,8 +632,37 @@
   function fitSelection() {
     const b = boundsOf(app.selectedPins);
     if (!map || !b) return;
-    map.setPadding(insets);
+    zoomedTo = app.selectedConferenceId;
+    map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
+  }
+
+  /** Every visible pin (no antimeridian wrap, so a world-wide set centres on the Atlantic). */
+  function fitOverview(ms: number) {
+    const b = boundsOf(app.mapLocations, false);
+    if (!map) return;
+    map.setPadding(camPad);
+    if (b)
+      map.fitBounds(b, { padding: overviewMargins(), maxZoom: OVERVIEW_MAX_ZOOM, duration: ms });
+  }
+
+  /**
+   * Adopt the overlays' padding at the same zoom. The map stays still while the clicked site is
+   * in the visible area; otherwise it pans to centre the site.
+   */
+  function keepInView(lngLat: [number, number]) {
+    if (!map) return;
+    const pad = camPad;
+    const right = container.clientWidth - pad.right;
+    const bottom = container.clientHeight - pad.bottom;
+    const p = map.project(lngLat);
+    const inView =
+      p.x >= pad.left + MARGIN &&
+      p.x <= right - MARGIN &&
+      p.y >= insets.top + MARGIN &&
+      p.y <= bottom - MARGIN;
+    const center = inView ? map.unproject([(pad.left + right) / 2, bottom / 2]) : lngLat;
+    map.easeTo({ padding: pad, center, duration: duration(250) });
   }
 
   function updateOffscreen() {
@@ -655,28 +771,59 @@
     inset: 0;
   }
 
-  /* Keep MapLibre controls clear of overlays (drawer, bottom sheet). */
+  /* Keep MapLibre controls in the free map area: above the timeline and bottom sheet, left of the
+     drawer. The insets already include the gap to the neighbouring panel on desktop. */
   .map-wrap :global(.maplibregl-ctrl-bottom-right) {
-    bottom: var(--inset-bottom);
-    right: var(--inset-right);
+    bottom: var(--stage-inset-bottom, var(--panel-gap));
+    right: var(--stage-inset-right, var(--panel-gap));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-2);
     transition: right var(--duration-base) var(--ease-out);
+  }
+  .map-wrap :global(.maplibregl-ctrl-bottom-right .maplibregl-ctrl) {
+    margin: 0;
   }
   .map-wrap :global(.maplibregl-ctrl-bottom-left) {
     bottom: var(--inset-bottom);
   }
+  @media (max-width: 1023px) {
+    .map-wrap :global(.maplibregl-ctrl-bottom-right) {
+      bottom: calc(var(--stage-inset-bottom, var(--inset-bottom)) + var(--space-2));
+    }
+  }
 
+  /* MapLibre's own stylesheet sets a white background at the same specificity as .glass and loads
+     later, so restate the glass fill here (and its reduced-transparency fallback). */
+  .map-wrap :global(.maplibregl-ctrl.glass) {
+    background: var(--glass-fill);
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .map-wrap :global(.maplibregl-ctrl.glass) {
+      background: var(--glass-fill-solid);
+    }
+  }
+
+  /* Zoom: a small vertical capsule. Fill, border, shadow and blur come from .glass. */
   .map-wrap :global(.maplibregl-ctrl-group) {
-    background: var(--surface-raised);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-full);
     overflow: hidden;
   }
   .map-wrap :global(.maplibregl-ctrl-group button) {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  .map-wrap :global(.maplibregl-ctrl-group button:hover) {
+    background-color: var(--glass-tint-hover);
+  }
+  .map-wrap :global(.maplibregl-ctrl-group button:active) {
+    background-color: var(--glass-tint-press);
   }
   .map-wrap :global(.maplibregl-ctrl-group button + button) {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--hairline);
   }
   .map-wrap :global(.maplibregl-ctrl-group button:focus-visible) {
     box-shadow: inset 0 0 0 2px var(--focus);
@@ -684,16 +831,21 @@
   :global(:root[data-theme='dark']) .map-wrap :global(.maplibregl-ctrl-icon) {
     filter: invert(1) brightness(0.9);
   }
+
+  /* Attribution: a small capsule that stays readable (text is --ink-muted over glass). */
   .map-wrap :global(.maplibregl-ctrl-attrib) {
-    background: color-mix(in srgb, var(--surface) 82%, transparent);
     color: var(--ink-muted);
     font-size: var(--text-xs);
+    border-radius: var(--radius-full);
+  }
+  .map-wrap :global(.maplibregl-ctrl-attrib.maplibregl-compact) {
+    min-height: 28px;
   }
   .map-wrap :global(.maplibregl-ctrl-attrib a) {
     color: var(--ink-muted);
   }
-  .map-wrap :global(.maplibregl-ctrl-attrib.maplibregl-compact) {
-    border-radius: var(--radius-full);
+  .map-wrap :global(.maplibregl-ctrl-attrib-inner) {
+    padding: 0 var(--space-2);
   }
   :global(:root[data-theme='dark']) .map-wrap :global(.maplibregl-ctrl-attrib-button) {
     filter: invert(1);

@@ -42,7 +42,7 @@
   let width = $state(0);
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
-  // starts at most 5 years back ("All years" or history mode reach further).
+  // starts at most 5 years back ("Since <year>" or history mode reach further).
   let extent: Domain | undefined;
   const domain: Domain = $derived.by(
     () =>
@@ -60,6 +60,12 @@
   const bins = $derived(histogram(scope.candidates, domain));
   const maxCount = $derived(Math.max(1, ...bins.map((b) => b.count)));
   const gap = $derived(width / Math.max(1, bins.length) > 8 ? 2 : 1);
+  // A histogram bar with rounded top corners only (the bottom sits on the baseline).
+  function barPath(x0: number, w: number, h: number): string {
+    const r = Math.min(2, w / 2, h);
+    const y = BARS_H - h;
+    return `M${x0},${BARS_H}V${y + r}Q${x0},${y} ${x0 + r},${y}H${x0 + w - r}Q${x0 + w},${y} ${x0 + w},${y + r}V${BARS_H}Z`;
+  }
   const ticks = $derived(axisTicks(domain, width));
   const todayX = $derived(x(dayNumber(app.today)));
   // "Today" label owns the axis around it. Year labels start at their tick and run right, so one
@@ -203,7 +209,9 @@
   aria-label="Timeline"
   data-testid="timeline"
 >
-  <div class="controls">
+  <!-- Speed shows while playing, or while this group is hovered or holds focus (it stays in the
+       DOM and in the tab order). -->
+  <div class="controls" class:playing={play.playing}>
     <button
       class="play"
       type="button"
@@ -266,6 +274,24 @@
       onpointercancel={onpointerup}
     >
       {#if width > 0}
+        {#if !inHistory}
+          <!-- The selection sits under the bars; the bars ignore the pointer, so presses reach it. -->
+          <div
+            class="window"
+            data-part="window"
+            style:left="{win.x0}px"
+            style:width="{Math.max(2, win.x1 - win.x0)}px"
+            role="slider"
+            tabindex="0"
+            aria-label="Date window"
+            aria-orientation="horizontal"
+            aria-valuemin={0}
+            aria-valuemax={maxOffset}
+            aria-valuenow={offset(dates.from)}
+            aria-valuetext={windowLabel(dates)}
+            onkeydown={(e) => onkeydown(e, 'window')}
+          ></div>
+        {/if}
         <svg class="bars" {width} height={BARS_H} aria-hidden="true">
           <defs>
             <clipPath id="{uid}-win">
@@ -283,12 +309,8 @@
               {#each bins as b (b.month)}
                 {#if b.count}
                   {@const h = Math.max(2, (b.count / maxCount) * (BARS_H - 2))}
-                  <rect
-                    x={x(b.start) + gap / 2}
-                    y={BARS_H - h}
-                    width={Math.max(1, x(b.end) - x(b.start) - gap)}
-                    height={h}
-                    rx="1"
+                  <path
+                    d={barPath(x(b.start) + gap / 2, Math.max(1, x(b.end) - x(b.start) - gap), h)}
                   />
                 {/if}
               {/each}
@@ -333,21 +355,6 @@
         <div class="today" style:left="{todayX}px" aria-hidden="true"></div>
 
         {#if !inHistory}
-          <div
-            class="window"
-            data-part="window"
-            style:left="{win.x0}px"
-            style:width="{Math.max(2, win.x1 - win.x0)}px"
-            role="slider"
-            tabindex="0"
-            aria-label="Date window"
-            aria-orientation="horizontal"
-            aria-valuemin={0}
-            aria-valuemax={maxOffset}
-            aria-valuenow={offset(dates.from)}
-            aria-valuetext={windowLabel(dates)}
-            onkeydown={(e) => onkeydown(e, 'window')}
-          ></div>
           <div
             class="handle"
             data-part="from"
@@ -403,13 +410,17 @@
             <button
               type="button"
               class="preset"
+              aria-label={p.short === p.label ? undefined : p.label}
               aria-pressed={sameWindow(dates, p.w)}
-              onclick={() => applyPreset(p.w)}>{p.label}</button
+              onclick={() => applyPreset(p.w)}
+              ><span class="full">{p.label}</span><span class="short">{p.short}</span></button
             >
           {/each}
         </div>
       {/if}
-      <span class="range tabular" data-testid="timeline-range">{windowLabel(dates, compact)}</span>
+      <span class="range tabular" data-testid="timeline-range"
+        >{windowLabel(dates, compact)}</span
+      >
     {/if}
   </div>
 </section>
@@ -420,10 +431,14 @@
     align-items: center;
     gap: var(--space-4);
     height: 100%;
-    padding: 0 var(--space-4);
+    /* Transparent: the container (glass panel / sheet) owns the surface. The round Play button
+       sits about as far from the left edge as from the top. */
+    padding: 0 var(--space-4) 0 10px;
     font-size: var(--text-sm);
     user-select: none;
     -webkit-user-select: none;
+    /* The desktop panel can be narrow (608 px at a 1024 px window): see the query below. */
+    container: timeline / inline-size;
   }
 
   .compact {
@@ -441,17 +456,27 @@
   .play {
     display: grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     padding: 0;
     border: 0;
     border-radius: var(--radius-full);
     background: var(--accent);
     color: var(--accent-ink);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 35%, transparent);
     transition:
       filter var(--duration-fast) var(--ease-out),
+      transform var(--duration-press) var(--ease-out),
       opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .compact .play {
+    width: 32px;
+    height: 32px;
+  }
+
+  .play:active:not(:disabled) {
+    transform: scale(0.94);
   }
 
   .play svg {
@@ -464,25 +489,37 @@
   }
 
   .play:disabled {
-    background: var(--surface-hover);
+    background: var(--control-fill);
     color: var(--ink-faint);
     box-shadow: none;
     cursor: default;
   }
 
+  /* Hidden at rest but keeps its slot (no layout shift under the track) and stays focusable:
+     opacity only, never display/visibility. Hover or focus in the group, or Play, reveals it. */
   .speed {
     min-width: 36px;
-    height: 24px;
+    height: 26px;
     padding: 0 6px;
-    border: 1px solid var(--border-strong);
+    border: 1px solid var(--hairline);
     border-radius: var(--radius-full);
-    background: transparent;
+    background: var(--control-fill);
     color: var(--ink-muted);
     font-size: var(--text-xs);
     font-weight: var(--weight-medium);
+    opacity: 0;
+    pointer-events: none;
     transition:
+      opacity var(--duration-base) var(--ease-out),
       background-color var(--duration-fast) var(--ease-out),
       color var(--duration-fast) var(--ease-out);
+  }
+
+  .controls:hover .speed,
+  .controls:focus-within .speed,
+  .controls.playing .speed {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .compact .speed {
@@ -490,8 +527,17 @@
     padding: 0 4px;
   }
 
+  /* Compact bar: too narrow for an empty slot, so the hidden button collapses (still focusable). */
+  .compact .controls:not(.playing, :hover, :focus-within) .speed {
+    width: 0;
+    min-width: 0;
+    margin-left: -6px;
+    padding: 0;
+    border-width: 0;
+  }
+
   .speed:hover {
-    background: var(--surface-hover);
+    background: var(--control-fill-hover);
     color: var(--ink);
   }
 
@@ -519,26 +565,29 @@
     top: 2px;
     left: 0;
     overflow: visible;
+    /* Presses go through to the selection or the bare track below. */
+    pointer-events: none;
   }
 
   .grid {
-    stroke: var(--border);
+    stroke: var(--hairline);
     stroke-width: 1;
   }
 
   .baseline {
-    stroke: var(--border-strong);
+    stroke: var(--hairline);
     stroke-width: 1;
   }
 
-  .bar-muted rect {
-    fill: var(--ink-faint);
-    opacity: 0.32;
+  /* Decorative (aria-hidden): soft accent bars, stronger inside the window. */
+  .bar-muted path {
+    fill: var(--accent);
+    opacity: 0.2;
   }
 
-  .bar-in rect {
+  .bar-in path {
     fill: var(--accent);
-    opacity: 0.85;
+    opacity: 0.72;
   }
 
   .stops-line {
@@ -554,7 +603,7 @@
   }
 
   .stop {
-    fill: var(--surface);
+    fill: var(--glass-fill-solid);
     stroke: var(--border-strong);
     stroke-width: 1.5;
     transition:
@@ -564,7 +613,7 @@
 
   .stop.reached {
     fill: var(--accent);
-    stroke: var(--surface);
+    stroke: var(--glass-fill-solid);
   }
 
   .today {
@@ -575,17 +624,22 @@
     margin-left: -0.75px;
     border-radius: 1px;
     background: var(--ink);
-    opacity: 0.55;
+    opacity: 0.45;
     pointer-events: none;
   }
 
+  /* The selection: a raised, denser-glass rounded tile under the bars. Its accent handles mark
+     the edges (3:1 against the panel); the tile itself is a soft cue. */
   .window {
     position: absolute;
-    top: 0;
-    height: calc(var(--bars-h) + 4px);
-    border: 1.5px solid var(--accent);
-    border-radius: var(--radius-sm);
-    background: color-mix(in srgb, var(--accent) 9%, transparent);
+    top: -2px;
+    height: calc(var(--bars-h) + 8px);
+    border: 1px solid var(--glass-stroke);
+    border-radius: var(--radius-md);
+    background: linear-gradient(var(--accent-soft), var(--accent-soft)), var(--glass-fill-thick);
+    box-shadow:
+      var(--glass-highlight),
+      0 1px 4px rgb(0 0 0 / 0.1);
     cursor: grab;
   }
 
@@ -599,7 +653,7 @@
     outline-offset: 2px;
   }
 
-  /* Handles: a slim grip on each edge, with a wider invisible hit area. */
+  /* Handles: a slim capsule on each edge, with a wider invisible hit area. */
   .handle {
     position: absolute;
     top: calc(var(--bars-h) / 2 + 2px);
@@ -616,11 +670,13 @@
     left: 50%;
     top: 50%;
     width: 6px;
-    height: calc(var(--bars-h) - 4px);
+    height: calc(var(--bars-h) + 2px);
     transform: translate(-50%, -50%);
     border-radius: var(--radius-full);
     background: var(--accent);
-    box-shadow: 0 0 0 2px var(--surface);
+    box-shadow:
+      0 0 0 2px var(--glass-fill-solid),
+      0 1px 3px rgb(0 0 0 / 0.18);
     transition:
       width var(--duration-fast) var(--ease-out),
       height var(--duration-fast) var(--ease-out);
@@ -629,7 +685,7 @@
   .handle:hover::after,
   .handle:focus-visible::after {
     width: 8px;
-    height: calc(var(--bars-h) + 2px);
+    height: calc(var(--bars-h) + 6px);
   }
 
   .compact .handle::after {
@@ -646,7 +702,7 @@
 
   .handle:focus-visible::after {
     box-shadow:
-      0 0 0 2px var(--surface),
+      0 0 0 2px var(--glass-fill-solid),
       0 0 0 4px var(--focus);
   }
 
@@ -698,34 +754,47 @@
     gap: var(--space-2);
   }
 
+  /* One segmented capsule; the active preset is a raised tile with accent text. */
   .presets {
     display: flex;
-    gap: 4px;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-full);
+    background: var(--glass-tint-press);
   }
 
   .preset {
-    height: 26px;
-    padding: 0 10px;
-    border: 1px solid var(--border-strong);
+    height: 28px;
+    padding: 0 12px;
+    border: 0;
     border-radius: var(--radius-full);
-    background: var(--surface);
+    background: transparent;
     color: var(--ink-muted);
     font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    white-space: nowrap;
     transition:
       background-color var(--duration-fast) var(--ease-out),
       color var(--duration-fast) var(--ease-out);
   }
 
+  .preset .short {
+    display: none;
+  }
+
   .preset:hover {
-    background: var(--surface-hover);
+    background: var(--glass-tint-hover);
     color: var(--ink);
   }
 
   .preset[aria-pressed='true'] {
-    border-color: var(--accent);
-    background: var(--accent-soft);
+    background: var(--glass-fill-thick);
     color: var(--accent);
-    font-weight: var(--weight-medium);
+    font-weight: var(--weight-semibold);
+    box-shadow:
+      var(--glass-highlight),
+      0 1px 3px rgb(0 0 0 / 0.12);
   }
 
   .range {
@@ -739,6 +808,37 @@
   .compact .range {
     min-width: 0;
     font-size: var(--text-xs);
+  }
+
+  /* Narrow desktop panel: the range label stacks above the presets, so the track keeps its room
+     and the right column keeps a constant width (the axis never rescales when the label changes). */
+  @container timeline (max-width: 900px) {
+    .timeline:not(.compact) .aside:has(.presets) {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .timeline:not(.compact) .aside:has(.presets) .range {
+      order: -1;
+      min-width: 0;
+      padding-right: var(--space-2);
+      font-size: var(--text-xs);
+      line-height: 14px;
+    }
+
+    .preset {
+      height: 24px;
+      padding: 0 8px;
+    }
+
+    .preset .full {
+      display: none;
+    }
+
+    .preset .short {
+      display: inline;
+    }
   }
 
   /* ---- History mode ---- */
@@ -783,7 +883,7 @@
   }
 
   .exit {
-    height: 28px;
+    height: 32px;
     white-space: nowrap;
   }
 </style>

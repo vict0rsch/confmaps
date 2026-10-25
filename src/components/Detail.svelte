@@ -66,17 +66,18 @@
       {#if conference.fullName}<p class="full-name">{conference.fullName}</p>{/if}
     </div>
     <button class="icon-button close" type="button" aria-label="Close details" onclick={onclose}>
-      <Icon name="close" size={18} />
+      <Icon name="close" size={16} />
     </button>
   </header>
 
+  <!-- Quiet inline facts: dates and website on one line, deadlines below when there are any. -->
   <dl class="facts">
     <div class="fact">
-      <dt><Icon name="calendar" size={15} label="Dates" /></dt>
+      <dt><Icon name="calendar" size={14} label="Dates" /></dt>
       <dd class="tabular">{formatDateRange(conference.start, conference.end)}</dd>
     </div>
     <div class="fact">
-      <dt><Icon name="external" size={15} label="Website" /></dt>
+      <dt><Icon name="external" size={14} label="Website" /></dt>
       <dd>
         <a href={conference.link} target="_blank" rel="noopener noreferrer">
           {website.text}
@@ -85,8 +86,8 @@
       </dd>
     </div>
     {#if showDeadlines}
-      <div class="fact quiet">
-        <dt><Icon name="paper" size={15} label="Deadlines" /></dt>
+      <div class="fact deadlines">
+        <dt><Icon name="paper" size={14} label="Deadlines" /></dt>
         <dd>
           <span class="tabular">
             {#if deadlines.paper}
@@ -99,11 +100,11 @@
             {/if}
           </span>
           {#if deadlines.next && deadlines.next !== deadlines.paper?.deadline}
-            <span class="next tabular">
+            <span class="tabular">
               Next: {deadlines.next.label}, {formatInstant(deadlines.next.date)}
             </span>
           {/if}
-          <a class="hf" href={HF_DEADLINES_URL} target="_blank" rel="noopener noreferrer">
+          <a href={HF_DEADLINES_URL} target="_blank" rel="noopener noreferrer">
             Countdowns on the HF site
           </a>
         </dd>
@@ -143,8 +144,8 @@
 
   {#if !app.home}
     <p class="prompt">
-      <Icon name="pin" size={15} />
-      Set your location to see distance and estimated footprint
+      <span class="prompt-icon"><Icon name="pin" size={16} /></span>
+      Set your city to see how far each venue is and its estimated travel footprint.
     </p>
   {/if}
 
@@ -202,10 +203,11 @@
 </article>
 
 <style>
+  /* Transparent: the drawer / bottom sheet around this panel is the glass surface. */
   .detail {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-5);
     padding: var(--space-5);
   }
 
@@ -234,19 +236,23 @@
   }
 
   .close {
-    margin: -4px -6px 0 0;
+    flex: none;
+    margin: -6px -8px 0 0;
   }
 
   .facts {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin-top: calc(-1 * var(--space-1));
+    font-size: var(--text-sm);
   }
 
   .fact {
     display: flex;
-    gap: var(--space-3);
+    gap: 6px;
     align-items: flex-start;
+    min-width: 0;
   }
 
   .fact dt {
@@ -255,47 +261,51 @@
   }
 
   .fact dd {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
     min-width: 0;
   }
 
   .archived-host {
     color: var(--ink-muted);
-    font-size: var(--text-sm);
   }
 
-  .quiet dd {
+  .deadlines {
+    flex-basis: 100%;
+  }
+
+  .deadlines dd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px var(--space-3);
     color: var(--ink-muted);
-    font-size: var(--text-sm);
-  }
-
-  .next {
-    font-size: var(--text-sm);
-  }
-
-  .hf {
-    font-size: var(--text-sm);
   }
 
   .prompt {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3);
-    border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--ink) 4%, transparent);
-    color: var(--ink-muted);
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--accent-soft);
+    color: var(--ink);
     font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .prompt-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--glass-tint-hover);
+    color: var(--accent);
   }
 
   h3 {
     margin-bottom: var(--space-2);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
     color: var(--ink-muted);
   }
 
@@ -312,18 +322,19 @@
     width: 100%;
     padding: var(--space-2) var(--space-3);
     border: 0;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     background: transparent;
     color: var(--ink);
     text-align: left;
+    transition: background-color var(--duration-fast) var(--ease-out);
   }
 
   .track:hover:not(:disabled) {
-    background: var(--surface-hover);
+    background: var(--glass-tint-hover);
   }
 
   .track[aria-current='true'] {
-    background: var(--surface-selected);
+    background: var(--accent-soft);
     cursor: default;
   }
 
@@ -340,16 +351,17 @@
   .sites ul {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 
+  /* Soft card: a faint ink tint reads on light and dark glass alike; no border. */
   .site {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
-    padding: var(--space-3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: color-mix(in srgb, var(--ink) 4%, transparent);
   }
 
   .site-top {
@@ -373,7 +385,10 @@
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-2);
+    margin-top: var(--space-1);
+    font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
   }
 
   .muted {
@@ -386,7 +401,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-2);
-    margin-top: var(--space-1);
+    margin-top: var(--space-2);
   }
 
   .papers {
@@ -404,6 +419,7 @@
   .site-link {
     display: inline-flex;
     align-items: center;
+    align-self: flex-start;
     gap: 4px;
     margin-top: var(--space-1);
     font-size: var(--text-sm);

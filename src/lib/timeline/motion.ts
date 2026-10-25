@@ -137,6 +137,20 @@ export function pulseEnd(t0: number, now: number, cfg: MotionConfig): number {
   return t0 + Math.max(1, Math.ceil((now - t0) / cfg.pulseMs)) * cfg.pulseMs;
 }
 
+/** Opacity of a pin about to leave Play's window (one just entering is at 1). */
+export const WINDOW_FADE_MIN = 0.3;
+
+/**
+ * Play's fade across the window: 1 for an event that just entered (its start at the window's `to`
+ * edge), down to `WINDOW_FADE_MIN` as its start reaches the `from` edge, where it leaves.
+ */
+export function windowFade(start: string, w: { from: string; to: string }): number {
+  const span = Date.parse(w.to) - Date.parse(w.from);
+  if (!(span > 0)) return 1;
+  const u = clamp01((Date.parse(w.to) - Date.parse(start)) / span);
+  return 1 - (1 - WINDOW_FADE_MIN) * u;
+}
+
 /**
  * A main↔satellite line's look: `o` opacity and `s` draw progress (0–1). Entering, it draws in
  * after its delay (or crossfades in, without line drawing); leaving, it fades out where it is.

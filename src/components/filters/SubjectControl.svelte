@@ -26,7 +26,7 @@
 </script>
 
 <div class="subjects">
-  <p class="hint">Any of the selected subjects.</p>
+  <p class="hint">Any of the selected topics.</p>
   {#each groups as g (g.name)}
     {@const codes = g.options.map((o) => o.value)}
     <div class="group">
@@ -62,8 +62,6 @@
   .group-name {
     color: var(--ink-muted);
     font-size: var(--text-xs);
-    font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-weight: var(--weight-semibold);
   }
 </style>

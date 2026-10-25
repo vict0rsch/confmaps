@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compareTrips, formatCo2, formatDistance, modeIcon } from './format';
+import { compareTrips, formatCo2, formatCo2Range, formatDistance, modeIcon } from './format';
 
 describe('formatCo2', () => {
   it('rounds to 2 significant figures with a ~ prefix', () => {
@@ -31,6 +31,18 @@ describe('formatCo2', () => {
         .replace(/0+$/, '');
       expect(digits.length).toBeLessThanOrEqual(2);
     }
+  });
+});
+
+describe('formatCo2Range', () => {
+  it('shares the unit when both ends use it', () => {
+    expect(formatCo2Range(4559.572, 5015.53)).toBe('~4.6–5.0 t'); // golden: Berlin → Sydney
+    expect(formatCo2Range(260.1679, 312.2)).toBe('~260–310 kg'); // golden: Berlin → Paris flight
+  });
+  it('spells both units across the kg/t switch, and collapses equal ends', () => {
+    expect(formatCo2Range(880, 1056)).toBe('~880 kg–1.1 t');
+    expect(formatCo2Range(0, 0)).toBe('~0 kg');
+    expect(formatCo2Range(NaN, 5)).toBe('—');
   });
 });
 

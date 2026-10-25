@@ -6,7 +6,7 @@
 
 <p class="needs-home" {id}>
   <Icon name="pin" size={13} />
-  Set your location to use this
+  Set your city to use this
 </p>
 
 <style>
