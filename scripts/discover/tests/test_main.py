@@ -1,6 +1,7 @@
 import json
 import shutil
 import sys
+import threading
 from datetime import date
 from pathlib import Path
 from types import SimpleNamespace
@@ -12,7 +13,7 @@ import pytest
 from conftest import (
     ATLANTA_PAGE,
     ATLANTA_URL,
-    REPO,
+    SATELLITES_FIXTURE,
     FakeClient,
     FakeFetcher,
     FakeGeocoder,
@@ -23,7 +24,16 @@ from conftest import (
     usage,
 )
 
-from discover.main import LOG_PREFIX, _run, main, say, scrubbed_env, select_conferences
+from discover import agent
+from discover.main import (
+    LOG_PREFIX,
+    _run,
+    main,
+    research_all,
+    say,
+    scrubbed_env,
+    select_conferences,
+)
 
 TODAY = date(2026, 10, 22)
 
@@ -53,7 +63,7 @@ def test_backfill_and_only(data_json: dict[str, Any]) -> None:
 def repo(tmp_path: Path, data_json: dict[str, Any]) -> Path:
     (tmp_path / "repo" / "data" / "build").mkdir(parents=True)
     root = tmp_path / "repo"
-    shutil.copy(REPO / "data" / "satellites.yml", root / "data" / "satellites.yml")
+    shutil.copy(SATELLITES_FIXTURE, root / "data" / "satellites.yml")
     (root / "data" / "build" / "data.json").write_text(json.dumps(data_json))
     return root
 
@@ -63,6 +73,8 @@ def run_main(repo: Path, *args: str, client: Any = None, fetcher: Any = None) ->
     argv = ["--repo-root", str(repo), *args]
     if "--from-results" not in args:
         argv += ["--results-dir", str(results)]
+    if "--workers" not in args:
+        argv += ["--workers", "1"]  # FakeClient answers in call order
     return main(
         argv,
         client or FakeClient(),
@@ -146,6 +158,43 @@ def test_max_usd_stops_further_calls(repo: Path, capsys: pytest.CaptureFixture[s
     out = capsys.readouterr().out
     assert rc == 1 and len(client.calls) == 1
     assert "--max-usd budget ($1.00) reached" in out
+
+
+def test_workers_research_conferences_concurrently(tmp_path: Path) -> None:
+    # Both calls must be in flight at once to pass the barrier; results keep the target order.
+    barrier = threading.Barrier(2, timeout=5)
+
+    def ask_one(conf: dict[str, Any], usd_limit: float, on_response: Any) -> agent.Research:
+        barrier.wait()
+        research = agent.Research(conference_id=conf["id"], status="ok")
+        on_response(research)
+        return research
+
+    targets = [{"id": i, "title": i.upper(), "year": 2026} for i in ("b-conf", "a-conf")]
+    runs = research_all(targets, ask_one, tmp_path, max_usd=5.0, workers=2)
+    assert [r.conference["id"] for r in runs] == ["b-conf", "a-conf"]
+    assert all(r.research and r.research.status == "ok" for r in runs)
+    assert sorted(p.name for p in tmp_path.glob("*.json")) == ["a-conf.json", "b-conf.json"]
+
+
+def test_progress_lines_in_logs_keep_the_prefix(
+    repo: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    empty = json_message({"candidates": []})
+    run_main(repo, "--dry-run", "--workers", "2", client=FakeClient(empty, empty))
+    err = capsys.readouterr().err.splitlines()
+    assert all(line.startswith(LOG_PREFIX) for line in err)
+    assert any("✓ emnlp26: 0 candidate(s), 1 turn(s)" in line for line in err)
+    assert any("✓ neurips26: 0 candidate(s)" in line for line in err)
+    # High-level steps, then one line per request whose evidence was checked.
+    assert "> ▸ Checking evidence: fetching cited pages and geocoding cities" in err
+    assert any(line.startswith("> checked emnlp26: kept 0 of 0 item(s)") for line in err)
+    assert err[-1].startswith("> ▸ Finished in ")
+
+
+def test_workers_must_be_positive(repo: Path) -> None:
+    with pytest.raises(SystemExit):
+        run_main(repo, "--dry-run", "--workers", "0")
 
 
 def test_out_dir_cannot_be_combined_with_dry_run(repo: Path) -> None:

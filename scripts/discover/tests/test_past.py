@@ -749,6 +749,8 @@ def run_past(repo: Path, *args: str, client: Any = None) -> int:
     argv = ["--repo-root", str(repo), "--mode", "past", *args]
     if "--from-results" not in args:
         argv += ["--results-dir", str(repo.parent / "results")]
+    if "--workers" not in args:
+        argv += ["--workers", "1"]  # FakeClient answers in call order
     return main(argv, client or FakeClient(), FakeFetcher(PAGES), FakeGeocoder(GEO), today=TODAY)
 
 

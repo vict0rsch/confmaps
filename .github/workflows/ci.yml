@@ -58,6 +58,21 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
 
+  # The discovery agent's tests (scripts/discover). They mock the API, the web and pnpm.
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          enable-cache: true
+          cache-dependency-glob: scripts/discover/uv.lock
+      - run: uv sync --project scripts/discover --locked
+      - run: uv run --project scripts/discover --locked pytest scripts/discover
+
   # Warn-only (DESIGN §9): axe scans in light and dark. Never blocks merge; violations are printed
   # in the log and attached to the report.
   a11y:
