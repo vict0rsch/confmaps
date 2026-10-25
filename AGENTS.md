@@ -111,7 +111,9 @@ confmaps.org is a static Svelte 5 + MapLibre SPA showing AI conferences and thei
    - For UI changes, also run `PW_PORT=<free port> pnpm test:e2e`.
    - CI uses Node 24.
 3. Commit as `vsch@pm.me` (it's in the repo's git config). Never use any other email: history is public.
-4. The owner reviews and merges, with `gh pr merge N --rebase --delete-branch`. Rebase-merge keeps the authorship.
+4. The owner reviews and merges, with `gh pr merge N --squash --delete-branch --author-email vsch@pm.me`. Each PR lands on `main` as one commit.
+   - Pass `--author-email`: without it, GitHub may author the squash commit with another email.
+   - A PR stacked on another PR still holds that PR's original commits after the squash. Before merging it, rebase only its own commits: `git rebase --onto origin/main <last commit of the merged PR> <branch>`, then `git push --force-with-lease`.
    - A merge to `main` runs CI, then Deploy runs automatically. Deploy publishes only if that commit is still the tip of `main`.
    - The daily "Sync data" workflow commits upstream changes and deploys them on its own.
 
