@@ -291,9 +291,12 @@ const fs = (key: string, fallback: number): ExpressionSpecification => [
   fallback,
 ];
 
-/** Animated pins: the choreographer's opacity (`o`) × the selection dimming. */
+/**
+ * Animated pins: the choreographer's opacity (`o`) × Play's window fade (`w`) × the selection
+ * dimming.
+ */
 export function animOpacity(selectedId: string | null): ExpressionSpecification {
-  return ['*', fs('o', 0), pinOpacity(selectedId)];
+  return ['*', fs('o', 0), fs('w', 1), pinOpacity(selectedId)];
 }
 
 /** The live ripple ring: its own opacity (`ro`) × the selection dimming. */

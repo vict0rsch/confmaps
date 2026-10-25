@@ -154,8 +154,10 @@
   const stops = $derived(historyMode.series ? historyMode.stops : null);
   const shown = $derived(shownIds(app.mapLocations, stops, play.travelShown));
   const live = $derived(
-    play.playing ? liveIds(app.mapLocations, getDates().from, stops, play.travelShown) : null,
+    play.playing ? liveIds(app.mapLocations, getDates().to, stops, play.travelShown) : null,
   );
+  /** Play's window, which pins dim across (not in history mode, whose travel has no window). */
+  const fadeWindow = $derived(play.playing && !historyMode.series ? getDates() : null);
 
   // History mode: the path between editions, drawn in on entry and along with Play's travel.
   const legs = $derived(historyLegs(historyMode.stops));
@@ -366,6 +368,18 @@
       shownNow = s;
       if (!animMode) return;
       choreo!.setTargets(s, l ?? new Set(), performance.now(), cfg);
+      kick();
+    });
+  });
+
+  // Play: pins dim as they cross the window. On pause the dimmed pins crossfade out as they are,
+  // so they are reset only when history mode takes over the animated presentation.
+  $effect(() => {
+    const w = fadeWindow;
+    if (!styleReady || !choreo) return;
+    untrack(() => {
+      if (!w && !historyMode.series) return;
+      choreo!.setWindow(w);
       kick();
     });
   });

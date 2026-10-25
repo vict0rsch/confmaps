@@ -453,8 +453,9 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 - **Play mode:** ▶ slides the current window forward (~1 month/s, speed control, pause, drag to
   scrub). Window width is whatever the viewer set.
   - Pins fade + scale in when entering, pulse while live, fade out when leaving. **Live** means
-    `start ≤ t ≤ end` where t is the window's `from` edge (in Plan mode that is today, so Play moves a
-    simulated "today").
+    `start ≤ t ≤ end` where t is the window's `to` edge, so a pin pulses as it enters.
+  - While Play runs, a pin dims as it crosses the window: full opacity when its start enters at the
+    `to` edge, down to 30% as it reaches the `from` edge and leaves.
   - **Clustering is off during Play and history travel**: per-pin fades cannot be clustered, so an
     unclustered presentation of every location replaces the clustered one and crossfades back once
     motion settles.
