@@ -198,7 +198,6 @@
     <header class="topbar" bind:offsetHeight={topbarHeight}>
       <BrandMenu />
       <div class="topbar-actions glass">
-        <SettingsSlot compact />
         <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
           <Icon name="filter" size={14} /> Filters
           {#if filterState.activeCount}
@@ -564,7 +563,7 @@
     pointer-events: auto;
   }
 
-  /* Tight on a 390 px phone: the home pill shrinks first, Filters keeps its size. */
+  /* The Filters capsule. */
   .topbar-actions {
     display: flex;
     align-items: center;
@@ -589,7 +588,7 @@
   }
 
   /* Wide enough: the timeline joins the first row and takes the width left after Filters. */
-  @media (min-width: 760px) {
+  @media (min-width: 640px) {
     .topbar {
       grid-template-columns: auto minmax(0, max-content) minmax(0, 1fr);
       justify-content: normal;

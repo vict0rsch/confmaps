@@ -40,19 +40,15 @@ async function scan(page: Page, name: string, testInfo: TestInfo) {
 }
 
 async function setHome(page: Page, phone: boolean) {
-  if (phone) await page.getByRole('button', { name: /Set your city/ }).click();
+  if (phone) await page.getByRole('button', { name: 'confmaps', exact: true }).click();
   if (!phone) await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill('Berlin');
   await expect(page.getByRole('option').first()).toBeVisible();
   await page.keyboard.press('Enter');
-  if (phone)
-    await page
-      .getByRole('dialog', { name: 'Where are you travelling from?' })
-      .getByRole('button', { name: 'Done' })
-      .click();
-  await expect(page.getByTestId(phone ? 'home-button-label' : 'home-city')).toContainText('Berlin');
+  await expect(page.getByTestId('home-city')).toContainText('Berlin');
+  if (phone) await page.keyboard.press('Escape');
 }
 
 const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {

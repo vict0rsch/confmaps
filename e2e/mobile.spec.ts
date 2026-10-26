@@ -36,12 +36,15 @@ async function toPeek(sheet: Locator) {
   return settledTop(sheet);
 }
 
-test('the logo opens the legend, theme and credits', async ({ page }) => {
+test('the logo opens home, travel, the legend, theme and credits', async ({ page }) => {
   await page.goto('/');
   const pill = page.getByRole('button', { name: 'confmaps', exact: true });
   await pill.click();
   await expect(pill).toHaveAttribute('aria-expanded', 'true');
   const menu = page.getByRole('dialog', { name: 'confmaps' });
+  await expect(menu.getByRole('combobox', { name: 'Your city' })).toBeVisible();
+  await menu.getByText('Travel preferences').click();
+  await expect(menu.getByRole('group', { name: 'Distance units' })).toBeVisible();
   await expect(menu.getByRole('list', { name: 'Map legend' })).toBeVisible();
   await expect(menu.getByRole('button', { name: 'Data & credits' })).toBeVisible();
   await menu.getByTitle('Dark theme').click();
@@ -58,6 +61,15 @@ test('the logo opens the legend, theme and credits', async ({ page }) => {
   await menu.getByRole('button', { name: 'Close menu' }).click();
   await expect(menu).toBeHidden();
   await expect(pill).toBeFocused();
+});
+
+test('a shared link shows a dot on the logo and its notice in the panel', async ({ page }) => {
+  await page.goto('/?mode=fly&units=mi');
+  await expect(page.getByTestId('shared-dot')).toBeVisible();
+  await page.getByRole('button', { name: /^confmaps.*settings from a shared link$/ }).click();
+  await expect(
+    page.getByRole('dialog', { name: 'confmaps' }).getByTestId('shared-travel-notice'),
+  ).toBeVisible();
 });
 
 test('tapping the grip expands the sheet', async ({ page }) => {

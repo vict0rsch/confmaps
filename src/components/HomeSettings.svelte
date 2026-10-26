@@ -1,7 +1,7 @@
 <script lang="ts">
   // Home location and travel settings (DESIGN §6.5, §5.2). Desktop: a pill summarising them that
-  // opens an anchored panel. `compact` (mobile top bar): a button that opens the same panel in a
-  // sheet.
+  // opens an anchored panel. `compact` (mobile logo panel): the same panel inline, with the travel
+  // preferences folded into a disclosure.
   import { tick } from 'svelte';
   import { cityLabel, cityShortLabel, searchCities, type IndexedCity } from '../lib/home/cities';
   import { home } from '../lib/home/store.svelte';
@@ -25,7 +25,6 @@
   let message = $state('');
   let input: HTMLInputElement | undefined = $state();
   let changeButton: HTMLButtonElement | undefined = $state();
-  let dialog: HTMLDialogElement | undefined = $state();
   let pill: HTMLButtonElement | undefined = $state();
   let section: HTMLElement | undefined = $state();
   /** Desktop: the panel under the pill is open. */
@@ -69,7 +68,8 @@
     await afterChosen();
   }
 
-  /** A city was picked: desktop closes the panel back to the pill; the sheet stays open. */
+  /** A city was picked: desktop closes the panel back to the pill; in the logo panel the focus
+   *  moves to Change. */
   async function afterChosen() {
     if (!compact) return closePanel(true);
     await tick();
@@ -198,11 +198,55 @@
   {/if}
 {/snippet}
 
+{#snippet travelFields()}
+  <div class="row">
+    <span class="field-label" aria-hidden="true">Units</span>
+    <Segmented
+      legend="Distance units"
+      name="{uid}-units"
+      options={[
+        { value: 'km', label: 'km' },
+        { value: 'mi', label: 'mi' },
+      ]}
+      value={travel.units}
+      onchange={(v) => travel.setUnits(v)}
+    />
+  </div>
+  <div class="field">
+    <span class="field-label" aria-hidden="true">How do you travel?</span>
+    <Segmented
+      legend="How do you travel?"
+      name="{uid}-mode"
+      options={[
+        { value: 'auto', label: 'Train when possible' },
+        { value: 'fly', label: 'Always fly' },
+      ]}
+      value={travel.mode}
+      onchange={(v) => travel.setMode(v)}
+    />
+  </div>
+  {#if travel.mode === 'auto'}
+    <label class="threshold-row">
+      <span>Take the train under</span>
+      <input
+        class="input threshold tabular"
+        type="number"
+        min="0"
+        step="50"
+        inputmode="numeric"
+        aria-label="Train threshold in {travel.units}"
+        value={threshold}
+        onchange={setThreshold}
+      />
+      <span>{travel.units}</span>
+    </label>
+  {/if}
+{/snippet}
+
 {#snippet panel()}
   <div class="panel">
-    {#if !compact}
-      <h2 class="heading" id="{uid}-heading">Where are you travelling from?</h2>
-    {/if}
+    <h2 class="heading" id="{uid}-heading">Where are you travelling from?</h2>
+    {#if compact}{@render notices()}{/if}
 
     {#if home.city && !searching}
       <div class="current">
@@ -311,86 +355,28 @@
       </p>
     {/if}
 
-    <div class="travel">
-      <h3 class="subheading">Travel preferences</h3>
-      <div class="row">
-        <span class="field-label" aria-hidden="true">Units</span>
-        <Segmented
-          legend="Distance units"
-          name="{uid}-units"
-          options={[
-            { value: 'km', label: 'km' },
-            { value: 'mi', label: 'mi' },
-          ]}
-          value={travel.units}
-          onchange={(v) => travel.setUnits(v)}
-        />
+    {#if compact}
+      <details class="travel">
+        <summary class="travel-summary">
+          <span class="subheading">Travel preferences</span>
+          <span class="travel-current tabular">{travelSummary}</span>
+          <Icon name="chevron" size={14} />
+        </summary>
+        <div class="travel-fields">{@render travelFields()}</div>
+      </details>
+    {:else}
+      <div class="travel">
+        <h3 class="subheading">Travel preferences</h3>
+        {@render travelFields()}
       </div>
-      <div class="field">
-        <span class="field-label" aria-hidden="true">How do you travel?</span>
-        <Segmented
-          legend="How do you travel?"
-          name="{uid}-mode"
-          options={[
-            { value: 'auto', label: 'Train when possible' },
-            { value: 'fly', label: 'Always fly' },
-          ]}
-          value={travel.mode}
-          onchange={(v) => travel.setMode(v)}
-        />
-      </div>
-      {#if travel.mode === 'auto'}
-        <label class="threshold-row">
-          <span>Take the train under</span>
-          <input
-            class="input threshold tabular"
-            type="number"
-            min="0"
-            step="50"
-            inputmode="numeric"
-            aria-label="Train threshold in {travel.units}"
-            value={threshold}
-            onchange={setThreshold}
-          />
-          <span>{travel.units}</span>
-        </label>
-      {/if}
-    </div>
+    {/if}
   </div>
 {/snippet}
 
 {#if compact}
-  <button
-    class="button open-sheet"
-    type="button"
-    aria-haspopup="dialog"
-    onclick={() => dialog?.showModal()}
-  >
-    <Icon name="pin" size={14} />
-    <span class="label" data-testid="home-button-label">
-      {home.city ? home.city.name : 'Set your city'}{home.shared ? ' · link' : ''}
-    </span>
-  </button>
-  <dialog class="sheet" bind:this={dialog} aria-labelledby="{uid}-title">
-    <header>
-      <h2 id="{uid}-title">Where are you travelling from?</h2>
-      <button
-        class="icon-button"
-        type="button"
-        aria-label="Close location settings"
-        onclick={() => dialog?.close()}
-      >
-        <Icon name="close" size={18} />
-      </button>
-    </header>
-    <div class="sheet-body">
-      {@render notices()}
-      {@render panel()}
-    </div>
-    <footer>
-      <button class="done" type="button" onclick={() => dialog?.close()}>Done</button>
-    </footer>
-  </dialog>
+  <section aria-labelledby="{uid}-heading">
+    {@render panel()}
+  </section>
 {:else}
   <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <section
@@ -530,7 +516,7 @@
     display: none;
   }
 
-  /* ---- Panel content (shared by the popover and the mobile sheet) ---- */
+  /* ---- Panel content (shared by the popover and the logo panel) ---- */
   .panel,
   .search,
   .travel {
@@ -720,97 +706,55 @@
     text-align: right;
   }
 
-  /* ---- Compact (mobile) ---- */
-  /* Shrinks (with an ellipsis) so a long city name never overflows the top bar. */
-  .open-sheet {
-    flex: 0 1 auto;
-    min-width: 0;
-    max-width: 160px;
-    padding: 0 var(--space-3);
+  /* ---- Compact (logo panel): the travel preferences in a disclosure ---- */
+  /* Block, not flex: Safari mislays a flex <details>. */
+  details.travel {
+    display: block;
   }
 
-  .open-sheet :global(.icon) {
-    color: var(--accent);
+  .travel-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    list-style: none;
+    cursor: pointer;
   }
 
-  .label {
+  .travel-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .travel-current {
+    flex: 1;
     min-width: 0;
     overflow: hidden;
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .sheet {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    max-height: none;
-    margin: 0;
-    padding: var(--space-4) var(--space-4) 0;
-    border: 0;
-    background: var(--glass-fill-solid);
-    color: var(--ink);
+  .travel-summary > :global(.icon) {
+    color: var(--ink-muted);
+    transition: transform var(--duration-fast) var(--ease-out);
   }
 
-  .sheet[open] {
+  details[open] > .travel-summary > :global(.icon) {
+    transform: rotate(90deg);
+  }
+
+  .travel-fields {
     display: flex;
     flex-direction: column;
-    animation: sheet-in var(--duration-slow) var(--ease-out);
-  }
-
-  .sheet::backdrop {
-    background: var(--scrim);
-  }
-
-  .sheet header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: var(--space-3);
-    margin-bottom: var(--space-4);
-  }
-
-  .sheet h2 {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-  }
-
-  .sheet-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--space-3);
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .sheet footer {
-    padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--hairline);
-  }
-
-  .done {
-    width: 100%;
-    height: 44px;
-    border: 0;
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: var(--text-md);
-    font-weight: var(--weight-semibold);
+    padding-top: var(--space-3);
   }
 
   @keyframes pop-in {
     from {
       transform: translateY(-4px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes sheet-in {
-    from {
-      transform: translateY(16px);
       opacity: 0;
     }
   }

@@ -488,15 +488,16 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   editions are normal stops), and the years held online are listed beside the title
   ("Online: 2020 · 2021").
 - **Reduced motion:** play steps month by month with crossfades only.
-- On phones the compact scrubber sits under the top bar, outside the sheet (§6.7).
+- On phones the compact scrubber sits in the top bar, outside the sheet (§6.7).
 
 ### 6.5 Home location & privacy
 
 - Home is set from the **home pill** at the top of the sidebar, which shows the city (or "Set your
   city") and opens a panel. The panel holds the **city autocomplete** (GeoNames cities with
   population ≥ 50,000, `public/cities.json`, lazy-loaded), **"Use my location"** (browser
-  geolocation), a one-line privacy note and the travel preferences. On mobile the same content
-  opens in a full-screen sheet.
+  geolocation), a one-line privacy note and the travel preferences. On phones the same content
+  sits in the logo panel (§6.7), with the travel preferences folded under a "Travel preferences"
+  disclosure that shows the current choice.
 - Geolocation results are **snapped to the nearest city on-device**; only the city is used/stored.
 - Home is stored as a **GeoNames city** (id, name, country, coordinates) in `localStorage`
   (`confmaps:home`) only (wrapped in try/catch; app works without it).
@@ -542,7 +543,7 @@ DESKTOP, sidebar collapsed (☰ folds it into a pill; the pill opens it again)
 
 MOBILE
 ┌──────────────────────┐
-│ (brand)(📍Berlin)(≡) │  ← brand opens legend, theme, share, credits
+│ (☰ brand) (Filters)  │  ← opens home, travel, legend, theme, share, credits
 │ (▶ ▁▂█▂▁ ├window┤)   │  ← compact scrubber, a glass capsule under the top bar
 │        MAP           │
 │ ╭──────────────────╮ │
@@ -562,16 +563,22 @@ MOBILE
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
   collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
   a conference selected.
-- **Mobile layout:** the top bar holds the logo pill, the home button and Filters. The compact
-  timeline is a glass capsule on a second row under them. From 760 px wide, it joins the first row
+- **Mobile layout:** the top bar holds the logo pill and Filters. The compact
+  timeline is a glass capsule on a second row under them. From 640 px wide, it joins the first row
   and takes the width left after Filters. The sheet has three snaps: peek (the grip and the list
   heading, 84 px plus the bottom safe area), half (50%) and full (up to the top bar). Tapping the
   grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked and shows
   its top, and dragging the visible heading moves the sheet too. History mode lowers the sheet to peek. Selecting a conference raises a peek sheet to
   half.
-- **Logo panel (mobile):** the logo pill is a button. It opens a panel anchored under it (a modal
-  dialog) with the tagline, the legend, the theme, Share and the footer links. Its close button,
-  a tap outside or Escape closes it, and focus returns to the pill. Desktop has no logo panel.
+- **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
+  button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
+  bottom it holds the tagline and the close button, the home settings (the city or the city
+  search, "Use my location", the privacy note and the shared-link notices) and the travel
+  preferences in a disclosure, then the legend, the theme, Share and the footer links. It scrolls
+  when it is taller than the window. Opening it focuses the close button, so the keyboard does not
+  open. While the city or the travel settings of a shared link apply, a dot on ☰ shows it. Its
+  close button, a tap outside or Escape closes it, and focus returns to the pill. Desktop has no
+  logo panel.
 - **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
   (Methodology, Privacy, Third-party notices) and the logo panel. The press must start outside too,
   so a drag that starts inside (selecting text in a field) and ends outside keeps the dialog open.
