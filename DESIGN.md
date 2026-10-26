@@ -550,6 +550,15 @@ MOBILE
 │ │═══ glass sheet ══│ │
 │ │ list / detail    │ │  ← detail replaces list on select
 └─┴──────────────────┴─┘
+
+PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
+┌──────────────────────────────────────────┐
+│ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
+│ ╭────────────╮                           │
+│ │ list /     │            MAP            │
+│ │ detail     │                       (i) │
+│ ╰────────────╯                           │
+└──────────────────────────────────────────┘
 ```
 
 - **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
@@ -571,6 +580,12 @@ MOBILE
   dragging the visible heading moves the sheet too. History mode lowers the sheet to peek.
   Selecting a conference raises a peek sheet to half. In the sheet the detail has a 12 px top
   padding, so its title and close button show at peek.
+- **Phones held sideways** (`(orientation: landscape) and (max-height: 500px)`, below 1024 px
+  wide): the sheet becomes a glass side panel on the left, from under the top bar to the bottom
+  gap, `clamp(300px, 42vw, 360px)` wide. It has no snaps: it shows the list, or the detail in its
+  place, and scrolls. The panel, the top bar and the attribution keep clear of the notch and the
+  home indicator (safe-area insets). The map reserves the panel's width on the left. On phones the
+  map can zoom out below 0 in both orientations.
 - **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
   button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
   bottom it holds the tagline and the close button, the home settings (the city or the city

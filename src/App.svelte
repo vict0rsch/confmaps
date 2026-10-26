@@ -26,6 +26,9 @@
   import { historyMode } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
+  // Phones held sideways: the list and the detail move to a side panel.
+  const landscape = new MediaQuery('(orientation: landscape) and (max-height: 500px)', false);
+  const sidePanel = $derived(!desktop.current && landscape.current);
 
   // MapLibre is most of the JS: load it in its own chunk, started now, so the shell paints first.
   const mapView = import('./components/Map.svelte');
@@ -42,6 +45,8 @@
   let sheetHeight = $state(0);
   // Mobile: the floating top bar, safe-area padding included.
   let topbarHeight = $state(0);
+  // Phones held sideways: the side dock's width, safe-area padding included.
+  let sideWidth = $state(0);
   let filtersDialog: HTMLDialogElement | undefined = $state();
   // Desktop: the sidebar folds into a pill at its top-left corner. Not persisted: every visit opens it.
   let sidebarOpen = $state(true);
@@ -80,12 +85,19 @@
           bottom: TIMELINE_HEIGHT + PANEL_GAP * 2,
           left: sidebarOpen ? SIDEBAR_WIDTH + PANEL_GAP * 2 : 0,
         }
-      : {
-          top: topbarHeight + MOBILE_GAP,
-          right: 0,
-          bottom: Math.max(sheetHeight, SHEET_PEEK),
-          left: 0,
-        },
+      : sidePanel
+        ? {
+            top: topbarHeight + MOBILE_GAP,
+            right: 0,
+            bottom: 0,
+            left: sideWidth + MOBILE_GAP,
+          }
+        : {
+            top: topbarHeight + MOBILE_GAP,
+            right: 0,
+            bottom: Math.max(sheetHeight, SHEET_PEEK),
+            left: 0,
+          },
   );
 
   // Edges of the free map area, gap included, for overlays inside the stage (map controls).
@@ -111,13 +123,26 @@
       else
         document
           .querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)
-          ?.focus({ preventScroll: !desktop.current && sheetSnap === 'peek' });
+          ?.focus({ preventScroll: !desktop.current && !sidePanel && sheetSnap === 'peek' });
     }
   }
 </script>
 
 {#snippet siteFootprint(site: JoinedLocation)}
   <SiteFootprint {site} />
+{/snippet}
+
+{#snippet panelContent()}
+  {#if app.selectedConference}
+    <Detail
+      conference={app.selectedConference}
+      onclose={closeDetail}
+      onViewHistory={viewHistory}
+      {siteFootprint}
+    />
+  {:else}
+    <ConferenceList />
+  {/if}
 {/snippet}
 
 <DocDialog hash="methodology" title="Methodology" load={() => import('../METHODOLOGY.md?raw')} />
@@ -132,6 +157,7 @@
   class="app"
   class:desktop={desktop.current}
   class:mobile={!desktop.current}
+  class:landscape={sidePanel}
   class:sidebar-collapsed={desktop.current && !sidebarOpen}
   style:--pill-width="{pillWidth}px"
 >
@@ -213,7 +239,7 @@
 
   <main
     class="stage"
-    class:sheet-full={!desktop.current && sheetSnap === 'full'}
+    class:sheet-full={!desktop.current && !sidePanel && sheetSnap === 'full'}
     style:--stage-inset-top="{Math.max(insets.top, shellGap)}px"
     style:--stage-inset-right="{Math.max(insets.right, shellGap)}px"
     style:--stage-inset-bottom="{Math.max(insets.bottom, shellGap)}px"
@@ -244,6 +270,16 @@
           />
         </div>
       {/if}
+    {:else if sidePanel}
+      <div class="side-dock" style:top="{topbarHeight + MOBILE_GAP}px" bind:offsetWidth={sideWidth}>
+        <section
+          class="side-panel glass"
+          data-scroll
+          aria-label={app.selectedConference ? 'Conference details' : 'Conference list'}
+        >
+          {@render panelContent()}
+        </section>
+      </div>
     {:else}
       <!-- The sheet slides up to the top bar, never under it. -->
       <div class="sheet-dock" style:top="{topbarHeight + MOBILE_GAP}px">
@@ -252,16 +288,7 @@
           onheightchange={(h) => (sheetHeight = h)}
           label={app.selectedConference ? 'Conference details' : 'Conference list'}
         >
-          {#if app.selectedConference}
-            <Detail
-              conference={app.selectedConference}
-              onclose={closeDetail}
-              onViewHistory={viewHistory}
-              {siteFootprint}
-            />
-          {:else}
-            <ConferenceList />
-          {/if}
+          {@render panelContent()}
         </BottomSheet>
       </div>
     {/if}
@@ -615,6 +642,29 @@
     bottom: 0;
     left: 0;
     pointer-events: none;
+  }
+
+  /* Phones held sideways: a floating panel on the left, from under the top bar down. */
+  .side-dock {
+    position: absolute;
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
+    left: 0;
+    display: flex;
+    padding-left: max(env(safe-area-inset-left), var(--shell-gap));
+    pointer-events: none;
+  }
+
+  .side-panel {
+    width: clamp(300px, 42vw, 360px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: var(--radius-panel);
+    pointer-events: auto;
+  }
+
+  .app.landscape :global(.maplibregl-ctrl-bottom-right) {
+    right: max(env(safe-area-inset-right), var(--shell-gap));
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
   }
 
   /* The detail's title and close button fit the 44 px a peek sheet shows under its grip. */

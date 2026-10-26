@@ -180,9 +180,10 @@
 
   // ---- Map lifecycle -------------------------------------------------------
   $effect(() => {
-    // Phones: zoom may go below 0 so the first view fits every upcoming pin. MapLibre's own
-    // constraint keeps the world covering the visible area (camera padding), so no empty band.
-    const narrow = container.clientWidth < 640;
+    // The mobile layout, in either orientation: zoom may go below 0 so the first view fits every
+    // upcoming pin. MapLibre's own constraint keeps the world covering the visible area (camera
+    // padding), so no empty band. Untracked: crossing 1024 px must not rebuild the map.
+    const narrow = untrack(() => phone);
     const m = new MLMap({
       container,
       style: { version: 8, sources: {}, layers: [] },

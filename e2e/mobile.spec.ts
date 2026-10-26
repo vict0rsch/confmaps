@@ -194,3 +194,28 @@ test('the attribution is compact on phones, shown first, then behind its (i) but
   await page.locator('.maplibregl-ctrl-attrib-button').click();
   await expect(inner).toBeVisible();
 });
+
+test.describe('landscape', () => {
+  test.use({ viewport: { width: 844, height: 390 }, hasTouch: true });
+
+  test('the list and the detail sit in a side panel; the timeline shares the top row', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    const list = page.getByRole('region', { name: 'Conference list' });
+    const panel = (await list.boundingBox())!;
+    expect(panel.x).toBeLessThan(60);
+    expect(panel.width).toBeLessThanOrEqual(360);
+    expect(panel.height).toBeGreaterThan(250);
+    await expect(page.getByRole('button', { name: 'Expand panel' })).toHaveCount(0);
+    const play = (await page.getByRole('button', { name: 'Play timeline' }).boundingBox())!;
+    expect(play.y).toBeLessThan(panel.y);
+
+    await page.locator('button.row').first().click();
+    await expect(
+      page.getByRole('region', { name: 'Conference details' }).getByTestId('detail'),
+    ).toBeVisible();
+    await page.getByRole('button', { name: 'Close details' }).tap();
+    await expect(page.locator('#list-heading')).toBeInViewport();
+  });
+});
