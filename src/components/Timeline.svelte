@@ -410,10 +410,11 @@
             <button
               type="button"
               class="preset"
-              aria-label={p.short === p.label ? undefined : p.label}
               aria-pressed={sameWindow(dates, p.w)}
               onclick={() => applyPreset(p.w)}
-              ><span class="full">{p.label}</span><span class="short">{p.short}</span></button
+              ><span class="full">{p.label}</span><span class="short" aria-hidden="true"
+                >{p.short}</span
+              ></button
             >
           {/each}
         </div>
@@ -828,10 +829,16 @@
     .preset {
       height: 24px;
       padding: 0 8px;
+      position: relative;
     }
 
+    /* The full label stays in the accessible name (WCAG 2.5.3: it contains the visible text). */
     .preset .full {
-      display: none;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
     }
 
     .preset .short {

@@ -17,6 +17,16 @@ const sizes = {
 } as const;
 
 async function scan(page: Page, name: string, testInfo: TestInfo) {
+  // Let entrance animations finish: mid-fade text fails contrast. Looping ones are skipped, and a
+  // cancelled one (its element was removed) must not fail the wait.
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished.catch(() => {})),
+    ),
+  );
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
     .exclude('.maplibregl-canvas')
@@ -125,15 +135,6 @@ test.describe('past editions', () => {
           await scan(page, `${theme} ${size} virtual rows`, testInfo);
           await page.locator('button.row[data-conference-id="neurips20"]').click();
           await expect(page.getByTestId('site-footprint')).toContainText('Online');
-          // Let the panel's entrance finish (mid-fade text fails contrast).
-          await page.evaluate(() =>
-            Promise.all(
-              document
-                .getAnimations()
-                .filter((a) => a.effect?.getTiming().iterations !== Infinity)
-                .map((a) => a.finished),
-            ),
-          );
           await scan(page, `${theme} ${size} virtual detail`, testInfo);
         });
       });
