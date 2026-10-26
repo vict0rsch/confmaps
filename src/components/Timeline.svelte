@@ -418,9 +418,7 @@
           {/each}
         </div>
       {/if}
-      <span class="range tabular" data-testid="timeline-range"
-        >{windowLabel(dates, compact)}</span
-      >
+      <span class="range tabular" data-testid="timeline-range">{windowLabel(dates, compact)}</span>
     {/if}
   </div>
 </section>
