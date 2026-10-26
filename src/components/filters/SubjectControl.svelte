@@ -28,4 +28,5 @@
   {groups}
   selected={state}
   onchange={(next) => set(normalizeCodes([...state.filter((c) => !known.has(c)), ...next]))}
+  onclear={() => set([])}
 />

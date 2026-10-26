@@ -18,6 +18,7 @@
     groups,
     selected,
     onchange,
+    onclear,
   }: {
     /** Names the checklist and starts the field's accessible name ("Topics: …"). */
     legend: string;
@@ -29,6 +30,8 @@
     groups: readonly { name?: string; options: readonly Option[] }[];
     selected: readonly V[];
     onchange(next: V[]): void;
+    /** Clear: by default, `onchange([])`. */
+    onclear?: () => void;
   } = $props();
 
   const uid = $props.id();
@@ -36,6 +39,7 @@
   const asField = $derived(fieldContext?.() ?? false);
   let open = $state(false);
   let list: HTMLFieldSetElement | undefined = $state();
+  let root: HTMLDivElement | undefined = $state();
 
   const options = $derived(groups.flatMap((g) => g.options));
   const chosen = $derived(options.filter((o) => selected.includes(o.value)));
@@ -46,9 +50,18 @@
 
   /** The Clear button disappears: keep focus in the list. */
   async function clear() {
-    onchange([]);
+    if (onclear) onclear();
+    else onchange([]);
     await tick();
     list?.querySelector('input')?.focus();
+  }
+
+  /** Opened near the bottom of a scrolling panel: bring the field and its list into view. */
+  async function toggleOpen() {
+    open = !open;
+    if (!open) return;
+    await tick();
+    root?.scrollIntoView({ block: 'nearest' });
   }
 </script>
 
@@ -66,7 +79,7 @@
   {/each}
 {/snippet}
 
-<div class="multi-select">
+<div class="multi-select" bind:this={root}>
   {#if asField}
     <button
       type="button"
@@ -74,7 +87,7 @@
       class:empty={!chosen.length}
       aria-expanded={open}
       aria-controls="{uid}-list"
-      onclick={() => (open = !open)}
+      onclick={toggleOpen}
     >
       <span class="visually-hidden">{legend}: </span>
       <span class="labels"
@@ -104,7 +117,7 @@
     <legend class="visually-hidden">{legend}</legend>
     <div class="head">
       <p class="hint" id="{uid}-hint">{hint}</p>
-      {#if chosen.length}
+      {#if selected.length}
         <button class="clear" type="button" onclick={clear}>
           Clear<span class="visually-hidden"> {legend}</span>
         </button>
@@ -198,6 +211,13 @@
 
   .clear:hover {
     text-decoration: underline;
+  }
+
+  @media (pointer: coarse) {
+    .clear {
+      padding: 8px;
+      margin: -8px;
+    }
   }
 
   .group {

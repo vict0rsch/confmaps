@@ -26,6 +26,13 @@
     openId = openId === id ? null : id;
   }
 
+  /** The button unmounts: move focus to the search field (sidebar). */
+  async function clearAll() {
+    filterState.resetAll();
+    await tick();
+    document.getElementById('filter-search')?.focus();
+  }
+
   async function onKeydown(e: KeyboardEvent) {
     if (e.key !== 'Escape' || !openId) return;
     e.preventDefault();
@@ -77,7 +84,7 @@
         </button>
       {/each}
       {#if filterState.activeCount}
-        <button class="clear-all" type="button" onclick={() => filterState.resetAll()}>
+        <button class="clear-all" type="button" onclick={clearAll}>
           Clear all
           <span class="count tabular" data-testid="filters-badge">
             {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>

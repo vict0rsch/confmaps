@@ -442,13 +442,14 @@ Initial filters:
 | `kind` | official / community | |
 | `open` | submission still open | Next upstream deadline (abstract or paper) after today |
 
-The filter panel renders only registered filters, so adding a filter still means adding a file.
-In the sidebar it is a **search field** (the `search` filter's control, always visible) above a row
-of **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip
-opens that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it
-and returns focus to the chip. In the mobile filters panel (§6.7) there are no trays: every filter
-is a stacked section with its control open. Once any filter is active, the sidebar shows **"Clear
-all"** with the active-filter count, and the filters panel shows "Clear all" in its header.
+The filter panel renders only registered filters, so adding a filter still means adding a file. In
+the sidebar it is a **search field** (the `search` filter's control, always visible) above a row of
+**chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip opens
+that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it and
+returns focus to the chip. In the mobile filters panel (§6.7) there are no trays: every filter is a
+stacked section with its control shown (multi-selects as fields, see below). Once any filter is
+active, the sidebar shows **"Clear all"** with the active-filter count, and the filters panel shows
+"Clear all" in its header.
 
 **Multi-select filters** (`subject`, `access`) use one component, `MultiSelect`. It is a list of
 native checkboxes in a fieldset. Tab moves between them and Space toggles one. Topics shows its
@@ -563,16 +564,16 @@ MOBILE
 └─┴──────────────────┴─┘
 
 MOBILE, filters open (anchored under Filters, right-aligned with it)
-┌──────────────────────┐
-│ (☰ brand) (Filters)  │
-│  ╭─────────────────╮ │
-│  │Filters  Clear ✕ │ │  ← header stays put
-│  │23 conferences   │ │
-│  │[ search       ] │ │  ← the rest scrolls
-│  │Dates · Topics ▾ │ │
-│  │Distance · …     │ │
-│  ╰─────────────────╯ │
-└──────────────────────┘
+┌────────────────────────┐
+│ (☰ brand)   (Filters)  │
+│  ╭───────────────────╮ │
+│  │Filters Clear all ✕│ │  ← header stays put
+│  │23 conferences     │ │
+│  │[ search         ] │ │  ← the rest scrolls
+│  │Dates · Topics ▾   │ │
+│  │Distance · …       │ │
+│  ╰───────────────────╯ │
+└────────────────────────┘
 
 PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
 ┌──────────────────────────────────────────┐

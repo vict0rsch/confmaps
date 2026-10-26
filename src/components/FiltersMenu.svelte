@@ -27,7 +27,7 @@
     const r = capsule.getBoundingClientRect();
     const rightAligned = r.right - dialog.offsetWidth;
     top = r.bottom + 8;
-    left = rightAligned >= GAP ? rightAligned : r.left;
+    left = rightAligned >= GAP - 1 ? rightAligned : r.left; // - 1: a fractional capsule edge
   }
 
   function show() {
@@ -181,7 +181,11 @@
     background: var(--glass-tint-hover);
   }
 
+  /* Positioned: the controls' visually hidden parts (position: absolute) stay inside its scroll
+     box; otherwise they overflow the panel, and scrolling a field into view scrolls the header
+     away. */
   .body {
+    position: relative;
     flex: 1;
     min-height: 0;
     padding: var(--space-3) var(--space-4) var(--space-4);

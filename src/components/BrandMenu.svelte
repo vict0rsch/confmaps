@@ -57,7 +57,7 @@
 
 <dialog
   id="{uid}-menu"
-  class="menu anchored-panel glass-thick"
+  class="anchored-panel glass-thick"
   aria-label="confmaps"
   bind:this={dialog}
   {@attach lightDismiss}
