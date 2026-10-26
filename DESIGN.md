@@ -601,12 +601,13 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   again. The panel fades out first, then the pill fades in. On unfold, the pill goes at once and
   the panel fades in. The folded panel stays mounted, so list scroll survives. It is `inert` and
   hidden after its fade. Focus moves to the pill on fold and back to the tab on unfold. A new
-  selection (a tapped pin) unfolds the panel to show the detail. With a selection, folding and
-  unfolding move the map's padding but keep its zoom. With no selection, they fit the overview of
-  every visible pin to the new free area, unless the viewer moved the map. In history mode they
-  fit the editions' path. A panel that resizes, a rotation and a crossing of the desktop
-  breakpoint fit the selection again; they are not folds. The state is not saved. It survives a
-  rotation to portrait and back, unless a conference is selected meanwhile.
+  selection (a tapped pin) unfolds the panel to show the detail. The tab comes before the list
+  rows in the tab order. With a selection, folding and unfolding move the map's padding but keep
+  its zoom. With no selection, they fit the overview of every visible pin to the new free area,
+  unless the viewer moved the map. In history mode they fit the editions' path. A panel that
+  resizes, a rotation and a crossing of the desktop breakpoint fit the selection again; they are
+  not folds. The state is not saved. It survives a rotation to portrait and back, unless a
+  conference is selected meanwhile.
 - **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
   button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
   bottom it holds the tagline and the close button, the home settings (the city or the city

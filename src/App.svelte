@@ -297,13 +297,7 @@
         style:top="{topbarHeight + MOBILE_GAP}px"
         bind:offsetWidth={sideWidth}
       >
-        <section
-          class="side-panel glass"
-          data-scroll
-          aria-label={app.selectedConference ? 'Conference details' : 'Conference list'}
-        >
-          {@render panelContent()}
-        </section>
+        <!-- First in tab order, before the list rows; it is placed on the panel's edge. -->
         <button
           class="side-fold glass"
           type="button"
@@ -316,6 +310,13 @@
         >
           <Icon name="chevron" size={16} />
         </button>
+        <section
+          class="side-panel glass"
+          data-scroll
+          aria-label={app.selectedConference ? 'Conference details' : 'Conference list'}
+        >
+          {@render panelContent()}
+        </section>
       </div>
       <!-- The folded panel: what it shows (the count, or the selected conference), as one button. -->
       <button
@@ -333,7 +334,7 @@
           {#if app.selectedConference}
             {app.selectedConference.title} {app.selectedConference.year}
           {:else}
-            <span class="tabular">{app.listItems.length || 'No'}</span>
+            <span class="tabular">{app.listItems.length}</span>
             {app.listItems.length === 1 ? 'conference' : 'conferences'}
           {/if}
         </span>
@@ -759,6 +760,13 @@
     border-radius: var(--radius-full);
     color: var(--ink-muted);
     pointer-events: auto;
+  }
+
+  /* A wider touch target, mostly over the map: it stops at the panel's edge. */
+  .side-fold::before {
+    content: '';
+    position: absolute;
+    inset: 0 -12px 0 -4px;
   }
 
   .side-fold:hover {
