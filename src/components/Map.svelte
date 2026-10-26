@@ -591,7 +591,12 @@
         (id !== followed.id || pad.left === followed.left || (phone && folded === followed.folded))
       )
         fitSelection();
-      else if (deferredFit && !noRoom()) deferredFit();
+      // On phones, a fold with no selection fits the overview (or the editions' path) to the new
+      // free area: the zoom fitted beside the panel would show the world twice once folded.
+      else if (!id && phone && folded !== followed.folded) {
+        if (historyMode.series) fitHistory(duration(900));
+        else fitOverview(duration(800));
+      } else if (deferredFit && !noRoom()) deferredFit();
       else m.easeTo({ padding: pad, duration: duration(250) });
       followed = { id, left: pad.left, folded };
     });
