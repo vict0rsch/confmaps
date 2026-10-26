@@ -629,6 +629,8 @@
     const free = container.clientWidth - inset('left') - inset('right');
     const wide = !phone && free >= ATTRIBUTION_MIN_FREE_WIDTH;
     if (el.classList.contains('maplibregl-compact') === wide) {
+      // A pending first-load collapse must not hide the attribution after this switch.
+      clearTimeout(attributionTimer);
       el.classList.toggle('maplibregl-compact', !wide);
       el.classList.remove('maplibregl-compact-show');
       el.open = wide;

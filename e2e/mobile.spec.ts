@@ -36,6 +36,25 @@ async function toPeek(sheet: Locator) {
   return settledTop(sheet);
 }
 
+/** The stub basemap credits no one, and an empty attribution is hidden: give it a credit. */
+async function creditBasemap(page: Page) {
+  await page.route('https://tiles.openfreemap.org/styles/**', (route) =>
+    route.fulfill({
+      json: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: [] },
+            attribution: '© OpenStreetMap',
+          },
+        },
+        layers: [{ id: 'boundary_2', type: 'line', source: 'osm' }],
+      },
+    }),
+  );
+}
+
 test('the logo opens home, travel, the legend, theme and credits', async ({ page }) => {
   await page.goto('/');
   const pill = page.getByRole('button', { name: 'confmaps', exact: true });
@@ -180,22 +199,7 @@ test('a tap outside Share closes it, not the logo panel', async ({ page }) => {
 test('the attribution is compact on phones, shown first, then behind its (i) button', async ({
   page,
 }) => {
-  // The stub basemap credits no one, and an empty attribution is hidden: give it a credit.
-  await page.route('https://tiles.openfreemap.org/styles/**', (route) =>
-    route.fulfill({
-      json: {
-        version: 8,
-        sources: {
-          osm: {
-            type: 'geojson',
-            data: { type: 'FeatureCollection', features: [] },
-            attribution: '© OpenStreetMap',
-          },
-        },
-        layers: [{ id: 'boundary_2', type: 'line', source: 'osm' }],
-      },
-    }),
-  );
+  await creditBasemap(page);
   await page.setViewportSize({ width: 844, height: 390 });
   await page.goto('/');
   const attribution = page.locator('.maplibregl-ctrl-attrib');
@@ -204,6 +208,17 @@ test('the attribution is compact on phones, shown first, then behind its (i) but
   await expect(inner).toBeVisible();
   await expect(inner).toBeHidden({ timeout: 8000 });
   await page.locator('.maplibregl-ctrl-attrib-button').click();
+  await expect(inner).toBeVisible();
+});
+
+test('the full attribution stays shown after a resize to desktop', async ({ page }) => {
+  await creditBasemap(page);
+  await page.goto('/');
+  const inner = page.locator('.maplibregl-ctrl-attrib-inner');
+  await expect(inner).toBeVisible();
+  await page.setViewportSize({ width: 1400, height: 800 });
+  await page.waitForTimeout(6000); // past the phone's five-second collapse
+  await expect(page.locator('.maplibregl-ctrl-attrib')).not.toHaveClass(/maplibregl-compact/);
   await expect(inner).toBeVisible();
 });
 
