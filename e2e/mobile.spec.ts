@@ -114,6 +114,21 @@ test('your own travel settings in the address bar are not a shared link', async 
   await expect(page.getByTestId('shared-dot')).toHaveCount(0);
 });
 
+test('Topics is one field; it opens its checklist and shows the choice', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Filters', exact: true }).tap();
+  const field = page.getByRole('button', { name: /^Topics:/ });
+  await expect(field).toContainText('Any topic');
+  await expect(field).toHaveAttribute('aria-expanded', 'false');
+  await field.tap();
+  await expect(field).toHaveAttribute('aria-expanded', 'true');
+  for (const name of ['Machine learning', 'Computer vision', 'Natural language processing']) {
+    await page.getByRole('checkbox', { name }).check();
+  }
+  await expect(field).toContainText(/Machine learning, Computer vision\s*\+1/);
+  await expect(page).toHaveURL(/[?&]sub=/);
+});
+
 test('tapping the grip expands the sheet', async ({ page }) => {
   await page.goto('/');
   const sheet = page.getByRole('region', { name: 'Conference list' });

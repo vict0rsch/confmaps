@@ -64,8 +64,10 @@ async function setHome(page: Page, phone: boolean) {
 const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {
   default: async () => {},
   'filters open': async (page, phone) => {
-    if (phone) await page.getByRole('button', { name: 'Filters' }).click();
-    else await page.locator('button.chip[data-filter="subject"]').click();
+    if (phone) {
+      await page.getByRole('button', { name: 'Filters', exact: true }).click();
+      await page.getByRole('button', { name: /^Topics:/ }).click();
+    } else await page.locator('button.chip[data-filter="subject"]').click();
   },
   'detail with home': async (page, phone) => {
     await setHome(page, phone);

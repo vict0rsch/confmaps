@@ -2,7 +2,7 @@
   import { ACCESS_LEVELS, type AccessState } from '../../lib/filters/access';
   import type { ControlProps } from '../../lib/filters/types';
   import { ACCESS_ICON, ACCESS_LABEL } from '../../lib/format/labels';
-  import Chips from './Chips.svelte';
+  import MultiSelect from './MultiSelect.svelte';
 
   let { state, set }: ControlProps<AccessState> = $props();
 
@@ -13,4 +13,11 @@
   }));
 </script>
 
-<Chips legend="Access" {options} selected={state} onchange={set} />
+<MultiSelect
+  legend="Access"
+  emptyLabel="Any access level"
+  hint="Any of the selected access levels."
+  groups={[{ options }]}
+  selected={state}
+  onchange={set}
+/>

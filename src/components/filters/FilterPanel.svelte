@@ -1,13 +1,16 @@
 <script lang="ts">
   // Registered filters (DESIGN §6.3) as a filter bar: the `search` filter's field always visible,
   // every other filter a chip that opens its Control in a tray (one at a time), plus "Clear all".
-  // `layout="dialog"` (mobile full-screen sheet) stacks every Control open instead of trays.
-  import { tick } from 'svelte';
+  // `layout="dialog"` (mobile) stacks every Control open instead of trays; multi-select Controls
+  // show as fields there.
+  import { setContext, tick } from 'svelte';
   import type { AnyFilter } from '../../lib/filters';
   import { filterState } from '../../lib/state/filters.svelte';
   import Icon from '../Icon.svelte';
+  import { FIELD_CONTEXT } from './MultiSelect.svelte';
 
   let { layout = 'sidebar' }: { layout?: 'sidebar' | 'dialog' } = $props();
+  setContext(FIELD_CONTEXT, () => layout === 'dialog');
 
   const uid = $props.id();
   const trayId = (id: string) => `${uid}-tray-${id}`;

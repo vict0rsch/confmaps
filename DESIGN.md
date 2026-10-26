@@ -445,10 +445,20 @@ Initial filters:
 The filter panel renders only registered filters, so adding a filter still means adding a file.
 In the sidebar it is a **search field** (the `search` filter's control, always visible) above a row
 of **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip
-opens that filter's control in a tray under the row, and only one tray is open at a time (Esc closes
-it and returns focus to the chip). In the mobile full-screen dialog there are no trays: every
-filter is a stacked section with its control open. Both layouts show **"Clear all"** with the
-active-filter count once any filter is active.
+opens that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it
+and returns focus to the chip. In the mobile full-screen dialog there are no trays: every filter is
+a stacked section with its control open. Both layouts show **"Clear all"** with the active-filter
+count once any filter is active.
+
+**Multi-select filters** (`subject`, `access`) use one component, `MultiSelect`. It is a list of
+native checkboxes in a fieldset. Tab moves between them and Space toggles one. Topics shows its
+subject groups as headings. A hint above the list says how the choices combine. A "Clear" link
+beside the hint empties the selection. In a sidebar tray the checklist shows at once. In the mobile
+layout the control is a **field**: a button that shows the current choice and opens the checklist
+under it. With nothing selected, the field reads "Any topic" or "Any access level". Otherwise it
+shows the first two choices in display order and "+N" for the rest. The names shorten with an
+ellipsis when the field is too narrow. "+N" always shows. `kind` stays a segmented control, because
+it is a single choice. `open` stays one checkbox.
 
 ### 6.4 Timeline / scrubber
 

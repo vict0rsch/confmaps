@@ -26,3 +26,16 @@ test('selection is mirrored to ?c=', async ({ page }) => {
   await page.reload();
   await expect(page.getByTestId('detail')).toBeVisible();
 });
+
+test('Topics is a checklist in its tray; Clear empties it', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('button.chip[data-filter="subject"]').click();
+  const tray = page.locator('[data-filter-tray="subject"]');
+  await tray.getByRole('checkbox', { name: 'Computer vision' }).check();
+  await expect(page).toHaveURL(/[?&]sub=CV/);
+  await expect(page.getByTestId('filters-badge')).toHaveText(/^\s*1/);
+  await tray.getByRole('button', { name: 'Clear Topics' }).click();
+  await expect(tray.getByRole('checkbox', { name: 'Computer vision' })).not.toBeChecked();
+  await expect(tray.getByRole('checkbox').first()).toBeFocused();
+  await expect(page).not.toHaveURL(/sub=/);
+});
