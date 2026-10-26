@@ -35,7 +35,7 @@
   const TIMELINE_HEIGHT = 56; // keep in sync with --timeline-height
   const PANEL_GAP = 16; // keep in sync with --panel-gap
   const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap
-  const SHEET_PEEK = 84; // keep in sync with BottomSheet
+  const SHEET_PEEK = 68; // keep in sync with BottomSheet
 
   // Phones open at half: the map above is roughly square, the shape of the world overview.
   let sheetSnap: Snap = $state('half');
@@ -222,7 +222,7 @@
     {#await mapView}
       <div class="map-placeholder"></div>
     {:then { default: MapView }}
-      <MapView {insets} />
+      <MapView {insets} phone={!desktop.current} />
     {/await}
 
     {#if desktop.current}
@@ -615,6 +615,11 @@
     bottom: 0;
     left: 0;
     pointer-events: none;
+  }
+
+  /* The detail's title and close button fit the 44 px a peek sheet shows under its grip. */
+  .mobile .sheet-dock :global(.detail) {
+    padding-top: var(--space-3);
   }
 
   .tagline {

@@ -563,13 +563,14 @@ MOBILE
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
   collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
   a conference selected.
-- **Mobile layout:** the top bar holds the logo pill and Filters. The compact
-  timeline is a glass capsule on a second row under them. From 640 px wide, it joins the first row
-  and takes the width left after Filters. The sheet has three snaps: peek (the grip and the list
-  heading, 84 px plus the bottom safe area), half (50%) and full (up to the top bar). Tapping the
-  grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked and shows
-  its top, and dragging the visible heading moves the sheet too. History mode lowers the sheet to peek. Selecting a conference raises a peek sheet to
-  half.
+- **Mobile layout:** the top bar holds the logo pill and Filters. The compact timeline is a glass
+  capsule on a second row under them. From 640 px wide, it joins the first row and takes the width
+  left after Filters. The sheet has three snaps: peek (the grip and the list heading, 68 px plus
+  the bottom safe area), half (50%) and full (up to the top bar). Tapping the grip cycles the
+  snaps, and dragging it moves the sheet. At peek the content is locked and shows its top, and
+  dragging the visible heading moves the sheet too. History mode lowers the sheet to peek.
+  Selecting a conference raises a peek sheet to half. In the sheet the detail has a 12 px top
+  padding, so its title and close button show at peek.
 - **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
   button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
   bottom it holds the tagline and the close button, the home settings (the city or the city
@@ -589,7 +590,9 @@ MOBILE
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
-  form below that.
+  form below that. On phones it is always compact. As the OSMF attribution guidelines ask, it is
+  shown first and collapses after five seconds or on the first drag; its (i) button shows it
+  again.
 - **Legend:** it reads "Main venue", then "Satellites:" with its two kinds ("official",
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It

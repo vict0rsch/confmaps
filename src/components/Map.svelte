@@ -71,7 +71,14 @@
   import type { ResolvedTheme } from '../lib/state/theme';
   import Icon from './Icon.svelte';
 
-  let { insets = { top: 0, right: 0, bottom: 0, left: 0 } }: { insets?: Insets } = $props();
+  let {
+    insets = { top: 0, right: 0, bottom: 0, left: 0 },
+    phone = false,
+  }: {
+    insets?: Insets;
+    /** The mobile layout: the attribution stays compact. */
+    phone?: boolean;
+  } = $props();
 
   let container: HTMLDivElement;
   let map: MLMap | undefined = $state.raw();
@@ -193,7 +200,22 @@
     m.getContainer()
       .querySelectorAll('.maplibregl-ctrl-group, .maplibregl-ctrl-attrib')
       .forEach((el) => el.classList.add('glass'));
-    m.once('load', fitAttribution);
+    // OSMF attribution guidelines: a compact attribution is shown at first, then collapses after five
+    // seconds or on the first drag (MapLibre's own handler); its (i) button shows it again.
+    m.once('load', () => {
+      fitAttribution();
+      const el = m.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
+      if (!phone || !el?.classList.contains('maplibregl-compact')) return;
+      el.classList.add('maplibregl-compact-show');
+      el.open = true;
+      el.querySelector('summary')?.addEventListener('click', () => clearTimeout(attributionTimer), {
+        once: true,
+      });
+      attributionTimer = setTimeout(() => {
+        el.classList.remove('maplibregl-compact-show');
+        el.open = false;
+      }, 5000);
+    });
 
     m.on('style.load', () => (styleReady = true));
     m.setMissingStyleImageResolver((id) => {
@@ -300,6 +322,7 @@
     map = m;
     return () => {
       root.toggleAttribute('data-map-dragging', false);
+      clearTimeout(attributionTimer);
       ro.disconnect();
       cancelAnimationFrame(raf);
       raf = 0;
@@ -592,26 +615,30 @@
   /**
    * The map spans the window under the panels, so MapLibre's width-based compact switch never
    * fires. Show the attribution in full when the free area (between the stage insets) is wide
-   * enough, otherwise collapse it to its (i) toggle, which still expands on click.
+   * enough, otherwise collapse it to its (i) toggle, which still expands on click. On phones it
+   * is always compact.
    */
   const ATTRIBUTION_MIN_FREE_WIDTH = 560;
+  let attributionTimer: ReturnType<typeof setTimeout> | undefined;
   function fitAttribution() {
     const el = map?.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
     if (!el || !container) return;
     const cs = getComputedStyle(container);
     const inset = (side: string) => parseFloat(cs.getPropertyValue(`--stage-inset-${side}`)) || 0;
     const free = container.clientWidth - inset('left') - inset('right');
-    const wide = free >= ATTRIBUTION_MIN_FREE_WIDTH;
+    const wide = !phone && free >= ATTRIBUTION_MIN_FREE_WIDTH;
     if (el.classList.contains('maplibregl-compact') === wide) {
       el.classList.toggle('maplibregl-compact', !wide);
       el.classList.remove('maplibregl-compact-show');
       el.open = wide;
     }
   }
-  // The drawer opening or closing changes the free width (after the stage props update).
+  // The drawer opening or closing changes the free width (after the stage props update); crossing
+  // into the mobile layout changes the rule.
   const insetLR = $derived(insets.left + insets.right);
   $effect(() => {
     void insetLR;
+    void phone;
     requestAnimationFrame(fitAttribution);
   });
 

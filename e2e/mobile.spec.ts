@@ -141,7 +141,8 @@ test('at peek, the detail close button takes a tap and the list shows its headin
   page.on('pageerror', (e) => errors.push(e));
   await page.goto('/?c=neurips26');
   // Through full with a selection: the map has no free height left, and must not throw.
-  await toPeek(page.getByRole('region', { name: 'Conference details' }));
+  const top = await toPeek(page.getByRole('region', { name: 'Conference details' }));
+  expect(844 - top).toBe(68);
   await page.getByRole('button', { name: 'Close details' }).tap();
   await expect(page.getByTestId('detail')).toHaveCount(0);
   await expect(page.locator('#list-heading')).toBeInViewport();
@@ -162,4 +163,34 @@ test('a tap outside Share closes it, not the logo panel', async ({ page }) => {
   await page.touchscreen.tap(380, 830);
   await expect(menu).toBeHidden();
   await expect(pill).toBeFocused();
+});
+
+test('the attribution is compact on phones, shown first, then behind its (i) button', async ({
+  page,
+}) => {
+  // The stub basemap credits no one, and an empty attribution is hidden: give it a credit.
+  await page.route('https://tiles.openfreemap.org/styles/**', (route) =>
+    route.fulfill({
+      json: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: [] },
+            attribution: '© OpenStreetMap',
+          },
+        },
+        layers: [{ id: 'boundary_2', type: 'line', source: 'osm' }],
+      },
+    }),
+  );
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/');
+  const attribution = page.locator('.maplibregl-ctrl-attrib');
+  await expect(attribution).toHaveClass(/maplibregl-compact/);
+  const inner = page.locator('.maplibregl-ctrl-attrib-inner');
+  await expect(inner).toBeVisible();
+  await expect(inner).toBeHidden({ timeout: 8000 });
+  await page.locator('.maplibregl-ctrl-attrib-button').click();
+  await expect(inner).toBeVisible();
 });

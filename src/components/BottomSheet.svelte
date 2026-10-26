@@ -18,7 +18,7 @@
     children: Snippet;
   } = $props();
 
-  const PEEK = 84; // grip + list heading (or the detail's title)
+  const PEEK = 68; // grip (24) + list heading (44), or the detail's title
   const ORDER: Snap[] = ['peek', 'half', 'full'];
 
   let containerHeight = $state(0);
@@ -198,7 +198,7 @@
     display: grid;
     place-items: center;
     width: 100%;
-    height: 32px;
+    height: 24px;
     padding: 0;
     border: 0;
     background: transparent;
