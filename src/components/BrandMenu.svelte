@@ -2,6 +2,7 @@
   // Mobile top bar (DESIGN §6.7): the logo pill opens a panel anchored under it with the tagline,
   // legend, theme, Share and footer links. A modal dialog: the browser handles Escape, the focus
   // trap and stacking, and a tap outside lands on its transparent backdrop, never on a pin.
+  import { lightDismiss } from '../lib/dialog';
   import Brand from './Brand.svelte';
   import Footer from './Footer.svelte';
   import Icon from './Icon.svelte';
@@ -43,19 +44,16 @@
   </button>
 </h1>
 
-<!-- No padding on the dialog itself: a tap on it would count as a tap on the backdrop. -->
 <dialog
   id="{uid}-menu"
   class="menu glass-thick"
   aria-label="confmaps"
   bind:this={dialog}
+  {@attach lightDismiss}
   style:--menu-top="{top}px"
   onclose={() => {
     open = false;
     button?.focus();
-  }}
-  onclick={(e) => {
-    if (e.target === dialog) dialog?.close();
   }}
 >
   <!-- A section, so the Share dialog's <header> inside is not a nested banner landmark. -->

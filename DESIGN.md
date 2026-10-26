@@ -572,6 +572,12 @@ MOBILE
 - **Logo panel (mobile):** the logo pill is a button. It opens a panel anchored under it (a modal
   dialog) with the tagline, the legend, the theme, Share and the footer links. Its close button,
   a tap outside or Escape closes it, and focus returns to the pill. Desktop has no logo panel.
+- **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
+  (Methodology, Privacy, Third-party notices) and the logo panel. The press must start outside too,
+  so a drag that starts inside (selecting text in a field) and ends outside keeps the dialog open.
+  When a dialog opens over another (Share from the logo panel), a tap outside closes only the top
+  one. The full-screen filters sheet has no outside area. One Svelte attachment, `lightDismiss`
+  (`src/lib/dialog.ts`), does this for every dialog.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill floats over the map like the legend, so it reserves nothing.

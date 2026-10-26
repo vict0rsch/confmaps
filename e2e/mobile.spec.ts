@@ -135,3 +135,19 @@ test('at peek, the detail close button takes a tap and the list shows its headin
   await expect(page.locator('#list-heading')).toBeInViewport();
   expect(errors).toEqual([]);
 });
+
+test('a tap outside Share closes it, not the logo panel', async ({ page }) => {
+  await page.goto('/');
+  const pill = page.getByRole('button', { name: 'confmaps', exact: true });
+  await pill.click();
+  const menu = page.getByRole('dialog', { name: 'confmaps' });
+  await menu.getByRole('button', { name: 'Share' }).click();
+  const share = page.getByTestId('share-dialog');
+  await expect(share).toBeVisible();
+  await page.touchscreen.tap(5, 830);
+  await expect(share).toBeHidden();
+  await expect(menu).toBeVisible();
+  await page.touchscreen.tap(380, 830);
+  await expect(menu).toBeHidden();
+  await expect(pill).toBeFocused();
+});
