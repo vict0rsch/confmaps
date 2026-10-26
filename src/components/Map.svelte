@@ -179,16 +179,20 @@
   const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
 
   // ---- Map lifecycle -------------------------------------------------------
+  /**
+   * The mobile layout, in either orientation: zoom may go below 0 so the first view fits every
+   * upcoming pin. MapLibre's own constraint keeps the world covering the visible area (camera
+   * padding), so no empty band.
+   */
+  const minZoom = (mobile: boolean) => (mobile ? -1 : 0.5);
+
   $effect(() => {
-    // The mobile layout, in either orientation: zoom may go below 0 so the first view fits every
-    // upcoming pin. MapLibre's own constraint keeps the world covering the visible area (camera
-    // padding), so no empty band. Untracked: crossing 1024 px must not rebuild the map.
-    const narrow = untrack(() => phone);
+    // Untracked: crossing 1024 px must not rebuild the map (the effect below moves the floor).
     const m = new MLMap({
       container,
       style: { version: 8, sources: {}, layers: [] },
       maxZoom: MAP_MAX_ZOOM,
-      minZoom: narrow ? -1 : 0.5,
+      minZoom: minZoom(untrack(() => phone)),
       dragRotate: false,
       pitchWithRotate: false,
       touchPitch: false,
@@ -331,6 +335,11 @@
       m.remove();
       map = undefined;
     };
+  });
+
+  // The zoom floor follows the layout; MapLibre clamps a zoom below the new floor.
+  $effect(() => {
+    map?.setMinZoom(minZoom(phone));
   });
 
   // Basemap (and theme) swap: rebuild the whole style; data layers are re-added with current data.
@@ -560,10 +569,16 @@
     const m = map;
     if (!m) return;
     untrack(() => {
+      // A window resize moves the panels before the ResizeObserver resizes the map: resize first,
+      // so a fit uses the new size.
+      const c = m.getCanvas();
+      if (c.clientWidth !== container.clientWidth || c.clientHeight !== container.clientHeight)
+        m.resize();
       if (clickedSite && clickedSite.id !== id) clickedSite = null;
       if (clickedSite) keepInView(clickedSite.lngLat);
-      // Same selection, new left inset: the desktop sidebar was toggled. Keep the zoom, re-pad only.
-      else if (id && (id !== followed.id || pad.left === followed.left)) fitSelection();
+      // Same selection, new left inset on desktop: the sidebar was toggled. Keep the zoom, re-pad
+      // only. On phones the side panel resized or appeared: fit again.
+      else if (id && (id !== followed.id || pad.left === followed.left || phone)) fitSelection();
       else if (deferredFit && !noRoom()) deferredFit();
       else m.easeTo({ padding: pad, duration: duration(250) });
       followed = { id, left: pad.left };
