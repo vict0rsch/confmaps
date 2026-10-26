@@ -265,7 +265,7 @@
     {#await mapView}
       <div class="map-placeholder"></div>
     {:then { default: MapView }}
-      <MapView {insets} phone={!desktop.current} folded={sidePanel && sideFolded} />
+      <MapView {insets} phone={!desktop.current} folded={sideFolded} />
     {/await}
 
     {#if desktop.current}

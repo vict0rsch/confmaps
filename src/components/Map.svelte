@@ -79,7 +79,7 @@
     insets?: Insets;
     /** The mobile layout: the attribution stays compact. */
     phone?: boolean;
-    /** Phones held sideways: the side panel is folded into its pill. */
+    /** The phone's side panel is folded into its pill. It is kept across layouts and rotations. */
     folded?: boolean;
   } = $props();
 
@@ -95,12 +95,15 @@
   let clickedSite: { id: string; lngLat: [number, number] } | null = null;
   /** The conference the camera was last fitted to (double-clicking its pin zooms back out). */
   let zoomedTo: string | null = null;
-  /** The selection, left inset and fold the camera last followed (see the camera effect). */
-  let followed: { id: string | null; left: number; folded: boolean } = {
+  /** The selection, left inset, layout and fold the camera last followed (camera effect). */
+  let followed: { id: string | null; left: number; phone: boolean; folded: boolean } = {
     id: null,
     left: 0,
+    phone: false,
     folded: false,
   };
+  /** The camera shows a fitted overview (or history path), not a view the viewer moved to. */
+  let atOverview = true;
 
   const MARGIN = 48;
   /** The overview of a few nearby pins (or one) stays regional, never street level. */
@@ -298,6 +301,9 @@
     m.on('zoomstart', (e) => {
       coLocated = null;
       if (e.originalEvent) zoomedTo = null; // the viewer zoomed: no longer the fitted view
+    });
+    m.on('movestart', (e) => {
+      if (e.originalEvent) atOverview = false;
     });
     m.on('moveend', updateOffscreen);
     m.on('zoomend', () => (zoom = m.getZoom()));
@@ -582,23 +588,24 @@
       if (c.clientWidth !== container.clientWidth || c.clientHeight !== container.clientHeight)
         m.resize();
       if (clickedSite && clickedSite.id !== id) clickedSite = null;
+      // A new left inset in the same layout: the desktop sidebar was toggled, or the phone's side
+      // panel was folded. With a selection, keep the zoom and re-pad only. A side panel that
+      // resized or appeared, or a crossing of the desktop breakpoint, fits again.
+      const toggled =
+        phone === followed.phone &&
+        pad.left !== followed.left &&
+        (!phone || folded !== followed.folded);
       if (clickedSite) keepInView(clickedSite.lngLat);
-      // Same selection, new left inset on desktop: the sidebar was toggled. Keep the zoom, re-pad
-      // only. On phones the same holds for a fold of the side panel; a side panel that resized or
-      // appeared fits again.
-      else if (
-        id &&
-        (id !== followed.id || pad.left === followed.left || (phone && folded === followed.folded))
-      )
-        fitSelection();
+      else if (id && (id !== followed.id || !toggled)) fitSelection();
       // On phones, a fold with no selection fits the overview (or the editions' path) to the new
-      // free area: the zoom fitted beside the panel would show the world twice once folded.
-      else if (!id && phone && folded !== followed.folded) {
+      // free area: the zoom fitted beside the panel would show the world twice once folded. A
+      // view the viewer moved to is kept.
+      else if (!id && phone && toggled && atOverview) {
         if (historyMode.series) fitHistory(duration(900));
         else fitOverview(duration(800));
       } else if (deferredFit && !noRoom()) deferredFit();
       else m.easeTo({ padding: pad, duration: duration(250) });
-      followed = { id, left: pad.left, folded };
+      followed = { id, left: pad.left, phone, folded };
     });
   });
 
@@ -640,9 +647,12 @@
     const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
     const b = boundsOf(pts.length ? pts : sites, false);
     if (!map || !roomFor(() => fitHistory(ms)) || !b) return;
-    const m = margins(96);
+    // A short map (a phone held sideways) would spend most of its height on the margins.
+    const h = container.clientHeight - insets.top - insets.bottom;
+    const m = margins(h < 400 ? 48 : 96);
     map.setPadding(camPad);
     map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
+    atOverview = true;
   }
 
   /**
@@ -713,6 +723,7 @@
     const b = boundsOf(app.selectedPins);
     if (!map || !roomFor(fitSelection) || !b) return;
     zoomedTo = app.selectedConferenceId;
+    atOverview = false;
     map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
   }
@@ -724,6 +735,7 @@
     map.setPadding(camPad);
     if (b)
       map.fitBounds(b, { padding: overviewMargins(), maxZoom: OVERVIEW_MAX_ZOOM, duration: ms });
+    atOverview = true;
   }
 
   /**
