@@ -215,22 +215,7 @@
     m.getContainer()
       .querySelectorAll('.maplibregl-ctrl-group, .maplibregl-ctrl-attrib')
       .forEach((el) => el.classList.add('glass'));
-    // OSMF attribution guidelines: a compact attribution is shown at first, then collapses after five
-    // seconds or on the first drag (MapLibre's own handler); its (i) button shows it again.
-    m.once('load', () => {
-      fitAttribution();
-      const el = m.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
-      if (!phone || !el?.classList.contains('maplibregl-compact')) return;
-      el.classList.add('maplibregl-compact-show');
-      el.open = true;
-      el.querySelector('summary')?.addEventListener('click', () => clearTimeout(attributionTimer), {
-        once: true,
-      });
-      attributionTimer = setTimeout(() => {
-        el.classList.remove('maplibregl-compact-show');
-        el.open = false;
-      }, 5000);
-    });
+    m.once('load', fitAttribution);
 
     m.on('style.load', () => (styleReady = true));
     m.setMissingStyleImageResolver((id) => {
@@ -340,7 +325,6 @@
     map = m;
     return () => {
       root.toggleAttribute('data-map-dragging', false);
-      clearTimeout(attributionTimer);
       ro.disconnect();
       cancelAnimationFrame(raf);
       raf = 0;
@@ -659,10 +643,9 @@
    * The map spans the window under the panels, so MapLibre's width-based compact switch never
    * fires. Show the attribution in full when the free area (between the stage insets) is wide
    * enough, otherwise collapse it to its (i) toggle, which still expands on click. On phones it
-   * is always compact.
+   * is always compact, and collapsed from the start.
    */
   const ATTRIBUTION_MIN_FREE_WIDTH = 560;
-  let attributionTimer: ReturnType<typeof setTimeout> | undefined;
   function fitAttribution() {
     const el = map?.getContainer().querySelector<HTMLDetailsElement>('.maplibregl-ctrl-attrib');
     if (!el || !container) return;
@@ -671,8 +654,6 @@
     const free = container.clientWidth - inset('left') - inset('right');
     const wide = !phone && free >= ATTRIBUTION_MIN_FREE_WIDTH;
     if (el.classList.contains('maplibregl-compact') === wide) {
-      // A pending first-load collapse must not hide the attribution after this switch.
-      clearTimeout(attributionTimer);
       el.classList.toggle('maplibregl-compact', !wide);
       el.classList.remove('maplibregl-compact-show');
       el.open = wide;

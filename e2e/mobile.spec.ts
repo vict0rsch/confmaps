@@ -240,32 +240,26 @@ test('a tap outside Share closes it, not the logo panel', async ({ page }) => {
   await expect(pill).toBeFocused();
 });
 
-test('the attribution is compact on phones, shown first, then behind its (i) button', async ({
-  page,
-}) => {
+test('the attribution is collapsed on phones, behind its (i) button', async ({ page }) => {
   await creditBasemap(page);
-  await page.clock.install();
   await page.setViewportSize({ width: 844, height: 390 });
   await page.goto('/');
   const attribution = page.locator('.maplibregl-ctrl-attrib');
   await expect(attribution).toHaveClass(/maplibregl-compact/);
   const inner = page.locator('.maplibregl-ctrl-attrib-inner');
-  await expect(inner).toBeVisible();
-  await page.clock.runFor(5500); // past the five-second collapse
+  await expect(page.locator('.maplibregl-ctrl-attrib-button')).toBeVisible();
   await expect(inner).toBeHidden();
   await page.locator('.maplibregl-ctrl-attrib-button').click();
   await expect(inner).toBeVisible();
 });
 
-test('the full attribution stays shown after a resize to desktop', async ({ page }) => {
+test('the full attribution shows after a resize to desktop', async ({ page }) => {
   await creditBasemap(page);
-  await page.clock.install();
   await page.goto('/');
   const inner = page.locator('.maplibregl-ctrl-attrib-inner');
-  await expect(inner).toBeVisible();
+  await expect(page.locator('.maplibregl-ctrl-attrib-button')).toBeVisible();
+  await expect(inner).toBeHidden();
   await page.setViewportSize({ width: 1400, height: 800 });
-  await expect(page.locator('.maplibregl-ctrl-attrib')).not.toHaveClass(/maplibregl-compact/);
-  await page.clock.runFor(5500); // past the phone's five-second collapse
   await expect(page.locator('.maplibregl-ctrl-attrib')).not.toHaveClass(/maplibregl-compact/);
   await expect(inner).toBeVisible();
 });

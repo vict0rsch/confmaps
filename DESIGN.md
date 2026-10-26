@@ -662,9 +662,9 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map
   like the legend, so they reserve nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
-  form below that. On phones it is always compact. As the OSMF attribution guidelines ask, it is
-  shown first and collapses after five seconds or on the first drag; its (i) button shows it
-  again.
+  form below that. On phones it is always compact and collapsed from the start: only its (i)
+  button shows, and a tap on it shows the credits. This departs from the OSMF attribution
+  guidelines, which ask for the credits to show at first load; the owner chose it.
 - **Legend:** it reads "Main venue", then "Satellites:" with its two kinds ("official",
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
