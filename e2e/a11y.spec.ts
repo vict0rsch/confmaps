@@ -66,11 +66,19 @@ const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {
     await page.locator('[data-conference-id="neurips26"]').click();
     await expect(page.getByTestId('detail')).toBeVisible();
   },
-  'share dialog': async (page) => {
-    // Desktop: Share sits in the detail panel; phone: in the list sheet's footer.
-    if (page.viewportSize()!.width >= 640)
+  'share dialog': async (page, phone) => {
+    // Desktop: Share sits in the sidebar header (a selection, so the link carries it); phone: in
+    // the panel the logo opens.
+    if (phone) {
+      await page.getByRole('button', { name: 'confmaps' }).click();
+      await page
+        .getByRole('dialog', { name: 'confmaps' })
+        .getByRole('button', { name: 'Share' })
+        .click();
+    } else {
       await page.locator('[data-conference-id="neurips26"]').click();
-    await page.getByRole('button', { name: 'Share' }).first().click();
+      await page.getByRole('button', { name: 'Share' }).first().click();
+    }
     await expect(page.getByTestId('share-dialog')).toBeVisible();
   },
   'methodology dialog': async (page) => {

@@ -540,6 +540,7 @@
       if (clickedSite) keepInView(clickedSite.lngLat);
       // Same selection, new left inset: the desktop sidebar was toggled. Keep the zoom, re-pad only.
       else if (id && (id !== followed.id || pad.left === followed.left)) fitSelection();
+      else if (deferredFit && !noRoom()) deferredFit();
       else m.easeTo({ padding: pad, duration: duration(250) });
       followed = { id, left: pad.left };
     });
@@ -582,7 +583,7 @@
     const single = historyMode.stops.length < 2;
     const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
     const b = boundsOf(pts.length ? pts : sites, false);
-    if (!map || !b) return;
+    if (!map || !roomFor(() => fitHistory(ms)) || !b) return;
     const m = margins(96);
     map.setPadding(camPad);
     map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
@@ -629,6 +630,17 @@
     return { top: y + insets.top, bottom: y, left: x, right: x };
   }
 
+  /** The panels cover the whole height (a full phone sheet): fitBounds would compute NaN. */
+  const noRoom = () => (container?.clientHeight ?? 0) - insets.top - insets.bottom <= 0;
+
+  /** A fit skipped for lack of room, run once the panels free the map again. */
+  let deferredFit: (() => void) | null = null;
+  /** False when there is no room: `fit` then waits for room. Any fit replaces a waiting one. */
+  function roomFor(fit: () => void) {
+    deferredFit = noRoom() ? fit : null;
+    return !deferredFit;
+  }
+
   /** The world overview: on a phone every pixel of width counts, but edge pins keep their halo. */
   function overviewMargins() {
     return margins((container?.clientWidth ?? 0) < 640 ? 24 : MARGIN);
@@ -637,7 +649,7 @@
   /** No pins (a virtual event): no camera move. */
   function fitSelection() {
     const b = boundsOf(app.selectedPins);
-    if (!map || !b) return;
+    if (!map || !roomFor(fitSelection) || !b) return;
     zoomedTo = app.selectedConferenceId;
     map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
@@ -646,7 +658,7 @@
   /** Every visible pin (no antimeridian wrap, so a world-wide set centres on the Atlantic). */
   function fitOverview(ms: number) {
     const b = boundsOf(app.mapLocations, false);
-    if (!map) return;
+    if (!map || !roomFor(() => fitOverview(ms))) return;
     map.setPadding(camPad);
     if (b)
       map.fitBounds(b, { padding: overviewMargins(), maxZoom: OVERVIEW_MAX_ZOOM, duration: ms });

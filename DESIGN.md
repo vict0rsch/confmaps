@@ -488,6 +488,7 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   editions are normal stops), and the years held online are listed beside the title
   ("Online: 2020 · 2021").
 - **Reduced motion:** play steps month by month with crossfades only.
+- On phones the compact scrubber sits under the top bar, outside the sheet (§6.7).
 
 ### 6.5 Home location & privacy
 
@@ -541,11 +542,11 @@ DESKTOP, sidebar collapsed (☰ folds it into a pill; the pill opens it again)
 
 MOBILE
 ┌──────────────────────┐
-│ (brand)(📍Berlin)(≡) │
+│ (brand)(📍Berlin)(≡) │  ← brand opens legend, theme, share, credits
+│ (▶ ▁▂█▂▁ ├window┤)   │  ← compact scrubber, a glass capsule under the top bar
 │        MAP           │
 │ ╭──────────────────╮ │
 │ │═══ glass sheet ══│ │
-│ │ ▶ ▁▂█▂▁ ├window┤ │ │  ← compact scrubber, docked in the sheet
 │ │ list / detail    │ │  ← detail replaces list on select
 └─┴──────────────────┴─┘
 ```
@@ -561,6 +562,16 @@ MOBILE
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
   collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
   a conference selected.
+- **Mobile layout:** the top bar holds the logo pill, the home button and Filters. The compact
+  timeline is a glass capsule on a second row under them. From 760 px wide, it joins the first row
+  and takes the width left after Filters. The sheet has three snaps: peek (the grip and the list
+  heading, 84 px plus the bottom safe area), half (50%) and full (up to the top bar). Tapping the
+  grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked and shows
+  its top, and dragging the visible heading moves the sheet too. History mode lowers the sheet to peek. Selecting a conference raises a peek sheet to
+  half.
+- **Logo panel (mobile):** the logo pill is a button. It opens a panel anchored under it (a modal
+  dialog) with the tagline, the legend, the theme, Share and the footer links. Its close button,
+  a tap outside or Escape closes it, and focus returns to the pill. Desktop has no logo panel.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
@@ -570,7 +581,7 @@ MOBILE
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
   returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
-  map shows a main ↔ satellite line.
+  map shows a main ↔ satellite line. On phones it is in the logo panel.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking

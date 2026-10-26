@@ -46,6 +46,7 @@ test.describe('phone', () => {
     await expect(play).toBeInViewport();
     // The sheet slides up on load; let it settle before measuring.
     const sheet = page.getByRole('region', { name: 'Conference list' });
+    await expect(sheet.getByTestId('timeline')).toHaveCount(0);
     let top = -1;
     await expect
       .poll(async () => {

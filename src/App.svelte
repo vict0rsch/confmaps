@@ -6,6 +6,7 @@
   import { fly } from 'svelte/transition';
   import BottomSheet, { type Snap } from './components/BottomSheet.svelte';
   import Brand from './components/Brand.svelte';
+  import BrandMenu from './components/BrandMenu.svelte';
   import ConferenceList from './components/ConferenceList.svelte';
   import Detail from './components/Detail.svelte';
   import Footer from './components/Footer.svelte';
@@ -34,7 +35,7 @@
   const TIMELINE_HEIGHT = 56; // keep in sync with --timeline-height
   const PANEL_GAP = 16; // keep in sync with --panel-gap
   const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap
-  const SHEET_PEEK = 176; // keep in sync with BottomSheet
+  const SHEET_PEEK = 84; // keep in sync with BottomSheet
 
   // Phones open at half: the map above is roughly square, the shape of the world overview.
   let sheetSnap: Snap = $state('half');
@@ -106,7 +107,11 @@
     if (hadFocus && id) {
       // The list is inert while the desktop sidebar is collapsed: the pill takes the focus.
       if (desktop.current && !sidebarOpen) pill?.focus();
-      else document.querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)?.focus();
+      // A peek sheet is locked at its top: focusing the row must not scroll the heading away.
+      else
+        document
+          .querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)
+          ?.focus({ preventScroll: !desktop.current && sheetSnap === 'peek' });
     }
   }
 </script>
@@ -191,7 +196,7 @@
   {:else}
     <!-- Floating glass capsules over the full-bleed map. -->
     <header class="topbar" bind:offsetHeight={topbarHeight}>
-      <div class="topbar-brand glass"><Brand /></div>
+      <BrandMenu />
       <div class="topbar-actions glass">
         <SettingsSlot compact />
         <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
@@ -203,6 +208,7 @@
           {/if}
         </button>
       </div>
+      <div class="topbar-timeline glass"><TimelineSlot compact /></div>
     </header>
   {/if}
 
@@ -247,14 +253,6 @@
           onheightchange={(h) => (sheetHeight = h)}
           label={app.selectedConference ? 'Conference details' : 'Conference list'}
         >
-          {#snippet header()}
-            <!-- Docked under the grip so Play stays in view at every snap. Its presses scrub the
-                 timeline, never drag the sheet. -->
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div class="sheet-timeline" onpointerdown={(e) => e.stopPropagation()}>
-              <TimelineSlot compact />
-            </div>
-          {/snippet}
           {#if app.selectedConference}
             <Detail
               conference={app.selectedConference}
@@ -264,19 +262,6 @@
             />
           {:else}
             <ConferenceList />
-            <div class="sheet-footer">
-              <p class="tagline">AI conferences and their satellites. Attend closer, fly less.</p>
-              <Legend />
-              <div class="sheet-footer-row">
-                <span>Theme</span>
-                <ThemeToggle />
-              </div>
-              <div class="sheet-footer-row">
-                <span>Share this view</span>
-                <ShareDialog />
-              </div>
-              <Footer />
-            </div>
           {/if}
         </BottomSheet>
       </div>
@@ -561,7 +546,10 @@
     right: 0;
     left: 0;
     z-index: 2;
-    display: flex;
+    /* A grid, not a wrapping flex row: when the row is tight, the actions shrink instead of
+       wrapping under the logo. */
+    display: grid;
+    grid-template-columns: auto minmax(0, max-content);
     align-items: stretch;
     justify-content: space-between;
     gap: var(--space-2);
@@ -574,14 +562,6 @@
 
   .topbar > * {
     pointer-events: auto;
-  }
-
-  .topbar-brand {
-    display: flex;
-    flex: none;
-    align-items: center;
-    padding: 0 var(--space-3);
-    border-radius: var(--radius-full);
   }
 
   /* Tight on a 390 px phone: the home pill shrinks first, Filters keeps its size. */
@@ -597,6 +577,27 @@
   .topbar-actions .button {
     flex: none;
     padding: 0 var(--space-3);
+  }
+
+  /* Its own row under the logo and actions, so Play stays in view at every snap. The round Play
+     button sits concentric in the capsule. */
+  .topbar-timeline {
+    grid-column: 1 / -1;
+    min-width: 0;
+    height: var(--timeline-height-compact);
+    border-radius: var(--radius-full);
+  }
+
+  /* Wide enough: the timeline joins the first row and takes the width left after Filters. */
+  @media (min-width: 760px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, max-content) minmax(0, 1fr);
+      justify-content: normal;
+    }
+
+    .topbar-timeline {
+      grid-column: auto;
+    }
   }
 
   /* Pinch-zoom on phones; the zoom buttons would sit under the sheet. */
@@ -617,30 +618,7 @@
     pointer-events: none;
   }
 
-  .sheet-timeline {
-    height: var(--timeline-height-compact);
-    padding: 0 var(--space-3) 0 var(--space-2);
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .sheet-footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin: 0 var(--space-4);
-    padding: var(--space-4) 0 var(--space-8);
-    border-top: 1px solid var(--hairline);
-  }
-
   .tagline {
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
-  }
-
-  .sheet-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     color: var(--ink-muted);
     font-size: var(--text-sm);
   }
