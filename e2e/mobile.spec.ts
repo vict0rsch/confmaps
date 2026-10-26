@@ -211,24 +211,28 @@ test('the attribution is compact on phones, shown first, then behind its (i) but
   page,
 }) => {
   await creditBasemap(page);
+  await page.clock.install();
   await page.setViewportSize({ width: 844, height: 390 });
   await page.goto('/');
   const attribution = page.locator('.maplibregl-ctrl-attrib');
   await expect(attribution).toHaveClass(/maplibregl-compact/);
   const inner = page.locator('.maplibregl-ctrl-attrib-inner');
   await expect(inner).toBeVisible();
-  await expect(inner).toBeHidden({ timeout: 8000 });
+  await page.clock.runFor(5500); // past the five-second collapse
+  await expect(inner).toBeHidden();
   await page.locator('.maplibregl-ctrl-attrib-button').click();
   await expect(inner).toBeVisible();
 });
 
 test('the full attribution stays shown after a resize to desktop', async ({ page }) => {
   await creditBasemap(page);
+  await page.clock.install();
   await page.goto('/');
   const inner = page.locator('.maplibregl-ctrl-attrib-inner');
   await expect(inner).toBeVisible();
   await page.setViewportSize({ width: 1400, height: 800 });
-  await page.waitForTimeout(6000); // past the phone's five-second collapse
+  await expect(page.locator('.maplibregl-ctrl-attrib')).not.toHaveClass(/maplibregl-compact/);
+  await page.clock.runFor(5500); // past the phone's five-second collapse
   await expect(page.locator('.maplibregl-ctrl-attrib')).not.toHaveClass(/maplibregl-compact/);
   await expect(inner).toBeVisible();
 });
