@@ -53,6 +53,11 @@
   let collapseButton: HTMLButtonElement | undefined = $state();
   let pill: HTMLButtonElement | undefined = $state();
   let pillWidth = $state(0);
+  // Phones held sideways: the side panel folds into a pill at the bottom-left, for a full map. Not
+  // persisted, like the desktop sidebar.
+  let sideFolded = $state(false);
+  let foldButton: HTMLButtonElement | undefined = $state();
+  let sidePill: HTMLButtonElement | undefined = $state();
 
   $effect.pre(() => {
     document.documentElement.dataset.theme = app.resolvedTheme;
@@ -76,6 +81,12 @@
     }
   });
 
+  // Phones held sideways: a new selection (a tapped pin) unfolds the panel to show the detail.
+  // Before the DOM updates, so the detail's heading can take the focus.
+  $effect.pre(() => {
+    if (app.selectedConferenceId) sideFolded = false;
+  });
+
   // The map fills the window; these are the floating panels it must keep pins clear of.
   const insets: Insets = $derived(
     desktop.current
@@ -90,7 +101,7 @@
             top: topbarHeight + MOBILE_GAP,
             right: 0,
             bottom: 0,
-            left: sideWidth + MOBILE_GAP,
+            left: sideFolded ? 0 : sideWidth + MOBILE_GAP,
           }
         : {
             top: topbarHeight + MOBILE_GAP,
@@ -109,6 +120,12 @@
     sidebarOpen = !sidebarOpen;
     await tick();
     (sidebarOpen ? collapseButton : pill)?.focus();
+  }
+
+  async function toggleSidePanel() {
+    sideFolded = !sideFolded;
+    await tick();
+    (sideFolded ? sidePill : foldButton)?.focus();
   }
 
   async function closeDetail() {
@@ -248,7 +265,7 @@
     {#await mapView}
       <div class="map-placeholder"></div>
     {:then { default: MapView }}
-      <MapView {insets} phone={!desktop.current} />
+      <MapView {insets} phone={!desktop.current} folded={sidePanel && sideFolded} />
     {/await}
 
     {#if desktop.current}
@@ -271,7 +288,15 @@
         </div>
       {/if}
     {:else if sidePanel}
-      <div class="side-dock" style:top="{topbarHeight + MOBILE_GAP}px" bind:offsetWidth={sideWidth}>
+      <!-- Folded, it stays mounted (list scroll survives) but inert and hidden. -->
+      <div
+        id="side-panel"
+        class="side-dock"
+        class:folded={sideFolded}
+        inert={sideFolded}
+        style:top="{topbarHeight + MOBILE_GAP}px"
+        bind:offsetWidth={sideWidth}
+      >
         <section
           class="side-panel glass"
           data-scroll
@@ -279,7 +304,41 @@
         >
           {@render panelContent()}
         </section>
+        <button
+          class="side-fold glass"
+          type="button"
+          aria-label="Hide panel"
+          title="Hide panel"
+          aria-expanded="true"
+          aria-controls="side-panel"
+          bind:this={foldButton}
+          onclick={toggleSidePanel}
+        >
+          <Icon name="chevron" size={16} />
+        </button>
       </div>
+      <!-- The folded panel: what it shows (the count, or the selected conference), as one button. -->
+      <button
+        class="side-pill glass"
+        class:shown={sideFolded}
+        type="button"
+        aria-expanded="false"
+        aria-controls="side-panel"
+        inert={!sideFolded}
+        bind:this={sidePill}
+        onclick={toggleSidePanel}
+      >
+        <span class="side-pill-label">
+          <span class="visually-hidden">Show</span>
+          {#if app.selectedConference}
+            {app.selectedConference.title} {app.selectedConference.year}
+          {:else}
+            <span class="tabular">{app.listItems.length || 'No'}</span>
+            {app.listItems.length === 1 ? 'conference' : 'conferences'}
+          {/if}
+        </span>
+        <Icon name="chevron" size={14} />
+      </button>
     {:else}
       <!-- The sheet slides up to the top bar, never under it. -->
       <div class="sheet-dock" style:top="{topbarHeight + MOBILE_GAP}px">
@@ -556,7 +615,8 @@
     .sidebar,
     .sidebar-pill,
     .legend-chip,
-    .timeline {
+    .timeline,
+    .side-pill {
       transition-delay: 0s !important;
     }
   }
@@ -663,6 +723,95 @@
     overscroll-behavior: contain;
     border-radius: var(--radius-panel);
     pointer-events: auto;
+  }
+
+  /* Folds toward the pill at its bottom-left corner. The two never show at once. Fold: the panel
+     and its tab fade, then the pill fades in. Unfold: the pill goes at once and the panel fades
+     in. Each glass part fades on its own: a fading parent would cut their blur off the map. */
+  .side-panel,
+  .side-fold {
+    transform-origin: bottom left;
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      transform var(--duration-base) var(--ease-out);
+  }
+
+  .side-dock.folded > * {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity var(--duration-fast) var(--ease-in),
+      transform var(--duration-fast) var(--ease-in),
+      visibility 0s var(--duration-fast);
+  }
+
+  /* A small tab on the panel's right edge, in the gap beside it. */
+  .side-fold {
+    position: absolute;
+    top: calc(50% - 22px);
+    left: calc(100% + var(--space-1));
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-full);
+    color: var(--ink-muted);
+    pointer-events: auto;
+  }
+
+  .side-fold:hover {
+    color: var(--ink);
+  }
+
+  .side-fold :global(.icon) {
+    transform: rotate(180deg);
+  }
+
+  /* Bottom-left, where the panel's corner was, never wider than the panel. */
+  .side-pill {
+    position: absolute;
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
+    left: max(env(safe-area-inset-left), var(--shell-gap));
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    max-width: clamp(300px, 42vw, 360px);
+    height: var(--timeline-height-compact);
+    padding: 0 var(--space-3) 0 var(--space-4);
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  .side-pill.shown {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-fast) var(--ease-out) var(--duration-fast),
+      transform var(--duration-fast) var(--ease-out) var(--duration-fast);
+  }
+
+  .side-pill.shown:active {
+    transform: scale(0.97);
+    transition: transform var(--duration-press) var(--ease-out);
+  }
+
+  .side-pill-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .side-pill :global(.icon) {
+    flex: none;
+    color: var(--ink-muted);
   }
 
   .app.landscape :global(.maplibregl-ctrl-bottom-right) {

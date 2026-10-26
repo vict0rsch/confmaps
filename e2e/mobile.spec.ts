@@ -260,4 +260,27 @@ test.describe('landscape', () => {
     await page.getByRole('button', { name: 'Close details' }).tap();
     await expect(page.locator('#list-heading')).toBeInViewport();
   });
+
+  test('the tab folds the panel into a pill; the pill opens it again', async ({ page }) => {
+    await page.goto('/');
+    const list = page.getByRole('region', { name: 'Conference list' });
+    const fold = page.getByRole('button', { name: 'Hide panel' });
+    await fold.tap();
+    await expect(list).toBeHidden();
+    const pill = page.getByRole('button', { name: /^Show \d+ conferences$/ });
+    await expect(pill).toBeVisible();
+    await expect(pill).toBeFocused();
+
+    await pill.tap();
+    await expect(list).toBeVisible();
+    await expect(pill).toBeHidden();
+    await expect(fold).toBeFocused();
+  });
+
+  test('folded with a selection, the pill names the conference', async ({ page }) => {
+    await page.goto('/?c=neurips26');
+    await page.getByRole('button', { name: 'Hide panel' }).tap();
+    await expect(page.getByTestId('detail')).toBeHidden();
+    await expect(page.getByRole('button', { name: 'Show NeurIPS 2026' })).toBeFocused();
+  });
 });

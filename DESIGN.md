@@ -556,9 +556,17 @@ PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
 ┌──────────────────────────────────────────┐
 │ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
 │ ╭────────────╮                           │
-│ │ list /     │            MAP            │
+│ │ list /     │‹           MAP            │
 │ │ detail     │                       (i) │
 │ ╰────────────╯                           │
+└──────────────────────────────────────────┘
+
+PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it again)
+┌──────────────────────────────────────────┐
+│ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
+│                                          │
+│                    MAP                   │
+│ (23 conferences ›)                   (i) │
 └──────────────────────────────────────────┘
 ```
 
@@ -587,6 +595,15 @@ PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
   place, and scrolls. The panel, the top bar and the attribution keep clear of the notch and the
   home indicator (safe-area insets). The map reserves the panel's width on the left. On phones the
   map can zoom out below 0 in both orientations.
+- **Folding the side panel:** a small tab (‹) on the panel's right edge, "Hide panel", folds the
+  panel for an almost full map. The panel then becomes a glass pill at the bottom-left. The pill
+  shows the conference count, or the selected conference. It is one button that opens the panel
+  again. The panel fades out first, then the pill fades in. On unfold, the pill goes at once and
+  the panel fades in. The folded panel stays mounted, so list scroll survives. It is `inert` and
+  hidden after its fade. Focus moves to the pill on fold and back to the tab on unfold. A new
+  selection (a tapped pin) unfolds the panel to show the detail. Folding moves the map's padding
+  but keeps its zoom; a panel that resizes still fits the selection again. The state is not
+  saved. It survives a rotation to portrait and back, unless a conference is selected meanwhile.
 - **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
   button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
   bottom it holds the tagline and the close button, the home settings (the city or the city
@@ -604,7 +621,8 @@ PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
   (`src/lib/dialog.ts`), does this for every dialog.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
-  panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
+  panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map
+  like the legend, so they reserve nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that. On phones it is always compact. As the OSMF attribution guidelines ask, it is
   shown first and collapses after five seconds or on the first drag; its (i) button shows it
