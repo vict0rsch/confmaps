@@ -138,6 +138,40 @@ time {
   }
 }
 
+/* A panel anchored under a top-bar button on phones (the logo panel, Filters): a modal dialog.
+   The opener sets --panel-top, and --panel-left when it is not at the left gap. Inside the top
+   bar, which lets presses through to the map, so it takes presses itself. */
+.anchored-panel {
+  position: fixed;
+  inset: var(--panel-top) auto auto
+    var(--panel-left, max(env(safe-area-inset-left), var(--space-3)));
+  width: min(340px, calc(100vw - 2 * var(--space-3)));
+  max-width: none;
+  max-height: calc(100dvh - var(--panel-top) - max(env(safe-area-inset-bottom), var(--space-3)));
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--radius-card);
+  color: var(--ink);
+  pointer-events: auto;
+}
+
+.anchored-panel[open] {
+  animation: panel-in var(--duration-base) var(--ease-out);
+}
+
+.anchored-panel::backdrop {
+  background: transparent;
+}
+
+@keyframes panel-in {
+  from {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
 /* Quiet round icon button used across the shell. */
 .icon-button {
   display: inline-grid;

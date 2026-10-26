@@ -14,6 +14,7 @@
   import Legend from './components/Legend.svelte';
   import type { Insets } from './components/Map.svelte';
   import DocDialog from './components/DocDialog.svelte';
+  import FiltersMenu from './components/FiltersMenu.svelte';
   import ShareDialog from './components/ShareDialog.svelte';
   import SiteFootprint from './components/SiteFootprint.svelte';
   import ThemeToggle from './components/ThemeToggle.svelte';
@@ -22,7 +23,6 @@
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
   import type { JoinedLocation } from './lib/data/load';
   import { app } from './lib/state/app.svelte';
-  import { filterState } from './lib/state/filters.svelte';
   import { historyMode } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
@@ -37,7 +37,7 @@
   const SIDEBAR_WIDTH = 368; // keep in sync with --sidebar-width
   const TIMELINE_HEIGHT = 56; // keep in sync with --timeline-height
   const PANEL_GAP = 16; // keep in sync with --panel-gap
-  const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap
+  const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap and FiltersMenu GAP
   const SHEET_PEEK = 68; // keep in sync with BottomSheet
 
   // Phones open at half: the map above is roughly square, the shape of the world overview.
@@ -47,7 +47,6 @@
   let topbarHeight = $state(0);
   // Phones held sideways: the side dock's width, safe-area padding included.
   let sideWidth = $state(0);
-  let filtersDialog: HTMLDialogElement | undefined = $state();
   // Desktop: the sidebar folds into a pill at its top-left corner. Not persisted: every visit opens it.
   let sidebarOpen = $state(true);
   let collapseButton: HTMLButtonElement | undefined = $state();
@@ -240,16 +239,7 @@
     <!-- Floating glass capsules over the full-bleed map. -->
     <header class="topbar" bind:offsetHeight={topbarHeight}>
       <BrandMenu />
-      <div class="topbar-actions glass">
-        <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
-          <Icon name="filter" size={14} /> Filters
-          {#if filterState.activeCount}
-            <span class="badge tabular" data-testid="filters-badge">
-              {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
-            </span>
-          {/if}
-        </button>
-      </div>
+      <FiltersMenu />
       <div class="topbar-timeline glass"><TimelineSlot compact /></div>
     </header>
   {/if}
@@ -358,29 +348,6 @@
     <div class="timeline glass"><TimelineSlot /></div>
   {/if}
 </div>
-
-{#if !desktop.current}
-  <dialog class="filters-dialog" bind:this={filtersDialog} aria-labelledby="filters-title">
-    <header>
-      <h2 id="filters-title">Filters</h2>
-      <button
-        class="icon-button"
-        type="button"
-        aria-label="Close filters"
-        onclick={() => filtersDialog?.close()}
-      >
-        <Icon name="close" size={18} />
-      </button>
-    </header>
-    <div class="filters-dialog-body"><FiltersSlot layout="dialog" /></div>
-    <footer>
-      <button class="show-results" type="button" onclick={() => filtersDialog?.close()}>
-        Show {app.listItems.length}
-        {app.listItems.length === 1 ? 'result' : 'results'}
-      </button>
-    </footer>
-  </dialog>
-{/if}
 
 <style>
   .app {
@@ -530,20 +497,6 @@
     border-top: 1px solid var(--hairline);
   }
 
-  .badge {
-    display: inline-grid;
-    place-items: center;
-    min-width: 18px;
-    height: 18px;
-    padding: 0 5px;
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
-    line-height: 1;
-  }
-
   /* Top-left of the free map area: right of the sidebar, or of the pill when it is collapsed. */
   .desktop {
     --left-panel-width: var(--sidebar-width);
@@ -649,24 +602,6 @@
 
   .topbar > * {
     pointer-events: auto;
-  }
-
-  /* The Filters capsule. */
-  .topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    min-width: 0;
-    padding: 3px;
-    border-radius: var(--radius-full);
-  }
-
-  .topbar-actions .button {
-    flex: none;
-    padding: 0 var(--space-3);
-    border: 0;
-    background: transparent;
-    box-shadow: none;
   }
 
   /* Its own row under the logo and actions, so Play stays in view at every snap. The round Play
@@ -835,83 +770,5 @@
   .tagline {
     color: var(--ink-muted);
     font-size: var(--text-sm);
-  }
-
-  /* Full-screen and opaque: the solid glass fallback, no blur. */
-  .filters-dialog {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    max-height: none;
-    margin: 0;
-    padding: var(--space-4) var(--space-4) 0;
-    border: 0;
-    background: var(--glass-fill-solid);
-    color: var(--ink);
-  }
-
-  .filters-dialog[open] {
-    animation: sheet-in var(--duration-slow) var(--ease-out);
-  }
-
-  .filters-dialog::backdrop {
-    background: var(--scrim);
-  }
-
-  .filters-dialog[open] {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .filters-dialog-body {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .filters-dialog footer {
-    padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--hairline);
-  }
-
-  .show-results {
-    width: 100%;
-    height: 44px;
-    border: 0;
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: var(--text-md);
-    font-weight: var(--weight-semibold);
-    font-variant-numeric: tabular-nums;
-    transition: transform var(--duration-press) var(--ease-out);
-  }
-
-  .show-results:hover {
-    filter: brightness(1.08);
-  }
-
-  .show-results:active {
-    transform: scale(0.97);
-  }
-
-  .filters-dialog header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--space-4);
-  }
-
-  .filters-dialog h2 {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-  }
-
-  @keyframes sheet-in {
-    from {
-      transform: translateY(16px);
-      opacity: 0;
-    }
   }
 </style>

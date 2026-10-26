@@ -57,11 +57,11 @@
 
 <dialog
   id="{uid}-menu"
-  class="menu glass-thick"
+  class="menu anchored-panel glass-thick"
   aria-label="confmaps"
   bind:this={dialog}
   {@attach lightDismiss}
-  style:--menu-top="{top}px"
+  style:--panel-top="{top}px"
   onclose={() => {
     open = false;
     button?.focus();
@@ -144,30 +144,6 @@
     box-shadow: 0 0 0 2px var(--glass-fill-solid);
   }
 
-  /* Under the pill, left-aligned with it; scrolls if the credits outgrow the window. */
-  .menu {
-    position: fixed;
-    inset: var(--menu-top) auto auto max(env(safe-area-inset-left), var(--space-3));
-    margin: 0;
-    padding: 0;
-    width: min(340px, calc(100vw - 2 * var(--space-3)));
-    max-width: none;
-    max-height: calc(100dvh - var(--menu-top) - max(env(safe-area-inset-bottom), var(--space-3)));
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    border-radius: var(--radius-card);
-    color: var(--ink);
-    pointer-events: auto;
-  }
-
-  .menu[open] {
-    animation: pop-in var(--duration-base) var(--ease-out);
-  }
-
-  .menu::backdrop {
-    background: transparent;
-  }
-
   .body {
     display: flex;
     flex-direction: column;
@@ -203,12 +179,5 @@
     justify-content: space-between;
     color: var(--ink-muted);
     font-size: var(--text-sm);
-  }
-
-  @keyframes pop-in {
-    from {
-      transform: translateY(-4px);
-      opacity: 0;
-    }
   }
 </style>

@@ -114,6 +114,24 @@ test('your own travel settings in the address bar are not a shared link', async 
   await expect(page.getByTestId('shared-dot')).toHaveCount(0);
 });
 
+test('Filters opens a panel under its button; a tap outside closes it', async ({ page }) => {
+  await page.goto('/');
+  const button = page.getByRole('button', { name: 'Filters', exact: true });
+  await button.tap();
+  const panel = page.getByRole('dialog', { name: 'Filters' });
+  await expect(panel.getByRole('button', { name: 'Close filters' })).toBeFocused();
+  const b = (await button.boundingBox())!;
+  const p = (await panel.boundingBox())!;
+  expect(p.y).toBeGreaterThan(b.y + b.height);
+  // Right-aligned with the capsule, a few pixels past the button.
+  expect(p.x + p.width - (b.x + b.width)).toBeGreaterThanOrEqual(0);
+  expect(p.x + p.width - (b.x + b.width)).toBeLessThanOrEqual(5);
+  await expect(panel).toContainText(/\d+ conferences/);
+  await page.touchscreen.tap(Math.max(4, p.x / 2), p.y + 40);
+  await expect(panel).toBeHidden();
+  await expect(button).toBeFocused();
+});
+
 test('Topics is one field; it opens its checklist and shows the choice', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Filters', exact: true }).tap();
@@ -274,6 +292,23 @@ test.describe('landscape', () => {
     ).toBeVisible();
     await page.getByRole('button', { name: 'Close details' }).tap();
     await expect(page.locator('#list-heading')).toBeInViewport();
+  });
+
+  test('the filters panel hangs from Filters, left-aligned, inside the window', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    const button = page.getByRole('button', { name: 'Filters', exact: true });
+    await button.tap();
+    const panel = page.getByRole('dialog', { name: 'Filters' });
+    await expect(panel).toBeVisible();
+    const b = (await button.boundingBox())!;
+    const p = (await panel.boundingBox())!;
+    expect(Math.abs(p.x - (b.x - 3))).toBeLessThanOrEqual(2); // the capsule's 3 px padding
+    expect(p.y + p.height).toBeLessThanOrEqual(390);
+    await page.keyboard.press('Escape');
+    await expect(panel).toBeHidden();
+    await expect(button).toBeFocused();
   });
 
   test('the tab folds the panel into a pill; the pill opens it again', async ({ page }) => {

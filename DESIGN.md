@@ -446,9 +446,9 @@ The filter panel renders only registered filters, so adding a filter still means
 In the sidebar it is a **search field** (the `search` filter's control, always visible) above a row
 of **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip
 opens that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it
-and returns focus to the chip. In the mobile full-screen dialog there are no trays: every filter is
-a stacked section with its control open. Both layouts show **"Clear all"** with the active-filter
-count once any filter is active.
+and returns focus to the chip. In the mobile filters panel (§6.7) there are no trays: every filter
+is a stacked section with its control open. Once any filter is active, the sidebar shows **"Clear
+all"** with the active-filter count, and the filters panel shows "Clear all" in its header.
 
 **Multi-select filters** (`subject`, `access`) use one component, `MultiSelect`. It is a list of
 native checkboxes in a fieldset. Tab moves between them and Space toggles one. Topics shows its
@@ -562,6 +562,18 @@ MOBILE
 │ │ list / detail    │ │  ← detail replaces list on select
 └─┴──────────────────┴─┘
 
+MOBILE, filters open (anchored under Filters, right-aligned with it)
+┌──────────────────────┐
+│ (☰ brand) (Filters)  │
+│  ╭─────────────────╮ │
+│  │Filters  Clear ✕ │ │  ← header stays put
+│  │23 conferences   │ │
+│  │[ search       ] │ │  ← the rest scrolls
+│  │Dates · Topics ▾ │ │
+│  │Distance · …     │ │
+│  ╰─────────────────╯ │
+└──────────────────────┘
+
 PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
 ┌──────────────────────────────────────────┐
 │ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
@@ -591,14 +603,14 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
   collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
   a conference selected.
-- **Mobile layout:** the top bar holds the logo pill and Filters. The compact timeline is a glass
-  capsule on a second row under them. From 640 px wide, it joins the first row and takes the width
-  left after Filters. The sheet has three snaps: peek (the grip and the list heading, 68 px plus
-  the bottom safe area), half (50%) and full (up to the top bar). Tapping the grip cycles the
-  snaps, and dragging it moves the sheet. At peek the content is locked and shows its top, and
-  dragging the visible heading moves the sheet too. History mode lowers the sheet to peek.
-  Selecting a conference raises a peek sheet to half. In the sheet the detail has a 12 px top
-  padding, so its title and close button show at peek.
+- **Mobile layout:** the top bar holds the logo pill and Filters. Filters opens the filters panel.
+  The compact timeline is a glass capsule on a second row under them. From 640 px wide, it joins the
+  first row and takes the width left after Filters. The sheet has three snaps: peek (the grip and
+  the list heading, 68 px plus the bottom safe area), half (50%) and full (up to the top bar).
+  Tapping the grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked
+  and shows its top, and dragging the visible heading moves the sheet too. History mode lowers the
+  sheet to peek. Selecting a conference raises a peek sheet to half. In the sheet the detail has a
+  12 px top padding, so its title and close button show at peek.
 - **Phones held sideways** (`(orientation: landscape) and (max-height: 500px)`, below 1024 px
   wide): the sheet becomes a glass side panel on the left, from under the top bar to the bottom
   gap, `clamp(300px, 42vw, 360px)` wide. It has no snaps: it shows the list, or the detail in its
@@ -627,12 +639,23 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   open. While the city or the travel settings of a shared link apply, a dot on ☰ shows it. Its
   close button, a tap outside or Escape closes it, and focus returns to the pill. Desktop has no
   logo panel.
+- **Filters panel (mobile):** the Filters capsule opens a panel anchored under it (a modal dialog),
+  like the logo panel. Its right edge lines up with the capsule's right edge. When that does not
+  fit, on phones held sideways and from 640 px wide, its left edge lines up with the capsule's left
+  edge. The panel then covers part of the side panel and the map. It is 340 px wide at most and
+  reaches down to the bottom gap. Its header holds the title, the number of conferences that pass,
+  "Clear all" (once a filter is active) and the close button. The header stays in place, and the
+  rest scrolls: the search field, then every other filter as a stacked section. The list updates
+  live behind the panel, so the panel has no "Show results" button. Opening it focuses the close
+  button, so the keyboard does not open. Its close button, a tap outside or Escape closes it, and
+  focus returns to Filters. Only one of the two panels is open at a time, because both are modal.
+  Both use the `.anchored-panel` class (`base.css`). Desktop has no filters panel.
 - **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
-  (Methodology, Privacy, Third-party notices) and the logo panel. The press must start outside too,
-  so a drag that starts inside (selecting text in a field) and ends outside keeps the dialog open.
-  When a dialog opens over another (Share from the logo panel), a tap outside closes only the top
-  one. The full-screen filters sheet has no outside area. One Svelte attachment, `lightDismiss`
-  (`src/lib/dialog.ts`), does this for every dialog.
+  (Methodology, Privacy, Third-party notices), the logo panel and the filters panel. The press must
+  start outside too, so a drag that starts inside (selecting text in a field) and ends outside keeps
+  the dialog open. When a dialog opens over another (Share from the logo panel), a tap outside
+  closes only the top one. One Svelte attachment, `lightDismiss` (`src/lib/dialog.ts`), does this
+  for every dialog.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map

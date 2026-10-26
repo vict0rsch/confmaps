@@ -45,17 +45,6 @@
   />
 {/snippet}
 
-{#snippet clearAll()}
-  {#if filterState.activeCount}
-    <button class="clear-all" type="button" onclick={() => filterState.resetAll()}>
-      Clear all
-      <span class="count tabular" data-testid={layout === 'sidebar' ? 'filters-badge' : undefined}>
-        {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
-      </span>
-    </button>
-  {/if}
-{/snippet}
-
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="filter-panel" onkeydown={layout === 'sidebar' ? onKeydown : undefined}>
   {#if search}
@@ -87,7 +76,14 @@
           <Icon name="chevron" size={12} />
         </button>
       {/each}
-      {@render clearAll()}
+      {#if filterState.activeCount}
+        <button class="clear-all" type="button" onclick={() => filterState.resetAll()}>
+          Clear all
+          <span class="count tabular" data-testid="filters-badge">
+            {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
+          </span>
+        </button>
+      {/if}
     </div>
     {#each others as f (f.id)}
       <!-- Every tray stays mounted (hidden when closed), so aria-controls always resolves. -->
@@ -103,9 +99,6 @@
       </div>
     {/each}
   {:else}
-    {#if filterState.activeCount}
-      <div class="dialog-actions">{@render clearAll()}</div>
-    {/if}
     {#each others as f (f.id)}
       {@const active = filterState.isActive(f.id)}
       <section class="stacked" data-filter={f.id} aria-labelledby="{uid}-heading-{f.id}">
@@ -238,11 +231,6 @@
   }
 
   /* ---- Dialog layout: every Control stacked open ---- */
-  .dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .stacked {
     display: flex;
     flex-direction: column;
