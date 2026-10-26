@@ -72,6 +72,18 @@ test('a shared link shows a dot on the logo and its notice in the panel', async 
   ).toBeVisible();
 });
 
+test('your own travel settings in the address bar are not a shared link', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'confmaps', exact: true }).click();
+  const menu = page.getByRole('dialog', { name: 'confmaps' });
+  await menu.getByText('Travel preferences').click();
+  await menu.getByText('mi', { exact: true }).click();
+  await expect.poll(() => page.url()).toContain('units=mi');
+  await page.reload();
+  await expect(page.locator('button.row').first()).toBeVisible();
+  await expect(page.getByTestId('shared-dot')).toHaveCount(0);
+});
+
 test('tapping the grip expands the sheet', async ({ page }) => {
   await page.goto('/');
   const sheet = page.getByRole('region', { name: 'Conference list' });

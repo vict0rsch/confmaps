@@ -505,7 +505,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   `home=<geonameid>` (the id only). A recipient's `home` applies **for that visit only**: it is
   not persisted and is stripped from the address bar afterwards. Likewise, shared CO₂ views carry all
   travel settings (`mode`, `thr`, `units`), applied for that visit only with a notice and a "Use mine"
-  button. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
+  button. A link that only repeats the viewer's own travel settings (their own address after a
+  reload) is not treated as shared. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
 
 ### 6.6 URL state
