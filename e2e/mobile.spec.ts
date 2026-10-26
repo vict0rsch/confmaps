@@ -82,6 +82,17 @@ test('the logo opens home, travel, the legend, theme and credits', async ({ page
   await expect(pill).toBeFocused();
 });
 
+test('a tapped city suggestion sets home and keeps the panel open', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'confmaps', exact: true }).click();
+  const menu = page.getByRole('dialog', { name: 'confmaps' });
+  await menu.getByRole('combobox', { name: 'Your city' }).fill('Berlin');
+  await menu.getByRole('option').first().tap();
+  await expect(menu).toBeVisible();
+  await expect(menu.getByTestId('home-city')).toContainText('Berlin');
+  await expect(menu.getByRole('button', { name: 'Change location' })).toBeFocused();
+});
+
 test('a shared link shows a dot on the logo and its notice in the panel', async ({ page }) => {
   await page.goto('/?mode=fly&units=mi');
   await expect(page.getByTestId('shared-dot')).toBeVisible();

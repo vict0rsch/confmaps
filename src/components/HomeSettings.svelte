@@ -43,6 +43,12 @@
       ? `Train for trips under ${fmt(threshold)} ${travel.units}`
       : `Always fly · ${travel.units}`,
   );
+  /** The logo panel's narrower summary. */
+  const travelShort = $derived(
+    travel.mode === 'auto'
+      ? `Train under ${fmt(threshold)} ${travel.units}`
+      : `Always fly · ${travel.units}`,
+  );
 
   let status = $derived.by(() => {
     if (locating) return 'Finding the nearest city…';
@@ -359,7 +365,7 @@
       <details class="travel">
         <summary class="travel-summary">
           <span class="subheading">Travel preferences</span>
-          <span class="travel-current tabular">{travelSummary}</span>
+          <span class="travel-current tabular">{travelShort}</span>
           <Icon name="chevron" size={14} />
         </summary>
         <div class="travel-fields">{@render travelFields()}</div>
@@ -374,9 +380,9 @@
 {/snippet}
 
 {#if compact}
-  <section aria-labelledby="{uid}-heading">
+  <div role="group" aria-labelledby="{uid}-heading">
     {@render panel()}
-  </section>
+  </div>
 {:else}
   <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <section
@@ -712,11 +718,15 @@
     display: block;
   }
 
+  /* The negative margin pulls the hairline (closed) and the fields (open) closer to the text.
+     Positioned, so the fields' top padding never covers its 44 px tap target. */
   .travel-summary {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--space-2);
     min-height: 44px;
+    margin-bottom: calc(-1 * var(--space-3));
     list-style: none;
     cursor: pointer;
   }

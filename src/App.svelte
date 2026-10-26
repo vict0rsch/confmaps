@@ -603,6 +603,9 @@
   .topbar-actions .button {
     flex: none;
     padding: 0 var(--space-3);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   /* Its own row under the logo and actions, so Play stays in view at every snap. The round Play
