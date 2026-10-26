@@ -127,6 +127,13 @@ for (const theme of ['light', 'dark'] as Theme[]) {
       await expect(page.getByRole('button', { name: /^Show / })).toBeFocused();
       await scan(page, `${theme} landscape folded`, testInfo);
     });
+    test('filters panel', async ({ page }, testInfo) => {
+      await page.goto('/');
+      await expect(page.locator('button.row').first()).toBeVisible();
+      await page.getByRole('button', { name: 'Filters', exact: true }).click();
+      await page.getByRole('button', { name: /^Topics:/ }).click();
+      await scan(page, `${theme} landscape filters panel`, testInfo);
+    });
   });
 }
 
