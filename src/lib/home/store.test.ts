@@ -119,4 +119,11 @@ describe('home persistence', () => {
     expect(store.city?.name).toBe('Berlin');
     expect(t.home).toEqual({ lat: 52.524, lng: 13.411 });
   });
+
+  it('a link with the saved city is not a shared home', async () => {
+    const store = new HomeStore(memoryStorage(), target());
+    store.set(berlin);
+    expect(await store.applyShared(berlin.id)).toBe(false);
+    expect(store.shared).toBeUndefined();
+  });
 });
