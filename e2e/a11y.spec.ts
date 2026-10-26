@@ -113,6 +113,21 @@ for (const theme of ['light', 'dark'] as Theme[]) {
   }
 }
 
+// Phones held sideways: the side panel, open and folded into its pill.
+for (const theme of ['light', 'dark'] as Theme[]) {
+  test.describe(`${theme} landscape`, () => {
+    test.use({ viewport: { width: 844, height: 390 }, colorScheme: theme });
+    test('side panel, open and folded', async ({ page }, testInfo) => {
+      await page.goto('/');
+      await expect(page.locator('button.row').first()).toBeVisible();
+      await scan(page, `${theme} landscape side panel`, testInfo);
+      await page.getByRole('button', { name: 'Hide panel' }).click();
+      await expect(page.getByRole('button', { name: /^Show / })).toBeFocused();
+      await scan(page, `${theme} landscape folded`, testInfo);
+    });
+  });
+}
+
 // Past editions (fixture build): the Virtual badge in list rows and the virtual detail.
 test.describe('past editions', () => {
   let fixture: Awaited<ReturnType<typeof startPastFixture>>;

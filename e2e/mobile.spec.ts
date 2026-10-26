@@ -283,4 +283,26 @@ test.describe('landscape', () => {
     await expect(page.getByTestId('detail')).toBeHidden();
     await expect(page.getByRole('button', { name: 'Show NeurIPS 2026' })).toBeFocused();
   });
+
+  test('the tab comes before the list rows in the tab order', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Hide panel' }).focus();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('button.row').first()).toBeFocused();
+  });
+
+  test('a new selection while folded unfolds the panel to the detail', async ({ page }) => {
+    // Pins are drawn on the map canvas: leaving history mode restores the selection instead.
+    await page.goto('/?c=neurips26');
+    const history = page.getByTestId('detail').getByRole('button', { name: 'View history' });
+    await history.scrollIntoViewIfNeeded();
+    await history.click();
+    await expect(page.getByTestId('history-meta')).toBeVisible();
+    await page.getByRole('button', { name: 'Hide panel' }).tap();
+    await expect(page.getByRole('region', { name: 'Conference list' })).toBeHidden();
+    await page.getByRole('button', { name: /^Exit/ }).click();
+    await expect(page.getByRole('region', { name: 'Conference details' })).toBeVisible();
+    await expect(page.locator('#detail-title')).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Show NeurIPS 2026' })).toBeHidden();
+  });
 });
