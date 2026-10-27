@@ -435,7 +435,7 @@ Initial filters:
 |---|---|---|
 | `dates` | `{from, to}` window | Same state as the timeline (§6.4); test uses `end ≥ from && start ≤ to` |
 | `subject` | conference tags | Upstream's free-form tags grouped into subjects with short URL codes (`sub=ML,CV`; e.g. `ML` machine learning, `RL`, `LLM`); near-duplicate tags merge; unknown tags become their own subject under "Other" |
-| `search` | text match on title/full name | aideadlin.es-style |
+| `search` | text match on title/full name | aideadlin.es-style; commas = any of several, spaces = all words |
 | `radius` | within X km/mi of home | Needs home; greyed with "Set your city" otherwise. Virtual editions pass; hybrid ones use their city |
 | `co2` | estimated footprint under ~X kg | Needs home; uses global mode/threshold. Virtual editions count as 0 kg and pass; hybrid ones use their city |
 | `access` | open / registration / authors only | |

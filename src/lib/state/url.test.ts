@@ -51,9 +51,9 @@ describe('buildQuery', () => {
   });
 
   it('encodes search text safely', () => {
-    const q = buildQuery('', inputs({ states: { ...defaults, search: 'a&b=c d,é' } }));
-    expect(q).toBe('q=a%26b%3Dc%20d,%C3%A9');
-    expect(parseQuery(q, filters, isConference).filters.search).toBe('a&b=c d,é');
+    const q = buildQuery('', inputs({ states: { ...defaults, search: 'a&b=c d, é' } }));
+    expect(q).toBe('q=a%26b%3Dc%20d,%20%C3%A9');
+    expect(parseQuery(q, filters, isConference).filters.search).toBe('a&b=c d, é');
   });
 });
 

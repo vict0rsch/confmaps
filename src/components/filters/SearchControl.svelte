@@ -33,7 +33,7 @@
     id="filter-search"
     class="input"
     type="search"
-    placeholder="Search conferences"
+    placeholder="Search, e.g. NeurIPS, ICML"
     autocomplete="off"
     spellcheck="false"
     maxlength={SEARCH_MAX_LENGTH}

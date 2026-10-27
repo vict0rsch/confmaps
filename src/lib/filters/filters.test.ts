@@ -9,7 +9,7 @@ import { createFilters } from './index';
 import { kindFilter } from './kind';
 import { openFilter, submissionOpen } from './open';
 import { radiusFilter } from './radius';
-import { fold, matchesQuery, searchFilter } from './search';
+import { cleanQuery, fold, matchesQuery, searchFilter } from './search';
 import { normalizeTag, subjectCatalog, subjectFilter, subjectOfTag, SUBJECTS } from './subject';
 import { RESERVED_PARAMS, SELECTION_PARAM, TRAVEL_PARAMS } from '../state/url';
 import type { AnyFilter } from './types';
@@ -210,6 +210,25 @@ describe('search', () => {
     roundTrips(searchFilter, ['', 'icml', 'machine learning', 'Montréal & co, 100%']);
     expect(searchFilter.fromURL('q=%20%20neur%20%20ips%20')).toBe('neur ips');
     expect(searchFilter.fromURL(`q=${'a'.repeat(500)}`)).toHaveLength(100);
+  });
+
+  it('matches any comma-separated part, every word within a part', () => {
+    expect(searchFilter.test(icml, c, 'neurips, icml')).toBe(true);
+    expect(searchFilter.test(montreal, c, 'neurips, icml')).toBe(false);
+    expect(searchFilter.test(icml, c, 'neurips, icml 2026')).toBe(false); // all words of a part
+    expect(searchFilter.test(icml, c, 'icml 2027, neurips')).toBe(true);
+    expect(searchFilter.test(montreal, c, 'reseaux,')).toBe(true);
+    expect(searchFilter.test(icml, c, 'reseaux,')).toBe(false); // the empty part matches nothing
+  });
+
+  it('cleans comma spacing; a query of only commas is inactive', () => {
+    expect(cleanQuery('neurips ,icml')).toBe('neurips, icml');
+    expect(cleanQuery(', neurips,, icml ,')).toBe('neurips, icml');
+    expect(searchFilter.fromURL('q=%2C%20%2C')).toBe('');
+    expect(searchFilter.isActive(cleanQuery(' , ,'))).toBe(false);
+    expect(cleanQuery(`${'a'.repeat(98)},b`)).toBe('a'.repeat(98)); // the cap leaves no ", "
+    for (const q of ['neurips ,icml', ', a,,b ,', ' , ', `${'a'.repeat(99)},b`, 'Montréal & co'])
+      expect(cleanQuery(cleanQuery(q)), q).toBe(cleanQuery(q));
   });
 });
 
