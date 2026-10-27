@@ -45,3 +45,19 @@ describe('loadInputs: past_conferences.yml', () => {
     );
   });
 });
+
+describe('loadInputs: series.yml', () => {
+  it('is {} when the file is missing', () => {
+    expect(loadInputs(dir)).toMatchObject({ series: {}, errors: [] });
+  });
+
+  it('reports a string first_year', () => {
+    writeFileSync(
+      dataPaths(dir).series,
+      'neurips:\n  first_year: "1987"\n  sources: [https://example.org/history]\n',
+    );
+    expect(loadInputs(dir).errors).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^series\.yml: neurips\.first_year: /)]),
+    );
+  });
+});

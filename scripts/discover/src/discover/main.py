@@ -15,6 +15,10 @@ Past main editions (``data/past_conferences.yml``, DESIGN.md §3):
                            edition; one API call per series and batch of up to 6 years.
                            --recheck also re-verifies recorded `source: pwc` editions in the
                            range (the COVID pass). Dry-run one series first to measure cost.
+--mode past [--series S[,S...]] --since-creation [--until Y2]
+                           instead of --since, start each series at its `first_year` in
+                           data/series.yml. Without --series, every series in that file runs;
+                           a named series with no entry is skipped with a warning.
 
 Common:
 
@@ -74,11 +78,12 @@ from .past import check_and_plan, plan_batches
 from .report import PAST_INTRO, ConferenceRun, build_body, tool_log
 from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
 from .wayback import NO_SNAPSHOT_FLAG, Snapshots
-from .yamlio import load_entries
+from .yamlio import load_entries, make_yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 SATELLITES = Path("data/satellites.yml")
 PAST = Path("data/past_conferences.yml")
+SERIES = Path("data/series.yml")
 GEOCACHE = Path("data/geocache.json")
 DATA_JSON = Path("data/build/data.json")
 ARCHIVE = Path("data/archive")
@@ -552,6 +557,12 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p = argparse.ArgumentParser(prog="discover", description=__doc__.split("\n")[0])
     p.add_argument("--mode", choices=["upcoming", "backfill", "past"], default="upcoming")
     p.add_argument("--since", type=int, help="first year for --mode backfill / past")
+    p.add_argument(
+        "--since-creation",
+        action="store_true",
+        help="--mode past: start each series at its first_year in data/series.yml "
+        "(instead of --since; --series then defaults to every series in that file)",
+    )
     p.add_argument("--until", type=int, help="last year for --mode past (default: last year)")
     p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
     p.add_argument("--series", action="append", default=[], help="series key(s), comma-separated")
@@ -571,8 +582,13 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     if args.mode == "past":
         if args.only:
             p.error("--only applies to satellite modes; use --series with --mode past")
-        if not args.from_results and (not args.series or args.since is None):
-            p.error("--mode past needs --series S[,S...] and --since YYYY")
+        if args.since_creation and args.since is not None:
+            p.error("--since-creation cannot be combined with --since")
+        if not args.from_results:
+            if not args.since_creation and args.since is None:
+                p.error("--mode past needs --since YYYY or --since-creation")
+            if not args.since_creation and not args.series:
+                p.error("--mode past needs --series S[,S...] (optional with --since-creation)")
         for s in args.series:
             if not SERIES_RE.fullmatch(s):
                 p.error(f"--series {s!r}: series keys are lowercase letters, digits and dashes")
@@ -584,7 +600,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
             p.error("--until is before --since")
     else:
         for flag, used in (("--series", args.series), ("--until", args.until is not None),
-                           ("--recheck", args.recheck)):  # fmt: skip
+                           ("--recheck", args.recheck),
+                           ("--since-creation", args.since_creation)):  # fmt: skip
             if used:
                 p.error(f"{flag} only applies to --mode past")
     if args.max_usd < 0:
@@ -705,6 +722,23 @@ def _results_hint(results_dir: Path | None) -> None:
         )
 
 
+def _first_years(repo: Path) -> dict[str, int]:
+    """Series key → ``first_year`` from ``data/series.yml`` (``{}`` if missing; ``ValueError``/``TypeError`` if unusable)."""
+    path = repo / SERIES
+    data = (make_yaml().load(path.read_text()) or {}) if path.exists() else {}
+    if not isinstance(data, dict):
+        raise TypeError(f"{SERIES}: expected a mapping of series key to entry")
+    years: dict[str, int] = {}
+    for key, entry in data.items():
+        year = entry.get("first_year") if isinstance(entry, dict) else None
+        if isinstance(year, bool) or not isinstance(year, int) or not MIN_YEAR <= year <= MAX_YEAR:
+            raise ValueError(
+                f"{SERIES}: {key}: first_year {year!r} is not a year in {MIN_YEAR}..{MAX_YEAR}"
+            )
+        years[str(key)] = year
+    return years
+
+
 def _main_past(
     args: argparse.Namespace,
     repo: Path,
@@ -728,7 +762,24 @@ def _main_past(
         mode = "from saved results"
     else:
         until = args.until if args.until is not None else today.year - 1
-        batches, unknown = plan_batches(data, past, args.series, args.since, until, args.recheck)
+        series_list, since = args.series, args.since
+        if args.since_creation:
+            try:
+                first_years = _first_years(repo)
+            except (ValueError, TypeError) as e:
+                say(f"error: {e}", file=sys.stderr)
+                return 1
+            series_list = args.series or list(first_years)
+            for s in series_list:
+                if s not in first_years:
+                    say(
+                        f"warning: --series {s}: no first_year in {SERIES}, skipped",
+                        file=sys.stderr,
+                    )
+            series_list = [s for s in series_list if s in first_years]
+            since = {s: first_years[s] for s in series_list}
+            step("Starting at first_year: " + ", ".join(f"{s} {y}" for s, y in since.items()))
+        batches, unknown = plan_batches(data, past, series_list, since, until, args.recheck)
         if unknown:
             say(
                 "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "

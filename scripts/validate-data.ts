@@ -87,6 +87,7 @@ export function main(argv: string[]): number {
       satellites: inputs.satellites,
       past: inputs.past,
       overrides: inputs.overrides,
+      series: inputs.series,
       geocache: inputs.geocache,
       archive: inputs.archive,
     };

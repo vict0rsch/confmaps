@@ -9,6 +9,7 @@ import {
   PastConferenceSchema,
   PinnedLocationSchema,
   SatelliteSchema,
+  SeriesFileSchema,
   UpstreamConferenceSchema,
   VirtualLocationSchema,
   type EventLocation,
@@ -150,6 +151,28 @@ const virtual = (over: Record<string, unknown> = {}) => {
   return { ...rest, format: 'virtual', ...over };
 };
 const locOk = (l: unknown) => EventLocationSchema.safeParse(l).success;
+
+describe('SeriesFileSchema', () => {
+  const entry = { first_year: 1987, sources: ['https://example.org/history'], notes: 'NIPS' };
+  const ok = (e: unknown) => SeriesFileSchema.safeParse({ neurips: e }).success;
+
+  it('accepts a valid entry and an empty mapping', () => {
+    expect(ok(entry)).toBe(true);
+    expect(ok({ first_year: 1987, sources: entry.sources })).toBe(true);
+    expect(SeriesFileSchema.safeParse({}).success).toBe(true);
+  });
+
+  it('rejects missing or empty or non-http sources, unknown fields and bad years', () => {
+    expect(ok({ first_year: 1987 })).toBe(false);
+    expect(ok({ ...entry, sources: [] })).toBe(false);
+    expect(ok({ ...entry, sources: ['ftp://example.org/x'] })).toBe(false);
+    expect(ok({ ...entry, extra: 1 })).toBe(false);
+    expect(ok({ ...entry, notes: '' })).toBe(false);
+    expect(ok({ ...entry, first_year: 1987.5 })).toBe(false);
+    expect(ok({ ...entry, first_year: 1949 })).toBe(false);
+    expect(ok({ ...entry, first_year: 2101 })).toBe(false);
+  });
+});
 
 describe('EventLocationSchema', () => {
   it('accepts in-person (no format), hybrid and virtual main locations', () => {

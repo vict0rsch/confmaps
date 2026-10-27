@@ -1,0 +1,655 @@
+# One entry per conference series: the year the series was first held, counted from the series'
+# own official edition numbering. Read by the past-editions backfill; not shown in the app.
+# A series with no sourced year has no entry.
+#
+# Keys are series keys (the normalized title, e.g. neurips). Fields: first_year (integer,
+# 1950-2100; not later than the earliest edition in the dataset), sources (≥1 http(s) URL),
+# notes?
+
+3dv:
+  first_year: 2013
+  sources:
+    - https://3dvconf.github.io/2025/
+    - https://www.convention.qc.ca/en/news/international-conference-3d-vision-quebec-city-2019
+  notes: 3DV 2025 was the 12th International Conference on 3D Vision, which counts the 2013 event, the first under the 3DV name, as the first edition.
+aaai:
+  first_year: 1980
+  sources:
+    - https://en.wikipedia.org/wiki/AAAI_Conference_on_Artificial_Intelligence
+    - https://aaai.org/conference/aaai/aaai80/
+  notes: The first AAAI conference, AAAI-80, was held in August 1980 at Stanford University.
+aamas:
+  first_year: 2002
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Autonomous_Agents_and_Multiagent_Systems
+    - https://apice.unibo.it/xwiki/bin/view/Event/Aamas2025
+  notes: AAMAS 2025 was the 24th edition, which counts the 2002 Bologna conference as the first; the older ICMAS, AGENTS and ATAL meetings are not counted.
+accv:
+  first_year: 1993
+  sources:
+    - https://www.visionbib.com/bibliography/journal-list12.html
+    - https://dblp.org/db/conf/accv/index.html
+  notes: The first ACCV was held in Osaka in November 1993; dblp numbers the 1995 Singapore meeting as the 2nd.
+acl:
+  first_year: 1963
+  sources:
+    - https://en.wikipedia.org/wiki/Association_for_Computational_Linguistics
+    - https://aclanthology.org/2021.acl-long.0/
+  notes: The annual meeting was first held in 1963; ACL 2021 was the 59th annual meeting, which matches a yearly run from 1963.
+acm-mm:
+  first_year: 1993
+  sources:
+    - https://en.wikipedia.org/wiki/ACM_Multimedia
+    - https://dblp.org/db/conf/mm/index.html
+    - https://dblp.org/db/conf/mm/mm93.html
+  notes: The first ACM Multimedia conference took place in Anaheim, California, in August 1993.
+acml:
+  first_year: 2009
+  sources:
+    - https://search.library.wisc.edu/catalog/9911117114202121
+  notes: The first Asian Conference on Machine Learning was held in Nanjing in November 2009.
+aistats:
+  first_year: 1985
+  sources:
+    - https://aistats.org/aistats1995/preface.html
+    - https://aistats.org/aistats1989/
+  notes: AISTATS counts the first Workshop on Artificial Intelligence and Statistics, held in Princeton in April 1985, as its first edition; the 1989 meeting was the 2nd.
+aiware:
+  first_year: 2024
+  sources:
+    - https://conf.researchr.org/home/aiware-2024
+  notes: The 1st ACM International Conference on AI-powered Software was held in July 2024 in Porto de Galinhas, Brazil, alongside FSE 2024.
+akbc:
+  first_year: 2019
+  sources:
+    - https://akbc.ws/2021/
+  notes: AKBC numbers its 2019 Amherst meeting as the 1st conference; the AKBC workshops held since 2010 are not counted.
+alt:
+  first_year: 1990
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Algorithmic_Learning_Theory
+    - https://algorithmiclearningtheory.org/alt2025/
+  notes: ALT has run every year since 1990, when it was called a workshop; ALT 2025 was the 36th edition.
+automl:
+  first_year: 2022
+  sources:
+    - https://www.automl.org/?p=3908
+  notes: The AutoML Conference was launched in 2022 and replaced the ICML AutoML workshops held from 2014, which are not counted.
+bis:
+  first_year: 1997
+  sources:
+    - https://pl.wikipedia.org/wiki/Konferencja_BIS
+    - https://dblp.org/db/conf/bis/index.html
+    - https://bisconf.org/2027/previous-bis/
+  notes: The first BIS conference was held in Poznan in April 1997; dblp lists the 1999 Poznan meeting as the 3rd.
+bmvc:
+  first_year: 1990
+  sources:
+    - https://bmva-archive.org.uk/bmvc/
+    - https://www.bmvc2024.org/
+  notes: BMVC 2024 was the 35th British Machine Vision Conference, which counts the 1990 Oxford meeting as the first; the earlier Alvey Vision Conferences are not counted.
+cec:
+  first_year: 1999
+  sources:
+    - https://ewh.ieee.org/conf/cec/
+    - https://en.wikipedia.org/wiki/IEEE_Congress_on_Evolutionary_Computation
+  notes: The first event named IEEE Congress on Evolutionary Computation was held in Washington, DC, in July 1999; it succeeded the IEEE ICEC conferences held from 1994.
+chi:
+  first_year: 1981
+  sources:
+    - https://dl.acm.org/conference/chi/proceedings
+    - https://en.wikipedia.org/wiki/Conference_on_Human_Factors_in_Computing_Systems
+    - https://dblp.org/db/conf/chi/index.html
+  notes: The series started with the 1982 Conference on Human Factors in Computing Systems in Gaithersburg, Maryland.
+chil:
+  first_year: 2020
+  sources:
+    - https://vectorinstitute.ai/vector-researchers-co-lead-first-acm-conference-on-health-inference-and-learning/
+  notes: The inaugural CHIL was held online in July 2020.
+cikm:
+  first_year: 1992
+  sources:
+    - https://dhhumanist.org/archives/Virginia/v06/0197.html
+  notes: The first CIKM was held in Baltimore in November 1992.
+clear:
+  first_year: 2022
+  sources:
+    - https://amazon.science/blog/amazon-helps-create-first-conference-on-causal-learning-and-reasoning
+  notes: The first Conference on Causal Learning and Reasoning was held in April 2022 in Eureka, California.
+coling:
+  first_year: 1965
+  sources:
+    - https://aclanthology.org/venues/coling/
+    - https://aclanthology.org/2022.coling-1.0/
+  notes: The first COLING was held in 1965; COLING 2022 was the 29th, which matches a mostly biennial run from 1965.
+collas:
+  first_year: 2022
+  sources:
+    - https://proceedings.mlr.press/v199/
+  notes: The 1st CoLLAs was held at McGill University in Montreal in August 2022.
+colm:
+  first_year: 2024
+  sources:
+    - https://colm.cc/
+  notes: COLM was first held in 2024 in Philadelphia.
+colt:
+  first_year: 1988
+  sources:
+    - https://dblp.org/db/conf/colt/index.html
+    - https://dblp.org/db/conf/colt/colt1988.html
+  notes: The first COLT was held in 1988 at MIT as the First Annual Workshop on Computational Learning Theory.
+conll:
+  first_year: 1997
+  sources:
+    - https://aclanthology.org/venues/conll/
+  notes: The first CoNLL was held in 1997.
+corl:
+  first_year: 2017
+  sources:
+    - https://research.google/blog/a-summary-of-the-first-conference-on-robot-learning/
+  notes: The first CoRL was held in November 2017 at Google in Mountain View.
+cpal:
+  first_year: 2024
+  sources:
+    - https://proceedings.mlr.press/v234/
+    - https://cpal.cc/
+  notes: The first CPAL was held in Hong Kong in January 2024; CPAL 2027 is the fourth edition.
+cscw:
+  first_year: 1986
+  sources:
+    - https://www.nngroup.com/articles/trip-report-cscw-86/
+    - https://dblp.org/db/conf/cscw/index.html
+    - https://en.wikipedia.org/wiki/Computer-supported_cooperative_work
+  notes: The first CSCW conference was held in Austin, Texas, in December 1986.
+cvpr:
+  first_year: 1983
+  sources:
+    - https://find.library.upenn.edu/catalog/991003523503681
+    - https://katalog.bibliothek.kit.edu/bib/121136
+  notes: The first conference under the CVPR name was held in 1983; it continued the IEEE Conference on Pattern Recognition and Image Processing.
+eacl:
+  first_year: 1983
+  sources:
+    - https://aclanthology.org/venues/eacl/
+  notes: The first EACL conference was held in 1983.
+ecai:
+  first_year: 1974
+  sources:
+    - https://en.wikipedia.org/wiki/European_Conference_on_Artificial_Intelligence
+    - https://ecai2024.eu/
+  notes: ECAI 2024 was the 27th edition, a count that includes the AISB conferences from 1974 under which the series started.
+eccv:
+  first_year: 1990
+  sources:
+    - https://en.wikipedia.org/wiki/European_Conference_on_Computer_Vision
+  notes: The first ECCV was held in April 1990 in Antibes, France.
+ecir:
+  first_year: 1979
+  sources:
+    - https://www.bcs.org/membership-and-registrations/member-communities/information-retrieval-specialist-group/conferences-and-events/european-conference-on-information-retrieval/
+    - https://ecir2024.org/
+  notes: ECIR counts the BCS-IRSG Information Retrieval Colloquium, first run in 1979, as its first edition; ECIR 2024 was the 46th.
+ecml-pkdd:
+  first_year: 2001
+  sources:
+    - https://en.wikipedia.org/wiki/ECML_PKDD
+    - https://dblp.org/db/conf/pkdd/index.html
+  notes: ECML and PKDD were first held as one joint event in Freiburg in 2001 and fully merged in 2008; ECML alone dates to 1986 and PKDD to 1997.
+emnlp:
+  first_year: 1996
+  sources:
+    - https://en.wikipedia.org/wiki/Empirical_Methods_in_Natural_Language_Processing
+    - https://aclanthology.org/venues/emnlp/
+  notes: The first EMNLP was held in 1996; the 1997 meeting was the Second Conference, so the earlier Workshop on Very Large Corpora is not counted.
+esann:
+  first_year: 1993
+  sources:
+    - https://www.esann.org/
+  notes: ESANN has been held every year since 1993; ESANN 2027 is the 35th edition.
+eurographics:
+  first_year: 1980
+  sources:
+    - https://ercim.eu/publication/Ercim_News/enw44/duce.html
+  notes: The first Eurographics conference was held in Geneva in 1980.
+euvip:
+  first_year: 2010
+  sources:
+    - https://dblp.org/db/conf/euvip/index.html
+  notes: EUVIP counts the 2008 VISPA workshop as its first edition; the 2010 workshop was the 2nd EUVIP and the 2013 one the fourth.
+evomusart:
+  first_year: 2012
+  sources:
+    - https://www.evostar.org/2023/evomusart/
+  notes: EvoMUSART 2023 was the 12th conference, counting from 2012, when it became an independent evo* conference; the EvoMUSART workshops from 2003 are not counted.
+facct:
+  first_year: 2018
+  sources:
+    - https://facctconference.org/2018/
+    - https://facctconference.org/2021/
+  notes: The conference was first held in February 2018 in New York as ACM FAT*; FAccT 2021, the first under the new name, was the fourth annual edition.
+fg:
+  first_year: 1995
+  sources:
+    - https://ieee-biometrics.org/conferences/flagship/fg/
+    - https://infoscience.epfl.ch/handle/20.500.14299/208487
+  notes: FG counts the 1995 Zurich workshop as its first edition; FG 2024 was the 18th.
+fsr:
+  first_year: 1997
+  sources:
+    - https://researchprofiles.canberra.edu.au/en/publications/vcr-a-virtually-controlled-robot-system/
+  notes: The 1st International Conference on Field and Service Robotics was held in Canberra in December 1997.
+gecco:
+  first_year: 1999
+  sources:
+    - https://en.wikipedia.org/wiki/Genetic_and_Evolutionary_Computation_Conference
+    - https://dblp.org/db/conf/gecco/index.html
+  notes: The first GECCO was held in Orlando in 1999, formed from the ICGA and Genetic Programming conferences.
+hicss:
+  first_year: 1968
+  sources:
+    - https://en.wikipedia.org/wiki/Hawaii_International_Conference_on_System_Sciences
+    - https://www.hawaii.edu/news/2026/01/22/hicss-59/
+  notes: The first HICSS was held in 1968 at the University of Hawaii; HICSS 2026 was the 59th annual conference.
+hri:
+  first_year: 2006
+  sources:
+    - https://humanrobotinteraction.org/2006
+  notes: The 1st Annual Conference on Human-Robot Interaction was held in Salt Lake City in March 2006.
+iberamia:
+  first_year: 1988
+  sources:
+    - https://www.iberamia.org/iberamia/?p=39
+  notes: The first IBERAMIA was held in Barcelona in 1988; IBERAMIA 2024 in Montevideo was the 18th.
+icann:
+  first_year: 1991
+  sources:
+    - https://e-nns.org/icann2025/
+    - https://dblp.org/db/conf/icann/index.html
+    - https://dblp.org/db/conf/icann/icann1997.html
+  notes: The first ICANN was held in Finland in 1991; ICANN 2025 was the 34th edition.
+icaps:
+  first_year: 1991
+  sources:
+    - https://ojs.aaai.org/index.php/ICAPS/issue/view/663
+    - https://icaps05.icaps-conference.org/icaps.html
+    - https://en.wikipedia.org/wiki/International_Conference_on_Automated_Planning_and_Scheduling
+  notes: ICAPS numbers its editions counting the earlier AIPS and European planning conferences, so ICAPS 2025 was the 35th and the first was held in 1991.
+icarsc:
+  first_year: 2001
+  sources:
+    - https://ewh.ieee.org/soc/ras/conf/technicallycosponsored/icarsc/2018/robotica2018.festivalrobotica.pt/pt/icarsc.html
+    - https://step.ipb.pt/?p=4029
+  notes: ICARSC numbers its editions from the 2001 scientific meeting of the Portuguese Robotics Open, so ICARSC 2018 was the 18th and ICARSC 2023 the 23rd.
+icassp:
+  first_year: 1976
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Acoustics,_Speech,_and_Signal_Processing
+    - https://2025.ieeeicassp.org/
+  notes: The first ICASSP was held in Philadelphia in 1976; ICASSP 2025 was the 50th edition.
+iccc:
+  first_year: 2010
+  sources:
+    - https://computationalcreativity.net/iccc2012/the-conference-past-events/
+  notes: The first International Conference on Computational Creativity was held in Lisbon in January 2010; the earlier workshops are not counted.
+iccv:
+  first_year: 1987
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - https://dblp.org/db/conf/iccv/index.html
+  notes: The first ICCV was held in London in 1987.
+icdar:
+  first_year: 1991
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - https://dblp.org/db/conf/icdar/index.html
+    - https://dblp.org/db/conf/icdar/icdar1993.html
+  notes: The first ICDAR was held in Saint-Malo, France, in 1991; it was biennial until 2023.
+icdl-epirob:
+  first_year: 2011
+  sources:
+    - https://mailman.srv.cs.cmu.edu/pipermail/connectionists/2011-February/024373.html
+    - https://www.inf.uni-hamburg.de/en/inst/ab/wtm/about/news/20171117-icdl-epirob.html
+  notes: The joint ICDL-EpiRob conference was first held in Frankfurt in 2011, when the ICDL and EpiRob series merged; ICDL-EpiRob 2017 was the 7th.
+icdm:
+  first_year: 2001
+  sources:
+    - https://web.engr.oregonstate.edu/~dambrobr/uai-archive-00-01/0623.html
+    - https://cse.hkust.edu.hk/pg/seminars/S06/wu2.html
+  notes: The first ICDM was held in San Jose in late 2001.
+icip:
+  first_year: 1994
+  sources:
+    - https://ieeeicip.org/about-icip/
+    - https://dblp.org/db/conf/icip/index.html
+  notes: The first ICIP was held in Austin, Texas, in November 1994.
+iclr:
+  first_year: 2013
+  sources:
+    - https://en.wikipedia.org/wiki/International_Conference_on_Learning_Representations
+    - https://iclr.cc/archive/2013/
+  notes: The first ICLR was held in Scottsdale, Arizona, in May 2013.
+icme:
+  first_year: 2000
+  sources:
+    - https://isds.committees.comsoc.org/call-for-papers/the-26th-ieee-international-conference-on-multimedia-and-expo-icme-2025/
+  notes: ICME has been held every year since 2000; ICME 2025 was the 26th edition.
+icmi:
+  first_year: 1996
+  sources:
+    - https://icmi.acm.org/2025/?p=1466
+  notes: ICMI 2025 is the 27th; the count starts with the first International Conference on Multimodal Interfaces in Beijing in 1996.
+icml:
+  first_year: 1980
+  sources:
+    - https://icml.cc/
+    - https://en.wikipedia.org/wiki/International_Conference_on_Machine_Learning
+  notes: ICML 2026 is the 43rd edition; the first was the 1980 International Workshop on Machine Learning at Carnegie Mellon.
+icmr:
+  first_year: 2011
+  sources:
+    - https://opus.bibliothek.uni-augsburg.de/opus4/frontdoor/index/index/docId/61111
+    - https://lkml.iu.edu/hypermail/linux/kernel/0907.3/02471.html
+  notes: The 1st ICMR was held in Trento in 2011; it merged the CIVR and MIR series.
+icomp:
+  first_year: 2024
+  sources:
+    - https://labmmo.ru/en/news/otkryt-priem-statei-na-mezhdunarodnuyu-konferenciyu-po-vychislitelnoi-optimizacii-icomp-2024.html
+    - https://mathnet.ru/eng/conf2489
+  notes: The first ICOMP was held in Innopolis, Russia, in October 2024.
+icpr:
+  first_year: 1973
+  sources:
+    - https://iapr.org/conferences/icpr_overview.php
+  notes: ICPR has been held every two years since 1973.
+icprai:
+  first_year: 2018
+  sources:
+    - https://www.concordia.ca/research/cenparmi/news-events/conferences.html
+    - https://www.concordia.ca/research/cenparmi/news-events/conferences/ICPRAI-2018.html
+  notes: The first ICPRAI was held at Concordia University in Montreal in May 2018.
+icra:
+  first_year: 1984
+  sources:
+    - https://icra40.ieee.org/icra-2024/about
+  notes: First held in 1984 in Atlanta, Georgia.
+icwsm:
+  first_year: 2007
+  sources:
+    - https://repositum.tuwien.at/cris/events/events29517
+    - https://icwsm.org/2025/index.html
+  notes: The 1st ICWSM was held in Boulder, Colorado, in March 2007.
+ijcai:
+  first_year: 1969
+  sources:
+    - https://www.ijcai.org/proceedings/1969
+  notes: The first IJCAI was held in Washington, D.C., in May 1969.
+ijcnlp-aacl:
+  first_year: 2020
+  sources:
+    - https://aclanthology.org/volumes/2020.aacl-main/
+    - https://aclanthology.org/venues/ijcnlp/
+  notes: The joint event began in 2020 as AACL-IJCNLP, the 1st AACL conference and the 10th IJCNLP.
+ijcnn:
+  first_year: 1989
+  sources:
+    - https://www.inns.org/ijcnn-past-conferences
+  notes: First held under the IJCNN name in Washington, D.C., in June 1989; the 1987 and 1988 meetings were the IEEE International Conference on Neural Networks.
+inlg:
+  first_year: 2000
+  sources:
+    - https://aclanthology.org/volumes/W00-14/
+    - https://citius.gal/research/publications/proceedings-of-the-10th-international-conference-on-natural-language-generation/
+  notes: INLG 2000 in Mitzpe Ramon, Israel, was the First International Conference on Natural Language Generation; earlier meetings since 1983 were workshops outside this numbering.
+interspeech:
+  first_year: 2000
+  sources:
+    - https://interspeech2024.org/
+    - https://isca-speech.org/History1
+  notes: Interspeech 2024 was the 25th; the count starts with ICSLP 2000 in Beijing, which also carried the name INTERSPEECH 2000.
+iros:
+  first_year: 1988
+  sources:
+    - http://www.ieee-ras.org/conferences-workshops/financially-co-sponsored/iros
+  notes: First held in Tokyo in 1988.
+ismir:
+  first_year: 2000
+  sources:
+    - https://ismir.net/conferences/
+    - https://dlib.org/dlib/november02/wilson/11wilson.html
+    - https://dblp.org/db/conf/ismir/ismir2000.html
+  notes: The first ISMIR was held in Plymouth, Massachusetts, in October 2000, as a symposium.
+ismis:
+  first_year: 1986
+  sources:
+    - https://dblp.org/db/conf/ismis/index.html
+    - https://dblp.org/db/conf/ismis/ismis87.html
+  notes: The 1st ISMIS was held in Knoxville, Tennessee, in October 1986.
+iswc:
+  first_year: 2002
+  sources:
+    - https://files.ifi.uzh.ch/ddis/iswc_archive/iswc/ih/ISWC-2002
+  notes: The 1st ISWC was held in Sardinia, Italy, in June 2002, following the 2001 Semantic Web Working Symposium.
+iui:
+  first_year: 1993
+  sources:
+    - https://iui.acm.org/2024/
+    - https://iuiconf.org/IUI/History
+  notes: IUI 2024 is the 29th, which counts the 1993 International Workshop on Intelligent User Interfaces in Orlando as the first.
+kdd:
+  first_year: 1995
+  sources:
+    - https://aaai.org/?p=40879
+  notes: KDD-95 in Montreal was the first KDD conference; KDD workshops had run in 1989, 1991, 1993 and 1994.
+kr:
+  first_year: 1989
+  sources:
+    - https://dblp.org/db/conf/kr/index.html
+    - https://dblp.org/db/conf/kr/kr89.html
+  notes: The 1st KR conference was held in Toronto in May 1989.
+ksem:
+  first_year: 2006
+  sources:
+    - https://link.springer.com/book/10.1007/11811220
+    - https://dblp.org/db/conf/ksem/index.html
+    - https://dblp.org/db/conf/ksem/ksem2006.html
+  notes: The first KSEM was held in Guilin, China, in August 2006.
+l4dc:
+  first_year: 2019
+  sources:
+    - https://news.mit.edu/2019/idss-hosts-inaugural-learning-dynamics-and-control-l4dc-conference-0710
+  notes: The first L4DC was held at MIT in 2019.
+log:
+  first_year: 2022
+  sources:
+    - https://proceedings.mlr.press/v198/rieck22a.html
+  notes: The First Learning on Graphs Conference was held online in December 2022.
+lrec:
+  first_year: 1998
+  sources:
+    - https://en.wikipedia.org/wiki/Language_Resources_and_Evaluation_Conference
+    - https://lrec2022.lrec-conf.org/en/
+  notes: The LREC series began in Granada in 1998 and is held every two years; LREC 2022 was the 13th.
+lrec-coling:
+  first_year: 2024
+  sources:
+    - https://lrec-coling-2024.org/
+  notes: LREC-COLING 2024 in Torino was a one-time joint event of the LREC and COLING series.
+mathai:
+  first_year: 2025
+  sources:
+    - https://lit.jinr.ru/en/node/1230
+    - https://mathai.club/
+  notes: MathAI 2027 is the third edition, so the first was MathAI 2025 at Sirius, near Sochi.
+miccai:
+  first_year: 1998
+  sources:
+    - https://link.springer.com/book/10.1007/BFb0056181
+    - https://en.wikipedia.org/wiki/The_MICCAI_Society
+    - https://dblp.org/db/conf/miccai/miccai1998.html
+  notes: The first MICCAI was held in Cambridge, Massachusetts, in October 1998, merging three earlier conferences.
+midl:
+  first_year: 2018
+  sources:
+    - https://2018.midl.io/
+  notes: The first MIDL was held in Amsterdam in July 2018.
+mipr:
+  first_year: 2018
+  sources:
+    - https://www.cis.fiu.edu/ieee-mipr-2018/
+    - https://sites.google.com/view/mipr-2025
+  notes: The 1st IEEE MIPR conference was held in Miami in April 2018; MIPR 2025 was the 8th.
+mldm:
+  first_year: 1999
+  sources:
+    - https://link.springer.com/book/10.1007/3-540-48097-8
+    - https://dblp.org/db/conf/mldm/index.html
+    - https://dblp.org/db/conf/mldm/mldm99.html
+  notes: MLDM 2018 was the 14th; the count starts with the 1999 First International Workshop in Leipzig.
+naacl:
+  first_year: 2000
+  sources:
+    - https://aclanthology.org/volumes/A00-2/
+    - https://en.wikipedia.org/wiki/North_American_Chapter_of_the_Association_for_Computational_Linguistics
+  notes: The 1st Meeting of NAACL was held in 2000, together with the Sixth Applied Natural Language Processing Conference.
+neurips:
+  first_year: 1987
+  sources:
+    - https://neurips.cc/Conferences/2025
+    - https://papers.nips.cc/paper_files/paper/1987
+    - https://en.wikipedia.org/wiki/Conference_on_Neural_Information_Processing_Systems
+  notes: NeurIPS 2025 is the 39th annual conference; the first was held in Denver in 1987 as NIPS.
+nlbse:
+  first_year: 2022
+  sources:
+    - https://digitalcollection.zhaw.ch/handle/11475/26923?mode=full
+  notes: NLBSE 2026 is the 5th edition; the 1st was held online with ICSE in May 2022.
+pakdd:
+  first_year: 1997
+  sources:
+    - https://link.springer.com/book/10.1007/11731139
+    - https://dblp.org/db/conf/pakdd/pakdd98.html
+  notes: The first PAKDD was held in Singapore in 1997, and PAKDD 2006 was the 10th.
+ranlp:
+  first_year: 1995
+  sources:
+    - https://ranlp.org/2027/
+    - https://aclanthology.org/venues/ranlp/
+  notes: RANLP has been held since 1995; RANLP 2025 was the 15th.
+recsys:
+  first_year: 2007
+  sources:
+    - https://recsys.acm.org/recsys07/
+    - https://en.wikipedia.org/wiki/ACM_Conference_on_Recommender_Systems
+  notes: The 1st ACM RecSys was held in Minneapolis in October 2007.
+rlc:
+  first_year: 2024
+  sources:
+    - https://cics.umass.edu/news/umass-amherst-hosts-inaugural-rl-conference
+  notes: The first RLC was held at UMass Amherst in August 2024.
+ro-man:
+  first_year: 1992
+  sources:
+    - https://dblp.org/db/conf/ro-man/index.html
+    - https://dblp.org/db/conf/ro-man/ro-man2006.html
+  notes: RO-MAN 2023 was the 32nd; the first was held in Tokyo in 1992.
+rss:
+  first_year: 2005
+  sources:
+    - https://www.roboticsproceedings.org/rss2005
+  notes: The first RSS was held at MIT in June 2005.
+ruleml-rr:
+  first_year: 2017
+  sources:
+    - https://eurai.org/sponsored-conference/rule
+    - https://2024.declarativeai.net/events/ruleml-rr
+  notes: RuleML+RR 2024 was the 8th; the first joint RuleML+RR conference was held in London in 2017.
+satml:
+  first_year: 2023
+  sources:
+    - https://satml.org/2023/
+    - https://satml.org/
+  notes: The first SaTML was held in Raleigh, North Carolina, in February 2023.
+sdm:
+  first_year: 2001
+  sources:
+    - https://dblp.org/db/conf/sdm/index.html
+    - https://web.engr.oregonstate.edu/~dambrobr/uai-archive-00-01/0293.html
+    - https://dblp.org/db/conf/sdm/sdm2001.html
+  notes: The First SIAM International Conference on Data Mining was held in Chicago in April 2001.
+sem:
+  first_year: 2012
+  sources:
+    - https://siglex.org/event/2012/06/07/starsem.html
+    - https://www.aclweb.org/portal/content/first-joint-conference-lexical-and-computational-semantics
+  notes: The first *SEM, the Joint Conference on Lexical and Computational Semantics, was held in Montreal in June 2012.
+sgp:
+  first_year: 2003
+  sources:
+    - https://dblp.org/db/conf/sgp/index.html
+    - https://dblp.org/db/conf/sgp/sgp2003.html
+  notes: The First Eurographics Symposium on Geometry Processing was held in Aachen in June 2003.
+sibgrapi:
+  first_year: 1988
+  sources:
+    - https://sibgrapi.sbc.org.br/2025/
+  notes: SIBGRAPI began in 1988 and is held every year.
+siggraph:
+  first_year: 1974
+  sources:
+    - https://history.siggraph.org/conference/siggraph-1974-1st-annual-conference-on-computer-graphics-and-interactive-techniques
+  notes: The 1st annual SIGGRAPH conference was held in Boulder, Colorado, in July 1974.
+siggraph-asia:
+  first_year: 2008
+  sources:
+    - https://history.siggraph.org/conference/siggraph-asia-2008-the-1st-acm-siggraph-conference-and-exhibition-in-asia/
+  notes: SIGGRAPH Asia is a separate series from SIGGRAPH; the first was held in Singapore in December 2008.
+sigir:
+  first_year: 1978
+  sources:
+    - https://sigir.org/sigir2009/about/history.html
+    - https://sigir2025.dei.unipd.it/
+  notes: SIGIR 2025 is the 48th; the count starts with the first official SIGIR conference in Rochester, New York, in 1978, not the 1971 symposium.
+sigir-ap:
+  first_year: 2023
+  sources:
+    - https://www.sigir-ap.org/sigir-ap-2023/
+  notes: The 1st SIGIR-AP was held in Beijing in November 2023.
+slt:
+  first_year: 2006
+  sources:
+    - https://signalprocessingsociety.org/sites/default/files/uploads/sltc_nl_archive/NL0701.html
+    - https://aclweb.org/portal/node/2522
+  notes: The first IEEE/ACL Spoken Language Technology Workshop was held in Aruba in December 2006.
+spaice:
+  first_year: 2024
+  sources:
+    - https://zenodo.org/records/13889941
+  notes: SPAICE 2024 was the first joint ESA and IAA conference on AI in and for space.
+specom:
+  first_year: 1996
+  sources:
+    - https://specom.nw.ru/2024/history/
+  notes: The first SPECOM was held in St. Petersburg in October 1996.
+uai:
+  first_year: 1985
+  sources:
+    - https://auai.org/
+  notes: UAI has been held every year since 1985; UAI 2025 was the 41st.
+wacv:
+  first_year: 1992
+  sources:
+    - https://dblp.org/db/conf/wacv/index.html
+    - https://ndlsearch.ndl.go.jp/books/R100000002-I027485789
+    - https://dblp.org/db/conf/wacv/wacv1992.html
+  notes: WACV 2015 was the 15th edition; the count starts with the First IEEE Workshop on Applications of Computer Vision in Palm Springs in 1992.
+wsdm:
+  first_year: 2008
+  sources:
+    - https://wsdm-conference.org/
+  notes: The first WSDM was held at Stanford in 2008, and WSDM 2026 is the 19th.
+www:
+  first_year: 1994
+  sources:
+    - https://archives.iw3c2.org/www1/Welcome.html
+    - https://en.wikipedia.org/wiki/The_Web_Conference
+  notes: The First International Conference on the World-Wide Web was held at CERN in Geneva in May 1994.

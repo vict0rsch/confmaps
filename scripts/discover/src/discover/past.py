@@ -7,7 +7,7 @@ source, or in ``data/past_conferences.yml``); with ``--recheck``, also the recor
 :data:`~discover.past_agent.MAX_YEARS_PER_CALL` target years of one series, chronologically.
 """
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from dataclasses import replace
 from datetime import date
 from typing import Any
@@ -71,7 +71,7 @@ def plan_batches(
     data: dict[str, Any],
     past: list[dict[str, Any]],
     series_list: list[str],
-    since: int,
+    since: int | Mapping[str, int],
     until: int,
     recheck: bool = False,
 ) -> tuple[list[dict[str, Any]], list[str]]:
@@ -86,7 +86,7 @@ def plan_batches(
     series_list : list of str
         Series keys (``seriesOf(title)``), in the order given on the command line.
     since, until : int
-        Inclusive year range.
+        Inclusive year range. ``since`` may instead map each series key to its own first year.
     recheck : bool, optional
         Also target recorded ``source: pwc`` editions in the range.
 
@@ -109,6 +109,7 @@ def plan_batches(
         if series not in profiles:
             unknown.append(series)
             continue
+        first = since[series] if isinstance(since, Mapping) else since
         known = known_editions(data, past, series)
         known_years = {k["year"] for k in known}
         to_check = {
@@ -117,9 +118,9 @@ def plan_batches(
             if recheck
             and e.get("source") == "pwc"
             and series_of(e["title"]) == series
-            and since <= e["year"] <= until
+            and first <= e["year"] <= until
         }
-        years = sorted({y for y in range(since, until + 1) if y not in known_years} | set(to_check))
+        years = sorted({y for y in range(first, until + 1) if y not in known_years} | set(to_check))
         for i in range(0, len(years), MAX_YEARS_PER_CALL):
             chunk = years[i : i + MAX_YEARS_PER_CALL]
             span = f"{chunk[0]}" if len(chunk) == 1 else f"{chunk[0]}-{chunk[-1]}"

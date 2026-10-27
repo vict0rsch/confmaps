@@ -46,6 +46,17 @@ describe('validateDataset', () => {
     ]);
   });
 
+  it('checks series first years against the dataset', () => {
+    const src = ['https://example.org/history'];
+    expect(validate({ series: { alpha: { first_year: 2025, sources: src } } })).toEqual([]);
+    expect(validate({ series: { nope: { first_year: 2000, sources: src } } })).toEqual([
+      'series.yml: "nope" is not a known series',
+    ]);
+    expect(validate({ series: { alpha: { first_year: 2026, sources: src } } })).toEqual([
+      'series.yml: alpha: first_year 2026 is later than its earliest edition (2025)',
+    ]);
+  });
+
   it('rejects start > end', () => {
     const d = data();
     d.conferences[0].end = '2025-05-01';
