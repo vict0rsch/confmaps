@@ -73,10 +73,7 @@
   }}
 >
   <div class="head">
-    <div class="title">
-      <h2 id="{uid}-title">Filters</h2>
-      <p class="count tabular">{count || 'No'} {count === 1 ? 'conference' : 'conferences'}</p>
-    </div>
+    <h2 id="{uid}-title">Filters</h2>
     {#if filterState.activeCount}
       <button
         class="clear-all"
@@ -98,6 +95,12 @@
     </button>
   </div>
   <div class="body"><FiltersSlot layout="dialog" /></div>
+  <div class="foot">
+    <button class="button show tabular" type="button" onclick={() => dialog?.close()}>
+      Show {count}
+      {count === 1 ? 'conference' : 'conferences'}
+    </button>
+  </div>
 </dialog>
 
 <style>
@@ -135,7 +138,7 @@
     line-height: 1;
   }
 
-  /* The header stays put; only the body scrolls. */
+  /* The header and the footer stay put; only the body scrolls. */
   .panel[open] {
     display: flex;
     flex-direction: column;
@@ -147,23 +150,15 @@
     display: flex;
     align-items: center;
     gap: var(--space-1);
-    padding: var(--space-3) var(--space-2) var(--space-2) var(--space-4);
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
     border-bottom: 1px solid var(--hairline);
   }
 
-  .title {
+  h2 {
     flex: 1;
     min-width: 0;
-  }
-
-  h2 {
     font-size: var(--text-md);
     font-weight: var(--weight-semibold);
-  }
-
-  .count {
-    color: var(--ink-muted);
-    font-size: var(--text-xs);
   }
 
   .clear-all {
@@ -191,5 +186,38 @@
     padding: var(--space-3) var(--space-4) var(--space-4);
     overflow-y: auto;
     overscroll-behavior: contain;
+  }
+
+  .foot {
+    flex: none;
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* The primary action: the shared .button capsule with the accent fill (as Share's Copy). */
+  .show {
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+    border-color: transparent;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: var(--text-md);
+    font-weight: var(--weight-semibold);
+  }
+
+  .show:hover {
+    background: var(--accent);
+    filter: brightness(1.08);
+  }
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    .foot {
+      padding: var(--space-2) var(--space-4);
+    }
+
+    .show {
+      height: 40px;
+    }
   }
 </style>

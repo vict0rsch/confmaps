@@ -574,10 +574,10 @@ MOBILE, filters open (anchored under Filters, right-aligned with it)
 │ (☰ brand)   (Filters)  │
 │  ╭───────────────────╮ │
 │  │Filters Clear all ✕│ │  ← header stays put
-│  │23 conferences     │ │
 │  │[ search         ] │ │  ← the rest scrolls
 │  │Dates · Topics ▾   │ │
 │  │Distance · …       │ │
+│  │(Show 23 confs.)   │ │  ← footer stays put
 │  ╰───────────────────╯ │
 └────────────────────────┘
 
@@ -650,13 +650,16 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   like the logo panel. Its right edge lines up with the capsule's right edge. When that does not
   fit, on phones held sideways and from 640 px wide, its left edge lines up with the capsule's left
   edge. The panel then covers part of the side panel and the map. It is 340 px wide at most and
-  reaches down to the bottom gap. Its header holds the title, the number of conferences that pass,
-  "Clear all" (once a filter is active) and the close button. The header stays in place, and the
-  rest scrolls: the search field, then every other filter as a stacked section. The list updates
-  live behind the panel, so the panel has no "Show results" button. Opening it focuses the close
-  button, so the keyboard does not open. Its close button, a tap outside or Escape closes it, and
-  focus returns to Filters. Only one of the two panels is open at a time, because both are modal.
-  Both use the `.anchored-panel` class (`base.css`). Desktop has no filters panel.
+  reaches down to the bottom gap. Its header holds the title, "Clear all" (once a filter is active)
+  and the close button. Its footer holds one button, "Show N conferences", with the number of
+  conferences that pass. The header and the footer stay in place, and the body between them scrolls:
+  the search field, then every other filter as a stacked section. The list updates live behind the
+  panel. "Show N conferences" only closes the panel, as the close button does; it confirms the
+  choice. With no match it reads "Show 0 conferences". On phones held sideways the footer button is
+  40 px tall instead of 44 px. Opening it focuses the close button, so the keyboard does not open.
+  Its close button, "Show N conferences", a tap outside or Escape closes it, and focus returns to
+  Filters. Only one of the two panels is open at a time, because both are modal. Both use the
+  `.anchored-panel` class (`base.css`). Desktop has no filters panel.
 - **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
   (Methodology, Privacy, Third-party notices), the logo panel, the filters panel and the dropdowns
   of the multi-select filters in it. The press must start outside too, so a drag that starts inside

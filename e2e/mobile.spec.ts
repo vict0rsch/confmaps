@@ -126,8 +126,18 @@ test('Filters opens a panel under its button; a tap outside closes it', async ({
   // Right-aligned with the capsule, a few pixels past the button.
   expect(p.x + p.width - (b.x + b.width)).toBeGreaterThanOrEqual(0);
   expect(p.x + p.width - (b.x + b.width)).toBeLessThanOrEqual(5);
-  await expect(panel).toContainText(/\d+ conferences/);
+  await expect(panel.getByRole('button', { name: /^Show \d+ conferences$/ })).toBeVisible();
   await page.touchscreen.tap(Math.max(4, p.x / 2), p.y + 40);
+  await expect(panel).toBeHidden();
+  await expect(button).toBeFocused();
+});
+
+test('Show N conferences closes the filters panel', async ({ page }) => {
+  await page.goto('/');
+  const button = page.getByRole('button', { name: 'Filters', exact: true });
+  await button.tap();
+  const panel = page.getByRole('dialog', { name: 'Filters' });
+  await panel.getByRole('button', { name: /^Show \d+ conferences$/ }).tap();
   await expect(panel).toBeHidden();
   await expect(button).toBeFocused();
 });
@@ -315,6 +325,12 @@ test.describe('landscape', () => {
     const p = (await panel.boundingBox())!;
     expect(Math.abs(p.x - (b.x - 3))).toBeLessThanOrEqual(2); // the capsule's 3 px padding
     expect(p.y + p.height).toBeLessThanOrEqual(390);
+    await expect(panel.getByRole('button', { name: /^Show / })).toBeInViewport();
+    await page.getByRole('button', { name: /^Topics:/ }).tap();
+    const d = (await page.getByRole('dialog', { name: 'Topics' }).boundingBox())!;
+    expect(d.y).toBeGreaterThanOrEqual(p.y);
+    expect(d.y + d.height).toBeLessThanOrEqual(p.y + p.height);
+    await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await expect(panel).toBeHidden();
     await expect(button).toBeFocused();
