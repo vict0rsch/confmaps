@@ -57,6 +57,15 @@ def _iso(value: Any) -> Any:
 class PastPlan(Plan):
     # Editions reported cancelled with a quote: (edition, id of the recorded entry).
     removals: list[tuple[CheckedEdition, str]] = field(default_factory=list)
+    # Years with no edition, recorded in data/series.yml: {series, year, source, reason}.
+    not_held: list[dict[str, Any]] = field(default_factory=list)
+    # "Not held" items of the model that are not recorded: (item, why not).
+    not_held_skipped: list[tuple[dict[str, Any], str]] = field(default_factory=list)
+
+    @property
+    def empty(self) -> bool:
+        """No change to write: no addition, applied update or recorded "not held" year."""
+        return super().empty and not self.not_held
 
 
 def series_profiles(data: dict[str, Any], past: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:

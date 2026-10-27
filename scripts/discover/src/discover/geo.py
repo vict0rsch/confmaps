@@ -82,7 +82,8 @@ class Geocoder:
 
     A cache entry for ``"city|country"`` counts as a hit (the pipeline geocoded it restricted to
     that country). Otherwise Nominatim is asked for ``"city, country"`` in English and the first
-    settlement whose address country matches ``country`` is used. Network or parsing problems
+    settlement whose address country matches ``country`` is used, else the first hit in that
+    country (as ``scripts/lib/geocode.ts`` does). Network or parsing problems
     give ``None``: the caller treats the city as unconfirmed, never as an error for the run.
 
     Examples
@@ -143,11 +144,12 @@ class Geocoder:
             if isinstance(r, dict)
             and _norm(str((r.get("address") or {}).get("country", ""))) == _norm(country)
         ]
-        best = next(
-            (r for r in in_country if {r.get("addresstype"), r.get("type")} & SETTLEMENTS), None
-        )
-        if best is None:
+        if not in_country:
             return None
+        best = next(
+            (r for r in in_country if {r.get("addresstype"), r.get("type")} & SETTLEMENTS),
+            in_country[0],
+        )
         try:
             return GeoHit(
                 float(best["lat"]), float(best["lon"]), str(best["display_name"]), "nominatim"

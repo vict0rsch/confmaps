@@ -57,6 +57,30 @@ describe('validateDataset', () => {
     ]);
   });
 
+  it('rejects a not_held year before first_year', () => {
+    const entry = { first_year: 2020, sources: ['https://example.org/history'] };
+    const nh = (year: number) => ({ year, source: 'https://example.org/gap' });
+    expect(validate({ series: { alpha: { ...entry, not_held: [nh(2019)] } } })).toEqual([
+      'series.yml: alpha: not_held 2019 is before first_year',
+    ]);
+  });
+
+  it('rejects a not_held year listed twice', () => {
+    const entry = { first_year: 2020, sources: ['https://example.org/history'] };
+    const nh = (year: number) => ({ year, source: 'https://example.org/gap' });
+    expect(validate({ series: { alpha: { ...entry, not_held: [nh(2021), nh(2021)] } } })).toEqual([
+      'series.yml: alpha: not_held 2021 is listed twice',
+    ]);
+  });
+
+  it('rejects a not_held year that has an edition in the dataset', () => {
+    const entry = { first_year: 2020, sources: ['https://example.org/history'] };
+    const nh = (year: number) => ({ year, source: 'https://example.org/gap' });
+    expect(validate({ series: { alpha: { ...entry, not_held: [nh(2025)] } } })).toEqual([
+      'series.yml: alpha: not_held 2025 has an edition in the dataset',
+    ]);
+  });
+
   it('rejects start > end', () => {
     const d = data();
     d.conferences[0].end = '2025-05-01';

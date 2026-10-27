@@ -169,6 +169,8 @@ class Research:
     conference_id: str
     status: str  # "ok" | "refusal" | "error"
     candidates: list[dict[str, Any]] = field(default_factory=list)
+    # Past mode: the years the output reports as not held (unchecked, like the candidates).
+    not_held: list[dict[str, Any]] = field(default_factory=list)
     detail: str = ""
     served_by: str | None = None
     tool_calls: list[str] = field(default_factory=list)
@@ -332,6 +334,8 @@ def ask(
     schema: dict[str, Any],
     tools: list[dict[str, Any]],
     items_key: str,
+    model: str = MODEL,
+    effort: str = EFFORT,
     usd_limit: float | None = None,
     on_response: Callable[[Research], None] | None = None,
 ) -> Research:
@@ -339,9 +343,9 @@ def ask(
 
     Streams the request (long server-tool turns), resumes ``pause_turn`` up to
     ``MAX_CONTINUATIONS`` times (not once the estimated cost exceeds ``usd_limit``), and
-    checks ``stop_reason`` before reading content. API errors propagate to the caller. Model,
-    effort, adaptive thinking, the refusal fallback and caching are the same for every mode;
-    the mode supplies the prompt, the output schema and the tool caps.
+    checks ``stop_reason`` before reading content. API errors propagate to the caller. Adaptive
+    thinking, the refusal fallback and caching are the same for every mode; the mode supplies
+    the prompt, the output schema, the tool caps and, optionally, the model and effort.
 
     Parameters
     ----------
@@ -359,6 +363,10 @@ def ask(
         Server tools (web search / web fetch) with their per-request caps.
     items_key : str
         Key of the item list in the output (``"candidates"``, ``"editions"``).
+    model : str, optional
+        Model id; defaults to the satellite-mode model.
+    effort : str, optional
+        Output effort level; defaults to the satellite-mode effort.
     usd_limit : float, optional
         Budget for this request; a paused turn is not resumed beyond it.
     on_response : callable, optional
@@ -367,7 +375,8 @@ def ask(
     Returns
     -------
     Research
-        Status, raw (unverified) items in ``candidates``, tool-call log and usage.
+        Status, raw (unverified) items in ``candidates``, the output's ``not_held`` list when
+        it has one (past mode), tool-call log and usage.
 
     Examples
     --------
@@ -381,14 +390,15 @@ def ask(
     message = None
     for _ in range(MAX_CONTINUATIONS + 1):
         with client.beta.messages.stream(
-            model=MODEL,
+            model=model,
             max_tokens=MAX_TOKENS,
-            system=system,
+            # Explicit breakpoint after the shared system prompt: every batch reuses the prefix.
+            system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
             messages=messages,
             tools=tools,
             thinking={"type": "adaptive"},
             output_config={
-                "effort": EFFORT,
+                "effort": effort,
                 "format": {"type": "json_schema", "schema": schema},
             },
             betas=[FALLBACK_BETA],
@@ -396,7 +406,7 @@ def ask(
             cache_control={"type": "ephemeral"},
         ) as stream:
             message = stream.get_final_message()
-        result.usage.add_response(message, MODEL)
+        result.usage.add_response(message, model)
         result.tool_calls += _tool_calls(message.content)
         iterations = getattr(message.usage, "iterations", None) or []
         if any(getattr(it, "type", None) == "fallback_message" for it in iterations):
@@ -431,4 +441,8 @@ def ask(
         return result
     result.status = "ok"
     result.candidates = [c for c in candidates if isinstance(c, dict)]
+    # Past mode also reports years with no edition; the satellite output has no such list.
+    not_held = parsed.get("not_held")
+    if isinstance(not_held, list):
+        result.not_held = [n for n in not_held if isinstance(n, dict)]
     return result

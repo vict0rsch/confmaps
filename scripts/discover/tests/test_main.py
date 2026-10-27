@@ -105,6 +105,7 @@ def test_dry_run_writes_nothing_and_reports(repo: Path, capsys: pytest.CaptureFi
     assert "dropped: missing verified required field(s)" in out  # the Paris stub
     assert "| `neurips26` | 1 |" in out  # cost row
     assert "Est. USD" in out and "projected weekly" in out
+    assert "Assumptions: claude-opus-5-5 list prices $4/$20 per MTok" in out
     assert "## New cities" in out and "33.7545, -84.3898" in out
     # Every log line carries the static prefix (no untrusted text starts a line).
     assert all(line.startswith(LOG_PREFIX) for line in out.splitlines())

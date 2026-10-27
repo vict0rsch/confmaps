@@ -75,6 +75,9 @@ export const SeriesEntrySchema = z.strictObject({
   first_year: z.number().int().min(1950).max(2100),
   sources: z.array(httpUrl).min(1),
   notes: z.string().min(1).optional(),
+  not_held: z
+    .array(z.strictObject({ year: z.number().int().min(1950).max(2100), source: httpUrl }))
+    .optional(),
 });
 export const SeriesFileSchema = z.record(z.string().min(1), SeriesEntrySchema);
 

@@ -22,6 +22,7 @@ class Price:
 
 
 PRICES: dict[str, Price] = {
+    "claude-sonnet-5-5": Price(2.00, 10.00, 2.50, 0.20),
     "claude-opus-5-5": Price(4.00, 20.00, 5.00, 0.20),
     # Possible server-side fallback targets for claude-opus-5-5.
     "claude-opus-5": Price(5.00, 25.00, 6.25, 0.50),

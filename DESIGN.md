@@ -149,7 +149,10 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   panel labels a snapshot "Archived site · <original host>". `sources` hold only URLs that
   currently load and support the facts, or snapshots. The discovery agent archives the link of
   each new edition the same way (closest capture in that window); with none, it writes the live
-  link marked `UNARCHIVED` and opens its PR as a draft.
+  link marked `UNARCHIVED` and opens its PR as a draft. It makes no snapshot lookup, and sets no
+  `UNARCHIVED` flag, for an edition that ended before 1996-06-01 (the archive has no earlier
+  captures) or whose link is on a proceedings host (`dblp.org`, `aclanthology.org`, and the
+  like; `PROCEEDINGS_HOSTS` in `past.py`). A stable proceedings page is an accepted link.
 - **2022–23 hybrid sweep:** every 2022–23 edition was checked against its own site or proceedings for a
   hybrid format; those with a cited quote are marked `hybrid`, the rest are left as they were.
 - **Past satellites:** the discovery agent runs in a backfill mode for past editions
@@ -165,6 +168,11 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   discovery agent reads it for `--since-creation` (§3). A missing file counts as empty.
   `pnpm data:validate` reports an error when a key is not a known series, or when `first_year` is
   later than the earliest edition of that series in the dataset.
+  An entry can also hold `not_held`, a list of `{year, source}` items. Each item names a year in
+  which the series held no edition, and `source` is an http(s) URL that shows it. The discovery
+  agent writes these items (§3) and skips the years they name. `pnpm data:validate` reports an
+  error when a `not_held` year is before `first_year`, when a year is listed twice, or when the
+  dataset has an edition of that series in that year.
 
 ### 2.5 Normalized output — `data/build/data.json`
 
@@ -210,9 +218,12 @@ Purpose: find satellites the owner would never hear about, especially community 
 - **Runtime:** Python (`scripts/discover`, uv project) in GitHub Actions. Not Claude Code Action, not
   Managed Agents. **Dispatch-only for now**: the weekly `schedule:` in `discover.yml` stays commented
   out until a dry run has measured the cost.
-- **Model:** `claude-opus-5-5`, effort `medium`, adaptive thinking, with the server-side
+- **Model:** `claude-opus-5-5`, effort `medium` (satellite modes; past mode uses
+  `claude-sonnet-5-5`, see below), adaptive thinking, with the server-side
   `web_search_20260318` (max 8 uses) and `web_fetch_20260318` (max 10 uses) tools, **structured output**
   and server-side refusal fallback (`fallbacks: "default"`). Paused turns are resumed up to 3 times.
+  Both modes mark the end of the system prompt as a cache breakpoint, so the batches of a run
+  reuse the cached prefix.
 - **Scope per run:** one call per conference starting within the next ~12 months
   (`--mode upcoming`); `--mode backfill --since YEAR` covers past editions. Editions sharing link and
   dates (EMNLP and its tracks) are researched once. Backfill skips virtual editions (no satellites
@@ -225,16 +236,43 @@ Purpose: find satellites the owner would never hear about, especially community 
   defaults to every series in `series.yml`; a named series with no entry is skipped with a
   warning. A run without `--series` can go back decades for many series. `--dry-run` still calls
   the API (it only skips writing files and the PR), so run one series first and set `--max-usd`
-  deliberately. Targets the years of each series with no known edition (in
-  `data.json` or `past_conferences.yml`); one call per series and batch of up to 6 years
-  (`web_search` 8, `web_fetch` 12 uses). The prompt lists the series' known editions and asks to
-  omit years with no edition (biennial, cancelled). Each edition field is `{value, source_url,
-  quote}`, verified as for satellites, plus: `start ≤ end`, at most 21 days, `start` in the year
-  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so, in a clause
-  that is neither negated nor hedged, with no other format asserted (a negated or hedged quote
-  goes to model judgement; a plain conflict drops the field); `in_person` is
-  derived for a verified city before 2020-03, else needs a judgement quote, else it is written
-  `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported).
+  deliberately. Targets the years of each series with no known edition (in `data.json` or
+  `past_conferences.yml`) and not recorded as `not_held` in `series.yml`; one call per series and
+  batch of up to 6 years. Past mode runs on `claude-sonnet-5-5` at effort `medium` (`PAST_MODEL`,
+  `PAST_EFFORT` in `past_agent.py`), with `web_search` (10 uses) and `web_fetch` (12 uses).
+  The prompt lists the series' known editions and the dblp titles of the target years.
+  The model returns `{editions, not_held}`. Each edition has one `source_url` and one `quote` for
+  all its fields, a required `link`, and plain values for the fields it found. The model
+  should use one trustworthy source per edition, such as a Wikipedia table, a dblp listing or
+  the edition's site. Code checks each field against that quote and page with the satellite
+  rules, plus: `start ≤ end`, at most 21 days, and `start` in the year or the next. A date
+  quote without the year counts when the date is in the edition's year. `virtual`/`hybrid` need
+  a 20+ character quote saying so, in a clause that is neither negated nor hedged, with no
+  other format asserted. `country` is derived from the geocoded city only when the city is
+  verified (its value is in the quote) and the country's value is not in the quote. When the
+  city is a model judgement, the city is still geocoded, but the country stays a model
+  judgement.
+  - **A failed check is a flag, not a drop.** The value stays as a model judgement, and the PR
+    shows the reason next to it. One edition flag, "quote not confirmed on its source page",
+    marks an edition whose quote is not on its page, or whose page is unreadable.
+  - **Fields that are dropped:** a malformed value, malformed evidence, or an unsafe URL. An
+    edition is dropped when its year is not a target, a required field is missing (`start`,
+    `end`, `link`, and `city` and `country` unless virtual), `start` is after `end`, it lasts
+    more than 21 days, it is not over yet, `start` is outside the year and the next, or the
+    geocoder does not find its city in its country.
+  - `in_person` is derived for an edition that starts before 2020-03 and has no other format.
+    Otherwise it needs a judgement quote, else it is written `# UNVERIFIED default` and the PR
+    is a draft (as it is when a cancellation is reported).
+  - **Years not held.** The model reports target years with no edition in `not_held`. Code
+    records a year in `data/series.yml` (§2.4) only when all of these hold: it is a target
+    year; no edition of the series exists in that year; its source is readable; the source
+    names years within 5 years on each side of it (a list cut off before or after the year
+    proves nothing); the source names no edition of the series in that year (such as
+    "AAAI-89", "AAAI 1989" or a dblp title of that year; the bare year in a citation does not
+    count); the series has editions within 5 years on each side, counting this run's
+    (so a year before the earliest known edition is never recorded); and the series has an
+    entry in `series.yml`. The PR body lists them under "Years recorded as not held", and the
+    others under "Not recorded" with the reason. A recorded year does not make the PR a draft.
   Additions are inserted in (year, id) order as `source: curated`, with the evidence URLs in
   `sources` and the series' latest tags. `--recheck` also re-verifies the
   `source: pwc` editions in range and **applies** verified format/place/date changes to them
@@ -286,7 +324,8 @@ Purpose: find satellites the owner would never hear about, especially community 
   turns, tool calls, cost), all prefixed like every other log line.
 - **Results persistence:** each conference's raw API result is saved (`--results-dir`) and uploaded
   as an `api-results` artifact (14 days). `--from-results DIR` re-runs verification, merge and
-  report on them with no API calls.
+  report on them with no API calls. Past-mode results saved in the old per-field format are
+  not replayed: their editions are dropped as an internal error (`KeyError`).
 - **Security:** fetched pages are untrusted. The model has no repo access or write tools. The script
   fetches pages itself with **SSRF protections**: only public IPs (loopback, private, link-local,
   reserved and metadata ranges refused), canonical hostnames only (no numeric/hex IPv4 forms),
@@ -300,8 +339,8 @@ Purpose: find satellites the owner would never hear about, especially community 
   Two jobs. `research` runs in the `discovery` environment (the only
   place `ANTHROPIC_API_KEY` exists), with a read-only token; it validates and uploads the proposal as
   an artifact. `propose` has no Anthropic key and runs no repository code (git, gh, jq only): it
-  commits the allowlisted generated files (`satellites.yml`, `past_conferences.yml` in past mode,
-  `geocache.json`, `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
+  commits the allowlisted generated files (`satellites.yml`, `past_conferences.yml` and `series.yml` in
+  past mode, `geocache.json`, `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
 - **CI on agent PRs:** PRs opened with `GITHUB_TOKEN` do not trigger `pull_request` workflows, so the
   `propose` job runs `gh workflow run ci.yml --ref <branch>` (`ci.yml` has `workflow_dispatch`). A
   GitHub App token or fine-grained PAT would make this unnecessary.

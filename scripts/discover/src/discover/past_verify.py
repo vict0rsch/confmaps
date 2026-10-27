@@ -1,24 +1,34 @@
 """Deterministic evidence checks on past editions (DESIGN.md §3).
 
-Reuses the satellite primitives (:func:`discover.verify.check_field`: download, quote on page,
-value / date in quote, link on page or same site, geocoding) with these rules:
+An edition has one ``source_url`` and one ``quote`` for all its fields. Each field is checked
+against them with the satellite primitives (:func:`discover.verify.check_field`: download,
+quote on page, value / date in quote, link on page or same site) and these rules:
 
-- ``title``, ``full_name``, ``city``, ``venue``, ``country``: value in quote (country may be
-  derived from the geocoded city). A title must belong to the series (``series_of``).
-- ``start``, ``end``: date in quote; ``start <= end``; at most :data:`MAX_DAYS` days; the
-  edition is over; ``start`` falls in the edition's year or the next one (flagged in the PR).
+- ``title``, ``full_name``, ``city``, ``venue``, ``country``: value in quote. A title must
+  belong to the series (``series_of``).
+- ``start``, ``end``: date in quote; a quote that states no year at all (:data:`STATED_YEAR`)
+  counts when the date falls in the edition's year. Then ``start <= end``; at most
+  :data:`MAX_DAYS` days; the edition is over; ``start`` falls in the edition's year or the
+  next one (flagged in the PR).
 - ``link``: linked from the source page or on the same site.
 - ``format`` virtual / hybrid: a quote of 20+ characters on the page that plainly says so and
   states no conflicting format (:data:`~discover.verify.FORMAT_IN_QUOTE`; see
-  :func:`format_problem`). A quote that only negates or hedges the claimed format ("will not be
-  hybrid", "may move online") keeps it as a model judgement, never verified. ``in_person``:
-  derived for an edition held
-  before :data:`COVID_START` in a verified city
-  (:data:`~discover.verify.PRE2020_DEFAULT`), otherwise a model judgement; with neither,
-  ``past_merge`` writes an ``# UNVERIFIED default`` and the PR is a draft.
+  :func:`format_problem`); a quote that does not ("will not be hybrid", "may move online")
+  makes it a model judgement with the problem shown. ``in_person``: derived for an edition held
+  before :data:`COVID_START` (:data:`~discover.verify.PRE2020_DEFAULT`), otherwise a model
+  judgement; with no format at all, ``past_merge`` writes an ``# UNVERIFIED default`` and the PR
+  is a draft.
 - ``cancelled``: a judgement quote; never applied (listed for human removal).
+- ``country``: a model judgement becomes :data:`~discover.verify.DERIVED` when the city is
+  verified (value in quote) and geocodes in that country. With a city that is a model
+  judgement, the city is still geocoded, but the country stays a model judgement.
 - A quote read from dblp's data (``Page.segments``) must fit inside one proceedings title
   that states the edition's year and no other (:func:`edition_pages`).
+
+A failed check flags the field for a human instead of dropping it: the value is kept as a
+model judgement, with the failure in its detail. A quote not found on its source page, or a
+source page that cannot be read, also adds :data:`UNCONFIRMED_QUOTE_FLAG` to the edition. Only
+a malformed field (:data:`DROPPED_REASONS`) is dropped.
 
 Required after the checks: start, end, link, and city + country unless virtual. A virtual
 edition drops any city, country and venue; a pinned city must geocode in its country.
@@ -34,7 +44,10 @@ from .dblp import edition_year_is
 from .past_agent import PAST_FIELD_SCHEMAS
 from .past_ids import series_of
 from .verify import (
+    DATE_IN_QUOTE,
+    DERIVED,
     FORMAT_IN_QUOTE,
+    JUDGEMENT,
     PRE2020_DEFAULT,
     VALUE_IN_QUOTE,
     Checked,
@@ -42,12 +55,25 @@ from .verify import (
     Geocode,
     Page,
     check_field,
+    date_in_quote,
     normalize,
-    resolve_country,
 )
 
 MAX_DAYS = 21
 COVID_START = "2020-03-01"
+# `link` is a required key of an edition, not one of the optional fields, but it is checked
+# like them and needs a value schema too.
+CHECK_SCHEMAS: dict[str, dict[str, Any]] = {
+    **PAST_FIELD_SCHEMAS,
+    "link": {"type": "string", "format": "uri"},
+}
+# Failures that drop the field: the value or its evidence is unusable. Any other failed check
+# keeps the value as a model judgement.
+DROPPED_REASONS = {"malformed evidence", "invalid value", "unsafe or malformed source URL"}
+UNCONFIRMED_REASONS = {"quote not found on source page", "source page not readable"}
+UNCONFIRMED_QUOTE_FLAG = "quote not confirmed on its source page: check the source"
+# A year stated in a quote: four digits, or an abbreviated year ('18).
+STATED_YEAR = re.compile(r"(?<!\d)\d{4}(?!\d)|['’]\d{2}\b")
 PAST_RULES: dict[str, str] = {
     "title": "string",
     "full_name": "string",
@@ -223,7 +249,8 @@ def check_edition(
     Parameters
     ----------
     raw : dict
-        One element of the model's ``editions`` list.
+        One element of the model's ``editions`` list: plain field values, with one
+        ``source_url`` and one ``quote`` for all of them.
     batch : dict
         The researched batch (``series``, ``years``); the edition's year must be a target.
     get_page : callable
@@ -255,19 +282,33 @@ def check_edition(
     )
     pages = edition_pages(get_page, out.year)
     for name, rule in PAST_RULES.items():
-        ev = raw.get(name)
-        if not isinstance(ev, dict):
+        if name not in raw:
             continue
-        check = check_field(name, ev, pages, rule, PAST_FIELD_SCHEMAS)
+        ev = {"value": raw[name], "source_url": raw["source_url"], "quote": raw["quote"]}
+        check = check_field(name, ev, pages, rule, CHECK_SCHEMAS)
+        # A quote that states no year at all ("Sun Dec 8th through Sat the 14th") still dates an
+        # edition of that year; a quote that states another year never does.
+        if (
+            check.reason == "date not in quote"
+            and not STATED_YEAR.search(check.quote)
+            and int(check.value[:4]) == out.year
+            and date_in_quote(check.value, f"{check.quote} {out.year}")
+        ):
+            check.kind, check.reason = DATE_IN_QUOTE, ""
+        if check.reason in UNCONFIRMED_REASONS and UNCONFIRMED_QUOTE_FLAG not in out.flags:
+            out.flags.append(UNCONFIRMED_QUOTE_FLAG)
+        if check.reason and check.reason not in DROPPED_REASONS:
+            # Kept for a human to check; the reason stays, so the failure is still known.
+            check.kind = JUDGEMENT
+            check.detail = f"{check.reason}: {check.detail}" if check.detail else check.reason
         if check.kept and name == "title" and series_of(check.value) != series:
             check.kind, check.reason = "", "title is not of this series"
             check.detail = f"{series_of(check.value)} ≠ {series}"
-        if check.kept and name == "format":
+        if check.kept and name == "format" and not check.reason:
             problem = format_problem(check.value, check.quote)
-            if problem == FORMAT_HEDGED:
-                pass  # stays a model judgement: never verified, so never applied by --recheck
-            elif problem:
-                check.kind, check.reason = "", problem
+            if problem:
+                # Never verified, so never applied by --recheck.
+                check.kind, check.detail = JUDGEMENT, problem
             elif check.value != "in_person":
                 check.kind = FORMAT_IN_QUOTE
         out.checks.append(check)
@@ -297,12 +338,19 @@ def check_edition(
                 check.kind, check.reason = "", "not kept: virtual edition"
                 for d in (out.fields, out.kinds, out.sources):
                     d.pop(check.field, None)
-    else:
-        resolve_country(out, geocode)
+    elif "city" in out.fields and "country" in out.fields:
+        out.geo = geocode(out.fields["city"], out.fields["country"])
+        # A verified city that the geocoder finds in that country confirms the country. A city
+        # that is only the model's judgement confirms nothing, so its country stays one too.
+        if (
+            out.geo is not None
+            and out.kinds["country"] == JUDGEMENT
+            and out.kinds.get("city") == VALUE_IN_QUOTE
+        ):
+            country = next(c for c in out.checks if c.field == "country")
+            country.kind, country.reason, country.detail = DERIVED, "", ""
+            out.kinds["country"] = DERIVED
 
-    claimed = {str(c.value) for c in out.checks if c.field == "format" and not c.kept}
-    if fmt is None and claimed & {"virtual", "hybrid"}:
-        return drop("virtual or hybrid format claimed but not verified")
     required = ["start", "end", "link"] + ([] if fmt == "virtual" else ["city", "country"])
     if missing := [f for f in required if f not in out.fields]:
         return drop("missing verified required field(s)", ", ".join(missing))
@@ -321,10 +369,9 @@ def check_edition(
     if start_year == out.year + 1:
         out.flags.append(f"starts in {start_year}, the year after its edition year {out.year}")
 
-    # In person: derived before the pandemic in a verified city, else the model's judgement
-    # (kept as is) or, with no format at all, an UNVERIFIED default written by past_merge.
-    pre_pandemic = start < COVID_START and out.kinds.get("city") == VALUE_IN_QUOTE
-    if fmt in (None, "in_person") and pre_pandemic:
+    # In person: derived before the pandemic, else the model's judgement (kept as is) or, with
+    # no format at all, an UNVERIFIED default written by past_merge.
+    if fmt in (None, "in_person") and start < COVID_START:
         kept = next((c for c in out.checks if c.field == "format" and c.kept), None)
         if kept is None:
             kept = FieldCheck("format", "in_person", "", "")
