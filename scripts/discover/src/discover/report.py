@@ -193,8 +193,9 @@ def evidence_section(runs: list[ConferenceRun], plan: Plan) -> str:
                 "|---|---|---|---|---|",
             ]
             for chk in c.checks:
+                via = f" (text from {chk.via})" if chk.via else ""
                 lines.append(
-                    f"| {chk.field} | {code(chk.value)} | {link(chk.source_url)} "
+                    f"| {chk.field} | {code(chk.value)} | {link(chk.source_url)}{via} "
                     f"| {code(chk.quote)} | {_status(chk)} |"
                 )
             addition = defaulted.get(id(c))

@@ -6,6 +6,8 @@ output schema and tool caps (DESIGN.md §3).
 """
 
 import json
+import re
+import unicodedata
 from collections.abc import Callable
 from typing import Any
 
@@ -24,6 +26,10 @@ PAST_TOOLS: list[dict[str, Any]] = [
         "max_content_tokens": 20000,
     },
 ]
+
+# dblp proceedings titles listed in a prompt (untrusted data): at most this many, this long.
+MAX_DBLP_TITLES = 12
+MAX_DBLP_TITLE_CHARS = 400
 
 FORMAT_VALUES = ["in_person", "virtual", "hybrid"]
 PAST_FIELD_SCHEMAS: dict[str, dict[str, Any]] = {
@@ -99,8 +105,12 @@ online). Cite the HTML page that contains the text (not a search-result snippet,
 image).
 - Copy each quote from a page you opened with web_fetch in this request, never from a search \
 result's title or snippet. The program cannot read pages behind a bot check or built by \
-JavaScript (dblp, IEEE Xplore): cite another page, such as the edition's own site or its \
-web.archive.org copy.
+JavaScript (IEEE Xplore): cite another page, such as the edition's own site or its \
+web.archive.org copy. dblp table-of-contents and series index pages (dblp.org/db/conf/...) \
+are allowed: the program reads them through dblp's data, which holds only the proceedings \
+titles, so copy the quote exactly from a proceedings title (it usually states the edition \
+name, city, country and dates). The user message may list such titles with their page URL: \
+you may cite that URL with a quote copied exactly from its listed title without opening it.
 - Omit a field entirely when you have no such quote, except country, which may be given \
 without a quote naming it (it is then checked by geocoding the city). Never guess a value.
 
@@ -127,6 +137,29 @@ the output described here.
 """
 
 
+def dblp_listing(volumes: list[tuple[str, str]]) -> list[dict[str, str]]:
+    """Prompt-ready ``{url, title}`` rows of dblp volumes: control characters removed,
+    whitespace collapsed, at most :data:`MAX_DBLP_TITLES` titles of
+    :data:`MAX_DBLP_TITLE_CHARS` characters.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        dblp_listing(DblpTitles().editions("icml", [2019]))
+        # [{"url": "https://dblp.org/db/conf/icml/icml2019.html", "title": "Proceedings ..."}]
+    """
+    rows = []
+    for url, title in volumes[:MAX_DBLP_TITLES]:
+        kept = "".join(
+            c for c in title if c.isspace() or unicodedata.category(c) not in ("Cc", "Cf")
+        )
+        text = re.sub(r"\s+", " ", kept).strip()[:MAX_DBLP_TITLE_CHARS].strip()
+        if text:
+            rows.append({"url": url, "title": text})
+    return rows
+
+
 def user_message(batch: dict[str, Any], today: str) -> str:
     """Per-request prompt: the series, its known editions, the target years, values to verify.
 
@@ -135,7 +168,8 @@ def user_message(batch: dict[str, Any], today: str) -> str:
     batch : dict
         From :func:`discover.past.plan_batches`: ``series``, ``title``, optional
         ``full_name``, ``known`` (``{year, id, title, city, country, format, start, end,
-        link}``), ``years`` (target years) and ``recheck`` (year → recorded values to verify).
+        link}``), ``years`` (target years), ``recheck`` (year → recorded values to verify) and
+        optional ``dblp`` (:func:`dblp_listing` rows of the target years).
     today : str
         ISO date of the run.
 
@@ -171,6 +205,15 @@ def user_message(batch: dict[str, Any], today: str) -> str:
                 "online). Report each of these years with the facts as held:"
             ),
             f"```json\n{json.dumps(recheck, indent=2, ensure_ascii=False)}\n```",
+            "",
+        ]
+    if batch.get("dblp"):
+        parts += [
+            (
+                "dblp proceedings titles for these years (from dblp's data; you may quote these "
+                "exactly and cite the url):"
+            ),
+            f"```json\n{json.dumps(batch['dblp'], indent=2, ensure_ascii=False)}\n```",
             "",
         ]
     parts.append(

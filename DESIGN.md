@@ -258,6 +258,15 @@ Purpose: find satellites the owner would never hear about, especially community 
   page without the quote. In past mode, an unreadable page is checked on its latest Wayback copy,
   which then becomes the cited source, and a failed quote on a page the agent never opened says
   so (the quote may come from a search result).
+  - **dblp (past mode):** dblp's pages are behind a bot check, but its open SPARQL endpoint
+    (CC0 metadata) is the interface it offers to programs. A dblp page the agent cites is read
+    from that data first, then from Wayback. The text is then the proceedings titles the page
+    lists, which usually state the edition's name, city, country and dates. The usual checks run
+    on it, with one more rule: the quote must fit inside a single title that states only the
+    edition's year.
+    The cited source stays the dblp page URL. The PR evidence table notes that the
+    text came from dblp's SPARQL data. The prompt also lists the titles of the target years, so
+    the agent can quote one exactly without opening the page.
 - **Unverified defaults:** `satellites.yml` requires `official`, `presents_papers` and `access`.
   Where no evidence exists an addition gets the conservative defaults `official: false`,
   `presents_papers: false`, `access: authors_only`, marked `# UNVERIFIED default` in the YAML and

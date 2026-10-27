@@ -12,12 +12,13 @@ from dataclasses import replace
 from datetime import date
 from typing import Any
 
-from .past_agent import MAX_YEARS_PER_CALL
+from .dblp import DblpTitles
+from .past_agent import MAX_YEARS_PER_CALL, dblp_listing
 from .past_ids import series_of
 from .past_merge import PastPlan, apply_past_plan, plan_past_changes, series_profiles
 from .past_verify import CheckedEdition, check_edition_safely
 from .report import ConferenceRun
-from .verify import LimitedPages, Page, canonical_url
+from .verify import BOT_CHECK, LimitedPages, Page, canonical_url
 from .wayback import NO_SNAPSHOT_FLAG, is_wayback
 
 MAX_FETCHES_PER_BATCH = 40  # quote-verification downloads per request (up to six editions)
@@ -74,6 +75,7 @@ def plan_batches(
     since: int | Mapping[str, int],
     until: int,
     recheck: bool = False,
+    dblp: DblpTitles | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Batches of target years to research, and the series that have no recorded edition.
 
@@ -89,12 +91,14 @@ def plan_batches(
         Inclusive year range. ``since`` may instead map each series key to its own first year.
     recheck : bool, optional
         Also target recorded ``source: pwc`` editions in the range.
+    dblp : DblpTitles, optional
+        Lists each batch's dblp proceedings titles of its target years in the prompt.
 
     Returns
     -------
     tuple of (list of dict, list of str)
         Batches (prompt-ready: ``id``, ``series``, ``title``, ``full_name``, ``year`` label,
-        ``years``, ``known``, ``recheck``) and unknown series.
+        ``years``, ``known``, ``recheck``, ``dblp``) and unknown series.
 
     Examples
     --------
@@ -123,6 +127,7 @@ def plan_batches(
         years = sorted({y for y in range(first, until + 1) if y not in known_years} | set(to_check))
         for i in range(0, len(years), MAX_YEARS_PER_CALL):
             chunk = years[i : i + MAX_YEARS_PER_CALL]
+            volumes = dblp.editions(series, chunk) if dblp is not None else []
             span = f"{chunk[0]}" if len(chunk) == 1 else f"{chunk[0]}-{chunk[-1]}"
             batches.append(
                 {
@@ -135,6 +140,7 @@ def plan_batches(
                     "known": known,
                     # JSON keys: the batch is saved with the API result (--from-results).
                     "recheck": {str(y): to_check[y] for y in chunk if y in to_check},
+                    "dblp": dblp_listing(volumes),
                 }
             )
     return batches, unknown
@@ -166,17 +172,41 @@ def archived_fallback(
     return get
 
 
+def dblp_fallback(
+    get_page: Callable[[str], Page], titles: Callable[[str], Page | None]
+) -> Callable[[str], Page]:
+    """``get_page`` that reads a dblp page behind its bot check through dblp's SPARQL data
+    (:class:`~discover.dblp.DblpTitles`): the proceedings titles the page lists. The page URL
+    stays the cited source; the page records where its text came from in ``via``.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        get_page = dblp_fallback(PageFetcher().get, DblpTitles())
+    """
+
+    def get(url: str) -> Page:
+        page = get_page(url)
+        if page.text is not None or page.error != BOT_CHECK:
+            return page
+        return titles(url) or page
+
+    return get
+
+
 UNOPENED_NOTE = "the agent never opened this page: the quote may come from a search result"
 
 
 def _note_unopened(run: ConferenceRun) -> None:
-    """Explain a quote missing from a page the agent cited without opening it."""
+    """Explain a quote missing from a page the agent cited without opening it (dblp pages
+    whose titles the prompt listed count as opened)."""
     assert run.research is not None
     opened = {
         canonical_url(call.removeprefix("web_fetch: ").strip())
         for call in run.research.tool_calls
         if call.startswith("web_fetch: ")
-    }
+    } | {canonical_url(row["url"]) for row in run.conference.get("dblp") or []}
     for edition in run.checked:
         for check in edition.checks:
             failed = check.reason in ("quote not found on source page", "source page not readable")
@@ -194,6 +224,7 @@ def check_and_plan(
     today: date,
     on_checked: Callable[[ConferenceRun], None] | None = None,
     snapshot: Callable[[str, str], str | None] | None = None,
+    dblp: Callable[[str], Page | None] | None = None,
 ) -> tuple[PastPlan, str]:
     """Verify every returned edition, then plan and apply the changes to the file text.
 
@@ -201,7 +232,9 @@ def check_and_plan(
     ``snapshot(url, day)`` (a :class:`~discover.wayback.Snapshots`) replaces each new edition's
     live ``link`` with its Wayback copy closest to the edition's end; without one, the live link
     is written with a review comment and a flag. It also lets checks read the archived copy of
-    a source page that cannot be read live (:func:`archived_fallback`).
+    a source page that cannot be read live (:func:`archived_fallback`). ``dblp(url)`` (a
+    :class:`~discover.dblp.DblpTitles`) is tried first for a dblp page behind its bot check
+    (:func:`dblp_fallback`).
 
     Examples
     --------
@@ -209,6 +242,8 @@ def check_and_plan(
 
         plan, new_text = check_and_plan(runs, data, past, text, PageFetcher().get, geo, today)
     """
+    if dblp is not None:
+        get_page = dblp_fallback(get_page, dblp)
     if snapshot is not None:
         get_page = archived_fallback(get_page, snapshot)
     for run in runs:
