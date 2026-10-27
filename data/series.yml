@@ -80,6 +80,7 @@ bis:
   sources:
     - https://pl.wikipedia.org/wiki/Konferencja_BIS
     - https://dblp.org/db/conf/bis/index.html
+    - https://bisconf.org/2027/previous-bis/
   notes: The first BIS conference was held in Poznan in April 1997; dblp lists the 1999 Poznan meeting as the 3rd.
 bmvc:
   first_year: 1990
@@ -94,8 +95,9 @@ cec:
     - https://en.wikipedia.org/wiki/IEEE_Congress_on_Evolutionary_Computation
   notes: The first event named IEEE Congress on Evolutionary Computation was held in Washington, DC, in July 1999; it succeeded the IEEE ICEC conferences held from 1994.
 chi:
-  first_year: 1982
+  first_year: 1981
   sources:
+    - https://dl.acm.org/conference/chi/proceedings
     - https://en.wikipedia.org/wiki/Conference_on_Human_Factors_in_Computing_Systems
     - https://dblp.org/db/conf/chi/index.html
   notes: The series started with the 1982 Conference on Human Factors in Computing Systems in Gaithersburg, Maryland.
@@ -157,6 +159,7 @@ cscw:
   sources:
     - https://www.nngroup.com/articles/trip-report-cscw-86/
     - https://dblp.org/db/conf/cscw/index.html
+    - https://en.wikipedia.org/wiki/Computer-supported_cooperative_work
   notes: The first CSCW conference was held in Austin, Texas, in December 1986.
 cvpr:
   first_year: 1983
@@ -209,11 +212,9 @@ eurographics:
     - https://ercim.eu/publication/Ercim_News/enw44/duce.html
   notes: The first Eurographics conference was held in Geneva in 1980.
 euvip:
-  first_year: 2008
+  first_year: 2010
   sources:
     - https://dblp.org/db/conf/euvip/index.html
-    - https://hk.aconf.org/conf_32932.html
-    - https://site.ieee.org/finland/7-th-european-workshop-on-visual-information-processing-26-28-november/
   notes: EUVIP counts the 2008 VISPA workshop as its first edition; the 2010 workshop was the 2nd EUVIP and the 2013 one the fourth.
 evomusart:
   first_year: 2012
