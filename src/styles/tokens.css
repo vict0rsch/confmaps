@@ -1,5 +1,5 @@
 /*
- * Design tokens (DESIGN §6.8): primitives → semantic tokens, redefined per theme.
+ * Design tokens (DESIGN §5.8): primitives → semantic tokens, redefined per theme.
  * Components use semantic tokens only. The map reads the `--map-*` and `--pin-*` tokens at
  * style-build time (src/lib/map/style.ts), so this file is the single source of colour.
  *

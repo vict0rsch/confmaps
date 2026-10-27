@@ -1,4 +1,4 @@
-// Dataset validation (DESIGN.md §9, data tier). Shared by `data:build` and `data:validate`.
+// Dataset validation (DESIGN.md §8, data tier). Shared by `data:build` and `data:validate`.
 import type { z } from 'zod';
 import {
   DataFileSchema,

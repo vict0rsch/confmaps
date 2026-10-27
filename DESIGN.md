@@ -1,7 +1,9 @@
 # AI Conferences Map — Design
 
-Status: implemented. This document started as the agreed design (grilling session, 2026-10-22);
-it now records the **as-built decisions**, including those that changed during implementation.
+Status: implemented. This document records the product and behaviour decisions **as built**: what
+the app does and why, including the decisions that changed during implementation. It started as
+the agreed design (grilling session, 2026-10-22). How the code is organized (components, data
+flow, CI and deployment) is in [system-architecture.md](system-architecture.md).
 Live at <https://confmaps.org>.
 
 ## 1. Purpose
@@ -19,66 +21,9 @@ Personal, non-commercial project.
 - Venue-precise pins, route planning, booking.
 - Any backend, accounts, or server-side state.
 
-## 2. Architecture overview
+## 2. Data
 
-Fully static site on GitHub Pages. All data work happens at build time in GitHub Actions; all
-per-viewer computation (distance, CO₂, filters) happens in the browser.
-
-```
-huggingface/ai-deadlines (GitHub, MIT)          data/satellites.yml   (hand-curated)
-  src/data/conferences/*.yml                    data/overrides.yml    (manual lat/lng etc.)
-            │                                   data/archive/         (frozen past events)
-            │  daily cron: sync                 data/geocache.json    (reviewed coordinates)
-            ▼                                              │
-   scripts/build-data.ts ◄─────────────────────────────────┘
-     normalize → merge archive → freeze ended events → apply overrides
-     → geocode new keys (Nominatim) → validate (Zod) → data/build/data.json
-            │  commit only if changed
-            ▼
-   vite build → GitHub Pages (Svelte 5 SPA, MapLibre, OpenFreeMap tiles)
-
-manual (weekly schedule pending): scripts/discover/ (Python, Claude API) ──► draft/PR to data/satellites.yml (never auto-merged)
-```
-
-### Proposed repo layout
-
-```
-data/
-  satellites.yml          # curated satellites (schema §3.2)
-  past_conferences.yml    # past main editions, PwC import + curated (§3.4)
-  overrides.yml           # per-location overrides, keyed by location id
-  geocache.json           # "city|country" (normalized) → {lat, lng, display_name}
-  co2-factors.json        # extracted DESNZ factors, versioned by year (§5)
-  archive/                # frozen past events, never deleted (§3.4)
-  build/data.json         # generated, committed (diff = audit trail)
-scripts/
-  build-data.ts           # sync + merge + freeze + geocode + validate + emit
-  schema.ts               # Zod schemas, shared with the app's types
-  discover/               # Python discovery agent (uv project, §4)
-  build-cities.ts         # GeoNames → public/cities.json
-  validate-data.ts        # offline checks of the committed data (§9)
-  import-pwc.ts           # one-time PwC import → data/past_conferences.yml (§3.4)
-  pwc/                    # importer modules; fixes.ts = hand-maintained corrections
-src/
-  lib/filters/            # one file per filter (§6.3)
-  lib/co2/                # CO₂ model (§5)
-  lib/geo/                # haversine, city search, geolocation snapping
-  lib/state/              # app state, URL + localStorage sync
-  components/             # map, list, detail, timeline, filter panel, settings
-public/cities.json        # GeoNames cities (pop. ≥ 50k) for home-city autocomplete (lazy-loaded)
-public/CNAME              # custom domain confmaps.org (§8)
-public/favicon.svg        # the brand mark, light and dark (prefers-color-scheme)
-.github/workflows/        # ci.yml, sync.yml (daily), discover.yml (manual), deploy.yml
-METHODOLOGY.md            # CO₂ estimation method, linked from the app
-PRIVACY.md                # what is (not) collected, linked from the footer
-```
-
-Data scripts are TypeScript so the Zod schema is shared with the app. The discovery agent is
-Python (managed with `uv`).
-
-## 3. Data
-
-### 3.1 Upstream conferences
+### 2.1 Upstream conferences
 
 - Source: GitHub repo `huggingface/ai-deadlines`, `src/data/conferences/*.yml` (68 files at time of
   writing; years 2025–2027). Pull from the GitHub repo, not the HF Space.
@@ -96,7 +41,7 @@ Python (managed with `uv`).
 - **Series aliases:** upstream lists some tracks as separate conferences. `SERIES_ALIASES` rolls
   the EMNLP Industry and System Demonstrations tracks up into series `emnlp`.
 
-### 3.2 Satellites — `data/satellites.yml`
+### 2.2 Satellites — `data/satellites.yml`
 
 Satellites are regional events tied to a parent conference, held in a different city.
 
@@ -123,9 +68,9 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
 
 `id` and `sources` were added during write-up (needed for dedup/URLs and auditability).
 
-**Curation:** only the owner edits YAML. The discovery agent (§4) proposes changes via PR.
+**Curation:** only the owner edits YAML. The discovery agent (§3) proposes changes via PR.
 
-### 3.3 Locations, geocoding, overrides
+### 2.3 Locations, geocoding, overrides
 
 - Pins are **city-level** (city centroid). Distance/CO₂ do not need more precision.
 - Geocoding: **Nominatim at build time**, max 1 req/s, identifying User-Agent (per its usage
@@ -152,56 +97,50 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   (satellites, overrides, geocache, archive) everything that does not need upstream and fails if
   `data.json` differs, so a hand-edited or stale `data.json` cannot merge.
 
-### 3.4 History & archive
+### 2.4 History & archive
 
 - Past events are first-class (history view, "Past 5y" preset).
 - **Archive-and-freeze:** once an event's `end` < today, its current state is written to
-  `data/archive/`. The sync **adds and updates, never removes**, so upstream pruning cannot erase history.
-- **Past editions — `data/past_conferences.yml`** (spec: `docs/backfill-spec.md`). Main editions
-  that upstream no longer lists (2016–2025 today), validated by `PastConferencesFileSchema`. One
-  entry per edition: `id, title` (as named that year, e.g. "NIPS"), `year, full_name?, link,
-  start, end, format` (`in_person | virtual | hybrid`), `city`/`country`/`venue?` (required unless
-  virtual, forbidden if virtual), `tags, notes?, source` (`pwc | curated`), `pwc` (provenance:
-  merged PwC ids, first/last commit) and `sources` (evidence URLs; required for curated). No
-  deadlines (`deadlines: []`). Historical names roll up through `SERIES_ALIASES` (`nips→neurips`,
-  `naacl-hlt→naacl`, `emnlp-ijcnlp→emnlp`, `mm→acm-mm`, …), so `series = seriesOf(title)` still
-  links editions. Ids follow the series' HF stem (`neurips18`, `icdar2019`).
-  - **Merge:** archive → past entries (overwriting their archive copies) → HF upstream →
-    satellites → overrides. Precedence **HF > past entry > archive copy**; a past id that
-    upstream also has is shadowed with a warning ("HF wins; remove it"). A past
-    entry starting after today is an error (upcoming editions come from upstream). Overrides on
-    `<id>@main` work as for HF, but cannot set place fields on a virtual location.
-  - **Archive:** past entries freeze into `archive/<year>.json` like everything else; a postponed
-    edition stays in its nominal year (`icpr20` and `ijcai20`, held January 2021, warn but stay in
-    `2020.json`). Since the archive never shrinks, every correction or removal must land before
-    the entry reaches `main`; afterwards it can only be corrected, not removed.
-  - **Consistency:** past entries are re-derived offline like satellites; a `pwc`/`curated`
-    conference must come from the file or the archive.
-- **PwC import (done once):** `pnpm data:import-pwc` reads every version of
-  `paperswithcode/ai-deadlines` `_data/conferences.yml` in its git history (bare clone, pinned
-  `gh-pages` HEAD `b230d247`, per-entry fallback for unparseable versions), keeps the latest value
-  per PwC id, parses free-text `place`/`date` deterministically, dedupes by series|year (several
-  PwC ids → one edition) and drops editions upstream already has (data.json's own `pwc`
-  editions, and `curated` ones under the same id, are the import's earlier output and do not
-  count, so a re-import reproduces the PwC set). Corrections live in
-  `scripts/pwc/fixes.ts` (`TITLE_FIXES`, `EXCLUDE`, `PLACE_FIXES`, `FIELD_FIXES`, each with a
-  reason; an entry for an unknown or unused PwC id is an error). It is a **one-time writer**: it
-  refuses a non-empty file without `--force` and always refuses one with curated entries; after
-  the import the file is edited by hand or by the discovery agent (§4), and the research
-  corrections below are not encoded in the importer (only its exclusions are, in `EXCLUDE`).
-  **After the import, `data/past_conferences.yml` is the source of truth:** a forced re-import
-  (`--force`) rebuilds it from PwC alone and discards every curated correction, so it should
-  not be run on the committed file (`--force --dry-run` regenerates the report safely).
+  `data/archive/`. The sync **adds and updates, never removes**, so upstream pruning cannot erase
+  history. Since the archive never shrinks, every correction or removal must land before an entry
+  reaches `main`; afterwards it can only be corrected, not removed. A postponed edition stays in
+  its nominal year (`icpr20` and `ijcai20`, held January 2021, warn but stay in `2020.json`).
+- **Past editions — `data/past_conferences.yml`**. Main
+  editions that upstream no longer lists (2000–2025 today), one entry per edition, validated by
+  `PastConferencesFileSchema`. Each entry has a `format` (`in_person | virtual | hybrid`; place
+  fields are required unless virtual, forbidden if virtual), no deadlines, a `source`
+  (`pwc | curated`) and evidence URLs in `sources` (required for curated).
+- **Ids of past editions** (`pastEditionId` in `scripts/lib/past-id.ts`; the discovery agent's
+  `past_ids.py` implements the same rule, and both test against
+  `scripts/__fixtures__/past-id-vectors.json`). Take the newest upstream (`source: hf`) conference
+  of the series that is not a track. If its id ends in the year's 4 or 2 digits, reuse its stem and
+  digit style (`neurips18`, `icdar2019`). Otherwise use the series without dashes and 2 digits
+  (`siggraphasia22`). An id already used by another edition is an error; ids are never suffixed.
+  If upstream later lists an old edition, the ids collide and upstream wins.
+- **Series aliases:** historical titles stay as written (e.g. "NIPS"), and `SERIES_ALIASES` in
+  `scripts/lib/normalize.ts` rolls them up to today's series (`nips→neurips`, `naacl-hlt→naacl`,
+  `mm→acm-mm`, …), so editions still link by series. The agent's Python copy must match (a test
+  checks it). A title belongs to one series only, so `lrec-coling` (2024) stays its own series.
+- **Precedence:** HF upstream > past entry > archive copy, then overrides. A past id that
+  upstream also has is shadowed with a warning ("HF wins; remove it"). A past entry starting after
+  today is an error (upcoming editions come from upstream). Overrides on `<id>@main` work as for
+  HF, but cannot set place fields on a virtual location.
+- **Source of truth:** the file was seeded once by the PwC import (`pnpm data:import-pwc`),
+  which reads every version of `paperswithcode/ai-deadlines` in its
+  git history; its exclusions and corrections live in `scripts/pwc/fixes.ts`. Since then the file
+  is edited by hand or by the discovery agent (§3), and those corrections are not encoded in the
+  importer. A forced re-import (`--force`) rebuilds the file from PwC alone and discards every
+  curated correction, so it is never run on the committed file (`--force --dry-run` regenerates
+  the import report safely).
 - **Review-marker gate:** the importer marks suspicious entries with an end-of-line
   `# review: <reasons>` comment: `covid` (in person between 2020-03 and 2021-12), `stale` (PwC
   never updated after the event), `multi-id`, `fixes-applied`. `pnpm data:validate` fails while
   any marker remains.
-- **Research-based resolution:** the markers of the initial import (and a few inclusion
-  questions) were resolved by research with cited sources: COVID-era editions switched to
-  `virtual` (planned host kept in `notes`, e.g. "Held online (planned: Seattle, United States).")
-  or `hybrid`, dates, places, titles and links corrected, evidence URLs appended to `sources`;
-  a cancelled edition (LREC 2020) and non-conferences (AES, AI World Barcelona, AABI, WMT) were
-  removed and added to `EXCLUDE`. Later checks use the discovery agent's `--recheck` (§4).
+- **Research-based resolution:** the import's markers were resolved by research with cited
+  sources. COVID-era editions are `virtual` (planned host kept in `notes`, e.g. "Held online
+  (planned: Seattle, United States).") or `hybrid`. A cancelled edition (LREC 2020) and
+  non-conferences (AES, AI World Barcelona, AABI, WMT) are excluded in `EXCLUDE`. Later checks use
+  the discovery agent's `--recheck` (§3).
 - **Links of past editions** point to a Wayback Machine snapshot of the edition's site taken
   around the event (`https://web.archive.org/web/<timestamp>/<original>`, a 200 capture from
   18 months before the end to 6 months after), because lapsed conference domains get hijacked
@@ -218,7 +157,7 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
 - History grouping: a conference **series key** = normalized `title` (e.g. `icml`), so editions
   across years and sources link together.
 
-### 3.5 Normalized output — `data/build/data.json`
+### 2.5 Normalized output — `data/build/data.json`
 
 ```ts
 type Conference = {
@@ -255,20 +194,13 @@ city and overlapping dates are tracks of one event (e.g. EMNLP 2026 and its Indu
 Demonstrations tracks). They show as **one list row** and **one pin**; the lead is the untitled main
 event, else the shortest title.
 
-### 3.6 Seed satellites (verify before committing)
-
-- NeurIPS 2026 Paris — Dec 9–13 (main conf 9–11, workshops 12–13), authors only, official.
-  Note: NeurIPS 2026's main venue is **Sydney**.
-- NeurIPS 2025 Mexico City — from upstream `venue` string.
-- EurIPS 2025 Copenhagen — endorsed by NeurIPS.
-
-## 4. Discovery agent
+## 3. Discovery agent
 
 Purpose: find satellites the owner would never hear about, especially community events.
 
 - **Runtime:** Python (`scripts/discover`, uv project) in GitHub Actions. Not Claude Code Action, not
   Managed Agents. **Dispatch-only for now**: the weekly `schedule:` in `discover.yml` stays commented
-  out until a dry run has measured the cost (§11).
+  out until a dry run has measured the cost.
 - **Model:** `claude-opus-5-5`, effort `medium`, adaptive thinking, with the server-side
   `web_search_20260318` (max 8 uses) and `web_fetch_20260318` (max 10 uses) tools, **structured output**
   and server-side refusal fallback (`fallbacks: "default"`). Paused turns are resumed up to 3 times.
@@ -276,14 +208,16 @@ Purpose: find satellites the owner would never hear about, especially community 
   (`--mode upcoming`); `--mode backfill --since YEAR` covers past editions. Editions sharing link and
   dates (EMNLP and its tracks) are researched once. Backfill skips virtual editions (no satellites
   to look for) but now also sees the ≈340 past editions, so restrict it with `--only ID[,ID…]`.
-- **Past main editions (`--mode past`, `docs/backfill-spec.md` §5):**
+- **Past main editions (`--mode past`):**
   `--mode past --series neurips,icml --since 1987 [--until YYYY] [--recheck] [--dry-run]`
   (`--until` defaults to last year). Targets the years of each series with no known edition (in
   `data.json` or `past_conferences.yml`); one call per series and batch of up to 6 years
   (`web_search` 8, `web_fetch` 12 uses). The prompt lists the series' known editions and asks to
   omit years with no edition (biennial, cancelled). Each edition field is `{value, source_url,
   quote}`, verified as for satellites, plus: `start ≤ end`, at most 21 days, `start` in the year
-  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so; `in_person` is
+  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so, in a clause
+  that is neither negated nor hedged, with no other format asserted (a negated or hedged quote
+  goes to model judgement; a plain conflict drops the field); `in_person` is
   derived for a verified city before 2020-03, else needs a judgement quote, else it is written
   `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported).
   Additions are inserted in (year, id) order as `source: curated`, with the evidence URLs in
@@ -292,7 +226,7 @@ Purpose: find satellites the owner would never hear about, especially community 
   (a switch to virtual drops the place); on curated entries differences are only suggested. A
   reported cancellation is never applied: it is listed under "Needs human removal (before merge)".
   PR title `Past editions: N addition(s), M update(s)`.
-- **Output schema:** candidate satellites matching §3.2, where **every field is
+- **Output schema:** candidate satellites matching §2.2, where **every field is
   `{value, source_url, quote}`**. Fields without a supporting quote are omitted, never guessed.
 - **Evidence verification (deterministic code, independent of the model).** Each `source_url` is
   downloaded by the script and each field is checked by a rule:
@@ -317,7 +251,7 @@ Purpose: find satellites the owner would never hear about, especially community 
 - **Deterministic code owns all writes:** diff against `satellites.yml` (dedupe by `parent` + city,
   within 25 km), write YAML with comments preserved, validate with `pnpm data:validate` (geocoding
   new cities), and produce one PR title/body with an evidence table per run.
-- **Never auto-merges.** The same CI (§9) runs on the PR.
+- **Never auto-merges.** The same CI (§8) runs on the PR.
 - **Cost control:** `--max-usd` (default 5) stops further API calls once the estimated cost passes
   it. `--workers N` (default 4) researches N conferences at once; a request starts only if the
   cost so far, plus the average cost of a finished request for each one in flight, stays under the
@@ -345,11 +279,11 @@ Purpose: find satellites the owner would never hear about, especially community 
   `geocache.json`, `build/data.json`, `archive/NNNN.json`), pushes a branch and opens the PR.
 - **CI on agent PRs:** PRs opened with `GITHUB_TOKEN` do not trigger `pull_request` workflows, so the
   `propose` job runs `gh workflow run ci.yml --ref <branch>` (`ci.yml` has `workflow_dispatch`). A
-  GitHub App token or fine-grained PAT would make this unnecessary (§11).
+  GitHub App token or fine-grained PAT would make this unnecessary.
 
-## 5. CO₂ estimation
+## 4. CO₂ estimation
 
-### 5.1 Principle: estimates, orders of magnitude
+### 4.1 Principle: estimates, orders of magnitude
 
 All CO₂ figures are **estimates**. Wording must convey orders of magnitude, not precision:
 
@@ -359,7 +293,7 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
 - Filter label: "Estimated footprint under ~X kg".
 - Methodology note starts with "These are order-of-magnitude estimates…".
 
-### 5.2 Method
+### 4.2 Method
 
 - **Data:** official UK DESNZ (formerly BEIS/DEFRA) GHG conversion factors, latest year, extracted
   into `data/co2-factors.json` (versioned; updated yearly). Computed in-browser. No API, no proxy.
@@ -377,7 +311,7 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
 - Exact factor rows, haul thresholds, routing uplift and any rail detour factor are chosen and
   justified in `METHODOLOGY.md`.
 
-### 5.3 Cross-check link
+### 4.3 Cross-check link
 
 - Flight estimates link to **myclimate** ("Cross-check this flight on myclimate"), with one line:
   "Different methods give different figures — same order of magnitude is expected."
@@ -386,19 +320,19 @@ All CO₂ figures are **estimates**. Wording must convey orders of magnitude, no
   `myclimateUrl(from, to)` prefills as soon as IATA codes are supplied.
 - Accepted for now; replace if a better recognized calculator appears.
 
-## 6. Frontend
+## 5. Frontend
 
-### 6.1 Stack
+### 5.1 Stack
 
 Svelte 5 (runes) + Vite + TypeScript, **MapLibre GL JS**, **OpenFreeMap** vector tiles
 (no key, no quota). Restyled muted basemap with light and dark variants.
 
-### 6.2 Scope
+### 5.2 Scope
 
 Map-first, attendance-oriented. Deadlines appear as a quiet line in the detail panel
 ("Paper deadline: passed" / date) with a link to the HF site for countdowns.
 
-### 6.3 Filters (extensible)
+### 5.3 Filters (extensible)
 
 Filters test **individual locations**. The map shows only passing pins; the list shows a conference
 if ≥1 of its locations passes, with the passing sites. Conference-level filters (e.g. subject) test
@@ -433,7 +367,7 @@ Initial filters:
 
 | id | What | Notes |
 |---|---|---|
-| `dates` | `{from, to}` window | Same state as the timeline (§6.4); test uses `end ≥ from && start ≤ to` |
+| `dates` | `{from, to}` window | Same state as the timeline (§5.4); test uses `end ≥ from && start ≤ to` |
 | `subject` | conference tags | Upstream's free-form tags grouped into subjects with short URL codes (`sub=ML,CV`; e.g. `ML` machine learning, `RL`, `LLM`); near-duplicate tags merge; unknown tags become their own subject under "Other" |
 | `search` | text match on title/full name | aideadlin.es-style; commas = any of several, spaces = all words |
 | `radius` | within X km/mi of home | Needs home; greyed with "Set your city" otherwise. Virtual editions pass; hybrid ones use their city |
@@ -446,7 +380,7 @@ The filter panel renders only registered filters, so adding a filter still means
 the sidebar it is a **search field** (the `search` filter's control, always visible) above a row of
 **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip opens
 that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it and
-returns focus to the chip. In the mobile filters panel (§6.7) there are no trays: every filter is a
+returns focus to the chip. In the mobile filters panel (§5.7) there are no trays: every filter is a
 stacked section with its control shown (multi-selects as fields, see below). Once any filter is
 active, the sidebar shows **"Clear all"** with the active-filter count, and the filters panel shows
 "Clear all" in its header.
@@ -467,7 +401,7 @@ or "Any access level". Otherwise it shows the first two choices in display order
 rest. The names shorten with an ellipsis when the field is too narrow. "+N" always shows. `kind`
 stays a segmented control, because it is a single choice. `open` stays one checkbox.
 
-### 6.4 Timeline / scrubber
+### 5.4 Timeline / scrubber
 
 The scrubber **is** the `dates` filter (one `{from, to}` state, two presentations).
 
@@ -505,15 +439,15 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   editions are normal stops), and the years held online are listed beside the title
   ("Online: 2020 · 2021").
 - **Reduced motion:** play steps month by month with crossfades only.
-- On phones the compact scrubber sits in the top bar, outside the sheet (§6.7).
+- On phones the compact scrubber sits in the top bar, outside the sheet (§5.7).
 
-### 6.5 Home location & privacy
+### 5.5 Home location & privacy
 
 - Home is set from the **home pill** at the top of the sidebar, which shows the city (or "Set your
   city") and opens a panel. The panel holds the **city autocomplete** (GeoNames cities with
   population ≥ 50,000, `public/cities.json`, lazy-loaded), **"Use my location"** (browser
   geolocation), a one-line privacy note and the travel preferences. On phones the same content
-  sits in the logo panel (§6.7), with the travel preferences folded under a "Travel preferences"
+  sits in the logo panel (§5.7), with the travel preferences folded under a "Travel preferences"
   disclosure that shows the current choice.
 - Geolocation results are **snapped to the nearest city on-device**; only the city is used/stored.
 - Home is stored as a **GeoNames city** (id, name, country, coordinates) in `localStorage`
@@ -526,14 +460,14 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   reload) or their own saved city is not treated as shared. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
 
-### 6.6 URL state
+### 5.6 URL state
 
 Filters, window, selection and history mode live in the URL so views are shareable, e.g.
 `?c=neurips26&sub=ML,CV&radius=1000&co2=300&from=2026-11&to=2027-10`.
 Units, mode and threshold are also persisted in `localStorage`. Home is in the URL only via opt-in
-(`home=<geonameid>`, §6.5). `h` and `home` are reserved params that no filter may own.
+(`home=<geonameid>`, §5.5). `h` and `home` are reserved params that no filter may own.
 
-### 6.7 Layout
+### 5.7 Layout
 
 ```
 DESKTOP (≥ 1024px): the map fills the window; every panel floats above it
@@ -687,12 +621,12 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   empty map keeps MapLibre's zoom in.
 - Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
   "View history". A flight estimate is nonstop, with a second line for one connection each way
-  ("~4.6–5.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
+  ("~4.6–4.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
   nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 
-### 6.8 Visual design
+### 5.8 Visual design
 
 Tone: **calm and soft**, inspired by Apple's Liquid Glass. The map is the content and controls
 float above it as translucent glass panels. Modern, simple, clear.
@@ -733,9 +667,9 @@ float above it as translucent glass panels. Modern, simple, clear.
 - **Performance:** MapLibre GL loads in its own lazy chunk (`Map.svelte` is a dynamic import), so the
   shell, list and filters render before the map library arrives.
 
-### 6.9 Virtual and hybrid editions
+### 5.9 Virtual and hybrid editions
 
-Past main editions can be virtual or hybrid (§3.4, §3.5).
+Past main editions can be virtual or hybrid (§2.4, §2.5).
 
 - **Virtual:** listed with a "Virtual" badge (monitor icon + text, never colour alone) and place
   "Online"; **no pin**, no map focus or "back to selection", no home line. The detail panel says
@@ -747,7 +681,7 @@ Past main editions can be virtual or hybrid (§3.4, §3.5).
 - Past editions without deadlines hide the deadline line (and the HF countdown link).
 - Credits name paperswithcode/ai-deadlines (MIT) next to huggingface/ai-deadlines.
 
-## 7. Analytics
+## 6. Analytics
 
 GoatCounter (cookieless, no consent banner), page views + anonymous custom events only:
 `filter_used:<id>`, `history_mode_opened`, `play_pressed`, `myclimate_clicked`, `share_opened`.
@@ -759,14 +693,14 @@ Actions variable is set** (passed to the build as `VITE_GOATCOUNTER_CODE` by `de
 localhost, and **Do Not Track and Global Privacy Control are respected**. Each event is sent at most
 once per page load; the page view carries only the referrer's origin.
 
-## 8. Hosting
+## 7. Hosting
 
 - GitHub Pages with the custom domain **confmaps.org**, set by `public/CNAME` (decided at build
   time, so shareable links never depended on the default URL).
 - Footer attribution: OpenStreetMap / OpenFreeMap, huggingface/ai-deadlines (MIT), DESNZ factors,
   GeoNames.
 
-## 9. Testing & CI
+## 8. Testing & CI
 
 | Tier | What | Tool | Blocks merge |
 |---|---|---|---|
@@ -776,55 +710,5 @@ once per page load; the page view carries only the referrer's origin.
 | E2E smoke (~5 tests) | load, set home, radius filter changes pin count, open detail, myclimate link present, play advances window | Playwright (1 browser) | ✅ |
 | A11y | axe scan, both themes, desktop + phone (`pnpm test:a11y`; separate warn-only CI job) | `@axe-core/playwright` | ⚠️ warn only initially |
 
-The discovery agent's PRs go through the same pipeline.
-
-### Workflows
-
-All third-party actions are pinned to commit SHAs.
-
-- `ci.yml` — on `pull_request`, push to `main` and `workflow_dispatch` (so agent PR branches can be
-  checked, §4): lint, `svelte-check`, data validation, unit tests, build, Playwright. The
-  validation step passes `--require-against <base>` (PR base, previous commit on push, merge-base on
-  manual runs) so the **archive-shrink check** compares against the base commit's archive.
-- `deploy.yml` — runs via `workflow_run` **after a green CI on a push to `main`** (never for PRs),
-  via `workflow_call` from `sync.yml` (its `GITHUB_TOKEN` push triggers no CI), and manually.
-  A gate job skips (with a notice) any SHA that is not the current tip of `main`, so a late CI
-  completion cannot roll production back, and manual dispatch on a non-main ref; the check is
-  repeated right before `deploy-pages`. Builds with `VITE_GOATCOUNTER_CODE` and publishes to Pages.
-- `sync.yml` — daily cron + manual. Two jobs: `build` (read-only token; runs `data:build`,
-  `data:validate --require-against HEAD`, tests; uploads `data/`) and `commit` (write token, runs
-  no project code: commits the data if changed, citing the upstream SHA, and pushes). Then calls
-  `deploy.yml` when something changed.
-- `discover.yml` — `workflow_dispatch` only (schedule commented out until the dry-run cost check):
-  `research` + `propose` jobs, §4.
-
-## 10. Build phases
-
-All done.
-
-1. ~~Scaffold~~ (Svelte/Vite/TS, lint, Vitest, Playwright, CI, Pages deploy).
-2. ~~Data pipeline~~: schema, upstream sync, archive-freeze, geocoding + cache, overrides, validation,
-   `data.json`; seed satellites (§3.6).
-3. ~~CO₂ model~~: DESNZ factors, `METHODOLOGY.md`, golden tests.
-4. ~~App shell~~: map (basemap styles, pins, clustering), list, detail, themes/tokens.
-5. ~~Filter framework~~ + initial filters + URL state.
-6. ~~Timeline~~: Plan, Play, history mode, reduced motion.
-7. ~~Home location~~: city search, geolocation snapping, share dialog.
-8. ~~Analytics~~ + `PRIVACY.md`.
-9. ~~Discovery agent~~ (built and hardened; dry run and schedule still open, §11).
-10. ~~PwC historical backfill~~: `past_conferences.yml` (§3.4), virtual/hybrid editions (§3.5,
-    §6.9), discovery past mode (§4); review flags resolved by cited research.
-
-## 11. Open items
-
-- **Earlier editions** (before 2016) are not in PwC: add them with
-  `discover --mode past --series <s> --since <year>` (dry-run one series first to set `--max-usd`).
-- **Spot checks:** a few research resolutions are medium/low confidence (listed in the backfill
-  PR); `discover --mode past --recheck` can re-verify them with quotes.
-- **Discovery agent dry run:** measure cost per run (`--dry-run`, `--max-usd`), then enable the
-  weekly `schedule:` in `discover.yml`.
-- **GoatCounter account:** create the site and set the `GOATCOUNTER_CODE` Actions variable
-  (analytics stay off until then).
-- **GitHub App or fine-grained PAT** for the agent's PRs (optional): they would trigger CI normally,
-  replacing the `gh workflow run ci.yml` dispatch.
-- **Atlanta satellite:** to be added through the discovery agent's PR.
+The discovery agent's PRs go through the same pipeline. The workflows that run these checks are
+described in [system-architecture.md](system-architecture.md) §8.

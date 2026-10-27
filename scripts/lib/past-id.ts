@@ -1,4 +1,4 @@
-// Id of a past edition (docs/backfill-spec.md §1.2). The Python discovery agent implements the
+// Id of a past edition (DESIGN.md §2.4). The Python discovery agent implements the
 // same algorithm; both test against scripts/__fixtures__/past-id-vectors.json.
 import type { Conference } from '../schema';
 

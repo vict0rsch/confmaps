@@ -1,4 +1,4 @@
-// City-level geocoding (DESIGN.md §3.3): override lat/lng > data/geocache.json > Nominatim.
+// City-level geocoding (DESIGN.md §2.3): override lat/lng > data/geocache.json > Nominatim.
 import { isVirtual, type Geocache, type GeocacheEntry } from '../schema';
 import { countryCode } from './countries';
 import type { PendingLocation } from './normalize';

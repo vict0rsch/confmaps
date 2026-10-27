@@ -1,4 +1,4 @@
-# Satellite events tied to a parent conference (DESIGN.md §3.2). Curated by hand; the discovery
+# Satellite events tied to a parent conference (DESIGN.md §2.2). Curated by hand; the discovery
 # agent only proposes changes by PR. Every entry needs evidence in `sources`.
 #
 # Fields: id (unique, stable), parent (upstream conference id), name, link, city, country,

@@ -115,6 +115,6 @@ export function layoverRangeKg(trip: TripEstimate): [number, number] | undefined
   return uplift === undefined ? undefined : [trip.kgCO2e, trip.kgCO2e * (1 + uplift)];
 }
 
-/** Shape passed to filters as `ctx.co2` (DESIGN §6.3). */
+/** Shape passed to filters as `ctx.co2` (DESIGN §5.3). */
 export type Co2Model = { estimateTrip: typeof estimateTrip };
 export const co2Model: Co2Model = { estimateTrip };

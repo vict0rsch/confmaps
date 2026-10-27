@@ -1,4 +1,4 @@
-// Hand-maintained corrections for the PwC import (docs/backfill-spec.md §3.2–§3.4). Keys are PwC
+// Hand-maintained corrections for the PwC import. Keys are PwC
 // ids; every entry says why. Applied fixes are listed in the entry's `pwc.fixes` and flagged for
 // review.
 import type { Place } from './place';

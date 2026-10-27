@@ -1,5 +1,5 @@
 <script lang="ts">
-  // SLOT: timeline / scrubber (DESIGN §6.4). The container has a fixed height
+  // SLOT: timeline / scrubber (DESIGN §5.4). The container has a fixed height
   // (--timeline-height[-compact]).
   import Timeline from '../Timeline.svelte';
 

@@ -1,7 +1,7 @@
 [project]
 name = "confmaps-discover"
 version = "0.1.0"
-description = "Satellite discovery agent for confmaps.org (DESIGN.md §4): proposes data/satellites.yml changes by PR."
+description = "Satellite discovery agent for confmaps.org (DESIGN.md §3): proposes data/satellites.yml changes by PR."
 license = "Apache-2.0"
 requires-python = ">=3.12"
 dependencies = [

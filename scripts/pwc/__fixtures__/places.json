@@ -1,5 +1,5 @@
 {
-  "description": "Every distinct place string of the latest version of each PwC id (paperswithcode/ai-deadlines gh-pages @ b230d247, docs/backfill-spec.md §3.3), with the parsed place or \"unresolved\". Derived from the history once and reviewed by hand; scripts/pwc/place.test.ts checks parsePlace against it.",
+  "description": "Every distinct place string of the latest version of each PwC id (paperswithcode/ai-deadlines gh-pages @ b230d247), with the parsed place or \"unresolved\". Derived from the history once and reviewed by hand; scripts/pwc/place.test.ts checks parsePlace against it.",
   "places": {
     "Aberdeen, UK": {
       "format": "in_person",

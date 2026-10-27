@@ -1,4 +1,4 @@
-// Edition identity (docs/backfill-spec.md §1.2, §3.4): PwC ids of one edition are grouped by
+// Edition identity (DESIGN.md §2.4): PwC ids of one edition are grouped by
 // `series|year`; the best one supplies the fields; our id comes from `pastEditionId`.
 import type { PwcRecord } from './history';
 

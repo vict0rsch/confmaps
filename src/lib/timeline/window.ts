@@ -1,4 +1,4 @@
-// Window math for the timeline (DESIGN §6.4), pure: presets, dragging, keyboard nudges and Play
+// Window math for the timeline (DESIGN §5.4), pure: presets, dragging, keyboard nudges and Play
 // stepping. A window is the `dates` filter state: `{from, to}`, inclusive `YYYY-MM-DD`.
 import { monthEnd, monthStart } from '../filters/dates';
 import { formatDateRange } from '../format/dates';

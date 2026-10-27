@@ -1,4 +1,4 @@
-// `pnpm data:validate`: offline checks of the committed data files (DESIGN.md §9): schemas,
+// `pnpm data:validate`: offline checks of the committed data files (DESIGN.md §8): schemas,
 // references, the archive (never shrinks, no id in two year files), plausibility (sanityCheck)
 // and that data.json matches the inputs as far as they can be re-derived offline (see
 // lib/consistency.ts for exactly what that covers). Also fails while `past_conferences.yml`

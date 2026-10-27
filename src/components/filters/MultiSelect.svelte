@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts" generics="V extends string">
-  // Multi-select (DESIGN §6.3): native checkboxes in a fieldset (keyboard: Tab + Space), with
+  // Multi-select (DESIGN §5.3): native checkboxes in a fieldset (keyboard: Tab + Space), with
   // optional group headings. In a desktop tray it is the checklist itself; in the phone layout it
   // is a field that shows the choice and opens the checklist in a dropdown under it: a small modal
   // dialog over the filters panel, like Share over the logo panel.
@@ -75,7 +75,7 @@
     };
   }
 
-  /** Under the field, or above it when there is little room below and more above (DESIGN §6.3). */
+  /** Under the field, or above it when there is little room below and more above (DESIGN §5.3). */
   async function show() {
     let m = measure();
     if (Math.max(m.below, m.above) < MIN) {

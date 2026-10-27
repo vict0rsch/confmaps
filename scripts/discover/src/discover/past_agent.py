@@ -2,7 +2,7 @@
 
 Same request as satellite discovery (:func:`discover.agent.ask`: model, effort, adaptive
 thinking, refusal fallback, caching, server-side web tools only), with its own system prompt,
-output schema and tool caps (docs/backfill-spec.md §5).
+output schema and tool caps (DESIGN.md §3).
 """
 
 import json

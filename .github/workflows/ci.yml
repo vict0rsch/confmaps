@@ -73,7 +73,7 @@ jobs:
       - run: uv sync --project scripts/discover --locked
       - run: uv run --project scripts/discover --locked pytest scripts/discover
 
-  # Warn-only (DESIGN §9): axe scans in light and dark. Never blocks merge; violations are printed
+  # Warn-only (DESIGN §8): axe scans in light and dark. Never blocks merge; violations are printed
   # in the log and attached to the report.
   a11y:
     runs-on: ubuntu-latest

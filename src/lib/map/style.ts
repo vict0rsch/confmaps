@@ -172,7 +172,7 @@ export const SRC = {
   historyPath: 'history-path',
   historyHead: 'history-head',
   historyLabels: 'history-labels',
-  // Home (DESIGN §6.5): its marker, and lines to the selected conference's sites.
+  // Home (DESIGN §5.5): its marker, and lines to the selected conference's sites.
   home: 'home',
   homeLines: 'home-lines',
 } as const;

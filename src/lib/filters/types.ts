@@ -1,4 +1,4 @@
-// The filter contract (DESIGN §6.3). One file per filter; registered in ./index.ts.
+// The filter contract (DESIGN §5.3). One file per filter; registered in ./index.ts.
 import type { Component } from 'svelte';
 import type { Co2Model, ModeSetting } from '../co2/model';
 import type { JoinedLocation } from '../data/load';

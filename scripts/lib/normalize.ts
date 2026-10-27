@@ -1,4 +1,4 @@
-// Upstream / satellites / overrides → normalized records (DESIGN.md §3.5), before geocoding.
+// Upstream / satellites / overrides → normalized records (DESIGN.md §2.5), before geocoding.
 import {
   isVirtual,
   type Conference,
@@ -39,7 +39,7 @@ export function seriesKey(title: string): string {
 export const SERIES_ALIASES: Record<string, string> = {
   'emnlp-industry-track': 'emnlp',
   'emnlp-system-demonstrations-track': 'emnlp',
-  // Historical names of a series (past editions, docs/backfill-spec.md §1.3).
+  // Historical names of a series (past editions, DESIGN.md §2.4).
   nips: 'neurips',
   'naacl-hlt': 'naacl',
   'emnlp-ijcnlp': 'emnlp',

@@ -21,12 +21,12 @@ export function addMonthsISO(iso: string, months: number): string {
 
 export type DateWindow = { from: string; to: string };
 
-/** The Plan default (DESIGN §6.4): today → today + `months`. */
+/** The Plan default (DESIGN §5.4): today → today + `months`. */
 export function planWindow(today: string, months = 12): DateWindow {
   return { from: today, to: addMonthsISO(today, months) };
 }
 
-/** A location overlaps the window: `end ≥ from && start ≤ to` (inclusive, DESIGN §6.3). */
+/** A location overlaps the window: `end ≥ from && start ≤ to` (inclusive, DESIGN §5.3). */
 export function inWindow(loc: { start: string; end: string }, w: DateWindow): boolean {
   return loc.end >= w.from && loc.start <= w.to;
 }

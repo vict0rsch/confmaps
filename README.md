@@ -7,7 +7,8 @@ take place, so researchers can attend the location closest to them and travel le
 It is a static site: data is built in GitHub Actions, and distance, CO₂ estimates and filters are
 computed in the browser. Your home location never leaves your device.
 
-- [DESIGN.md](DESIGN.md): architecture and as-built decisions
+- [system-architecture.md](system-architecture.md): how the code is organized
+- [DESIGN.md](DESIGN.md): product and behaviour decisions, as built
 - [METHODOLOGY.md](METHODOLOGY.md): how CO₂ estimates are computed
 - [PRIVACY.md](PRIVACY.md): what is (not) collected
 
@@ -49,7 +50,7 @@ uv run --project scripts/discover discover --mode past --series neurips,icml --s
 uv run --project scripts/discover discover --mode past --series cvpr --since 2016 --until 2024 --recheck --dry-run
 ```
 
-See DESIGN.md §4 for the evidence checks and the workflow (`discover.yml`, manual dispatch only).
+See DESIGN.md §3 for the evidence checks and the workflow (`discover.yml`, manual dispatch only).
 
 ## Analytics (optional)
 

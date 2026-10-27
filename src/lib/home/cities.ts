@@ -1,4 +1,4 @@
-// City list helpers (DESIGN §6.5): load `public/cities.json`, search it, snap a point to the
+// City list helpers (DESIGN §5.5): load `public/cities.json`, search it, snap a point to the
 // nearest city. All on-device; nothing here talks to a server except the one static fetch.
 import { haversineKm, type LatLng } from '../geo/distance';
 import type { CitiesFile, City } from './types';

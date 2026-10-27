@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Timeline / scrubber (DESIGN §6.4). The window IS the `dates` filter: read and written only
+  // Timeline / scrubber (DESIGN §5.4). The window IS the `dates` filter: read and written only
   // through getDates() / setDates(), so the filter panel's month inputs stay in sync.
   // The histogram counts events per month passing every other filter (dates aside), so it shows
   // what moving the window would reveal; recomputed on filter changes only (~130 locations).

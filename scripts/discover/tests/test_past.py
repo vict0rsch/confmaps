@@ -1,4 +1,4 @@
-"""Past mode (docs/backfill-spec.md §5, §7.1 D): targeting, prompt, checks, merge, CLI."""
+"""Past mode (DESIGN.md §3): targeting, prompt, checks, merge, CLI."""
 
 import json
 import re

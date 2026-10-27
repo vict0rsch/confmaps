@@ -1,6 +1,6 @@
 """``--mode past``: targeting, batching, checks and merge for past main editions.
 
-Targets (docs/backfill-spec.md §5.1): for each ``--series``, the years in
+Targets (DESIGN.md §3): for each ``--series``, the years in
 ``[--since, --until]`` with no known edition (known = in ``data/build/data.json``, any
 source, or in ``data/past_conferences.yml``); with ``--recheck``, also the recorded
 ``source: pwc`` editions in that range (the COVID pass). One API call per batch of at most

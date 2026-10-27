@@ -1,4 +1,4 @@
-// Timeline state (DESIGN §6.4): Play and history mode, layered over the filters.
+// Timeline state (DESIGN §5.4): Play and history mode, layered over the filters.
 //
 // - `scope`: every filter except `dates` (the timeline histogram, history mode), and the data span.
 // - `historyMode`: history mode for one conference series (`?h=<series>`). While on, the app's

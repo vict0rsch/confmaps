@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Mobile top bar (DESIGN §6.7): the ☰ logo pill opens a panel anchored under it with the tagline,
+  // Mobile top bar (DESIGN §5.7): the ☰ logo pill opens a panel anchored under it with the tagline,
   // the home and travel settings, the legend, theme, Share and footer links. A modal dialog: the
   // browser handles Escape, the focus trap and stacking, and a tap outside lands on its transparent
   // backdrop, never on a pin.

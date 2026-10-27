@@ -1,4 +1,4 @@
-// Home location (DESIGN §6.5).
+// Home location (DESIGN §5.5).
 //
 // Privacy rules enforced here:
 // - Only a city is ever stored (GeoNames id, name, country, the city's own lat/lng), never the

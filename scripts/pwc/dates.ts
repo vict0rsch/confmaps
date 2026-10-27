@@ -1,4 +1,4 @@
-// PwC dates (docs/backfill-spec.md §3.2): `start`/`end` (sometimes unpadded) or free-text `date`.
+// PwC dates: `start`/`end` (sometimes unpadded) or free-text `date`.
 
 export interface DateRange {
   start: string;

@@ -5,7 +5,7 @@ import raw from '../../../data/build/data.json';
 import { isVirtual, type Conference, type DataFile, type EventLocation } from './types';
 
 /**
- * A location joined to its conference (filters test `loc.conference`, DESIGN §6.3). Virtual
+ * A location joined to its conference (filters test `loc.conference`, DESIGN §5.3). Virtual
  * (online-only) editions have no city or coordinates: narrow with `isVirtual` before using them.
  */
 export type JoinedLocation = EventLocation & { conference: Conference };

@@ -1,4 +1,4 @@
-// Timeline choreography on the map (DESIGN §6.4): pins fade + scale in as they enter the window,
+// Timeline choreography on the map (DESIGN §5.4): pins fade + scale in as they enter the window,
 // ripple while live and fade out as they leave; during Play they also dim as they cross the window.
 // Main↔satellite lines draw in once both ends show. Pins never move.
 //

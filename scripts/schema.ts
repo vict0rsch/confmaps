@@ -1,4 +1,4 @@
-// Zod schemas for the data pipeline (DESIGN.md §3), shared with the app's types
+// Zod schemas for the data pipeline (DESIGN.md §2), shared with the app's types
 // (re-exported from src/lib/data/types.ts).
 import { z } from 'zod';
 
@@ -48,7 +48,7 @@ export const UpstreamConferenceSchema = z.looseObject({
   tags: z.array(z.string()).nullish(),
 });
 
-/** One entry of `data/satellites.yml` (DESIGN.md §3.2). */
+/** One entry of `data/satellites.yml` (DESIGN.md §2.2). */
 export const SatelliteSchema = z.strictObject({
   id: z
     .string()
@@ -83,7 +83,7 @@ export const PwcProvenanceSchema = z.strictObject({
   fixes: z.array(z.string().min(1)).optional(), // importer cleanups applied, e.g. "title: WWWW → WWW"
 });
 
-/** One past main edition (DESIGN §3.4). Deadlines are deliberately not represented. */
+/** One past main edition (DESIGN §2.4). Deadlines are deliberately not represented. */
 export const PastConferenceSchema = z
   .strictObject({
     id: z.string().regex(/^[a-z0-9]+$/, 'lowercase letters and digits only'),
@@ -162,7 +162,7 @@ export const GeocacheEntrySchema = z.strictObject({
 export const GeocacheSchema = z.record(z.string(), GeocacheEntrySchema);
 
 // ---------------------------------------------------------------------------
-// Normalized output (DESIGN.md §3.5)
+// Normalized output (DESIGN.md §2.5)
 // ---------------------------------------------------------------------------
 
 export const DeadlineSchema = z.strictObject({

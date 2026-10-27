@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Home location and travel settings (DESIGN §6.5, §5.2). Desktop: a pill summarising them that
+  // Home location and travel settings (DESIGN §5.5, §4.2). Desktop: a pill summarising them that
   // opens an anchored panel. `compact` (mobile logo panel): the same panel inline, with the travel
   // preferences folded into a disclosure.
   import { tick } from 'svelte';

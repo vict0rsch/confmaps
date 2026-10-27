@@ -1,6 +1,6 @@
 """Turn verified past editions into additions and updates of ``data/past_conferences.yml``.
 
-Rules (deterministic, never deletes an entry; docs/backfill-spec.md §5.5):
+Rules (deterministic, never deletes an entry; DESIGN.md §3):
 
 - Dedupe by ``series|year`` against the past file, ``data.json`` (any source) and earlier
   editions of the run.
@@ -44,7 +44,7 @@ DEFAULT_FORMAT = "in_person"
 UNARCHIVED_COMMENT = "UNARCHIVED live link — replace with a Wayback snapshot before merging"
 WIDTH = 4096  # the importer never folds long strings (e.g. `pwc.fixes` notes)
 HEADER = """\
-# Past main editions (docs/backfill-spec.md §1): imported from paperswithcode/ai-deadlines
+# Past main editions (DESIGN.md §2.4): imported from paperswithcode/ai-deadlines
 # (source: pwc) or added with evidence URLs by the discovery agent (source: curated).
 """
 

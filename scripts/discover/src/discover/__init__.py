@@ -1,1 +1,1 @@
-"""confmaps.org satellite discovery agent (DESIGN.md §4)."""
+"""confmaps.org satellite discovery agent (DESIGN.md §3)."""

@@ -1,4 +1,4 @@
-// Privacy-respecting analytics (DESIGN §7, PRIVACY.md): GoatCounter's documented count endpoint
+// Privacy-respecting analytics (DESIGN §6, PRIVACY.md): GoatCounter's documented count endpoint
 // (https://www.goatcounter.com/help/pixel) called directly, no third-party script, no cookies, no
 // storage. Entirely a no-op unless VITE_GOATCOUNTER_CODE is set at build time, on localhost, or
 // when the browser sends Do Not Track / Global Privacy Control.
