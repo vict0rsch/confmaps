@@ -132,18 +132,33 @@ test('Filters opens a panel under its button; a tap outside closes it', async ({
   await expect(button).toBeFocused();
 });
 
-test('Topics is one field; it opens its checklist and shows the choice', async ({ page }) => {
+test('Topics opens a dropdown under its field; Escape closes only the dropdown', async ({
+  page,
+}) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Filters', exact: true }).tap();
   const field = page.getByRole('button', { name: /^Topics:/ });
   await expect(field).toContainText('Any topic');
   await expect(field).toHaveAttribute('aria-expanded', 'false');
+  const y = await settledTop(field); // the panel slides in
+  const height = (await field.boundingBox())!.height;
   await field.tap();
+  const dropdown = page.getByRole('dialog', { name: 'Topics' });
+  await expect(dropdown).toBeVisible();
   await expect(field).toHaveAttribute('aria-expanded', 'true');
+  expect((await dropdown.boundingBox())!.y).toBeGreaterThanOrEqual(y + height);
+  expect((await field.boundingBox())!.y).toBe(y);
+  await expect(dropdown.getByRole('checkbox').first()).toBeFocused();
   for (const name of ['Machine learning', 'Computer vision', 'Natural language processing']) {
-    await page.getByRole('checkbox', { name }).check();
+    await dropdown.getByRole('checkbox', { name }).check();
   }
   await expect(field).toContainText(/Machine learning, Computer vision\s*\+1/);
+
+  await page.keyboard.press('Escape');
+  await expect(dropdown).toBeHidden();
+  await expect(page.getByRole('dialog', { name: 'Filters' })).toBeVisible();
+  await expect(field).toBeFocused();
+  await expect(field).toHaveAttribute('aria-expanded', 'false');
   await expect(page).toHaveURL(/[?&]sub=/);
 });
 

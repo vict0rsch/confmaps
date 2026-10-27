@@ -455,11 +455,17 @@ active, the sidebar shows **"Clear all"** with the active-filter count, and the 
 native checkboxes in a fieldset. Tab moves between them and Space toggles one. Topics shows its
 subject groups as headings. A hint above the list says how the choices combine. A "Clear" link
 beside the hint empties the selection. In a sidebar tray the checklist shows at once. In the mobile
-layout the control is a **field**: a button that shows the current choice and opens the checklist
-under it. With nothing selected, the field reads "Any topic" or "Any access level". Otherwise it
-shows the first two choices in display order and "+N" for the rest. The names shorten with an
-ellipsis when the field is too narrow. "+N" always shows. `kind` stays a segmented control, because
-it is a single choice. `open` stays one checkbox.
+layout the control is a **field**: a button that shows the current choice. A tap on the field opens
+the checklist in a **dropdown**. The dropdown is a small modal dialog anchored under the field, over
+the rest of the filters panel. The field stays in place. The dropdown opens above the field when
+there is less than 200 px below it and more room above. It stays inside the filters panel and
+scrolls when the list is taller. When neither side has 200 px (phones held sideways), the panel
+first scrolls the field to its top. Opening the dropdown focuses the first checkbox. "Done", a tap
+outside or Escape closes only the dropdown, and focus returns to the field. A rotation closes it.
+Choices apply at once, as in a tray. With nothing selected, the field reads "Any topic" or "Any
+access level". Otherwise it shows the first two choices in display order and "+N" for the rest. The
+names shorten with an ellipsis when the field is too narrow. "+N" always shows. `kind` stays a
+segmented control, because it is a single choice. `open` stays one checkbox.
 
 ### 6.4 Timeline / scrubber
 
@@ -652,11 +658,12 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   focus returns to Filters. Only one of the two panels is open at a time, because both are modal.
   Both use the `.anchored-panel` class (`base.css`). Desktop has no filters panel.
 - **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
-  (Methodology, Privacy, Third-party notices), the logo panel and the filters panel. The press must
-  start outside too, so a drag that starts inside (selecting text in a field) and ends outside keeps
-  the dialog open. When a dialog opens over another (Share from the logo panel), a tap outside
-  closes only the top one. One Svelte attachment, `lightDismiss` (`src/lib/dialog.ts`), does this
-  for every dialog.
+  (Methodology, Privacy, Third-party notices), the logo panel, the filters panel and the dropdowns
+  of the multi-select filters in it. The press must start outside too, so a drag that starts inside
+  (selecting text in a field) and ends outside keeps the dialog open. When a dialog opens over
+  another (Share from the logo panel, a dropdown in the filters panel), a tap outside closes only
+  the top one. One Svelte attachment, `lightDismiss` (`src/lib/dialog.ts`), does this for every
+  dialog.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map

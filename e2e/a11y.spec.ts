@@ -67,6 +67,7 @@ const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {
     if (phone) {
       await page.getByRole('button', { name: 'Filters', exact: true }).click();
       await page.getByRole('button', { name: /^Topics:/ }).click();
+      await expect(page.getByRole('dialog', { name: 'Topics' })).toBeVisible();
     } else await page.locator('button.chip[data-filter="subject"]').click();
   },
   'detail with home': async (page, phone) => {
@@ -132,6 +133,7 @@ for (const theme of ['light', 'dark'] as Theme[]) {
       await expect(page.locator('button.row').first()).toBeVisible();
       await page.getByRole('button', { name: 'Filters', exact: true }).click();
       await page.getByRole('button', { name: /^Topics:/ }).click();
+      await expect(page.getByRole('dialog', { name: 'Topics' })).toBeVisible();
       await scan(page, `${theme} landscape filters panel`, testInfo);
     });
   });
