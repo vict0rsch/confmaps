@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1999-07-22",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai99",
+      "link": "https://aaai.org/conference/aaai/aaai99/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1999-07-18",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1999
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "aaai99",
+      "country": "United States",
+      "end": "1999-07-22",
+      "id": "aaai99@main",
+      "lat": 28.5421218,
+      "link": "https://aaai.org/conference/aaai/aaai99/",
+      "lng": -81.379045,
+      "name": "AAAI 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-07-18"
+    }
+  ]
+}

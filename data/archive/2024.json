@@ -45,6 +45,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-12-12",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv24",
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "series": "accv",
+      "source": "curated",
+      "start": "2024-12-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-16",
       "id": "acl24",
       "link": "https://web.archive.org/web/20240811192721/https://2024.aclweb.org/",
@@ -837,6 +852,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "accv24",
+      "country": "Vietnam",
+      "end": "2024-12-12",
+      "id": "accv24@main",
+      "lat": 21.0283334,
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "lng": 105.854041,
+      "name": "ACCV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-08"
     },
     {
       "access": "registration",

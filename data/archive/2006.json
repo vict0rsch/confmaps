@@ -2,6 +2,39 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2006-07-20",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai06",
+      "link": "https://aaai.org/conference/aaai/aaai06/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2006-07-16",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2006
+    },
+    {
+      "deadlines": [],
+      "end": "2006-01-16",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv06",
+      "link": "https://link.springer.com/book/10.1007/11612032",
+      "series": "accv",
+      "source": "curated",
+      "start": "2006-01-13",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2006
+    },
+    {
+      "deadlines": [],
       "end": "2006-06-29",
       "fullName": "International Conference on Machine Learning",
       "id": "icml06",
@@ -32,6 +65,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "aaai06",
+      "country": "United States",
+      "end": "2006-07-20",
+      "id": "aaai06@main",
+      "lat": 42.3588336,
+      "link": "https://aaai.org/conference/aaai/aaai06/",
+      "lng": -71.0578303,
+      "name": "AAAI 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-07-16",
+      "venue": "Seaport Hotel and World Trade Center"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "accv06",
+      "country": "India",
+      "end": "2006-01-16",
+      "id": "accv06@main",
+      "lat": 17.360589,
+      "link": "https://link.springer.com/book/10.1007/11612032",
+      "lng": 78.4740613,
+      "name": "ACCV 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-01-13"
+    },
     {
       "access": "registration",
       "city": "Pittsburgh",

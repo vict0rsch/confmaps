@@ -2,6 +2,39 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2002-08-01",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai02",
+      "link": "https://aaai.org/conference/aaai/aaai02/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2002-07-28",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-01-25",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv02",
+      "link": "https://web.archive.org/web/20010813054456/http://batman.eng.monash.edu.au:80/accv_2002/accv_2002.htm",
+      "series": "accv",
+      "source": "curated",
+      "start": "2002-01-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
       "end": "2002-07-12",
       "fullName": "International Conference on Machine Learning",
       "id": "icml02",
@@ -17,6 +50,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "aaai02",
+      "country": "Canada",
+      "end": "2002-08-01",
+      "id": "aaai02@main",
+      "lat": 53.5462055,
+      "link": "https://aaai.org/conference/aaai/aaai02/",
+      "lng": -113.491241,
+      "name": "AAAI 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-07-28",
+      "venue": "Shaw conference center"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "accv02",
+      "country": "Australia",
+      "end": "2002-01-25",
+      "id": "accv02@main",
+      "lat": -37.8142454,
+      "link": "https://web.archive.org/web/20010813054456/http://batman.eng.monash.edu.au:80/accv_2002/accv_2002.htm",
+      "lng": 144.9631732,
+      "name": "ACCV 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-01-22"
+    },
     {
       "access": "registration",
       "city": "Sydney",

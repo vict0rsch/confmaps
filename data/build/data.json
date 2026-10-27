@@ -2,6 +2,22 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2015-10-22",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv15",
+      "link": "https://3dv2015.inria.fr/index.html",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2015-10-19",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2015
+    },
+    {
+      "deadlines": [],
       "end": "2017-10-12",
       "id": "3dv17",
       "link": "https://web.archive.org/web/20170902175938/http://irc.cs.sdu.edu.cn/3dv/",
@@ -55,6 +71,22 @@
       ],
       "title": "3DV",
       "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-15",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv22",
+      "link": "https://web.archive.org/web/20220926170914/https://3dvconf.github.io/2022/",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2022-09-12",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2022
     },
     {
       "deadlines": [],
@@ -125,6 +157,131 @@
       ],
       "title": "3DV",
       "year": 2027
+    },
+    {
+      "deadlines": [],
+      "end": "2000-08-03",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai00",
+      "link": "https://aaai.org/conference/aaai/aaai00/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2000-07-30",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2002-08-01",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai02",
+      "link": "https://aaai.org/conference/aaai/aaai02/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2002-07-28",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2004-07-29",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai04",
+      "link": "https://aaai.org/conference/aaai/aaai04/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2004-07-25",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2006-07-20",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai06",
+      "link": "https://aaai.org/conference/aaai/aaai06/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2006-07-16",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2006
+    },
+    {
+      "deadlines": [],
+      "end": "2008-07-17",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai08",
+      "link": "https://aaai.org/conference/aaai/aaai08/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2008-07-13",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2012-07-26",
+      "id": "aaai12",
+      "link": "https://aaai.org/conference/aaai/aaai12/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2012-07-22",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2012
+    },
+    {
+      "deadlines": [],
+      "end": "2016-02-17",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai16",
+      "link": "https://aaai.org/conference/aaai/aaai16/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2016-02-12",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2016
     },
     {
       "deadlines": [],
@@ -419,6 +576,323 @@
     },
     {
       "deadlines": [],
+      "end": "1983-08-26",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai83",
+      "link": "https://aaai.org/conference/aaai/aaai83/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1983-08-22",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1984-08-10",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai84",
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1984-08-06",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1992-07-16",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai92",
+      "link": "https://www.aaai.org/Conferences/AAAI/aaai92.php",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1992-07-12",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1993-07-15",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai93",
+      "link": "https://aaai.org/conference/aaai/aaai93/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1993-07-11",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1994-08-04",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai94",
+      "link": "https://aaai.org/conference/aaai/aaai94/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1994-07-31",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1996-08-08",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai96",
+      "link": "https://aaai.org/conference/aaai/aaai96/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1996-08-04",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1997-07-31",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai97",
+      "link": "https://aaai.org/conference/aaai/aaai97/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1997-07-27",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1998-07-30",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai98",
+      "link": "https://aaai.org/conference/aaai/aaai98/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1998-07-26",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1998
+    },
+    {
+      "deadlines": [],
+      "end": "1999-07-22",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai99",
+      "link": "https://aaai.org/conference/aaai/aaai99/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1999-07-18",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "2008-05-16",
+      "id": "aamas08",
+      "link": "https://www.ifaamas.org/AAMAS/aamas08/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2008-05-12",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2009-05-15",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas09",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2009/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2009-05-10",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2009
+    },
+    {
+      "deadlines": [],
+      "end": "2010-05-14",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas10",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2010/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2010-05-10",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2011-05-06",
+      "id": "aamas11",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2011/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2011-05-02",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2012-06-08",
+      "id": "aamas12",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2012/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2012-06-04",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2012
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-10",
+      "id": "aamas13",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2013/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2013-05-06",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2014-05-09",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas14",
+      "link": "http://www.ifaamas.org/AAMAS/aamas2014/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2014-05-05",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2015-05-08",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas15",
+      "link": "http://www.ifaamas.org/AAMAS/aamas2015/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2015-05-04",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2015
+    },
+    {
+      "deadlines": [],
+      "end": "2016-05-13",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas16",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2016-05-09",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2017-05-12",
+      "id": "aamas17",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2017-05-08",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2018-07-13",
       "id": "aamas18",
       "link": "https://web.archive.org/web/20180714152912/http://celweb.vuse.vanderbilt.edu/aamas18",
@@ -472,6 +946,22 @@
       ],
       "title": "AAMAS",
       "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-13",
+      "fullName": "International Conference on Autonomous Agents and Multi-Agent Systems",
+      "id": "aamas22",
+      "link": "https://web.archive.org/web/20220513234206/https://aamas2022-conference.auckland.ac.nz/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2022-05-09",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2022
     },
     {
       "deadlines": [],
@@ -638,6 +1128,141 @@
     },
     {
       "deadlines": [],
+      "end": "2000-01-11",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv00",
+      "link": "https://web.archive.org/web/19991006013203/http://vision.ai.uiuc.edu:80/accv/",
+      "series": "accv",
+      "source": "curated",
+      "start": "2000-01-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2002-01-25",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv02",
+      "link": "https://web.archive.org/web/20010813054456/http://batman.eng.monash.edu.au:80/accv_2002/accv_2002.htm",
+      "series": "accv",
+      "source": "curated",
+      "start": "2002-01-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2004-01-30",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv04",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "2004-01-28",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2006-01-16",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv06",
+      "link": "https://link.springer.com/book/10.1007/11612032",
+      "series": "accv",
+      "source": "curated",
+      "start": "2006-01-13",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2006
+    },
+    {
+      "deadlines": [],
+      "end": "2007-11-22",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv07",
+      "link": "https://link.springer.com/book/10.1007/978-3-540-76386-4",
+      "series": "accv",
+      "source": "curated",
+      "start": "2007-11-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2009-09-27",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv09",
+      "link": "https://link.springer.com/book/10.1007/978-3-642-12307-8",
+      "series": "accv",
+      "source": "curated",
+      "start": "2009-09-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2009
+    },
+    {
+      "deadlines": [],
+      "end": "2012-11-09",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv12",
+      "link": "https://web.archive.org/web/20121117041532/http://www.accv2012.org:80/",
+      "series": "accv",
+      "source": "curated",
+      "start": "2012-11-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2012
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-05",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv14",
+      "link": "http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/",
+      "series": "accv",
+      "source": "curated",
+      "start": "2014-11-01",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2016-11-24",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv16",
+      "link": "https://web.archive.org/web/20161120053919/http://www.accv2016.org:80/",
+      "series": "accv",
+      "source": "curated",
+      "start": "2016-11-20",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
       "end": "2018-12-06",
       "id": "accv18",
       "link": "https://web.archive.org/web/20181118080030/http://accv2018.net/",
@@ -663,6 +1288,65 @@
       ],
       "title": "ACCV",
       "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-12",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv24",
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "series": "accv",
+      "source": "curated",
+      "start": "2024-12-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "1993-11-25",
+      "id": "accv93",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "1993-11-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1995-12-08",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv95",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "1995-12-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1998-01-10",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv98",
+      "link": "https://cse.hkust.edu.hk/accv/index.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "1998-01-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 1998
     },
     {
       "deadlines": [],
@@ -892,6 +1576,35 @@
       ],
       "title": "ACL",
       "year": 2026
+    },
+    {
+      "deadlines": [],
+      "end": "1963-08-26",
+      "fullName": "Annual meeting of the Association for Machine Translation and Computational Linguistics",
+      "id": "acl63",
+      "link": "https://aclanthology.org/volumes/1963.earlymt-1/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1963-08-25",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1963
+    },
+    {
+      "deadlines": [],
+      "end": "1980-06-22",
+      "id": "acl80",
+      "link": "https://aclanthology.org/events/acl-1980/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1980-06-19",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1980
     },
     {
       "deadlines": [],
@@ -10697,8 +11410,25 @@
       "year": 2027
     }
   ],
-  "generatedAt": "2026-10-25T23:28:46.080Z",
+  "generatedAt": "2026-10-27T22:18:36.071Z",
   "locations": [
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "3dv15",
+      "country": "France",
+      "end": "2015-10-22",
+      "id": "3dv15@main",
+      "lat": 45.7578137,
+      "link": "https://3dv2015.inria.fr/index.html",
+      "lng": 4.8320114,
+      "name": "3DV 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-10-19",
+      "venue": "Ecole Normale Supérieure"
+    },
     {
       "access": "registration",
       "city": "Qingdao",
@@ -10763,6 +11493,23 @@
     },
     {
       "access": "registration",
+      "city": "Prague",
+      "conferenceId": "3dv22",
+      "country": "Czech Republic",
+      "end": "2022-09-15",
+      "format": "hybrid",
+      "id": "3dv22@main",
+      "lat": 50.0874654,
+      "link": "https://web.archive.org/web/20220926170914/https://3dvconf.github.io/2022/",
+      "lng": 14.4212535,
+      "name": "3DV 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-12"
+    },
+    {
+      "access": "registration",
       "city": "Davos",
       "conferenceId": "3dv24",
       "country": "Switzerland",
@@ -10809,6 +11556,124 @@
       "role": "main",
       "start": "2027-04-06",
       "venue": "Thessaloniki Concert Hall (M2 building), Thessaloniki, Greece"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "aaai00",
+      "country": "United States",
+      "end": "2000-08-03",
+      "id": "aaai00@main",
+      "lat": 30.2649261,
+      "link": "https://aaai.org/conference/aaai/aaai00/",
+      "lng": -97.7474086,
+      "name": "AAAI 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "aaai02",
+      "country": "Canada",
+      "end": "2002-08-01",
+      "id": "aaai02@main",
+      "lat": 53.5462055,
+      "link": "https://aaai.org/conference/aaai/aaai02/",
+      "lng": -113.491241,
+      "name": "AAAI 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-07-28",
+      "venue": "Shaw conference center"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "aaai04",
+      "country": "United States",
+      "end": "2004-07-29",
+      "id": "aaai04@main",
+      "lat": 37.3361663,
+      "link": "https://aaai.org/conference/aaai/aaai04/",
+      "lng": -121.890591,
+      "name": "AAAI 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-25",
+      "venue": "San Jose Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "aaai06",
+      "country": "United States",
+      "end": "2006-07-20",
+      "id": "aaai06@main",
+      "lat": 42.3588336,
+      "link": "https://aaai.org/conference/aaai/aaai06/",
+      "lng": -71.0578303,
+      "name": "AAAI 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-07-16",
+      "venue": "Seaport Hotel and World Trade Center"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "aaai08",
+      "country": "United States",
+      "end": "2008-07-17",
+      "id": "aaai08@main",
+      "lat": 41.8755616,
+      "link": "https://aaai.org/conference/aaai/aaai08/",
+      "lng": -87.6244212,
+      "name": "AAAI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-13",
+      "venue": "Hyatt Regency McCormick Place"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "aaai12",
+      "country": "Canada",
+      "end": "2012-07-26",
+      "id": "aaai12@main",
+      "lat": 43.6534817,
+      "link": "https://aaai.org/conference/aaai/aaai12/",
+      "lng": -79.3839347,
+      "name": "AAAI 2012",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2012-07-22",
+      "venue": "Sheraton Centre Toronto"
+    },
+    {
+      "access": "registration",
+      "city": "Phoenix",
+      "conferenceId": "aaai16",
+      "country": "United States",
+      "end": "2016-02-17",
+      "id": "aaai16@main",
+      "lat": 33.4484367,
+      "link": "https://aaai.org/conference/aaai/aaai16/",
+      "lng": -112.074141,
+      "name": "AAAI 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-02-12",
+      "venue": "Phoenix Convention Center"
     },
     {
       "access": "registration",
@@ -10989,6 +11854,318 @@
     },
     {
       "access": "registration",
+      "city": "Washington",
+      "conferenceId": "aaai83",
+      "country": "United States",
+      "end": "1983-08-26",
+      "id": "aaai83@main",
+      "lat": 38.8950982,
+      "link": "https://aaai.org/conference/aaai/aaai83/",
+      "lng": -77.0363849,
+      "name": "AAAI 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "aaai84",
+      "country": "United States",
+      "end": "1984-08-10",
+      "id": "aaai84@main",
+      "lat": 30.2649261,
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "lng": -97.7474086,
+      "name": "AAAI 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-08-06",
+      "venue": "University of Texas"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "aaai92",
+      "country": "United States",
+      "end": "1992-07-16",
+      "id": "aaai92@main",
+      "lat": 37.3361663,
+      "link": "https://www.aaai.org/Conferences/AAAI/aaai92.php",
+      "lng": -121.890591,
+      "name": "AAAI 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-07-12",
+      "venue": "San Jose Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "aaai93",
+      "country": "United States",
+      "end": "1993-07-15",
+      "id": "aaai93@main",
+      "lat": 38.8950982,
+      "link": "https://aaai.org/conference/aaai/aaai93/",
+      "lng": -77.0363849,
+      "name": "AAAI 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-07-11",
+      "venue": "Washington Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "aaai94",
+      "country": "United States",
+      "end": "1994-08-04",
+      "id": "aaai94@main",
+      "lat": 47.6038321,
+      "link": "https://aaai.org/conference/aaai/aaai94/",
+      "lng": -122.330062,
+      "name": "AAAI 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "aaai96",
+      "country": "United States",
+      "end": "1996-08-08",
+      "id": "aaai96@main",
+      "lat": 45.5202471,
+      "link": "https://aaai.org/conference/aaai/aaai96/",
+      "lng": -122.674194,
+      "name": "AAAI 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-04"
+    },
+    {
+      "access": "registration",
+      "city": "Providence",
+      "conferenceId": "aaai97",
+      "country": "United States",
+      "end": "1997-07-31",
+      "id": "aaai97@main",
+      "lat": 41.8239891,
+      "link": "https://aaai.org/conference/aaai/aaai97/",
+      "lng": -71.4128343,
+      "name": "AAAI 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "Madison",
+      "conferenceId": "aaai98",
+      "country": "United States",
+      "end": "1998-07-30",
+      "id": "aaai98@main",
+      "lat": 43.07469,
+      "link": "https://aaai.org/conference/aaai/aaai98/",
+      "lng": -89.3841663,
+      "name": "AAAI 1998",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1998-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "aaai99",
+      "country": "United States",
+      "end": "1999-07-22",
+      "id": "aaai99@main",
+      "lat": 28.5421218,
+      "link": "https://aaai.org/conference/aaai/aaai99/",
+      "lng": -81.379045,
+      "name": "AAAI 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Estoril",
+      "conferenceId": "aamas08",
+      "country": "Portugal",
+      "end": "2008-05-16",
+      "id": "aamas08@main",
+      "lat": 38.7042261,
+      "link": "https://www.ifaamas.org/AAMAS/aamas08/",
+      "lng": -9.3983152,
+      "name": "AAMAS 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-05-12"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "aamas09",
+      "country": "Hungary",
+      "end": "2009-05-15",
+      "id": "aamas09@main",
+      "lat": 47.4978789,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2009/",
+      "lng": 19.0402383,
+      "name": "AAMAS 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-05-10",
+      "venue": "Europa Congress Center"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "aamas10",
+      "country": "Canada",
+      "end": "2010-05-14",
+      "id": "aamas10@main",
+      "lat": 43.6534817,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2010/",
+      "lng": -79.3839347,
+      "name": "AAMAS 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-05-10",
+      "venue": "Sheraton Centre Toronto Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "aamas11",
+      "country": "Taiwan",
+      "end": "2011-05-06",
+      "id": "aamas11@main",
+      "lat": 25.0375198,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2011/",
+      "lng": 121.5636796,
+      "name": "AAMAS 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-05-02",
+      "venue": "Taipei International Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Valencia",
+      "conferenceId": "aamas12",
+      "country": "Spain",
+      "end": "2012-06-08",
+      "id": "aamas12@main",
+      "lat": 39.4697065,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2012/",
+      "lng": -0.3763353,
+      "name": "AAMAS 2012",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2012-06-04",
+      "venue": "Universitat Politècnica de València"
+    },
+    {
+      "access": "registration",
+      "city": "Saint Paul",
+      "conferenceId": "aamas13",
+      "country": "United States",
+      "end": "2013-05-10",
+      "id": "aamas13@main",
+      "lat": 44.9497487,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2013/",
+      "lng": -93.0931028,
+      "name": "AAMAS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "aamas14",
+      "country": "France",
+      "end": "2014-05-09",
+      "id": "aamas14@main",
+      "lat": 48.8534951,
+      "link": "http://www.ifaamas.org/AAMAS/aamas2014/",
+      "lng": 2.3483915,
+      "name": "AAMAS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-05"
+    },
+    {
+      "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "aamas15",
+      "country": "Turkey",
+      "end": "2015-05-08",
+      "id": "aamas15@main",
+      "lat": 41.006381,
+      "link": "http://www.ifaamas.org/AAMAS/aamas2015/",
+      "lng": 28.9758715,
+      "name": "AAMAS 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-05-04"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "aamas16",
+      "country": "Singapore",
+      "end": "2016-05-13",
+      "id": "aamas16@main",
+      "lat": 1.2899175,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html",
+      "lng": 103.8519072,
+      "name": "AAMAS 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-05-09",
+      "venue": "Grand Copthorne Waterfront Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "São Paulo",
+      "conferenceId": "aamas17",
+      "country": "Brazil",
+      "end": "2017-05-12",
+      "id": "aamas17@main",
+      "lat": -23.5506507,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "lng": -46.6333824,
+      "name": "AAMAS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-08"
+    },
+    {
+      "access": "registration",
       "city": "Stockholm",
       "conferenceId": "aamas18",
       "country": "Sweden",
@@ -11046,6 +12223,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-05-03"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aamas22",
+      "end": "2022-05-13",
+      "format": "virtual",
+      "id": "aamas22@main",
+      "link": "https://web.archive.org/web/20220513234206/https://aamas2022-conference.auckland.ac.nz/",
+      "name": "AAMAS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-05-09"
     },
     {
       "access": "registration",
@@ -11132,6 +12322,151 @@
     },
     {
       "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "accv00",
+      "country": "Taiwan",
+      "end": "2000-01-11",
+      "id": "accv00@main",
+      "lat": 25.0375198,
+      "link": "https://web.archive.org/web/19991006013203/http://vision.ai.uiuc.edu:80/accv/",
+      "lng": 121.5636796,
+      "name": "ACCV 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-01-08"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "accv02",
+      "country": "Australia",
+      "end": "2002-01-25",
+      "id": "accv02@main",
+      "lat": -37.8142454,
+      "link": "https://web.archive.org/web/20010813054456/http://batman.eng.monash.edu.au:80/accv_2002/accv_2002.htm",
+      "lng": 144.9631732,
+      "name": "ACCV 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-01-22"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "accv04",
+      "country": "South Korea",
+      "end": "2004-01-30",
+      "id": "accv04@main",
+      "lat": 33.4998289,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 126.5313902,
+      "name": "ACCV 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-01-28"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "accv06",
+      "country": "India",
+      "end": "2006-01-16",
+      "id": "accv06@main",
+      "lat": 17.360589,
+      "link": "https://link.springer.com/book/10.1007/11612032",
+      "lng": 78.4740613,
+      "name": "ACCV 2006",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2006-01-13"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "accv07",
+      "country": "Japan",
+      "end": "2007-11-22",
+      "id": "accv07@main",
+      "lat": 35.6768601,
+      "link": "https://link.springer.com/book/10.1007/978-3-540-76386-4",
+      "lng": 139.7638947,
+      "name": "ACCV 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-11-18"
+    },
+    {
+      "access": "registration",
+      "city": "Xi'an",
+      "conferenceId": "accv09",
+      "country": "China",
+      "end": "2009-09-27",
+      "id": "accv09@main",
+      "lat": 34.261004,
+      "link": "https://link.springer.com/book/10.1007/978-3-642-12307-8",
+      "lng": 108.9423363,
+      "name": "ACCV 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-09-23"
+    },
+    {
+      "access": "registration",
+      "city": "Daejeon",
+      "conferenceId": "accv12",
+      "country": "South Korea",
+      "end": "2012-11-09",
+      "id": "accv12@main",
+      "lat": 36.3497007,
+      "link": "https://web.archive.org/web/20121117041532/http://www.accv2012.org:80/",
+      "lng": 127.3849016,
+      "name": "ACCV 2012",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2012-11-05"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "accv14",
+      "country": "Singapore",
+      "end": "2014-11-05",
+      "id": "accv14@main",
+      "lat": 1.2899175,
+      "link": "http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/",
+      "lng": 103.8519072,
+      "name": "ACCV 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-01",
+      "venue": "National University of Singapore"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "accv16",
+      "country": "Taiwan",
+      "end": "2016-11-24",
+      "id": "accv16@main",
+      "lat": 25.0375198,
+      "link": "https://web.archive.org/web/20161120053919/http://www.accv2016.org:80/",
+      "lng": 121.5636796,
+      "name": "ACCV 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-11-20"
+    },
+    {
+      "access": "registration",
       "city": "Perth",
       "conferenceId": "accv18",
       "country": "Australia",
@@ -11158,6 +12493,71 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-11-30"
+    },
+    {
+      "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "accv24",
+      "country": "Vietnam",
+      "end": "2024-12-12",
+      "id": "accv24@main",
+      "lat": 21.0283334,
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "lng": 105.854041,
+      "name": "ACCV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-08"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "accv93",
+      "country": "Japan",
+      "end": "1993-11-25",
+      "id": "accv93@main",
+      "lat": 34.6937569,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 135.5014539,
+      "name": "ACCV 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-11-23"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "accv95",
+      "country": "Singapore",
+      "end": "1995-12-08",
+      "id": "accv95@main",
+      "lat": 1.2899175,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 103.8519072,
+      "name": "ACCV 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-12-05",
+      "venue": "Concorde Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "accv98",
+      "country": "China",
+      "end": "1998-01-10",
+      "id": "accv98@main",
+      "lat": 22.2818333,
+      "link": "https://cse.hkust.edu.hk/accv/index.html",
+      "lng": 114.1582831,
+      "name": "ACCV 1998",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1998-01-08"
     },
     {
       "access": "registration",
@@ -11317,6 +12717,40 @@
       "role": "main",
       "start": "2026-07-02",
       "venue": "Grand Hyatt Manchester San Diego, 1 Market Place, San Diego, CA 92101"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "acl63",
+      "country": "United States",
+      "end": "1963-08-26",
+      "id": "acl63@main",
+      "lat": 39.7392364,
+      "link": "https://aclanthology.org/volumes/1963.earlymt-1/",
+      "lng": -104.984862,
+      "name": "ACL 1963",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1963-08-25",
+      "venue": "Denver Hilton"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "acl80",
+      "country": "United States",
+      "end": "1980-06-22",
+      "id": "acl80@main",
+      "lat": 39.9527237,
+      "link": "https://aclanthology.org/events/acl-1980/",
+      "lng": -75.1635262,
+      "name": "ACL 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-06-19",
+      "venue": "University of Pennsylvania"
     },
     {
       "access": "registration",

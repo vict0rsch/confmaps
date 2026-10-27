@@ -2,6 +2,22 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2022-09-15",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv22",
+      "link": "https://web.archive.org/web/20220926170914/https://3dvconf.github.io/2022/",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2022-09-12",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-03-01",
       "id": "aaai22",
       "link": "https://web.archive.org/web/20220223171426/https://aaai.org/Conferences/AAAI-22/",
@@ -12,6 +28,22 @@
         "machine-learning"
       ],
       "title": "AAAI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-13",
+      "fullName": "International Conference on Autonomous Agents and Multi-Agent Systems",
+      "id": "aamas22",
+      "link": "https://web.archive.org/web/20220513234206/https://aamas2022-conference.auckland.ac.nz/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2022-05-09",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
       "year": 2022
     },
     {
@@ -686,6 +718,23 @@
   "locations": [
     {
       "access": "registration",
+      "city": "Prague",
+      "conferenceId": "3dv22",
+      "country": "Czech Republic",
+      "end": "2022-09-15",
+      "format": "hybrid",
+      "id": "3dv22@main",
+      "lat": 50.0874654,
+      "link": "https://web.archive.org/web/20220926170914/https://3dvconf.github.io/2022/",
+      "lng": 14.4212535,
+      "name": "3DV 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-12"
+    },
+    {
+      "access": "registration",
       "conferenceId": "aaai22",
       "end": "2022-03-01",
       "format": "virtual",
@@ -697,6 +746,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-02-22"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "aamas22",
+      "end": "2022-05-13",
+      "format": "virtual",
+      "id": "aamas22@main",
+      "link": "https://web.archive.org/web/20220513234206/https://aamas2022-conference.auckland.ac.nz/",
+      "name": "AAMAS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-05-09"
     },
     {
       "access": "registration",

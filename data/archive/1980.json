@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1980-06-22",
+      "id": "acl80",
+      "link": "https://aclanthology.org/events/acl-1980/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1980-06-19",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1980
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "acl80",
+      "country": "United States",
+      "end": "1980-06-22",
+      "id": "acl80@main",
+      "lat": 39.9527237,
+      "link": "https://aclanthology.org/events/acl-1980/",
+      "lng": -75.1635262,
+      "name": "ACL 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-06-19",
+      "venue": "University of Pennsylvania"
+    }
+  ]
+}

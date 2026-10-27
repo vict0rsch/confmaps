@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2013-05-10",
+      "id": "aamas13",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2013/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2013-05-06",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
       "end": "2013-06-27",
       "id": "cvpr13",
       "link": "https://cvpr2013.thecvf.com/",
@@ -54,6 +69,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Saint Paul",
+      "conferenceId": "aamas13",
+      "country": "United States",
+      "end": "2013-05-10",
+      "id": "aamas13@main",
+      "lat": 44.9497487,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2013/",
+      "lng": -93.0931028,
+      "name": "AAMAS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-06"
+    },
     {
       "access": "registration",
       "city": "Portland",

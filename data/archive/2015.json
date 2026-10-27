@@ -2,6 +2,38 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2015-10-22",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv15",
+      "link": "https://3dv2015.inria.fr/index.html",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2015-10-19",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2015
+    },
+    {
+      "deadlines": [],
+      "end": "2015-05-08",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas15",
+      "link": "http://www.ifaamas.org/AAMAS/aamas2015/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2015-05-04",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2015
+    },
+    {
+      "deadlines": [],
       "end": "2015-07-11",
       "fullName": "International Conference on Machine Learning",
       "id": "icml15",
@@ -31,6 +63,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "3dv15",
+      "country": "France",
+      "end": "2015-10-22",
+      "id": "3dv15@main",
+      "lat": 45.7578137,
+      "link": "https://3dv2015.inria.fr/index.html",
+      "lng": 4.8320114,
+      "name": "3DV 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-10-19",
+      "venue": "Ecole Normale Supérieure"
+    },
+    {
+      "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "aamas15",
+      "country": "Turkey",
+      "end": "2015-05-08",
+      "id": "aamas15@main",
+      "lat": 41.006381,
+      "link": "http://www.ifaamas.org/AAMAS/aamas2015/",
+      "lng": 28.9758715,
+      "name": "AAMAS 2015",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2015-05-04"
+    },
     {
       "access": "registration",
       "city": "Lille",

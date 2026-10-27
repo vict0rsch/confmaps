@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1997-07-31",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai97",
+      "link": "https://aaai.org/conference/aaai/aaai97/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1997-07-27",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1997
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Providence",
+      "conferenceId": "aaai97",
+      "country": "United States",
+      "end": "1997-07-31",
+      "id": "aaai97@main",
+      "lat": 41.8239891,
+      "link": "https://aaai.org/conference/aaai/aaai97/",
+      "lng": -71.4128343,
+      "name": "AAAI 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-07-27"
+    }
+  ]
+}

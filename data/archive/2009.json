@@ -2,6 +2,37 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2009-05-15",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas09",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2009/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2009-05-10",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2009
+    },
+    {
+      "deadlines": [],
+      "end": "2009-09-27",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv09",
+      "link": "https://link.springer.com/book/10.1007/978-3-642-12307-8",
+      "series": "accv",
+      "source": "curated",
+      "start": "2009-09-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2009
+    },
+    {
+      "deadlines": [],
       "end": "2009-06-24",
       "id": "cvpr09",
       "link": "http://tab.computer.org/pamitc/archive/cvpr2009/index.html",
@@ -35,6 +66,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "aamas09",
+      "country": "Hungary",
+      "end": "2009-05-15",
+      "id": "aamas09@main",
+      "lat": 47.4978789,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2009/",
+      "lng": 19.0402383,
+      "name": "AAMAS 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-05-10",
+      "venue": "Europa Congress Center"
+    },
+    {
+      "access": "registration",
+      "city": "Xi'an",
+      "conferenceId": "accv09",
+      "country": "China",
+      "end": "2009-09-27",
+      "id": "accv09@main",
+      "lat": 34.261004,
+      "link": "https://link.springer.com/book/10.1007/978-3-642-12307-8",
+      "lng": 108.9423363,
+      "name": "ACCV 2009",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2009-09-23"
+    },
     {
       "access": "registration",
       "city": "Miami Beach",

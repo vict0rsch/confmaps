@@ -13,6 +13,255 @@
 # An entry the importer wants a human to check carries an end-of-line review marker listing its
 # reasons (covid, stale, multi-id, fixes-applied). `pnpm data:validate` fails while any remains.
 
+- id: acl63
+  title: ACL
+  year: 1963
+  full_name: Annual meeting of the Association for Machine Translation and Computational Linguistics
+  link: https://aclanthology.org/volumes/1963.earlymt-1/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1963-08-25'
+  end: '1963-08-26'
+  format: in_person
+  city: Denver
+  country: United States
+  venue: Denver Hilton
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/volumes/1963.earlymt-1/
+    - https://mt-archive.net/50/AMTCL-1963-TOC.htm
+    - http://makerhacker.github.io/paper-mining/acl/acl_home.html
+
+- id: acl80
+  title: ACL
+  year: 1980
+  link: https://aclanthology.org/events/acl-1980/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1980-06-19'
+  end: '1980-06-22'
+  format: in_person
+  city: Philadelphia
+  country: United States
+  venue: University of Pennsylvania
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/www.mt-archive.info/srch/conferences-2.htm
+
+- id: aaai83
+  title: AAAI
+  year: 1983
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai83/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1983-08-22'
+  end: '1983-08-26'
+  format: in_person
+  city: Washington
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai83/
+
+- id: aaai84
+  title: AAAI
+  year: 1984
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai84/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1984-08-06'
+  end: '1984-08-10'
+  format: in_person
+  city: Austin
+  country: United States
+  venue: University of Texas
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai84/
+
+- id: aaai92
+  title: AAAI
+  year: 1992
+  full_name: National Conference on Artificial Intelligence
+  link: https://www.aaai.org/Conferences/AAAI/aaai92.php  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1992-07-12'
+  end: '1992-07-16'
+  format: in_person
+  city: San Jose
+  country: United States
+  venue: San Jose Convention Center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://www.aaai.org/Conferences/AAAI/aaai92.php
+
+- id: aaai93
+  title: AAAI
+  year: 1993
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai93/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1993-07-11'
+  end: '1993-07-15'
+  format: in_person
+  city: Washington
+  country: United States
+  venue: Washington Convention Center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai93/
+
+- id: accv93
+  title: ACCV
+  year: 1993
+  link: http://www.afcv.org.cn/events.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1993-11-23'
+  end: '1993-11-25'
+  format: in_person
+  city: Osaka
+  country: Japan
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://www.afcv.org.cn/events.html
+
+- id: aaai94
+  title: AAAI
+  year: 1994
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai94/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1994-07-31'
+  end: '1994-08-04'
+  format: in_person
+  city: Seattle
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai94/
+
+- id: accv95
+  title: ACCV
+  year: 1995
+  full_name: Asian Conference on Computer Vision
+  link: http://www.afcv.org.cn/events.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1995-12-05'
+  end: '1995-12-08'
+  format: in_person
+  city: Singapore
+  country: Singapore
+  venue: Concorde Hotel
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://www.afcv.org.cn/events.html
+    - https://ci.nii.ac.jp/ncid/BA28096735?l=en
+
+- id: aaai96
+  title: AAAI
+  year: 1996
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai96/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1996-08-04'
+  end: '1996-08-08'
+  format: in_person
+  city: Portland
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai96/
+
+- id: aaai97
+  title: AAAI
+  year: 1997
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai97/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1997-07-27'
+  end: '1997-07-31'
+  format: in_person
+  city: Providence
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai97/
+
+- id: aaai98
+  title: AAAI
+  year: 1998
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai98/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1998-07-26'
+  end: '1998-07-30'
+  format: in_person
+  city: Madison
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai98/
+
+- id: accv98
+  title: ACCV
+  year: 1998
+  full_name: Asian Conference on Computer Vision
+  link: https://cse.hkust.edu.hk/accv/index.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1998-01-08'
+  end: '1998-01-10'
+  format: in_person
+  city: Hong Kong
+  country: China
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://cse.hkust.edu.hk/accv/accv.html
+    - http://www.afcv.org.cn/events.html
+
+- id: aaai99
+  title: AAAI
+  year: 1999
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai99/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '1999-07-18'
+  end: '1999-07-22'
+  format: in_person
+  city: Orlando
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai99/
+
+- id: aaai00
+  title: AAAI
+  year: 2000
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai00/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2000-07-30'
+  end: '2000-08-03'
+  format: in_person
+  city: Austin
+  country: United States
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai00/
+
+- id: accv00
+  title: ACCV
+  year: 2000
+  full_name: Asian Conference on Computer Vision
+  link: https://web.archive.org/web/19991006013203/http://vision.ai.uiuc.edu:80/accv/
+  start: '2000-01-08'
+  end: '2000-01-11'
+  format: in_person
+  city: Taipei
+  country: Taiwan
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://www.cs.cmu.edu/~cil/txtv-conf.html
+    - http://www.afcv.org.cn/events.html
+
 - id: cvpr00
   title: CVPR
   year: 2000
@@ -42,6 +291,38 @@
   source: curated
   sources:
     - https://neurips.cc/Conferences/2001/CMUPage
+
+- id: aaai02
+  title: AAAI
+  year: 2002
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai02/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2002-07-28'
+  end: '2002-08-01'
+  format: in_person
+  city: Edmonton
+  country: Canada
+  venue: Shaw conference center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai02/
+
+- id: accv02
+  title: ACCV
+  year: 2002
+  full_name: Asian Conference on Computer Vision
+  link: https://web.archive.org/web/20010813054456/http://batman.eng.monash.edu.au:80/accv_2002/accv_2002.htm
+  start: '2002-01-22'
+  end: '2002-01-25'
+  format: in_person
+  city: Melbourne
+  country: Australia
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://www.cs.bu.edu/fac/betke/research/previous-conferences.html
+    - http://www.afcv.org.cn/events.html
 
 - id: icml02
   title: ICML
@@ -90,6 +371,38 @@
   sources:
     - http://www.cs.cmu.edu/Groups/NIPS/NIPS2003/nips-main-old.html
 
+- id: aaai04
+  title: AAAI
+  year: 2004
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai04/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2004-07-25'
+  end: '2004-07-29'
+  format: in_person
+  city: San Jose
+  country: United States
+  venue: San Jose Convention Center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai04/
+
+- id: accv04
+  title: ACCV
+  year: 2004
+  full_name: Asian Conference on Computer Vision
+  link: http://www.afcv.org.cn/events.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2004-01-28'
+  end: '2004-01-30'
+  format: in_person
+  city: Jeju
+  country: South Korea
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://www.afcv.org.cn/events.html
+    - https://www.img.cs.tut.ac.jp/~kanazawa/research/jpapers.html
+
 - id: cvpr04
   title: CVPR
   year: 2004
@@ -119,6 +432,37 @@
   sources:
     - https://www.illc.uva.nl/NewsandEvents/Events/Upcoming-Events/newsitem/842/7-11-August-2005-The-22nd-International-Conference-On-Machine-Learning-ICML-2005-Bonn-Germany
     - https://icml.cc/Conferences/2005/invited_speakers.php.html
+
+- id: aaai06
+  title: AAAI
+  year: 2006
+  full_name: National Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai06/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2006-07-16'
+  end: '2006-07-20'
+  format: in_person
+  city: Boston
+  country: United States
+  venue: Seaport Hotel and World Trade Center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai06/
+
+- id: accv06
+  title: ACCV
+  year: 2006
+  full_name: Asian Conference on Computer Vision
+  link: https://link.springer.com/book/10.1007/11612032  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2006-01-13'
+  end: '2006-01-16'
+  format: in_person
+  city: Hyderabad
+  country: India
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://link.springer.com/conference/accv
 
 - id: icml06
   title: ICML
@@ -152,6 +496,21 @@
   sources:
     - https://neurips.cc/Conferences/2006
 
+- id: accv07
+  title: ACCV
+  year: 2007
+  full_name: Asian Conference on Computer Vision
+  link: https://link.springer.com/book/10.1007/978-3-540-76386-4  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2007-11-18'
+  end: '2007-11-22'
+  format: in_person
+  city: Tokyo
+  country: Japan
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://link.springer.com/conference/accv
+
 - id: neurips07
   title: NIPS
   year: 2007
@@ -168,6 +527,37 @@
   sources:
     - https://nips.cc/Conferences/2007
     - http://www.sigmod.org/publications/dblp/db/conf/nips/index.html
+
+- id: aaai08
+  title: AAAI
+  year: 2008
+  full_name: AAAI Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai08/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2008-07-13'
+  end: '2008-07-17'
+  format: in_person
+  city: Chicago
+  country: United States
+  venue: Hyatt Regency McCormick Place
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai08/
+
+- id: aamas08
+  title: AAMAS
+  year: 2008
+  link: https://www.ifaamas.org/AAMAS/aamas08/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2008-05-12'
+  end: '2008-05-16'
+  format: in_person
+  city: Estoril
+  country: Portugal
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - https://www.ifaamas.org/AAMAS/aamas08/
 
 - id: icml08
   title: ICML
@@ -200,6 +590,38 @@
   sources:
     - https://nips.cc/Conferences/2008
 
+- id: aamas09
+  title: AAMAS
+  year: 2009
+  full_name: International Conference on Autonomous Agents and Multiagent Systems
+  link: https://www.ifaamas.org/AAMAS/aamas2009/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2009-05-10'
+  end: '2009-05-15'
+  format: in_person
+  city: Budapest
+  country: Hungary
+  venue: Europa Congress Center
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - http://www.conferences.hu/AAMAS2009/
+
+- id: accv09
+  title: ACCV
+  year: 2009
+  full_name: Asian Conference on Computer Vision
+  link: https://link.springer.com/book/10.1007/978-3-642-12307-8  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2009-09-23'
+  end: '2009-09-27'
+  format: in_person
+  city: Xi'an
+  country: China
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://link.springer.com/conference/accv
+
 - id: cvpr09
   title: CVPR
   year: 2009
@@ -229,6 +651,23 @@
   source: curated
   sources:
     - https://icml.cc/Conferences/2009/
+
+- id: aamas10
+  title: AAMAS
+  year: 2010
+  full_name: International Conference on Autonomous Agents and Multiagent Systems
+  link: https://www.ifaamas.org/AAMAS/aamas2010/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2010-05-10'
+  end: '2010-05-14'
+  format: in_person
+  city: Toronto
+  country: Canada
+  venue: Sheraton Centre Toronto Hotel
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - https://www.ifaamas.org/AAMAS/aamas2010/
 
 - id: icml10
   title: ICML
@@ -261,6 +700,22 @@
   sources:
     - https://nips.cc/Conferences/2010/Overview
 
+- id: aamas11
+  title: AAMAS
+  year: 2011
+  link: https://www.ifaamas.org/AAMAS/aamas2011/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2011-05-02'
+  end: '2011-05-06'
+  format: in_person
+  city: Taipei
+  country: Taiwan
+  venue: Taipei International Convention Center
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - https://www.ifaamas.org/AAMAS/aamas2011/
+
 - id: neurips11
   title: NeurIPS
   year: 2011
@@ -277,6 +732,53 @@
   sources:
     - https://neurips.cc/Conferences/2011
     - http://www.wikicfp.com/cfp/program?id=2212
+
+- id: aaai12
+  title: AAAI
+  year: 2012
+  link: https://aaai.org/conference/aaai/aaai12/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2012-07-22'
+  end: '2012-07-26'
+  format: in_person
+  city: Toronto
+  country: Canada
+  venue: Sheraton Centre Toronto
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai12/
+
+- id: aamas12
+  title: AAMAS
+  year: 2012
+  link: https://www.ifaamas.org/AAMAS/aamas2012/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2012-06-04'
+  end: '2012-06-08'
+  format: in_person
+  city: Valencia
+  country: Spain
+  venue: Universitat Politècnica de València
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - https://www.ifaamas.org/AAMAS/aamas2012/
+
+- id: accv12
+  title: ACCV
+  year: 2012
+  full_name: Asian Conference on Computer Vision
+  link: https://web.archive.org/web/20121117041532/http://www.accv2012.org:80/
+  start: '2012-11-05'
+  end: '2012-11-09'
+  format: in_person
+  city: Daejeon
+  country: South Korea
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=18605
+    - http://www.accv2016.org/
 
 - id: icml12
   title: ICML
@@ -295,6 +797,21 @@
     - https://icml.cc/2012/call-for-papers/index.html
     - https://icml.cc/2012/
     - https://icml.cc/2012/venues/index.html
+
+- id: aamas13
+  title: AAMAS
+  year: 2013
+  link: https://www.ifaamas.org/AAMAS/aamas2013/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2013-05-06'
+  end: '2013-05-10'
+  format: in_person
+  city: Saint Paul
+  country: United States
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/previousaamas.html
+    - https://www.ifaamas.org/AAMAS/aamas2013/
 
 - id: cvpr13
   title: CVPR
@@ -342,6 +859,39 @@
   source: curated
   sources:
     - https://icml.cc/2013/
+
+- id: aamas14
+  title: AAMAS
+  year: 2014
+  full_name: International Conference on Autonomous Agents and Multiagent Systems
+  link: http://www.ifaamas.org/AAMAS/aamas2014/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2014-05-05'
+  end: '2014-05-09'
+  format: in_person
+  city: Paris
+  country: France
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - http://www.illc.uva.nl/NewsandEvents/Events/Conferences/newsitem/5166/5-9-May-2014-13th-International-Conference-on-Autonomous-Agents-and-Multiagent-Systems-AAMAS-2014-Paris-France
+    - https://www.ifaamas.org/AAMAS/aamas2021/past_events.html
+
+- id: accv14
+  title: ACCV
+  year: 2014
+  full_name: Asian Conference on Computer Vision
+  link: http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2014-11-01'
+  end: '2014-11-05'
+  format: in_person
+  city: Singapore
+  country: Singapore
+  venue: National University of Singapore
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/
+    - http://www.accv2016.org/
 
 - id: cvpr14
   title: CVPR
@@ -408,6 +958,38 @@
     - https://nips.cc/Conferences/2014
     - https://nips.cc/Conferences/2014/Dates
 
+- id: 3dv15
+  title: 3DV
+  year: 2015
+  full_name: International Conference on 3D Vision
+  link: https://3dv2015.inria.fr/index.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2015-10-19'
+  end: '2015-10-22'
+  format: in_person
+  city: Lyon
+  country: France
+  venue: Ecole Normale Supérieure
+  tags: [machine-learning, computer-vision]
+  source: curated
+  sources:
+    - https://3dv2015.inria.fr/index.html
+
+- id: aamas15
+  title: AAMAS
+  year: 2015
+  full_name: International Conference on Autonomous Agents and Multiagent Systems
+  link: http://www.ifaamas.org/AAMAS/aamas2015/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2015-05-04'
+  end: '2015-05-08'
+  format: in_person
+  city: Istanbul
+  country: Turkey
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.illc.uva.nl/NewsandEvents/Events/Conferences/newsitem/5937/4-8-May-2015-14th-International-Conference-on-Autonomous-Agents-and-Multiagent-Systems-AAMAS-2015-Istanbul-Turkey
+    - https://www.ifaamas.org/AAMAS/aamas2021/past_events.html
+
 - id: icml15
   title: ICML
   year: 2015
@@ -439,6 +1021,55 @@
   source: curated
   sources:
     - https://nips.cc/Conferences/2015
+
+- id: aaai16
+  title: AAAI
+  year: 2016
+  full_name: AAAI Conference on Artificial Intelligence
+  link: https://aaai.org/conference/aaai/aaai16/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2016-02-12'
+  end: '2016-02-17'
+  format: in_person
+  city: Phoenix
+  country: United States
+  venue: Phoenix Convention Center
+  tags: [data-mining, machine-learning, natural-language-processing, computer-vision]
+  source: curated
+  sources:
+    - https://aaai.org/conference/aaai/aaai16/
+    - http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=46328&copyownerid=51431
+
+- id: aamas16
+  title: AAMAS
+  year: 2016
+  full_name: International Conference on Autonomous Agents and Multiagent Systems
+  link: https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2016-05-09'
+  end: '2016-05-13'
+  format: in_person
+  city: Singapore
+  country: Singapore
+  venue: Grand Copthorne Waterfront Hotel
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html
+    - https://groups.google.com/g/icaps-conference/c/oLW3OcCeslU
+
+- id: accv16
+  title: ACCV
+  year: 2016
+  full_name: Asian Conference on Computer Vision
+  link: https://web.archive.org/web/20161120053919/http://www.accv2016.org:80/
+  start: '2016-11-20'
+  end: '2016-11-24'
+  format: in_person
+  city: Taipei
+  country: Taiwan
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - http://www.accv2016.org/
 
 - id: coling16
   title: COLING
@@ -578,6 +1209,20 @@
     first_date: '2016-11-18'
     last_sha: '44a659ecba9d86578ef19a6a030b1ab7fc420d0e'
     last_date: '2017-08-09'
+
+- id: aamas17
+  title: AAMAS
+  year: 2017
+  link: https://www.ifaamas.org/AAMAS/aamas2017/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2017-05-08'
+  end: '2017-05-12'
+  format: in_person
+  city: São Paulo
+  country: Brazil
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://www.ifaamas.org/AAMAS/aamas2017/
 
 - id: acl17
   title: ACL
@@ -4076,6 +4721,22 @@
   sources:
     - https://archives.iw3c2.org/www2021/
 
+- id: 3dv22
+  title: 3DV
+  year: 2022
+  full_name: International Conference on 3D Vision
+  link: https://web.archive.org/web/20220926170914/https://3dvconf.github.io/2022/
+  start: '2022-09-12'
+  end: '2022-09-15'
+  format: hybrid
+  city: Prague
+  country: Czech Republic
+  tags: [machine-learning, computer-vision]
+  source: curated
+  sources:
+    - https://3dvconf.github.io/2022/call-for-papers/
+    - https://3dvconf.github.io/2022/
+
 - id: aaai22
   title: AAAI
   year: 2022
@@ -4094,6 +4755,19 @@
     last_date: '2024-09-15'
   sources:
     - https://web.archive.org/web/20211219222214/https://aaai.org/Conferences/AAAI-22/registration/
+
+- id: aamas22
+  title: AAMAS
+  year: 2022
+  full_name: International Conference on Autonomous Agents and Multi-Agent Systems
+  link: https://web.archive.org/web/20220513234206/https://aamas2022-conference.auckland.ac.nz/
+  start: '2022-05-09'
+  end: '2022-05-13'
+  format: virtual
+  tags: [machine-learning, robotics]
+  source: curated
+  sources:
+    - https://aamas2022-conference.auckland.ac.nz/
 
 - id: acl22
   title: ACL
@@ -6047,6 +6721,21 @@
     first_date: '2023-06-07'
     last_sha: 'b230d24719088a769e6938704a826e5084b4cb34'
     last_date: '2024-09-15'
+
+- id: accv24
+  title: ACCV
+  year: 2024
+  full_name: Asian Conference on Computer Vision
+  link: https://link.springer.com/book/10.1007/978-981-96-0885-0  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2024-12-08'
+  end: '2024-12-12'
+  format: in_person  # UNVERIFIED default — check before merging
+  city: Hanoi
+  country: Vietnam
+  tags: [computer-vision]
+  source: curated
+  sources:
+    - https://link.springer.com/conference/accv
 
 - id: acl24
   title: ACL

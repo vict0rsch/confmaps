@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1983-08-26",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai83",
+      "link": "https://aaai.org/conference/aaai/aaai83/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1983-08-22",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1983
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "aaai83",
+      "country": "United States",
+      "end": "1983-08-26",
+      "id": "aaai83@main",
+      "lat": 38.8950982,
+      "link": "https://aaai.org/conference/aaai/aaai83/",
+      "lng": -77.0363849,
+      "name": "AAAI 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-08-22"
+    }
+  ]
+}

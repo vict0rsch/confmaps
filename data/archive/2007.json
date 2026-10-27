@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2007-11-22",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv07",
+      "link": "https://link.springer.com/book/10.1007/978-3-540-76386-4",
+      "series": "accv",
+      "source": "curated",
+      "start": "2007-11-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
       "end": "2007-12-06",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips07",
@@ -17,6 +32,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "accv07",
+      "country": "Japan",
+      "end": "2007-11-22",
+      "id": "accv07@main",
+      "lat": 35.6768601,
+      "link": "https://link.springer.com/book/10.1007/978-3-540-76386-4",
+      "lng": 139.7638947,
+      "name": "ACCV 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-11-18"
+    },
     {
       "access": "registration",
       "city": "Vancouver",

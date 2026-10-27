@@ -2,6 +2,37 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2014-05-09",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas14",
+      "link": "http://www.ifaamas.org/AAMAS/aamas2014/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2014-05-05",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-05",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv14",
+      "link": "http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/",
+      "series": "accv",
+      "source": "curated",
+      "start": "2014-11-01",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
       "end": "2014-06-27",
       "fullName": "IEEE Conference on Computer Vision and Pattern Recognition",
       "id": "cvpr14",
@@ -70,6 +101,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "aamas14",
+      "country": "France",
+      "end": "2014-05-09",
+      "id": "aamas14@main",
+      "lat": 48.8534951,
+      "link": "http://www.ifaamas.org/AAMAS/aamas2014/",
+      "lng": 2.3483915,
+      "name": "AAMAS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-05"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "accv14",
+      "country": "Singapore",
+      "end": "2014-11-05",
+      "id": "accv14@main",
+      "lat": 1.2899175,
+      "link": "http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/",
+      "lng": 103.8519072,
+      "name": "ACCV 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-01",
+      "venue": "National University of Singapore"
+    },
     {
       "access": "registration",
       "city": "Columbus",

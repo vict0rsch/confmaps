@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1963-08-26",
+      "fullName": "Annual meeting of the Association for Machine Translation and Computational Linguistics",
+      "id": "acl63",
+      "link": "https://aclanthology.org/volumes/1963.earlymt-1/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1963-08-25",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1963
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "acl63",
+      "country": "United States",
+      "end": "1963-08-26",
+      "id": "acl63@main",
+      "lat": 39.7392364,
+      "link": "https://aclanthology.org/volumes/1963.earlymt-1/",
+      "lng": -104.984862,
+      "name": "ACL 1963",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1963-08-25",
+      "venue": "Denver Hilton"
+    }
+  ]
+}

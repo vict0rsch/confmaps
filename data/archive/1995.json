@@ -1,0 +1,38 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1995-12-08",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv95",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "1995-12-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 1995
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "accv95",
+      "country": "Singapore",
+      "end": "1995-12-08",
+      "id": "accv95@main",
+      "lat": 1.2899175,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 103.8519072,
+      "name": "ACCV 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-12-05",
+      "venue": "Concorde Hotel"
+    }
+  ]
+}

@@ -214,6 +214,11 @@
     "lat": 30.659867,
     "lng": 104.063315
   },
+  "chicago|united states": {
+    "display_name": "Chicago, South Chicago Township, Cook County, Illinois, United States",
+    "lat": 41.8755616,
+    "lng": -87.6244212
+  },
   "coimbra|portugal": {
     "display_name": "Coimbra, Portugal",
     "lat": 40.2111874,
@@ -243,6 +248,11 @@
     "display_name": "Daegu, South Korea",
     "lat": 35.8713,
     "lng": 128.6018
+  },
+  "daejeon|south korea": {
+    "display_name": "Daejeon, South Korea",
+    "lat": 36.3497007,
+    "lng": 127.3849016
   },
   "davos|switzerland": {
     "display_name": "Davos, Prättigau/Davos, Grisons, Switzerland",
@@ -293,6 +303,11 @@
     "display_name": "Eindhoven, North Brabant, Netherlands",
     "lat": 51.4392648,
     "lng": 5.478633
+  },
+  "estoril|portugal": {
+    "display_name": "Estoril, Cascais, Lisbon, 2765-247, Portugal",
+    "lat": 38.7042261,
+    "lng": -9.3983152
   },
   "florence|italy": {
     "display_name": "Florence, Tuscany, Italy",
@@ -408,6 +423,11 @@
     "display_name": "Hilton Head Island, Beaufort County, South Carolina, United States",
     "lat": 32.1618488,
     "lng": -80.7512616
+  },
+  "hong kong|china": {
+    "display_name": "Hong Kong, China",
+    "lat": 22.2818333,
+    "lng": 114.1582831
   },
   "hong kong|hong kong": {
     "display_name": "Hong Kong, China",
@@ -794,6 +814,11 @@
     "lat": 50.0874654,
     "lng": 14.4212535
   },
+  "providence|united states": {
+    "display_name": "Providence, Providence County, Rhode Island, United States",
+    "lat": 41.8239891,
+    "lng": -71.4128343
+  },
   "punta cana|dominican republic": {
     "display_name": "Punta Cana, Higüey, La Altagracia, 41201, Dominican Republic",
     "lat": 18.556551,
@@ -823,6 +848,11 @@
     "display_name": "Rome, Roma Capitale, Lazio, Italy",
     "lat": 41.8933203,
     "lng": 12.4829321
+  },
+  "saint paul|united states": {
+    "display_name": "Saint Paul, Ramsey County, Minnesota, United States",
+    "lat": 44.9497487,
+    "lng": -93.0931028
   },
   "salt lake city|united states": {
     "display_name": "Salt Lake City, Salt Lake County, Utah, United States",
@@ -858,6 +888,11 @@
     "display_name": "Santiago de Compostela, Santiago, A Coruña, Galicia, Spain",
     "lat": 42.9064576,
     "lng": -8.5192983
+  },
+  "sao paulo|brazil": {
+    "display_name": "São Paulo, Southeast Region, Brazil",
+    "lat": -23.5506507,
+    "lng": -46.6333824
   },
   "scottsdale|united states": {
     "display_name": "Scottsdale, Maricopa County, Arizona, United States",

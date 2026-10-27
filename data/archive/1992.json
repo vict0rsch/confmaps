@@ -1,0 +1,41 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1992-07-16",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai92",
+      "link": "https://www.aaai.org/Conferences/AAAI/aaai92.php",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1992-07-12",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1992
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "aaai92",
+      "country": "United States",
+      "end": "1992-07-16",
+      "id": "aaai92@main",
+      "lat": 37.3361663,
+      "link": "https://www.aaai.org/Conferences/AAAI/aaai92.php",
+      "lng": -121.890591,
+      "name": "AAAI 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-07-12",
+      "venue": "San Jose Convention Center"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1994-08-04",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai94",
+      "link": "https://aaai.org/conference/aaai/aaai94/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1994-07-31",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1994
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "aaai94",
+      "country": "United States",
+      "end": "1994-08-04",
+      "id": "aaai94@main",
+      "lat": 47.6038321,
+      "link": "https://aaai.org/conference/aaai/aaai94/",
+      "lng": -122.330062,
+      "name": "AAAI 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-07-31"
+    }
+  ]
+}

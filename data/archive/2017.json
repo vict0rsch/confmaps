@@ -30,6 +30,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-05-12",
+      "id": "aamas17",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2017-05-08",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-04",
       "id": "acl17",
       "link": "https://web.archive.org/web/20170802021819/http://acl2017.org/",
@@ -414,6 +429,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-02-04"
+    },
+    {
+      "access": "registration",
+      "city": "São Paulo",
+      "conferenceId": "aamas17",
+      "country": "Brazil",
+      "end": "2017-05-12",
+      "id": "aamas17@main",
+      "lat": -23.5506507,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "lng": -46.6333824,
+      "name": "AAMAS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-08"
     },
     {
       "access": "registration",

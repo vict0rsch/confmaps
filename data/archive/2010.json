@@ -2,6 +2,22 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2010-05-14",
+      "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+      "id": "aamas10",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2010/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2010-05-10",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
       "end": "2010-06-24",
       "fullName": "International Conference on Machine Learning",
       "id": "icml10",
@@ -32,6 +48,23 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "aamas10",
+      "country": "Canada",
+      "end": "2010-05-14",
+      "id": "aamas10@main",
+      "lat": 43.6534817,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2010/",
+      "lng": -79.3839347,
+      "name": "AAMAS 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-05-10",
+      "venue": "Sheraton Centre Toronto Hotel"
+    },
     {
       "access": "registration",
       "city": "Haifa",

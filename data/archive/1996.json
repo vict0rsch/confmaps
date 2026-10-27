@@ -1,0 +1,40 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1996-08-08",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai96",
+      "link": "https://aaai.org/conference/aaai/aaai96/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1996-08-04",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1996
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "aaai96",
+      "country": "United States",
+      "end": "1996-08-08",
+      "id": "aaai96@main",
+      "lat": 45.5202471,
+      "link": "https://aaai.org/conference/aaai/aaai96/",
+      "lng": -122.674194,
+      "name": "AAAI 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-04"
+    }
+  ]
+}

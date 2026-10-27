@@ -1,0 +1,41 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1984-08-10",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai84",
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1984-08-06",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1984
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "aaai84",
+      "country": "United States",
+      "end": "1984-08-10",
+      "id": "aaai84@main",
+      "lat": 30.2649261,
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "lng": -97.7474086,
+      "name": "AAAI 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-08-06",
+      "venue": "University of Texas"
+    }
+  ]
+}

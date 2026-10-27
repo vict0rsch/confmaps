@@ -1,0 +1,71 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1993-07-15",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai93",
+      "link": "https://aaai.org/conference/aaai/aaai93/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1993-07-11",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-11-25",
+      "id": "accv93",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "1993-11-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 1993
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "aaai93",
+      "country": "United States",
+      "end": "1993-07-15",
+      "id": "aaai93@main",
+      "lat": 38.8950982,
+      "link": "https://aaai.org/conference/aaai/aaai93/",
+      "lng": -77.0363849,
+      "name": "AAAI 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-07-11",
+      "venue": "Washington Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "accv93",
+      "country": "Japan",
+      "end": "1993-11-25",
+      "id": "accv93@main",
+      "lat": 34.6937569,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 135.5014539,
+      "name": "ACCV 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-11-23"
+    }
+  ]
+}

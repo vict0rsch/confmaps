@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2011-05-06",
+      "id": "aamas11",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2011/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2011-05-02",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
       "end": "2011-12-15",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips11",
@@ -17,6 +32,23 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "aamas11",
+      "country": "Taiwan",
+      "end": "2011-05-06",
+      "id": "aamas11@main",
+      "lat": 25.0375198,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2011/",
+      "lng": 121.5636796,
+      "name": "AAMAS 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-05-02",
+      "venue": "Taipei International Convention Center"
+    },
     {
       "access": "registration",
       "city": "Granada",

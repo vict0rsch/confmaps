@@ -2,6 +2,39 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2004-07-29",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai04",
+      "link": "https://aaai.org/conference/aaai/aaai04/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2004-07-25",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-01-30",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv04",
+      "link": "http://www.afcv.org.cn/events.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "2004-01-28",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
       "end": "2004-07-01",
       "id": "cvpr04",
       "link": "http://tab.computer.org/pamitc/conference/CVPR.html",
@@ -20,6 +53,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "aaai04",
+      "country": "United States",
+      "end": "2004-07-29",
+      "id": "aaai04@main",
+      "lat": 37.3361663,
+      "link": "https://aaai.org/conference/aaai/aaai04/",
+      "lng": -121.890591,
+      "name": "AAAI 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-25",
+      "venue": "San Jose Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "accv04",
+      "country": "South Korea",
+      "end": "2004-01-30",
+      "id": "accv04@main",
+      "lat": 33.4998289,
+      "link": "http://www.afcv.org.cn/events.html",
+      "lng": 126.5313902,
+      "name": "ACCV 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-01-28"
+    },
     {
       "access": "registration",
       "city": "Washington",

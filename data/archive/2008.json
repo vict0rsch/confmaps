@@ -2,6 +2,39 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2008-07-17",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai08",
+      "link": "https://aaai.org/conference/aaai/aaai08/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2008-07-13",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-05-16",
+      "id": "aamas08",
+      "link": "https://www.ifaamas.org/AAMAS/aamas08/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2008-05-12",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
       "end": "2008-07-09",
       "fullName": "International Conference on Machine Learning",
       "id": "icml08",
@@ -32,6 +65,39 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "aaai08",
+      "country": "United States",
+      "end": "2008-07-17",
+      "id": "aaai08@main",
+      "lat": 41.8755616,
+      "link": "https://aaai.org/conference/aaai/aaai08/",
+      "lng": -87.6244212,
+      "name": "AAAI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-13",
+      "venue": "Hyatt Regency McCormick Place"
+    },
+    {
+      "access": "registration",
+      "city": "Estoril",
+      "conferenceId": "aamas08",
+      "country": "Portugal",
+      "end": "2008-05-16",
+      "id": "aamas08@main",
+      "lat": 38.7042261,
+      "link": "https://www.ifaamas.org/AAMAS/aamas08/",
+      "lng": -9.3983152,
+      "name": "AAMAS 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-05-12"
+    },
     {
       "access": "registration",
       "city": "Helsinki",
