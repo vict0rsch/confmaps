@@ -41,6 +41,7 @@ acm-mm:
   sources:
     - https://en.wikipedia.org/wiki/ACM_Multimedia
     - https://dblp.org/db/conf/mm/index.html
+    - https://dblp.org/db/conf/mm/mm93.html
   notes: The first ACM Multimedia conference took place in Anaheim, California, in August 1993.
 acml:
   first_year: 2009
@@ -133,6 +134,7 @@ colt:
   first_year: 1988
   sources:
     - https://dblp.org/db/conf/colt/index.html
+    - https://dblp.org/db/conf/colt/colt1988.html
   notes: The first COLT was held in 1988 at MIT as the First Annual Workshop on Computational Learning Theory.
 conll:
   first_year: 1997
@@ -262,6 +264,7 @@ icann:
   sources:
     - https://e-nns.org/icann2025/
     - https://dblp.org/db/conf/icann/index.html
+    - https://dblp.org/db/conf/icann/icann1997.html
   notes: The first ICANN was held in Finland in 1991; ICANN 2025 was the 34th edition.
 icaps:
   first_year: 1991
@@ -298,6 +301,7 @@ icdar:
   sources:
     - https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
     - https://dblp.org/db/conf/icdar/index.html
+    - https://dblp.org/db/conf/icdar/icdar1993.html
   notes: The first ICDAR was held in Saint-Malo, France, in 1991; it was biennial until 2023.
 icdl-epirob:
   first_year: 2011
@@ -411,11 +415,13 @@ ismir:
   sources:
     - https://ismir.net/conferences/
     - https://dlib.org/dlib/november02/wilson/11wilson.html
+    - https://dblp.org/db/conf/ismir/ismir2000.html
   notes: The first ISMIR was held in Plymouth, Massachusetts, in October 2000, as a symposium.
 ismis:
   first_year: 1986
   sources:
     - https://dblp.org/db/conf/ismis/index.html
+    - https://dblp.org/db/conf/ismis/ismis87.html
   notes: The 1st ISMIS was held in Knoxville, Tennessee, in October 1986.
 iswc:
   first_year: 2002
@@ -437,12 +443,14 @@ kr:
   first_year: 1989
   sources:
     - https://dblp.org/db/conf/kr/index.html
+    - https://dblp.org/db/conf/kr/kr89.html
   notes: The 1st KR conference was held in Toronto in May 1989.
 ksem:
   first_year: 2006
   sources:
     - https://link.springer.com/book/10.1007/11811220
     - https://dblp.org/db/conf/ksem/index.html
+    - https://dblp.org/db/conf/ksem/ksem2006.html
   notes: The first KSEM was held in Guilin, China, in August 2006.
 l4dc:
   first_year: 2019
@@ -476,6 +484,7 @@ miccai:
   sources:
     - https://link.springer.com/book/10.1007/BFb0056181
     - https://en.wikipedia.org/wiki/The_MICCAI_Society
+    - https://dblp.org/db/conf/miccai/miccai1998.html
   notes: The first MICCAI was held in Cambridge, Massachusetts, in October 1998, merging three earlier conferences.
 midl:
   first_year: 2018
@@ -493,6 +502,7 @@ mldm:
   sources:
     - https://link.springer.com/book/10.1007/3-540-48097-8
     - https://dblp.org/db/conf/mldm/index.html
+    - https://dblp.org/db/conf/mldm/mldm99.html
   notes: MLDM 2018 was the 14th; the count starts with the 1999 First International Workshop in Leipzig.
 naacl:
   first_year: 2000
@@ -516,6 +526,7 @@ pakdd:
   first_year: 1997
   sources:
     - https://link.springer.com/book/10.1007/11731139
+    - https://dblp.org/db/conf/pakdd/pakdd98.html
   notes: The first PAKDD was held in Singapore in 1997, and PAKDD 2006 was the 10th.
 ranlp:
   first_year: 1995
@@ -538,6 +549,7 @@ ro-man:
   first_year: 1992
   sources:
     - https://dblp.org/db/conf/ro-man/index.html
+    - https://dblp.org/db/conf/ro-man/ro-man2006.html
   notes: RO-MAN 2023 was the 32nd; the first was held in Tokyo in 1992.
 rss:
   first_year: 2005
@@ -561,6 +573,7 @@ sdm:
   sources:
     - https://dblp.org/db/conf/sdm/index.html
     - https://web.engr.oregonstate.edu/~dambrobr/uai-archive-00-01/0293.html
+    - https://dblp.org/db/conf/sdm/sdm2001.html
   notes: The First SIAM International Conference on Data Mining was held in Chicago in April 2001.
 sem:
   first_year: 2012
@@ -572,6 +585,7 @@ sgp:
   first_year: 2003
   sources:
     - https://dblp.org/db/conf/sgp/index.html
+    - https://dblp.org/db/conf/sgp/sgp2003.html
   notes: The First Eurographics Symposium on Geometry Processing was held in Aachen in June 2003.
 sibgrapi:
   first_year: 1988
@@ -625,6 +639,7 @@ wacv:
   sources:
     - https://dblp.org/db/conf/wacv/index.html
     - https://ndlsearch.ndl.go.jp/books/R100000002-I027485789
+    - https://dblp.org/db/conf/wacv/wacv1992.html
   notes: WACV 2015 was the 15th edition; the count starts with the First IEEE Workshop on Applications of Computer Vision in Palm Springs in 1992.
 wsdm:
   first_year: 2008
