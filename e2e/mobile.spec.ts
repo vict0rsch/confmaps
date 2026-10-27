@@ -17,14 +17,14 @@ async function settledTop(sheet: Locator) {
 }
 
 /** A one-finger vertical drag. Playwright has no touch-move API, so it goes through CDP. */
-async function touchDrag(page: Page, x: number, y: number, dy: number) {
+async function touchDrag(page: Page, x: number, y: number, dy: number, steps = 8) {
   const cdp = await page.context().newCDPSession(page);
   const send = (
     type: 'touchStart' | 'touchMove' | 'touchEnd',
     touchPoints: { x: number; y: number }[],
   ) => cdp.send('Input.dispatchTouchEvent', { type, touchPoints });
   await send('touchStart', [{ x, y }]);
-  for (let i = 1; i <= 8; i++) await send('touchMove', [{ x, y: y + (dy * i) / 8 }]);
+  for (let i = 1; i <= steps; i++) await send('touchMove', [{ x, y: y + (dy * i) / steps }]);
   await send('touchEnd', []);
 }
 
@@ -247,6 +247,140 @@ test('at peek, the detail close button takes a tap and the list shows its headin
   await expect(page.getByTestId('detail')).toHaveCount(0);
   await expect(page.locator('#list-heading')).toBeInViewport();
   expect(errors).toEqual([]);
+});
+
+/** The centre of an element. */
+async function centre(el: Locator) {
+  const box = (await el.boundingBox())!;
+  return [box.x + box.width / 2, box.y + box.height / 2] as const;
+}
+
+test('at half, a finger pulling down on a row lowers the sheet and selects nothing', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const top = await settledTop(sheet);
+  const [x, y] = await centre(page.locator('button.row').first());
+  await touchDrag(page, x, y, 200);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeGreaterThan(top);
+  await settledTop(sheet);
+  await expect(page.getByTestId('detail')).toHaveCount(0);
+});
+
+test('a pull of one single move lowers the sheet too', async ({ page }) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const half = await settledTop(sheet);
+  const [x, y] = await centre(page.locator('button.row').first());
+  await touchDrag(page, x, y, 200, 1);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeGreaterThan(half);
+  expect(await settledTop(sheet)).toBeGreaterThan(half);
+});
+
+test('during a pull the sheet follows the finger without its slide', async ({ page }) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const top = await settledTop(sheet);
+  const [x, y] = await centre(page.locator('button.row').first());
+  const cdp = await page.context().newCDPSession(page);
+  const send = (type: 'touchStart' | 'touchMove' | 'touchEnd', touchPoints: { y: number }[]) =>
+    cdp.send('Input.dispatchTouchEvent', {
+      type,
+      touchPoints: touchPoints.map((p) => ({ x, y: p.y })),
+    });
+  await send('touchStart', [{ y }]);
+  for (let i = 1; i <= 8; i++) await send('touchMove', [{ y: y + 10 * i }]);
+  await expect(sheet).toHaveClass(/dragging/);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeGreaterThan(top);
+  await send('touchEnd', []);
+  await expect(sheet).not.toHaveClass(/dragging/);
+});
+
+test('at half, swiping up on a row scrolls the list and leaves the sheet where it is', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const top = await settledTop(sheet);
+  const scroller = sheet.locator('[data-scroll]');
+  const [x, y] = await centre(page.locator('button.row').first());
+  await touchDrag(page, x, y, -200);
+  await expect.poll(() => scroller.evaluate((el) => el.scrollTop)).toBeGreaterThan(0);
+  expect(await settledTop(sheet)).toBe(top);
+});
+
+test('a scrolled list scrolls back on a swipe down; the sheet stays', async ({ page }) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const top = await settledTop(sheet);
+  const scroller = sheet.locator('[data-scroll]');
+  await scroller.evaluate((el) => (el.scrollTop = 300));
+  const [x, y] = await centre(scroller); // the first row has scrolled out of sight
+  await touchDrag(page, x, y, 150);
+  await expect.poll(() => scroller.evaluate((el) => el.scrollTop)).toBeLessThan(300);
+  expect(await settledTop(sheet)).toBe(top);
+});
+
+test('the list heading drags the sheet at half and at full; a tap on it changes nothing', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const half = await settledTop(sheet);
+  const heading = page.locator('#list-heading');
+  const [x, y] = await centre(heading);
+  await page.touchscreen.tap(x, y);
+  expect(await settledTop(sheet)).toBe(half);
+
+  await touchDrag(page, x, y, -300);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeLessThan(half);
+  const full = await settledTop(sheet);
+
+  const [x2, y2] = await centre(heading);
+  await touchDrag(page, x2, y2, 300);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeGreaterThan(full);
+});
+
+test('in the detail, the title row drags the sheet; a drag from Close details keeps it open', async ({
+  page,
+}) => {
+  await page.goto('/?c=neurips26');
+  const sheet = page.getByRole('region', { name: 'Conference details' });
+  const half = await settledTop(sheet);
+  const [x, y] = await centre(page.locator('#detail-title'));
+  await touchDrag(page, x, y, -300);
+  await expect.poll(async () => (await sheet.boundingBox())!.y).toBeLessThan(half);
+  await settledTop(sheet);
+
+  // The sheet follows the mouse, so the release is on Close details again and its click must be
+  // swallowed. 200 px down from full is nearest to half, and a flick down from there is half too.
+  const [cx, cy] = await centre(sheet.getByRole('button', { name: 'Close details' }));
+  await page.mouse.move(cx, cy);
+  await page.mouse.down();
+  await page.mouse.move(cx, cy + 200, { steps: 8 });
+  await page.mouse.up();
+  await expect(page.getByTestId('detail')).toBeVisible();
+  expect(await settledTop(sheet)).toBe(half);
+});
+
+test('a second finger on the list heading does not drag the sheet', async ({ page }) => {
+  await page.goto('/');
+  const sheet = page.getByRole('region', { name: 'Conference list' });
+  const half = await settledTop(sheet);
+  const [rx, ry] = await centre(page.locator('button.row').first());
+  const [hx, hy] = await centre(page.locator('#list-heading'));
+  const cdp = await page.context().newCDPSession(page);
+  const send = (
+    type: 'touchStart' | 'touchMove' | 'touchEnd',
+    touchPoints: { x: number; y: number; id: number }[],
+  ) => cdp.send('Input.dispatchTouchEvent', { type, touchPoints });
+  const first = { x: rx, y: ry, id: 0 }; // still, on a row
+  await send('touchStart', [first]);
+  await send('touchStart', [first, { x: hx, y: hy, id: 1 }]);
+  for (let i = 1; i <= 8; i++) await send('touchMove', [first, { x: hx, y: hy - 40 * i, id: 1 }]);
+  await send('touchEnd', []);
+  expect(await settledTop(sheet)).toBe(half);
 });
 
 test('a tap outside Share closes it, not the logo panel', async ({ page }) => {

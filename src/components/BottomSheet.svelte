@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { on } from 'svelte/events';
 
   let {
     snap = $bindable('peek'),
@@ -37,6 +38,9 @@
   } | null = $state(null);
   let dragHeight = $state(0);
   let moved = false;
+  // A finger pressed on the content at its top, at half or full, until its first move decides if
+  // it pulls the sheet down (`ontouchmove`).
+  let pull: PointerEvent | null = null;
 
   const peek = $derived(PEEK + safeBottom);
   const heightOf = (s: Snap) =>
@@ -67,14 +71,44 @@
     };
   }
 
-  // At peek the visible heading drags the sheet too. A press elsewhere only starts a new tap.
+  // The heading under the grip (`data-sheet-handle`) drags the sheet too, and at peek the whole
+  // content does, for the first finger only. Any other press only starts a new tap, or a pull.
   function oncontentdown(e: PointerEvent) {
-    if (snap === 'peek') onpointerdown(e);
-    else if (!drag) moved = false;
+    const handle = e.target instanceof Element && e.target.closest('[data-sheet-handle]');
+    if (e.isPrimary && (snap === 'peek' || handle)) onpointerdown(e);
+    else if (!drag) {
+      moved = false;
+      pull = e.pointerType === 'touch' && e.isPrimary && contentEl!.scrollTop <= 0 ? e : null;
+    }
+  }
+
+  // Only a `touchmove` can keep the content from scrolling. A pull's first move away from the
+  // press decides: mostly downwards, the sheet follows the finger, moved by the pointer events as
+  // from the grip; upwards or sideways, the content scrolls. A move that is not cancelable is
+  // already a scroll. A second finger cancels the pull.
+  function ontouchmove(e: TouchEvent) {
+    if (e.touches.length > 1) pull = null;
+    if (pull && !drag) {
+      // One finger on the screen: the one that pressed.
+      const { clientX, clientY } = e.touches[0];
+      const dx = clientX - pull.clientX;
+      const dy = clientY - pull.clientY;
+      if (Math.hypot(dx, dy) <= 4) return;
+      if (dy > Math.abs(dx) && e.cancelable) {
+        onpointerdown(pull);
+        // Its pointermove came before the drag started: apply this move here, or a pull of one
+        // single move is lost. An accepted pull has moved.
+        onpointermove({ pointerId: pull.pointerId, clientY, timeStamp: e.timeStamp });
+        moved = true;
+      }
+      pull = null;
+    }
+    // Once the sheet has moved, the content never scrolls. Before, a wobble must stay a tap.
+    if (drag && moved) e.preventDefault();
   }
 
   // Move and release are followed on the window: a mouse that leaves the sheet still ends the drag.
-  function onpointermove(e: PointerEvent) {
+  function onpointermove(e: Pick<PointerEvent, 'pointerId' | 'clientY' | 'timeStamp'>) {
     if (!drag || e.pointerId !== drag.id) return;
     const dy = e.clientY - drag.startY;
     if (Math.abs(dy) > 4) moved = true;
@@ -86,6 +120,7 @@
   }
 
   function onpointerup(e: PointerEvent) {
+    if (e.pointerId === pull?.pointerId) pull = null; // ended, or cancelled by a scroll
     if (!drag || e.pointerId !== drag.id) return;
     const { v } = drag;
     drag = null;
@@ -144,6 +179,7 @@
       class:locked={snap === 'peek' && !drag}
       style:height="{Math.max(0, height - gripHeight)}px"
       onpointerdown={oncontentdown}
+      {@attach (el) => on(el, 'touchmove', ontouchmove, { passive: false })}
       onclickcapture={(e) => {
         if (moved && e.detail) {
           e.preventDefault();
@@ -229,6 +265,11 @@
 
   .content.locked {
     overflow: hidden;
+    touch-action: none;
+  }
+
+  /* The heading drags the sheet: a finger on it never scrolls the content. */
+  .content :global([data-sheet-handle]) {
     touch-action: none;
   }
 </style>

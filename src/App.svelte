@@ -762,8 +762,13 @@
     bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
   }
 
-  /* The detail's title and close button fit the 44 px a peek sheet shows under its grip. */
+  /* The detail's title and close button fit the 44 px a peek sheet shows under its grip. The gap
+     above them is the header's own padding: the grip and the header form one drag area. */
   .mobile .sheet-dock :global(.detail) {
+    padding-top: 0;
+  }
+
+  .mobile .sheet-dock :global(.detail > header) {
     padding-top: var(--space-3);
   }
 
