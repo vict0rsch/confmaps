@@ -57,7 +57,8 @@
 <svelte:window onkeydown={onKeydown} />
 
 <article class="detail" aria-labelledby="detail-title" data-testid="detail">
-  <header>
+  <!-- In the bottom sheet, the title row drags the sheet like its grip. -->
+  <header data-sheet-handle>
     <div class="heading">
       <h2 id="detail-title" bind:this={heading} tabindex="-1">
         {conference.title}

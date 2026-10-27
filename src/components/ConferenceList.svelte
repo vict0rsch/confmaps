@@ -66,7 +66,8 @@
 </script>
 
 <section class="list" aria-labelledby="list-heading">
-  <header>
+  <!-- In the bottom sheet, the heading drags the sheet like its grip. -->
+  <header data-sheet-handle>
     <h2 id="list-heading">
       <span class="count tabular">{items.length || 'No'}</span>
       {items.length === 1 ? 'conference' : items.length ? 'conferences' : 'conferences match'}

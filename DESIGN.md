@@ -548,10 +548,14 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   The compact timeline is a glass capsule on a second row under them. From 640 px wide, it joins the
   first row and takes the width left after Filters. The sheet has three snaps: peek (the grip and
   the list heading, 68 px plus the bottom safe area), half (50%) and full (up to the top bar).
-  Tapping the grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked
-  and shows its top, and dragging the visible heading moves the sheet too. History mode lowers the
-  sheet to peek. Selecting a conference raises a peek sheet to half. In the sheet the detail has a
-  12 px top padding, so its title and close button show at peek.
+  Tapping the grip cycles the snaps, and dragging it moves the sheet. Dragging the heading under the
+  grip (the list heading, or the detail's title row) moves the sheet too, at every snap; a tap on
+  the heading does not cycle the snaps. At peek the content is locked and shows its top. At half
+  and full, pulling the content down with a finger lowers the sheet, but only if the content is
+  already at its top when the finger lands. Otherwise the content scrolls. A swipe that starts
+  upwards always scrolls the content. History mode lowers the sheet to peek. Selecting a
+  conference raises a peek sheet to half. In the sheet the detail's header has a 12 px top padding,
+  so its title and close button show at peek.
 - **Phones held sideways** (`(orientation: landscape) and (max-height: 500px)`, below 1024 px
   wide): the sheet becomes a glass side panel on the left, from under the top bar to the bottom
   gap, `clamp(300px, 42vw, 360px)` wide. It has no snaps: it shows the list, or the detail in its
