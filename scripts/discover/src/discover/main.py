@@ -8,7 +8,7 @@ Satellites (``data/satellites.yml``):
                            lands), so restrict it with --only: one API call per conference.
 --only ID[,ID...]          restrict to these conference ids
 
-Past main editions (``data/past_conferences.yml``, docs/backfill-spec.md §5):
+Past main editions (``data/past_conferences.yml``, DESIGN.md §3):
 
 --mode past --series S[,S...] --since Y [--until Y2] [--recheck]
                            years Y..Y2 (default: last year) of each series with no recorded

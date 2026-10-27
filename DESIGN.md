@@ -105,19 +105,28 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   history. Since the archive never shrinks, every correction or removal must land before an entry
   reaches `main`; afterwards it can only be corrected, not removed. A postponed edition stays in
   its nominal year (`icpr20` and `ijcai20`, held January 2021, warn but stay in `2020.json`).
-- **Past editions — `data/past_conferences.yml`** (spec: `docs/backfill-spec.md` §1). Main
+- **Past editions — `data/past_conferences.yml`**. Main
   editions that upstream no longer lists (2000–2025 today), one entry per edition, validated by
   `PastConferencesFileSchema`. Each entry has a `format` (`in_person | virtual | hybrid`; place
   fields are required unless virtual, forbidden if virtual), no deadlines, a `source`
-  (`pwc | curated`) and evidence URLs in `sources` (required for curated). Historical names roll
-  up through `SERIES_ALIASES` (`nips→neurips`, `naacl-hlt→naacl`, `mm→acm-mm`, …), so editions
-  still link by series. Ids follow the series' HF stem (`neurips18`, `icdar2019`).
+  (`pwc | curated`) and evidence URLs in `sources` (required for curated).
+- **Ids of past editions** (`pastEditionId` in `scripts/lib/past-id.ts`; the discovery agent's
+  `past_ids.py` implements the same rule, and both test against
+  `scripts/__fixtures__/past-id-vectors.json`). Take the newest upstream (`source: hf`) conference
+  of the series that is not a track. If its id ends in the year's 4 or 2 digits, reuse its stem and
+  digit style (`neurips18`, `icdar2019`). Otherwise use the series without dashes and 2 digits
+  (`siggraphasia22`). An id already used by another edition is an error; ids are never suffixed.
+  If upstream later lists an old edition, the ids collide and upstream wins.
+- **Series aliases:** historical titles stay as written (e.g. "NIPS"), and `SERIES_ALIASES` in
+  `scripts/lib/normalize.ts` rolls them up to today's series (`nips→neurips`, `naacl-hlt→naacl`,
+  `mm→acm-mm`, …), so editions still link by series. The agent's Python copy must match (a test
+  checks it). A title belongs to one series only, so `lrec-coling` (2024) stays its own series.
 - **Precedence:** HF upstream > past entry > archive copy, then overrides. A past id that
   upstream also has is shadowed with a warning ("HF wins; remove it"). A past entry starting after
   today is an error (upcoming editions come from upstream). Overrides on `<id>@main` work as for
   HF, but cannot set place fields on a virtual location.
-- **Source of truth:** the file was seeded once by the PwC import (`pnpm data:import-pwc`,
-  `docs/backfill-spec.md` §3), which reads every version of `paperswithcode/ai-deadlines` in its
+- **Source of truth:** the file was seeded once by the PwC import (`pnpm data:import-pwc`),
+  which reads every version of `paperswithcode/ai-deadlines` in its
   git history; its exclusions and corrections live in `scripts/pwc/fixes.ts`. Since then the file
   is edited by hand or by the discovery agent (§3), and those corrections are not encoded in the
   importer. A forced re-import (`--force`) rebuilds the file from PwC alone and discards every
@@ -199,14 +208,16 @@ Purpose: find satellites the owner would never hear about, especially community 
   (`--mode upcoming`); `--mode backfill --since YEAR` covers past editions. Editions sharing link and
   dates (EMNLP and its tracks) are researched once. Backfill skips virtual editions (no satellites
   to look for) but now also sees the ≈340 past editions, so restrict it with `--only ID[,ID…]`.
-- **Past main editions (`--mode past`, `docs/backfill-spec.md` §5):**
+- **Past main editions (`--mode past`):**
   `--mode past --series neurips,icml --since 1987 [--until YYYY] [--recheck] [--dry-run]`
   (`--until` defaults to last year). Targets the years of each series with no known edition (in
   `data.json` or `past_conferences.yml`); one call per series and batch of up to 6 years
   (`web_search` 8, `web_fetch` 12 uses). The prompt lists the series' known editions and asks to
   omit years with no edition (biennial, cancelled). Each edition field is `{value, source_url,
   quote}`, verified as for satellites, plus: `start ≤ end`, at most 21 days, `start` in the year
-  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so; `in_person` is
+  or the next (flagged); `virtual`/`hybrid` need a 20+ character quote saying so, in a clause
+  that is neither negated nor hedged, with no other format asserted (a negated or hedged quote
+  goes to model judgement; a plain conflict drops the field); `in_person` is
   derived for a verified city before 2020-03, else needs a judgement quote, else it is written
   `# UNVERIFIED default` and the PR is a draft (as it is when a cancellation is reported).
   Additions are inserted in (year, id) order as `source: curated`, with the evidence URLs in

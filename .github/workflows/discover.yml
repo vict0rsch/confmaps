@@ -1,8 +1,8 @@
 name: Discover satellites
 
 # Runs the discovery agent (scripts/discover, DESIGN.md §3) and proposes changes to
-# data/satellites.yml (modes upcoming, backfill) or data/past_conferences.yml (mode past,
-# docs/backfill-spec.md §5) in one PR. The PR is never merged automatically. Two jobs:
+# data/satellites.yml (modes upcoming, backfill) or data/past_conferences.yml (mode past)
+# in one PR. The PR is never merged automatically. Two jobs:
 # - research: read-only token, and the only job that sees ANTHROPIC_API_KEY (environment
 #   `discovery`). It reads untrusted web pages, writes the curated file, rebuilds the generated
 #   files (`pnpm data:build`: upstream clone, geocoding, data.json, archive) and validates them,

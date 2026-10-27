@@ -379,7 +379,7 @@ flowchart LR
   to one needs the same change in the other.
 - `cost.py` estimates spend, and `--max-usd` stops new calls once the estimate passes the cap.
 
-DESIGN.md §3 and `docs/backfill-spec.md` §5 give the evidence rules field by field.
+DESIGN.md §3 gives the evidence rules field by field.
 
 ## 8. CI and deployment
 
@@ -430,10 +430,9 @@ previous commit on a push, and the merge-base on a manual run (`--require-agains
 
 ## 10. Where to find more
 
-| Topic                                                                          | Document                |
-| ------------------------------------------------------------------------------ | ----------------------- |
-| Product scope, data rules, UI behaviour, visual design                         | `DESIGN.md`             |
-| CO₂ method and factors                                                         | `METHODOLOGY.md`        |
-| Past editions: PwC import, past mode of the agent, virtual and hybrid editions | `docs/backfill-spec.md` |
-| What the app collects                                                          | `PRIVACY.md`            |
-| How to ship a change, data and copy rules                                      | `AGENTS.md`             |
+| Topic                                                  | Document         |
+| ------------------------------------------------------ | ---------------- |
+| Product scope, data rules, UI behaviour, visual design | `DESIGN.md`      |
+| CO₂ method and factors                                 | `METHODOLOGY.md` |
+| What the app collects                                  | `PRIVACY.md`     |
+| How to ship a change, data and copy rules              | `AGENTS.md`      |

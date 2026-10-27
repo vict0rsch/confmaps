@@ -1,4 +1,4 @@
-// PwC `sub` codes (its `_data/types.yml`) → HF-style tag slugs (docs/backfill-spec.md §3.2).
+// PwC `sub` codes (its `_data/types.yml`) → HF-style tag slugs.
 
 export const SUB_TAGS: Record<string, readonly string[]> = {
   ML: ['machine-learning'],

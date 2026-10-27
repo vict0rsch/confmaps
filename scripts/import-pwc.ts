@@ -1,4 +1,4 @@
-// One-time import of past editions from paperswithcode/ai-deadlines (docs/backfill-spec.md §3):
+// One-time import of past editions from paperswithcode/ai-deadlines (DESIGN.md §2.4):
 // `pnpm data:import-pwc` → data/past_conferences.yml, plus a PR-body report on stdout.
 //
 //   --pwc-dir <dir>   use an existing bare clone of the PwC repo instead of cloning
@@ -135,7 +135,7 @@ function prepare(record: PwcRecord, fixes: Fixes): Prepared | { error: string } 
   return { record, series: seriesOf(title), year, title, ...range, fixes: log };
 }
 
-/** PwC history records → past_conferences.yml entries (docs/backfill-spec.md §3.2–§3.5). */
+/** PwC history records → past_conferences.yml entries. */
 export function convert(
   records: Iterable<PwcRecord>,
   conferences: readonly KnownConference[],

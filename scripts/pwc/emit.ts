@@ -1,15 +1,15 @@
-// Deterministic YAML for data/past_conferences.yml (docs/backfill-spec.md §1.1): fixed key order,
+// Deterministic YAML for data/past_conferences.yml: fixed key order,
 // quoted dates and SHAs, one blank line between entries, review flags as end-of-line comments.
 import { stringify } from 'yaml';
 import type { PastConference } from '../schema';
 
 // The header must not contain the review marker itself: `pnpm data:validate` fails on any.
-export const HEADER = `# Past main editions of AI conferences (docs/backfill-spec.md §1), validated by
+export const HEADER = `# Past main editions of AI conferences (DESIGN.md §2.4), validated by
 # PastConferencesFileSchema (scripts/schema.ts). Written once by \`pnpm data:import-pwc\` from every
 # version of paperswithcode/ai-deadlines \`_data/conferences.yml\` (MIT); after that, entries are
 # edited by hand or appended by the discovery agent (source: curated).
 #
-# Fields: id (docs/backfill-spec.md §1.2), title (as named that year), year, full_name, link,
+# Fields: id (DESIGN.md §2.4), title (as named that year), year, full_name, link,
 # start/end (YYYY-MM-DD), format (in_person | virtual | hybrid), city/country/venue (never on a
 # virtual edition), tags (HF-style slugs), notes, source (pwc | curated), pwc (provenance: the PwC
 # ids merged into this edition, the first and last commit they appear in, importer fixes), sources

@@ -1,5 +1,5 @@
 {
-  "description": "Shared test vectors for the past-edition id convention (docs/backfill-spec.md §1.2), used by scripts/lib/past-id.test.ts and the Python discovery tests. `conferences` stands in for data.json; each vector expects seriesOf(title) === series and pastEditionId(series, year, conferences) === id. Only `source: hf` non-track conferences count (the `archive` NIPS and the EMNLP track are distractors); ties on the newest year break by ascending id.",
+  "description": "Shared test vectors for the past-edition id convention (DESIGN.md §2.4), used by scripts/lib/past-id.test.ts and the Python discovery tests. `conferences` stands in for data.json; each vector expects seriesOf(title) === series and pastEditionId(series, year, conferences) === id. Only `source: hf` non-track conferences count (the `archive` NIPS and the EMNLP track are distractors); ties on the newest year break by ascending id.",
   "conferences": [
     { "id": "neurips25", "series": "neurips", "title": "NeurIPS", "year": 2025, "source": "hf" },
     { "id": "neurips26", "series": "neurips", "title": "NeurIPS", "year": 2026, "source": "hf" },

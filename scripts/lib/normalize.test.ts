@@ -20,7 +20,7 @@ describe('seriesOf', () => {
     ['EMNLP (Industry Track)', 'emnlp'],
     ['EMNLP (System Demonstrations Track)', 'emnlp'],
     ['Béta Conf (Industry Track)', 'beta-conf-industry-track'], // no alias: stays separate
-    // Historical names (backfill spec §1.3)
+    // Historical names (DESIGN §2.4)
     ['NIPS', 'neurips'],
     ['NAACL-HLT', 'naacl'],
     ['EMNLP-IJCNLP', 'emnlp'],

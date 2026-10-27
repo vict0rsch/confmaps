@@ -327,7 +327,7 @@ def cost_section(runs: list[ConferenceRun], weekly_conferences: int | None) -> s
 
 PAST_INTRO = (
     "Proposed by the discovery agent in past mode (`scripts/discover --mode past`, "
-    "docs/backfill-spec.md §5). **Review before merging.** The Check column says what this "
+    "DESIGN.md §3). **Review before merging.** The Check column says what this "
     "script verified for each field: *quote on page, value in quote* / *date in quote* (the "
     "quote was found on the downloaded source page and contains the value), *linked from "
     "source page* / *same site as source page* (for `link`), *derived from geocoded city* (for "

@@ -1,4 +1,4 @@
-// PwC `place` → format/city/country/venue/notes (docs/backfill-spec.md §3.3). Deterministic: a
+// PwC `place` → format/city/country/venue/notes. Deterministic: a
 // string the rules do not cover is unresolved and needs a PLACE_FIXES / EXCLUDE entry (fixes.ts).
 import { canonicalCountry } from '../lib/countries';
 import type { PastConference } from '../schema';

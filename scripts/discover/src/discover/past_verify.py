@@ -1,4 +1,4 @@
-"""Deterministic evidence checks on past editions (docs/backfill-spec.md §5.4).
+"""Deterministic evidence checks on past editions (DESIGN.md §3).
 
 Reuses the satellite primitives (:func:`discover.verify.check_field`: download, quote on page,
 value / date in quote, link on page or same site, geocoding) with these rules:

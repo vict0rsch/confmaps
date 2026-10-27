@@ -1,6 +1,6 @@
 """Series keys and past-edition ids — the Python twin of ``scripts/lib/normalize.ts``
 (``seriesKey``, ``seriesOf``, ``SERIES_ALIASES``) and ``scripts/lib/past-id.ts``
-(``pastEditionId``), docs/backfill-spec.md §1.2–1.3.
+(``pastEditionId``), DESIGN.md §2.4.
 
 Both implementations are tested against ``scripts/__fixtures__/past-id-vectors.json``, and a
 test checks that :data:`SERIES_ALIASES` matches the TypeScript table.

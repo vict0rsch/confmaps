@@ -1,4 +1,4 @@
-// Every version of paperswithcode/ai-deadlines `_data/conferences.yml` (docs/backfill-spec.md §3.1).
+// Every version of paperswithcode/ai-deadlines `_data/conferences.yml`.
 // The clone is untrusted data: it is only read through `git log` / `git show` and parsed as YAML,
 // never checked out or executed.
 import { execFileSync } from 'node:child_process';

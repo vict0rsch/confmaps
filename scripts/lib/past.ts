@@ -1,4 +1,4 @@
-// `data/past_conferences.yml` entries → normalized records (docs/backfill-spec.md §2.2).
+// `data/past_conferences.yml` entries → normalized records (DESIGN.md §2.4).
 import type { Conference, PastConference } from '../schema';
 import { mainLocationId, seriesOf, type PendingLocation } from './normalize';
 
