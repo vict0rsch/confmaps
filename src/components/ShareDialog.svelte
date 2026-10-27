@@ -2,6 +2,7 @@
   // Share this view (DESIGN §6.5, §6.6): copies the current URL. Filters and selection are already
   // in it; the user's city is added only when they tick the box, and then only as a GeoNames id.
   import { track } from '../lib/analytics';
+  import { lightDismiss } from '../lib/dialog';
   import { home } from '../lib/home/store.svelte';
   import { withHomeParam } from '../lib/state/url';
 
@@ -63,6 +64,7 @@
 <dialog
   class="glass-thick"
   bind:this={dialog}
+  {@attach lightDismiss}
   aria-labelledby="{uid}-title"
   data-testid="share-dialog"
 >

@@ -3,6 +3,7 @@
   // `#methodology`, PRIVACY.md at `#privacy`). The markdown is bundled as text and rendered on
   // first open only.
   import { onMount } from 'svelte';
+  import { lightDismiss } from '../lib/dialog';
   import Icon from './Icon.svelte';
 
   let {
@@ -66,7 +67,13 @@
 
 <svelte:window onhashchange={sync} />
 
-<dialog class="glass-thick" bind:this={dialog} aria-labelledby="{hash}-title" onclose={onClose}>
+<dialog
+  class="glass-thick"
+  bind:this={dialog}
+  {@attach lightDismiss}
+  aria-labelledby="{hash}-title"
+  onclose={onClose}
+>
   <header>
     <h2 id="{hash}-title" class="visually-hidden">{title}</h2>
     <button

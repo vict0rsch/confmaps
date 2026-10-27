@@ -97,4 +97,11 @@ describe('travel settings from a shared link', () => {
     t.setUnits('km');
     expect(t.fromLink).toBe(false);
   });
+
+  it('a link that repeats the saved values is not a shared link', () => {
+    const t = new TravelSettings(memoryStorage());
+    t.setUnits('mi');
+    t.applyShared({ units: 'mi' });
+    expect(t.fromLink).toBe(false);
+  });
 });

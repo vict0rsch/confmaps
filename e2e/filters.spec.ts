@@ -13,6 +13,7 @@ test('a shared link restores filters and selection; changes are written back', a
 
   await page.getByRole('button', { name: /^Clear all/ }).click();
   await expect(page.getByTestId('filters-badge')).toHaveCount(0);
+  await expect(page.getByLabel('Search conferences')).toBeFocused();
   await expect(page).not.toHaveURL(/sub=|q=|open=/);
   expect(await listCount.textContent()).not.toBe(filtered);
 });
@@ -25,4 +26,29 @@ test('selection is mirrored to ?c=', async ({ page }) => {
   await expect(page).toHaveURL(new RegExp(`[?&]c=${id}`));
   await page.reload();
   await expect(page.getByTestId('detail')).toBeVisible();
+});
+
+test('Topics is a checklist in its tray; Clear empties it', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('button.chip[data-filter="subject"]').click();
+  const tray = page.locator('[data-filter-tray="subject"]');
+  await tray.getByRole('checkbox', { name: 'Computer vision' }).check();
+  await expect(page).toHaveURL(/[?&]sub=CV/);
+  await expect(page.getByTestId('filters-badge')).toHaveText(/^\s*1/);
+  await tray.getByRole('button', { name: 'Clear Topics' }).click();
+  await expect(tray.getByRole('checkbox', { name: 'Computer vision' })).not.toBeChecked();
+  await expect(tray.getByRole('checkbox').first()).toBeFocused();
+  await expect(page).not.toHaveURL(/sub=/);
+});
+
+test('Clear Topics also drops a topic code the catalog does not know', async ({ page }) => {
+  await page.goto('/?sub=CV,review-unknown');
+  await expect(page.getByTestId('filters-badge')).toHaveText(/^\s*1/);
+  await page.locator('button.chip[data-filter="subject"]').click();
+  await page
+    .locator('[data-filter-tray="subject"]')
+    .getByRole('button', { name: 'Clear Topics' })
+    .click();
+  await expect(page).not.toHaveURL(/sub=/);
+  await expect(page.getByTestId('filters-badge')).toHaveCount(0);
 });

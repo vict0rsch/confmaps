@@ -17,6 +17,16 @@ const sizes = {
 } as const;
 
 async function scan(page: Page, name: string, testInfo: TestInfo) {
+  // Let entrance animations finish: mid-fade text fails contrast. Looping ones are skipped, and a
+  // cancelled one (its element was removed) must not fail the wait.
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
+        .map((a) => a.finished.catch(() => {})),
+    ),
+  );
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
     .exclude('.maplibregl-canvas')
@@ -40,37 +50,44 @@ async function scan(page: Page, name: string, testInfo: TestInfo) {
 }
 
 async function setHome(page: Page, phone: boolean) {
-  if (phone) await page.getByRole('button', { name: /Set your city/ }).click();
+  if (phone) await page.getByRole('button', { name: 'confmaps', exact: true }).click();
   if (!phone) await page.getByTestId('home-pill').click();
   const input = page.getByRole('combobox', { name: 'Your city' });
   await input.click();
   await input.fill('Berlin');
   await expect(page.getByRole('option').first()).toBeVisible();
   await page.keyboard.press('Enter');
-  if (phone)
-    await page
-      .getByRole('dialog', { name: 'Where are you travelling from?' })
-      .getByRole('button', { name: 'Done' })
-      .click();
-  await expect(page.getByTestId(phone ? 'home-button-label' : 'home-city')).toContainText('Berlin');
+  await expect(page.getByTestId('home-city')).toContainText('Berlin');
+  if (phone) await page.keyboard.press('Escape');
 }
 
 const states: Record<string, (page: Page, phone: boolean) => Promise<void>> = {
   default: async () => {},
   'filters open': async (page, phone) => {
-    if (phone) await page.getByRole('button', { name: 'Filters' }).click();
-    else await page.locator('button.chip[data-filter="subject"]').click();
+    if (phone) {
+      await page.getByRole('button', { name: 'Filters', exact: true }).click();
+      await page.getByRole('button', { name: /^Topics:/ }).click();
+      await expect(page.getByRole('dialog', { name: 'Topics' })).toBeVisible();
+    } else await page.locator('button.chip[data-filter="subject"]').click();
   },
   'detail with home': async (page, phone) => {
     await setHome(page, phone);
     await page.locator('[data-conference-id="neurips26"]').click();
     await expect(page.getByTestId('detail')).toBeVisible();
   },
-  'share dialog': async (page) => {
-    // Desktop: Share sits in the detail panel; phone: in the list sheet's footer.
-    if (page.viewportSize()!.width >= 640)
+  'share dialog': async (page, phone) => {
+    // Desktop: Share sits in the sidebar header (a selection, so the link carries it); phone: in
+    // the panel the logo opens.
+    if (phone) {
+      await page.getByRole('button', { name: 'confmaps' }).click();
+      await page
+        .getByRole('dialog', { name: 'confmaps' })
+        .getByRole('button', { name: 'Share' })
+        .click();
+    } else {
       await page.locator('[data-conference-id="neurips26"]').click();
-    await page.getByRole('button', { name: 'Share' }).first().click();
+      await page.getByRole('button', { name: 'Share' }).first().click();
+    }
     await expect(page.getByTestId('share-dialog')).toBeVisible();
   },
   'methodology dialog': async (page) => {
@@ -99,6 +116,29 @@ for (const theme of ['light', 'dark'] as Theme[]) {
   }
 }
 
+// Phones held sideways: the side panel, open and folded into its pill.
+for (const theme of ['light', 'dark'] as Theme[]) {
+  test.describe(`${theme} landscape`, () => {
+    test.use({ viewport: { width: 844, height: 390 }, colorScheme: theme });
+    test('side panel, open and folded', async ({ page }, testInfo) => {
+      await page.goto('/');
+      await expect(page.locator('button.row').first()).toBeVisible();
+      await scan(page, `${theme} landscape side panel`, testInfo);
+      await page.getByRole('button', { name: 'Hide panel' }).click();
+      await expect(page.getByRole('button', { name: /^Show / })).toBeFocused();
+      await scan(page, `${theme} landscape folded`, testInfo);
+    });
+    test('filters panel', async ({ page }, testInfo) => {
+      await page.goto('/');
+      await expect(page.locator('button.row').first()).toBeVisible();
+      await page.getByRole('button', { name: 'Filters', exact: true }).click();
+      await page.getByRole('button', { name: /^Topics:/ }).click();
+      await expect(page.getByRole('dialog', { name: 'Topics' })).toBeVisible();
+      await scan(page, `${theme} landscape filters panel`, testInfo);
+    });
+  });
+}
+
 // Past editions (fixture build): the Virtual badge in list rows and the virtual detail.
 test.describe('past editions', () => {
   let fixture: Awaited<ReturnType<typeof startPastFixture>>;
@@ -121,15 +161,6 @@ test.describe('past editions', () => {
           await scan(page, `${theme} ${size} virtual rows`, testInfo);
           await page.locator('button.row[data-conference-id="neurips20"]').click();
           await expect(page.getByTestId('site-footprint')).toContainText('Online');
-          // Let the panel's entrance finish (mid-fade text fails contrast).
-          await page.evaluate(() =>
-            Promise.all(
-              document
-                .getAnimations()
-                .filter((a) => a.effect?.getTiming().iterations !== Infinity)
-                .map((a) => a.finished),
-            ),
-          );
           await scan(page, `${theme} ${size} virtual detail`, testInfo);
         });
       });

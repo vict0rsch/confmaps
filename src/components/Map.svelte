@@ -71,7 +71,17 @@
   import type { ResolvedTheme } from '../lib/state/theme';
   import Icon from './Icon.svelte';
 
-  let { insets = { top: 0, right: 0, bottom: 0, left: 0 } }: { insets?: Insets } = $props();
+  let {
+    insets = { top: 0, right: 0, bottom: 0, left: 0 },
+    phone = false,
+    folded = false,
+  }: {
+    insets?: Insets;
+    /** The mobile layout: the attribution stays compact. */
+    phone?: boolean;
+    /** The phone's side panel is folded into its pill. It is kept across layouts and rotations. */
+    folded?: boolean;
+  } = $props();
 
   let container: HTMLDivElement;
   let map: MLMap | undefined = $state.raw();
@@ -85,8 +95,15 @@
   let clickedSite: { id: string; lngLat: [number, number] } | null = null;
   /** The conference the camera was last fitted to (double-clicking its pin zooms back out). */
   let zoomedTo: string | null = null;
-  /** The selection and left inset the camera last followed (see the camera effect). */
-  let followed: { id: string | null; left: number } = { id: null, left: 0 };
+  /** The selection, left inset, layout and fold the camera last followed (camera effect). */
+  let followed: { id: string | null; left: number; phone: boolean; folded: boolean } = {
+    id: null,
+    left: 0,
+    phone: false,
+    folded: false,
+  };
+  /** The camera shows a fitted overview (or history path), not a view the viewer moved to. */
+  let atOverview = true;
 
   const MARGIN = 48;
   /** The overview of a few nearby pins (or one) stays regional, never street level. */
@@ -172,15 +189,20 @@
   const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
 
   // ---- Map lifecycle -------------------------------------------------------
+  /**
+   * The mobile layout, in either orientation: zoom may go below 0 so the first view fits every
+   * upcoming pin. MapLibre's own constraint keeps the world covering the visible area (camera
+   * padding), so no empty band.
+   */
+  const minZoom = (mobile: boolean) => (mobile ? -1 : 0.5);
+
   $effect(() => {
-    // Phones: zoom may go below 0 so the first view fits every upcoming pin. MapLibre's own
-    // constraint keeps the world covering the visible area (camera padding), so no empty band.
-    const narrow = container.clientWidth < 640;
+    // Untracked: crossing 1024 px must not rebuild the map (the effect below moves the floor).
     const m = new MLMap({
       container,
       style: { version: 8, sources: {}, layers: [] },
       maxZoom: MAP_MAX_ZOOM,
-      minZoom: narrow ? -1 : 0.5,
+      minZoom: minZoom(untrack(() => phone)),
       dragRotate: false,
       pitchWithRotate: false,
       touchPitch: false,
@@ -265,6 +287,9 @@
       coLocated = null;
       if (e.originalEvent) zoomedTo = null; // the viewer zoomed: no longer the fitted view
     });
+    m.on('movestart', (e) => {
+      if (e.originalEvent) atOverview = false;
+    });
     m.on('moveend', updateOffscreen);
     m.on('zoomend', () => (zoom = m.getZoom()));
     // A drag released over an overlay (drawer, legend) never reaches MapLibre and leaves the map
@@ -307,6 +332,11 @@
       m.remove();
       map = undefined;
     };
+  });
+
+  // The zoom floor follows the layout; MapLibre clamps a zoom below the new floor.
+  $effect(() => {
+    map?.setMinZoom(minZoom(phone));
   });
 
   // Basemap (and theme) swap: rebuild the whole style; data layers are re-added with current data.
@@ -536,12 +566,30 @@
     const m = map;
     if (!m) return;
     untrack(() => {
+      // A window resize moves the panels before the ResizeObserver resizes the map: resize first,
+      // so a fit uses the new size.
+      const c = m.getCanvas();
+      if (c.clientWidth !== container.clientWidth || c.clientHeight !== container.clientHeight)
+        m.resize();
       if (clickedSite && clickedSite.id !== id) clickedSite = null;
+      // A new left inset in the same layout: the desktop sidebar was toggled, or the phone's side
+      // panel was folded. With a selection, keep the zoom and re-pad only. A side panel that
+      // resized or appeared, or a crossing of the desktop breakpoint, fits again.
+      const toggled =
+        phone === followed.phone &&
+        pad.left !== followed.left &&
+        (!phone || folded !== followed.folded);
       if (clickedSite) keepInView(clickedSite.lngLat);
-      // Same selection, new left inset: the desktop sidebar was toggled. Keep the zoom, re-pad only.
-      else if (id && (id !== followed.id || pad.left === followed.left)) fitSelection();
+      else if (id && (id !== followed.id || !toggled)) fitSelection();
+      // On phones, a fold with no selection fits the overview (or the editions' path) to the new
+      // free area: the zoom fitted beside the panel would show the world twice once folded. A
+      // view the viewer moved to is kept.
+      else if (!id && phone && toggled && atOverview) {
+        if (historyMode.series) fitHistory(duration(900));
+        else fitOverview(duration(800));
+      } else if (deferredFit && !noRoom()) deferredFit();
       else m.easeTo({ padding: pad, duration: duration(250) });
-      followed = { id, left: pad.left };
+      followed = { id, left: pad.left, phone, folded };
     });
   });
 
@@ -582,16 +630,20 @@
     const single = historyMode.stops.length < 2;
     const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
     const b = boundsOf(pts.length ? pts : sites, false);
-    if (!map || !b) return;
-    const m = margins(96);
+    if (!map || !roomFor(() => fitHistory(ms)) || !b) return;
+    // A short map (a phone held sideways) would spend most of its height on the margins.
+    const h = container.clientHeight - insets.top - insets.bottom;
+    const m = margins(h < 400 ? 48 : 96);
     map.setPadding(camPad);
     map.fitBounds(b, { padding: { ...m, top: m.top + 24 }, maxZoom: 4.5, duration: ms });
+    atOverview = true;
   }
 
   /**
    * The map spans the window under the panels, so MapLibre's width-based compact switch never
    * fires. Show the attribution in full when the free area (between the stage insets) is wide
-   * enough, otherwise collapse it to its (i) toggle, which still expands on click.
+   * enough, otherwise collapse it to its (i) toggle, which still expands on click. On phones it
+   * is always compact, and collapsed from the start.
    */
   const ATTRIBUTION_MIN_FREE_WIDTH = 560;
   function fitAttribution() {
@@ -600,17 +652,19 @@
     const cs = getComputedStyle(container);
     const inset = (side: string) => parseFloat(cs.getPropertyValue(`--stage-inset-${side}`)) || 0;
     const free = container.clientWidth - inset('left') - inset('right');
-    const wide = free >= ATTRIBUTION_MIN_FREE_WIDTH;
+    const wide = !phone && free >= ATTRIBUTION_MIN_FREE_WIDTH;
     if (el.classList.contains('maplibregl-compact') === wide) {
       el.classList.toggle('maplibregl-compact', !wide);
       el.classList.remove('maplibregl-compact-show');
       el.open = wide;
     }
   }
-  // The drawer opening or closing changes the free width (after the stage props update).
+  // The drawer opening or closing changes the free width (after the stage props update); crossing
+  // into the mobile layout changes the rule.
   const insetLR = $derived(insets.left + insets.right);
   $effect(() => {
     void insetLR;
+    void phone;
     requestAnimationFrame(fitAttribution);
   });
 
@@ -629,6 +683,17 @@
     return { top: y + insets.top, bottom: y, left: x, right: x };
   }
 
+  /** The panels cover the whole height (a full phone sheet): fitBounds would compute NaN. */
+  const noRoom = () => (container?.clientHeight ?? 0) - insets.top - insets.bottom <= 0;
+
+  /** A fit skipped for lack of room, run once the panels free the map again. */
+  let deferredFit: (() => void) | null = null;
+  /** False when there is no room: `fit` then waits for room. Any fit replaces a waiting one. */
+  function roomFor(fit: () => void) {
+    deferredFit = noRoom() ? fit : null;
+    return !deferredFit;
+  }
+
   /** The world overview: on a phone every pixel of width counts, but edge pins keep their halo. */
   function overviewMargins() {
     return margins((container?.clientWidth ?? 0) < 640 ? 24 : MARGIN);
@@ -637,8 +702,9 @@
   /** No pins (a virtual event): no camera move. */
   function fitSelection() {
     const b = boundsOf(app.selectedPins);
-    if (!map || !b) return;
+    if (!map || !roomFor(fitSelection) || !b) return;
     zoomedTo = app.selectedConferenceId;
+    atOverview = false;
     map.setPadding(camPad);
     map.fitBounds(b, { padding: margins(), maxZoom: 6, duration: duration(800) });
   }
@@ -646,10 +712,11 @@
   /** Every visible pin (no antimeridian wrap, so a world-wide set centres on the Atlantic). */
   function fitOverview(ms: number) {
     const b = boundsOf(app.mapLocations, false);
-    if (!map) return;
+    if (!map || !roomFor(() => fitOverview(ms))) return;
     map.setPadding(camPad);
     if (b)
       map.fitBounds(b, { padding: overviewMargins(), maxZoom: OVERVIEW_MAX_ZOOM, duration: ms });
+    atOverview = true;
   }
 
   /**

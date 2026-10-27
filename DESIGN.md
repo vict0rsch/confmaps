@@ -442,13 +442,30 @@ Initial filters:
 | `kind` | official / community | |
 | `open` | submission still open | Next upstream deadline (abstract or paper) after today |
 
-The filter panel renders only registered filters, so adding a filter still means adding a file.
-In the sidebar it is a **search field** (the `search` filter's control, always visible) above a row
-of **chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip
-opens that filter's control in a tray under the row, and only one tray is open at a time (Esc closes
-it and returns focus to the chip). In the mobile full-screen dialog there are no trays: every
-filter is a stacked section with its control open. Both layouts show **"Clear all"** with the
-active-filter count once any filter is active.
+The filter panel renders only registered filters, so adding a filter still means adding a file. In
+the sidebar it is a **search field** (the `search` filter's control, always visible) above a row of
+**chips**, one per other filter. A chip shows a dot when its filter is active. Clicking a chip opens
+that filter's control in a tray under the row. Only one tray is open at a time. Esc closes it and
+returns focus to the chip. In the mobile filters panel (§6.7) there are no trays: every filter is a
+stacked section with its control shown (multi-selects as fields, see below). Once any filter is
+active, the sidebar shows **"Clear all"** with the active-filter count, and the filters panel shows
+"Clear all" in its header.
+
+**Multi-select filters** (`subject`, `access`) use one component, `MultiSelect`. It is a list of
+native checkboxes in a fieldset. Tab moves between them and Space toggles one. Topics shows its
+subject groups as headings. A hint above the list says how the choices combine. A "Clear" link
+beside the hint empties the selection. In a sidebar tray the checklist shows at once. In the mobile
+layout the control is a **field**: a button that shows the current choice. A tap on the field opens
+the checklist in a **dropdown**. The dropdown is a small modal dialog anchored under the field, over
+the rest of the filters panel. The field stays in place. The dropdown opens above the field when
+there is less than 200 px below it and more room above. It stays inside the filters panel and
+scrolls when the list is taller. When neither side has 200 px (phones held sideways), the panel
+first scrolls the field to its top. Opening the dropdown focuses the first checkbox. "Done", a tap
+outside or Escape closes only the dropdown, and focus returns to the field. A resize (a rotation)
+closes it. Choices apply at once, as in a tray. With nothing selected, the field reads "Any topic"
+or "Any access level". Otherwise it shows the first two choices in display order and "+N" for the
+rest. The names shorten with an ellipsis when the field is too narrow. "+N" always shows. `kind`
+stays a segmented control, because it is a single choice. `open` stays one checkbox.
 
 ### 6.4 Timeline / scrubber
 
@@ -488,14 +505,16 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   editions are normal stops), and the years held online are listed beside the title
   ("Online: 2020 · 2021").
 - **Reduced motion:** play steps month by month with crossfades only.
+- On phones the compact scrubber sits in the top bar, outside the sheet (§6.7).
 
 ### 6.5 Home location & privacy
 
 - Home is set from the **home pill** at the top of the sidebar, which shows the city (or "Set your
   city") and opens a panel. The panel holds the **city autocomplete** (GeoNames cities with
   population ≥ 50,000, `public/cities.json`, lazy-loaded), **"Use my location"** (browser
-  geolocation), a one-line privacy note and the travel preferences. On mobile the same content
-  opens in a full-screen sheet.
+  geolocation), a one-line privacy note and the travel preferences. On phones the same content
+  sits in the logo panel (§6.7), with the travel preferences folded under a "Travel preferences"
+  disclosure that shows the current choice.
 - Geolocation results are **snapped to the nearest city on-device**; only the city is used/stored.
 - Home is stored as a **GeoNames city** (id, name, country, coordinates) in `localStorage`
   (`confmaps:home`) only (wrapped in try/catch; app works without it).
@@ -503,7 +522,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   `home=<geonameid>` (the id only). A recipient's `home` applies **for that visit only**: it is
   not persisted and is stripped from the address bar afterwards. Likewise, shared CO₂ views carry all
   travel settings (`mode`, `thr`, `units`), applied for that visit only with a notice and a "Use mine"
-  button. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
+  button. A link that only repeats the viewer's own travel settings (their own address after a
+  reload) or their own saved city is not treated as shared. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
 
 ### 6.6 URL state
@@ -541,13 +561,42 @@ DESKTOP, sidebar collapsed (☰ folds it into a pill; the pill opens it again)
 
 MOBILE
 ┌──────────────────────┐
-│ (brand)(📍Berlin)(≡) │
+│ (☰ brand) (Filters)  │  ← opens home, travel, legend, theme, share, credits
+│ (▶ ▁▂█▂▁ ├window┤)   │  ← compact scrubber, a glass capsule under the top bar
 │        MAP           │
 │ ╭──────────────────╮ │
 │ │═══ glass sheet ══│ │
-│ │ ▶ ▁▂█▂▁ ├window┤ │ │  ← compact scrubber, docked in the sheet
 │ │ list / detail    │ │  ← detail replaces list on select
 └─┴──────────────────┴─┘
+
+MOBILE, filters open (anchored under Filters, right-aligned with it)
+┌────────────────────────┐
+│ (☰ brand)   (Filters)  │
+│  ╭───────────────────╮ │
+│  │Filters Clear all ✕│ │  ← header stays put
+│  │[ search         ] │ │  ← the rest scrolls
+│  │Dates · Topics ▾   │ │
+│  │Distance · …       │ │
+│  │(Show 23 confs.)   │ │  ← footer stays put
+│  ╰───────────────────╯ │
+└────────────────────────┘
+
+PHONE HELD SIDEWAYS (landscape, at most 500 px tall)
+┌──────────────────────────────────────────┐
+│ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
+│ ╭────────────╮                           │
+│ │ list /     │‹           MAP            │
+│ │ detail     │                       (i) │
+│ ╰────────────╯                           │
+└──────────────────────────────────────────┘
+
+PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it again)
+┌──────────────────────────────────────────┐
+│ (☰ brand)(Filters)(▶ ▁▂█▂▁ ├window┤)     │
+│                                          │
+│                    MAP                   │
+│ (23 conferences ›)                   (i) │
+└──────────────────────────────────────────┘
 ```
 
 - **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
@@ -561,16 +610,76 @@ MOBILE
   and list scroll survive. It is `inert` and hidden after its fade. Focus moves to the pill on
   collapse and back to ☰ on expand. Toggling moves the map's padding but keeps its zoom, even with
   a conference selected.
+- **Mobile layout:** the top bar holds the logo pill and Filters. Filters opens the filters panel.
+  The compact timeline is a glass capsule on a second row under them. From 640 px wide, it joins the
+  first row and takes the width left after Filters. The sheet has three snaps: peek (the grip and
+  the list heading, 68 px plus the bottom safe area), half (50%) and full (up to the top bar).
+  Tapping the grip cycles the snaps, and dragging it moves the sheet. At peek the content is locked
+  and shows its top, and dragging the visible heading moves the sheet too. History mode lowers the
+  sheet to peek. Selecting a conference raises a peek sheet to half. In the sheet the detail has a
+  12 px top padding, so its title and close button show at peek.
+- **Phones held sideways** (`(orientation: landscape) and (max-height: 500px)`, below 1024 px
+  wide): the sheet becomes a glass side panel on the left, from under the top bar to the bottom
+  gap, `clamp(300px, 42vw, 360px)` wide. It has no snaps: it shows the list, or the detail in its
+  place, and scrolls. The panel, the top bar and the attribution keep clear of the notch and the
+  home indicator (safe-area insets). The map reserves the panel's width on the left. On phones the
+  map can zoom out below 0 in both orientations.
+- **Folding the side panel:** a small tab (‹) on the panel's right edge, "Hide panel", folds the
+  panel for an almost full map. The panel then becomes a glass pill at the bottom-left. The pill
+  shows the conference count, or the selected conference. It is one button that opens the panel
+  again. The panel fades out first, then the pill fades in. On unfold, the pill goes at once and
+  the panel fades in. The folded panel stays mounted, so list scroll survives. It is `inert` and
+  hidden after its fade. Focus moves to the pill on fold and back to the tab on unfold. A new
+  selection (a tapped pin) unfolds the panel to show the detail. The tab comes before the list
+  rows in the tab order. With a selection, folding and unfolding move the map's padding but keep
+  its zoom. With no selection, they fit the overview of every visible pin to the new free area,
+  unless the viewer moved the map. In history mode they fit the editions' path. A panel that
+  resizes, a rotation and a crossing of the desktop breakpoint fit the selection again; they are
+  not folds. The state is not saved. It survives a rotation to portrait and back, unless a
+  conference is selected meanwhile.
+- **Logo panel (mobile):** the logo pill shows ☰, the logo and the wordmark; ☰ marks it as the
+  button that opens the panel. The panel is anchored under the pill (a modal dialog). From top to
+  bottom it holds the tagline and the close button, the home settings (the city or the city
+  search, "Use my location", the privacy note and the shared-link notices) and the travel
+  preferences in a disclosure, then the legend, the theme, Share and the footer links. It scrolls
+  when it is taller than the window. Opening it focuses the close button, so the keyboard does not
+  open. While the city or the travel settings of a shared link apply, a dot on ☰ shows it. Its
+  close button, a tap outside or Escape closes it, and focus returns to the pill. Desktop has no
+  logo panel.
+- **Filters panel (mobile):** the Filters capsule opens a panel anchored under it (a modal dialog),
+  like the logo panel. Its right edge lines up with the capsule's right edge. When that does not
+  fit, on phones held sideways and from 640 px wide, its left edge lines up with the capsule's left
+  edge. The panel then covers part of the side panel and the map. It is 340 px wide at most and
+  reaches down to the bottom gap. Its header holds the title, "Clear all" (once a filter is active)
+  and the close button. Its footer holds one button, "Show N conferences", with the number of
+  conferences that pass. The header and the footer stay in place, and the body between them scrolls:
+  the search field, then every other filter as a stacked section. The list updates live behind the
+  panel. "Show N conferences" only closes the panel, as the close button does; it confirms the
+  choice. With no match it reads "Show 0 conferences". On phones held sideways the footer button is
+  40 px tall instead of 44 px. Opening it focuses the close button, so the keyboard does not open.
+  Its close button, "Show N conferences", a tap outside or Escape closes it, and focus returns to
+  Filters. Only one of the two panels is open at a time, because both are modal. Both use the
+  `.anchored-panel` class (`base.css`). Desktop has no filters panel.
+- **Dialogs:** a tap outside a dialog closes it, as Escape does: the Share dialog, the documents
+  (Methodology, Privacy, Third-party notices), the logo panel, the filters panel and the dropdowns
+  of the multi-select filters in it. The press must start outside too, so a drag that starts inside
+  (selecting text in a field) and ends outside keeps the dialog open. When a dialog opens over
+  another (Share from the logo panel, a dropdown in the filters panel), a tap outside closes only
+  the top one. One Svelte attachment, `lightDismiss` (`src/lib/dialog.ts`), does this for every
+  dialog.
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
-  panel. The collapsed pill floats over the map like the legend, so it reserves nothing.
+  panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map
+  like the legend, so they reserve nothing.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
-  form below that.
+  form below that. On phones it is always compact and collapsed from the start: only its (i)
+  button shows, and a tap on it shows the credits. This departs from the OSMF attribution
+  guidelines, which ask for the credits to show at first load; the owner chose it.
 - **Legend:** it reads "Main venue", then "Satellites:" with its two kinds ("official",
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
   returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
-  map shows a main ↔ satellite line.
+  map shows a main ↔ satellite line. On phones it is in the logo panel.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking

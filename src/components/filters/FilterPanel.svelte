@@ -1,13 +1,16 @@
 <script lang="ts">
   // Registered filters (DESIGN §6.3) as a filter bar: the `search` filter's field always visible,
   // every other filter a chip that opens its Control in a tray (one at a time), plus "Clear all".
-  // `layout="dialog"` (mobile full-screen sheet) stacks every Control open instead of trays.
-  import { tick } from 'svelte';
+  // `layout="dialog"` (mobile) stacks every Control open instead of trays; multi-select Controls
+  // show as fields there.
+  import { setContext, tick } from 'svelte';
   import type { AnyFilter } from '../../lib/filters';
   import { filterState } from '../../lib/state/filters.svelte';
   import Icon from '../Icon.svelte';
+  import { FIELD_CONTEXT } from './MultiSelect.svelte';
 
   let { layout = 'sidebar' }: { layout?: 'sidebar' | 'dialog' } = $props();
+  setContext(FIELD_CONTEXT, () => layout === 'dialog');
 
   const uid = $props.id();
   const trayId = (id: string) => `${uid}-tray-${id}`;
@@ -21,6 +24,13 @@
 
   function toggle(id: string) {
     openId = openId === id ? null : id;
+  }
+
+  /** The button unmounts: move focus to the search field (sidebar). */
+  async function clearAll() {
+    filterState.resetAll();
+    await tick();
+    document.getElementById('filter-search')?.focus();
   }
 
   async function onKeydown(e: KeyboardEvent) {
@@ -40,17 +50,6 @@
     set={(s: unknown) => filterState.set(f.id, s)}
     ctx={filterState.ctx}
   />
-{/snippet}
-
-{#snippet clearAll()}
-  {#if filterState.activeCount}
-    <button class="clear-all" type="button" onclick={() => filterState.resetAll()}>
-      Clear all
-      <span class="count tabular" data-testid={layout === 'sidebar' ? 'filters-badge' : undefined}>
-        {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
-      </span>
-    </button>
-  {/if}
 {/snippet}
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -84,7 +83,14 @@
           <Icon name="chevron" size={12} />
         </button>
       {/each}
-      {@render clearAll()}
+      {#if filterState.activeCount}
+        <button class="clear-all" type="button" onclick={clearAll}>
+          Clear all
+          <span class="count tabular" data-testid="filters-badge">
+            {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
+          </span>
+        </button>
+      {/if}
     </div>
     {#each others as f (f.id)}
       <!-- Every tray stays mounted (hidden when closed), so aria-controls always resolves. -->
@@ -100,9 +106,6 @@
       </div>
     {/each}
   {:else}
-    {#if filterState.activeCount}
-      <div class="dialog-actions">{@render clearAll()}</div>
-    {/if}
     {#each others as f (f.id)}
       {@const active = filterState.isActive(f.id)}
       <section class="stacked" data-filter={f.id} aria-labelledby="{uid}-heading-{f.id}">
@@ -235,11 +238,6 @@
   }
 
   /* ---- Dialog layout: every Control stacked open ---- */
-  .dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .stacked {
     display: flex;
     flex-direction: column;

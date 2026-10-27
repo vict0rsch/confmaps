@@ -6,6 +6,7 @@
   import { fly } from 'svelte/transition';
   import BottomSheet, { type Snap } from './components/BottomSheet.svelte';
   import Brand from './components/Brand.svelte';
+  import BrandMenu from './components/BrandMenu.svelte';
   import ConferenceList from './components/ConferenceList.svelte';
   import Detail from './components/Detail.svelte';
   import Footer from './components/Footer.svelte';
@@ -13,6 +14,7 @@
   import Legend from './components/Legend.svelte';
   import type { Insets } from './components/Map.svelte';
   import DocDialog from './components/DocDialog.svelte';
+  import FiltersMenu from './components/FiltersMenu.svelte';
   import ShareDialog from './components/ShareDialog.svelte';
   import SiteFootprint from './components/SiteFootprint.svelte';
   import ThemeToggle from './components/ThemeToggle.svelte';
@@ -21,10 +23,12 @@
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
   import type { JoinedLocation } from './lib/data/load';
   import { app } from './lib/state/app.svelte';
-  import { filterState } from './lib/state/filters.svelte';
   import { historyMode } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
+  // Phones held sideways: the list and the detail move to a side panel.
+  const landscape = new MediaQuery('(orientation: landscape) and (max-height: 500px)', false);
+  const sidePanel = $derived(!desktop.current && landscape.current);
 
   // MapLibre is most of the JS: load it in its own chunk, started now, so the shell paints first.
   const mapView = import('./components/Map.svelte');
@@ -33,20 +37,26 @@
   const SIDEBAR_WIDTH = 368; // keep in sync with --sidebar-width
   const TIMELINE_HEIGHT = 56; // keep in sync with --timeline-height
   const PANEL_GAP = 16; // keep in sync with --panel-gap
-  const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap
-  const SHEET_PEEK = 176; // keep in sync with BottomSheet
+  const MOBILE_GAP = 12; // keep in sync with .mobile --shell-gap and FiltersMenu GAP
+  const SHEET_PEEK = 68; // keep in sync with BottomSheet
 
   // Phones open at half: the map above is roughly square, the shape of the world overview.
   let sheetSnap: Snap = $state('half');
   let sheetHeight = $state(0);
   // Mobile: the floating top bar, safe-area padding included.
   let topbarHeight = $state(0);
-  let filtersDialog: HTMLDialogElement | undefined = $state();
+  // Phones held sideways: the side dock's width, safe-area padding included.
+  let sideWidth = $state(0);
   // Desktop: the sidebar folds into a pill at its top-left corner. Not persisted: every visit opens it.
   let sidebarOpen = $state(true);
   let collapseButton: HTMLButtonElement | undefined = $state();
   let pill: HTMLButtonElement | undefined = $state();
   let pillWidth = $state(0);
+  // Phones held sideways: the side panel folds into a pill at the bottom-left, for a full map. Not
+  // persisted, like the desktop sidebar.
+  let sideFolded = $state(false);
+  let foldButton: HTMLButtonElement | undefined = $state();
+  let sidePill: HTMLButtonElement | undefined = $state();
 
   $effect.pre(() => {
     document.documentElement.dataset.theme = app.resolvedTheme;
@@ -70,6 +80,12 @@
     }
   });
 
+  // Phones held sideways: a new selection (a tapped pin) unfolds the panel to show the detail.
+  // Before the DOM updates, so the detail's heading can take the focus.
+  $effect.pre(() => {
+    if (app.selectedConferenceId) sideFolded = false;
+  });
+
   // The map fills the window; these are the floating panels it must keep pins clear of.
   const insets: Insets = $derived(
     desktop.current
@@ -79,12 +95,19 @@
           bottom: TIMELINE_HEIGHT + PANEL_GAP * 2,
           left: sidebarOpen ? SIDEBAR_WIDTH + PANEL_GAP * 2 : 0,
         }
-      : {
-          top: topbarHeight + MOBILE_GAP,
-          right: 0,
-          bottom: Math.max(sheetHeight, SHEET_PEEK),
-          left: 0,
-        },
+      : sidePanel
+        ? {
+            top: topbarHeight + MOBILE_GAP,
+            right: 0,
+            bottom: 0,
+            left: sideFolded ? 0 : sideWidth + MOBILE_GAP,
+          }
+        : {
+            top: topbarHeight + MOBILE_GAP,
+            right: 0,
+            bottom: Math.max(sheetHeight, SHEET_PEEK),
+            left: 0,
+          },
   );
 
   // Edges of the free map area, gap included, for overlays inside the stage (map controls).
@@ -98,6 +121,12 @@
     (sidebarOpen ? collapseButton : pill)?.focus();
   }
 
+  async function toggleSidePanel() {
+    sideFolded = !sideFolded;
+    await tick();
+    (sideFolded ? sidePill : foldButton)?.focus();
+  }
+
   async function closeDetail() {
     const id = app.selectedConferenceId;
     const hadFocus = document.activeElement?.closest('[data-testid="detail"]');
@@ -106,13 +135,30 @@
     if (hadFocus && id) {
       // The list is inert while the desktop sidebar is collapsed: the pill takes the focus.
       if (desktop.current && !sidebarOpen) pill?.focus();
-      else document.querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)?.focus();
+      // A peek sheet is locked at its top: focusing the row must not scroll the heading away.
+      else
+        document
+          .querySelector<HTMLElement>(`[data-conference-id="${CSS.escape(id)}"]`)
+          ?.focus({ preventScroll: !desktop.current && !sidePanel && sheetSnap === 'peek' });
     }
   }
 </script>
 
 {#snippet siteFootprint(site: JoinedLocation)}
   <SiteFootprint {site} />
+{/snippet}
+
+{#snippet panelContent()}
+  {#if app.selectedConference}
+    <Detail
+      conference={app.selectedConference}
+      onclose={closeDetail}
+      onViewHistory={viewHistory}
+      {siteFootprint}
+    />
+  {:else}
+    <ConferenceList />
+  {/if}
 {/snippet}
 
 <DocDialog hash="methodology" title="Methodology" load={() => import('../METHODOLOGY.md?raw')} />
@@ -127,6 +173,7 @@
   class="app"
   class:desktop={desktop.current}
   class:mobile={!desktop.current}
+  class:landscape={sidePanel}
   class:sidebar-collapsed={desktop.current && !sidebarOpen}
   style:--pill-width="{pillWidth}px"
 >
@@ -191,24 +238,15 @@
   {:else}
     <!-- Floating glass capsules over the full-bleed map. -->
     <header class="topbar" bind:offsetHeight={topbarHeight}>
-      <div class="topbar-brand glass"><Brand /></div>
-      <div class="topbar-actions glass">
-        <SettingsSlot compact />
-        <button class="button" type="button" onclick={() => filtersDialog?.showModal()}>
-          <Icon name="filter" size={14} /> Filters
-          {#if filterState.activeCount}
-            <span class="badge tabular" data-testid="filters-badge">
-              {filterState.activeCount}<span class="visually-hidden">&nbsp;active</span>
-            </span>
-          {/if}
-        </button>
-      </div>
+      <BrandMenu />
+      <FiltersMenu />
+      <div class="topbar-timeline glass"><TimelineSlot compact /></div>
     </header>
   {/if}
 
   <main
     class="stage"
-    class:sheet-full={!desktop.current && sheetSnap === 'full'}
+    class:sheet-full={!desktop.current && !sidePanel && sheetSnap === 'full'}
     style:--stage-inset-top="{Math.max(insets.top, shellGap)}px"
     style:--stage-inset-right="{Math.max(insets.right, shellGap)}px"
     style:--stage-inset-bottom="{Math.max(insets.bottom, shellGap)}px"
@@ -217,7 +255,7 @@
     {#await mapView}
       <div class="map-placeholder"></div>
     {:then { default: MapView }}
-      <MapView {insets} />
+      <MapView {insets} phone={!desktop.current} folded={sideFolded} />
     {/await}
 
     {#if desktop.current}
@@ -239,6 +277,59 @@
           />
         </div>
       {/if}
+    {:else if sidePanel}
+      <!-- Folded, it stays mounted (list scroll survives) but inert and hidden. -->
+      <div
+        id="side-panel"
+        class="side-dock"
+        class:folded={sideFolded}
+        inert={sideFolded}
+        style:top="{topbarHeight + MOBILE_GAP}px"
+        bind:offsetWidth={sideWidth}
+      >
+        <!-- First in tab order, before the list rows; it is placed on the panel's edge. -->
+        <button
+          class="side-fold glass"
+          type="button"
+          aria-label="Hide panel"
+          title="Hide panel"
+          aria-expanded="true"
+          aria-controls="side-panel"
+          bind:this={foldButton}
+          onclick={toggleSidePanel}
+        >
+          <Icon name="chevron" size={16} />
+        </button>
+        <section
+          class="side-panel glass"
+          data-scroll
+          aria-label={app.selectedConference ? 'Conference details' : 'Conference list'}
+        >
+          {@render panelContent()}
+        </section>
+      </div>
+      <!-- The folded panel: what it shows (the count, or the selected conference), as one button. -->
+      <button
+        class="side-pill glass"
+        class:shown={sideFolded}
+        type="button"
+        aria-expanded="false"
+        aria-controls="side-panel"
+        inert={!sideFolded}
+        bind:this={sidePill}
+        onclick={toggleSidePanel}
+      >
+        <span class="side-pill-label">
+          <span class="visually-hidden">Show</span>
+          {#if app.selectedConference}
+            {app.selectedConference.title} {app.selectedConference.year}
+          {:else}
+            <span class="tabular">{app.listItems.length}</span>
+            {app.listItems.length === 1 ? 'conference' : 'conferences'}
+          {/if}
+        </span>
+        <Icon name="chevron" size={14} />
+      </button>
     {:else}
       <!-- The sheet slides up to the top bar, never under it. -->
       <div class="sheet-dock" style:top="{topbarHeight + MOBILE_GAP}px">
@@ -247,37 +338,7 @@
           onheightchange={(h) => (sheetHeight = h)}
           label={app.selectedConference ? 'Conference details' : 'Conference list'}
         >
-          {#snippet header()}
-            <!-- Docked under the grip so Play stays in view at every snap. Its presses scrub the
-                 timeline, never drag the sheet. -->
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div class="sheet-timeline" onpointerdown={(e) => e.stopPropagation()}>
-              <TimelineSlot compact />
-            </div>
-          {/snippet}
-          {#if app.selectedConference}
-            <Detail
-              conference={app.selectedConference}
-              onclose={closeDetail}
-              onViewHistory={viewHistory}
-              {siteFootprint}
-            />
-          {:else}
-            <ConferenceList />
-            <div class="sheet-footer">
-              <p class="tagline">AI conferences and their satellites. Attend closer, fly less.</p>
-              <Legend />
-              <div class="sheet-footer-row">
-                <span>Theme</span>
-                <ThemeToggle />
-              </div>
-              <div class="sheet-footer-row">
-                <span>Share this view</span>
-                <ShareDialog />
-              </div>
-              <Footer />
-            </div>
-          {/if}
+          {@render panelContent()}
         </BottomSheet>
       </div>
     {/if}
@@ -287,29 +348,6 @@
     <div class="timeline glass"><TimelineSlot /></div>
   {/if}
 </div>
-
-{#if !desktop.current}
-  <dialog class="filters-dialog" bind:this={filtersDialog} aria-labelledby="filters-title">
-    <header>
-      <h2 id="filters-title">Filters</h2>
-      <button
-        class="icon-button"
-        type="button"
-        aria-label="Close filters"
-        onclick={() => filtersDialog?.close()}
-      >
-        <Icon name="close" size={18} />
-      </button>
-    </header>
-    <div class="filters-dialog-body"><FiltersSlot layout="dialog" /></div>
-    <footer>
-      <button class="show-results" type="button" onclick={() => filtersDialog?.close()}>
-        Show {app.listItems.length}
-        {app.listItems.length === 1 ? 'result' : 'results'}
-      </button>
-    </footer>
-  </dialog>
-{/if}
 
 <style>
   .app {
@@ -459,20 +497,6 @@
     border-top: 1px solid var(--hairline);
   }
 
-  .badge {
-    display: inline-grid;
-    place-items: center;
-    min-width: 18px;
-    height: 18px;
-    padding: 0 5px;
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
-    line-height: 1;
-  }
-
   /* Top-left of the free map area: right of the sidebar, or of the pill when it is collapsed. */
   .desktop {
     --left-panel-width: var(--sidebar-width);
@@ -545,7 +569,8 @@
     .sidebar,
     .sidebar-pill,
     .legend-chip,
-    .timeline {
+    .timeline,
+    .side-pill {
       transition-delay: 0s !important;
     }
   }
@@ -561,7 +586,10 @@
     right: 0;
     left: 0;
     z-index: 2;
-    display: flex;
+    /* A grid, not a wrapping flex row: when the row is tight, the actions shrink instead of
+       wrapping under the logo. */
+    display: grid;
+    grid-template-columns: auto minmax(0, max-content);
     align-items: stretch;
     justify-content: space-between;
     gap: var(--space-2);
@@ -576,27 +604,25 @@
     pointer-events: auto;
   }
 
-  .topbar-brand {
-    display: flex;
-    flex: none;
-    align-items: center;
-    padding: 0 var(--space-3);
-    border-radius: var(--radius-full);
-  }
-
-  /* Tight on a 390 px phone: the home pill shrinks first, Filters keeps its size. */
-  .topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 2px;
+  /* Its own row under the logo and actions, so Play stays in view at every snap. The round Play
+     button sits concentric in the capsule. */
+  .topbar-timeline {
+    grid-column: 1 / -1;
     min-width: 0;
-    padding: 3px;
+    height: var(--timeline-height-compact);
     border-radius: var(--radius-full);
   }
 
-  .topbar-actions .button {
-    flex: none;
-    padding: 0 var(--space-3);
+  /* Wide enough: the timeline joins the first row and takes the width left after Filters. */
+  @media (min-width: 640px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, max-content) minmax(0, 1fr);
+      justify-content: normal;
+    }
+
+    .topbar-timeline {
+      grid-column: auto;
+    }
   }
 
   /* Pinch-zoom on phones; the zoom buttons would sit under the sheet. */
@@ -617,109 +643,132 @@
     pointer-events: none;
   }
 
-  .sheet-timeline {
-    height: var(--timeline-height-compact);
-    padding: 0 var(--space-3) 0 var(--space-2);
-    border-bottom: 1px solid var(--hairline);
+  /* Phones held sideways: a floating panel on the left, from under the top bar down. */
+  .side-dock {
+    position: absolute;
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
+    left: 0;
+    display: flex;
+    padding-left: max(env(safe-area-inset-left), var(--shell-gap));
+    pointer-events: none;
   }
 
-  .sheet-footer {
+  .side-panel {
+    width: clamp(300px, 42vw, 360px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: var(--radius-panel);
+    pointer-events: auto;
+  }
+
+  /* Folds toward the pill at its bottom-left corner. The two never show at once. Fold: the panel
+     and its tab fade, then the pill fades in. Unfold: the pill goes at once and the panel fades
+     in. Each glass part fades on its own: a fading parent would cut their blur off the map. */
+  .side-panel,
+  .side-fold {
+    transform-origin: bottom left;
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      transform var(--duration-base) var(--ease-out);
+  }
+
+  .side-dock.folded > * {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity var(--duration-fast) var(--ease-in),
+      transform var(--duration-fast) var(--ease-in),
+      visibility 0s var(--duration-fast);
+  }
+
+  /* A small tab on the panel's right edge, in the gap beside it. */
+  .side-fold {
+    position: absolute;
+    top: calc(50% - 22px);
+    left: calc(100% + var(--space-1));
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-full);
+    color: var(--ink-muted);
+    pointer-events: auto;
+  }
+
+  /* A wider touch target, mostly over the map: it stops at the panel's edge. */
+  .side-fold::before {
+    content: '';
+    position: absolute;
+    inset: 0 -12px 0 -4px;
+  }
+
+  .side-fold:hover {
+    color: var(--ink);
+  }
+
+  .side-fold :global(.icon) {
+    transform: rotate(180deg);
+  }
+
+  /* Bottom-left, where the panel's corner was, never wider than the panel. */
+  .side-pill {
+    position: absolute;
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
+    left: max(env(safe-area-inset-left), var(--shell-gap));
     display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin: 0 var(--space-4);
-    padding: var(--space-4) 0 var(--space-8);
-    border-top: 1px solid var(--hairline);
+    align-items: center;
+    gap: var(--space-2);
+    max-width: clamp(300px, 42vw, 360px);
+    height: var(--timeline-height-compact);
+    padding: 0 var(--space-3) 0 var(--space-4);
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  .side-pill.shown {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-fast) var(--ease-out) var(--duration-fast),
+      transform var(--duration-fast) var(--ease-out) var(--duration-fast);
+  }
+
+  .side-pill.shown:active {
+    transform: scale(0.97);
+    transition: transform var(--duration-press) var(--ease-out);
+  }
+
+  .side-pill-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .side-pill :global(.icon) {
+    flex: none;
+    color: var(--ink-muted);
+  }
+
+  .app.landscape :global(.maplibregl-ctrl-bottom-right) {
+    right: max(env(safe-area-inset-right), var(--shell-gap));
+    bottom: max(env(safe-area-inset-bottom), var(--shell-gap));
+  }
+
+  /* The detail's title and close button fit the 44 px a peek sheet shows under its grip. */
+  .mobile .sheet-dock :global(.detail) {
+    padding-top: var(--space-3);
   }
 
   .tagline {
     color: var(--ink-muted);
     font-size: var(--text-sm);
-  }
-
-  .sheet-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
-  }
-
-  /* Full-screen and opaque: the solid glass fallback, no blur. */
-  .filters-dialog {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    max-height: none;
-    margin: 0;
-    padding: var(--space-4) var(--space-4) 0;
-    border: 0;
-    background: var(--glass-fill-solid);
-    color: var(--ink);
-  }
-
-  .filters-dialog[open] {
-    animation: sheet-in var(--duration-slow) var(--ease-out);
-  }
-
-  .filters-dialog::backdrop {
-    background: var(--scrim);
-  }
-
-  .filters-dialog[open] {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .filters-dialog-body {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .filters-dialog footer {
-    padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--hairline);
-  }
-
-  .show-results {
-    width: 100%;
-    height: 44px;
-    border: 0;
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: var(--text-md);
-    font-weight: var(--weight-semibold);
-    font-variant-numeric: tabular-nums;
-    transition: transform var(--duration-press) var(--ease-out);
-  }
-
-  .show-results:hover {
-    filter: brightness(1.08);
-  }
-
-  .show-results:active {
-    transform: scale(0.97);
-  }
-
-  .filters-dialog header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--space-4);
-  }
-
-  .filters-dialog h2 {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-  }
-
-  @keyframes sheet-in {
-    from {
-      transform: translateY(16px);
-      opacity: 0;
-    }
   }
 </style>

@@ -98,10 +98,12 @@ export class TravelSettings {
     if (ok.threshold !== undefined) this.threshold = ok.threshold;
   }
 
-  /** Travel values from a shared link: used for this visit, not saved, and flagged for a notice. */
+  /** Travel values from a shared link: used for this visit, not saved, and flagged for a notice.
+   *  A link that only repeats the values in use (the viewer's own, synced to the URL) is not shared. */
   applyShared(v: Partial<TravelValues>): void {
     const ok = validTravel(v);
-    if (!Object.keys(ok).length) return;
+    const current = this.values;
+    if (!(Object.keys(ok) as (keyof TravelValues)[]).some((k) => ok[k] !== current[k])) return;
     this.apply(ok);
     this.fromLink = true;
   }

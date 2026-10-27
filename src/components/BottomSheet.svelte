@@ -9,56 +9,84 @@
     snap = $bindable('peek'),
     onheightchange,
     label,
-    header,
     children,
   }: {
     snap?: Snap;
     /** Settled height of the sheet on screen (px), for map insets. */
     onheightchange?: (height: number) => void;
     label: string;
-    header?: Snippet;
     children: Snippet;
   } = $props();
 
-  const PEEK = 176; // grip + docked timeline + list heading and a row
+  const PEEK = 68; // grip (24) + list heading (44), or the detail's title
   const ORDER: Snap[] = ['peek', 'half', 'full'];
 
   let containerHeight = $state(0);
   let gripHeight = $state(0);
-  let drag: { startY: number; startH: number; lastY: number; lastT: number; v: number } | null =
-    $state(null);
+  // env(safe-area-inset-bottom), measured: peek stays clear of the home indicator.
+  let safeBottom = $state(0);
+  let contentEl: HTMLDivElement | undefined = $state();
+  // One gesture at a time, followed by its pointer id (a second finger is ignored).
+  let drag: {
+    id: number;
+    startY: number;
+    startH: number;
+    lastY: number;
+    lastT: number;
+    v: number;
+  } | null = $state(null);
   let dragHeight = $state(0);
   let moved = false;
 
+  const peek = $derived(PEEK + safeBottom);
   const heightOf = (s: Snap) =>
-    s === 'peek' ? PEEK : s === 'half' ? Math.round(containerHeight * 0.5) : containerHeight;
+    s === 'peek' ? peek : s === 'half' ? Math.round(containerHeight * 0.5) : containerHeight;
   const height = $derived(drag ? dragHeight : heightOf(snap));
 
   $effect(() => {
     onheightchange?.(drag ? heightOf(snap) : height);
   });
 
+  // Peek locks the content: show its top, not wherever it was scrolled (e.g. "View history").
+  $effect(() => {
+    if (snap === 'peek' && !drag) contentEl?.scrollTo({ top: 0 });
+  });
+
   function onpointerdown(e: PointerEvent) {
-    if (e.button !== 0) return;
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    if (e.button !== 0 || drag) return;
     moved = false;
-    drag = { startY: e.clientY, startH: height, lastY: e.clientY, lastT: e.timeStamp, v: 0 };
+    // Before `drag`: once it is set, `height` reads `dragHeight`.
     dragHeight = height;
+    drag = {
+      id: e.pointerId,
+      startY: e.clientY,
+      startH: height,
+      lastY: e.clientY,
+      lastT: e.timeStamp,
+      v: 0,
+    };
   }
 
+  // At peek the visible heading drags the sheet too. A press elsewhere only starts a new tap.
+  function oncontentdown(e: PointerEvent) {
+    if (snap === 'peek') onpointerdown(e);
+    else if (!drag) moved = false;
+  }
+
+  // Move and release are followed on the window: a mouse that leaves the sheet still ends the drag.
   function onpointermove(e: PointerEvent) {
-    if (!drag) return;
+    if (!drag || e.pointerId !== drag.id) return;
     const dy = e.clientY - drag.startY;
     if (Math.abs(dy) > 4) moved = true;
     const dt = Math.max(1, e.timeStamp - drag.lastT);
     drag.v = (e.clientY - drag.lastY) / dt; // px/ms, positive = downwards
     drag.lastY = e.clientY;
     drag.lastT = e.timeStamp;
-    dragHeight = Math.max(PEEK * 0.6, Math.min(containerHeight, drag.startH - dy));
+    dragHeight = Math.max(peek * 0.6, Math.min(containerHeight, drag.startH - dy));
   }
 
-  function onpointerup() {
-    if (!drag) return;
+  function onpointerup(e: PointerEvent) {
+    if (!drag || e.pointerId !== drag.id) return;
     const { v } = drag;
     drag = null;
     if (!moved) return;
@@ -75,43 +103,53 @@
     snap = target;
   }
 
-  function cycle() {
-    if (moved) return;
+  // A keyboard click (detail 0) always cycles; a click ending a drag does not.
+  function cycle(e: MouseEvent) {
+    if (moved && e.detail) return;
     snap = snap === 'peek' ? 'half' : snap === 'half' ? 'full' : 'peek';
   }
 </script>
 
+<svelte:window {onpointermove} {onpointerup} onpointercancel={onpointerup} />
+
 <div class="sheet-area" bind:clientHeight={containerHeight}>
+  <div class="safe-probe" aria-hidden="true" bind:clientHeight={safeBottom}></div>
   <section
     class="sheet glass"
     class:dragging={!!drag}
     aria-label={label}
     style:transform="translateY({containerHeight - height}px)"
   >
-    <div
-      class="grip-zone"
-      role="presentation"
+    <!-- Captured on press, by the button itself: Chromium sends the click to the capturing element,
+         and a press during the snap transition (the sheet jumps) still ends on the grip. -->
+    <button
+      class="grip"
+      type="button"
+      aria-label={snap === 'full' ? 'Collapse panel' : 'Expand panel'}
       bind:clientHeight={gripHeight}
-      {onpointerdown}
-      {onpointermove}
-      {onpointerup}
-      onpointercancel={onpointerup}
+      onpointerdown={(e) => {
+        e.currentTarget.setPointerCapture(e.pointerId);
+        onpointerdown(e);
+      }}
+      onclick={cycle}
     >
-      <button
-        class="grip"
-        type="button"
-        aria-label={snap === 'full' ? 'Collapse panel' : 'Expand panel'}
-        onclick={cycle}
-      >
-        <span aria-hidden="true"></span>
-      </button>
-      {@render header?.()}
-    </div>
+      <span aria-hidden="true"></span>
+    </button>
+    <!-- A click ending a drag selects nothing. -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
       data-scroll
+      bind:this={contentEl}
       class="content"
       class:locked={snap === 'peek' && !drag}
       style:height="{Math.max(0, height - gripHeight)}px"
+      onpointerdown={oncontentdown}
+      onclickcapture={(e) => {
+        if (moved && e.detail) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }}
     >
       {@render children()}
     </div>
@@ -147,20 +185,25 @@
     transition: none;
   }
 
-  .grip-zone {
-    flex: none;
-    touch-action: none;
+  .safe-probe {
+    position: absolute;
+    width: 0;
+    height: env(safe-area-inset-bottom, 0px);
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .grip {
+    flex: none;
     display: grid;
     place-items: center;
     width: 100%;
-    height: 22px;
+    height: 24px;
     padding: 0;
     border: 0;
     background: transparent;
     cursor: grab;
+    touch-action: none;
   }
 
   .grip span {
@@ -178,6 +221,7 @@
   .content {
     flex: none;
     max-height: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
@@ -185,5 +229,6 @@
 
   .content.locked {
     overflow: hidden;
+    touch-action: none;
   }
 </style>

@@ -190,16 +190,17 @@ test.describe('geolocation', () => {
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
-  test('the location sheet sets home and the list shows distances', async ({ page }) => {
+  test('the logo panel sets home and the list shows distances', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: /Set your city/ }).click();
-    const dialog = page.getByRole('dialog', { name: 'Where are you travelling from?' });
-    const input = dialog.getByRole('combobox', { name: 'Your city' });
-    await input.fill('Berlin');
-    await expect(dialog.getByRole('option').first()).toBeVisible();
+    await page.getByRole('button', { name: 'confmaps', exact: true }).click();
+    const menu = page.getByRole('dialog', { name: 'confmaps' });
+    await menu.getByRole('combobox', { name: 'Your city' }).fill('Berlin');
+    await expect(menu.getByRole('option').first()).toBeVisible();
     await page.keyboard.press('Enter');
-    await dialog.getByRole('button', { name: 'Done' }).click();
-    await expect(page.getByTestId('home-button-label')).toHaveText('Berlin');
+    await expect(menu.getByTestId('home-city')).toHaveText('Berlin, Germany');
+    await page.keyboard.press('Escape');
+    await expect(menu).toBeHidden();
+    await expect(page.getByTestId('row-footprint').first()).toContainText(/~[\d,]+ km/);
   });
 });
 

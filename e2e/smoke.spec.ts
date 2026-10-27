@@ -73,3 +73,24 @@ test('the sidebar collapses to a pill and back, keeping the search', async ({ pa
   await expect(detail).toHaveCount(0);
   await expect(show).toBeFocused();
 });
+
+test('a tap outside a dialog closes it; a drag that ends outside does not', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Share' }).first().click();
+  const share = page.getByTestId('share-dialog');
+  const box = (await page.getByLabel('Link to share').boundingBox())!;
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(5, 5, { steps: 5 });
+  await page.mouse.up();
+  await expect(share).toBeVisible();
+  await page.mouse.click(5, 5);
+  await expect(share).toBeHidden();
+
+  await page.goto('/#privacy');
+  const privacy = page.getByRole('dialog', { name: 'Privacy' });
+  await expect(privacy).toBeVisible();
+  await page.mouse.click(5, 5);
+  await expect(privacy).toBeHidden();
+  await expect(page).not.toHaveURL(/#privacy/);
+});

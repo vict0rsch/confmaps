@@ -155,8 +155,10 @@ export class HomeStore {
     return undefined;
   }
 
-  /** `home=<id>` from a shared link: use that city for this visit, without saving it. */
+  /** `home=<id>` from a shared link: use that city for this visit, without saving it. A link with
+   *  the viewer's own saved city is not a shared home. */
   async applyShared(id: number): Promise<boolean> {
+    if (id === this.saved?.id) return false;
     const cities = await this.load();
     const city = validStoredCity(cities?.find((c) => c.id === id));
     if (!city) return false;
