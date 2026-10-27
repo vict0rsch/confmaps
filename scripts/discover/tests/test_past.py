@@ -262,6 +262,29 @@ def test_batches_have_at_most_six_years_in_order() -> None:
     assert years == sorted(years) and 2015 in years
 
 
+def test_per_series_since_and_plain_since_are_equivalent() -> None:
+    per_series, _ = plan_batches(
+        DATA, PAST, ["neurips", "icml"], {"neurips": 2016, "icml": 2022}, 2025
+    )
+    assert [(b["series"], b["years"][0]) for b in per_series] == [("neurips", 2016), ("icml", 2022)]
+    same = plan_batches(DATA, PAST, ["neurips", "icml"], {"neurips": 2016, "icml": 2016}, 2021)
+    assert same == plan_batches(DATA, PAST, ["neurips", "icml"], 2016, 2021)
+
+
+def test_recheck_with_per_series_first_years_skips_pwc_editions_before_them() -> None:
+    first = {"neurips": 2021, "icml": 2019}  # neurips20 (pwc) is before 2021; icml19 (pwc) is not
+    batches, _ = plan_batches(DATA, PAST, ["neurips", "icml"], first, 2021, recheck=True)
+    by_series = {b["series"]: b for b in batches}
+    assert list(by_series["neurips"]["recheck"]) == [] and 2020 not in by_series["neurips"]["years"]
+    assert list(by_series["icml"]["recheck"]) == ["2019"] and 2019 in by_series["icml"]["years"]
+
+
+def test_series_first_year_after_until_gets_no_batches() -> None:
+    batches, unknown = plan_batches(DATA, PAST, ["neurips", "icml"], {"neurips": 2030, "icml": 2022}, 2025)
+    assert unknown == [] and {b["series"] for b in batches} == {"icml"}
+    assert batches[0]["years"][0] == 2022
+
+
 def test_unknown_series() -> None:
     assert plan_batches(DATA, PAST, ["nope"], 2000, 2001) == ([], ["nope"])
 
@@ -1067,6 +1090,11 @@ def test_proposed_files_include_the_past_file(repo: Path) -> None:
         ["--mode", "past", "--series", "neurips", "--since", "2016", "--only", "x"],
         ["--mode", "past", "--series", "neurips", "--since", "x"],
         ["--mode", "past", "--series", "neurips", "--since", "2016", "--max-usd", "-1"],
+        ["--mode", "past", "--since-creation", "--since", "2016"],  # exclusive
+        ["--mode", "past", "--until", "2020"],  # neither --since nor --since-creation
+        ["--mode", "past", "--since-creation", "--until", "2000", "--series", "NeurIPS"],
+        ["--mode", "upcoming", "--since-creation"],
+        ["--mode", "backfill", "--since", "2020", "--since-creation"],
         ["--mode", "upcoming", "--series", "neurips"],
         ["--mode", "upcoming", "--recheck"],
         ["--mode", "backfill", "--since", "2020", "--until", "2021"],
@@ -1083,3 +1111,104 @@ def test_series_list_is_comma_separated(repo: Path) -> None:
     assert run_past(repo, *args, client=client) == 0
     prompts = [c["messages"][0]["content"] for c in client.calls]
     assert "of NeurIPS held that year" in prompts[0] and "of ICML held that year" in prompts[1]
+
+
+# --- --since-creation ------------------------------------------------------------------------------
+
+
+def write_series(repo: Path, text: str) -> None:
+    (repo / "data" / "series.yml").write_text(text)
+
+
+SERIES_TEXT = """\
+neurips:
+  first_year: 2022
+  sources: [https://neurips.cc/]
+icml:
+  first_year: 2023
+  sources: [https://icml.cc/]
+"""
+
+
+def test_since_creation_starts_each_series_at_its_first_year(repo: Path) -> None:
+    write_series(repo, SERIES_TEXT)
+    client = FakeClient(*[json_message({"editions": []})] * 2)
+    args = ["--series", "neurips,icml", "--since-creation", "--until", "2024", "--dry-run"]
+    assert run_past(repo, *args, client=client) == 0
+    saved = repo.parent / "results"
+    neurips = json.loads((saved / "neurips-2022-2024.json").read_text())["conference"]["years"]
+    icml = json.loads((saved / "icml-2023-2024.json").read_text())["conference"]["years"]
+    assert neurips == [2022, 2023, 2024] and icml == [2023, 2024]
+
+
+def test_since_creation_defaults_to_every_series_in_the_file(
+    repo: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    write_series(repo, SERIES_TEXT)
+    client = FakeClient(*[json_message({"editions": []})] * 2)
+    assert run_past(repo, "--since-creation", "--until", "2024", "--dry-run", client=client) == 0
+    prompts = [c["messages"][0]["content"] for c in client.calls]
+    assert "of NeurIPS held that year" in prompts[0] and "of ICML held that year" in prompts[1]
+    assert "neurips 2022, icml 2023" in capsys.readouterr().err
+
+
+def test_since_creation_skips_a_series_without_entry_with_a_warning(
+    repo: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    write_series(repo, SERIES_TEXT)
+    client = FakeClient(json_message({"editions": []}))
+    args = ["--series", "neurips,nope", "--since-creation", "--until", "2024", "--dry-run"]
+    assert run_past(repo, *args, client=client) == 0
+    assert len(client.calls) == 1
+    assert "warning: --series nope: no first_year in data/series.yml, skipped" in (
+        capsys.readouterr().err
+    )
+
+
+@pytest.mark.parametrize("text", ["{}\n", SERIES_TEXT])
+def test_since_creation_with_nothing_left_exits_cleanly(
+    repo: Path, capsys: pytest.CaptureFixture[str], text: str
+) -> None:
+    write_series(repo, text)
+    client = FakeClient()
+    series = [] if text == "{}\n" else ["--series", "nope"]
+    assert run_past(repo, *series, "--since-creation", "--dry-run", client=client) == 0
+    assert client.calls == [] and "No editions to research." in capsys.readouterr().out
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "neurips: {first_year: 1900}\n",
+        "neurips: {first_year: 2101}\n",
+        "neurips: {first_year: '1987'}\n",
+        "neurips: {first_year: true}\n",
+        "neurips: {}\n",
+        "- neurips\n",
+    ],
+)
+def test_since_creation_rejects_a_bad_first_year(
+    repo: Path, capsys: pytest.CaptureFixture[str], text: str
+) -> None:
+    write_series(repo, text)
+    client = FakeClient()
+    assert run_past(repo, "--since-creation", "--dry-run", client=client) == 1
+    assert client.calls == [] and "error: data/series.yml" in capsys.readouterr().err
+
+
+def test_since_creation_with_a_missing_series_file_skips_every_series(
+    repo: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    client = FakeClient()
+    assert run_past(repo, "--series", "neurips", "--since-creation", "--dry-run", client=client) == 0
+    out = capsys.readouterr()
+    assert "warning: --series neurips: no first_year in data/series.yml, skipped" in out.err
+    assert "No editions to research." in out.out and client.calls == []
+
+
+def test_plain_since_ignores_series_file(repo: Path) -> None:
+    write_series(repo, "neurips: {first_year: 1900}\n")  # would be rejected by --since-creation
+    client = FakeClient(json_message({"editions": [ed2018()]}))
+    args = ["--series", "neurips", "--since", "2016", "--until", "2021", "--dry-run"]
+    assert run_past(repo, *args, client=client) == 0
+    assert (repo.parent / "results" / "neurips-2016-2021.json").exists()

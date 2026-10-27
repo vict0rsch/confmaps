@@ -50,6 +50,14 @@ uv run --project scripts/discover discover --mode past --series neurips,icml --s
 uv run --project scripts/discover discover --mode past --series cvpr --since 2016 --until 2024 --recheck --dry-run
 ```
 
+To start each series at its own first year instead, pass `--since-creation` in place of `--since`.
+`--series` then defaults to every series in `data/series.yml`. A dry run still calls the API (it only
+skips writing files and the PR), so run one series first and set `--max-usd` deliberately:
+
+```sh
+uv run --project scripts/discover discover --mode past --series neurips --since-creation --dry-run --max-usd 2
+```
+
 See DESIGN.md §3 for the evidence checks and the workflow (`discover.yml`, manual dispatch only).
 
 ## Analytics (optional)

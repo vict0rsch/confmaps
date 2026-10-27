@@ -32,7 +32,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'upcoming: next 12 months; backfill: past editions (needs since); past: past main editions (needs series, since)'
+        description: 'upcoming: next 12 months; backfill: past editions (needs since); past: past main editions (needs series and since, or since_creation)'
         type: choice
         options: [upcoming, backfill, past]
         default: upcoming
@@ -44,6 +44,10 @@ on:
         description: 'backfill / past: first year'
         type: string
         default: ''
+      since_creation:
+        description: 'past: start each series at the year it was first held (data/series.yml) instead of since; series is then optional (default: all)'
+        type: boolean
+        default: false
       until:
         description: 'past: last year (default: last year)'
         type: string
@@ -104,6 +108,7 @@ jobs:
           MODE: ${{ inputs.mode || 'upcoming' }}
           SERIES: ${{ inputs.series }}
           SINCE: ${{ inputs.since }}
+          SINCE_CREATION: ${{ inputs.since_creation }}
           UNTIL: ${{ inputs.until }}
           RECHECK: ${{ inputs.recheck }}
           MAX_USD: ${{ inputs.max_usd || '5' }}
@@ -112,6 +117,7 @@ jobs:
           args=("--mode=$MODE" "--max-usd=$MAX_USD" --results-dir "$RESULTS" --out-dir "$OUT")
           if [ -n "$SERIES" ]; then args+=("--series=$SERIES"); fi
           if [ -n "$SINCE" ]; then args+=("--since=$SINCE"); fi
+          if [ "$SINCE_CREATION" = true ]; then args+=(--since-creation); fi
           if [ -n "$UNTIL" ]; then args+=("--until=$UNTIL"); fi
           if [ "$RECHECK" = true ]; then args+=(--recheck); fi
           uv run --project scripts/discover --locked discover "${args[@]}"

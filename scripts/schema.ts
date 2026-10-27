@@ -70,6 +70,14 @@ export const SatelliteSchema = z.strictObject({
 });
 export const SatellitesFileSchema = z.array(SatelliteSchema);
 
+/** One entry of `data/series.yml`: the year a series was first held (keyed by series key). */
+export const SeriesEntrySchema = z.strictObject({
+  first_year: z.number().int().min(1950).max(2100),
+  sources: z.array(httpUrl).min(1),
+  notes: z.string().min(1).optional(),
+});
+export const SeriesFileSchema = z.record(z.string().min(1), SeriesEntrySchema);
+
 export const PastFormatSchema = z.enum(['in_person', 'virtual', 'hybrid']);
 const sha40 = z.string().regex(/^[0-9a-f]{40}$/);
 
@@ -245,6 +253,8 @@ export const ArchiveFileSchema = z.strictObject({
 
 export type UpstreamDeadline = z.infer<typeof UpstreamDeadlineSchema>;
 export type UpstreamConference = z.infer<typeof UpstreamConferenceSchema>;
+export type SeriesEntry = z.infer<typeof SeriesEntrySchema>;
+export type SeriesFile = z.infer<typeof SeriesFileSchema>;
 export type Satellite = z.infer<typeof SatelliteSchema>;
 export type PastConference = z.infer<typeof PastConferenceSchema>;
 export type Override = z.infer<typeof OverrideSchema>;

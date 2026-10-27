@@ -30,6 +30,7 @@ flowchart LR
   subgraph Sources
     HF[huggingface/ai-deadlines<br/>conference YAML]
     CUR[Curated inputs<br/>satellites.yml<br/>past_conferences.yml<br/>overrides.yml]
+    SER[data/series.yml<br/>first year per series]
     ARC[(data/archive/YYYY.json)]
     GC[(data/geocache.json)]
     NOM[Nominatim]
@@ -61,6 +62,8 @@ flowchart LR
   BD --> ARC
   DJ --> VD
   CUR --> VD
+  SER --> VD
+  SER --> DISC
   DISC <--> CL
   DISC -- "PR to curated YAML" --> CUR
   DJ -- "vite build (bundled)" --> SPA
@@ -78,6 +81,7 @@ data/                     inputs and outputs of the data pipeline
   satellites.yml          curated satellite events
   past_conferences.yml    past main editions (source of truth since the PwC import)
   overrides.yml           per-location field fixes, keyed by location id
+  series.yml              first year per series; checked by build (not emitted), read by discover
   geocache.json           "city|country" → coordinates (reviewed in diffs)
   co2-factors.json        DESNZ emission factors, read by the app
   archive/YYYY.json       every event that has ended; never shrinks
@@ -172,7 +176,9 @@ app shows each group as one row and one pin.
 - `pnpm data:build` (`scripts/build-data.ts`): the full build. It clones upstream, so it needs
   the network.
 - `pnpm data:validate` (`scripts/validate-data.ts`): offline checks of the committed files. CI
-  and the discovery agent run it.
+  and the discovery agent run it. It also checks `data/series.yml`: the schema, that every key
+  is a known series, and that no `first_year` is later than the series' earliest edition.
+  `series.yml` does not flow into `data.json`.
 
 `build-data.ts` does the input and output. The transformation itself is a pure function,
 `buildDataset` in `scripts/lib/pipeline.ts`. Its only side effect is the geocoder that the
@@ -378,6 +384,9 @@ flowchart LR
 - `past_ids.py` repeats the id and series rules of `scripts/lib/normalize.ts` in Python. A change
   to one needs the same change in the other.
 - `cost.py` estimates spend, and `--max-usd` stops new calls once the estimate passes the cap.
+
+In past mode, `--since-creation` reads `data/series.yml` to start each series at its first year
+instead of a single `--since` year. The `since_creation` input of `discover.yml` passes this flag.
 
 DESIGN.md §3 gives the evidence rules field by field.
 

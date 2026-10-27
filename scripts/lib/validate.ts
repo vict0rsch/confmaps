@@ -9,6 +9,7 @@ import {
   type Overrides,
   type PastConference,
   type Satellite,
+  type SeriesFile,
 } from '../schema';
 import { archiveIds, type ArchiveIds } from './archive';
 import { canonicalCountry } from './countries';
@@ -20,6 +21,8 @@ export interface ValidationInput {
   satellites: Satellite[];
   past: PastConference[];
   overrides: Overrides;
+  /** `series.yml`; omitted by callers that do not check it. */
+  series?: SeriesFile;
   geocache: Geocache;
   /** The archive as it is after the build (on disk for `data:validate`). */
   archive: ArchiveFile;
@@ -118,6 +121,19 @@ export function validateDataset(input: ValidationInput): string[] {
         `past_conferences.yml: ${e.id}: "${e.city}, ${e.country}" is not geocoded (run pnpm data:build)`,
       );
     }
+  }
+
+  // Series first years: a known series, not later than its earliest edition in the dataset
+  const earliest = new Map<string, number>();
+  for (const c of data.conferences)
+    earliest.set(c.series, Math.min(c.year, earliest.get(c.series) ?? c.year));
+  for (const [key, s] of Object.entries(input.series ?? {})) {
+    const first = earliest.get(key);
+    if (first === undefined) errors.push(`series.yml: "${key}" is not a known series`);
+    else if (s.first_year > first)
+      errors.push(
+        `series.yml: ${key}: first_year ${s.first_year} is later than its earliest edition (${first})`,
+      );
   }
 
   // Overrides must target a known location

@@ -156,6 +156,15 @@ with at least a date, a city, and a public page. Meetups, watch parties and read
   (e.g. NeurIPS 2025 Mexico City, EurIPS 2025 Copenhagen); same PR + evidence review.
 - History grouping: a conference **series key** = normalized `title` (e.g. `icml`), so editions
   across years and sources link together.
+- **Series start years — `data/series.yml`.** The repo owns this file. It maps a series key (such
+  as `neurips`) to `{first_year, sources, notes?}`. `first_year` is the year the series was first
+  held. It is counted from the series' own official edition numbering, so gaps in the numbering
+  stay gaps. If the series has no numbering, it is the first event under the current name.
+  `sources` is a list of at least one http(s) URL and is required. A series without a sourced
+  year has no entry. The app does not show this file and `data.json` does not contain it. The
+  discovery agent reads it for `--since-creation` (§3). A missing file counts as empty.
+  `pnpm data:validate` reports an error when a key is not a known series, or when `first_year` is
+  later than the earliest edition of that series in the dataset.
 
 ### 2.5 Normalized output — `data/build/data.json`
 
@@ -210,7 +219,13 @@ Purpose: find satellites the owner would never hear about, especially community 
   to look for) but now also sees the ≈340 past editions, so restrict it with `--only ID[,ID…]`.
 - **Past main editions (`--mode past`):**
   `--mode past --series neurips,icml --since 1987 [--until YYYY] [--recheck] [--dry-run]`
-  (`--until` defaults to last year). Targets the years of each series with no known edition (in
+  (`--until` defaults to last year). `--since-creation` replaces `--since`: each series then
+  starts at its own `first_year` in `data/series.yml` (§2.4). The two flags exclude each other,
+  and past mode needs exactly one of them. With `--since-creation`, `--series` is optional and
+  defaults to every series in `series.yml`; a named series with no entry is skipped with a
+  warning. A run without `--series` can go back decades for many series. `--dry-run` still calls
+  the API (it only skips writing files and the PR), so run one series first and set `--max-usd`
+  deliberately. Targets the years of each series with no known edition (in
   `data.json` or `past_conferences.yml`); one call per series and batch of up to 6 years
   (`web_search` 8, `web_fetch` 12 uses). The prompt lists the series' known editions and asks to
   omit years with no edition (biennial, cancelled). Each edition field is `{value, source_url,
@@ -271,7 +286,8 @@ Purpose: find satellites the owner would never hear about, especially community 
   from the environment of subprocesses; log lines are prefixed so page text cannot inject workflow
   commands.
 - **Workflow (`discover.yml`):** `workflow_dispatch` inputs `mode` (`upcoming | backfill | past`),
-  `series`, `since`, `until`, `recheck`, `max_usd`, passed through `env` and validated by the CLI.
+  `series`, `since`, `since_creation`, `until`, `recheck`, `max_usd`, passed through `env` and
+  validated by the CLI.
   Two jobs. `research` runs in the `discovery` environment (the only
   place `ANTHROPIC_API_KEY` exists), with a read-only token; it validates and uploads the proposal as
   an artifact. `propose` has no Anthropic key and runs no repository code (git, gh, jq only): it
