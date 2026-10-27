@@ -102,7 +102,7 @@ Before declaring completion, run a critical consistency review of your own work:
 
 # confmaps — project rules
 
-confmaps.org is a static Svelte 5 + MapLibre SPA showing AI conferences and their regional satellites. It runs on GitHub Pages, and the repo `vict0rsch/confmaps` is **public**. Read `DESIGN.md` (as built) before changing anything; also read `docs/backfill-spec.md` for past editions, `METHODOLOGY.md` for CO₂, and `PRIVACY.md`.
+confmaps.org is a static Svelte 5 + MapLibre SPA showing AI conferences and their regional satellites. It runs on GitHub Pages, and the repo `vict0rsch/confmaps` is **public**. Read `system-architecture.md` (how the code is organized) and `DESIGN.md` (product and behaviour decisions, as built) before changing anything; also read `docs/backfill-spec.md` for past editions, `METHODOLOGY.md` for CO₂, and `PRIVACY.md`.
 
 ## Shipping a change
 

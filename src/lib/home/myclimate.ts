@@ -1,4 +1,4 @@
-// Cross-check link (DESIGN §5.3).
+// Cross-check link (DESIGN §4.3).
 //
 // Finding (checked Oct 2026): myclimate's flight calculator form is a POST with a CSRF token, but
 // `/en/flight_calculators/new?from=BER&to=SYD` does prefill the two fields. They only accept

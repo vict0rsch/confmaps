@@ -1,4 +1,4 @@
-// Per-site distance and estimated footprint from home (DESIGN §5, §6.5, §6.7). Pure helpers over
+// Per-site distance and estimated footprint from home (DESIGN §4, §5.5, §5.7). Pure helpers over
 // the CO2 model; wording stays order-of-magnitude (`~`, "roughly").
 import {
   estimateTrip,

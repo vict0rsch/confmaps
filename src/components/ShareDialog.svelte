@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Share this view (DESIGN §6.5, §6.6): copies the current URL. Filters and selection are already
+  // Share this view (DESIGN §5.5, §5.6): copies the current URL. Filters and selection are already
   // in it; the user's city is added only when they tick the box, and then only as a GeoNames id.
   import { track } from '../lib/analytics';
   import { lightDismiss } from '../lib/dialog';

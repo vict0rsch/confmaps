@@ -1,4 +1,4 @@
-// Upstream / satellites / overrides → normalized records (DESIGN.md §3.5), before geocoding.
+// Upstream / satellites / overrides → normalized records (DESIGN.md §2.5), before geocoding.
 import {
   isVirtual,
   type Conference,

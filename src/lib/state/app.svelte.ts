@@ -1,10 +1,10 @@
 // App state (Svelte 5 runes). One instance, `app`, is shared by all components.
 //
 // Integration points for later phases:
-// - Filters/timeline (DESIGN §6.3–6.4): assign `app.predicate = (loc) => …`. Everything visible
+// - Filters/timeline (DESIGN §5.3–5.4): assign `app.predicate = (loc) => …`. Everything visible
 //   (map pins, lines, list, counts) derives from it through `visibleLocations`.
 //   `app.resetPredicate()` restores the Plan default (today → +12 months).
-// - Home location (§6.5): set `app.home = { lat, lng }`; the detail panel's distance/CO₂ slot keys
+// - Home location (§5.5): set `app.home = { lat, lng }`; the detail panel's distance/CO₂ slot keys
 //   off it.
 import { safeStorage } from './storage';
 import { MediaQuery } from 'svelte/reactivity';

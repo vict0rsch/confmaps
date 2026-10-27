@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Distance and estimated footprint for one site of the open conference (DESIGN §5, §6.7).
+  // Distance and estimated footprint for one site of the open conference (DESIGN §4, §5.7).
   // Rendered by Detail through its `siteFootprint` snippet, only when a home is set.
   import { track } from '../lib/analytics';
   import { formatCo2, formatCo2Range, formatDistance, modeIcon } from '../lib/co2/format';

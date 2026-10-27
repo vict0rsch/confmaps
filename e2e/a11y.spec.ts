@@ -3,7 +3,7 @@ import { type Page, type TestInfo } from '@playwright/test';
 import { expect, test } from './fixtures';
 import { startPastFixture } from './past-fixture';
 
-// Warn-only (DESIGN §9): run with PW_A11Y=1 (the `a11y` project). Violations are attached to the
+// Warn-only (DESIGN §8): run with PW_A11Y=1 (the `a11y` project). Violations are attached to the
 // test and printed as a summary; the suite only fails if axe itself cannot run. Set
 // PW_A11Y_STRICT=1 to make serious/critical violations fail.
 //

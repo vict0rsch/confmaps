@@ -1,5 +1,5 @@
 // `co2`: "Estimated footprint under ~X kg" — round-trip estimate from home with the global travel
-// mode and threshold (DESIGN §5). Needs home: without it (or if the estimate cannot be computed)
+// mode and threshold (DESIGN §4). Needs home: without it (or if the estimate cannot be computed)
 // the filter has no effect. A virtual edition counts as ~0 kg (attending online, no travel); a
 // hybrid one is estimated to its city.
 import Co2Control from '../../components/filters/Co2Control.svelte';

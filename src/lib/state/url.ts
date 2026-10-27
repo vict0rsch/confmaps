@@ -1,8 +1,8 @@
-// URL state (DESIGN §6.6), pure part: parse a query string into app state and build one back.
+// URL state (DESIGN §5.6), pure part: parse a query string into app state and build one back.
 // Example: `?c=neurips26&sub=ML,CV&radius=1000&co2=300&from=2026-11&to=2027-10`.
 //
 // Owned params: each registered filter's `params`, plus `c` (selection), `mode`, `thr`, `units`,
-// and `h` (history mode) when the caller passes it. `home` (a shared GeoNames city id, §6.5) is read
+// and `h` (history mode) when the caller passes it. `home` (a shared GeoNames city id, §5.5) is read
 // but never kept: the address bar never carries it, only the share dialog adds it (`withHomeParam`).
 // Every other param is left as is.
 // Parsing never throws: invalid values fall back to defaults.
@@ -19,7 +19,7 @@ export const TRAVEL_PARAMS = { mode: 'mode', threshold: 'thr', units: 'units' } 
  */
 export const TRAVEL_DEPENDENT_FILTERS: readonly string[] = ['co2'];
 export const HOME_PARAM = 'home';
-/** `h` = history mode (§6.4), `home` = opt-in shared city (§6.5). */
+/** `h` = history mode (§5.4), `home` = opt-in shared city (§5.5). */
 export const RESERVED_PARAMS: readonly string[] = ['h', HOME_PARAM];
 export const HISTORY_PARAM = 'h';
 

@@ -80,7 +80,7 @@ export const PwcProvenanceSchema = z.strictObject({
   fixes: z.array(z.string().min(1)).optional(), // importer cleanups applied, e.g. "title: WWWW → WWW"
 });
 
-/** One past main edition (DESIGN §3.4). Deadlines are deliberately not represented. */
+/** One past main edition (DESIGN §2.4). Deadlines are deliberately not represented. */
 export const PastConferenceSchema = z
   .strictObject({
     id: z.string().regex(/^[a-z0-9]+$/, 'lowercase letters and digits only'),

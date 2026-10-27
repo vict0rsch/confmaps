@@ -1,7 +1,7 @@
 import { kmToMi } from '../geo/distance';
 import type { TravelMode } from './model';
 
-// All copy here is deliberately approximate (DESIGN §5.1): `~` prefix, 2 significant figures.
+// All copy here is deliberately approximate (DESIGN §4.1): `~` prefix, 2 significant figures.
 
 const sig2 = (x: number): number => (x === 0 ? 0 : Number(x.toPrecision(2)));
 const num = (x: number): string => x.toLocaleString('en-US', { maximumFractionDigits: 20 });

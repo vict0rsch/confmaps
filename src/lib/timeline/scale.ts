@@ -1,4 +1,4 @@
-// The timeline's time axis (DESIGN §6.4), pure: day numbers, the axis domain, the events-per-month
+// The timeline's time axis (DESIGN §5.4), pure: day numbers, the axis domain, the events-per-month
 // histogram and sparse axis ticks. Dates are calendar dates (`YYYY-MM-DD`), handled in UTC.
 import type { DateWindow } from '../state/derive';
 

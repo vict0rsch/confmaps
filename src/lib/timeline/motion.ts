@@ -1,4 +1,4 @@
-// Map choreography timing (DESIGN §6.4, §6.8), pure: motion config per reduced-motion preference,
+// Map choreography timing (DESIGN §5.4, §5.8), pure: motion config per reduced-motion preference,
 // easing, per-pin enter/exit tracks, stagger and the live pulse.
 
 export type MotionConfig = {

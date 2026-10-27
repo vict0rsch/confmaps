@@ -1,4 +1,4 @@
-// `dates`: the {from, to} window. Same state as the timeline/scrubber (DESIGN §6.4).
+// `dates`: the {from, to} window. Same state as the timeline/scrubber (DESIGN §5.4).
 import DatesControl from '../../components/filters/DatesControl.svelte';
 import { inWindow, planWindow, type DateWindow } from '../state/derive';
 import { param, readParam, type Filter } from './types';

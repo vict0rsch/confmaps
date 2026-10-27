@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Registered filters (DESIGN §6.3) as a filter bar: the `search` filter's field always visible,
+  // Registered filters (DESIGN §5.3) as a filter bar: the `search` filter's field always visible,
   // every other filter a chip that opens its Control in a tray (one at a time), plus "Clear all".
   // `layout="dialog"` (mobile) stacks every Control open instead of trays; multi-select Controls
   // show as fields there.

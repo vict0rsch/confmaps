@@ -126,7 +126,7 @@
     return { type: 'FeatureCollection', features };
   });
 
-  // Home (DESIGN §6.5): a marker, and lines to the selected conference's sites only (lines to
+  // Home (DESIGN §5.5): a marker, and lines to the selected conference's sites only (lines to
   // every pin would be clutter), drawn in on selection; the nearest site's line is the strongest.
   // A virtual event has no pin, hence no line.
   const homeDraw = new Tween(1, { easing: cubicOut });

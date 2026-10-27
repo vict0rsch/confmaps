@@ -353,7 +353,7 @@ def build_body(
     sections = [
         intro
         or (
-            "Proposed by the satellite discovery agent (`scripts/discover`, DESIGN.md §4). "
+            "Proposed by the satellite discovery agent (`scripts/discover`, DESIGN.md §3). "
             "**Review before merging.** The Check column says what this script verified for "
             "each field: *quote on page, value in quote* / *date in quote* (the quote was found "
             "on the downloaded source page and contains the value), *linked from source page* "

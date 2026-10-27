@@ -1,7 +1,7 @@
-// The app's filter state, wired into the app's visibility hook (DESIGN §6.3).
+// The app's filter state, wired into the app's visibility hook (DESIGN §5.3).
 //
 // - `filterState`: get/set/reset each filter's state, `activeCount` for badges, `ctx`.
-// - `getDates()` / `setDates()`: the `dates` window, shared with the timeline (§6.4).
+// - `getDates()` / `setDates()`: the `dates` window, shared with the timeline (§5.4).
 import { co2Model } from '../co2/model';
 import { createFilters } from '../filters';
 import type { DateWindow } from '../filters/dates';

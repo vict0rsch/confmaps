@@ -1,4 +1,4 @@
-// Upstream conferences: huggingface/ai-deadlines `src/data/conferences/*.yml` (DESIGN.md §3.1).
+// Upstream conferences: huggingface/ai-deadlines `src/data/conferences/*.yml` (DESIGN.md §2.1).
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';

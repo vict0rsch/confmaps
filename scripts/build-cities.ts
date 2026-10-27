@@ -1,5 +1,5 @@
 // Builds `public/cities.json` from GeoNames `cities15000.zip` (CC BY 4.0, https://www.geonames.org)
-// for the home-location search (DESIGN §6.5): `pnpm cities:build`.
+// for the home-location search (DESIGN §5.5): `pnpm cities:build`.
 //
 //   --min-population N   default 50000: keeps gzip size small yet covers university towns
 //   --out <file>         default public/cities.json

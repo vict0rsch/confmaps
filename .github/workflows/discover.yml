@@ -1,6 +1,6 @@
 name: Discover satellites
 
-# Runs the discovery agent (scripts/discover, DESIGN.md §4) and proposes changes to
+# Runs the discovery agent (scripts/discover, DESIGN.md §3) and proposes changes to
 # data/satellites.yml (modes upcoming, backfill) or data/past_conferences.yml (mode past,
 # docs/backfill-spec.md §5) in one PR. The PR is never merged automatically. Two jobs:
 # - research: read-only token, and the only job that sees ANTHROPIC_API_KEY (environment

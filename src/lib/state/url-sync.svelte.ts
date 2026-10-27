@@ -1,4 +1,4 @@
-// URL state (DESIGN §6.6), live part: hydrate from `location.search` once, then mirror filters,
+// URL state (DESIGN §5.6), live part: hydrate from `location.search` once, then mirror filters,
 // selection and travel settings back with `history.replaceState` (debounced). `home` is read once
 // (shared link) and never written back.
 import { home } from '../home/store.svelte';

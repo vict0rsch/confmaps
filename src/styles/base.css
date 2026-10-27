@@ -69,7 +69,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Numbers line up in columns (DESIGN §6.8). */
+/* Numbers line up in columns (DESIGN §5.8). */
 .tabular,
 time {
   font-variant-numeric: tabular-nums;

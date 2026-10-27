@@ -1,4 +1,4 @@
-// Global travel settings (DESIGN §5.2, §6.6): display units, travel mode and the `auto`
+// Global travel settings (DESIGN §4.2, §5.6): display units, travel mode and the `auto`
 // rail/flight threshold. Read by filters through `Ctx`; persisted to localStorage and the URL.
 //
 // API for the settings UI: `travel.units / .mode / .threshold` (reactive), and the setters

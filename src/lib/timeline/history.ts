@@ -1,4 +1,4 @@
-// History mode geometry (DESIGN §6.4), pure: a series' editions as chronological stops (main
+// History mode geometry (DESIGN §5.4), pure: a series' editions as chronological stops (main
 // venues), the curved path linking them, its year labels, and travel progress for Play.
 import { isPinned, type JoinedLocation, type PinnedJoined } from '../data/load';
 import { trimLine } from '../map/geojson';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Mobile top bar (DESIGN §6.7): the Filters capsule opens the filters panel, anchored under it.
+  // Mobile top bar (DESIGN §5.7): the Filters capsule opens the filters panel, anchored under it.
   // Right-aligned with the capsule, or left-aligned when that does not fit (phones held sideways,
   // wide screens). A modal dialog, like the logo panel: the browser handles Escape, the focus
   // trap and stacking, and a tap outside lands on its transparent backdrop.

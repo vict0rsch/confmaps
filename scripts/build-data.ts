@@ -1,4 +1,4 @@
-// Data pipeline entry point (DESIGN.md §2, §3): `pnpm data:build`.
+// Data pipeline entry point (system-architecture.md §5, DESIGN.md §2): `pnpm data:build`.
 //
 //   --upstream <dir>     use a local ai-deadlines checkout (or a folder of *.yml) instead of cloning
 //   --today YYYY-MM-DD   freeze events ending before this date (default: today, UTC)

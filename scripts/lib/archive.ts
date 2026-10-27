@@ -1,4 +1,4 @@
-// Archive-and-freeze (DESIGN.md §3.4). `data/archive/<year>.json` holds every event that has ended,
+// Archive-and-freeze (DESIGN.md §2.4). `data/archive/<year>.json` holds every event that has ended,
 // grouped by its conference's current `year`. The pipeline adds and updates records but never
 // removes one from the archive, and never deletes a file; if upstream corrects a `year`, the
 // record moves to the new year file (and leaves the old one).

@@ -1,4 +1,4 @@
-// GeoNames `cities15000` -> compact `public/cities.json` (DESIGN §6.5). Pure functions; the
+// GeoNames `cities15000` -> compact `public/cities.json` (DESIGN §5.5). Pure functions; the
 // download and file writing live in scripts/build-cities.ts. The input is untrusted data: it is
 // only ever parsed as text.
 import { inflateRawSync } from 'node:zlib';
