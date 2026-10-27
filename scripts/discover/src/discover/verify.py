@@ -421,6 +421,9 @@ class Page:
     detail: str = ""  # dynamic detail (server- or exception-provided; escaped in reports)
     links: frozenset[str] = frozenset()  # canonical href targets (see _link_key)
     archived: str = ""  # the Wayback copy the text came from, when the live page was unreadable
+    via: str = ""  # the data the text came from instead of the page (dblp's SPARQL data)
+    # dblp titles as (normalized title, year of publication): a quote must fit inside one.
+    segments: tuple[tuple[str, str], ...] | None = None
 
 
 def page_from_markup(raw: str, base_url: str, is_html: bool = True) -> Page:
@@ -454,12 +457,13 @@ BOT_CHECK_RE = re.compile(
     re.IGNORECASE,
 )
 MAX_BOT_CHECK_CHARS = 2000
+BOT_CHECK = "bot check instead of the page"
 
 
 def _unless_bot_check(page: Page) -> Page:
     text = page.text or ""
     if len(text) <= MAX_BOT_CHECK_CHARS and BOT_CHECK_RE.search(text):
-        return Page(None, "bot check instead of the page")
+        return Page(None, BOT_CHECK)
     return page
 
 
@@ -782,6 +786,7 @@ class FieldCheck:
     kind: str = ""  # the check that passed (VALUE_IN_QUOTE, ..., JUDGEMENT); "" if failed
     reason: str = ""  # static failure reason
     detail: str = ""  # dynamic failure detail (escaped in reports)
+    via: str = ""  # the data the quote was checked on instead of the page (``Page.via``)
 
     @property
     def kept(self) -> bool:
@@ -878,6 +883,7 @@ def check_field(
     page = get_page(check.source_url)
     if page.archived:
         check.source_url = page.archived  # what was checked: cite the archived copy
+    check.via = page.via
     if page.text is None:
         check.reason = "source page not readable"
         check.detail = f"{page.error} {page.detail}".strip()
@@ -896,7 +902,11 @@ def check_field(
     if not quote_long_enough(quote, min_chars):
         check.reason = "quote too short"
         check.detail = f"needs {min_chars}+ characters and {MIN_QUOTE_WORDS}+ words"
-    elif not quote_on_page(quote, page.text):
+    elif not (
+        quote_on_page(quote, page.text)
+        if page.segments is None
+        else any(quote_on_page(quote, title) for title, _ in page.segments)
+    ):
         check.reason = "quote not found on source page"
     elif rule == "string" and not value_in_quote(value, quote):
         check.reason = "value not in quote"

@@ -17,6 +17,8 @@ value / date in quote, link on page or same site, geocoding) with these rules:
   (:data:`~discover.verify.PRE2020_DEFAULT`), otherwise a model judgement; with neither,
   ``past_merge`` writes an ``# UNVERIFIED default`` and the PR is a draft.
 - ``cancelled``: a judgement quote; never applied (listed for human removal).
+- A quote read from dblp's data (``Page.segments``) must fit inside one proceedings title
+  that states the edition's year and no other (:func:`edition_pages`).
 
 Required after the checks: start, end, link, and city + country unless virtual. A virtual
 edition drops any city, country and venue; a pinned city must geocode in its country.
@@ -24,10 +26,11 @@ edition drops any city, country and venue; a pinned city must geocode in its cou
 
 import re
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import date
 from typing import Any
 
+from .dblp import edition_year_is
 from .past_agent import PAST_FIELD_SCHEMAS
 from .past_ids import series_of
 from .verify import (
@@ -186,6 +189,28 @@ def _target_years(batch: dict[str, Any]) -> set[int]:
     return {int(y) for y in batch["years"]}
 
 
+def edition_pages(get_page: Callable[[str], Page], year: int) -> Callable[[str], Page]:
+    """``get_page`` that keeps only the dblp titles that state the edition's ``year`` and no
+    other (:func:`~discover.dblp.edition_year_is`), so a dblp quote must come from a title of
+    that edition.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        get = edition_pages(fetcher.get, 2018)
+    """
+
+    def get(url: str) -> Page:
+        page = get_page(url)
+        if page.segments is None:
+            return page
+        kept = tuple(s for s in page.segments if edition_year_is(s[0], s[1], year))
+        return replace(page, segments=kept)
+
+    return get
+
+
 def check_edition(
     raw: dict[str, Any],
     batch: dict[str, Any],
@@ -228,11 +253,12 @@ def check_edition(
         rationale=str(raw.get("rationale", "")),
         year=year if isinstance(year, int) and not isinstance(year, bool) else 0,
     )
+    pages = edition_pages(get_page, out.year)
     for name, rule in PAST_RULES.items():
         ev = raw.get(name)
         if not isinstance(ev, dict):
             continue
-        check = check_field(name, ev, get_page, rule, PAST_FIELD_SCHEMAS)
+        check = check_field(name, ev, pages, rule, PAST_FIELD_SCHEMAS)
         if check.kept and name == "title" and series_of(check.value) != series:
             check.kind, check.reason = "", "title is not of this series"
             check.detail = f"{series_of(check.value)} ≠ {series}"

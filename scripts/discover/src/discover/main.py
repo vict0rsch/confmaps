@@ -72,6 +72,7 @@ from rich.text import Text
 
 from . import agent, past_agent
 from .cost import Usage
+from .dblp import DblpTitles
 from .geo import Geocoder, cached_hit
 from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
 from .past import check_and_plan, plan_batches
@@ -622,9 +623,11 @@ def main(
     geocoder: Any = None,
     today: date | None = None,
     snapshots: Any = None,
+    dblp: Any = None,
 ) -> int:
-    """Entry point. ``client``, ``fetcher``, ``geocoder``, ``today`` and ``snapshots`` (Wayback
-    lookups for past-mode links) are injectable for tests.
+    """Entry point. ``client``, ``fetcher``, ``geocoder``, ``today``, ``snapshots`` (Wayback
+    lookups for past-mode links) and ``dblp`` (dblp titles for past-mode prompts and checks)
+    are injectable for tests.
 
     Returns
     -------
@@ -641,7 +644,7 @@ def main(
     args = _parse_args(argv)
     start = time.monotonic()
     try:
-        return _main(args, client, fetcher, geocoder, today, snapshots)
+        return _main(args, client, fetcher, geocoder, today, snapshots, dblp)
     finally:
         minutes, seconds = divmod(round(time.monotonic() - start), 60)
         step(f"Finished in {minutes}m{seconds:02d}s")
@@ -654,13 +657,14 @@ def _main(
     geocoder: Any,
     today: date | None,
     snapshots: Any = None,
+    dblp: Any = None,
 ) -> int:
     """:func:`main` after argument parsing: route to a mode, research or replay, then propose."""
     repo: Path = args.repo_root
     today = today or datetime.now(UTC).date()
     data = json.loads((repo / DATA_JSON).read_text())
     if args.mode == "past":
-        return _main_past(args, repo, today, data, client, fetcher, geocoder, snapshots)
+        return _main_past(args, repo, today, data, client, fetcher, geocoder, snapshots, dblp)
     sat_text = (repo / SATELLITES).read_text()
     existing = load_satellites(sat_text)
 
@@ -748,11 +752,13 @@ def _main_past(
     fetcher: Any,
     geocoder: Any,
     snapshots: Any = None,
+    dblp: Any = None,
 ) -> int:
     """``--mode past``: research (or replay), check, merge and propose past editions."""
     past_path = repo / PAST
     past_text = past_path.read_text() if past_path.exists() else ""
     past = load_entries(past_text)
+    dblp = dblp or DblpTitles()
     results_dir: Path | None = None
     if args.from_results:
         runs = load_results(args.from_results, "past")
@@ -779,7 +785,7 @@ def _main_past(
             series_list = [s for s in series_list if s in first_years]
             since = {s: first_years[s] for s in series_list}
             step("Starting at first_year: " + ", ".join(f"{s} {y}" for s, y in since.items()))
-        batches, unknown = plan_batches(data, past, series_list, since, until, args.recheck)
+        batches, unknown = plan_batches(data, past, series_list, since, until, args.recheck, dblp)
         if unknown:
             say(
                 "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "
@@ -829,6 +835,7 @@ def _main_past(
                 today,
                 on_checked=progress.checked,
                 snapshot=snapshots or Snapshots(),
+                dblp=dblp,
             )
         counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
         summary = (

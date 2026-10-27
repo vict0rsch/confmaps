@@ -46,6 +46,7 @@ flowchart LR
   subgraph Agent["Discovery agent (Python, uv)"]
     DISC[scripts/discover]
     CL[Claude API<br/>web search + fetch]
+    DBLP[dblp SPARQL<br/>past mode only]
   end
 
   subgraph App["Run time (browser)"]
@@ -65,6 +66,7 @@ flowchart LR
   SER --> VD
   SER --> DISC
   DISC <--> CL
+  DISC --> DBLP
   DISC -- "PR to curated YAML" --> CUR
   DJ -- "vite build (bundled)" --> SPA
   TILES --> SPA
@@ -381,6 +383,17 @@ flowchart LR
 - `verify.py` fetches pages itself, with SSRF protections (public IPs only, each redirect
   checked). A field whose quote is not on the page is dropped.
 - `wayback.py` replaces past-edition links with Wayback Machine snapshots.
+- `dblp.py` (`DblpTitles`) queries dblp's open SPARQL endpoint (`sparql.dblp.org`, CC0 metadata),
+  in past mode only. dblp.org's pages sit behind a bot check, so SPARQL is the interface dblp
+  offers to programs. The client sends one query at a time, at least one second apart, remembers
+  results for the run, and returns nothing when a query fails. Only keys and page names that
+  match a strict pattern enter a query. In the data flow, the program first lists the proceedings
+  titles and page URLs of a batch's target years in the prompt, so the model can quote a listed
+  title and cite its URL without opening it. Later, when `verify.py` finds a cited dblp page
+  behind the bot check, it reads that page's proceedings titles from SPARQL instead and runs the
+  usual checks on them. A quote must also fit inside a single title that states only the
+  edition's year (`past_verify.edition_pages`). The fallback order is the live page, then dblp
+  SPARQL, then the Wayback copy. Satellite mode does not use dblp.
 - `past_ids.py` repeats the id and series rules of `scripts/lib/normalize.ts` in Python. A change
   to one needs the same change in the other.
 - `cost.py` estimates spend, and `--max-usd` stops new calls once the estimate passes the cap.
