@@ -461,11 +461,11 @@ the rest of the filters panel. The field stays in place. The dropdown opens abov
 there is less than 200 px below it and more room above. It stays inside the filters panel and
 scrolls when the list is taller. When neither side has 200 px (phones held sideways), the panel
 first scrolls the field to its top. Opening the dropdown focuses the first checkbox. "Done", a tap
-outside or Escape closes only the dropdown, and focus returns to the field. A rotation closes it.
-Choices apply at once, as in a tray. With nothing selected, the field reads "Any topic" or "Any
-access level". Otherwise it shows the first two choices in display order and "+N" for the rest. The
-names shorten with an ellipsis when the field is too narrow. "+N" always shows. `kind` stays a
-segmented control, because it is a single choice. `open` stays one checkbox.
+outside or Escape closes only the dropdown, and focus returns to the field. A resize (a rotation)
+closes it. Choices apply at once, as in a tray. With nothing selected, the field reads "Any topic"
+or "Any access level". Otherwise it shows the first two choices in display order and "+N" for the
+rest. The names shorten with an ellipsis when the field is too narrow. "+N" always shows. `kind`
+stays a segmented control, because it is a single choice. `open` stays one checkbox.
 
 ### 6.4 Timeline / scrubber
 

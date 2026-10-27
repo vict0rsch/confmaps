@@ -260,6 +260,11 @@
     background: transparent;
   }
 
+  /* The sticky head inherits the dropdown's fill through the fieldset. */
+  .dropdown > .checklist {
+    background: inherit;
+  }
+
   /* Hint, Clear and Done stay put while the list scrolls. */
   .dropdown .head {
     position: sticky;
@@ -268,7 +273,7 @@
     align-items: center;
     margin: 0;
     padding: var(--space-3) 0 var(--space-2);
-    background: var(--glass-fill-thick);
+    background: inherit; /* the dropdown's opaque fill, in every transparency mode */
   }
 
   .dropdown .hint {
@@ -277,12 +282,6 @@
 
   .dropdown .group:first-of-type {
     margin-top: 0;
-  }
-
-  @media (forced-colors: active) {
-    .dropdown .head {
-      background: Canvas;
-    }
   }
 
   .head {
