@@ -1,0 +1,605 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1990-08-03",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai90",
+      "link": "https://dblp.org/db/conf/aaai/aaai90.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1990-07-29",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-06-09",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl90",
+      "link": "https://dblp.org/db/conf/acl/acl90.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1990-06-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-10-10",
+      "fullName": "International Workshop on Algorithmic Learning Theory",
+      "id": "alt1990",
+      "link": "https://dblp.org/db/conf/alt/alt1990.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "1990-10-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-04-05",
+      "fullName": "Conference on Human Factors in Computing Systems",
+      "id": "chi90",
+      "link": "https://dblp.org/db/conf/chi/chi1990.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1990-04-01",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-08-25",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling90",
+      "link": "https://dblp.org/db/conf/coling/coling1990.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1990-08-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-08-08",
+      "fullName": "Annual Workshop on Computational Learning Theory",
+      "id": "colt90",
+      "link": "https://dblp.org/db/conf/colt/colt1990.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "1990-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-10-10",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work",
+      "id": "cscw90",
+      "link": "https://dblp.org/db/conf/cscw/cscw1990.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "1990-10-07",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-08-10",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai90",
+      "link": "https://dblp.org/db/conf/ecai/ecai90.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1990-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-04-27",
+      "fullName": "European Conference on Computer Vision",
+      "id": "eccv90",
+      "link": "https://dblp.org/db/conf/eccv/eccv1990.html",
+      "series": "eccv",
+      "source": "curated",
+      "start": "1990-04-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-09-07",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics90",
+      "link": "https://dblp.org/db/conf/eurographics/eg1990.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1990-09-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-01-05",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss90",
+      "link": "https://books.google.com/books/about/Proceedings_of_the_Twenty_third_Annual_H.html?id=M13pvwEACAAJ",
+      "series": "hicss",
+      "source": "curated",
+      "start": "1990-01-02",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-04-06",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp90",
+      "link": "https://dblp.org/db/conf/icassp/icassp1990.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1990-04-03",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-12-07",
+      "fullName": "International Conference on Computer Vision",
+      "id": "iccv90",
+      "link": "https://dblp.org/db/conf/iccv/iccv1990.html",
+      "series": "iccv",
+      "source": "curated",
+      "start": "1990-12-04",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-06-23",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml90",
+      "link": "https://dblp.org/db/conf/icml/ml1990.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1990-06-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-06-21",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr90",
+      "link": "https://dblp.org/db/conf/icpr/icpr1990-1.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1990-06-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-05-18",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra90",
+      "link": "https://dblp.org/db/conf/icra/icra1990.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1990-05-13",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-06-21",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn90",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn1990.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "1990-06-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-07-06",
+      "fullName": "IEEE International Workshop on Intelligent Robots and Systems",
+      "id": "iros90",
+      "link": "https://dblp.org/db/conf/iros/iros1990.html",
+      "series": "iros",
+      "source": "curated",
+      "start": "1990-07-03",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-10-27",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis90",
+      "link": "https://webpages.charlotte.edu/ras/books.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "1990-10-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 1990
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "aaai90",
+      "country": "United States",
+      "end": "1990-08-03",
+      "id": "aaai90@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/aaai/aaai90.html",
+      "lng": -71.0578303,
+      "name": "AAAI 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-07-29"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "acl90",
+      "country": "United States",
+      "end": "1990-06-09",
+      "id": "acl90@main",
+      "lat": 40.4406968,
+      "link": "https://dblp.org/db/conf/acl/acl90.html",
+      "lng": -80.0025666,
+      "name": "ACL 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-06-06",
+      "venue": "University of Pittsburgh"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "alt1990",
+      "country": "Japan",
+      "end": "1990-10-10",
+      "id": "alt1990@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/alt/alt1990.html",
+      "lng": 139.7638947,
+      "name": "ALT 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "chi90",
+      "country": "United States",
+      "end": "1990-04-05",
+      "id": "chi90@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/chi/chi1990.html",
+      "lng": -122.330062,
+      "name": "CHI 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-04-01"
+    },
+    {
+      "access": "registration",
+      "city": "Helsinki",
+      "conferenceId": "coling90",
+      "country": "Finland",
+      "end": "1990-08-25",
+      "id": "coling90@main",
+      "lat": 60.1666204,
+      "link": "https://dblp.org/db/conf/coling/coling1990.html",
+      "lng": 24.9435408,
+      "name": "COLING 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-08-20",
+      "venue": "University of Helsinki"
+    },
+    {
+      "access": "registration",
+      "city": "Rochester",
+      "conferenceId": "colt90",
+      "country": "United States",
+      "end": "1990-08-08",
+      "id": "colt90@main",
+      "lat": 43.157285,
+      "link": "https://dblp.org/db/conf/colt/colt1990.html",
+      "lng": -77.615214,
+      "name": "COLT 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-08-06",
+      "venue": "University of Rochester"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "cscw90",
+      "country": "United States",
+      "end": "1990-10-10",
+      "id": "cscw90@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/cscw/cscw1990.html",
+      "lng": -118.2427676,
+      "name": "CSCW 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-10-07"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "ecai90",
+      "country": "Sweden",
+      "end": "1990-08-10",
+      "id": "ecai90@main",
+      "lat": 59.3251172,
+      "link": "https://dblp.org/db/conf/ecai/ecai90.html",
+      "lng": 18.0710935,
+      "name": "ECAI 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Antibes",
+      "conferenceId": "eccv90",
+      "country": "France",
+      "end": "1990-04-27",
+      "id": "eccv90@main",
+      "lat": 43.5813878,
+      "link": "https://dblp.org/db/conf/eccv/eccv1990.html",
+      "lng": 7.1236966,
+      "name": "ECCV 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-04-23"
+    },
+    {
+      "access": "registration",
+      "city": "Montreux",
+      "conferenceId": "eurographics90",
+      "country": "Switzerland",
+      "end": "1990-09-07",
+      "id": "eurographics90@main",
+      "lat": 46.4310831,
+      "link": "https://dblp.org/db/conf/eurographics/eg1990.html",
+      "lng": 6.9129921,
+      "name": "Eurographics 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Kailua-Kona",
+      "conferenceId": "hicss90",
+      "country": "United States",
+      "end": "1990-01-05",
+      "id": "hicss90@main",
+      "lat": 19.641941,
+      "link": "https://books.google.com/books/about/Proceedings_of_the_Twenty_third_Annual_H.html?id=M13pvwEACAAJ",
+      "lng": -155.996933,
+      "name": "HICSS 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-01-02"
+    },
+    {
+      "access": "registration",
+      "city": "Albuquerque",
+      "conferenceId": "icassp90",
+      "country": "United States",
+      "end": "1990-04-06",
+      "id": "icassp90@main",
+      "lat": 35.0841034,
+      "link": "https://dblp.org/db/conf/icassp/icassp1990.html",
+      "lng": -106.650985,
+      "name": "ICASSP 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-04-03"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "iccv90",
+      "country": "Japan",
+      "end": "1990-12-07",
+      "id": "iccv90@main",
+      "lat": 34.6937569,
+      "link": "https://dblp.org/db/conf/iccv/iccv1990.html",
+      "lng": 135.5014539,
+      "name": "ICCV 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-12-04"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "icml90",
+      "country": "United States",
+      "end": "1990-06-23",
+      "id": "icml90@main",
+      "lat": 30.2649261,
+      "link": "https://dblp.org/db/conf/icml/ml1990.html",
+      "lng": -97.7474086,
+      "name": "ICML 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Atlantic City",
+      "conferenceId": "icpr90",
+      "country": "United States",
+      "end": "1990-06-21",
+      "id": "icpr90@main",
+      "lat": 39.3642852,
+      "link": "https://dblp.org/db/conf/icpr/icpr1990-1.html",
+      "lng": -74.4229351,
+      "name": "ICPR 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-06-16"
+    },
+    {
+      "access": "registration",
+      "city": "Cincinnati",
+      "conferenceId": "icra90",
+      "country": "United States",
+      "end": "1990-05-18",
+      "id": "icra90@main",
+      "lat": 39.1012809,
+      "link": "https://dblp.org/db/conf/icra/icra1990.html",
+      "lng": -84.5127405,
+      "name": "ICRA 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-05-13"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "ijcnn90",
+      "country": "United States",
+      "end": "1990-06-21",
+      "id": "ijcnn90@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn1990.html",
+      "lng": -117.1638284,
+      "name": "IJCNN 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-06-17"
+    },
+    {
+      "access": "registration",
+      "city": "Ibaraki",
+      "conferenceId": "iros90",
+      "country": "Japan",
+      "end": "1990-07-06",
+      "id": "iros90@main",
+      "lat": 36.2869536,
+      "link": "https://dblp.org/db/conf/iros/iros1990.html",
+      "lng": 140.4703384,
+      "name": "IROS 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-07-03"
+    },
+    {
+      "access": "registration",
+      "city": "Knoxville",
+      "conferenceId": "ismis90",
+      "country": "United States",
+      "end": "1990-10-27",
+      "id": "ismis90@main",
+      "lat": 35.9603948,
+      "link": "https://webpages.charlotte.edu/ras/books.html",
+      "lng": -83.9210261,
+      "name": "ISMIS 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-10-25"
+    }
+  ]
+}

@@ -72,6 +72,38 @@
     },
     {
       "deadlines": [],
+      "end": "2018-10-26",
+      "fullName": "ACM Multimedia",
+      "id": "acm18",
+      "link": "https://dblp.org/db/conf/mm/mm2018.html",
+      "series": "acm-mm",
+      "source": "curated",
+      "start": "2018-10-22",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-16",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml18",
+      "link": "https://dblp.org/db/conf/acml/acml2018.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2018-11-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-04-11",
       "id": "aistats18",
       "link": "https://web.archive.org/web/20180414142626/http://www.aistats.org/",
@@ -86,6 +118,41 @@
     },
     {
       "deadlines": [],
+      "end": "2018-04-09",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2018",
+      "link": "https://dblp.org/db/conf/alt/alt2018.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2018-04-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-20",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2018",
+      "link": "https://dblp.org/db/conf/bis/bis2018.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2018-07-18",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-09-06",
       "id": "bmvc18",
       "link": "https://web.archive.org/web/20180903151200/http://bmvc2018.org/",
@@ -96,6 +163,53 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-13",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2018",
+      "link": "https://dblp.org/db/conf/cec/cec2018.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2018-07-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-26",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi18",
+      "link": "https://dblp.org/db/conf/chi/chi2018.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2018-04-21",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-26",
+      "fullName": "ACM International Conference on Information and Knowledge Management",
+      "id": "cikm18",
+      "link": "https://dblp.org/db/conf/cikm/cikm2018.html",
+      "series": "cikm",
+      "source": "curated",
+      "start": "2018-10-22",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
       "year": 2018
     },
     {
@@ -156,6 +270,21 @@
     },
     {
       "deadlines": [],
+      "end": "2018-11-07",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw18",
+      "link": "https://dblp.org/db/conf/cscw/cscw2018c.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2018-11-03",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-06-22",
       "id": "cvpr18",
       "link": "https://web.archive.org/web/20180618220802/http://cvpr2018.thecvf.com/",
@@ -166,6 +295,21 @@
         "computer-vision"
       ],
       "title": "CVPR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-19",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai18",
+      "link": "https://www.ijcai-18.org/about-ijcaiecai/index.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "2018-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
       "year": 2018
     },
     {
@@ -184,6 +328,37 @@
     },
     {
       "deadlines": [],
+      "end": "2018-03-29",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir18",
+      "link": "https://dblp.org/db/conf/ecir/ecir2018.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2018-03-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-14",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd18",
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2018-1.html",
+      "series": "ecml-pkdd",
+      "source": "curated",
+      "start": "2018-09-10",
+      "tags": [
+        "machine-learning",
+        "data-mining"
+      ],
+      "title": "ECML PKDD",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-11-04",
       "id": "emnlp18",
       "link": "https://web.archive.org/web/20181105065835/http://emnlp2018.org",
@@ -194,6 +369,211 @@
         "natural-language-processing"
       ],
       "title": "EMNLP",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-27",
+      "fullName": "European Symposium on Artificial Neural Networks",
+      "id": "esann18",
+      "link": "https://dblp.org/db/conf/esann/esann2018.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2018-04-25",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-20",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics18",
+      "link": "https://web.archive.org/web/20180502052109/https://www.eurographics2018.nl/",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2018-04-16",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-28",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip18",
+      "link": "https://dblp.org/db/conf/euvip/euvip2018.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2018-11-26",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-06",
+      "fullName": "International Conference on Computational Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart18",
+      "link": "https://link.springer.com/conference/evomusart",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2018-04-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-02-24",
+      "fullName": "Conference on Fairness, Accountability and Transparency",
+      "id": "facct18",
+      "link": "https://dblp.org/db/conf/fat/fat2018.html",
+      "series": "facct",
+      "source": "curated",
+      "start": "2018-02-23",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-19",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg18",
+      "link": "https://dblp.org/db/conf/fgr/fg2018.html",
+      "series": "fg",
+      "source": "curated",
+      "start": "2018-05-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-19",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco18",
+      "link": "https://dblp.org/db/conf/gecco/gecco2018.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2018-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-01-06",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss18",
+      "link": "https://dblp.org/db/conf/hicss/hicss2018.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2018-01-03",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-03-08",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri18",
+      "link": "https://dblp.org/db/conf/hri/hri2018.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2018-03-05",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-16",
+      "fullName": "Ibero-American Conference on Artificial Intelligence",
+      "id": "iberamia18",
+      "link": "http://iberamia2018.iberamia.org/",
+      "series": "iberamia",
+      "source": "curated",
+      "start": "2018-11-13",
+      "tags": [
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "IBERAMIA",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-07",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann18",
+      "link": "https://dblp.org/db/conf/icann/icann2018-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2018-10-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-29",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps18",
+      "link": "https://dblp.org/db/conf/aips/icaps2018.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2018-06-24",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-27",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc18",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2018.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2018-04-25",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2018
     },
     {
@@ -213,6 +593,36 @@
     },
     {
       "deadlines": [],
+      "end": "2018-06-29",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc18",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2018.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2018-06-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-20",
+      "fullName": "Joint IEEE International Conference on Development and Learning and Epigenetic Robotics",
+      "id": "icdlepirob18",
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2018.html",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2018-09-17",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-11-20",
       "id": "icdm18",
       "link": "https://web.archive.org/web/20181115113028/http://icdm2018.org/",
@@ -223,6 +633,21 @@
         "machine-learning"
       ],
       "title": "ICDM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-10",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip18",
+      "link": "https://dblp.org/db/conf/icip/icip2018.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2018-10-07",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
       "year": 2018
     },
     {
@@ -242,6 +667,36 @@
     },
     {
       "deadlines": [],
+      "end": "2018-07-27",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme18",
+      "link": "https://dblp.org/db/conf/icmcs/icme2018.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2018-07-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-20",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi18",
+      "link": "https://dblp.org/db/conf/icmi/icmi2018.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2018-10-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-07-15",
       "fullName": "International Conference on Machine Learning",
       "id": "icml18",
@@ -253,6 +708,51 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-14",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr18",
+      "link": "https://dblp.org/db/conf/mir/icmr2018.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2018-06-11",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-24",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr18",
+      "link": "https://dblp.org/db/conf/icpr/icpr2018.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2018-08-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-17",
+      "fullName": "International Conference on Pattern Recognition and Artificial Intelligence",
+      "id": "icprai18",
+      "link": "https://web.archive.org/web/20180226092958/http://www.concordia.ca:80/research/cenparmi/news-events/conferences.html",
+      "series": "icprai",
+      "source": "curated",
+      "start": "2018-05-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPRAI",
       "year": 2018
     },
     {
@@ -271,6 +771,21 @@
     },
     {
       "deadlines": [],
+      "end": "2018-06-28",
+      "fullName": "International Conference on Web and Social Media",
+      "id": "icwsm18",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2018.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2018-06-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-07-19",
       "id": "ijcai18",
       "link": "https://web.archive.org/web/20180715211112/https://www.ijcai-18.org/",
@@ -281,6 +796,36 @@
         "machine-learning"
       ],
       "title": "IJCAI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-13",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn18",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2018.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2018-07-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-08",
+      "fullName": "International Conference on Natural Language Generation",
+      "id": "inlg2018",
+      "link": "https://dblp.org/db/conf/inlg/inlg2018.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2018-11-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
       "year": 2018
     },
     {
@@ -310,6 +855,52 @@
         "robotics"
       ],
       "title": "IROS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-27",
+      "fullName": "International Society for Music Information Retrieval Conference",
+      "id": "ismir18",
+      "link": "https://dblp.org/db/conf/ismir/ismir2018.html",
+      "series": "ismir",
+      "source": "curated",
+      "start": "2018-09-23",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-31",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis18",
+      "link": "https://dblp.org/db/conf/ismis/ismis2018.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "2018-10-29",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-12",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc18",
+      "link": "https://dblp.org/db/conf/semweb/iswc2018-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2018-10-08",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2018
     },
     {
@@ -524,6 +1115,38 @@
     },
     {
       "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "acm18",
+      "country": "South Korea",
+      "end": "2018-10-26",
+      "id": "acm18@main",
+      "lat": 37.5666791,
+      "link": "https://dblp.org/db/conf/mm/mm2018.html",
+      "lng": 126.9782914,
+      "name": "ACM MM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-22"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "acml18",
+      "country": "China",
+      "end": "2018-11-16",
+      "id": "acml18@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/acml/acml2018.html",
+      "lng": 116.3912972,
+      "name": "ACML 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-14"
+    },
+    {
+      "access": "registration",
       "city": "Lanzarote",
       "conferenceId": "aistats18",
       "country": "Spain",
@@ -540,6 +1163,38 @@
     },
     {
       "access": "registration",
+      "city": "Lanzarote",
+      "conferenceId": "alt2018",
+      "country": "Spain",
+      "end": "2018-04-09",
+      "id": "alt2018@main",
+      "lat": 29.0397081,
+      "link": "https://dblp.org/db/conf/alt/alt2018.html",
+      "lng": -13.6362916,
+      "name": "ALT 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-07"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "bis2018",
+      "country": "Germany",
+      "end": "2018-07-20",
+      "id": "bis2018@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/bis/bis2018.html",
+      "lng": 13.3951309,
+      "name": "BIS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-18"
+    },
+    {
+      "access": "registration",
       "city": "Newcastle upon Tyne",
       "conferenceId": "bmvc18",
       "country": "United Kingdom",
@@ -553,6 +1208,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-09-03"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "cec2018",
+      "country": "Brazil",
+      "end": "2018-07-13",
+      "id": "cec2018@main",
+      "lat": -22.9110137,
+      "link": "https://dblp.org/db/conf/cec/cec2018.html",
+      "lng": -43.2093727,
+      "name": "CEC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "chi18",
+      "country": "Canada",
+      "end": "2018-04-26",
+      "id": "chi18@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/chi/chi2018.html",
+      "lng": -73.5698065,
+      "name": "CHI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-21"
+    },
+    {
+      "access": "registration",
+      "city": "Turin",
+      "conferenceId": "cikm18",
+      "country": "Italy",
+      "end": "2018-10-26",
+      "id": "cikm18@main",
+      "lat": 45.0677551,
+      "link": "https://dblp.org/db/conf/cikm/cikm2018.html",
+      "lng": 7.6824892,
+      "name": "CIKM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-22"
     },
     {
       "access": "registration",
@@ -620,6 +1323,22 @@
     },
     {
       "access": "registration",
+      "city": "Jersey City",
+      "conferenceId": "cscw18",
+      "country": "United States",
+      "end": "2018-11-07",
+      "id": "cscw18@main",
+      "lat": 40.7215682,
+      "link": "https://dblp.org/db/conf/cscw/cscw2018c.html",
+      "lng": -74.047455,
+      "name": "CSCW 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-03"
+    },
+    {
+      "access": "registration",
       "city": "Salt Lake City",
       "conferenceId": "cvpr18",
       "country": "United States",
@@ -634,6 +1353,22 @@
       "role": "main",
       "start": "2018-06-18",
       "venue": "Calvin L. Rampton Salt Palace Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "ecai18",
+      "country": "Sweden",
+      "end": "2018-07-19",
+      "id": "ecai18@main",
+      "lat": 59.3251172,
+      "link": "https://www.ijcai-18.org/about-ijcaiecai/index.html",
+      "lng": 18.0710935,
+      "name": "ECAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-13"
     },
     {
       "access": "registration",
@@ -653,6 +1388,38 @@
     },
     {
       "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "ecir18",
+      "country": "France",
+      "end": "2018-03-29",
+      "id": "ecir18@main",
+      "lat": 45.1875602,
+      "link": "https://dblp.org/db/conf/ecir/ecir2018.html",
+      "lng": 5.7357819,
+      "name": "ECIR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-03-26"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "ecmlpkdd18",
+      "country": "Ireland",
+      "end": "2018-09-14",
+      "id": "ecmlpkdd18@main",
+      "lat": 53.3493795,
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2018-1.html",
+      "lng": -6.2605593,
+      "name": "ECML PKDD 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-10"
+    },
+    {
+      "access": "registration",
       "city": "Brussels",
       "conferenceId": "emnlp18",
       "country": "Belgium",
@@ -666,6 +1433,215 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-11-02"
+    },
+    {
+      "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann18",
+      "country": "Belgium",
+      "end": "2018-04-27",
+      "id": "esann18@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2018.html",
+      "lng": 3.226772,
+      "name": "ESANN 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-25"
+    },
+    {
+      "access": "registration",
+      "city": "Delft",
+      "conferenceId": "eurographics18",
+      "country": "Netherlands",
+      "end": "2018-04-20",
+      "id": "eurographics18@main",
+      "lat": 52.0114017,
+      "link": "https://web.archive.org/web/20180502052109/https://www.eurographics2018.nl/",
+      "lng": 4.35839,
+      "name": "Eurographics 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-16"
+    },
+    {
+      "access": "registration",
+      "city": "Tampere",
+      "conferenceId": "euvip18",
+      "country": "Finland",
+      "end": "2018-11-28",
+      "id": "euvip18@main",
+      "lat": 61.4977988,
+      "link": "https://dblp.org/db/conf/euvip/euvip2018.html",
+      "lng": 23.7616335,
+      "name": "EUVIP 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Parma",
+      "conferenceId": "evomusart18",
+      "country": "Italy",
+      "end": "2018-04-06",
+      "id": "evomusart18@main",
+      "lat": 44.80153,
+      "link": "https://link.springer.com/conference/evomusart",
+      "lng": 10.3279843,
+      "name": "EvoMUSART 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-04"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "facct18",
+      "country": "United States",
+      "end": "2018-02-24",
+      "id": "facct18@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/fat/fat2018.html",
+      "lng": -74.0060152,
+      "name": "FAccT 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-02-23"
+    },
+    {
+      "access": "registration",
+      "city": "Xi'an",
+      "conferenceId": "fg18",
+      "country": "China",
+      "end": "2018-05-19",
+      "id": "fg18@main",
+      "lat": 34.261004,
+      "link": "https://dblp.org/db/conf/fgr/fg2018.html",
+      "lng": 108.9423363,
+      "name": "FG 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-05-15"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "gecco18",
+      "country": "Japan",
+      "end": "2018-07-19",
+      "id": "gecco18@main",
+      "lat": 35.0115754,
+      "link": "https://dblp.org/db/conf/gecco/gecco2018.html",
+      "lng": 135.7681441,
+      "name": "GECCO 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "hicss18",
+      "country": "United States",
+      "end": "2018-01-06",
+      "id": "hicss18@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2018.html",
+      "lng": -155.787398,
+      "name": "HICSS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-01-03",
+      "venue": "Hilton Waikoloa Village"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "hri18",
+      "country": "United States",
+      "end": "2018-03-08",
+      "id": "hri18@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/hri/hri2018.html",
+      "lng": -87.6244212,
+      "name": "HRI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-03-05"
+    },
+    {
+      "access": "registration",
+      "city": "Trujillo",
+      "conferenceId": "iberamia18",
+      "country": "Peru",
+      "end": "2018-11-16",
+      "id": "iberamia18@main",
+      "lat": -8.1116778,
+      "link": "http://iberamia2018.iberamia.org/",
+      "lng": -79.0287742,
+      "name": "IBERAMIA 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-13"
+    },
+    {
+      "access": "registration",
+      "city": "Rhodes",
+      "conferenceId": "icann18",
+      "country": "Greece",
+      "end": "2018-10-07",
+      "id": "icann18@main",
+      "lat": 36.4437233,
+      "link": "https://dblp.org/db/conf/icann/icann2018-1.html",
+      "lng": 28.227369,
+      "name": "ICANN 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-04"
+    },
+    {
+      "access": "registration",
+      "city": "Delft",
+      "conferenceId": "icaps18",
+      "country": "Netherlands",
+      "end": "2018-06-29",
+      "id": "icaps18@main",
+      "lat": 52.0114017,
+      "link": "https://dblp.org/db/conf/aips/icaps2018.html",
+      "lng": 4.35839,
+      "name": "ICAPS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-24"
+    },
+    {
+      "access": "registration",
+      "city": "Torres Vedras",
+      "conferenceId": "icarsc18",
+      "country": "Portugal",
+      "end": "2018-04-27",
+      "id": "icarsc18@main",
+      "lat": 39.0930856,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2018.html",
+      "lng": -9.260741,
+      "name": "ICARSC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-25"
     },
     {
       "access": "registration",
@@ -685,6 +1661,38 @@
     },
     {
       "access": "registration",
+      "city": "Salamanca",
+      "conferenceId": "iccc18",
+      "country": "Spain",
+      "end": "2018-06-29",
+      "id": "iccc18@main",
+      "lat": 40.9651572,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2018.html",
+      "lng": -5.6640182,
+      "name": "ICCC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "icdlepirob18",
+      "country": "Japan",
+      "end": "2018-09-20",
+      "id": "icdlepirob18@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2018.html",
+      "lng": 139.7638947,
+      "name": "ICDL-EpiRob 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-17"
+    },
+    {
+      "access": "registration",
       "city": "Singapore",
       "conferenceId": "icdm18",
       "country": "Singapore",
@@ -698,6 +1706,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-11-17"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "icip18",
+      "country": "Greece",
+      "end": "2018-10-10",
+      "id": "icip18@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/icip/icip2018.html",
+      "lng": 23.7348324,
+      "name": "ICIP 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-07"
     },
     {
       "access": "registration",
@@ -718,6 +1742,38 @@
     },
     {
       "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "icme18",
+      "country": "United States",
+      "end": "2018-07-27",
+      "id": "icme18@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/icmcs/icme2018.html",
+      "lng": -117.1638284,
+      "name": "ICME 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Boulder",
+      "conferenceId": "icmi18",
+      "country": "United States",
+      "end": "2018-10-20",
+      "id": "icmi18@main",
+      "lat": 40.0149856,
+      "link": "https://dblp.org/db/conf/icmi/icmi2018.html",
+      "lng": -105.270545,
+      "name": "ICMI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-16"
+    },
+    {
+      "access": "registration",
       "city": "Stockholm",
       "conferenceId": "icml18",
       "country": "Sweden",
@@ -732,6 +1788,54 @@
       "role": "main",
       "start": "2018-07-10",
       "venue": "Stockholmsmässan"
+    },
+    {
+      "access": "registration",
+      "city": "Yokohama",
+      "conferenceId": "icmr18",
+      "country": "Japan",
+      "end": "2018-06-14",
+      "id": "icmr18@main",
+      "lat": 35.4503381,
+      "link": "https://dblp.org/db/conf/mir/icmr2018.html",
+      "lng": 139.6343802,
+      "name": "ICMR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-11"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "icpr18",
+      "country": "China",
+      "end": "2018-08-24",
+      "id": "icpr18@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/icpr/icpr2018.html",
+      "lng": 116.3912972,
+      "name": "ICPR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icprai18",
+      "country": "Canada",
+      "end": "2018-05-17",
+      "id": "icprai18@main",
+      "lat": 45.5031824,
+      "link": "https://web.archive.org/web/20180226092958/http://www.concordia.ca:80/research/cenparmi/news-events/conferences.html",
+      "lng": -73.5698065,
+      "name": "ICPRAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-05-14"
     },
     {
       "access": "registration",
@@ -751,6 +1855,22 @@
     },
     {
       "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "icwsm18",
+      "country": "United States",
+      "end": "2018-06-28",
+      "id": "icwsm18@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2018.html",
+      "lng": -122.1702445,
+      "name": "ICWSM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-25"
+    },
+    {
+      "access": "registration",
       "city": "Stockholm",
       "conferenceId": "ijcai18",
       "country": "Sweden",
@@ -764,6 +1884,39 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "ijcnn18",
+      "country": "Brazil",
+      "end": "2018-07-13",
+      "id": "ijcnn18@main",
+      "lat": -22.9110137,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2018.html",
+      "lng": -43.2093727,
+      "name": "IJCNN 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Tilburg",
+      "conferenceId": "inlg2018",
+      "country": "Netherlands",
+      "end": "2018-11-08",
+      "id": "inlg2018@main",
+      "lat": 51.5856185,
+      "link": "https://dblp.org/db/conf/inlg/inlg2018.html",
+      "lng": 5.0660616,
+      "name": "INLG 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-11-05",
+      "venue": "Tilburg University"
     },
     {
       "access": "registration",
@@ -796,6 +1949,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-10-01"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "ismir18",
+      "country": "France",
+      "end": "2018-09-27",
+      "id": "ismir18@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/ismir/ismir2018.html",
+      "lng": 2.3483915,
+      "name": "ISMIR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-23"
+    },
+    {
+      "access": "registration",
+      "city": "Limassol",
+      "conferenceId": "ismis18",
+      "country": "Cyprus",
+      "end": "2018-10-31",
+      "id": "ismis18@main",
+      "lat": 34.6852901,
+      "link": "https://dblp.org/db/conf/ismis/ismis2018.html",
+      "lng": 33.0332657,
+      "name": "ISMIS 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-29"
+    },
+    {
+      "access": "registration",
+      "city": "Monterey",
+      "conferenceId": "iswc18",
+      "country": "United States",
+      "end": "2018-10-12",
+      "id": "iswc18@main",
+      "lat": 36.600256,
+      "link": "https://dblp.org/db/conf/semweb/iswc2018-1.html",
+      "lng": -121.8946388,
+      "name": "ISWC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-08"
     },
     {
       "access": "registration",

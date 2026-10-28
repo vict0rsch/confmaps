@@ -58,3 +58,99 @@ wacv18@main:
     Nominatim resolves "Lake Tahoe, United States" to the lake itself; WACV 2018 was held at the
     Stateline, Nevada casino resorts on the lake's south shore (Nominatim "Stateline, Nevada",
     village).
+
+aistats12@main:
+  lat: 28.6551163
+  lng: -17.8572686
+  reason: >-
+    Nominatim resolves "La Palma, Spain" to La Palma de Cervelló near Barcelona; AISTATS 2012 was
+    held in La Palma, Canary Islands (https://proceedings.mlr.press/v22/; Nominatim "La Palma,
+    Canary Islands", countrycodes=es, island).
+
+cikm08@main:
+  lat: 38.2971367
+  lng: -122.2855293
+  reason: >-
+    Nominatim resolves "Napa Valley, United States" to a neighbourhood in Missouri; CIKM 2008 was
+    held in Napa Valley, California (dblp proceedings title; Nominatim "Napa, California",
+    countrycodes=us).
+
+hicss02@main:
+  lat: 19.5895548
+  lng: -155.4486983
+  reason: >-
+    Nominatim resolves "Big Island, United States" to a town in Ohio; HICSS 2002 was held on the
+    Big Island, Hawaii (dblp proceedings title "Big Island, HI, USA"; Nominatim "Hawaii Island",
+    countrycodes=us, the Hawaiʻi island hit).
+
+hicss03@main:
+  lat: 19.5895548
+  lng: -155.4486983
+  reason: >-
+    Nominatim resolves "Big Island, United States" to a town in Ohio; HICSS 2003 was held on the
+    Big Island, Hawaii (dblp proceedings title "Big Island, HI, USA"; Nominatim "Hawaii Island",
+    countrycodes=us, the Hawaiʻi island hit).
+
+inlg2008@main:
+  lat: 40.1125203
+  lng: -81.4981453
+  reason: >-
+    Nominatim resolves "Salt Fork, United States" to a river in Illinois; INLG 2008 was held in
+    Salt Fork, Ohio (dblp proceedings title; Nominatim "Salt Fork State Park, Ohio",
+    countrycodes=us).
+
+icaps00@main:
+  lat: 39.4829124
+  lng: -106.0465486
+  reason: >-
+    Nominatim resolves "Breckenridge, United States" to Breckenridge, Texas; AIPS 2000 was held in
+    Breckenridge, Colorado (dblp proceedings title "Breckenridge, CO, USA"; Nominatim
+    "Breckenridge, Colorado", countrycodes=us).
+
+icaps14@main:
+  lat: 43.0751306
+  lng: -70.7601826
+  reason: >-
+    Nominatim resolves "Portsmouth, United States" to Portsmouth, Virginia; ICAPS 2014 was held in
+    Portsmouth, New Hampshire (dblp proceedings title; Nominatim "Portsmouth, New Hampshire",
+    countrycodes=us).
+
+cvpr83@main:
+  lat: 38.8809358
+  lng: -77.1079246
+  reason: >-
+    Nominatim resolves "Arlington, United States" to Arlington, Texas; CVPR 1983 was held in
+    Arlington, Virginia (http://tab.computer.org/pamitc/conference/history.html; Nominatim
+    "Arlington, Virginia", countrycodes=us, census place).
+
+cikm06@main:
+  lat: 38.8809358
+  lng: -77.1079246
+  reason: >-
+    Nominatim resolves "Arlington, United States" to Arlington, Texas; CIKM 2006 was held in
+    Arlington, Virginia (dblp proceedings title; Nominatim "Arlington, Virginia", countrycodes=us,
+    census place).
+
+hri07@main:
+  lat: 38.8809358
+  lng: -77.1079246
+  reason: >-
+    Nominatim resolves "Arlington, United States" to Arlington, Texas; HRI 2007 was held in
+    Arlington, Virginia (dblp proceedings title; Nominatim "Arlington, Virginia", countrycodes=us,
+    census place).
+
+iros90@main:
+  lat: 36.2869536
+  lng: 140.4703384
+  reason: >-
+    Nominatim resolves "Ibaraki, Japan" to Ibaraki city in Osaka Prefecture; the dblp proceedings
+    title gives "Ibaraki, Japan" for IROS 1990, which is Ibaraki Prefecture (Nominatim "Ibaraki
+    Prefecture", countrycodes=jp).
+
+icdlepirob16@main:
+  lat: 49.0527528
+  lng: 2.0388736
+  reason: >-
+    Nominatim resolves "Cergy-Pontoise, France" to a university site in Saint-Germain-en-Laye;
+    ICDL-EpiRob 2016 was held in Cergy-Pontoise (dblp proceedings title; Nominatim "Cergy",
+    countrycodes=fr).

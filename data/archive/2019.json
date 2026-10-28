@@ -58,6 +58,38 @@
     },
     {
       "deadlines": [],
+      "end": "2019-10-25",
+      "fullName": "ACM Multimedia",
+      "id": "acm19",
+      "link": "https://dblp.org/db/conf/mm/mm2019.html",
+      "series": "acm-mm",
+      "source": "curated",
+      "start": "2019-10-21",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-19",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml19",
+      "link": "https://dblp.org/db/conf/acml/acml2019.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2019-11-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-04-18",
       "id": "aistats19",
       "link": "https://web.archive.org/web/20190418103725/https://www.aistats.org/",
@@ -72,6 +104,56 @@
     },
     {
       "deadlines": [],
+      "end": "2019-05-22",
+      "fullName": "Conference on Automated Knowledge Base Construction",
+      "id": "akbc19",
+      "link": "https://dblp.org/db/conf/akbc/akbc2019.html",
+      "series": "akbc",
+      "source": "curated",
+      "start": "2019-05-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AKBC",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-03-24",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2019",
+      "link": "https://dblp.org/db/conf/alt/alt2019.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2019-03-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-28",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2019",
+      "link": "https://dblp.org/db/conf/bis/bis2019-1.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2019-06-26",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-09-12",
       "id": "bmvc19",
       "link": "https://web.archive.org/web/20190918053629/https://bmvc2019.org",
@@ -82,6 +164,53 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-06-13",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2019",
+      "link": "https://dblp.org/db/conf/cec/cec2019.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2019-06-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-09",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi19",
+      "link": "https://dblp.org/db/conf/chi/chi2019.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2019-05-04",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-07",
+      "fullName": "ACM International Conference on Information and Knowledge Management",
+      "id": "cikm19",
+      "link": "https://dblp.org/db/conf/cikm/cikm2019.html",
+      "series": "cikm",
+      "source": "curated",
+      "start": "2019-11-03",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
       "year": 2019
     },
     {
@@ -128,6 +257,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-11-13",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw19",
+      "link": "https://dblp.org/db/conf/cscw/cscw2019c.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2019-11-09",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-06-20",
       "id": "cvpr19",
       "link": "https://web.archive.org/web/20190618024449/http://cvpr2019.thecvf.com/",
@@ -138,6 +282,21 @@
         "computer-vision"
       ],
       "title": "CVPR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-04-18",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir19",
+      "link": "https://dblp.org/db/conf/ecir/ecir2019-1.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2019-04-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
       "year": 2019
     },
     {
@@ -170,6 +329,119 @@
     },
     {
       "deadlines": [],
+      "end": "2019-04-26",
+      "fullName": "European Symposium on Artificial Neural Networks",
+      "id": "esann19",
+      "link": "https://dblp.org/db/conf/esann/esann2019.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2019-04-24",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-10",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics19",
+      "link": "https://web.archive.org/web/20190422064050/https://www.eurographics2019.it/",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2019-05-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-10-31",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip19",
+      "link": "https://dblp.org/db/conf/euvip/euvip2019.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2019-10-28",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-04-26",
+      "fullName": "International Conference on Computational Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart19",
+      "link": "https://dblp.org/db/conf/evoW/evomusart2019.html",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2019-04-24",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-01-31",
+      "fullName": "Conference on Fairness, Accountability, and Transparency",
+      "id": "facct19",
+      "link": "https://dblp.org/db/conf/fat/fat2019.html",
+      "series": "facct",
+      "source": "curated",
+      "start": "2019-01-29",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-05-18",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg19",
+      "link": "https://ieee-biometrics.org/fg2019/",
+      "series": "fg",
+      "source": "curated",
+      "start": "2019-05-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-31",
+      "fullName": "Field and Service Robotics",
+      "id": "fsr19",
+      "link": "https://dblp.org/db/conf/fsr/fsr2019.html",
+      "series": "fsr",
+      "source": "curated",
+      "start": "2019-08-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-07-17",
       "id": "gecco19",
       "link": "https://web.archive.org/web/20190824123508/https://gecco-2019.sigevo.org/index.html/tiki-index.php",
@@ -184,6 +456,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-01-11",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss19",
+      "link": "https://dblp.org/db/conf/hicss/hicss2019.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2019-01-08",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-03-14",
       "id": "hri19",
       "link": "https://web.archive.org/web/20190318095407/https://humanrobotinteraction.org/2019/",
@@ -194,6 +481,51 @@
         "robotics"
       ],
       "title": "HRI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-09-19",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann19",
+      "link": "https://dblp.org/db/conf/icann/icann2019-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2019-09-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-07-15",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps19",
+      "link": "https://dblp.org/db/conf/aips/icaps2019.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2019-07-11",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-04-26",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc19",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2019.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2019-04-24",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2019
     },
     {
@@ -213,6 +545,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-06-21",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc19",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2019.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2019-06-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-11-02",
       "id": "iccv19",
       "link": "https://web.archive.org/web/20191027100939/http://iccv2019.thecvf.com/",
@@ -223,6 +570,36 @@
         "computer-vision"
       ],
       "title": "ICCV",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-09-25",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2019",
+      "link": "https://dblp.org/db/conf/icdar/icdar2019.html",
+      "series": "icdar",
+      "source": "curated",
+      "start": "2019-09-20",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-08-22",
+      "fullName": "Joint IEEE International Conference on Development and Learning and Epigenetic Robotics",
+      "id": "icdlepirob19",
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2019.html",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2019-08-19",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
       "year": 2019
     },
     {
@@ -241,6 +618,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-09-25",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip19",
+      "link": "https://dblp.org/db/conf/icip/icip2019.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2019-09-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-05-09",
       "id": "iclr19",
       "link": "https://web.archive.org/web/20190511061804/http://iclr.cc/",
@@ -251,6 +643,36 @@
         "machine-learning"
       ],
       "title": "ICLR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-07-12",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme19",
+      "link": "https://dblp.org/db/conf/icmcs/icme2019.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2019-07-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-10-18",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi19",
+      "link": "https://dblp.org/db/conf/icmi/icmi2019.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2019-10-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
       "year": 2019
     },
     {
@@ -270,6 +692,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-06-13",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr19",
+      "link": "https://dblp.org/db/conf/mir/icmr2019.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2019-06-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-05-24",
       "id": "icra19",
       "link": "https://web.archive.org/web/20190522080209/https://icra2019.org//",
@@ -284,6 +721,21 @@
     },
     {
       "deadlines": [],
+      "end": "2019-06-14",
+      "fullName": "International Conference on Web and Social Media",
+      "id": "icwsm19",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2019.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2019-06-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
       "end": "2019-08-16",
       "id": "ijcai19",
       "link": "https://web.archive.org/web/20190730145458/https://www.ijcai19.org/",
@@ -294,6 +746,36 @@
         "machine-learning"
       ],
       "title": "IJCAI",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-07-19",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn19",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2019.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2019-07-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-11-01",
+      "fullName": "International Conference on Natural Language Generation",
+      "id": "inlg2019",
+      "link": "https://dblp.org/db/conf/inlg/inlg2019.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2019-10-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
       "year": 2019
     },
     {
@@ -338,6 +820,21 @@
         "signal-processing"
       ],
       "title": "ISMIR",
+      "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2019-10-30",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc19",
+      "link": "https://dblp.org/db/conf/semweb/iswc2019-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2019-10-26",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2019
     },
     {
@@ -521,6 +1018,38 @@
     },
     {
       "access": "registration",
+      "city": "Nice",
+      "conferenceId": "acm19",
+      "country": "France",
+      "end": "2019-10-25",
+      "id": "acm19@main",
+      "lat": 43.7009358,
+      "link": "https://dblp.org/db/conf/mm/mm2019.html",
+      "lng": 7.2683912,
+      "name": "ACM MM 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-21"
+    },
+    {
+      "access": "registration",
+      "city": "Nagoya",
+      "conferenceId": "acml19",
+      "country": "Japan",
+      "end": "2019-11-19",
+      "id": "acml19@main",
+      "lat": 35.1851045,
+      "link": "https://dblp.org/db/conf/acml/acml2019.html",
+      "lng": 136.8998438,
+      "name": "ACML 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-17"
+    },
+    {
+      "access": "registration",
       "city": "Naha",
       "conferenceId": "aistats19",
       "country": "Japan",
@@ -537,6 +1066,54 @@
     },
     {
       "access": "registration",
+      "city": "Amherst",
+      "conferenceId": "akbc19",
+      "country": "United States",
+      "end": "2019-05-22",
+      "id": "akbc19@main",
+      "lat": 42.3731948,
+      "link": "https://dblp.org/db/conf/akbc/akbc2019.html",
+      "lng": -72.5198761,
+      "name": "AKBC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "alt2019",
+      "country": "United States",
+      "end": "2019-03-24",
+      "id": "alt2019@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/alt/alt2019.html",
+      "lng": -87.6244212,
+      "name": "ALT 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-03-22"
+    },
+    {
+      "access": "registration",
+      "city": "Seville",
+      "conferenceId": "bis2019",
+      "country": "Spain",
+      "end": "2019-06-28",
+      "id": "bis2019@main",
+      "lat": 37.3886303,
+      "link": "https://dblp.org/db/conf/bis/bis2019-1.html",
+      "lng": -5.9953403,
+      "name": "BIS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-26"
+    },
+    {
+      "access": "registration",
       "city": "Cardiff",
       "conferenceId": "bmvc19",
       "country": "United Kingdom",
@@ -550,6 +1127,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Wellington",
+      "conferenceId": "cec2019",
+      "country": "New Zealand",
+      "end": "2019-06-13",
+      "id": "cec2019@main",
+      "lat": -41.2887953,
+      "link": "https://dblp.org/db/conf/cec/cec2019.html",
+      "lng": 174.7772114,
+      "name": "CEC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "chi19",
+      "country": "United Kingdom",
+      "end": "2019-05-09",
+      "id": "chi19@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/chi/chi2019.html",
+      "lng": -4.2501687,
+      "name": "CHI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-04"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "cikm19",
+      "country": "China",
+      "end": "2019-11-07",
+      "id": "cikm19@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/cikm/cikm2019.html",
+      "lng": 116.3912972,
+      "name": "CIKM 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-03"
     },
     {
       "access": "registration",
@@ -601,6 +1226,22 @@
     },
     {
       "access": "registration",
+      "city": "Austin",
+      "conferenceId": "cscw19",
+      "country": "United States",
+      "end": "2019-11-13",
+      "id": "cscw19@main",
+      "lat": 30.2649261,
+      "link": "https://dblp.org/db/conf/cscw/cscw2019c.html",
+      "lng": -97.7474086,
+      "name": "CSCW 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-11-09"
+    },
+    {
+      "access": "registration",
       "city": "Long Beach",
       "conferenceId": "cvpr19",
       "country": "United States",
@@ -615,6 +1256,22 @@
       "role": "main",
       "start": "2019-06-16",
       "venue": "Long Beach Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Cologne",
+      "conferenceId": "ecir19",
+      "country": "Germany",
+      "end": "2019-04-18",
+      "id": "ecir19@main",
+      "lat": 50.938361,
+      "link": "https://dblp.org/db/conf/ecir/ecir2019-1.html",
+      "lng": 6.959974,
+      "name": "ECIR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-04-14"
     },
     {
       "access": "registration",
@@ -650,6 +1307,118 @@
     },
     {
       "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann19",
+      "country": "Belgium",
+      "end": "2019-04-26",
+      "id": "esann19@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2019.html",
+      "lng": 3.226772,
+      "name": "ESANN 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Genoa",
+      "conferenceId": "eurographics19",
+      "country": "Italy",
+      "end": "2019-05-10",
+      "id": "eurographics19@main",
+      "lat": 44.40726,
+      "link": "https://web.archive.org/web/20190422064050/https://www.eurographics2019.it/",
+      "lng": 8.9338624,
+      "name": "Eurographics 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Rome",
+      "conferenceId": "euvip19",
+      "country": "Italy",
+      "end": "2019-10-31",
+      "id": "euvip19@main",
+      "lat": 41.8933203,
+      "link": "https://dblp.org/db/conf/euvip/euvip2019.html",
+      "lng": 12.4829321,
+      "name": "EUVIP 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-28"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "evomusart19",
+      "country": "Germany",
+      "end": "2019-04-26",
+      "id": "evomusart19@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/evoW/evomusart2019.html",
+      "lng": 12.3747329,
+      "name": "EvoMUSART 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "facct19",
+      "country": "United States",
+      "end": "2019-01-31",
+      "id": "facct19@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/fat/fat2019.html",
+      "lng": -84.3898151,
+      "name": "FAccT 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-01-29"
+    },
+    {
+      "access": "registration",
+      "city": "Lille",
+      "conferenceId": "fg19",
+      "country": "France",
+      "end": "2019-05-18",
+      "id": "fg19@main",
+      "lat": 50.6365654,
+      "link": "https://ieee-biometrics.org/fg2019/",
+      "lng": 3.0635282,
+      "name": "FG 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-05-14"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "fsr19",
+      "country": "Japan",
+      "end": "2019-08-31",
+      "id": "fsr19@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/fsr/fsr2019.html",
+      "lng": 139.7638947,
+      "name": "FSR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-08-29"
+    },
+    {
+      "access": "registration",
       "city": "Prague",
       "conferenceId": "gecco19",
       "country": "Czech Republic",
@@ -663,6 +1432,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Wailea",
+      "conferenceId": "hicss19",
+      "country": "United States",
+      "end": "2019-01-11",
+      "id": "hicss19@main",
+      "lat": 20.6871749,
+      "link": "https://dblp.org/db/conf/hicss/hicss2019.html",
+      "lng": -156.4390415,
+      "name": "HICSS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-01-08",
+      "venue": "Grand Wailea"
     },
     {
       "access": "registration",
@@ -682,6 +1468,54 @@
     },
     {
       "access": "registration",
+      "city": "Munich",
+      "conferenceId": "icann19",
+      "country": "Germany",
+      "end": "2019-09-19",
+      "id": "icann19@main",
+      "lat": 48.1371079,
+      "link": "https://dblp.org/db/conf/icann/icann2019-1.html",
+      "lng": 11.5753822,
+      "name": "ICANN 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-17"
+    },
+    {
+      "access": "registration",
+      "city": "Berkeley",
+      "conferenceId": "icaps19",
+      "country": "United States",
+      "end": "2019-07-15",
+      "id": "icaps19@main",
+      "lat": 37.8708393,
+      "link": "https://dblp.org/db/conf/aips/icaps2019.html",
+      "lng": -122.272863,
+      "name": "ICAPS 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-11"
+    },
+    {
+      "access": "registration",
+      "city": "Porto",
+      "conferenceId": "icarsc19",
+      "country": "Portugal",
+      "end": "2019-04-26",
+      "id": "icarsc19@main",
+      "lat": 41.1502195,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2019.html",
+      "lng": -8.6103497,
+      "name": "ICARSC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-04-24"
+    },
+    {
+      "access": "registration",
       "city": "Brighton",
       "conferenceId": "icassp19",
       "country": "United Kingdom",
@@ -695,6 +1529,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-05-12"
+    },
+    {
+      "access": "registration",
+      "city": "Charlotte",
+      "conferenceId": "iccc19",
+      "country": "United States",
+      "end": "2019-06-21",
+      "id": "iccc19@main",
+      "lat": 35.2272086,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2019.html",
+      "lng": -80.8430827,
+      "name": "ICCC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-17"
     },
     {
       "access": "registration",
@@ -714,6 +1564,38 @@
     },
     {
       "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "icdar2019",
+      "country": "Australia",
+      "end": "2019-09-25",
+      "id": "icdar2019@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/icdar/icdar2019.html",
+      "lng": 151.2082848,
+      "name": "ICDAR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-20"
+    },
+    {
+      "access": "registration",
+      "city": "Oslo",
+      "conferenceId": "icdlepirob19",
+      "country": "Norway",
+      "end": "2019-08-22",
+      "id": "icdlepirob19@main",
+      "lat": 59.9723975,
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2019.html",
+      "lng": 10.7757292,
+      "name": "ICDL-EpiRob 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-08-19"
+    },
+    {
+      "access": "registration",
       "city": "Beijing",
       "conferenceId": "icdm19",
       "country": "China",
@@ -730,6 +1612,22 @@
     },
     {
       "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "icip19",
+      "country": "Taiwan",
+      "end": "2019-09-25",
+      "id": "icip19@main",
+      "lat": 25.0375198,
+      "link": "https://dblp.org/db/conf/icip/icip2019.html",
+      "lng": 121.5636796,
+      "name": "ICIP 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-09-22"
+    },
+    {
+      "access": "registration",
       "city": "New Orleans",
       "conferenceId": "iclr19",
       "country": "United States",
@@ -743,6 +1641,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Shanghai",
+      "conferenceId": "icme19",
+      "country": "China",
+      "end": "2019-07-12",
+      "id": "icme19@main",
+      "lat": 31.2323437,
+      "link": "https://dblp.org/db/conf/icmcs/icme2019.html",
+      "lng": 121.4691024,
+      "name": "ICME 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "icmi19",
+      "country": "China",
+      "end": "2019-10-18",
+      "id": "icmi19@main",
+      "lat": 31.311123,
+      "link": "https://dblp.org/db/conf/icmi/icmi2019.html",
+      "lng": 120.6212881,
+      "name": "ICMI 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-14"
     },
     {
       "access": "registration",
@@ -763,6 +1693,22 @@
     },
     {
       "access": "registration",
+      "city": "Ottawa",
+      "conferenceId": "icmr19",
+      "country": "Canada",
+      "end": "2019-06-13",
+      "id": "icmr19@main",
+      "lat": 45.4208777,
+      "link": "https://dblp.org/db/conf/mir/icmr2019.html",
+      "lng": -75.6901106,
+      "name": "ICMR 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-10"
+    },
+    {
+      "access": "registration",
       "city": "Montreal",
       "conferenceId": "icra19",
       "country": "Canada",
@@ -779,6 +1725,22 @@
     },
     {
       "access": "registration",
+      "city": "Munich",
+      "conferenceId": "icwsm19",
+      "country": "Germany",
+      "end": "2019-06-14",
+      "id": "icwsm19@main",
+      "lat": 48.1371079,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2019.html",
+      "lng": 11.5753822,
+      "name": "ICWSM 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-06-11"
+    },
+    {
+      "access": "registration",
       "city": "Macao",
       "conferenceId": "ijcai19",
       "country": "China",
@@ -792,6 +1754,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-08-10"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "ijcnn19",
+      "country": "Hungary",
+      "end": "2019-07-19",
+      "id": "ijcnn19@main",
+      "lat": 47.4978789,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2019.html",
+      "lng": 19.0402383,
+      "name": "IJCNN 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "inlg2019",
+      "country": "Japan",
+      "end": "2019-11-01",
+      "id": "inlg2019@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/inlg/inlg2019.html",
+      "lng": 139.7638947,
+      "name": "INLG 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-29"
     },
     {
       "access": "registration",
@@ -840,6 +1834,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-11-04"
+    },
+    {
+      "access": "registration",
+      "city": "Auckland",
+      "conferenceId": "iswc19",
+      "country": "New Zealand",
+      "end": "2019-10-30",
+      "id": "iswc19@main",
+      "lat": -36.852095,
+      "link": "https://dblp.org/db/conf/semweb/iswc2019-1.html",
+      "lng": 174.7631803,
+      "name": "ISWC 2019",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2019-10-26"
     },
     {
       "access": "registration",

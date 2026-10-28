@@ -1,0 +1,132 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1976-10-09",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl76",
+      "link": "https://aclanthology.org/J76-3001/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1976-10-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1976
+    },
+    {
+      "deadlines": [],
+      "end": "1976-07-14",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai76",
+      "link": "https://dblp.org/db/conf/ecai/ecai76.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1976-07-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1976
+    },
+    {
+      "deadlines": [],
+      "end": "1976-04-14",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp76",
+      "link": "https://dblp.org/db/conf/icassp/icassp1976.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1976-04-12",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1976
+    },
+    {
+      "deadlines": [],
+      "end": "1976-11-10",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr76",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1976-11-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1976
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "acl76",
+      "country": "United States",
+      "end": "1976-10-09",
+      "id": "acl76@main",
+      "lat": 37.7879363,
+      "link": "https://aclanthology.org/J76-3001/",
+      "lng": -122.4075201,
+      "name": "ACL 1976",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1976-10-08",
+      "venue": "St. Francis Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Edinburgh",
+      "conferenceId": "ecai76",
+      "country": "United Kingdom",
+      "end": "1976-07-14",
+      "id": "ecai76@main",
+      "lat": 55.9533456,
+      "link": "https://dblp.org/db/conf/ecai/ecai76.html",
+      "lng": -3.1883749,
+      "name": "ECAI 1976",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1976-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "icassp76",
+      "country": "United States",
+      "end": "1976-04-14",
+      "id": "icassp76@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/icassp/icassp1976.html",
+      "lng": -75.1635262,
+      "name": "ICASSP 1976",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1976-04-12"
+    },
+    {
+      "access": "registration",
+      "city": "Coronado",
+      "conferenceId": "icpr76",
+      "country": "United States",
+      "end": "1976-11-10",
+      "id": "icpr76@main",
+      "lat": 32.6915199,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": -117.1766947,
+      "name": "ICPR 1976",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1976-11-08"
+    }
+  ]
+}

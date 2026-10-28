@@ -1,0 +1,482 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1989-06-29",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl89",
+      "link": "https://dblp.org/db/conf/acl/acl1989.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1989-06-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-01-07",
+      "fullName": "International Workshop on Artificial Intelligence and Statistics",
+      "id": "aistats89",
+      "link": "https://aistats.org/aistats1989/",
+      "series": "aistats",
+      "source": "curated",
+      "start": "1989-01-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-05-04",
+      "fullName": "SIGCHI Conference on Human Factors in Computing Systems",
+      "id": "chi89",
+      "link": "https://dblp.org/db/conf/chi/chi1989.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1989-04-30",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-08-02",
+      "fullName": "Annual Workshop on Computational Learning Theory",
+      "id": "colt89",
+      "link": "https://dblp.org/db/conf/colt/colt1989.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "1989-07-31",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-06-08",
+      "fullName": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr89",
+      "link": "https://dblp.org/db/conf/cvpr/cvpr1989.html",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "1989-06-04",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-04-12",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl89",
+      "link": "https://dblp.org/db/conf/eacl/eacl1989.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "1989-04-10",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-09-08",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics89",
+      "link": "https://dblp.org/db/conf/eurographics/eg1989.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1989-09-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-01-06",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss89",
+      "link": "https://www.computer.org/csdl/proceedings/hicss/1989/12OmNz2kqrr",
+      "series": "hicss",
+      "source": "curated",
+      "start": "1989-01-03",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-05-26",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp89",
+      "link": "https://dblp.org/db/conf/icassp/icassp1989.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1989-05-23",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-06-27",
+      "fullName": "International Workshop on Machine Learning",
+      "id": "icml89",
+      "link": "https://dblp.org/db/conf/icml/ml1989.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1989-06-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-05-19",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra89",
+      "link": "https://dblp.org/db/conf/icra/icra1989.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1989-05-14",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-08-25",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai89",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai89.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1989-08-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-06-22",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn89",
+      "link": "https://ewh.ieee.org/conf/ijcnn/",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "1989-06-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-09-06",
+      "fullName": "IEEE International Workshop on Intelligent Robots and Systems",
+      "id": "iros89",
+      "link": "https://dblp.org/db/conf/iros/iros1989.html",
+      "series": "iros",
+      "source": "curated",
+      "start": "1989-09-04",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-10-14",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis89",
+      "link": "https://webpages.charlotte.edu/ras/books.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "1989-10-12",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 1989
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "acl89",
+      "country": "Canada",
+      "end": "1989-06-29",
+      "id": "acl89@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/acl/acl1989.html",
+      "lng": -123.113952,
+      "name": "ACL 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-06-26",
+      "venue": "University of British Columbia"
+    },
+    {
+      "access": "registration",
+      "city": "Fort Lauderdale",
+      "conferenceId": "aistats89",
+      "country": "United States",
+      "end": "1989-01-07",
+      "id": "aistats89@main",
+      "lat": 26.1223084,
+      "link": "https://aistats.org/aistats1989/",
+      "lng": -80.1433786,
+      "name": "AISTATS 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-01-04",
+      "venue": "Hyatt Regency Pier 66"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "chi89",
+      "country": "United States",
+      "end": "1989-05-04",
+      "id": "chi89@main",
+      "lat": 30.2649261,
+      "link": "https://dblp.org/db/conf/chi/chi1989.html",
+      "lng": -97.7474086,
+      "name": "CHI 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-04-30"
+    },
+    {
+      "access": "registration",
+      "city": "Santa Cruz",
+      "conferenceId": "colt89",
+      "country": "United States",
+      "end": "1989-08-02",
+      "id": "colt89@main",
+      "lat": 36.9743626,
+      "link": "https://dblp.org/db/conf/colt/colt1989.html",
+      "lng": -122.0294673,
+      "name": "COLT 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "cvpr89",
+      "country": "United States",
+      "end": "1989-06-08",
+      "id": "cvpr89@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/cvpr/cvpr1989.html",
+      "lng": -117.1638284,
+      "name": "CVPR 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-06-04"
+    },
+    {
+      "access": "registration",
+      "city": "Manchester",
+      "conferenceId": "eacl89",
+      "country": "United Kingdom",
+      "end": "1989-04-12",
+      "id": "eacl89@main",
+      "lat": 53.4424618,
+      "link": "https://dblp.org/db/conf/eacl/eacl1989.html",
+      "lng": -2.2324547,
+      "name": "EACL 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-04-10",
+      "venue": "University of Manchester, Institute of Science and Technology"
+    },
+    {
+      "access": "registration",
+      "city": "Hamburg",
+      "conferenceId": "eurographics89",
+      "country": "Germany",
+      "end": "1989-09-08",
+      "id": "eurographics89@main",
+      "lat": 53.5501721,
+      "link": "https://dblp.org/db/conf/eurographics/eg1989.html",
+      "lng": 10.0013165,
+      "name": "Eurographics 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Kailua-Kona",
+      "conferenceId": "hicss89",
+      "country": "United States",
+      "end": "1989-01-06",
+      "id": "hicss89@main",
+      "lat": 19.641941,
+      "link": "https://www.computer.org/csdl/proceedings/hicss/1989/12OmNz2kqrr",
+      "lng": -155.996933,
+      "name": "HICSS 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-01-03"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "icassp89",
+      "country": "United Kingdom",
+      "end": "1989-05-26",
+      "id": "icassp89@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/icassp/icassp1989.html",
+      "lng": -4.2501687,
+      "name": "ICASSP 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-05-23"
+    },
+    {
+      "access": "registration",
+      "city": "Ithaca",
+      "conferenceId": "icml89",
+      "country": "United States",
+      "end": "1989-06-27",
+      "id": "icml89@main",
+      "lat": 42.4374175,
+      "link": "https://dblp.org/db/conf/icml/ml1989.html",
+      "lng": -76.5483724,
+      "name": "ICML 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-06-26",
+      "venue": "Cornell University"
+    },
+    {
+      "access": "registration",
+      "city": "Scottsdale",
+      "conferenceId": "icra89",
+      "country": "United States",
+      "end": "1989-05-19",
+      "id": "icra89@main",
+      "lat": 33.4942189,
+      "link": "https://dblp.org/db/conf/icra/icra1989.html",
+      "lng": -111.926018,
+      "name": "ICRA 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-05-14"
+    },
+    {
+      "access": "registration",
+      "city": "Detroit",
+      "conferenceId": "ijcai89",
+      "country": "United States",
+      "end": "1989-08-25",
+      "id": "ijcai89@main",
+      "lat": 42.3315509,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai89.html",
+      "lng": -83.0466403,
+      "name": "IJCAI 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "ijcnn89",
+      "country": "United States",
+      "end": "1989-06-22",
+      "id": "ijcnn89@main",
+      "lat": 38.8950982,
+      "link": "https://ewh.ieee.org/conf/ijcnn/",
+      "lng": -77.0363849,
+      "name": "IJCNN 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-06-18"
+    },
+    {
+      "access": "registration",
+      "city": "Tsukuba",
+      "conferenceId": "iros89",
+      "country": "Japan",
+      "end": "1989-09-06",
+      "id": "iros89@main",
+      "lat": 36.0833265,
+      "link": "https://dblp.org/db/conf/iros/iros1989.html",
+      "lng": 140.077279,
+      "name": "IROS 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Charlotte",
+      "conferenceId": "ismis89",
+      "country": "United States",
+      "end": "1989-10-14",
+      "id": "ismis89@main",
+      "lat": 35.2272086,
+      "link": "https://webpages.charlotte.edu/ras/books.html",
+      "lng": -80.8430827,
+      "name": "ISMIS 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-10-12"
+    }
+  ]
+}

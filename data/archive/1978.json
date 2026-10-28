@@ -1,0 +1,132 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1978-08-18",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling78",
+      "link": "https://www.persee.fr/doc/medio_0223-3843_1979_num_1_1_886_t1_0016_0000_2",
+      "series": "coling",
+      "source": "curated",
+      "start": "1978-08-14",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-07-20",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai78",
+      "link": "https://dblp.org/db/conf/ecai/ecai78.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1978-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-04-12",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp78",
+      "link": "https://dblp.org/db/conf/icassp/icassp1978.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1978-04-10",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-11-10",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr78",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1978-11-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1978
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Bergen",
+      "conferenceId": "coling78",
+      "country": "Norway",
+      "end": "1978-08-18",
+      "id": "coling78@main",
+      "lat": 60.3943055,
+      "link": "https://www.persee.fr/doc/medio_0223-3843_1979_num_1_1_886_t1_0016_0000_2",
+      "lng": 5.3259192,
+      "name": "COLING 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-08-14",
+      "venue": "University of Bergen"
+    },
+    {
+      "access": "registration",
+      "city": "Hamburg",
+      "conferenceId": "ecai78",
+      "country": "Germany",
+      "end": "1978-07-20",
+      "id": "ecai78@main",
+      "lat": 53.5501721,
+      "link": "https://dblp.org/db/conf/ecai/ecai78.html",
+      "lng": 10.0013165,
+      "name": "ECAI 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Tulsa",
+      "conferenceId": "icassp78",
+      "country": "United States",
+      "end": "1978-04-12",
+      "id": "icassp78@main",
+      "lat": 36.1563122,
+      "link": "https://dblp.org/db/conf/icassp/icassp1978.html",
+      "lng": -95.9927516,
+      "name": "ICASSP 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-04-10"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "icpr78",
+      "country": "Japan",
+      "end": "1978-11-10",
+      "id": "icpr78@main",
+      "lat": 35.0115754,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": 135.7681441,
+      "name": "ICPR 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-11-07"
+    }
+  ]
+}

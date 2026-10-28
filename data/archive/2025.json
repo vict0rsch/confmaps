@@ -194,6 +194,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-12-11",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml25",
+      "link": "https://web.archive.org/web/20251217150120/https://www.acml-conf.org/2025/",
+      "series": "acml",
+      "source": "curated",
+      "start": "2025-12-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2024-10-04T11:59:59Z",
@@ -222,6 +237,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-11-20",
+      "fullName": "IEEE/ACM International Conference on AI-powered Software",
+      "id": "aiware25",
+      "link": "https://dblp.org/db/conf/aiware/aiware2025.html",
+      "series": "aiware",
+      "source": "curated",
+      "start": "2025-11-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AIware",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2024-10-01T09:59:59Z",
@@ -241,6 +271,56 @@
         "machine-learning"
       ],
       "title": "ALT",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-11",
+      "fullName": "International Conference on Automated Machine Learning",
+      "id": "automl25",
+      "link": "https://dblp.org/db/conf/automl/automl2025.html",
+      "series": "automl",
+      "source": "curated",
+      "start": "2025-09-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AutoML",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-27",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2025",
+      "link": "https://web.archive.org/web/20250614022629/https://bisconf.org/2025/",
+      "series": "bis",
+      "source": "curated",
+      "start": "2025-06-25",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-11-27",
+      "fullName": "The British Machine Vision Conference",
+      "id": "bmvc25",
+      "link": "https://bmvc2025.bmva.org/",
+      "series": "bmvc",
+      "source": "curated",
+      "start": "2025-11-24",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
       "year": 2025
     },
     {
@@ -294,6 +374,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-06-27",
+      "fullName": "Conference on Health, Inference, and Learning",
+      "id": "chil25",
+      "link": "https://dblp.org/db/conf/chil/chil2025.html",
+      "series": "chil",
+      "source": "curated",
+      "start": "2025-06-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CHIL",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-05-17T11:59:00Z",
@@ -333,6 +428,21 @@
         "machine-learning"
       ],
       "title": "CIKM",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-05-09",
+      "fullName": "Conference on Causal Learning and Reasoning",
+      "id": "clear25",
+      "link": "https://dblp.org/db/conf/clear2/clear2025.html",
+      "series": "clear",
+      "source": "curated",
+      "start": "2025-05-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CLeaR",
       "year": 2025
     },
     {
@@ -538,6 +648,21 @@
         "machine-learning"
       ],
       "title": "CPAL",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-10-22",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw25",
+      "link": "https://dblp.org/db/conf/cscw/cscw2025c.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2025-10-18",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
       "year": 2025
     },
     {
@@ -814,6 +939,119 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-10-16",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip25",
+      "link": "https://dblp.org/db/conf/euvip/euvip2025.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2025-10-13",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-04-25",
+      "fullName": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart25",
+      "link": "https://dblp.org/db/conf/evomusart/evomusart2025.html",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2025-04-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-26",
+      "fullName": "ACM Conference on Fairness, Accountability, and Transparency",
+      "id": "facct25",
+      "link": "https://dblp.org/db/conf/fat/facct2025.html",
+      "series": "facct",
+      "source": "curated",
+      "start": "2025-06-23",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-05-30",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg25",
+      "link": "https://fg2025.ieee-biometrics.org/",
+      "series": "fg",
+      "source": "curated",
+      "start": "2025-05-26",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-18",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco25",
+      "link": "https://dblp.org/db/conf/gecco/gecco2025.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2025-07-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-01-10",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss25",
+      "link": "https://dblp.org/db/conf/hicss/hicss2025.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2025-01-07",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-03-06",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri25",
+      "link": "https://dblp.org/db/conf/hri/hri2025.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2025-03-04",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-03-30T11:59:59Z",
@@ -837,6 +1075,36 @@
     },
     {
       "deadlines": [],
+      "end": "2025-11-14",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps25",
+      "link": "https://dblp.org/db/conf/icaps/icaps2025.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2025-11-09",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-04-03",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc25",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2025.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2025-04-02",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
       "end": "2025-04-11",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp25",
@@ -848,6 +1116,21 @@
         "signal-processing"
       ],
       "title": "ICASSP",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-27",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc25",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2025.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2025-06-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
       "year": 2025
     },
     {
@@ -950,6 +1233,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-09-19",
+      "fullName": "IEEE International Conference on Development and Learning",
+      "id": "icdlepirob25",
+      "link": "https://icdl2025.fel.cvut.cz/",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2025-09-16",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-06-07T11:59:59Z",
@@ -984,6 +1282,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-09-17",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip25",
+      "link": "https://dblp.org/db/conf/icip/icip2025.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2025-09-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2024-09-28T11:59:59Z",
@@ -1013,6 +1326,36 @@
         "representation-learning"
       ],
       "title": "ICLR",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-04",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme25",
+      "link": "https://dblp.org/db/conf/icmcs/icme2025.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2025-06-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-10-17",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi25",
+      "link": "https://dblp.org/db/conf/icmi/icmi2025.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2025-10-13",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
       "year": 2025
     },
     {
@@ -1065,6 +1408,21 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-03",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr25",
+      "link": "https://dblp.org/db/conf/mir/icmr2025.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2025-06-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
       "year": 2025
     },
     {
@@ -1124,6 +1482,21 @@
         "machine-learning"
       ],
       "title": "ICRA",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-26",
+      "fullName": "International AAAI Conference on Web and Social Media",
+      "id": "icwsm25",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2025.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2025-06-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
       "year": 2025
     },
     {
@@ -1223,6 +1596,37 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-11-02",
+      "fullName": "International Natural Language Generation Conference",
+      "id": "inlg2025",
+      "link": "https://dblp.org/db/conf/inlg/inlg2025.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2025-10-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-08-21",
+      "fullName": "Annual Conference of the International Speech Communication Association",
+      "id": "interspeech2025",
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2025.html",
+      "series": "interspeech",
+      "source": "curated",
+      "start": "2025-08-17",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-03-03T07:59:59Z",
@@ -1254,6 +1658,37 @@
         "robotics"
       ],
       "title": "IROS",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-25",
+      "fullName": "International Society for Music Information Retrieval Conference",
+      "id": "ismir25",
+      "link": "https://dblp.org/db/conf/ismir/ismir2025.html",
+      "series": "ismir",
+      "source": "curated",
+      "start": "2025-09-21",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-11-06",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc25",
+      "link": "https://dblp.org/db/conf/semweb/iswc2025-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2025-11-02",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2025
     },
     {
@@ -1783,6 +2218,23 @@
     },
     {
       "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "acml25",
+      "country": "Taiwan",
+      "end": "2025-12-11",
+      "id": "acml25@main",
+      "lat": 25.0375198,
+      "link": "https://web.archive.org/web/20251217150120/https://www.acml-conf.org/2025/",
+      "lng": 121.5636796,
+      "name": "ACML 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-12-09",
+      "venue": "Hua Nan Bank International Convention Center"
+    },
+    {
+      "access": "registration",
       "city": "Mai Khao",
       "conferenceId": "aistats25",
       "country": "Thailand",
@@ -1800,6 +2252,22 @@
     },
     {
       "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "aiware25",
+      "country": "South Korea",
+      "end": "2025-11-20",
+      "id": "aiware25@main",
+      "lat": 37.5666791,
+      "link": "https://dblp.org/db/conf/aiware/aiware2025.html",
+      "lng": 126.9782914,
+      "name": "AIware 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-19"
+    },
+    {
+      "access": "registration",
       "city": "Milan",
       "conferenceId": "alt2025",
       "country": "Italy",
@@ -1814,6 +2282,56 @@
       "role": "main",
       "start": "2025-02-24",
       "venue": "Politecnico di Milano, Milan, Italy"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "automl25",
+      "country": "United States",
+      "end": "2025-09-11",
+      "id": "automl25@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/automl/automl2025.html",
+      "lng": -74.0060152,
+      "name": "AutoML 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-08",
+      "venue": "Cornell Tech"
+    },
+    {
+      "access": "registration",
+      "city": "Poznań",
+      "conferenceId": "bis2025",
+      "country": "Poland",
+      "end": "2025-06-27",
+      "id": "bis2025@main",
+      "lat": 52.4082663,
+      "link": "https://web.archive.org/web/20250614022629/https://bisconf.org/2025/",
+      "lng": 16.9335199,
+      "name": "BIS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Sheffield",
+      "conferenceId": "bmvc25",
+      "country": "United Kingdom",
+      "end": "2025-11-27",
+      "id": "bmvc25@main",
+      "lat": 53.3806626,
+      "link": "https://bmvc2025.bmva.org/",
+      "lng": -1.4702278,
+      "name": "BMVC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-24",
+      "venue": "Cutlers' Hall"
     },
     {
       "access": "registration",
@@ -1850,6 +2368,23 @@
     },
     {
       "access": "registration",
+      "city": "Berkeley",
+      "conferenceId": "chil25",
+      "country": "United States",
+      "end": "2025-06-27",
+      "id": "chil25@main",
+      "lat": 37.8708393,
+      "link": "https://dblp.org/db/conf/chil/chil2025.html",
+      "lng": -122.272863,
+      "name": "CHIL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-25",
+      "venue": "UC Berkeley"
+    },
+    {
+      "access": "registration",
       "city": "Seoul",
       "conferenceId": "cikm25",
       "country": "South Korea",
@@ -1864,6 +2399,22 @@
       "role": "main",
       "start": "2025-11-10",
       "venue": "COEX, Seoul, South Korea"
+    },
+    {
+      "access": "registration",
+      "city": "Lausanne",
+      "conferenceId": "clear25",
+      "country": "Switzerland",
+      "end": "2025-05-09",
+      "id": "clear25@main",
+      "lat": 46.5218269,
+      "link": "https://dblp.org/db/conf/clear2/clear2025.html",
+      "lng": 6.6327025,
+      "name": "CLeaR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-07"
     },
     {
       "access": "registration",
@@ -1981,6 +2532,22 @@
       "role": "main",
       "start": "2025-03-24",
       "venue": "Simonyi Conference Center, Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Bergen",
+      "conferenceId": "cscw25",
+      "country": "Norway",
+      "end": "2025-10-22",
+      "id": "cscw25@main",
+      "lat": 60.3943055,
+      "link": "https://dblp.org/db/conf/cscw/cscw2025c.html",
+      "lng": 5.3259192,
+      "name": "CSCW 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-18"
     },
     {
       "access": "registration",
@@ -2137,6 +2704,120 @@
     },
     {
       "access": "registration",
+      "city": "Valletta",
+      "conferenceId": "euvip25",
+      "country": "Malta",
+      "end": "2025-10-16",
+      "id": "euvip25@main",
+      "lat": 35.8989979,
+      "link": "https://dblp.org/db/conf/euvip/euvip2025.html",
+      "lng": 14.5136607,
+      "name": "EUVIP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-13"
+    },
+    {
+      "access": "registration",
+      "city": "Trieste",
+      "conferenceId": "evomusart25",
+      "country": "Italy",
+      "end": "2025-04-25",
+      "id": "evomusart25@main",
+      "lat": 45.6496485,
+      "link": "https://dblp.org/db/conf/evomusart/evomusart2025.html",
+      "lng": 13.7772781,
+      "name": "EvoMUSART 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-23"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "facct25",
+      "country": "Greece",
+      "end": "2025-06-26",
+      "id": "facct25@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/fat/facct2025.html",
+      "lng": 23.7348324,
+      "name": "FAccT 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-23"
+    },
+    {
+      "access": "registration",
+      "city": "Clearwater",
+      "conferenceId": "fg25",
+      "country": "United States",
+      "end": "2025-05-30",
+      "id": "fg25@main",
+      "lat": 27.9658533,
+      "link": "https://fg2025.ieee-biometrics.org/",
+      "lng": -82.8001026,
+      "name": "FG 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-26"
+    },
+    {
+      "access": "registration",
+      "city": "Malaga",
+      "conferenceId": "gecco25",
+      "country": "Spain",
+      "end": "2025-07-18",
+      "id": "gecco25@main",
+      "lat": 36.7647913,
+      "link": "https://dblp.org/db/conf/gecco/gecco2025.html",
+      "lng": -4.4422005,
+      "name": "GECCO 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-14",
+      "venue": "NH Malaga Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "hicss25",
+      "country": "United States",
+      "end": "2025-01-10",
+      "id": "hicss25@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2025.html",
+      "lng": -155.787398,
+      "name": "HICSS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-01-07",
+      "venue": "Hilton Waikoloa Village"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "hri25",
+      "country": "Australia",
+      "end": "2025-03-06",
+      "id": "hri25@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/hri/hri2025.html",
+      "lng": 144.9631732,
+      "name": "HRI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-04"
+    },
+    {
+      "access": "registration",
       "city": "Kaunas",
       "conferenceId": "icann25",
       "country": "Lithuania",
@@ -2154,6 +2835,38 @@
     },
     {
       "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "icaps25",
+      "country": "Australia",
+      "end": "2025-11-14",
+      "id": "icaps25@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/icaps/icaps2025.html",
+      "lng": 144.9631732,
+      "name": "ICAPS 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-09"
+    },
+    {
+      "access": "registration",
+      "city": "Funchal",
+      "conferenceId": "icarsc25",
+      "country": "Portugal",
+      "end": "2025-04-03",
+      "id": "icarsc25@main",
+      "lat": 32.6496497,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2025.html",
+      "lng": -16.9086783,
+      "name": "ICARSC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-02"
+    },
+    {
+      "access": "registration",
       "city": "Hyderabad",
       "conferenceId": "icassp25",
       "country": "India",
@@ -2168,6 +2881,22 @@
       "role": "main",
       "start": "2025-04-06",
       "venue": "Hyderabad International Convention Center, Hyderabad, India"
+    },
+    {
+      "access": "registration",
+      "city": "Campinas",
+      "conferenceId": "iccc25",
+      "country": "Brazil",
+      "end": "2025-06-27",
+      "id": "iccc25@main",
+      "lat": -22.9056391,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2025.html",
+      "lng": -47.059564,
+      "name": "ICCC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-23"
     },
     {
       "access": "registration",
@@ -2204,6 +2933,22 @@
     },
     {
       "access": "registration",
+      "city": "Prague",
+      "conferenceId": "icdlepirob25",
+      "country": "Czech Republic",
+      "end": "2025-09-19",
+      "id": "icdlepirob25@main",
+      "lat": 50.0874654,
+      "link": "https://icdl2025.fel.cvut.cz/",
+      "lng": 14.4212535,
+      "name": "ICDL-EpiRob 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-16"
+    },
+    {
+      "access": "registration",
       "city": "Washington DC",
       "conferenceId": "icdm25",
       "country": "United States",
@@ -2217,6 +2962,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2025-11-12"
+    },
+    {
+      "access": "registration",
+      "city": "Anchorage",
+      "conferenceId": "icip25",
+      "country": "United States",
+      "end": "2025-09-17",
+      "id": "icip25@main",
+      "lat": 61.2163129,
+      "link": "https://dblp.org/db/conf/icip/icip2025.html",
+      "lng": -149.894852,
+      "name": "ICIP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-14"
     },
     {
       "access": "registration",
@@ -2237,6 +2998,38 @@
     },
     {
       "access": "registration",
+      "city": "Nantes",
+      "conferenceId": "icme25",
+      "country": "France",
+      "end": "2025-07-04",
+      "id": "icme25@main",
+      "lat": 47.2186371,
+      "link": "https://dblp.org/db/conf/icmcs/icme2025.html",
+      "lng": -1.5541362,
+      "name": "ICME 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
+    },
+    {
+      "access": "registration",
+      "city": "Canberra",
+      "conferenceId": "icmi25",
+      "country": "Australia",
+      "end": "2025-10-17",
+      "id": "icmi25@main",
+      "lat": -35.2975906,
+      "link": "https://dblp.org/db/conf/icmi/icmi2025.html",
+      "lng": 149.1012676,
+      "name": "ICMI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-13"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "icml25",
       "country": "Canada",
@@ -2251,6 +3044,22 @@
       "role": "main",
       "start": "2025-07-13",
       "venue": "Vancouver Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "icmr25",
+      "country": "United States",
+      "end": "2025-07-03",
+      "id": "icmr25@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/mir/icmr2025.html",
+      "lng": -87.6244212,
+      "name": "ICMR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-30"
     },
     {
       "access": "registration",
@@ -2284,6 +3093,22 @@
       "role": "main",
       "start": "2025-05-19",
       "venue": "Georgia World Congress Center, Atlanta, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "icwsm25",
+      "country": "Denmark",
+      "end": "2025-06-26",
+      "id": "icwsm25@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2025.html",
+      "lng": 12.5700724,
+      "name": "ICWSM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-23"
     },
     {
       "access": "registration",
@@ -2336,6 +3161,38 @@
     },
     {
       "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "inlg2025",
+      "country": "Vietnam",
+      "end": "2025-11-02",
+      "id": "inlg2025@main",
+      "lat": 21.0283334,
+      "link": "https://dblp.org/db/conf/inlg/inlg2025.html",
+      "lng": 105.854041,
+      "name": "INLG 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-29"
+    },
+    {
+      "access": "registration",
+      "city": "Rotterdam",
+      "conferenceId": "interspeech2025",
+      "country": "Netherlands",
+      "end": "2025-08-21",
+      "id": "interspeech2025@main",
+      "lat": 51.9244424,
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2025.html",
+      "lng": 4.47775,
+      "name": "Interspeech 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-17"
+    },
+    {
+      "access": "registration",
       "city": "Hangzhou",
       "conferenceId": "iros25",
       "country": "China",
@@ -2350,6 +3207,38 @@
       "role": "main",
       "start": "2025-10-19",
       "venue": "Hangzhou International Expo Center (HIEC)"
+    },
+    {
+      "access": "registration",
+      "city": "Daejeon",
+      "conferenceId": "ismir25",
+      "country": "South Korea",
+      "end": "2025-09-25",
+      "id": "ismir25@main",
+      "lat": 36.3497007,
+      "link": "https://dblp.org/db/conf/ismir/ismir2025.html",
+      "lng": 127.3849016,
+      "name": "ISMIR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-21"
+    },
+    {
+      "access": "registration",
+      "city": "Nara",
+      "conferenceId": "iswc25",
+      "country": "Japan",
+      "end": "2025-11-06",
+      "id": "iswc25@main",
+      "lat": 34.6845445,
+      "link": "https://dblp.org/db/conf/semweb/iswc2025-1.html",
+      "lng": 135.8048359,
+      "name": "ISWC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-02"
     },
     {
       "access": "registration",

@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1975-09-08",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai75",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai75.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1975-09-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1975
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Tbilisi",
+      "conferenceId": "ijcai75",
+      "country": "Georgia",
+      "end": "1975-09-08",
+      "id": "ijcai75@main",
+      "lat": 41.6934591,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai75.html",
+      "lng": 44.8014495,
+      "name": "IJCAI 1975",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1975-09-03"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1974-08-15",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr74",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1974-08-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1974
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "icpr74",
+      "country": "Denmark",
+      "end": "1974-08-15",
+      "id": "icpr74@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": 12.5700724,
+      "name": "ICPR 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-08-13"
+    }
+  ]
+}

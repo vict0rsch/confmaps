@@ -1,0 +1,294 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1985-07-12",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl85",
+      "link": "https://dblp.org/db/conf/acl/acl85.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1985-07-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-04-12",
+      "fullName": "Workshop on Artificial Intelligence and Statistics",
+      "id": "aistats85",
+      "link": "http://www.aistats.org/aistats1985/",
+      "series": "aistats",
+      "source": "curated",
+      "start": "1985-04-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-04-18",
+      "fullName": "Human Factors in Computing Systems Conference",
+      "id": "chi85",
+      "link": "https://dblp.org/db/conf/chi/chi1985.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1985-04-14",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-06-13",
+      "fullName": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr85",
+      "link": "https://catalog.hathitrust.org/Record/002542643",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "1985-06-11",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-03-29",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl85",
+      "link": "https://dblp.org/db/conf/eacl/eacl1985.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "1985-03-27",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-09-13",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics85",
+      "link": "https://dblp.org/db/conf/eurographics/eg1985.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1985-09-09",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-03-29",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp85",
+      "link": "https://dblp.org/db/conf/icassp/icassp1985.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1985-03-26",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-03-28",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra85",
+      "link": "https://dblp.org/db/conf/icra/icra1985.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1985-03-25",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-08-23",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai85",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai85.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1985-08-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1985
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "acl85",
+      "country": "United States",
+      "end": "1985-07-12",
+      "id": "acl85@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/acl/acl85.html",
+      "lng": -87.6244212,
+      "name": "ACL 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-07-08",
+      "venue": "University of Chicago"
+    },
+    {
+      "access": "registration",
+      "city": "Princeton",
+      "conferenceId": "aistats85",
+      "country": "United States",
+      "end": "1985-04-12",
+      "id": "aistats85@main",
+      "lat": 40.3496953,
+      "link": "http://www.aistats.org/aistats1985/",
+      "lng": -74.6597376,
+      "name": "AISTATS 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-04-11"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "chi85",
+      "country": "United States",
+      "end": "1985-04-18",
+      "id": "chi85@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/db/conf/chi/chi1985.html",
+      "lng": -122.4075201,
+      "name": "CHI 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-04-14"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "cvpr85",
+      "country": "United States",
+      "end": "1985-06-13",
+      "id": "cvpr85@main",
+      "lat": 37.7879363,
+      "link": "https://catalog.hathitrust.org/Record/002542643",
+      "lng": -122.4075201,
+      "name": "CVPR 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-06-11"
+    },
+    {
+      "access": "registration",
+      "city": "Geneva",
+      "conferenceId": "eacl85",
+      "country": "Switzerland",
+      "end": "1985-03-29",
+      "id": "eacl85@main",
+      "lat": 46.2017559,
+      "link": "https://dblp.org/db/conf/eacl/eacl1985.html",
+      "lng": 6.1466014,
+      "name": "EACL 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-03-27",
+      "venue": "University of Geneva"
+    },
+    {
+      "access": "registration",
+      "city": "Nice",
+      "conferenceId": "eurographics85",
+      "country": "France",
+      "end": "1985-09-13",
+      "id": "eurographics85@main",
+      "lat": 43.7009358,
+      "link": "https://dblp.org/db/conf/eurographics/eg1985.html",
+      "lng": 7.2683912,
+      "name": "Eurographics 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Tampa",
+      "conferenceId": "icassp85",
+      "country": "United States",
+      "end": "1985-03-29",
+      "id": "icassp85@main",
+      "lat": 27.9449854,
+      "link": "https://dblp.org/db/conf/icassp/icassp1985.html",
+      "lng": -82.4583107,
+      "name": "ICASSP 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-03-26"
+    },
+    {
+      "access": "registration",
+      "city": "St. Louis",
+      "conferenceId": "icra85",
+      "country": "United States",
+      "end": "1985-03-28",
+      "id": "icra85@main",
+      "lat": 38.6254063,
+      "link": "https://dblp.org/db/conf/icra/icra1985.html",
+      "lng": -90.190009,
+      "name": "ICRA 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-03-25"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "ijcai85",
+      "country": "United States",
+      "end": "1985-08-23",
+      "id": "ijcai85@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai85.html",
+      "lng": -118.2427676,
+      "name": "IJCAI 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-08-18"
+    }
+  ]
+}

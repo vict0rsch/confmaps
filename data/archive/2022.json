@@ -48,6 +48,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-12-08",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv22",
+      "link": "https://dblp.org/db/conf/accv/accv2022-1.html",
+      "series": "accv",
+      "source": "curated",
+      "start": "2022-12-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-05-27",
       "id": "acl22",
       "link": "https://web.archive.org/web/20220520032714/https://2022.aclweb.org/",
@@ -104,6 +119,36 @@
     },
     {
       "deadlines": [],
+      "end": "2022-11-05",
+      "fullName": "Conference on Automated Knowledge Base Construction",
+      "id": "akbc22",
+      "link": "https://web.archive.org/web/20221208173909/https://virtual.akbc.ws/",
+      "series": "akbc",
+      "source": "curated",
+      "start": "2022-11-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AKBC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-01",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2022",
+      "link": "https://dblp.org/db/conf/alt/alt2022.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2022-03-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-07-27",
       "id": "automl22",
       "link": "https://web.archive.org/web/20220727065710/https://automl.cc/",
@@ -128,6 +173,36 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-23",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2022",
+      "link": "https://dblp.org/db/conf/cec/cec2022.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2022-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-05-05",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi22",
+      "link": "https://dblp.org/db/conf/chi/chi2022.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2022-04-29",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
       "year": 2022
     },
     {
@@ -160,6 +235,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-04-13",
+      "fullName": "Conference on Causal Learning and Reasoning",
+      "id": "clear22",
+      "link": "https://dblp.org/db/conf/clear2/clear2022.html",
+      "series": "clear",
+      "source": "curated",
+      "start": "2022-04-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CLeaR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-10-17",
       "id": "coling22",
       "link": "https://web.archive.org/web/20221014003828/https://coling2022.org/",
@@ -188,6 +278,35 @@
     },
     {
       "deadlines": [],
+      "end": "2022-07-05",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt22",
+      "link": "https://dblp.org/db/conf/colt/colt2022.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "2022-07-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-12-08",
+      "id": "conll22",
+      "link": "https://dblp.org/db/conf/conll/conll2022.html",
+      "series": "conll",
+      "source": "curated",
+      "start": "2022-12-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-12-18",
       "id": "corl22",
       "link": "https://web.archive.org/web/20221215143549/https://corl2022.org",
@@ -198,6 +317,21 @@
         "robotics"
       ],
       "title": "CoRL",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-11-22",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw22",
+      "link": "https://web.archive.org/web/20230519051724/https://cscw.acm.org/2022/index.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2022-11-08",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
       "year": 2022
     },
     {
@@ -216,6 +350,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-07-29",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai22",
+      "link": "https://web.archive.org/web/20220731055613/https://ijcai-22.org/",
+      "series": "ecai",
+      "source": "curated",
+      "start": "2022-07-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-10-28",
       "id": "eccv22",
       "link": "https://web.archive.org/web/20221024155449/https://eccv2022.ecva.net/",
@@ -226,6 +375,21 @@
         "computer-vision"
       ],
       "title": "ECCV",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-14",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir22",
+      "link": "https://dblp.org/db/conf/ecir/ecir2022-1.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2022-04-10",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
       "year": 2022
     },
     {
@@ -260,6 +424,71 @@
     },
     {
       "deadlines": [],
+      "end": "2022-10-07",
+      "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
+      "id": "esann22",
+      "link": "https://dblp.org/db/conf/esann/esann2022.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2022-10-05",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-29",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics22",
+      "link": "https://dblp.org/db/conf/eurographics/eg-posters2022.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2022-04-25",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-14",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip22",
+      "link": "https://dblp.org/db/conf/euvip/euvip2022.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2022-09-11",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-04-22",
+      "fullName": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart22",
+      "link": "https://web.archive.org/web/20220513065506/http://www.evostar.org/2022/evomusart/",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2022-04-20",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-06-24",
       "id": "facct22",
       "link": "https://web.archive.org/web/20220627075114/https://facctconference.org/2022/",
@@ -270,6 +499,83 @@
         "machine-learning"
       ],
       "title": "FAccT",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-13",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco22",
+      "link": "https://dblp.org/db/conf/gecco/gecco2022.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2022-07-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-01-07",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss22",
+      "link": "https://dblp.org/db/conf/hicss/hicss2022.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2022-01-04",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-03-10",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri22",
+      "link": "https://dblp.org/db/conf/hri/hri2022.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2022-03-07",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-11-25",
+      "fullName": "Ibero-American Conference on Artificial Intelligence",
+      "id": "iberamia22",
+      "link": "https://web.archive.org/web/20221129050502/https://www.iberamia.org/iberamia/iberamia2022/",
+      "series": "iberamia",
+      "source": "curated",
+      "start": "2022-11-23",
+      "tags": [
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "IBERAMIA",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-09",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann22",
+      "link": "https://dblp.org/db/conf/icann/icann2022-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2022-09-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
       "year": 2022
     },
     {
@@ -288,6 +594,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-04-30",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc22",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2022.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2022-04-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-05-27",
       "id": "icassp22",
       "link": "https://web.archive.org/web/20220520212232/https://2022.ieeeicassp.org/",
@@ -299,6 +620,36 @@
         "signal-processing"
       ],
       "title": "ICASSP",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-01",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc22",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2022.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2022-06-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-09-15",
+      "fullName": "IEEE International Conference on Development and Learning",
+      "id": "icdlepirob22",
+      "link": "https://web.archive.org/web/20220921200902/https://icdl2022.qmul.ac.uk/",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2022-09-12",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
       "year": 2022
     },
     {
@@ -346,6 +697,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-07-22",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme22",
+      "link": "https://dblp.org/db/conf/icmcs/icme2022.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2022-07-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-11-11",
       "id": "icmi22",
       "link": "https://web.archive.org/web/20221130044738/https://icmi.acm.org/2022/",
@@ -371,6 +737,51 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-30",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr22",
+      "link": "https://dblp.org/db/conf/mir/icmr2022.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2022-06-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-08-25",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr22",
+      "link": "https://dblp.org/db/conf/icpr/icpr2022.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2022-08-21",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-06-03",
+      "fullName": "International Conference on Pattern Recognition and Artificial Intelligence",
+      "id": "icprai22",
+      "link": "https://web.archive.org/web/20221206072505/https://icprai2022.sciencesconf.org/",
+      "series": "icprai",
+      "source": "curated",
+      "start": "2022-06-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPRAI",
       "year": 2022
     },
     {
@@ -432,6 +843,36 @@
     },
     {
       "deadlines": [],
+      "end": "2022-07-23",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn22",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2022.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2022-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-22",
+      "fullName": "International Natural Language Generation Conference",
+      "id": "inlg2022",
+      "link": "https://inlgmeeting.org/pages/events.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2022-07-18",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-09-22",
       "id": "interspeech2022",
       "link": "https://web.archive.org/web/20220910160233/http://www.interspeech2022.org/",
@@ -486,6 +927,21 @@
         "data-mining"
       ],
       "title": "ISMIS",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2022-10-27",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc22",
+      "link": "https://dblp.org/db/conf/semweb/iswc2022.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2022-10-23",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2022
     },
     {
@@ -762,6 +1218,22 @@
     },
     {
       "access": "registration",
+      "city": "Macao",
+      "conferenceId": "accv22",
+      "country": "China",
+      "end": "2022-12-08",
+      "id": "accv22@main",
+      "lat": 22.1899448,
+      "link": "https://dblp.org/db/conf/accv/accv2022-1.html",
+      "lng": 113.5380454,
+      "name": "ACCV 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-04"
+    },
+    {
+      "access": "registration",
       "city": "Dublin",
       "conferenceId": "acl22",
       "country": "Ireland",
@@ -827,6 +1299,40 @@
     },
     {
       "access": "registration",
+      "city": "London",
+      "conferenceId": "akbc22",
+      "country": "United Kingdom",
+      "end": "2022-11-05",
+      "format": "hybrid",
+      "id": "akbc22@main",
+      "lat": 51.5074456,
+      "link": "https://web.archive.org/web/20221208173909/https://virtual.akbc.ws/",
+      "lng": -0.1277653,
+      "name": "AKBC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-03",
+      "venue": "Barbican Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "alt2022",
+      "country": "France",
+      "end": "2022-04-01",
+      "id": "alt2022@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/alt/alt2022.html",
+      "lng": 2.3483915,
+      "name": "ALT 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-03-29"
+    },
+    {
+      "access": "registration",
       "city": "Baltimore",
       "conferenceId": "automl22",
       "country": "United States",
@@ -861,6 +1367,38 @@
     },
     {
       "access": "registration",
+      "city": "Padua",
+      "conferenceId": "cec2022",
+      "country": "Italy",
+      "end": "2022-07-23",
+      "id": "cec2022@main",
+      "lat": 45.3984428,
+      "link": "https://dblp.org/db/conf/cec/cec2022.html",
+      "lng": 11.8956829,
+      "name": "CEC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "chi22",
+      "country": "United States",
+      "end": "2022-05-05",
+      "id": "chi22@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/chi/chi2022.html",
+      "lng": -90.0629493,
+      "name": "CHI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-29"
+    },
+    {
+      "access": "registration",
       "conferenceId": "chil22",
       "end": "2022-04-08",
       "format": "virtual",
@@ -888,6 +1426,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "Eureka",
+      "conferenceId": "clear22",
+      "country": "United States",
+      "end": "2022-04-13",
+      "id": "clear22@main",
+      "lat": 40.8018746,
+      "link": "https://dblp.org/db/conf/clear2/clear2022.html",
+      "lng": -124.1707558,
+      "name": "CLeaR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-11",
+      "venue": "Sequoia Conference Center"
     },
     {
       "access": "registration",
@@ -926,6 +1481,39 @@
     },
     {
       "access": "registration",
+      "city": "London",
+      "conferenceId": "colt22",
+      "country": "United Kingdom",
+      "end": "2022-07-05",
+      "id": "colt22@main",
+      "lat": 51.5074456,
+      "link": "https://dblp.org/db/conf/colt/colt2022.html",
+      "lng": -0.1277653,
+      "name": "COLT 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-02"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "conll22",
+      "country": "United Arab Emirates",
+      "end": "2022-12-08",
+      "format": "hybrid",
+      "id": "conll22@main",
+      "lat": 24.4538352,
+      "link": "https://dblp.org/db/conf/conll/conll2022.html",
+      "lng": 54.3774014,
+      "name": "CoNLL 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-12-07"
+    },
+    {
+      "access": "registration",
       "city": "Auckland",
       "conferenceId": "corl22",
       "country": "New Zealand",
@@ -940,6 +1528,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-12-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "cscw22",
+      "end": "2022-11-22",
+      "format": "virtual",
+      "id": "cscw22@main",
+      "link": "https://web.archive.org/web/20230519051724/https://cscw.acm.org/2022/index.html",
+      "name": "CSCW 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-08"
     },
     {
       "access": "registration",
@@ -960,6 +1561,23 @@
     },
     {
       "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "ecai22",
+      "country": "Austria",
+      "end": "2022-07-29",
+      "id": "ecai22@main",
+      "lat": 48.2083537,
+      "link": "https://web.archive.org/web/20220731055613/https://ijcai-22.org/",
+      "lng": 16.3725042,
+      "name": "ECAI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-23",
+      "venue": "Messe Wien"
+    },
+    {
+      "access": "registration",
       "city": "Tel Aviv",
       "conferenceId": "eccv22",
       "country": "Israel",
@@ -974,6 +1592,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-10-24"
+    },
+    {
+      "access": "registration",
+      "city": "Stavanger",
+      "conferenceId": "ecir22",
+      "country": "Norway",
+      "end": "2022-04-14",
+      "id": "ecir22@main",
+      "lat": 58.9699675,
+      "link": "https://dblp.org/db/conf/ecir/ecir2022-1.html",
+      "lng": 5.7318101,
+      "name": "ECIR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-10"
     },
     {
       "access": "registration",
@@ -1011,6 +1645,70 @@
     },
     {
       "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann22",
+      "country": "Belgium",
+      "end": "2022-10-07",
+      "id": "esann22@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2022.html",
+      "lng": 3.226772,
+      "name": "ESANN 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-05"
+    },
+    {
+      "access": "registration",
+      "city": "Reims",
+      "conferenceId": "eurographics22",
+      "country": "France",
+      "end": "2022-04-29",
+      "id": "eurographics22@main",
+      "lat": 49.2577886,
+      "link": "https://dblp.org/db/conf/eurographics/eg-posters2022.html",
+      "lng": 4.031926,
+      "name": "Eurographics 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-25"
+    },
+    {
+      "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "euvip22",
+      "country": "Portugal",
+      "end": "2022-09-14",
+      "id": "euvip22@main",
+      "lat": 38.7077507,
+      "link": "https://dblp.org/db/conf/euvip/euvip2022.html",
+      "lng": -9.1365919,
+      "name": "EUVIP 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-11"
+    },
+    {
+      "access": "registration",
+      "city": "Madrid",
+      "conferenceId": "evomusart22",
+      "country": "Spain",
+      "end": "2022-04-22",
+      "id": "evomusart22@main",
+      "lat": 40.416782,
+      "link": "https://web.archive.org/web/20220513065506/http://www.evostar.org/2022/evomusart/",
+      "lng": -3.703507,
+      "name": "EvoMUSART 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-20"
+    },
+    {
+      "access": "registration",
       "city": "Seoul",
       "conferenceId": "facct22",
       "country": "South Korea",
@@ -1028,6 +1726,88 @@
     },
     {
       "access": "registration",
+      "city": "Boston",
+      "conferenceId": "gecco22",
+      "country": "United States",
+      "end": "2022-07-13",
+      "format": "hybrid",
+      "id": "gecco22@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/gecco/gecco2022.html",
+      "lng": -71.0578303,
+      "name": "GECCO 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Maui",
+      "conferenceId": "hicss22",
+      "country": "United States",
+      "end": "2022-01-07",
+      "format": "hybrid",
+      "id": "hicss22@main",
+      "lat": 20.8029568,
+      "link": "https://dblp.org/db/conf/hicss/hicss2022.html",
+      "lng": -156.3106833,
+      "name": "HICSS 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-01-04"
+    },
+    {
+      "access": "registration",
+      "city": "Sapporo",
+      "conferenceId": "hri22",
+      "country": "Japan",
+      "end": "2022-03-10",
+      "id": "hri22@main",
+      "lat": 43.061936,
+      "link": "https://dblp.org/db/conf/hri/hri2022.html",
+      "lng": 141.3542924,
+      "name": "HRI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-03-07"
+    },
+    {
+      "access": "registration",
+      "city": "Cartagena de Indias",
+      "conferenceId": "iberamia22",
+      "country": "Colombia",
+      "end": "2022-11-25",
+      "id": "iberamia22@main",
+      "lat": 10.4265566,
+      "link": "https://web.archive.org/web/20221129050502/https://www.iberamia.org/iberamia/iberamia2022/",
+      "lng": -75.5441671,
+      "name": "IBERAMIA 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-11-23"
+    },
+    {
+      "access": "registration",
+      "city": "Bristol",
+      "conferenceId": "icann22",
+      "country": "United Kingdom",
+      "end": "2022-09-09",
+      "id": "icann22@main",
+      "lat": 51.4538022,
+      "link": "https://dblp.org/db/conf/icann/icann2022-1.html",
+      "lng": -2.5972985,
+      "name": "ICANN 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-06"
+    },
+    {
+      "access": "registration",
       "conferenceId": "icaps22",
       "end": "2022-06-24",
       "format": "virtual",
@@ -1039,6 +1819,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Santa Maria da Feira",
+      "conferenceId": "icarsc22",
+      "country": "Portugal",
+      "end": "2022-04-30",
+      "id": "icarsc22@main",
+      "lat": 40.9254179,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2022.html",
+      "lng": -8.5426688,
+      "name": "ICARSC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-04-29"
     },
     {
       "access": "registration",
@@ -1056,6 +1852,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-05-22"
+    },
+    {
+      "access": "registration",
+      "city": "Bozen-Bolzano",
+      "conferenceId": "iccc22",
+      "country": "Italy",
+      "end": "2022-07-01",
+      "id": "iccc22@main",
+      "lat": 46.4984781,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2022.html",
+      "lng": 11.3547399,
+      "name": "ICCC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-27"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "icdlepirob22",
+      "country": "United Kingdom",
+      "end": "2022-09-15",
+      "id": "icdlepirob22@main",
+      "lat": 51.5074456,
+      "link": "https://web.archive.org/web/20220921200902/https://icdl2022.qmul.ac.uk/",
+      "lng": -0.1277653,
+      "name": "ICDL-EpiRob 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-09-12"
     },
     {
       "access": "registration",
@@ -1105,6 +1933,22 @@
     },
     {
       "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "icme22",
+      "country": "Taiwan",
+      "end": "2022-07-22",
+      "id": "icme22@main",
+      "lat": 25.0375198,
+      "link": "https://dblp.org/db/conf/icmcs/icme2022.html",
+      "lng": 121.5636796,
+      "name": "ICME 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-18"
+    },
+    {
+      "access": "registration",
       "city": "Bangalore",
       "conferenceId": "icmi22",
       "country": "India",
@@ -1137,6 +1981,55 @@
       "role": "main",
       "start": "2022-07-17",
       "venue": "Baltimore Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Newark",
+      "conferenceId": "icmr22",
+      "country": "United States",
+      "end": "2022-06-30",
+      "id": "icmr22@main",
+      "lat": 40.735657,
+      "link": "https://dblp.org/db/conf/mir/icmr2022.html",
+      "lng": -74.1723667,
+      "name": "ICMR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-27"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icpr22",
+      "country": "Canada",
+      "end": "2022-08-25",
+      "id": "icpr22@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/icpr/icpr2022.html",
+      "lng": -73.5698065,
+      "name": "ICPR 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-08-21"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "icprai22",
+      "country": "France",
+      "end": "2022-06-03",
+      "format": "hybrid",
+      "id": "icprai22@main",
+      "lat": 48.8534951,
+      "link": "https://web.archive.org/web/20221206072505/https://icprai2022.sciencesconf.org/",
+      "lng": 2.3483915,
+      "name": "ICPRAI 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-06-01"
     },
     {
       "access": "registration",
@@ -1205,6 +2098,40 @@
     },
     {
       "access": "registration",
+      "city": "Padua",
+      "conferenceId": "ijcnn22",
+      "country": "Italy",
+      "end": "2022-07-23",
+      "id": "ijcnn22@main",
+      "lat": 45.3984428,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2022.html",
+      "lng": 11.8956829,
+      "name": "IJCNN 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Waterville",
+      "conferenceId": "inlg2022",
+      "country": "United States",
+      "end": "2022-07-22",
+      "format": "hybrid",
+      "id": "inlg2022@main",
+      "lat": 44.5505773,
+      "link": "https://inlgmeeting.org/pages/events.html",
+      "lng": -69.6303174,
+      "name": "INLG 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-18",
+      "venue": "Colby College"
+    },
+    {
+      "access": "registration",
       "city": "Incheon",
       "conferenceId": "interspeech2022",
       "country": "South Korea",
@@ -1270,6 +2197,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-10-03"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iswc22",
+      "end": "2022-10-27",
+      "format": "virtual",
+      "id": "iswc22@main",
+      "link": "https://dblp.org/db/conf/semweb/iswc2022.html",
+      "name": "ISWC 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-10-23"
     },
     {
       "access": "registration",

@@ -1,0 +1,100 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1973-09-01",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling73",
+      "link": "https://dblp.org/db/conf/coling/coling1973.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1973-08-27",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1973
+    },
+    {
+      "deadlines": [],
+      "end": "1973-11-01",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr73",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1973-10-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1973
+    },
+    {
+      "deadlines": [],
+      "end": "1973-08-23",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai73",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai73.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1973-08-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1973
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "coling73",
+      "country": "Italy",
+      "end": "1973-09-01",
+      "id": "coling73@main",
+      "lat": 43.7159395,
+      "link": "https://dblp.org/db/conf/coling/coling1973.html",
+      "lng": 10.4018624,
+      "name": "COLING 1973",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1973-08-27"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "icpr73",
+      "country": "United States",
+      "end": "1973-11-01",
+      "id": "icpr73@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": -77.0363849,
+      "name": "ICPR 1973",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1973-10-30",
+      "venue": "Mayflower Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "ijcai73",
+      "country": "United States",
+      "end": "1973-08-23",
+      "id": "ijcai73@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai73.html",
+      "lng": -122.1702445,
+      "name": "IJCAI 1973",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1973-08-20"
+    }
+  ]
+}

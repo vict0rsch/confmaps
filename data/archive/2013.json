@@ -2,6 +2,40 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2013-07-01",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv13",
+      "link": "https://dblp.org/db/conf/3dim/3dv2013.html",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2013-06-29",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-07-18",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai13",
+      "link": "https://dblp.org/db/conf/aaai/aaai2013.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2013-07-14",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
       "end": "2013-05-10",
       "id": "aamas13",
       "link": "https://www.ifaamas.org/AAMAS/aamas2013/",
@@ -13,6 +47,210 @@
         "robotics"
       ],
       "title": "AAMAS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-09",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl13",
+      "link": "https://dblp.org/db/conf/acl/acl2013-1.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "2013-08-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-10-25",
+      "fullName": "ACM Multimedia",
+      "id": "acm13",
+      "link": "https://dblp.org/db/conf/mm/mm2013.html",
+      "series": "acm-mm",
+      "source": "curated",
+      "start": "2013-10-21",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-11-15",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml13",
+      "link": "https://dblp.org/db/conf/acml/acml2013.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2013-11-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-01",
+      "fullName": "International Conference on Artificial Intelligence and Statistics",
+      "id": "aistats13",
+      "link": "https://dblp.org/db/conf/aistats/aistats2013.html",
+      "series": "aistats",
+      "source": "curated",
+      "start": "2013-04-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-10-09",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2013",
+      "link": "https://dblp.org/db/conf/alt/alt2013.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2013-10-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-21",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2013",
+      "link": "https://dblp.org/db/conf/bis/bis2013.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2013-06-19",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-09-13",
+      "fullName": "The British Machine Vision Conference",
+      "id": "bmvc13",
+      "link": "https://dblp.org/db/conf/bmvc/bmvc2013.html",
+      "series": "bmvc",
+      "source": "curated",
+      "start": "2013-09-09",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-23",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2013",
+      "link": "https://dblp.org/db/conf/cec/cec2013.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2013-06-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-02",
+      "fullName": "ACM Conference on Human Factors in Computing Systems",
+      "id": "chi13",
+      "link": "https://dblp.org/db/conf/chi/chi2013.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2013-04-27",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-11-01",
+      "fullName": "International Conference on Information and Knowledge Management",
+      "id": "cikm13",
+      "link": "https://dblp.org/db/conf/cikm/cikm2013.html",
+      "series": "cikm",
+      "source": "curated",
+      "start": "2013-10-27",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-14",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt13",
+      "link": "https://dblp.org/db/conf/colt/colt2013.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "2013-06-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-09",
+      "fullName": "Conference on Computational Natural Language Learning",
+      "id": "conll13",
+      "link": "https://dblp.org/db/conf/conll/conll2013.html",
+      "series": "conll",
+      "source": "curated",
+      "start": "2013-08-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-02-27",
+      "fullName": "ACM Conference on Computer Supported Cooperative Work",
+      "id": "cscw13",
+      "link": "https://dblp.org/db/conf/cscw/cscw2013.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2013-02-23",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
       "year": 2013
     },
     {
@@ -31,6 +269,329 @@
         "representation-learning"
       ],
       "title": "CVPR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-03-27",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir13",
+      "link": "https://dblp.org/db/conf/ecir/ecir2013.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2013-03-24",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-09-27",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd13",
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2013-1.html",
+      "series": "ecml-pkdd",
+      "source": "curated",
+      "start": "2013-09-23",
+      "tags": [
+        "machine-learning",
+        "data-mining"
+      ],
+      "title": "ECML PKDD",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-10-21",
+      "fullName": "Conference on Empirical Methods in Natural Language Processing",
+      "id": "emnlp13",
+      "link": "https://dblp.org/db/conf/emnlp/emnlp2013.html",
+      "series": "emnlp",
+      "source": "curated",
+      "start": "2013-10-18",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-04-26",
+      "fullName": "European Symposium on Artificial Neural Networks",
+      "id": "esann13",
+      "link": "https://dblp.org/db/conf/esann/esann2013.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2013-04-24",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-10",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics13",
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2013.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2013-05-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-12",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip13",
+      "link": "https://dblp.org/db/conf/euvip/euvip2013.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2013-06-10",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-04-05",
+      "fullName": "International Conference on Evolutionary and Biologically Inspired Music, Sound, Art and Design",
+      "id": "evomusart13",
+      "link": "https://link.springer.com/book/10.1007/978-3-642-36955-1",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2013-04-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "evoMUSART",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-04-26",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg13",
+      "link": "https://dblp.org/db/conf/fgr/fg2013.html",
+      "series": "fg",
+      "source": "curated",
+      "start": "2013-04-22",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-12-11",
+      "fullName": "Field and Service Robotics",
+      "id": "fsr13",
+      "link": "https://dblp.org/db/conf/fsr/fsr2013.html",
+      "series": "fsr",
+      "source": "curated",
+      "start": "2013-12-09",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-07-10",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco13",
+      "link": "https://dblp.org/db/conf/gecco/gecco2013.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2013-07-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-01-10",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss13",
+      "link": "https://dblp.org/db/conf/hicss/hicss2013.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2013-01-07",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-03-06",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri13",
+      "link": "https://dblp.org/db/conf/hri/hri2013.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2013-03-03",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-09-13",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann13",
+      "link": "https://dblp.org/db/conf/icann/icann2013.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2013-09-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-14",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps13",
+      "link": "https://dblp.org/db/conf/aips/icaps2013.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2013-06-10",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-31",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp13",
+      "link": "https://dblp.org/db/conf/icassp/icassp2013.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "2013-05-26",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-06-14",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc13",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2013.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2013-06-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-12-08",
+      "fullName": "IEEE International Conference on Computer Vision",
+      "id": "iccv13",
+      "link": "https://dblp.org/db/conf/iccv/iccv2013.html",
+      "series": "iccv",
+      "source": "curated",
+      "start": "2013-12-01",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-28",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2013",
+      "link": "https://web.archive.org/web/20130724072928/http://www.icdar2013.org:80/",
+      "series": "icdar",
+      "source": "curated",
+      "start": "2013-08-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-22",
+      "fullName": "IEEE Joint International Conference on Development and Learning and Epigenetic Robotics",
+      "id": "icdlepirob13",
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2013.html",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2013-08-18",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-12-10",
+      "fullName": "IEEE International Conference on Data Mining",
+      "id": "icdm13",
+      "link": "https://dblp.org/db/conf/icdm/icdm2013.html",
+      "series": "icdm",
+      "source": "curated",
+      "start": "2013-12-07",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-09-18",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip13",
+      "link": "https://dblp.org/db/conf/icip/icip2013.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2013-09-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
       "year": 2013
     },
     {
@@ -54,6 +615,36 @@
     },
     {
       "deadlines": [],
+      "end": "2013-07-19",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme13",
+      "link": "https://dblp.org/db/conf/icmcs/icme2013.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2013-07-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-12-13",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi13",
+      "link": "https://dblp.org/db/conf/icmi/icmi2013.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2013-12-09",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
       "end": "2013-06-21",
       "fullName": "International Conference on Machine Learning",
       "id": "icml13",
@@ -66,9 +657,180 @@
       ],
       "title": "ICML",
       "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-04-19",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr13",
+      "link": "https://dblp.org/db/conf/mir/icmr2013.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2013-04-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-05-10",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra13",
+      "link": "https://dblp.org/db/conf/icra/icra2013.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "2013-05-06",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-07-11",
+      "fullName": "International Conference on Weblogs and Social Media",
+      "id": "icwsm13",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2013.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2013-07-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-09",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai13",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai2013.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "2013-08-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-09",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn13",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2013.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2013-08-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-08-29",
+      "fullName": "Annual Conference of the International Speech Communication Association",
+      "id": "interspeech2013",
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2013.html",
+      "series": "interspeech",
+      "source": "curated",
+      "start": "2013-08-25",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-11-07",
+      "fullName": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+      "id": "iros13",
+      "link": "https://dblp.org/db/conf/iros/iros2013.html",
+      "series": "iros",
+      "source": "curated",
+      "start": "2013-11-03",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-11-08",
+      "fullName": "International Society for Music Information Retrieval Conference",
+      "id": "ismir13",
+      "link": "https://dblp.org/db/conf/ismir/ismir2013.html",
+      "series": "ismir",
+      "source": "curated",
+      "start": "2013-11-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2013
+    },
+    {
+      "deadlines": [],
+      "end": "2013-10-25",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc13",
+      "link": "https://dblp.org/db/conf/semweb/iswc2013-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2013-10-21",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
+      "year": 2013
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "3dv13",
+      "country": "United States",
+      "end": "2013-07-01",
+      "id": "3dv13@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/3dim/3dv2013.html",
+      "lng": -122.330062,
+      "name": "3DV 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-29"
+    },
+    {
+      "access": "registration",
+      "city": "Bellevue",
+      "conferenceId": "aaai13",
+      "country": "United States",
+      "end": "2013-07-18",
+      "id": "aaai13@main",
+      "lat": 47.6144219,
+      "link": "https://dblp.org/db/conf/aaai/aaai2013.html",
+      "lng": -122.192337,
+      "name": "AAAI 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-07-14"
+    },
     {
       "access": "registration",
       "city": "Saint Paul",
@@ -84,6 +846,214 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2013-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Sofia",
+      "conferenceId": "acl13",
+      "country": "Bulgaria",
+      "end": "2013-08-09",
+      "id": "acl13@main",
+      "lat": 42.6977028,
+      "link": "https://dblp.org/db/conf/acl/acl2013-1.html",
+      "lng": 23.3217359,
+      "name": "ACL 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-04"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "acm13",
+      "country": "Spain",
+      "end": "2013-10-25",
+      "id": "acm13@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/mm/mm2013.html",
+      "lng": 2.177073,
+      "name": "ACM MM 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-10-21"
+    },
+    {
+      "access": "registration",
+      "city": "Canberra",
+      "conferenceId": "acml13",
+      "country": "Australia",
+      "end": "2013-11-15",
+      "id": "acml13@main",
+      "lat": -35.2975906,
+      "link": "https://dblp.org/db/conf/acml/acml2013.html",
+      "lng": 149.1012676,
+      "name": "ACML 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-11-13"
+    },
+    {
+      "access": "registration",
+      "city": "Scottsdale",
+      "conferenceId": "aistats13",
+      "country": "United States",
+      "end": "2013-05-01",
+      "id": "aistats13@main",
+      "lat": 33.4942189,
+      "link": "https://dblp.org/db/conf/aistats/aistats2013.html",
+      "lng": -111.926018,
+      "name": "AISTATS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-29"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "alt2013",
+      "country": "Singapore",
+      "end": "2013-10-09",
+      "id": "alt2013@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/alt/alt2013.html",
+      "lng": 103.8519072,
+      "name": "ALT 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-10-06"
+    },
+    {
+      "access": "registration",
+      "city": "Poznań",
+      "conferenceId": "bis2013",
+      "country": "Poland",
+      "end": "2013-06-21",
+      "id": "bis2013@main",
+      "lat": 52.4082663,
+      "link": "https://dblp.org/db/conf/bis/bis2013.html",
+      "lng": 16.9335199,
+      "name": "BIS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-19"
+    },
+    {
+      "access": "registration",
+      "city": "Bristol",
+      "conferenceId": "bmvc13",
+      "country": "United Kingdom",
+      "end": "2013-09-13",
+      "id": "bmvc13@main",
+      "lat": 51.4538022,
+      "link": "https://dblp.org/db/conf/bmvc/bmvc2013.html",
+      "lng": -2.5972985,
+      "name": "BMVC 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Cancun",
+      "conferenceId": "cec2013",
+      "country": "Mexico",
+      "end": "2013-06-23",
+      "id": "cec2013@main",
+      "lat": 21.1527467,
+      "link": "https://dblp.org/db/conf/cec/cec2013.html",
+      "lng": -86.8425761,
+      "name": "CEC 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-20"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "chi13",
+      "country": "France",
+      "end": "2013-05-02",
+      "id": "chi13@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/chi/chi2013.html",
+      "lng": 2.3483915,
+      "name": "CHI 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-27"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "cikm13",
+      "country": "United States",
+      "end": "2013-11-01",
+      "id": "cikm13@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/db/conf/cikm/cikm2013.html",
+      "lng": -122.4075201,
+      "name": "CIKM 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-10-27"
+    },
+    {
+      "access": "registration",
+      "city": "Princeton",
+      "conferenceId": "colt13",
+      "country": "United States",
+      "end": "2013-06-14",
+      "id": "colt13@main",
+      "lat": 40.3496953,
+      "link": "https://dblp.org/db/conf/colt/colt2013.html",
+      "lng": -74.6597376,
+      "name": "COLT 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-12"
+    },
+    {
+      "access": "registration",
+      "city": "Sofia",
+      "conferenceId": "conll13",
+      "country": "Bulgaria",
+      "end": "2013-08-09",
+      "id": "conll13@main",
+      "lat": 42.6977028,
+      "link": "https://dblp.org/db/conf/conll/conll2013.html",
+      "lng": 23.3217359,
+      "name": "CoNLL 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "San Antonio",
+      "conferenceId": "cscw13",
+      "country": "United States",
+      "end": "2013-02-27",
+      "id": "cscw13@main",
+      "lat": 29.4246002,
+      "link": "https://dblp.org/db/conf/cscw/cscw2013.html",
+      "lng": -98.4951405,
+      "name": "CSCW 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-02-23"
     },
     {
       "access": "registration",
@@ -104,6 +1074,343 @@
     },
     {
       "access": "registration",
+      "city": "Moscow",
+      "conferenceId": "ecir13",
+      "country": "Russia",
+      "end": "2013-03-27",
+      "id": "ecir13@main",
+      "lat": 55.7505412,
+      "link": "https://dblp.org/db/conf/ecir/ecir2013.html",
+      "lng": 37.6174782,
+      "name": "ECIR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-03-24"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "ecmlpkdd13",
+      "country": "Czech Republic",
+      "end": "2013-09-27",
+      "id": "ecmlpkdd13@main",
+      "lat": 50.0874654,
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2013-1.html",
+      "lng": 14.4212535,
+      "name": "ECML PKDD 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-09-23"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "emnlp13",
+      "country": "United States",
+      "end": "2013-10-21",
+      "id": "emnlp13@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/emnlp/emnlp2013.html",
+      "lng": -122.330062,
+      "name": "EMNLP 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-10-18",
+      "venue": "Grand Hyatt Seattle"
+    },
+    {
+      "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann13",
+      "country": "Belgium",
+      "end": "2013-04-26",
+      "id": "esann13@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2013.html",
+      "lng": 3.226772,
+      "name": "ESANN 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Girona",
+      "conferenceId": "eurographics13",
+      "country": "Spain",
+      "end": "2013-05-10",
+      "id": "eurographics13@main",
+      "lat": 41.9793006,
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2013.html",
+      "lng": 2.8199439,
+      "name": "Eurographics 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "euvip13",
+      "country": "France",
+      "end": "2013-06-12",
+      "id": "euvip13@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/euvip/euvip2013.html",
+      "lng": 2.3483915,
+      "name": "EUVIP 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "evomusart13",
+      "country": "Austria",
+      "end": "2013-04-05",
+      "id": "evomusart13@main",
+      "lat": 48.2083537,
+      "link": "https://link.springer.com/book/10.1007/978-3-642-36955-1",
+      "lng": 16.3725042,
+      "name": "evoMUSART 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-03"
+    },
+    {
+      "access": "registration",
+      "city": "Shanghai",
+      "conferenceId": "fg13",
+      "country": "China",
+      "end": "2013-04-26",
+      "id": "fg13@main",
+      "lat": 31.2323437,
+      "link": "https://dblp.org/db/conf/fgr/fg2013.html",
+      "lng": 121.4691024,
+      "name": "FG 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Brisbane",
+      "conferenceId": "fsr13",
+      "country": "Australia",
+      "end": "2013-12-11",
+      "id": "fsr13@main",
+      "lat": -27.4689623,
+      "link": "https://dblp.org/db/conf/fsr/fsr2013.html",
+      "lng": 153.0235009,
+      "name": "FSR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-12-09"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "gecco13",
+      "country": "Netherlands",
+      "end": "2013-07-10",
+      "id": "gecco13@main",
+      "lat": 52.3730796,
+      "link": "https://dblp.org/db/conf/gecco/gecco2013.html",
+      "lng": 4.8924534,
+      "name": "GECCO 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-07-06"
+    },
+    {
+      "access": "registration",
+      "city": "Wailea",
+      "conferenceId": "hicss13",
+      "country": "United States",
+      "end": "2013-01-10",
+      "id": "hicss13@main",
+      "lat": 20.6871749,
+      "link": "https://dblp.org/db/conf/hicss/hicss2013.html",
+      "lng": -156.4390415,
+      "name": "HICSS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-01-07"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "hri13",
+      "country": "Japan",
+      "end": "2013-03-06",
+      "id": "hri13@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/hri/hri2013.html",
+      "lng": 139.7638947,
+      "name": "HRI 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-03-03"
+    },
+    {
+      "access": "registration",
+      "city": "Sofia",
+      "conferenceId": "icann13",
+      "country": "Bulgaria",
+      "end": "2013-09-13",
+      "id": "icann13@main",
+      "lat": 42.6977028,
+      "link": "https://dblp.org/db/conf/icann/icann2013.html",
+      "lng": 23.3217359,
+      "name": "ICANN 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-09-10"
+    },
+    {
+      "access": "registration",
+      "city": "Rome",
+      "conferenceId": "icaps13",
+      "country": "Italy",
+      "end": "2013-06-14",
+      "id": "icaps13@main",
+      "lat": 41.8933203,
+      "link": "https://dblp.org/db/conf/aips/icaps2013.html",
+      "lng": 12.4829321,
+      "name": "ICAPS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "icassp13",
+      "country": "Canada",
+      "end": "2013-05-31",
+      "id": "icassp13@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/icassp/icassp2013.html",
+      "lng": -123.113952,
+      "name": "ICASSP 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-26"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "iccc13",
+      "country": "Australia",
+      "end": "2013-06-14",
+      "id": "iccc13@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2013.html",
+      "lng": 151.2082848,
+      "name": "ICCC 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-06-12"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "iccv13",
+      "country": "Australia",
+      "end": "2013-12-08",
+      "id": "iccv13@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/iccv/iccv2013.html",
+      "lng": 151.2082848,
+      "name": "ICCV 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-12-01"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "icdar2013",
+      "country": "United States",
+      "end": "2013-08-28",
+      "id": "icdar2013@main",
+      "lat": 38.8950982,
+      "link": "https://web.archive.org/web/20130724072928/http://www.icdar2013.org:80/",
+      "lng": -77.0363849,
+      "name": "ICDAR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-25"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "icdlepirob13",
+      "country": "Japan",
+      "end": "2013-08-22",
+      "id": "icdlepirob13@main",
+      "lat": 34.6937569,
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2013.html",
+      "lng": 135.5014539,
+      "name": "ICDL-EpiRob 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "icdm13",
+      "country": "United States",
+      "end": "2013-12-10",
+      "id": "icdm13@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/icdm/icdm2013.html",
+      "lng": -96.7968559,
+      "name": "ICDM 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-12-07"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "icip13",
+      "country": "Australia",
+      "end": "2013-09-18",
+      "id": "icip13@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/icip/icip2013.html",
+      "lng": 144.9631732,
+      "name": "ICIP 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-09-15"
+    },
+    {
+      "access": "registration",
       "city": "Scottsdale",
       "conferenceId": "iclr13",
       "country": "United States",
@@ -121,6 +1428,38 @@
     },
     {
       "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "icme13",
+      "country": "United States",
+      "end": "2013-07-19",
+      "id": "icme13@main",
+      "lat": 37.3361663,
+      "link": "https://dblp.org/db/conf/icmcs/icme2013.html",
+      "lng": -121.890591,
+      "name": "ICME 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "icmi13",
+      "country": "Australia",
+      "end": "2013-12-13",
+      "id": "icmi13@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/icmi/icmi2013.html",
+      "lng": 151.2082848,
+      "name": "ICMI 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-12-09"
+    },
+    {
+      "access": "registration",
       "city": "Atlanta",
       "conferenceId": "icml13",
       "country": "United States",
@@ -134,6 +1473,150 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2013-06-16"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "icmr13",
+      "country": "United States",
+      "end": "2013-04-19",
+      "id": "icmr13@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/mir/icmr2013.html",
+      "lng": -96.7968559,
+      "name": "ICMR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-04-16"
+    },
+    {
+      "access": "registration",
+      "city": "Karlsruhe",
+      "conferenceId": "icra13",
+      "country": "Germany",
+      "end": "2013-05-10",
+      "id": "icra13@main",
+      "lat": 49.0068705,
+      "link": "https://dblp.org/db/conf/icra/icra2013.html",
+      "lng": 8.4034195,
+      "name": "ICRA 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "icwsm13",
+      "country": "United States",
+      "end": "2013-07-11",
+      "id": "icwsm13@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2013.html",
+      "lng": -71.1040018,
+      "name": "ICWSM 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "ijcai13",
+      "country": "China",
+      "end": "2013-08-09",
+      "id": "ijcai13@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai2013.html",
+      "lng": 116.3912972,
+      "name": "IJCAI 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "ijcnn13",
+      "country": "United States",
+      "end": "2013-08-09",
+      "id": "ijcnn13@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2013.html",
+      "lng": -96.7968559,
+      "name": "IJCNN 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-04"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "interspeech2013",
+      "country": "France",
+      "end": "2013-08-29",
+      "id": "interspeech2013@main",
+      "lat": 45.7578137,
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2013.html",
+      "lng": 4.8320114,
+      "name": "Interspeech 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-08-25"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "iros13",
+      "country": "Japan",
+      "end": "2013-11-07",
+      "id": "iros13@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/iros/iros2013.html",
+      "lng": 139.7638947,
+      "name": "IROS 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Curitiba",
+      "conferenceId": "ismir13",
+      "country": "Brazil",
+      "end": "2013-11-08",
+      "id": "ismir13@main",
+      "lat": -25.4295963,
+      "link": "https://dblp.org/db/conf/ismir/ismir2013.html",
+      "lng": -49.2712724,
+      "name": "ISMIR 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-11-04"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "iswc13",
+      "country": "Australia",
+      "end": "2013-10-25",
+      "id": "iswc13@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/semweb/iswc2013-1.html",
+      "lng": 151.2082848,
+      "name": "ISWC 2013",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2013-10-21"
     }
   ]
 }

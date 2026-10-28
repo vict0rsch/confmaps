@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1971-09-03",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai71",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai71.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1971-09-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1971
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "ijcai71",
+      "country": "United Kingdom",
+      "end": "1971-09-03",
+      "id": "ijcai71@main",
+      "lat": 51.5074456,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai71.html",
+      "lng": -0.1277653,
+      "name": "IJCAI 1971",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1971-09-01"
+    }
+  ]
+}

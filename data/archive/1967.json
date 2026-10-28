@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1967-08-25",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling67",
+      "link": "https://dblp.org/db/conf/coling/coling1967.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1967-08-23",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1967
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "coling67",
+      "country": "France",
+      "end": "1967-08-25",
+      "id": "coling67@main",
+      "lat": 45.1875602,
+      "link": "https://dblp.org/db/conf/coling/coling1967.html",
+      "lng": 5.7357819,
+      "name": "COLING 1967",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1967-08-23"
+    }
+  ]
+}

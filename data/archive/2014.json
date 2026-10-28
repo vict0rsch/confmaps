@@ -2,6 +2,40 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "2014-12-11",
+      "fullName": "International Conference on 3D Vision",
+      "id": "3dv14",
+      "link": "https://dblp.org/db/conf/3dim/3dv2014.html",
+      "series": "3dv",
+      "source": "curated",
+      "start": "2014-12-08",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "3DV",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-07-31",
+      "fullName": "AAAI Conference on Artificial Intelligence",
+      "id": "aaai14",
+      "link": "https://dblp.org/db/conf/aaai/aaai2014.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "2014-07-27",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
       "end": "2014-05-09",
       "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
       "id": "aamas14",
@@ -34,6 +68,225 @@
     {
       "deadlines": [],
       "end": "2014-06-27",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl14",
+      "link": "https://dblp.org/db/conf/acl/acl2014-1.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "2014-06-22",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-07",
+      "fullName": "ACM Multimedia",
+      "id": "acm14",
+      "link": "https://dblp.org/db/conf/mm/mm2014.html",
+      "series": "acm-mm",
+      "source": "curated",
+      "start": "2014-11-03",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-28",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml14",
+      "link": "https://dblp.org/db/conf/acml/acml2014.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2014-11-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-25",
+      "fullName": "International Conference on Artificial Intelligence and Statistics",
+      "id": "aistats14",
+      "link": "https://dblp.org/db/conf/aistats/aistats2014.html",
+      "series": "aistats",
+      "source": "curated",
+      "start": "2014-04-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "AISTATS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-10",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2014",
+      "link": "https://dblp.org/db/conf/alt/alt2014.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2014-10-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-05-23",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2014",
+      "link": "https://dblp.org/db/conf/bis/bis2014.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2014-05-22",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-05",
+      "fullName": "The British Machine Vision Conference",
+      "id": "bmvc14",
+      "link": "https://dblp.org/db/conf/bmvc/bmvc2014.html",
+      "series": "bmvc",
+      "source": "curated",
+      "start": "2014-09-01",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "BMVC",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-07-11",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2014",
+      "link": "https://dblp.org/db/conf/cec/cec2014.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2014-07-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-05-01",
+      "fullName": "ACM Conference on Human Factors in Computing Systems",
+      "id": "chi14",
+      "link": "https://dblp.org/db/conf/chi/chi2014.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2014-04-26",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-07",
+      "fullName": "International Conference on Information and Knowledge Management",
+      "id": "cikm14",
+      "link": "https://dblp.org/db/conf/cikm/cikm2014.html",
+      "series": "cikm",
+      "source": "curated",
+      "start": "2014-11-03",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-08-29",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling14",
+      "link": "https://dblp.org/db/conf/coling/coling2014.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "2014-08-23",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-15",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt14",
+      "link": "https://dblp.org/db/conf/colt/colt2014.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "2014-06-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-27",
+      "fullName": "Conference on Computational Natural Language Learning",
+      "id": "conll14",
+      "link": "https://dblp.org/db/conf/conll/conll2014.html",
+      "series": "conll",
+      "source": "curated",
+      "start": "2014-06-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-02-19",
+      "fullName": "ACM Conference on Computer Supported Cooperative Work",
+      "id": "cscw14",
+      "link": "https://dblp.org/db/conf/cscw/cscw2014.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2014-02-15",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-27",
       "fullName": "IEEE Conference on Computer Vision and Pattern Recognition",
       "id": "cvpr14",
       "link": "http://www.pamitc.org/cvpr14/",
@@ -48,6 +301,345 @@
         "representation-learning"
       ],
       "title": "CVPR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-30",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl14",
+      "link": "https://dblp.org/db/conf/eacl/eacl2014.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "2014-04-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-08-22",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai14",
+      "link": "https://dblp.org/db/conf/ecai/ecai2014.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "2014-08-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-12",
+      "fullName": "European Conference on Computer Vision",
+      "id": "eccv14",
+      "link": "https://dblp.org/db/conf/eccv/eccv2014-1.html",
+      "series": "eccv",
+      "source": "curated",
+      "start": "2014-09-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ECCV",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-16",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir14",
+      "link": "https://dblp.org/db/conf/ecir/ecir2014.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2014-04-13",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-19",
+      "fullName": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases",
+      "id": "ecmlpkdd14",
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2014-1.html",
+      "series": "ecml-pkdd",
+      "source": "curated",
+      "start": "2014-09-15",
+      "tags": [
+        "machine-learning",
+        "data-mining"
+      ],
+      "title": "ECML PKDD",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-29",
+      "fullName": "Conference on Empirical Methods in Natural Language Processing",
+      "id": "emnlp14",
+      "link": "https://dblp.org/db/conf/emnlp/emnlp2014.html",
+      "series": "emnlp",
+      "source": "curated",
+      "start": "2014-10-25",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-25",
+      "fullName": "European Symposium on Artificial Neural Networks",
+      "id": "esann14",
+      "link": "https://dblp.org/db/conf/esann/esann2014.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2014-04-23",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-11",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics14",
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2014.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2014-04-07",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-12-12",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip14",
+      "link": "https://dblp.org/db/conf/euvip/euvip2014.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2014-12-10",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-25",
+      "fullName": "International Conference on Evolutionary and Biologically Inspired Music, Sound, Art and Design",
+      "id": "evomusart14",
+      "link": "https://link.springer.com/book/10.1007/978-3-662-44335-4",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2014-04-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "evoMUSART",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-07-16",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco14",
+      "link": "https://dblp.org/db/conf/gecco/gecco2014.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2014-07-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-01-09",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss14",
+      "link": "https://dblp.org/db/conf/hicss/hicss2014.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2014-01-06",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-03-06",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri14",
+      "link": "https://dblp.org/db/conf/hri/hri2014.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2014-03-03",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-27",
+      "fullName": "Ibero-American Conference on Artificial Intelligence",
+      "id": "iberamia14",
+      "link": "https://dblp.org/db/conf/iberamia/iberamia2014.html",
+      "series": "iberamia",
+      "source": "curated",
+      "start": "2014-11-24",
+      "tags": [
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "IBERAMIA",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-19",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann14",
+      "link": "https://dblp.org/db/conf/icann/icann2014.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2014-09-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-26",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps14",
+      "link": "https://dblp.org/db/conf/aips/icaps2014.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2014-06-21",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-05-15",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc14",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2014.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2014-05-14",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-05-09",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp14",
+      "link": "https://dblp.org/db/conf/icassp/icassp2014.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "2014-05-04",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-13",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc14",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2014.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2014-06-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-16",
+      "fullName": "International Conference on Development and Learning and on Epigenetic Robotics",
+      "id": "icdlepirob14",
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2014.html",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2014-10-13",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-12-17",
+      "fullName": "IEEE International Conference on Data Mining",
+      "id": "icdm14",
+      "link": "https://dblp.org/db/conf/icdm/icdm2014.html",
+      "series": "icdm",
+      "source": "curated",
+      "start": "2014-12-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-30",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip14",
+      "link": "https://dblp.org/db/conf/icip/icip2014.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2014-10-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
       "year": 2014
     },
     {
@@ -71,6 +663,36 @@
     },
     {
       "deadlines": [],
+      "end": "2014-07-18",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme14",
+      "link": "https://dblp.org/db/conf/icmcs/icme2014.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2014-07-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-11-16",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi14",
+      "link": "https://dblp.org/db/conf/icmi/icmi2014.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2014-11-12",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
       "end": "2014-06-26",
       "fullName": "International Conference on Machine Learning",
       "id": "icml14",
@@ -82,6 +704,175 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-04-04",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr14",
+      "link": "https://dblp.org/db/conf/mir/icmr2014.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2014-04-01",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-08-28",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr14",
+      "link": "https://dblp.org/db/conf/icpr/icpr2014.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2014-08-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-07",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra14",
+      "link": "https://dblp.org/db/conf/icra/icra2014.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "2014-05-31",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-04",
+      "fullName": "International Conference on Weblogs and Social Media",
+      "id": "icwsm14",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2014.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2014-06-01",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-07-11",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn14",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2014.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2014-07-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-21",
+      "fullName": "International Natural Language Generation Conference",
+      "id": "inlg2014",
+      "link": "https://dblp.org/db/conf/inlg/inlg2014.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2014-06-19",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-18",
+      "fullName": "Annual Conference of the International Speech Communication Association",
+      "id": "interspeech2014",
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2014.html",
+      "series": "interspeech",
+      "source": "curated",
+      "start": "2014-09-14",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-09-18",
+      "fullName": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+      "id": "iros14",
+      "link": "https://dblp.org/db/conf/iros/iros2014.html",
+      "series": "iros",
+      "source": "curated",
+      "start": "2014-09-14",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-31",
+      "fullName": "International Society for Music Information Retrieval Conference",
+      "id": "ismir14",
+      "link": "https://dblp.org/db/conf/ismir/ismir2014.html",
+      "series": "ismir",
+      "source": "curated",
+      "start": "2014-10-27",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-06-27",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis14",
+      "link": "https://dblp.org/db/conf/ismis/ismis2014.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "2014-06-25",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2014
+    },
+    {
+      "deadlines": [],
+      "end": "2014-10-23",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc14",
+      "link": "https://dblp.org/db/conf/semweb/iswc2014-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2014-10-19",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2014
     },
     {
@@ -101,6 +892,38 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "3dv14",
+      "country": "Japan",
+      "end": "2014-12-11",
+      "id": "3dv14@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/3dim/3dv2014.html",
+      "lng": 139.7638947,
+      "name": "3DV 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-12-08"
+    },
+    {
+      "access": "registration",
+      "city": "Québec City",
+      "conferenceId": "aaai14",
+      "country": "Canada",
+      "end": "2014-07-31",
+      "id": "aaai14@main",
+      "lat": 46.8137431,
+      "link": "https://dblp.org/db/conf/aaai/aaai2014.html",
+      "lng": -71.2084061,
+      "name": "AAAI 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-07-27"
+    },
     {
       "access": "registration",
       "city": "Paris",
@@ -136,6 +959,230 @@
     },
     {
       "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "acl14",
+      "country": "United States",
+      "end": "2014-06-27",
+      "id": "acl14@main",
+      "lat": 39.2908816,
+      "link": "https://dblp.org/db/conf/acl/acl2014-1.html",
+      "lng": -76.610759,
+      "name": "ACL 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-22"
+    },
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "acm14",
+      "country": "United States",
+      "end": "2014-11-07",
+      "id": "acm14@main",
+      "lat": 28.5421218,
+      "link": "https://dblp.org/db/conf/mm/mm2014.html",
+      "lng": -81.379045,
+      "name": "ACM MM 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Nha Trang",
+      "conferenceId": "acml14",
+      "country": "Vietnam",
+      "end": "2014-11-28",
+      "id": "acml14@main",
+      "lat": 12.247185,
+      "link": "https://dblp.org/db/conf/acml/acml2014.html",
+      "lng": 109.1892066,
+      "name": "ACML 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Reykjavik",
+      "conferenceId": "aistats14",
+      "country": "Iceland",
+      "end": "2014-04-25",
+      "id": "aistats14@main",
+      "lat": 64.145981,
+      "link": "https://dblp.org/db/conf/aistats/aistats2014.html",
+      "lng": -21.9422367,
+      "name": "AISTATS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Bled",
+      "conferenceId": "alt2014",
+      "country": "Slovenia",
+      "end": "2014-10-10",
+      "id": "alt2014@main",
+      "lat": 46.3684202,
+      "link": "https://dblp.org/db/conf/alt/alt2014.html",
+      "lng": 14.1100595,
+      "name": "ALT 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "Larnaca",
+      "conferenceId": "bis2014",
+      "country": "Cyprus",
+      "end": "2014-05-23",
+      "id": "bis2014@main",
+      "lat": 34.9236095,
+      "link": "https://dblp.org/db/conf/bis/bis2014.html",
+      "lng": 33.6236184,
+      "name": "BIS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-22"
+    },
+    {
+      "access": "registration",
+      "city": "Nottingham",
+      "conferenceId": "bmvc14",
+      "country": "United Kingdom",
+      "end": "2014-09-05",
+      "id": "bmvc14@main",
+      "lat": 52.9534193,
+      "link": "https://dblp.org/db/conf/bmvc/bmvc2014.html",
+      "lng": -1.1496461,
+      "name": "BMVC 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-01"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "cec2014",
+      "country": "China",
+      "end": "2014-07-11",
+      "id": "cec2014@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/cec/cec2014.html",
+      "lng": 116.3912972,
+      "name": "CEC 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-07-06"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "chi14",
+      "country": "Canada",
+      "end": "2014-05-01",
+      "id": "chi14@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/chi/chi2014.html",
+      "lng": -79.3839347,
+      "name": "CHI 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Shanghai",
+      "conferenceId": "cikm14",
+      "country": "China",
+      "end": "2014-11-07",
+      "id": "cikm14@main",
+      "lat": 31.2323437,
+      "link": "https://dblp.org/db/conf/cikm/cikm2014.html",
+      "lng": 121.4691024,
+      "name": "CIKM 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "coling14",
+      "country": "Ireland",
+      "end": "2014-08-29",
+      "id": "coling14@main",
+      "lat": 53.3493795,
+      "link": "https://dblp.org/db/conf/coling/coling2014.html",
+      "lng": -6.2605593,
+      "name": "COLING 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-08-23"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "colt14",
+      "country": "Spain",
+      "end": "2014-06-15",
+      "id": "colt14@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/colt/colt2014.html",
+      "lng": 2.177073,
+      "name": "COLT 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "conll14",
+      "country": "United States",
+      "end": "2014-06-27",
+      "id": "conll14@main",
+      "lat": 39.2908816,
+      "link": "https://dblp.org/db/conf/conll/conll2014.html",
+      "lng": -76.610759,
+      "name": "CoNLL 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-26"
+    },
+    {
+      "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "cscw14",
+      "country": "United States",
+      "end": "2014-02-19",
+      "id": "cscw14@main",
+      "lat": 39.2908816,
+      "link": "https://dblp.org/db/conf/cscw/cscw2014.html",
+      "lng": -76.610759,
+      "name": "CSCW 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-02-15"
+    },
+    {
+      "access": "registration",
       "city": "Columbus",
       "conferenceId": "cvpr14",
       "country": "United States",
@@ -150,6 +1197,358 @@
       "role": "main",
       "start": "2014-06-24",
       "venue": "Greater Columbus Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Gothenburg",
+      "conferenceId": "eacl14",
+      "country": "Sweden",
+      "end": "2014-04-30",
+      "id": "eacl14@main",
+      "lat": 57.7072326,
+      "link": "https://dblp.org/db/conf/eacl/eacl2014.html",
+      "lng": 11.9670171,
+      "name": "EACL 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "ecai14",
+      "country": "Czech Republic",
+      "end": "2014-08-22",
+      "id": "ecai14@main",
+      "lat": 50.0874654,
+      "link": "https://dblp.org/db/conf/ecai/ecai2014.html",
+      "lng": 14.4212535,
+      "name": "ECAI 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Zurich",
+      "conferenceId": "eccv14",
+      "country": "Switzerland",
+      "end": "2014-09-12",
+      "id": "eccv14@main",
+      "lat": 47.3744489,
+      "link": "https://dblp.org/db/conf/eccv/eccv2014-1.html",
+      "lng": 8.5410422,
+      "name": "ECCV 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-06"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "ecir14",
+      "country": "Netherlands",
+      "end": "2014-04-16",
+      "id": "ecir14@main",
+      "lat": 52.3730796,
+      "link": "https://dblp.org/db/conf/ecir/ecir2014.html",
+      "lng": 4.8924534,
+      "name": "ECIR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-13"
+    },
+    {
+      "access": "registration",
+      "city": "Nancy",
+      "conferenceId": "ecmlpkdd14",
+      "country": "France",
+      "end": "2014-09-19",
+      "id": "ecmlpkdd14@main",
+      "lat": 48.6937223,
+      "link": "https://dblp.org/db/conf/pkdd/pkdd2014-1.html",
+      "lng": 6.1834097,
+      "name": "ECML PKDD 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-15"
+    },
+    {
+      "access": "registration",
+      "city": "Doha",
+      "conferenceId": "emnlp14",
+      "country": "Qatar",
+      "end": "2014-10-29",
+      "id": "emnlp14@main",
+      "lat": 25.2856329,
+      "link": "https://dblp.org/db/conf/emnlp/emnlp2014.html",
+      "lng": 51.5264162,
+      "name": "EMNLP 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-25"
+    },
+    {
+      "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann14",
+      "country": "Belgium",
+      "end": "2014-04-25",
+      "id": "esann14@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2014.html",
+      "lng": 3.226772,
+      "name": "ESANN 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-23"
+    },
+    {
+      "access": "registration",
+      "city": "Strasbourg",
+      "conferenceId": "eurographics14",
+      "country": "France",
+      "end": "2014-04-11",
+      "id": "eurographics14@main",
+      "lat": 48.584614,
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2014.html",
+      "lng": 7.7507127,
+      "name": "Eurographics 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-07"
+    },
+    {
+      "access": "registration",
+      "city": "Villetaneuse",
+      "conferenceId": "euvip14",
+      "country": "France",
+      "end": "2014-12-12",
+      "id": "euvip14@main",
+      "lat": 48.9611722,
+      "link": "https://dblp.org/db/conf/euvip/euvip2014.html",
+      "lng": 2.3439698,
+      "name": "EUVIP 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-12-10"
+    },
+    {
+      "access": "registration",
+      "city": "Granada",
+      "conferenceId": "evomusart14",
+      "country": "Spain",
+      "end": "2014-04-25",
+      "id": "evomusart14@main",
+      "lat": 37.1734995,
+      "link": "https://link.springer.com/book/10.1007/978-3-662-44335-4",
+      "lng": -3.5995337,
+      "name": "evoMUSART 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-23"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "gecco14",
+      "country": "Canada",
+      "end": "2014-07-16",
+      "id": "gecco14@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/gecco/gecco2014.html",
+      "lng": -123.113952,
+      "name": "GECCO 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "hicss14",
+      "country": "United States",
+      "end": "2014-01-09",
+      "id": "hicss14@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2014.html",
+      "lng": -155.787398,
+      "name": "HICSS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-01-06"
+    },
+    {
+      "access": "registration",
+      "city": "Bielefeld",
+      "conferenceId": "hri14",
+      "country": "Germany",
+      "end": "2014-03-06",
+      "id": "hri14@main",
+      "lat": 52.0191005,
+      "link": "https://dblp.org/db/conf/hri/hri2014.html",
+      "lng": 8.531007,
+      "name": "HRI 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-03-03"
+    },
+    {
+      "access": "registration",
+      "city": "Santiago de Chile",
+      "conferenceId": "iberamia14",
+      "country": "Chile",
+      "end": "2014-11-27",
+      "id": "iberamia14@main",
+      "lat": -33.4376995,
+      "link": "https://dblp.org/db/conf/iberamia/iberamia2014.html",
+      "lng": -70.6510671,
+      "name": "IBERAMIA 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-24"
+    },
+    {
+      "access": "registration",
+      "city": "Hamburg",
+      "conferenceId": "icann14",
+      "country": "Germany",
+      "end": "2014-09-19",
+      "id": "icann14@main",
+      "lat": 53.5501721,
+      "link": "https://dblp.org/db/conf/icann/icann2014.html",
+      "lng": 10.0013165,
+      "name": "ICANN 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-15"
+    },
+    {
+      "access": "registration",
+      "city": "Portsmouth",
+      "conferenceId": "icaps14",
+      "country": "United States",
+      "end": "2014-06-26",
+      "id": "icaps14@main",
+      "lat": 43.0751306,
+      "link": "https://dblp.org/db/conf/aips/icaps2014.html",
+      "lng": -70.7601826,
+      "name": "ICAPS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Espinho",
+      "conferenceId": "icarsc14",
+      "country": "Portugal",
+      "end": "2014-05-15",
+      "id": "icarsc14@main",
+      "lat": 41.0083643,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2014.html",
+      "lng": -8.6394111,
+      "name": "ICARSC 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-14"
+    },
+    {
+      "access": "registration",
+      "city": "Florence",
+      "conferenceId": "icassp14",
+      "country": "Italy",
+      "end": "2014-05-09",
+      "id": "icassp14@main",
+      "lat": 43.7697955,
+      "link": "https://dblp.org/db/conf/icassp/icassp2014.html",
+      "lng": 11.2556404,
+      "name": "ICASSP 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-04"
+    },
+    {
+      "access": "registration",
+      "city": "Ljubljana",
+      "conferenceId": "iccc14",
+      "country": "Slovenia",
+      "end": "2014-06-13",
+      "id": "iccc14@main",
+      "lat": 46.0500268,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2014.html",
+      "lng": 14.5069289,
+      "name": "ICCC 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Genoa",
+      "conferenceId": "icdlepirob14",
+      "country": "Italy",
+      "end": "2014-10-16",
+      "id": "icdlepirob14@main",
+      "lat": 44.40726,
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2014.html",
+      "lng": 8.9338624,
+      "name": "ICDL-EpiRob 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-13"
+    },
+    {
+      "access": "registration",
+      "city": "Shenzhen",
+      "conferenceId": "icdm14",
+      "country": "China",
+      "end": "2014-12-17",
+      "id": "icdm14@main",
+      "lat": 22.5445741,
+      "link": "https://dblp.org/db/conf/icdm/icdm2014.html",
+      "lng": 114.0545429,
+      "name": "ICDM 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-12-14"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "icip14",
+      "country": "France",
+      "end": "2014-10-30",
+      "id": "icip14@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/icip/icip2014.html",
+      "lng": 2.3483915,
+      "name": "ICIP 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-27"
     },
     {
       "access": "registration",
@@ -170,6 +1569,38 @@
     },
     {
       "access": "registration",
+      "city": "Chengdu",
+      "conferenceId": "icme14",
+      "country": "China",
+      "end": "2014-07-18",
+      "id": "icme14@main",
+      "lat": 30.659867,
+      "link": "https://dblp.org/db/conf/icmcs/icme2014.html",
+      "lng": 104.063315,
+      "name": "ICME 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "icmi14",
+      "country": "Turkey",
+      "end": "2014-11-16",
+      "id": "icmi14@main",
+      "lat": 41.006381,
+      "link": "https://dblp.org/db/conf/icmi/icmi2014.html",
+      "lng": 28.9758715,
+      "name": "ICMI 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-11-12"
+    },
+    {
+      "access": "registration",
       "city": "Beijing",
       "conferenceId": "icml14",
       "country": "China",
@@ -183,6 +1614,182 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2014-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "icmr14",
+      "country": "United Kingdom",
+      "end": "2014-04-04",
+      "id": "icmr14@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/mir/icmr2014.html",
+      "lng": -4.2501687,
+      "name": "ICMR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-04-01"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "icpr14",
+      "country": "Sweden",
+      "end": "2014-08-28",
+      "id": "icpr14@main",
+      "lat": 59.3251172,
+      "link": "https://dblp.org/db/conf/icpr/icpr2014.html",
+      "lng": 18.0710935,
+      "name": "ICPR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "icra14",
+      "country": "China",
+      "end": "2014-06-07",
+      "id": "icra14@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/icra/icra2014.html",
+      "lng": 114.1582831,
+      "name": "ICRA 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-05-31"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "icwsm14",
+      "country": "United States",
+      "end": "2014-06-04",
+      "id": "icwsm14@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2014.html",
+      "lng": -83.7484616,
+      "name": "ICWSM 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-01"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "ijcnn14",
+      "country": "China",
+      "end": "2014-07-11",
+      "id": "ijcnn14@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2014.html",
+      "lng": 116.3912972,
+      "name": "IJCNN 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-07-06"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "inlg2014",
+      "country": "United States",
+      "end": "2014-06-21",
+      "id": "inlg2014@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/inlg/inlg2014.html",
+      "lng": -75.1635262,
+      "name": "INLG 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-19"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "interspeech2014",
+      "country": "Singapore",
+      "end": "2014-09-18",
+      "id": "interspeech2014@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2014.html",
+      "lng": 103.8519072,
+      "name": "Interspeech 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-14"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "iros14",
+      "country": "United States",
+      "end": "2014-09-18",
+      "id": "iros14@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/iros/iros2014.html",
+      "lng": -87.6244212,
+      "name": "IROS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-09-14"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "ismir14",
+      "country": "Taiwan",
+      "end": "2014-10-31",
+      "id": "ismir14@main",
+      "lat": 25.0375198,
+      "link": "https://dblp.org/db/conf/ismir/ismir2014.html",
+      "lng": 121.5636796,
+      "name": "ISMIR 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-27"
+    },
+    {
+      "access": "registration",
+      "city": "Roskilde",
+      "conferenceId": "ismis14",
+      "country": "Denmark",
+      "end": "2014-06-27",
+      "id": "ismis14@main",
+      "lat": 55.6433478,
+      "link": "https://dblp.org/db/conf/ismis/ismis2014.html",
+      "lng": 12.0819247,
+      "name": "ISMIS 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Riva del Garda",
+      "conferenceId": "iswc14",
+      "country": "Italy",
+      "end": "2014-10-23",
+      "id": "iswc14@main",
+      "lat": 45.886747,
+      "link": "https://dblp.org/db/conf/semweb/iswc2014-1.html",
+      "lng": 10.8457733,
+      "name": "ISWC 2014",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2014-10-19"
     },
     {
       "access": "registration",

@@ -17,6 +17,101 @@
       ],
       "title": "AAAI",
       "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-06-17",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl83",
+      "link": "https://dblp.org/db/conf/acl/acl1983.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1983-06-15",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-12-15",
+      "fullName": "SIGCHI Conference on Human Factors in Computing Systems",
+      "id": "chi83",
+      "link": "https://dblp.org/db/conf/chi/chi1983.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1983-12-12",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-06-23",
+      "fullName": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr83",
+      "link": "https://catalog.hathitrust.org/Record/002542643",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "1983-06-19",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-09-02",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl83",
+      "link": "https://dblp.org/db/conf/eacl/eacl1983.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "1983-09-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-04-16",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp83",
+      "link": "https://dblp.org/db/conf/icassp/icassp1983.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1983-04-14",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-08-12",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai83",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai83.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1983-08-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1983
     }
   ],
   "locations": [
@@ -35,6 +130,103 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1983-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "acl83",
+      "country": "United States",
+      "end": "1983-06-17",
+      "id": "acl83@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/acl/acl1983.html",
+      "lng": -71.1040018,
+      "name": "ACL 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-06-15",
+      "venue": "Massachusetts Institute of Technology"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "chi83",
+      "country": "United States",
+      "end": "1983-12-15",
+      "id": "chi83@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/chi/chi1983.html",
+      "lng": -71.0578303,
+      "name": "CHI 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Arlington",
+      "conferenceId": "cvpr83",
+      "country": "United States",
+      "end": "1983-06-23",
+      "id": "cvpr83@main",
+      "lat": 38.8809358,
+      "link": "https://catalog.hathitrust.org/Record/002542643",
+      "lng": -77.1079246,
+      "name": "CVPR 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-06-19"
+    },
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "eacl83",
+      "country": "Italy",
+      "end": "1983-09-02",
+      "id": "eacl83@main",
+      "lat": 43.7159395,
+      "link": "https://dblp.org/db/conf/eacl/eacl1983.html",
+      "lng": 10.4018624,
+      "name": "EACL 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-09-01"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "icassp83",
+      "country": "United States",
+      "end": "1983-04-16",
+      "id": "icassp83@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/icassp/icassp1983.html",
+      "lng": -71.0578303,
+      "name": "ICASSP 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-04-14"
+    },
+    {
+      "access": "registration",
+      "city": "Karlsruhe",
+      "conferenceId": "ijcai83",
+      "country": "Germany",
+      "end": "1983-08-12",
+      "id": "ijcai83@main",
+      "lat": 49.0068705,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai83.html",
+      "lng": 8.4034195,
+      "name": "IJCAI 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-08-08"
     }
   ]
 }

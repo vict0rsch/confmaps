@@ -2,6 +2,24 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "1980-08-21",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai80",
+      "link": "https://dblp.org/db/conf/aaai/aaai80.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1980-08-18",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1980
+    },
+    {
+      "deadlines": [],
       "end": "1980-06-22",
       "id": "acl80",
       "link": "https://aclanthology.org/events/acl-1980/",
@@ -13,9 +31,102 @@
       ],
       "title": "ACL",
       "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-10-04",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling80",
+      "link": "https://dblp.org/db/conf/coling/coling1980.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1980-09-30",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-07-04",
+      "fullName": "AISB Conference on Artificial Intelligence",
+      "id": "ecai80",
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/3069422",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1980-07-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-09-05",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics80",
+      "link": "https://dblp.org/db/conf/eurographics/eg1980.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1980-09-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-04-11",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp80",
+      "link": "https://dblp.org/db/conf/icassp/icassp1980.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1980-04-09",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-12-04",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr80",
+      "link": "https://catalog.hathitrust.org/Record/002542640",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1980-12-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1980
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "aaai80",
+      "country": "United States",
+      "end": "1980-08-21",
+      "id": "aaai80@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/aaai/aaai80.html",
+      "lng": -122.1702445,
+      "name": "AAAI 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-08-18",
+      "venue": "Stanford University"
+    },
     {
       "access": "registration",
       "city": "Philadelphia",
@@ -32,6 +143,86 @@
       "role": "main",
       "start": "1980-06-19",
       "venue": "University of Pennsylvania"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "coling80",
+      "country": "Japan",
+      "end": "1980-10-04",
+      "id": "coling80@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/coling/coling1980.html",
+      "lng": 139.7638947,
+      "name": "COLING 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-09-30"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "ecai80",
+      "country": "Netherlands",
+      "end": "1980-07-04",
+      "id": "ecai80@main",
+      "lat": 52.3730796,
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/3069422",
+      "lng": 4.8924534,
+      "name": "ECAI 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-07-01"
+    },
+    {
+      "access": "registration",
+      "city": "Geneva",
+      "conferenceId": "eurographics80",
+      "country": "Switzerland",
+      "end": "1980-09-05",
+      "id": "eurographics80@main",
+      "lat": 46.2017559,
+      "link": "https://dblp.org/db/conf/eurographics/eg1980.html",
+      "lng": 6.1466014,
+      "name": "Eurographics 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-09-03"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "icassp80",
+      "country": "United States",
+      "end": "1980-04-11",
+      "id": "icassp80@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/icassp/icassp1980.html",
+      "lng": -104.984862,
+      "name": "ICASSP 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-04-09"
+    },
+    {
+      "access": "registration",
+      "city": "Miami Beach",
+      "conferenceId": "icpr80",
+      "country": "United States",
+      "end": "1980-12-04",
+      "id": "icpr80@main",
+      "lat": 25.7929198,
+      "link": "https://catalog.hathitrust.org/Record/002542640",
+      "lng": -80.1353006,
+      "name": "ICPR 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-12-01"
     }
   ]
 }
