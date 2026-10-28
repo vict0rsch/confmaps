@@ -92,6 +92,7 @@ def plan_batches(
     recheck: bool = False,
     dblp: DblpTitles | None = None,
     not_held: Mapping[str, set[int]] | None = None,
+    on_series: Callable[[str, list[dict[str, Any]]], None] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Batches of target years to research, and the series that have no recorded edition.
 
@@ -111,6 +112,8 @@ def plan_batches(
         Lists each batch's dblp proceedings titles of its target years in the prompt.
     not_held : mapping of str to set of int, optional
         Per series key, the years recorded as not held in ``data/series.yml``: never targets.
+    on_series : callable, optional
+        Called with each planned series and its batches (possibly none), after its dblp listing.
 
     Returns
     -------
@@ -162,6 +165,8 @@ def plan_batches(
                     "dblp": dblp_listing(volumes),
                 }
             )
+        if on_series is not None:
+            on_series(series, [b for b in batches if b["series"] == series])
     return batches, unknown
 
 

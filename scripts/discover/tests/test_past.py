@@ -1,6 +1,7 @@
 """Past mode (DESIGN.md §3): targeting, prompt, checks, merge, CLI."""
 
 import difflib
+import io
 import json
 import re
 from datetime import date
@@ -10,6 +11,7 @@ from typing import Any
 import httpx
 import pytest
 from conftest import REPO, FakeClient, FakeFetcher, FakeGeocoder, json_message
+from rich.console import Console
 from ruamel.yaml import YAML
 from test_report import HOSTILE, MARKERS, _strip_safe_spans
 
@@ -18,7 +20,13 @@ from discover.agent import Research
 from discover.dblp import MIN_INTERVAL_S as DBLP_INTERVAL_S
 from discover.dblp import VIA_SPARQL, DblpTitles, edition_year_is, held_in, sparql_query
 from discover.geo import GeoHit
-from discover.main import apply_not_held, main, proposed_files, select_conferences
+from discover.main import (
+    PlanProgress,
+    apply_not_held,
+    main,
+    proposed_files,
+    select_conferences,
+)
 from discover.merge import Update
 from discover.past import (
     UNOPENED_NOTE,
@@ -285,6 +293,24 @@ def test_batches_have_at_most_six_years_in_order() -> None:
     assert [b["series"] for b in batches] == ["neurips"] * 5 + ["icml"] * 5
     years = [y for b in batches[:5] for y in b["years"]]
     assert years == sorted(years) and 2015 in years
+
+
+def test_plan_progress_reports_each_series_once_planned(capsys: pytest.CaptureFixture[str]) -> None:
+    calls: list[tuple[str, int]] = []
+    with PlanProgress(["neurips", "nope", "icml"], Console(file=io.StringIO())) as progress:
+
+        def on_series(series: str, batches: list[dict[str, Any]]) -> None:
+            calls.append((series, len(batches)))
+            progress.planned(series, batches)
+
+        _, unknown = plan_batches(
+            DATA, PAST, ["neurips", "nope", "icml"], 1987, 2015, on_series=on_series
+        )
+    assert unknown == ["nope"] and calls == [("neurips", 5), ("icml", 5)]
+    assert progress.pending == []
+    err = capsys.readouterr().err
+    assert re.search(r"> planned neurips: \d+ year\(s\) in 5 batch\(es\), 0 dblp volume\(s\)", err)
+    assert "> planned icml:" in err and "nope" not in err
 
 
 def test_per_series_since_and_plain_since_are_equivalent() -> None:

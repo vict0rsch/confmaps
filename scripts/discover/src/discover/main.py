@@ -380,6 +380,73 @@ class ResearchProgress:
         self.live.update(self.overall, advance=1, info=self._budget(spent))
 
 
+class PlanProgress:
+    """Progress of ``--mode past`` batch planning: one dblp query per series, so it can take
+    minutes before the first request starts.
+
+    Pass :meth:`planned` as ``plan_batches(on_series=...)``. On a terminal, a rich bar shows the
+    series planned and the one whose dblp proceedings are being listed now; elsewhere, one
+    :func:`say` line per series.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with PlanProgress(series_list) as progress:
+            batches, unknown = plan_batches(..., on_series=progress.planned)
+    """
+
+    def __init__(self, series_list: list[str], console: Console | None = None) -> None:
+        self.pending = list(series_list)
+        self.started = time.monotonic()
+        self.console = console or Console(stderr=True)
+        self.live: Progress | None = None
+        if self.console.is_terminal:
+            self.live = Progress(
+                SpinnerColumn(),
+                TextColumn("{task.description}"),
+                BarColumn(),
+                MofNCompleteColumn(),
+                TextColumn("{task.fields[activity]}"),
+                TimeElapsedColumn(),
+                console=self.console,
+            )
+            self.task = self.live.add_task(
+                "Planning batches", total=len(self.pending), activity=self._activity()
+            )
+
+    def _activity(self) -> str:
+        return f"listing dblp proceedings of {self.pending[0]}" if self.pending else ""
+
+    def __enter__(self) -> Self:
+        if self.live:
+            self.live.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self.live:
+            self.live.stop()
+
+    def planned(self, series: str, batches: list[dict[str, Any]]) -> None:
+        """``series`` is planned: report its batches, years and dblp volumes, and the time taken."""
+        # Series are planned in list order; a skipped one (no recorded edition) gets no call.
+        if series in self.pending:
+            del self.pending[: self.pending.index(series) + 1]
+        now = time.monotonic()
+        years = sum(len(b["years"]) for b in batches)
+        volumes = sum(len(b["dblp"]) for b in batches)
+        line = (
+            f"planned {series}: {years} year(s) in {len(batches)} batch(es), "
+            f"{volumes} dblp volume(s), {now - self.started:.1f}s"
+        )
+        self.started = now
+        if not self.live:
+            say(line, file=sys.stderr)
+            return
+        self.live.console.print(Text(line))
+        self.live.update(self.task, advance=1, activity=self._activity())
+
+
 class CheckProgress:
     """Live progress of the evidence checks (cited pages fetched, cities geocoded).
 
@@ -863,9 +930,19 @@ def _main_past(
             key: {y["year"] for y in entry.get("not_held", [])}
             for key, entry in series_entries.items()
         }
-        batches, unknown = plan_batches(
-            data, past, series_list, since, until, args.recheck, dblp, not_held
-        )
+        step(f"Planning batches: listing the dblp proceedings of {len(series_list)} series")
+        with PlanProgress(series_list) as progress:
+            batches, unknown = plan_batches(
+                data,
+                past,
+                series_list,
+                since,
+                until,
+                args.recheck,
+                dblp,
+                not_held,
+                on_series=progress.planned,
+            )
         if unknown:
             say(
                 "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "
