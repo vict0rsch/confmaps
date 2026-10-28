@@ -17,7 +17,7 @@
   title: ACL
   year: 1963
   full_name: Annual meeting of the Association for Machine Translation and Computational Linguistics
-  link: https://aclanthology.org/volumes/1963.earlymt-1/ 
+  link: https://aclanthology.org/volumes/1963.earlymt-1/
   start: '1963-08-25'
   end: '1963-08-26'
   format: in_person
@@ -417,7 +417,7 @@
 - id: acl80
   title: ACL
   year: 1980
-  link: https://aclanthology.org/events/acl-1980/ 
+  link: https://aclanthology.org/events/acl-1980/
   start: '1980-06-19'
   end: '1980-06-22'
   format: in_person
@@ -675,7 +675,7 @@
   title: AAAI
   year: 1983
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai83/ 
+  link: https://aaai.org/conference/aaai/aaai83/
   start: '1983-08-22'
   end: '1983-08-26'
   format: in_person
@@ -781,7 +781,7 @@
   title: AAAI
   year: 1984
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai84/ 
+  link: https://aaai.org/conference/aaai/aaai84/
   start: '1984-08-06'
   end: '1984-08-10'
   format: in_person
@@ -2421,7 +2421,7 @@
   title: AAAI
   year: 1992
   full_name: National Conference on Artificial Intelligence
-  link: https://www.aaai.org/Conferences/AAAI/aaai92.php 
+  link: https://www.aaai.org/Conferences/AAAI/aaai92.php
   start: '1992-07-12'
   end: '1992-07-16'
   format: in_person
@@ -2737,7 +2737,7 @@
   title: AAAI
   year: 1993
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai93/ 
+  link: https://aaai.org/conference/aaai/aaai93/
   start: '1993-07-11'
   end: '1993-07-15'
   format: in_person
@@ -2752,7 +2752,7 @@
 - id: accv93
   title: ACCV
   year: 1993
-  link: http://www.afcv.org.cn/events.html 
+  link: http://www.afcv.org.cn/events.html
   start: '1993-11-23'
   end: '1993-11-25'
   format: in_person
@@ -3113,7 +3113,7 @@
   title: AAAI
   year: 1994
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai94/ 
+  link: https://aaai.org/conference/aaai/aaai94/
   start: '1994-07-31'
   end: '1994-08-04'
   format: in_person
@@ -3475,7 +3475,7 @@
   title: ACCV
   year: 1995
   full_name: Asian Conference on Computer Vision
-  link: http://www.afcv.org.cn/events.html 
+  link: http://www.afcv.org.cn/events.html
   start: '1995-12-05'
   end: '1995-12-08'
   format: in_person
@@ -3841,7 +3841,7 @@
   title: AAAI
   year: 1996
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai96/ 
+  link: https://aaai.org/conference/aaai/aaai96/
   start: '1996-08-04'
   end: '1996-08-08'
   format: in_person
@@ -4051,7 +4051,7 @@
 - id: eurographics96
   title: Eurographics
   year: 1996
-  link: https://www.eg.org/wp/conference/eurographics/ 
+  link: https://www.eg.org/wp/conference/eurographics/
   start: '1996-08-26'
   end: '1996-08-30'
   format: in_person
@@ -4201,7 +4201,7 @@
   title: IJCNN
   year: 1996
   full_name: IEEE International Conference on Neural Networks
-  link: https://www.inns.org/ijcnn-past-conferences 
+  link: https://www.inns.org/ijcnn-past-conferences
   start: '1996-06-03'
   end: '1996-06-06'
   format: in_person
@@ -4246,7 +4246,7 @@
   title: AAAI
   year: 1997
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai97/ 
+  link: https://aaai.org/conference/aaai/aaai97/
   start: '1997-07-27'
   end: '1997-07-31'
   format: in_person
@@ -4595,7 +4595,7 @@
   title: IJCNN
   year: 1997
   full_name: IEEE International Conference on Neural Networks
-  link: https://www.inns.org/ijcnn-past-conferences 
+  link: https://www.inns.org/ijcnn-past-conferences
   start: '1997-06-09'
   end: '1997-06-12'
   format: in_person
@@ -4655,7 +4655,7 @@
   title: AAAI
   year: 1998
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai98/ 
+  link: https://aaai.org/conference/aaai/aaai98/
   start: '1998-07-26'
   end: '1998-07-30'
   format: in_person
@@ -4670,7 +4670,7 @@
   title: ACCV
   year: 1998
   full_name: Asian Conference on Computer Vision
-  link: https://cse.hkust.edu.hk/accv/index.html 
+  link: https://cse.hkust.edu.hk/accv/index.html
   start: '1998-01-08'
   end: '1998-01-10'
   format: in_person
@@ -4991,7 +4991,7 @@
   title: ICAPS
   year: 1998
   full_name: International Conference on Artificial Intelligence Planning Systems
-  link: https://www.icaps-conference.org/conference/aips-1998/ 
+  link: https://www.icaps-conference.org/conference/aips-1998/
   start: '1998-06-07'
   end: '1998-06-10'
   format: in_person
@@ -5096,7 +5096,7 @@
   title: IJCNN
   year: 1998
   full_name: International Joint Conference on Neural Networks
-  link: https://www.inns.org/ijcnn-past-conferences 
+  link: https://www.inns.org/ijcnn-past-conferences
   start: '1998-05-04'
   end: '1998-05-09'
   format: in_person
@@ -5141,7 +5141,7 @@
   title: AAAI
   year: 1999
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai99/ 
+  link: https://aaai.org/conference/aaai/aaai99/
   start: '1999-07-18'
   end: '1999-07-22'
   format: in_person
@@ -5187,7 +5187,7 @@
   title: AISTATS
   year: 1999
   full_name: International Workshop on Artificial Intelligence and Statistics
-  link: https://aistats.org/aistats1999/ 
+  link: https://aistats.org/aistats1999/
   start: '1999-01-03'
   end: '1999-01-06'
   format: in_person
@@ -5218,7 +5218,7 @@
   title: BIS
   year: 1999
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis1999/ 
+  link: http://bis.ue.poznan.pl/bis1999/
   start: '1999-04-14'
   end: '1999-04-16'
   format: in_person
@@ -5354,7 +5354,7 @@
   title: ECIR
   year: 1999
   full_name: Annual BCS-IRSG Colloquium on IR Research
-  link: https://www.scienceopen.com/hosted-document?doi=10.14236/ewic/IRSG1999.0 
+  link: https://www.scienceopen.com/hosted-document?doi=10.14236/ewic/IRSG1999.0
   start: '1999-04-19'
   end: '1999-04-20'
   format: in_person
@@ -5444,7 +5444,7 @@
   title: ICANN
   year: 1999
   full_name: International Conference on Artificial Neural Networks
-  link: https://digital-library.theiet.org/content/conferences/cp470 
+  link: https://digital-library.theiet.org/content/conferences/cp470
   start: '1999-09-07'
   end: '1999-09-10'
   format: in_person
@@ -5549,7 +5549,7 @@
   title: ICRA
   year: 1999
   full_name: IEEE International Conference on Robotics and Automation
-  link: https://www.sigmod.org/publications/dblp//db/conf/icra/index.html 
+  link: https://www.sigmod.org/publications/dblp//db/conf/icra/index.html
   start: '1999-05-10'
   end: '1999-05-15'
   format: in_person
@@ -5641,7 +5641,7 @@
   title: AAAI
   year: 2000
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai00/ 
+  link: https://aaai.org/conference/aaai/aaai00/
   start: '2000-07-30'
   end: '2000-08-03'
   format: in_person
@@ -5717,7 +5717,7 @@
   title: BIS
   year: 2000
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis2000/ 
+  link: http://bis.ue.poznan.pl/bis2000/
   start: '2000-04-12'
   end: '2000-04-13'
   format: in_person
@@ -5898,7 +5898,7 @@
   title: ECIR
   year: 2000
   full_name: Annual BCS-IRSG Colloquium on Information Retrieval Research
-  link: https://www.researchgate.net/publication/273590004_The_BCSIRSG_22nd_Annual_Colloquium_on_Information_Retrieval_Research_Sidney_Sussex_College_Cambridge_England_5-7_April_2000 
+  link: https://www.researchgate.net/publication/273590004_The_BCSIRSG_22nd_Annual_Colloquium_on_Information_Retrieval_Research_Sidney_Sussex_College_Cambridge_England_5-7_April_2000
   start: '2000-04-05'
   end: '2000-04-07'
   format: in_person
@@ -6019,7 +6019,7 @@
   title: ICANN
   year: 2000
   full_name: International Conference on Artificial Neural Networks
-  link: https://e-nns.org/icanns/history/ 
+  link: https://e-nns.org/icanns/history/
   start: '2000-07-24'
   end: '2000-07-27'
   format: in_person
@@ -6034,7 +6034,7 @@
   title: ICAPS
   year: 2000
   full_name: International Conference on Artificial Intelligence Planning and Scheduling
-  link: https://www.icaps-conference.org/conference/aips-2000/ 
+  link: https://www.icaps-conference.org/conference/aips-2000/
   start: '2000-04-14'
   end: '2000-04-17'
   format: in_person
@@ -6291,7 +6291,7 @@
   title: AISTATS
   year: 2001
   full_name: International Workshop on Artificial Intelligence and Statistics
-  link: https://aistats.org/aistats2001/cfps.html 
+  link: https://aistats.org/aistats2001/cfps.html
   start: '2001-01-04'
   end: '2001-01-07'
   format: in_person
@@ -6427,7 +6427,7 @@
   title: ECIR
   year: 2001
   full_name: European Annual Colloquium on Information Retrieval Research
-  link: https://users.ics.forth.gr/~tzitzik/publications.htm 
+  link: https://users.ics.forth.gr/~tzitzik/publications.htm
   start: '2001-04-04'
   end: '2001-04-06'
   format: in_person
@@ -6698,7 +6698,7 @@
   title: IJCNN
   year: 2001
   full_name: International Joint Conference on Neural Networks
-  link: https://ewh.ieee.org/conf/ijcnn/ 
+  link: https://ewh.ieee.org/conf/ijcnn/
   start: '2001-07-15'
   end: '2001-07-19'
   format: in_person
@@ -6789,7 +6789,7 @@
   title: AAAI
   year: 2002
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai02/ 
+  link: https://aaai.org/conference/aaai/aaai02/
   start: '2002-07-28'
   end: '2002-08-01'
   format: in_person
@@ -6881,7 +6881,7 @@
   title: BIS
   year: 2002
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis2002/ 
+  link: http://bis.ue.poznan.pl/bis2002/
   start: '2002-04-24'
   end: '2002-04-25'
   format: in_person
@@ -7165,7 +7165,7 @@
   title: ICAPS
   year: 2002
   full_name: International Conference on Artificial Intelligence Planning and Scheduling
-  link: https://www.icaps-conference.org/conference/aips-2002/ 
+  link: https://www.icaps-conference.org/conference/aips-2002/
   start: '2002-04-23'
   end: '2002-04-27'
   format: in_person
@@ -7301,7 +7301,7 @@
   title: IJCNN
   year: 2002
   full_name: International Joint Conference on Neural Networks
-  link: https://ewh.ieee.org/conf/ijcnn/ 
+  link: https://ewh.ieee.org/conf/ijcnn/
   start: '2002-05-12'
   end: '2002-05-17'
   format: in_person
@@ -7437,7 +7437,7 @@
   title: AISTATS
   year: 2003
   full_name: International Workshop on Artificial Intelligence and Statistics
-  link: https://aistats.org/aistats2003/ 
+  link: https://aistats.org/aistats2003/
   start: '2003-01-03'
   end: '2003-01-06'
   format: in_person
@@ -7467,7 +7467,7 @@
   title: BIS
   year: 2003
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis2003/6th_bis.htm 
+  link: http://bis.ue.poznan.pl/bis2003/6th_bis.htm
   start: '2003-06-04'
   end: '2003-06-06'
   format: in_person
@@ -7482,7 +7482,7 @@
   title: BMVC
   year: 2003
   full_name: The British Machine Vision Conference
-  link: http://lemur.cmp.uea.ac.uk/Research/bmvc2003/ 
+  link: http://lemur.cmp.uea.ac.uk/Research/bmvc2003/
   start: '2003-09-09'
   end: '2003-09-11'
   format: in_person
@@ -8024,7 +8024,7 @@
   title: AAAI
   year: 2004
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai04/ 
+  link: https://aaai.org/conference/aaai/aaai04/
   start: '2004-07-25'
   end: '2004-07-29'
   format: in_person
@@ -8055,7 +8055,7 @@
   title: ACCV
   year: 2004
   full_name: Asian Conference on Computer Vision
-  link: http://www.afcv.org.cn/events.html 
+  link: http://www.afcv.org.cn/events.html
   start: '2004-01-28'
   end: '2004-01-30'
   format: in_person
@@ -8101,7 +8101,7 @@
   title: BIS
   year: 2004
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis2004/7th_bis.htm 
+  link: http://bis.ue.poznan.pl/bis2004/7th_bis.htm
   start: '2004-04-21'
   end: '2004-04-23'
   format: in_person
@@ -8519,7 +8519,7 @@
   title: ICRA
   year: 2004
   full_name: IEEE International Conference on Robotics and Automation
-  link: https://researchr.org/publication/icra:2004 
+  link: https://researchr.org/publication/icra:2004
   start: '2004-04-26'
   end: '2004-05-01'
   format: in_person
@@ -8684,7 +8684,7 @@
   title: AISTATS
   year: 2005
   full_name: International Workshop on Artificial Intelligence and Statistics
-  link: https://aistats.org/aistats2005/ 
+  link: https://aistats.org/aistats2005/
   start: '2005-01-06'
   end: '2005-01-08'
   format: in_person
@@ -8715,7 +8715,7 @@
   title: BIS
   year: 2005
   full_name: International Conference on Business Information Systems
-  link: http://bis.ue.poznan.pl/bis2005/8th_bis.htm 
+  link: http://bis.ue.poznan.pl/bis2005/8th_bis.htm
   start: '2005-04-20'
   end: '2005-04-22'
   format: in_person
@@ -8730,7 +8730,7 @@
   title: BMVC
   year: 2005
   full_name: The British Machine Vision Conference
-  link: https://bmva-archive.org.uk/bmvc/2005/index.html 
+  link: https://bmva-archive.org.uk/bmvc/2005/index.html
   start: '2005-09-05'
   end: '2005-09-08'
   format: in_person
@@ -9210,7 +9210,7 @@
   title: AAAI
   year: 2006
   full_name: National Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai06/ 
+  link: https://aaai.org/conference/aaai/aaai06/
   start: '2006-07-16'
   end: '2006-07-20'
   format: in_person
@@ -9241,7 +9241,7 @@
   title: ACCV
   year: 2006
   full_name: Asian Conference on Computer Vision
-  link: https://link.springer.com/book/10.1007/11612032 
+  link: https://link.springer.com/book/10.1007/11612032
   start: '2006-01-13'
   end: '2006-01-16'
   format: in_person
@@ -9362,7 +9362,7 @@
   title: COLING
   year: 2006
   full_name: International Conference on Computational Linguistics and Annual Meeting of the Association for Computational Linguistics
-  link: https://aclweb.org/mirror/acl2006/ 
+  link: https://aclweb.org/mirror/acl2006/
   start: '2006-07-17'
   end: '2006-07-21'
   format: in_person
@@ -9555,7 +9555,7 @@
   title: FG
   year: 2006
   full_name: IEEE International Conference on Automatic Face and Gesture Recognition
-  link: https://web-archive.southampton.ac.uk/www.fg2006.ecs.soton.ac.uk/index.html 
+  link: https://web-archive.southampton.ac.uk/www.fg2006.ecs.soton.ac.uk/index.html
   start: '2006-04-10'
   end: '2006-04-12'
   format: in_person
@@ -9932,7 +9932,7 @@
   title: ACCV
   year: 2007
   full_name: Asian Conference on Computer Vision
-  link: https://link.springer.com/book/10.1007/978-3-540-76386-4 
+  link: https://link.springer.com/book/10.1007/978-3-540-76386-4
   start: '2007-11-18'
   end: '2007-11-22'
   format: in_person
@@ -10535,7 +10535,7 @@
   title: AAAI
   year: 2008
   full_name: AAAI Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai08/ 
+  link: https://aaai.org/conference/aaai/aaai08/
   start: '2008-07-13'
   end: '2008-07-17'
   format: in_person
@@ -10550,7 +10550,7 @@
 - id: aamas08
   title: AAMAS
   year: 2008
-  link: https://www.ifaamas.org/AAMAS/aamas08/ 
+  link: https://www.ifaamas.org/AAMAS/aamas08/
   start: '2008-05-12'
   end: '2008-05-16'
   format: in_person
@@ -10627,7 +10627,7 @@
   title: BMVC
   year: 2008
   full_name: The British Machine Vision Conference
-  link: https://bmva-archive.org.uk/bmvc/2008/index.html 
+  link: https://bmva-archive.org.uk/bmvc/2008/index.html
   start: '2008-09-01'
   end: '2008-09-04'
   format: in_person
@@ -11231,7 +11231,7 @@
   title: AAMAS
   year: 2009
   full_name: International Conference on Autonomous Agents and Multiagent Systems
-  link: https://www.ifaamas.org/AAMAS/aamas2009/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2009/
   start: '2009-05-10'
   end: '2009-05-15'
   format: in_person
@@ -11248,7 +11248,7 @@
   title: ACCV
   year: 2009
   full_name: Asian Conference on Computer Vision
-  link: https://link.springer.com/book/10.1007/978-3-642-12307-8 
+  link: https://link.springer.com/book/10.1007/978-3-642-12307-8
   start: '2009-09-23'
   end: '2009-09-27'
   format: in_person
@@ -11669,7 +11669,7 @@
   title: ICDAR
   year: 2009
   full_name: International Conference on Document Analysis and Recognition
-  link: http://www.cvc.uab.es/icdar2009/ 
+  link: http://www.cvc.uab.es/icdar2009/
   start: '2009-07-26'
   end: '2009-07-29'
   format: in_person
@@ -11910,7 +11910,7 @@
   title: AAMAS
   year: 2010
   full_name: International Conference on Autonomous Agents and Multiagent Systems
-  link: https://www.ifaamas.org/AAMAS/aamas2010/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2010/
   start: '2010-05-10'
   end: '2010-05-14'
   format: in_person
@@ -11972,7 +11972,7 @@
   title: ACML
   year: 2010
   full_name: Asian Conference on Machine Learning
-  link: https://www.acml-conf.org/ 
+  link: https://www.acml-conf.org/
   start: '2010-11-08'
   end: '2010-11-10'
   format: in_person
@@ -11987,7 +11987,7 @@
   title: AISTATS
   year: 2010
   full_name: International Conference on Artificial Intelligence and Statistics
-  link: https://jmlr.csail.mit.edu/proceedings/template.html 
+  link: https://jmlr.csail.mit.edu/proceedings/template.html
   start: '2010-05-13'
   end: '2010-05-15'
   format: in_person
@@ -12484,7 +12484,7 @@
   title: ICPR
   year: 2010
   full_name: International Conference on Pattern Recognition
-  link: http://www.icpr2012.org/history.html 
+  link: http://www.icpr2012.org/history.html
   start: '2010-08-23'
   end: '2010-08-26'
   format: in_person
@@ -12649,7 +12649,7 @@
 - id: aamas11
   title: AAMAS
   year: 2011
-  link: https://www.ifaamas.org/AAMAS/aamas2011/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2011/
   start: '2011-05-02'
   end: '2011-05-06'
   format: in_person
@@ -12696,7 +12696,7 @@
   title: ACML
   year: 2011
   full_name: Asian Conference on Machine Learning
-  link: https://www.acml-conf.org/ 
+  link: https://www.acml-conf.org/
   start: '2011-11-13'
   end: '2011-11-15'
   format: in_person
@@ -13375,7 +13375,7 @@
 - id: aaai12
   title: AAAI
   year: 2012
-  link: https://aaai.org/conference/aaai/aaai12/ 
+  link: https://aaai.org/conference/aaai/aaai12/
   start: '2012-07-22'
   end: '2012-07-26'
   format: in_person
@@ -13390,7 +13390,7 @@
 - id: aamas12
   title: AAMAS
   year: 2012
-  link: https://www.ifaamas.org/AAMAS/aamas2012/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2012/
   start: '2012-06-04'
   end: '2012-06-08'
   format: in_person
@@ -13453,7 +13453,7 @@
   title: ACML
   year: 2012
   full_name: Asian Conference on Machine Learning
-  link: https://www.acml-conf.org/ 
+  link: https://www.acml-conf.org/
   start: '2012-11-04'
   end: '2012-11-06'
   format: in_person
@@ -13874,7 +13874,7 @@
   title: ICAPS
   year: 2012
   full_name: International Conference on Automated Planning and Scheduling
-  link: https://www.icaps-conference.org/conference/icaps-2012/ 
+  link: https://www.icaps-conference.org/conference/icaps-2012/
   start: '2012-06-25'
   end: '2012-06-29'
   format: in_person
@@ -14208,7 +14208,7 @@
 - id: aamas13
   title: AAMAS
   year: 2013
-  link: https://www.ifaamas.org/AAMAS/aamas2013/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2013/
   start: '2013-05-06'
   end: '2013-05-10'
   format: in_person
@@ -14977,7 +14977,7 @@
   title: AAMAS
   year: 2014
   full_name: International Conference on Autonomous Agents and Multiagent Systems
-  link: http://www.ifaamas.org/AAMAS/aamas2014/ 
+  link: http://www.ifaamas.org/AAMAS/aamas2014/
   start: '2014-05-05'
   end: '2014-05-09'
   format: in_person
@@ -14993,7 +14993,7 @@
   title: ACCV
   year: 2014
   full_name: Asian Conference on Computer Vision
-  link: http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/ 
+  link: http://vigir.missouri.edu/~gdesouza/Research/Conference_CDs/ACCV_2014/
   start: '2014-11-01'
   end: '2014-11-05'
   format: in_person
@@ -15810,7 +15810,7 @@
   title: 3DV
   year: 2015
   full_name: International Conference on 3D Vision
-  link: https://3dv2015.inria.fr/index.html 
+  link: https://3dv2015.inria.fr/index.html
   start: '2015-10-19'
   end: '2015-10-22'
   format: in_person
@@ -15841,7 +15841,7 @@
   title: AAMAS
   year: 2015
   full_name: International Conference on Autonomous Agents and Multiagent Systems
-  link: http://www.ifaamas.org/AAMAS/aamas2015/ 
+  link: http://www.ifaamas.org/AAMAS/aamas2015/
   start: '2015-05-04'
   end: '2015-05-08'
   format: in_person
@@ -16291,7 +16291,7 @@
   title: ICDAR
   year: 2015
   full_name: International Conference on Document Analysis and Recognition
-  link: http://www.iapr.org/archives/icdar2015/ 
+  link: http://www.iapr.org/archives/icdar2015/
   start: '2015-08-23'
   end: '2015-08-26'
   format: in_person
@@ -16579,7 +16579,7 @@
   title: 3DV
   year: 2016
   full_name: International Conference on 3D Vision
-  link: http://3dv.stanford.edu/ 
+  link: http://3dv.stanford.edu/
   start: '2016-10-25'
   end: '2016-10-28'
   format: in_person
@@ -16595,7 +16595,7 @@
   title: AAAI
   year: 2016
   full_name: AAAI Conference on Artificial Intelligence
-  link: https://aaai.org/conference/aaai/aaai16/ 
+  link: https://aaai.org/conference/aaai/aaai16/
   start: '2016-02-12'
   end: '2016-02-17'
   format: in_person
@@ -16612,7 +16612,7 @@
   title: AAMAS
   year: 2016
   full_name: International Conference on Autonomous Agents and Multiagent Systems
-  link: https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html 
+  link: https://www.ifaamas.org/AAMAS/aamas2016/aamas2016.html
   start: '2016-05-09'
   end: '2016-05-13'
   format: in_person
@@ -17054,7 +17054,7 @@
   title: IBERAMIA
   year: 2016
   full_name: Ibero-American Conference on Artificial Intelligence
-  link: http://iberamia2016.iberamia.org/ 
+  link: http://iberamia2016.iberamia.org/
   start: '2016-11-23'
   end: '2016-11-25'
   format: in_person
@@ -17487,7 +17487,7 @@
 - id: aamas17
   title: AAMAS
   year: 2017
-  link: https://www.ifaamas.org/AAMAS/aamas2017/ 
+  link: https://www.ifaamas.org/AAMAS/aamas2017/
   start: '2017-05-08'
   end: '2017-05-12'
   format: in_person
@@ -18054,7 +18054,7 @@
   title: ICDAR
   year: 2017
   full_name: International Conference on Document Analysis and Recognition
-  link: http://www.iapr-tc11.org/archive/icdar2017/ 
+  link: http://www.iapr-tc11.org/archive/icdar2017/
   start: '2017-11-10'
   end: '2017-11-15'
   format: in_person
@@ -18858,7 +18858,7 @@
   title: ECAI
   year: 2018
   full_name: European Conference on Artificial Intelligence
-  link: https://www.ijcai-18.org/about-ijcaiecai/index.html 
+  link: https://www.ijcai-18.org/about-ijcaiecai/index.html
   start: '2018-07-13'
   end: '2018-07-19'
   format: in_person
@@ -19075,7 +19075,7 @@
   title: IBERAMIA
   year: 2018
   full_name: Ibero-American Conference on Artificial Intelligence
-  link: http://iberamia2018.iberamia.org/ 
+  link: http://iberamia2018.iberamia.org/
   start: '2018-11-13'
   end: '2018-11-16'
   format: in_person
@@ -20126,7 +20126,7 @@
   title: FG
   year: 2019
   full_name: International Conference on Automatic Face and Gesture Recognition
-  link: https://ieee-biometrics.org/fg2019/ 
+  link: https://ieee-biometrics.org/fg2019/
   start: '2019-05-14'
   end: '2019-05-18'
   format: in_person
@@ -24323,7 +24323,7 @@
   title: INLG
   year: 2022
   full_name: International Natural Language Generation Conference
-  link: https://inlgmeeting.org/pages/events.html 
+  link: https://inlgmeeting.org/pages/events.html
   start: '2022-07-18'
   end: '2022-07-22'
   format: hybrid
@@ -26133,7 +26133,7 @@
   title: ACCV
   year: 2024
   full_name: Asian Conference on Computer Vision
-  link: https://link.springer.com/book/10.1007/978-981-96-0885-0 
+  link: https://link.springer.com/book/10.1007/978-981-96-0885-0
   start: '2024-12-08'
   end: '2024-12-12'
   format: in_person  # UNVERIFIED default — check before merging
@@ -27058,7 +27058,7 @@
   title: ICOMP
   year: 2024
   full_name: International Conference on Computational Optimization
-  link: https://labmmo.ru/en/news/otkryt-priem-statei-na-mezhdunarodnuyu-konferenciyu-po-vychislitelnoi-optimizacii-icomp-2024.html 
+  link: https://labmmo.ru/en/news/otkryt-priem-statei-na-mezhdunarodnuyu-konferenciyu-po-vychislitelnoi-optimizacii-icomp-2024.html
   start: '2024-10-10'
   end: '2024-10-12'
   format: hybrid
@@ -27735,7 +27735,7 @@
   title: BMVC
   year: 2025
   full_name: The British Machine Vision Conference
-  link: https://bmvc2025.bmva.org/ 
+  link: https://bmvc2025.bmva.org/
   start: '2025-11-24'
   end: '2025-11-27'
   format: in_person
@@ -27842,7 +27842,7 @@
   title: FG
   year: 2025
   full_name: International Conference on Automatic Face and Gesture Recognition
-  link: https://fg2025.ieee-biometrics.org/ 
+  link: https://fg2025.ieee-biometrics.org/
   start: '2025-05-26'
   end: '2025-05-30'
   format: in_person
@@ -27949,7 +27949,7 @@
   title: ICDL-EpiRob
   year: 2025
   full_name: IEEE International Conference on Development and Learning
-  link: https://icdl2025.fel.cvut.cz/ 
+  link: https://icdl2025.fel.cvut.cz/
   start: '2025-09-16'
   end: '2025-09-19'
   format: in_person  # UNVERIFIED default — check before merging
