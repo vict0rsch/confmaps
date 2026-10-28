@@ -80,7 +80,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 from . import agent, past_agent
 from .cost import Usage
-from .dblp import DblpTitles
+from .dblp import TIMEOUT_S, DblpTitles, default_cache_path
 from .geo import Geocoder, cached_hit
 from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
 from .past import check_and_plan, plan_batches
@@ -380,25 +380,23 @@ class ResearchProgress:
         self.live.update(self.overall, advance=1, info=self._budget(spent))
 
 
-class PlanProgress:
-    """Progress of ``--mode past`` batch planning: one dblp query per series, so it can take
-    minutes before the first request starts.
+class DblpProgress:
+    """Progress of listing each series' dblp proceedings in ``--mode past``: one query at a time,
+    each often 10-45 s, so this can take an hour on a first run.
 
-    Pass :meth:`planned` as ``plan_batches(on_series=...)``. On a terminal, a rich bar shows the
-    series planned and the one whose dblp proceedings are being listed now; elsewhere, one
+    Call :meth:`cached`, then :meth:`started` and :meth:`listed` around each query. On a
+    terminal, a rich bar shows the series listed and the one being queried now; elsewhere, one
     :func:`say` line per series.
 
     Examples
     --------
     .. code-block:: python
 
-        with PlanProgress(series_list) as progress:
-            batches, unknown = plan_batches(..., on_series=progress.planned)
+        with DblpProgress(len(series)) as progress:
+            failed = list_dblp_volumes(dblp, series, progress)
     """
 
-    def __init__(self, series_list: list[str], console: Console | None = None) -> None:
-        self.pending = list(series_list)
-        self.started = time.monotonic()
+    def __init__(self, total: int, console: Console | None = None) -> None:
         self.console = console or Console(stderr=True)
         self.live: Progress | None = None
         if self.console.is_terminal:
@@ -411,12 +409,7 @@ class PlanProgress:
                 TimeElapsedColumn(),
                 console=self.console,
             )
-            self.task = self.live.add_task(
-                "Planning batches", total=len(self.pending), activity=self._activity()
-            )
-
-    def _activity(self) -> str:
-        return f"listing dblp proceedings of {self.pending[0]}" if self.pending else ""
+            self.task = self.live.add_task("Listing dblp proceedings", total=total, activity="")
 
     def __enter__(self) -> Self:
         if self.live:
@@ -427,24 +420,83 @@ class PlanProgress:
         if self.live:
             self.live.stop()
 
-    def planned(self, series: str, batches: list[dict[str, Any]]) -> None:
-        """``series`` is planned: report its batches, years and dblp volumes, and the time taken."""
-        # Series are planned in list order; a skipped one (no recorded edition) gets no call.
-        if series in self.pending:
-            del self.pending[: self.pending.index(series) + 1]
-        now = time.monotonic()
-        years = sum(len(b["years"]) for b in batches)
-        volumes = sum(len(b["dblp"]) for b in batches)
-        line = (
-            f"planned {series}: {years} year(s) in {len(batches)} batch(es), "
-            f"{volumes} dblp volume(s), {now - self.started:.1f}s"
-        )
-        self.started = now
+    def _print(self, line: str, advance: int) -> None:
         if not self.live:
             say(line, file=sys.stderr)
             return
         self.live.console.print(Text(line))
-        self.live.update(self.task, advance=1, activity=self._activity())
+        self.live.update(self.task, advance=advance, activity="")
+
+    def cached(self, series: list[str], path: Path | None) -> None:
+        """``series`` were listed from the cache file at ``path``: no query for them."""
+        if series:
+            self._print(f"{len(series)} series listed from the dblp cache ({path})", len(series))
+
+    def started(self, series: str) -> None:
+        """The query for ``series`` starts."""
+        if self.live:
+            self.live.update(self.task, activity=f"querying {series}")
+
+    def listed(self, series: str, count: int | None, seconds: float, final: bool) -> None:
+        """The query for ``series`` ended: ``count`` volumes, or ``None`` if it failed. A failure
+        that is not ``final`` is retried later, so it does not advance the bar."""
+        if count is not None:
+            line = f"listed {series}: {count} dblp volume(s) in {seconds:.1f}s"
+        elif final:
+            line = (
+                f"dblp listing failed again for {series} after {seconds:.1f}s: its batches get "
+                "no dblp titles"
+            )
+        else:
+            line = f"dblp listing failed for {series} after {seconds:.1f}s: retried at the end"
+        self._print(line, 1 if count is not None or final else 0)
+
+    def retrying(self, series: list[str]) -> None:
+        """The failed ``series`` are queried once more."""
+        self._print(f"retrying {len(series)} failed listing(s): {', '.join(series)}", 0)
+
+
+def list_dblp_volumes(dblp: DblpTitles, series: list[str], progress: DblpProgress) -> list[str]:
+    """List the dblp proceedings of each series, one query at a time, and retry the failed ones
+    once at the end. The cache file is saved after each new listing, so an interrupted run
+    keeps them. Returns the series whose query failed twice.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with DblpProgress(len(series)) as progress:
+            failed = list_dblp_volumes(dblp, series, progress)
+    """
+    cached = [s for s in series if dblp.is_cached(s)]
+    progress.cached(cached, dblp.cache)
+
+    def ok(s: str, retry: bool = False) -> bool:
+        progress.started(s)
+        start = time.monotonic()
+        count = dblp.list_volumes(s, retry=retry)
+        progress.listed(s, count, time.monotonic() - start, final=retry)
+        if count is not None:
+            dblp.save_cache()
+        return count is not None
+
+    # dblp works through queries roughly one at a time: parallel ones only time out more.
+    failed = [s for s in series if s not in cached and not ok(s)]
+    if failed:
+        progress.retrying(failed)
+    return [s for s in failed if not ok(s, retry=True)]
+
+
+def _list_dblp(dblp: DblpTitles, series: list[str]) -> None:
+    """:func:`list_dblp_volumes` with its step line, progress bar and final warning."""
+    step(
+        f"Listing the dblp proceedings of {len(series)} series, one at a time "
+        f"(up to {TIMEOUT_S:.0f}s each)"
+    )
+    with DblpProgress(len(series)) as progress:
+        failed = list_dblp_volumes(dblp, series, progress)
+    if failed:
+        say(f"warning: no dblp titles for {', '.join(failed)}", file=sys.stderr)
 
 
 class CheckProgress:
@@ -903,13 +955,15 @@ def _main_past(
     except (ValueError, TypeError) as e:
         say(f"error: {e}", file=sys.stderr)
         return 1
-    dblp = dblp or DblpTitles()
+    dblp = dblp or DblpTitles(cache=default_cache_path())
     results_dir: Path | None = None
     if args.from_results:
         runs = load_results(args.from_results, "past")
         if args.series:
             runs = [r for r in runs if r.conference["series"] in args.series]
         step(f"Loaded {len(runs)} saved result(s) from {args.from_results}")
+        # The evidence check reads cited dblp pages from these listings (no query per page).
+        _list_dblp(dblp, list(dict.fromkeys(r.conference["series"] for r in runs)))
         mode = "from saved results"
     else:
         until = args.until if args.until is not None else today.year - 1
@@ -930,19 +984,10 @@ def _main_past(
             key: {y["year"] for y in entry.get("not_held", [])}
             for key, entry in series_entries.items()
         }
-        step(f"Planning batches: listing the dblp proceedings of {len(series_list)} series")
-        with PlanProgress(series_list) as progress:
-            batches, unknown = plan_batches(
-                data,
-                past,
-                series_list,
-                since,
-                until,
-                args.recheck,
-                dblp,
-                not_held,
-                on_series=progress.planned,
-            )
+        # Without dblp first: which series have years to research (and which are unknown).
+        batches, unknown = plan_batches(
+            data, past, series_list, since, until, args.recheck, None, not_held
+        )
         if unknown:
             say(
                 "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "
@@ -953,6 +998,11 @@ def _main_past(
         if not batches:
             say("No editions to research.")
             return 0
+        _list_dblp(dblp, list(dict.fromkeys(b["series"] for b in batches)))
+        # The same batches, now with each one's dblp titles (listed above, so no query).
+        batches, _ = plan_batches(
+            data, past, series_list, since, until, args.recheck, dblp, not_held
+        )
         if args.random_order:
             # Requests start in list order and stop at --max-usd: shuffle so that a capped run
             # does not always spend the budget on the same series (and the same dead ends).

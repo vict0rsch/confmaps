@@ -391,14 +391,19 @@ flowchart LR
   lookup for editions that ended before 1996-06-01 and for links on proceedings hosts.
 - `dblp.py` (`DblpTitles`) queries dblp's open SPARQL endpoint (`sparql.dblp.org`, CC0 metadata),
   in past mode only. dblp.org's pages sit behind a bot check, so SPARQL is the interface dblp
-  offers to programs. The client sends one query at a time, at least one second apart, remembers
-  results for the run, and returns nothing when a query fails. Only keys and page names that
-  match a strict pattern enter a query. In the data flow, the program first lists the proceedings
-  titles and page URLs of a batch's target years in the prompt, so the model can quote a listed
-  title and cite its URL without opening it. Later, when `verify.py` finds a cited dblp page
-  behind the bot check, it reads that page's proceedings titles from SPARQL instead and runs the
-  usual checks on them. A quote must also fit inside a single title that states only the
-  edition's year (`past_verify.edition_pages`). The fallback order is the live page, then dblp
+  offers to programs. It sends one query at a time, at least one second apart: dblp works
+  through queries roughly one at a time, so parallel ones only time out more. Each query may take
+  up to 90 s; a failed query returns nothing, and the run reports it. The client remembers results
+  for the run. Only keys and page names that match a strict pattern enter a query. In the data
+  flow, the program first lists each series' proceedings volumes (`main.list_dblp_volumes`, with
+  a rich progress bar), and retries each failed listing once at the end. Listings are saved in
+  `~/.cache/confmaps-discover/dblp-volumes.json` (or under `$XDG_CACHE_HOME`) after each query
+  and reused for 30 days; failed listings are not saved. The prompt then lists the titles and
+  page URLs of a batch's target years, so the model can quote a listed title and cite its URL
+  without opening it. Later, when `verify.py` finds a cited dblp page behind the bot check, it
+  reads that page's proceedings titles from the series' listing, or from SPARQL when the listing
+  does not hold the page, and runs the usual checks on them. A quote must also fit inside a single
+  title that states only the edition's year (`past_verify.edition_pages`). The fallback order is the live page, then dblp
   SPARQL, then the Wayback copy. Satellite mode does not use dblp.
 - `past_ids.py` repeats the id and series rules of `scripts/lib/normalize.ts` in Python. A change
   to one needs the same change in the other.

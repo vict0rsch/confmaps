@@ -4,7 +4,7 @@ import difflib
 import io
 import json
 import re
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -21,8 +21,9 @@ from discover.dblp import MIN_INTERVAL_S as DBLP_INTERVAL_S
 from discover.dblp import VIA_SPARQL, DblpTitles, edition_year_is, held_in, sparql_query
 from discover.geo import GeoHit
 from discover.main import (
-    PlanProgress,
+    DblpProgress,
     apply_not_held,
+    list_dblp_volumes,
     main,
     proposed_files,
     select_conferences,
@@ -75,6 +76,7 @@ from discover.verify import (
     VALUE_IN_QUOTE,
     FieldCheck,
     Page,
+    normalize,
     page_from_markup,
 )
 from discover.wayback import MIN_INTERVAL_S, NO_SNAPSHOT_FLAG, RETRY_AFTER_429_S, Snapshots
@@ -293,24 +295,6 @@ def test_batches_have_at_most_six_years_in_order() -> None:
     assert [b["series"] for b in batches] == ["neurips"] * 5 + ["icml"] * 5
     years = [y for b in batches[:5] for y in b["years"]]
     assert years == sorted(years) and 2015 in years
-
-
-def test_plan_progress_reports_each_series_once_planned(capsys: pytest.CaptureFixture[str]) -> None:
-    calls: list[tuple[str, int]] = []
-    with PlanProgress(["neurips", "nope", "icml"], Console(file=io.StringIO())) as progress:
-
-        def on_series(series: str, batches: list[dict[str, Any]]) -> None:
-            calls.append((series, len(batches)))
-            progress.planned(series, batches)
-
-        _, unknown = plan_batches(
-            DATA, PAST, ["neurips", "nope", "icml"], 1987, 2015, on_series=on_series
-        )
-    assert unknown == ["nope"] and calls == [("neurips", 5), ("icml", 5)]
-    assert progress.pending == []
-    err = capsys.readouterr().err
-    assert re.search(r"> planned neurips: \d+ year\(s\) in 5 batch\(es\), 0 dblp volume\(s\)", err)
-    assert "> planned icml:" in err and "nope" not in err
 
 
 def test_per_series_since_and_plain_since_are_equivalent() -> None:
@@ -1762,6 +1746,94 @@ def test_dblp_titles_never_replace_a_readable_page_or_another_error() -> None:
 NIPS87_TITLE = "Neural Information Processing Systems, Denver, Colorado, USA, 1987"
 NIPS87 = {"toc": "https://dblp.org/db/conf/nips/nips1987", "title": NIPS87_TITLE, "year": "1988"}
 NIPS18 = {"toc": "https://dblp.org/db/conf/nips/nips2018", "title": DBLP_TITLE, "year": "2018"}
+
+
+def stream_dblp(
+    cache: Path | None = None,
+    today: date = TODAY,
+    fail: dict[str, int] | None = None,
+    hits: list[str] | None = None,
+) -> DblpTitles:
+    """A :class:`DblpTitles` whose stream queries all answer NIPS87 and NIPS18, except a 503
+    for the first ``fail[stream]`` queries of a stream; records each queried stream in ``hits``."""
+    failures = dict(fail or {})
+
+    def handle(request: httpx.Request) -> httpx.Response:
+        stream = re.search(r"streams/conf/([a-z0-9_-]+)", request.url.params["query"])[1]
+        if hits is not None:
+            hits.append(stream)
+        if failures.get(stream, 0) > 0:
+            failures[stream] -= 1
+            return httpx.Response(503)
+        return httpx.Response(200, json=sparql_reply(NIPS87, NIPS18))
+
+    return DblpTitles(
+        httpx.Client(transport=httpx.MockTransport(handle)),
+        sleep=lambda s: None,
+        cache=cache,
+        today=lambda: today,
+    )
+
+
+def test_dblp_listings_are_reused_from_the_cache_for_30_days(tmp_path: Path) -> None:
+    cache, hits = tmp_path / "dblp.json", []
+    first = stream_dblp(cache, hits=hits)
+    assert first.list_volumes("neurips") == 2 and not first.is_cached("icml")
+    first.save_cache()
+    again = stream_dblp(cache, TODAY + timedelta(days=30), hits=hits)
+    assert again.is_cached("neurips") and again.editions("neurips", [2018]) == [
+        (f"{NIPS18['toc']}.html", DBLP_TITLE)
+    ]
+    assert hits == ["nips"]  # the second run sent no query
+    stale = stream_dblp(cache, TODAY + timedelta(days=31), hits=hits)
+    assert not stale.is_cached("neurips") and stale.list_volumes("neurips") == 2
+    assert hits == ["nips", "nips"]
+    cache.write_text(
+        '{"streams": {"nips": {"fetched": "2026-01-01", "volumes": [["x", "t", ""]]}}}'
+    )
+    assert not stream_dblp(cache).is_cached("neurips")  # not a dblp table of contents
+
+
+def test_a_failed_dblp_listing_is_reported_and_never_cached(tmp_path: Path) -> None:
+    cache = tmp_path / "dblp.json"
+    dblp = stream_dblp(cache, fail={"icml": 2})
+    assert dblp.list_volumes("icml") is None and dblp.editions("icml", [2019]) == []
+    assert dblp.list_volumes("icml") is None  # remembered for the run
+    assert dblp.list_volumes("icml", retry=True) is None
+    dblp.save_cache()
+    assert stream_dblp(cache).list_volumes("icml") == 2  # queried again by the next run
+
+
+def test_list_dblp_volumes_retries_failures_at_the_end_and_reports_each_series(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    hits: list[str] = []
+    dblp = stream_dblp(tmp_path / "dblp.json", fail={"icml": 2, "aaai": 1}, hits=hits)
+    dblp.volumes["nips"], dblp.fetched["nips"] = [], TODAY.isoformat()  # as if cached
+    with DblpProgress(4, Console(file=io.StringIO())) as progress:
+        failed = list_dblp_volumes(dblp, ["neurips", "icml", "aaai", "kdd"], progress)
+    assert failed == ["icml"] and hits == ["icml", "aaai", "kdd", "icml", "aaai"]
+    assert stream_dblp(tmp_path / "dblp.json").is_cached("aaai")  # saved as it went
+    err = capsys.readouterr().err
+    assert "> 1 series listed from the dblp cache (" in err
+    assert re.search(r"> listed kdd: 2 dblp volume\(s\) in \d+\.\ds", err)
+    assert "> dblp listing failed for aaai after" in err and "retried at the end" in err
+    assert "> retrying 2 failed listing(s): icml, aaai" in err
+    assert "> dblp listing failed again for icml after" in err
+
+
+def test_cited_dblp_pages_are_read_from_the_series_listing() -> None:
+    requests: list[str] = []
+    dblp = fake_dblp(NIPS87, NIPS18, requests=requests)
+    assert dblp.list_volumes("neurips") == 2 and len(requests) == 1
+    page = dblp(f"{NIPS18['toc']}.html")
+    assert page is not None and page.text == normalize(DBLP_TITLE)
+    assert page.segments == ((normalize(DBLP_TITLE), "2018"),) and page.via == VIA_SPARQL
+    index = dblp("https://dblp.org/db/conf/nips/")
+    assert index is not None and len(index.segments) == 2
+    assert len(requests) == 1  # neither page needed a query
+    assert dblp("https://dblp.org/db/conf/icml/icml2019.html") is None  # not listed: queried
+    assert len(requests) == 2
 
 
 @pytest.mark.parametrize(
