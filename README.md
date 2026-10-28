@@ -22,6 +22,7 @@ pnpm dev            # dev server
 pnpm build          # production build to dist/
 pnpm preview        # serve dist/
 pnpm check          # svelte-check
+pnpm check:bundle   # main JS bundle ≤ 400 kB gzip (after pnpm build)
 pnpm lint           # eslint
 pnpm test           # vitest
 pnpm test:e2e       # playwright (pnpm exec playwright install chromium first)

@@ -92,6 +92,7 @@ data/                     inputs and outputs of the data pipeline
 scripts/                  build-time TypeScript (run with tsx)
   build-data.ts           pnpm data:build (entry point)
   validate-data.ts        pnpm data:validate (entry point)
+  check-bundle-size.ts    pnpm check:bundle: main JS bundle ≤ 400 kB gzip (CI, after build)
   import-pwc.ts, pwc/     one-time PwC importer and its fixes
   build-cities.ts         regenerates public/cities.json from GeoNames
   schema.ts               Zod schemas for every data file; app types derive from it
@@ -239,7 +240,8 @@ matter:
 
 - **`data.json` is a static import** (`src/lib/data/load.ts`). It ships inside the hashed
   JavaScript bundle. Code and data always deploy together, and the app has no loading state for
-  data.
+  data. `pnpm check:bundle` fails CI when that bundle passes 400 kB gzip; its message suggests
+  the split to make then (a live slice in the bundle, history fetched at first render).
 - **MapLibre is a dynamic import.** `App.svelte` imports `Map.svelte` lazily, so the list,
   filters and shell render before the map library arrives.
 - **Other large assets load on demand**: `public/cities.json` when the viewer searches for a
@@ -427,7 +429,7 @@ DESIGN.md §3 gives the evidence rules field by field.
 
 ```mermaid
 flowchart TB
-  PR[pull request] --> CI[ci.yml<br/>lint, check, data:validate,<br/>unit, build, e2e; pytest; a11y warn-only]
+  PR[pull request] --> CI[ci.yml<br/>lint, check, data:validate,<br/>unit, build, check:bundle, e2e; pytest; a11y warn-only]
   MAIN[push to main] --> CI
   CI -- "green, on main" --> DEP[deploy.yml<br/>gate: SHA is still tip of main<br/>build, publish to Pages]
   CRON[daily cron] --> SYNC[sync.yml<br/>build job: data:build, validate, test<br/>commit job: commit if changed]
