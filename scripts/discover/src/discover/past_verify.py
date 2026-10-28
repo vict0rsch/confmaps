@@ -334,6 +334,9 @@ def check_edition(
     if out.year not in _target_years(batch):
         return drop("year is not a target year of this request", str(raw.get("year")))
     out.cancelled = out.fields.pop("cancelled", False) is True
+    # Not a field of the entry: drop its kind and source too, or the report looks it up.
+    out.kinds.pop("cancelled", None)
+    out.sources.pop("cancelled", None)
     if out.cancelled:
         return out  # never applied: listed for human removal, nothing else is needed
 

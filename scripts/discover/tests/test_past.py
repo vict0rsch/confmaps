@@ -886,6 +886,15 @@ def test_cancelled_is_never_applied_and_listed_for_removal() -> None:
     assert plan_for(missing).skipped[0][1] == "reported cancelled; no recorded edition to remove"
 
 
+def test_cancelled_false_is_not_a_field_of_the_addition() -> None:
+    c = checked(ed2018(cancelled=False))
+    assert not c.cancelled and "cancelled" not in c.kinds and "cancelled" not in c.sources
+    (a,) = plan_for(c).additions
+    assert "cancelled" not in a.entry
+    run = ConferenceRun({"id": "b", "title": "NeurIPS", "year": "2018"})
+    assert "`cancelled`" not in build_body([run], plan_for(c), "s", None, {}, PAST_INTRO)
+
+
 def test_hostile_strings_in_a_past_report_stay_in_code_spans() -> None:
     page = f"{P20} {HOSTILE} cancelled because of {HOSTILE}"
     raw = cancelled2020(
