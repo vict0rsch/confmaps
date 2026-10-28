@@ -403,8 +403,9 @@ flowchart LR
 - `cost.py` estimates spend, and `--max-usd` stops new calls once the estimate passes the cap.
 
 Past mode uses a different model from satellite mode: `claude-sonnet-5-5` at effort `medium`
-(`PAST_MODEL`, `PAST_EFFORT` in `past_agent.py`). The model returns editions, each with one
-source and one quote, and years in which the series held no edition.
+(`PAST_MODEL`, `PAST_EFFORT` in `past_agent.py`), and the basic web tools without dynamic
+filtering (`PAST_TOOLS`). The model returns editions, each with one source and one quote, and
+years in which the series held no edition.
 
 Past mode reads and writes `data/series.yml`:
 

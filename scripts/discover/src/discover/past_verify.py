@@ -5,7 +5,8 @@ against them with the satellite primitives (:func:`discover.verify.check_field`:
 quote on page, value / date in quote, link on page or same site) and these rules:
 
 - ``title``, ``full_name``, ``city``, ``venue``, ``country``: value in quote. A title must
-  belong to the series (``series_of``).
+  belong to the series (``series_of``); a title not in the quote that the series already uses
+  is :data:`KNOWN_TITLE`, not a model judgement.
 - ``start``, ``end``: date in quote; a quote that states no year at all (:data:`STATED_YEAR`)
   counts when the date falls in the edition's year. Then ``start <= end``; at most
   :data:`MAX_DAYS` days; the edition is over; ``start`` falls in the edition's year or the
@@ -72,6 +73,9 @@ CHECK_SCHEMAS: dict[str, dict[str, Any]] = {
 DROPPED_REASONS = {"malformed evidence", "invalid value", "unsafe or malformed source URL"}
 UNCONFIRMED_REASONS = {"quote not found on source page", "source page not readable"}
 UNCONFIRMED_QUOTE_FLAG = "quote not confirmed on its source page: check the source"
+# A title the series already uses (its latest title or a recorded edition's): proceedings
+# titles often give only the long name, and such a title needs no human check.
+KNOWN_TITLE = "a title the series already uses"
 # A year stated in a quote: four digits, or an abbreviated year ('18).
 STATED_YEAR = re.compile(r"(?<!\d)\d{4}(?!\d)|['’]\d{2}\b")
 PAST_RULES: dict[str, str] = {
@@ -281,6 +285,7 @@ def check_edition(
         year=year if isinstance(year, int) and not isinstance(year, bool) else 0,
     )
     pages = edition_pages(get_page, out.year)
+    known_titles = {batch.get("title")} | {k.get("title") for k in batch.get("known") or []}
     for name, rule in PAST_RULES.items():
         if name not in raw:
             continue
@@ -304,6 +309,8 @@ def check_edition(
         if check.kept and name == "title" and series_of(check.value) != series:
             check.kind, check.reason = "", "title is not of this series"
             check.detail = f"{series_of(check.value)} ≠ {series}"
+        elif check.kind == JUDGEMENT and name == "title" and check.value in known_titles:
+            check.kind, check.reason, check.detail = KNOWN_TITLE, "", ""
         if check.kept and name == "format" and not check.reason:
             problem = format_problem(check.value, check.quote)
             if problem:

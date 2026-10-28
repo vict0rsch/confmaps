@@ -261,14 +261,22 @@ def _final_json(content: list[Any]) -> Any:
     return json.loads("".join(texts))
 
 
+MAX_LOGGED_RESULTS = 10  # result URLs logged per web search
+
+
 def _tool_calls(content: list[Any]) -> list[str]:
-    """Human-readable log of server tool calls (search queries, fetched URLs)."""
+    """Human-readable log of server tool calls (search queries, fetched URLs) and of the URLs
+    each web search returned, so a missed source can be traced to the search or to the model."""
     calls = []
     for b in content:
         if b.type == "server_tool_use":
             inp = b.input if isinstance(b.input, dict) else {}
             arg = inp.get("query") or inp.get("url") or json.dumps(inp)[:120]
             calls.append(f"{b.name}: {arg}")
+        elif b.type == "web_search_tool_result" and isinstance(b.content, list):
+            urls = [str(r.url) for r in b.content if getattr(r, "url", None)]
+            if urls:
+                calls.append("web_search results: " + ", ".join(urls[:MAX_LOGGED_RESULTS]))
     return calls
 
 

@@ -18,12 +18,13 @@ MAX_YEARS_PER_CALL = 6
 # Past mode runs on a cheaper model than satellite mode.
 PAST_MODEL = "claude-sonnet-5-5"
 PAST_EFFORT = "medium"
-# Same tool versions as satellite mode (see `agent.TOOLS`); more fetches, since one request
-# covers up to six editions.
+# The basic tool versions, without dynamic filtering: the model reads search results and pages
+# in full instead of the slices its own filtering code prints (a list read in part hides
+# editions). More fetches than satellite mode, since one request covers up to six editions.
 PAST_TOOLS: list[dict[str, Any]] = [
-    {"type": "web_search_20260318", "name": "web_search", "max_uses": 10},
+    {"type": "web_search_20250305", "name": "web_search", "max_uses": 10},
     {
-        "type": "web_fetch_20260318",
+        "type": "web_fetch_20250910",
         "name": "web_fetch",
         "max_uses": 12,
         "max_content_tokens": 20000,
@@ -91,9 +92,13 @@ You research past editions of AI and machine-learning conferences for confmaps.o
 
 Task: for each target year of the series in the user message, find the main conference held that year: its dates, its city and country (or that it was held online), and a link. Only the main conference counts, not workshops, satellites or co-located events. Also report the target years in which the series held no edition.
 
-How to work:
-- One trustworthy source per edition is enough. Good sources: the series' official list of past conferences, a Wikipedia table of editions, dblp proceedings titles, the edition's own site or its web.archive.org copy, and proceedings pages (ACL Anthology, PMLR, AAAI, CVF, ACM, IEEE, Springer). One list page often covers every target year: fetch it once and use it for each year it covers.
-- The user message may list dblp proceedings titles for the target years. They usually state the city, the country and the dates. You may use them without fetching anything.
+How to work, in this order:
+1. Find the series' own list of past conferences or proceedings: search for "<title> conference proceedings" or "<title> past conferences", and fetch the list. It usually lists every edition with its place and dates, and it is the best source for not_held years. Use it for every target year it covers.
+2. For each target year that the list does not settle, search for that edition by name ("AAAI-87", "AAAI 1987", "ICML 2004") and fetch the edition's page or its proceedings page.
+3. The user message may list dblp proceedings titles for the target years. Use a title without fetching anything only when it gives the exact start and end dates. A title such as "Seattle, WA, USA, July 1987" has no days: do step 2 for that year.
+- You have up to 10 searches and 12 fetches. Spend them on the target years still open. Stop only when every target year is an edition, a not_held year, or still unknown after you searched for it by name.
+- Read search results and fetched pages in full before you decide.
+- One trustworthy source per edition is enough. Good sources: the series' official list of past conferences or proceedings, a Wikipedia table of editions, dblp proceedings titles, the edition's own site or its web.archive.org copy, and proceedings pages (ACL Anthology, PMLR, AAAI, CVF, ACM, IEEE, Springer).
 - source_url is the page your facts come from. quote is one short passage copied exactly from that page (under 300 characters) that shows the dates and the place, for example one table row or one proceedings title. A program checks that the quote is on the page and flags any mismatch for a human, so copy it exactly and do not join text from different parts of the page.
 - link is the edition's own site (or its web.archive.org copy) when one exists, else its proceedings page (a dblp table-of-contents page counts). For editions before 1996, use the proceedings page.
 - Omit a field you cannot find. Never guess a value.

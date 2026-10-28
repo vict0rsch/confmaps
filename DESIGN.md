@@ -240,13 +240,21 @@ Purpose: find satellites the owner would never hear about, especially community 
   `past_conferences.yml`) and not recorded as `not_held` in `series.yml`; one call per series and
   batch of up to 6 years. Past mode runs on `claude-sonnet-5-5` at effort `medium` (`PAST_MODEL`,
   `PAST_EFFORT` in `past_agent.py`), with `web_search` (10 uses) and `web_fetch` (12 uses).
-  The prompt lists the series' known editions and the dblp titles of the target years.
+  Past mode uses the basic tool versions (`web_search_20250305`, `web_fetch_20250910`), without
+  dynamic filtering: with filtering, the model read only the slices of results and pages that
+  its own code printed, and missed editions on pages it had found. The log of each request
+  lists the URLs each search returned. The prompt lists the series' known editions and the
+  dblp titles of the target years. It sets an order of work: first the series' own list of past
+  conferences or proceedings, then a search by edition name ("AAAI-87") for each year the list
+  does not settle. A dblp title is enough only when it gives exact dates.
   The model returns `{editions, not_held}`. Each edition has one `source_url` and one `quote` for
   all its fields, a required `link`, and plain values for the fields it found. The model
   should use one trustworthy source per edition, such as a Wikipedia table, a dblp listing or
   the edition's site. Code checks each field against that quote and page with the satellite
-  rules, plus: `start ≤ end`, at most 21 days, and `start` in the year or the next. A date
-  quote without the year counts when the date is in the edition's year. `virtual`/`hybrid` need
+  rules, plus: a `title` that is not in the quote but that the series already uses (its latest
+  title or a recorded edition's) is accepted without a human check; `start ≤ end`, at most 21
+  days, and `start` in the year or the next. A date quote without the year counts when the date
+  is in the edition's year. `virtual`/`hybrid` need
   a 20+ character quote saying so, in a clause that is neither negated nor hedged, with no
   other format asserted. `country` is derived from the geocoded city only when the city is
   verified (its value is in the quote) and the country's value is not in the quote. When the

@@ -170,6 +170,21 @@ def test_echo_after_fallback_drops_unusable_blocks() -> None:
     ]  # fmt: skip
 
 
+def test_tool_log_lists_the_urls_each_search_returned() -> None:
+    hits = [block("web_search_result", url=f"https://e.org/{i}") for i in range(12)]
+    content = [
+        block("server_tool_use", id="a", name="web_search", input={"query": "AAAI-87"}),
+        block("web_search_tool_result", tool_use_id="a", content=hits),
+        # An error result is an object, not a list: nothing to log.
+        block("web_search_tool_result", tool_use_id="b", content=block("error")),
+    ]
+    query, results = agent._tool_calls(content)
+    assert query == "web_search: AAAI-87"
+    assert results == "web_search results: " + ", ".join(
+        f"https://e.org/{i}" for i in range(agent.MAX_LOGGED_RESULTS)
+    )
+
+
 def test_usage_accumulates() -> None:
     total = Usage()
     total.add_response(message([], usage_=usage(1000, 100, searches=2)), "claude-opus-5-5")

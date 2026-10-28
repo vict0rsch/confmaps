@@ -42,6 +42,7 @@ from discover.past_merge import (
 )
 from discover.past_verify import (
     FORMAT_HEDGED,
+    KNOWN_TITLE,
     PLACE_FIELDS,
     UNCONFIRMED_QUOTE_FLAG,
     CheckedEdition,
@@ -455,6 +456,28 @@ def test_a_source_page_that_cannot_be_read_flags_the_edition() -> None:
     assert not c.dropped and c.flags == [UNCONFIRMED_QUOTE_FLAG]
     start = next(x for x in c.checks if x.field == "start")
     assert start.kind == JUDGEMENT and start.detail == "source page not readable: HTTP error 404"
+
+
+def test_a_title_the_series_already_uses_needs_no_human_check() -> None:
+    url = "https://dblp.org/db/conf/aaai/aaai88.html"
+    quote = "Proceedings of the 7th National Conference on Artificial Intelligence, St. Paul, 1988."
+    raw = {"year": 1989, "source_url": url, "quote": quote, "link": url, "rationale": "x"}
+    get = FakeFetcher({url: quote}).get
+    c = check_edition({**raw, "title": "AAAI"}, AAAI_BATCH, get, FakeGeocoder(), TODAY)
+    title = next(x for x in c.checks if x.field == "title")
+    assert title.kind == KNOWN_TITLE and not title.reason and c.fields["title"] == "AAAI"
+    # A title of the series that no edition used yet stays a model judgement.
+    c = check_edition({**raw, "title": "aaai"}, AAAI_BATCH, get, FakeGeocoder(), TODAY)
+    title = next(x for x in c.checks if x.field == "title")
+    assert title.kind == JUDGEMENT and title.reason == "value not in quote"
+
+
+def test_past_mode_uses_the_web_tools_without_dynamic_filtering() -> None:
+    # The model must read results and pages in full, not the slices its own code prints.
+    assert {t["type"] for t in past_agent.PAST_TOOLS} == {
+        "web_search_20250305",
+        "web_fetch_20250910",
+    }
 
 
 def test_a_quote_without_the_year_dates_an_edition_of_that_year() -> None:
@@ -1799,7 +1822,7 @@ def test_prompt_lists_the_dblp_titles_of_the_target_years_only_when_there_are_so
     assert NIPS87_TITLE not in prompt  # 1987 is not a target year
     (batch,) = plan_batches(DATA, PAST, ["neurips"], 2016, 2021, dblp=fake_dblp())[0]
     assert batch["dblp"] == [] and "dblp" not in past_agent.user_message(batch, "2026-10-23")
-    assert "without fetching anything" in past_agent.PAST_SYSTEM_PROMPT
+    assert "only when it gives the exact start and end dates" in past_agent.PAST_SYSTEM_PROMPT
 
 
 def test_a_listed_dblp_title_verifies_an_edition_end_to_end(
