@@ -21,6 +21,8 @@ Past main editions (``data/past_conferences.yml``, DESIGN.md §3):
                            instead of --since, start each series at its `first_year` in
                            data/series.yml. Without --series, every series in that file runs;
                            a named series with no entry is skipped with a warning.
+--random-order             (--mode past) research the batches in random order, so that runs
+                           cut short by --max-usd do not always spend it on the same series.
 
 Common:
 
@@ -47,6 +49,7 @@ import argparse
 import io
 import json
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -575,6 +578,12 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
     p.add_argument("--series", action="append", default=[], help="series key(s), comma-separated")
     p.add_argument("--recheck", action="store_true", help="also re-verify source: pwc editions")
+    p.add_argument(
+        "--random-order",
+        action="store_true",
+        help="--mode past: research the batches in random order (a run cut short by --max-usd "
+        "then covers different series each time)",
+    )
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--max-usd", type=float, default=DEFAULT_MAX_USD)
     p.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
@@ -609,7 +618,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     else:
         for flag, used in (("--series", args.series), ("--until", args.until is not None),
                            ("--recheck", args.recheck),
-                           ("--since-creation", args.since_creation)):  # fmt: skip
+                           ("--since-creation", args.since_creation),
+                           ("--random-order", args.random_order)):  # fmt: skip
             if used:
                 p.error(f"{flag} only applies to --mode past")
     if args.max_usd < 0:
@@ -866,6 +876,11 @@ def _main_past(
         if not batches:
             say("No editions to research.")
             return 0
+        if args.random_order:
+            # Requests start in list order and stop at --max-usd: shuffle so that a capped run
+            # does not always spend the budget on the same series (and the same dead ends).
+            random.shuffle(batches)
+            step("Researching the batches in random order")
         results_dir = _results_dir(args)
         client = client or anthropic.Anthropic()
 

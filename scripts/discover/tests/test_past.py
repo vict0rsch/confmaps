@@ -2079,6 +2079,26 @@ def test_since_creation_defaults_to_every_series_in_the_file(
     assert "neurips 2022, icml 2023" in capsys.readouterr().err
 
 
+def test_random_order_shuffles_the_batches(
+    repo: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    write_series(repo, SERIES_TEXT)
+    monkeypatch.setattr("discover.main.random.shuffle", lambda batches: batches.reverse())
+    client = FakeClient(*[json_message({"editions": []})] * 2)
+    args = ["--since-creation", "--until", "2024", "--random-order", "--dry-run"]
+    assert run_past(repo, *args, client=client) == 0
+    prompts = [c["messages"][0]["content"] for c in client.calls]
+    # File order is NeurIPS then ICML (see the test above); the shuffle reversed it.
+    assert "of ICML held that year" in prompts[0] and "of NeurIPS held that year" in prompts[1]
+    assert "random order" in capsys.readouterr().err
+
+
+def test_random_order_only_applies_to_past_mode(capsys: pytest.CaptureFixture[str]) -> None:
+    with pytest.raises(SystemExit):
+        main(["--mode", "upcoming", "--random-order"])
+    assert "--random-order only applies to --mode past" in capsys.readouterr().err
+
+
 def test_since_creation_skips_a_series_without_entry_with_a_warning(
     repo: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:

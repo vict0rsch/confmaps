@@ -234,7 +234,10 @@ Purpose: find satellites the owner would never hear about, especially community 
   starts at its own `first_year` in `data/series.yml` (§2.4). The two flags exclude each other,
   and past mode needs exactly one of them. With `--since-creation`, `--series` is optional and
   defaults to every series in `series.yml`; a named series with no entry is skipped with a
-  warning. A run without `--series` can go back decades for many series. `--dry-run` still calls
+  warning. A run without `--series` can go back decades for many series. `--random-order`
+  shuffles the batches before the requests start. Requests start in list order and stop at
+  `--max-usd`, so without it a capped run always spends its budget on the same series first.
+  `--dry-run` still calls
   the API (it only skips writing files and the PR), so run one series first and set `--max-usd`
   deliberately. Targets the years of each series with no known edition (in `data.json` or
   `past_conferences.yml`) and not recorded as `not_held` in `series.yml`; one call per series and
