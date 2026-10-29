@@ -66,9 +66,12 @@ export class AppState {
   readonly visibleLocations: JoinedLocation[] = $derived.by(() =>
     this.data.locations.filter((loc) => this.predicate(loc)),
   );
-  /** Conferences with ≥1 visible location, sorted by start date; an event's tracks share a row. */
+  /**
+   * Conferences with ≥1 visible location: upcoming ones by start date, then finished ones most
+   * recent first; an event's tracks share a row.
+   */
   readonly listItems: ListItem[] = $derived.by(() =>
-    foldTracks(groupByConference(this.visibleLocations), this.data.trackGroups),
+    foldTracks(groupByConference(this.visibleLocations, this.today), this.data.trackGroups),
   );
   /**
    * What the map draws: visible locations with a pin (virtual editions have none), without those

@@ -46,10 +46,12 @@ export type ListItem = {
 };
 
 /**
- * Group visible locations by conference (a conference is listed if ≥1 location passes) and sort
- * by the earliest visible site's start date, then conference start, then title.
+ * Group visible locations by conference (a conference is listed if ≥1 location passes) and sort.
+ * Upcoming rows (a visible site ends on or after `today`) come first, by the earliest visible
+ * site's start date, then conference start. Finished rows follow, by the same keys most recent
+ * first. Title breaks ties.
  */
-export function groupByConference(visible: readonly JoinedLocation[]): ListItem[] {
+export function groupByConference(visible: readonly JoinedLocation[], today: string): ListItem[] {
   const byId = new Map<string, ListItem>();
   for (const loc of visible) {
     const item = byId.get(loc.conferenceId);
@@ -64,10 +66,13 @@ export function groupByConference(visible: readonly JoinedLocation[]): ListItem[
     );
   }
   const firstStart = (i: ListItem) => i.sites.reduce((m, s) => (s.start < m ? s.start : m), '9999');
+  const finished = (i: ListItem) => i.sites.every((s) => s.end < today);
   return items.sort(
     (a, b) =>
-      firstStart(a).localeCompare(firstStart(b)) ||
-      a.conference.start.localeCompare(b.conference.start) ||
+      Number(finished(a)) - Number(finished(b)) ||
+      (finished(a) ? -1 : 1) *
+        (firstStart(a).localeCompare(firstStart(b)) ||
+          a.conference.start.localeCompare(b.conference.start)) ||
       a.conference.title.localeCompare(b.conference.title),
   );
 }
