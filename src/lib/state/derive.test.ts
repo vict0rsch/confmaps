@@ -136,6 +136,8 @@ describe('visible predicate (Plan default)', () => {
   });
 });
 
+const today = '2026-10-22';
+
 describe('groupByConference', () => {
   it('lists conferences with ≥1 visible site, sorted by earliest visible start', () => {
     const d = joinData(
@@ -153,14 +155,64 @@ describe('groupByConference', () => {
         ],
       ),
     );
-    const items = groupByConference(d.locations as JoinedLocation[]);
+    const items = groupByConference(d.locations as JoinedLocation[], today);
     expect(items.map((i) => i.conference.id)).toEqual(['b26', 'early26', 'late26']);
     expect(items[0].sites.map((s) => s.role)).toEqual(['main', 'satellite']);
   });
 
   it('breaks ties by title', () => {
     const d = joinData(file([conf('zz26'), conf('aa26')], [loc('zz26'), loc('aa26')]));
-    expect(groupByConference(d.locations).map((i) => i.conference.id)).toEqual(['aa26', 'zz26']);
+    expect(groupByConference(d.locations, today).map((i) => i.conference.id)).toEqual([
+      'aa26',
+      'zz26',
+    ]);
+  });
+
+  it('lists upcoming rows soonest first, then finished rows most recent first', () => {
+    const at = (id: string, start: string, end: string) => loc(id, { start, end });
+    const d = joinData(
+      file(
+        ['old25', 'past26', 'yday26', 'endstoday26', 'next26', 'later27'].map((id) => conf(id)),
+        [
+          at('later27', '2027-02-01', '2027-02-03'),
+          at('old25', '2025-06-01', '2025-06-03'),
+          at('next26', '2026-12-01', '2026-12-05'),
+          at('past26', '2026-03-01', '2026-03-03'),
+          at('endstoday26', '2026-10-18', '2026-10-22'),
+          at('yday26', '2026-10-19', '2026-10-21'),
+        ],
+      ),
+    );
+    expect(groupByConference(d.locations, today).map((i) => i.conference.id)).toEqual([
+      'endstoday26',
+      'next26',
+      'later27',
+      'yday26',
+      'past26',
+      'old25',
+    ]);
+  });
+
+  it('keeps a row upcoming while one visible site has not ended', () => {
+    const d = joinData(
+      file(
+        [conf('sat26'), conf('yday26')],
+        [
+          loc('sat26', { start: '2026-09-01', end: '2026-09-05' }),
+          loc('sat26', {
+            id: 'sat26-sat',
+            role: 'satellite',
+            start: '2026-11-01',
+            end: '2026-11-02',
+          }),
+          loc('yday26', { start: '2026-10-19', end: '2026-10-21' }),
+        ],
+      ),
+    );
+    expect(groupByConference(d.locations, today).map((i) => i.conference.id)).toEqual([
+      'sat26',
+      'yday26',
+    ]);
   });
 });
 
@@ -214,7 +266,7 @@ describe('tracks of one event', () => {
 
   it('folds tracks into one list row, led by the highest-ranked visible member', () => {
     const d = tracks();
-    const rows = foldTracks(groupByConference(d.locations), d.trackGroups);
+    const rows = foldTracks(groupByConference(d.locations, today), d.trackGroups);
     const emnlp = rows.filter((r) => r.conference.id.startsWith('emnlp26'));
     expect(emnlp.map((r) => [r.conference.id, r.tracks.map((t) => t.id)])).toEqual([
       ['emnlp26', ['emnlp26ind', 'emnlp26sys']],
@@ -223,7 +275,10 @@ describe('tracks of one event', () => {
     ]);
     // Main event filtered out: the next track leads.
     const partial = foldTracks(
-      groupByConference(d.locations.filter((l) => l.conferenceId !== 'emnlp26')),
+      groupByConference(
+        d.locations.filter((l) => l.conferenceId !== 'emnlp26'),
+        today,
+      ),
       d.trackGroups,
     );
     const row = partial.find((r) => r.tracks.length)!;

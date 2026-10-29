@@ -117,7 +117,7 @@ export function toDomainEdge(w: DateWindow, part: Part, edge: 'start' | 'end', d
 // Play
 // ---------------------------------------------------------------------------
 
-export const SPEEDS = [0.5, 1, 2] as const;
+export const SPEEDS = [0.5, 1, 2, 4] as const;
 export type Speed = (typeof SPEEDS)[number];
 export const nextSpeed = (s: Speed): Speed => SPEEDS[(SPEEDS.indexOf(s) + 1) % SPEEDS.length];
 

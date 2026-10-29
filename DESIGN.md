@@ -693,6 +693,10 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
   returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
   map shows a main ↔ satellite line. On phones it is in the logo panel.
+- **List order:** upcoming conferences come first, soonest first. A conference is upcoming while
+  one of its visible sites has not ended (ending today counts). Finished conferences follow, most
+  recent first. The rule is the same in every window, so the past presets open on the newest
+  editions.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
