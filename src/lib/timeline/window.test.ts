@@ -124,8 +124,9 @@ describe('play stepping', () => {
   it('advances one month per second at 1×, scaled by speed', () => {
     expect(advanceMonths(0, 1000, 1)).toBe(1);
     expect(advanceMonths(0, 1000, 2)).toBe(2);
+    expect(advanceMonths(0, 1000, 4)).toBe(4);
     expect(advanceMonths(1, 500, 0.5)).toBe(1.25);
-    expect([0.5, 1, 2].map((s) => nextSpeed(s as 0.5 | 1 | 2))).toEqual([1, 2, 0.5]);
+    expect([0.5, 1, 2, 4].map((s) => nextSpeed(s as 0.5 | 1 | 2 | 4))).toEqual([1, 2, 4, 0.5]);
   });
 
   it('continuous: day-granular slide, width preserved', () => {
