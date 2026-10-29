@@ -30,6 +30,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-05-12",
+      "id": "aamas17",
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "series": "aamas",
+      "source": "curated",
+      "start": "2017-05-08",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "AAMAS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-04",
       "id": "acl17",
       "link": "https://web.archive.org/web/20170802021819/http://acl2017.org/",
@@ -40,6 +55,38 @@
         "natural-language-processing"
       ],
       "title": "ACL",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-10-27",
+      "fullName": "ACM Multimedia",
+      "id": "acm17",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/3123266",
+      "series": "acm-mm",
+      "source": "curated",
+      "start": "2017-10-23",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-11-17",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml17",
+      "link": "https://dblp.org/db/conf/acml/acml2017.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2017-11-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
       "year": 2017
     },
     {
@@ -58,6 +105,41 @@
     },
     {
       "deadlines": [],
+      "end": "2017-10-17",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2017",
+      "link": "https://dblp.org/db/conf/alt/alt2017.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2017-10-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-30",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2017",
+      "link": "https://dblp.org/db/conf/bis/bis2017.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2017-06-28",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-09-07",
       "id": "bmvc17",
       "link": "https://web.archive.org/web/20170822181607/https://bmvc2017.london/",
@@ -68,6 +150,53 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-08",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2017",
+      "link": "https://dblp.org/db/conf/cec/cec2017.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2017-06-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-05-11",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi17",
+      "link": "https://dblp.org/db/conf/chi/chi2017.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2017-05-06",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-11-10",
+      "fullName": "ACM Conference on Information and Knowledge Management",
+      "id": "cikm17",
+      "link": "https://dblp.org/db/conf/cikm/cikm2017.html",
+      "series": "cikm",
+      "source": "curated",
+      "start": "2017-11-06",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
       "year": 2017
     },
     {
@@ -114,6 +243,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-03-01",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw17",
+      "link": "https://dblp.org/db/conf/cscw/cscw2017.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2017-02-25",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-07-26",
       "id": "cvpr17",
       "link": "https://web.archive.org/web/20170719151634/http://cvpr2017.thecvf.com/",
@@ -124,6 +268,36 @@
         "computer-vision"
       ],
       "title": "CVPR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-07",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl17",
+      "link": "https://dblp.org/db/conf/eacl/eacl2017-1.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "2017-04-03",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-13",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir17",
+      "link": "https://dblp.org/db/conf/ecir/ecir2017.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2017-04-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
       "year": 2017
     },
     {
@@ -156,6 +330,66 @@
     },
     {
       "deadlines": [],
+      "end": "2017-04-28",
+      "fullName": "European Symposium on Artificial Neural Networks",
+      "id": "esann17",
+      "link": "https://dblp.org/db/conf/esann/esann2017.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2017-04-26",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-28",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics17",
+      "link": "https://web.archive.org/web/20170508103431/http://www.eurographics2017.fr:80/",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2017-04-24",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-21",
+      "fullName": "International Conference on Computational Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart17",
+      "link": "https://link.springer.com/book/10.1007/978-3-319-55750-2",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2017-04-19",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "evoMUSART",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-03",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg17",
+      "link": "https://dblp.org/db/conf/fgr/fg2017.html",
+      "series": "fg",
+      "source": "curated",
+      "start": "2017-05-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-09-15",
       "id": "fsr17",
       "link": "https://web.archive.org/web/20160711112057/https://www.fsr.ethz.ch/",
@@ -166,6 +400,81 @@
         "robotics"
       ],
       "title": "FSR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-19",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco17",
+      "link": "https://dblp.org/db/conf/gecco/gecco2017.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2017-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-01-07",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss17",
+      "link": "https://dblp.org/db/conf/hicss/hicss2017.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2017-01-04",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-03-09",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri17",
+      "link": "https://dblp.org/db/conf/hri/hri2017.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2017-03-06",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-14",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann17",
+      "link": "https://dblp.org/db/conf/icann/icann2017-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2017-09-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-23",
+      "fullName": "International Conference on Automated Planning and Scheduling",
+      "id": "icaps17",
+      "link": "https://dblp.org/db/conf/aips/icaps2017.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2017-06-18",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
       "year": 2017
     },
     {
@@ -184,6 +493,37 @@
     },
     {
       "deadlines": [],
+      "end": "2017-03-09",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp17",
+      "link": "https://dblp.org/db/conf/icassp/icassp2017.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "2017-03-05",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-23",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc17",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2017.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2017-06-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-10-29",
       "id": "iccv17",
       "link": "https://web.archive.org/web/20171116070323/http://iccv2017.thecvf.com/",
@@ -198,6 +538,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-11-15",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2017",
+      "link": "http://www.iapr-tc11.org/archive/icdar2017/",
+      "series": "icdar",
+      "source": "curated",
+      "start": "2017-11-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-09-21",
       "id": "icdlepirob17",
       "link": "https://web.archive.org/web/20170916212924/http://www.icdl-epirob.org/",
@@ -208,6 +563,36 @@
         "robotics"
       ],
       "title": "ICDL-EpiRob",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-11-21",
+      "fullName": "IEEE International Conference on Data Mining",
+      "id": "icdm17",
+      "link": "https://dblp.org/db/conf/icdm/icdm2017.html",
+      "series": "icdm",
+      "source": "curated",
+      "start": "2017-11-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-20",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip17",
+      "link": "https://dblp.org/db/conf/icip/icip2017.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2017-09-17",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
       "year": 2017
     },
     {
@@ -227,6 +612,36 @@
     },
     {
       "deadlines": [],
+      "end": "2017-07-14",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme17",
+      "link": "https://dblp.org/db/conf/icmcs/icme2017.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2017-07-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-11-17",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi17",
+      "link": "https://dblp.org/db/conf/icmi/icmi2017.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2017-11-13",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-11",
       "fullName": "International Conference on Machine Learning",
       "id": "icml17",
@@ -238,6 +653,21 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-09",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr17",
+      "link": "https://dblp.org/db/conf/mir/icmr2017.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2017-06-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
       "year": 2017
     },
     {
@@ -256,6 +686,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-05-18",
+      "fullName": "International Conference on Web and Social Media",
+      "id": "icwsm17",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2017.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2017-05-15",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-25",
       "id": "ijcai17",
       "link": "https://web.archive.org/web/20170821032608/http://ijcai-17.org/",
@@ -266,6 +711,52 @@
         "machine-learning"
       ],
       "title": "IJCAI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-05-19",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn17",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2017.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2017-05-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-07",
+      "fullName": "International Conference on Natural Language Generation",
+      "id": "inlg2017",
+      "link": "https://dblp.org/db/conf/inlg/inlg2017.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2017-09-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-24",
+      "fullName": "Annual Conference of the International Speech Communication Association",
+      "id": "interspeech2017",
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2017.html",
+      "series": "interspeech",
+      "source": "curated",
+      "start": "2017-08-20",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
       "year": 2017
     },
     {
@@ -284,6 +775,67 @@
     },
     {
       "deadlines": [],
+      "end": "2017-10-27",
+      "fullName": "International Society for Music Information Retrieval Conference",
+      "id": "ismir17",
+      "link": "https://dblp.org/db/conf/ismir/ismir2017.html",
+      "series": "ismir",
+      "source": "curated",
+      "start": "2017-10-23",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ISMIR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-06-29",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis17",
+      "link": "https://dblp.org/db/conf/ismis/ismis2017.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "2017-06-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-10-25",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc17",
+      "link": "https://dblp.org/db/conf/semweb/iswc2017-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2017-10-21",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-03-16",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui17",
+      "link": "https://dblp.org/db/conf/iui/iui2017.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2017-03-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-17",
       "id": "kdd17",
       "link": "https://web.archive.org/web/20170815174643/http://www.kdd.org/kdd2017/",
@@ -294,6 +846,51 @@
         "machine-learning"
       ],
       "title": "KDD",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-20",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem17",
+      "link": "https://dblp.org/db/conf/ksem/ksem2017.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2017-08-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-13",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai17",
+      "link": "https://dblp.org/db/conf/miccai/miccai2017-1",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2017-09-11",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-20",
+      "fullName": "International Conference on Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm17",
+      "link": "https://dblp.org/db/conf/mldm/mldm2017.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2017-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
       "year": 2017
     },
     {
@@ -313,6 +910,21 @@
     },
     {
       "deadlines": [],
+      "end": "2017-05-26",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd17",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2017-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2017-05-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-09-06",
       "id": "ranlp17",
       "link": "https://web.archive.org/web/20170911161706/http://www.lml.bas.bg/ranlp2017",
@@ -323,6 +935,36 @@
         "natural-language-processing"
       ],
       "title": "RANLP",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-31",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys17",
+      "link": "https://web.archive.org/web/20170804045018/http://recsys.acm.org:80/recsys17/",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2017-08-27",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-01",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman17",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2017.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2017-08-28",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
       "year": 2017
     },
     {
@@ -341,6 +983,38 @@
     },
     {
       "deadlines": [],
+      "end": "2017-07-15",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr17",
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2017.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2017-07-12",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-29",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm17",
+      "link": "https://dblp.org/db/conf/sdm/sdm2017.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2017-04-27",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-04",
       "id": "sem17",
       "link": "https://aclanthology.org/S17-1000/",
@@ -351,6 +1025,40 @@
         "natural-language-processing"
       ],
       "title": "*SEM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-07-05",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp17",
+      "link": "https://dblp.org/db/conf/sgp/sgp2017p.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2017-07-03",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-10-20",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi17",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2017.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2017-10-17",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2017
     },
     {
@@ -369,6 +1077,55 @@
     },
     {
       "deadlines": [],
+      "end": "2017-11-30",
+      "fullName": "SIGGRAPH Asia",
+      "id": "siggraphasia17",
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2017briefs.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2017-11-27",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-08-11",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir17",
+      "link": "https://dblp.org/db/conf/sigir/sigir2017.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2017-08-07",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-09-16",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom17",
+      "link": "https://dblp.org/db/conf/specom/specom2017.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2017-09-12",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
       "end": "2017-08-15",
       "id": "uai17",
       "link": "https://web.archive.org/web/20170807072452/http://auai.org/uai2017/index.php",
@@ -379,6 +1136,58 @@
         "machine-learning"
       ],
       "title": "UAI",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-03-31",
+      "fullName": "IEEE Winter Conference on Applications of Computer Vision",
+      "id": "wacv17",
+      "link": "https://dblp.org/db/conf/wacv/wacv2017.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2017-03-24",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-02-10",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm17",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2017.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2017-02-06",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2017
+    },
+    {
+      "deadlines": [],
+      "end": "2017-04-07",
+      "fullName": "International World Wide Web Conference",
+      "id": "www17",
+      "link": "https://dblp.org/db/conf/www/www2017.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2017-04-03",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2017
     }
   ],
@@ -417,6 +1226,22 @@
     },
     {
       "access": "registration",
+      "city": "São Paulo",
+      "conferenceId": "aamas17",
+      "country": "Brazil",
+      "end": "2017-05-12",
+      "id": "aamas17@main",
+      "lat": -23.5506507,
+      "link": "https://www.ifaamas.org/AAMAS/aamas2017/",
+      "lng": -46.6333824,
+      "name": "AAMAS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-08"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "acl17",
       "country": "Canada",
@@ -430,6 +1255,39 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Mountain View",
+      "conferenceId": "acm17",
+      "country": "United States",
+      "end": "2017-10-27",
+      "id": "acm17@main",
+      "lat": 37.3893889,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/3123266",
+      "lng": -122.0832101,
+      "name": "ACM MM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-23",
+      "venue": "Computer History Museum"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "acml17",
+      "country": "South Korea",
+      "end": "2017-11-17",
+      "id": "acml17@main",
+      "lat": 37.5666791,
+      "link": "https://dblp.org/db/conf/acml/acml2017.html",
+      "lng": 126.9782914,
+      "name": "ACML 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-15"
     },
     {
       "access": "registration",
@@ -449,6 +1307,39 @@
     },
     {
       "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "alt2017",
+      "country": "Japan",
+      "end": "2017-10-17",
+      "id": "alt2017@main",
+      "lat": 35.0115754,
+      "link": "https://dblp.org/db/conf/alt/alt2017.html",
+      "lng": 135.7681441,
+      "name": "ALT 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-15",
+      "venue": "Kyoto University"
+    },
+    {
+      "access": "registration",
+      "city": "Poznań",
+      "conferenceId": "bis2017",
+      "country": "Poland",
+      "end": "2017-06-30",
+      "id": "bis2017@main",
+      "lat": 52.4082663,
+      "link": "https://dblp.org/db/conf/bis/bis2017.html",
+      "lng": 16.9335199,
+      "name": "BIS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-28"
+    },
+    {
+      "access": "registration",
       "city": "London",
       "conferenceId": "bmvc17",
       "country": "United Kingdom",
@@ -462,6 +1353,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "San Sebastián",
+      "conferenceId": "cec2017",
+      "country": "Spain",
+      "end": "2017-06-08",
+      "id": "cec2017@main",
+      "lat": 43.3224219,
+      "link": "https://dblp.org/db/conf/cec/cec2017.html",
+      "lng": -1.9838889,
+      "name": "CEC 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-05"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "chi17",
+      "country": "United States",
+      "end": "2017-05-11",
+      "id": "chi17@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/chi/chi2017.html",
+      "lng": -104.984862,
+      "name": "CHI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "cikm17",
+      "country": "Singapore",
+      "end": "2017-11-10",
+      "id": "cikm17@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/cikm/cikm2017.html",
+      "lng": 103.8519072,
+      "name": "CIKM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-06"
     },
     {
       "access": "registration",
@@ -514,6 +1453,22 @@
     },
     {
       "access": "registration",
+      "city": "Portland",
+      "conferenceId": "cscw17",
+      "country": "United States",
+      "end": "2017-03-01",
+      "id": "cscw17@main",
+      "lat": 45.5202471,
+      "link": "https://dblp.org/db/conf/cscw/cscw2017.html",
+      "lng": -122.674194,
+      "name": "CSCW 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-02-25"
+    },
+    {
+      "access": "registration",
       "city": "Honolulu",
       "conferenceId": "cvpr17",
       "country": "United States",
@@ -528,6 +1483,38 @@
       "role": "main",
       "start": "2017-07-21",
       "venue": "Hawaii Convention Center"
+    },
+    {
+      "access": "registration",
+      "city": "Valencia",
+      "conferenceId": "eacl17",
+      "country": "Spain",
+      "end": "2017-04-07",
+      "id": "eacl17@main",
+      "lat": 39.4697065,
+      "link": "https://dblp.org/db/conf/eacl/eacl2017-1.html",
+      "lng": -0.3763353,
+      "name": "EACL 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-03"
+    },
+    {
+      "access": "registration",
+      "city": "Aberdeen",
+      "conferenceId": "ecir17",
+      "country": "United Kingdom",
+      "end": "2017-04-13",
+      "id": "ecir17@main",
+      "lat": 57.1482429,
+      "link": "https://dblp.org/db/conf/ecir/ecir2017.html",
+      "lng": -2.0928095,
+      "name": "ECIR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-08"
     },
     {
       "access": "registration",
@@ -563,6 +1550,70 @@
     },
     {
       "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann17",
+      "country": "Belgium",
+      "end": "2017-04-28",
+      "id": "esann17@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2017.html",
+      "lng": 3.226772,
+      "name": "ESANN 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "eurographics17",
+      "country": "France",
+      "end": "2017-04-28",
+      "id": "eurographics17@main",
+      "lat": 45.7578137,
+      "link": "https://web.archive.org/web/20170508103431/http://www.eurographics2017.fr:80/",
+      "lng": 4.8320114,
+      "name": "Eurographics 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "evomusart17",
+      "country": "Netherlands",
+      "end": "2017-04-21",
+      "id": "evomusart17@main",
+      "lat": 52.3730796,
+      "link": "https://link.springer.com/book/10.1007/978-3-319-55750-2",
+      "lng": 4.8924534,
+      "name": "evoMUSART 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-19"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "fg17",
+      "country": "United States",
+      "end": "2017-06-03",
+      "id": "fg17@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/fgr/fg2017.html",
+      "lng": -77.0363849,
+      "name": "FG 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-30"
+    },
+    {
+      "access": "registration",
       "city": "Zurich",
       "conferenceId": "fsr17",
       "country": "Switzerland",
@@ -577,6 +1628,87 @@
       "role": "main",
       "start": "2017-09-12",
       "venue": "ETH Zurich"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "gecco17",
+      "country": "Germany",
+      "end": "2017-07-19",
+      "id": "gecco17@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/gecco/gecco2017.html",
+      "lng": 13.3951309,
+      "name": "GECCO 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "Waikoloa",
+      "conferenceId": "hicss17",
+      "country": "United States",
+      "end": "2017-01-07",
+      "id": "hicss17@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2017.html",
+      "lng": -155.787398,
+      "name": "HICSS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-01-04",
+      "venue": "Hilton Waikoloa Village"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "hri17",
+      "country": "Austria",
+      "end": "2017-03-09",
+      "id": "hri17@main",
+      "lat": 48.2083537,
+      "link": "https://dblp.org/db/conf/hri/hri2017.html",
+      "lng": 16.3725042,
+      "name": "HRI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-03-06"
+    },
+    {
+      "access": "registration",
+      "city": "Alghero",
+      "conferenceId": "icann17",
+      "country": "Italy",
+      "end": "2017-09-14",
+      "id": "icann17@main",
+      "lat": 40.5587291,
+      "link": "https://dblp.org/db/conf/icann/icann2017-1.html",
+      "lng": 8.3153206,
+      "name": "ICANN 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-11"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "icaps17",
+      "country": "United States",
+      "end": "2017-06-23",
+      "id": "icaps17@main",
+      "lat": 40.4406968,
+      "link": "https://dblp.org/db/conf/aips/icaps2017.html",
+      "lng": -80.0025666,
+      "name": "ICAPS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-18"
     },
     {
       "access": "registration",
@@ -596,6 +1728,38 @@
     },
     {
       "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "icassp17",
+      "country": "United States",
+      "end": "2017-03-09",
+      "id": "icassp17@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/icassp/icassp2017.html",
+      "lng": -90.0629493,
+      "name": "ICASSP 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-03-05"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "iccc17",
+      "country": "United States",
+      "end": "2017-06-23",
+      "id": "iccc17@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2017.html",
+      "lng": -84.3898151,
+      "name": "ICCC 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-19"
+    },
+    {
+      "access": "registration",
       "city": "Venice",
       "conferenceId": "iccv17",
       "country": "Italy",
@@ -612,6 +1776,22 @@
     },
     {
       "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "icdar2017",
+      "country": "Japan",
+      "end": "2017-11-15",
+      "id": "icdar2017@main",
+      "lat": 35.0115754,
+      "link": "http://www.iapr-tc11.org/archive/icdar2017/",
+      "lng": 135.7681441,
+      "name": "ICDAR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-10"
+    },
+    {
+      "access": "registration",
       "city": "Lisbon",
       "conferenceId": "icdlepirob17",
       "country": "Portugal",
@@ -625,6 +1805,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "icdm17",
+      "country": "United States",
+      "end": "2017-11-21",
+      "id": "icdm17@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/icdm/icdm2017.html",
+      "lng": -90.0629493,
+      "name": "ICDM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-18"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "icip17",
+      "country": "China",
+      "end": "2017-09-20",
+      "id": "icip17@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/icip/icip2017.html",
+      "lng": 116.3912972,
+      "name": "ICIP 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-17"
     },
     {
       "access": "registration",
@@ -645,6 +1857,38 @@
     },
     {
       "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "icme17",
+      "country": "China",
+      "end": "2017-07-14",
+      "id": "icme17@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/icmcs/icme2017.html",
+      "lng": 114.1582831,
+      "name": "ICME 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-10"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "icmi17",
+      "country": "United Kingdom",
+      "end": "2017-11-17",
+      "id": "icmi17@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/icmi/icmi2017.html",
+      "lng": -4.2501687,
+      "name": "ICMI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-13"
+    },
+    {
+      "access": "registration",
       "city": "Sydney",
       "conferenceId": "icml17",
       "country": "Australia",
@@ -659,6 +1903,22 @@
       "role": "main",
       "start": "2017-08-06",
       "venue": "International Convention Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Bucharest",
+      "conferenceId": "icmr17",
+      "country": "Romania",
+      "end": "2017-06-09",
+      "id": "icmr17@main",
+      "lat": 44.4361414,
+      "link": "https://dblp.org/db/conf/mir/icmr2017.html",
+      "lng": 26.102684,
+      "name": "ICMR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-06"
     },
     {
       "access": "registration",
@@ -678,6 +1938,22 @@
     },
     {
       "access": "registration",
+      "city": "Montréal",
+      "conferenceId": "icwsm17",
+      "country": "Canada",
+      "end": "2017-05-18",
+      "id": "icwsm17@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2017.html",
+      "lng": -73.5698065,
+      "name": "ICWSM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-15"
+    },
+    {
+      "access": "registration",
       "city": "Melbourne",
       "conferenceId": "ijcai17",
       "country": "Australia",
@@ -691,6 +1967,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Anchorage",
+      "conferenceId": "ijcnn17",
+      "country": "United States",
+      "end": "2017-05-19",
+      "id": "ijcnn17@main",
+      "lat": 61.2163129,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2017.html",
+      "lng": -149.894852,
+      "name": "IJCNN 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-14"
+    },
+    {
+      "access": "registration",
+      "city": "Santiago de Compostela",
+      "conferenceId": "inlg2017",
+      "country": "Spain",
+      "end": "2017-09-07",
+      "id": "inlg2017@main",
+      "lat": 42.9064576,
+      "link": "https://dblp.org/db/conf/inlg/inlg2017.html",
+      "lng": -8.5192983,
+      "name": "INLG 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "interspeech2017",
+      "country": "Sweden",
+      "end": "2017-08-24",
+      "id": "interspeech2017@main",
+      "lat": 59.3251172,
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2017.html",
+      "lng": 18.0710935,
+      "name": "Interspeech 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-20"
     },
     {
       "access": "registration",
@@ -710,6 +2034,70 @@
     },
     {
       "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "ismir17",
+      "country": "China",
+      "end": "2017-10-27",
+      "id": "ismir17@main",
+      "lat": 31.311123,
+      "link": "https://dblp.org/db/conf/ismir/ismir2017.html",
+      "lng": 120.6212881,
+      "name": "ISMIR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-23"
+    },
+    {
+      "access": "registration",
+      "city": "Warsaw",
+      "conferenceId": "ismis17",
+      "country": "Poland",
+      "end": "2017-06-29",
+      "id": "ismis17@main",
+      "lat": 52.2319581,
+      "link": "https://dblp.org/db/conf/ismis/ismis2017.html",
+      "lng": 21.0067249,
+      "name": "ISMIS 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-06-26"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "iswc17",
+      "country": "Austria",
+      "end": "2017-10-25",
+      "id": "iswc17@main",
+      "lat": 48.2083537,
+      "link": "https://dblp.org/db/conf/semweb/iswc2017-1.html",
+      "lng": 16.3725042,
+      "name": "ISWC 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-21"
+    },
+    {
+      "access": "registration",
+      "city": "Limassol",
+      "conferenceId": "iui17",
+      "country": "Cyprus",
+      "end": "2017-03-16",
+      "id": "iui17@main",
+      "lat": 34.6852901,
+      "link": "https://dblp.org/db/conf/iui/iui2017.html",
+      "lng": 33.0332657,
+      "name": "IUI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-03-13"
+    },
+    {
+      "access": "registration",
       "city": "Halifax",
       "conferenceId": "kdd17",
       "country": "Canada",
@@ -723,6 +2111,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "ksem17",
+      "country": "Australia",
+      "end": "2017-08-20",
+      "id": "ksem17@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/ksem/ksem2017.html",
+      "lng": 144.9631732,
+      "name": "KSEM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Quebec City",
+      "conferenceId": "miccai17",
+      "country": "Canada",
+      "end": "2017-09-13",
+      "id": "miccai17@main",
+      "lat": 46.8137431,
+      "link": "https://dblp.org/db/conf/miccai/miccai2017-1",
+      "lng": -71.2084061,
+      "name": "MICCAI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-11"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm17",
+      "country": "United States",
+      "end": "2017-07-20",
+      "id": "mldm17@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/mldm/mldm2017.html",
+      "lng": -74.0060152,
+      "name": "MLDM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-15"
     },
     {
       "access": "registration",
@@ -743,6 +2179,22 @@
     },
     {
       "access": "registration",
+      "city": "Jeju",
+      "conferenceId": "pakdd17",
+      "country": "South Korea",
+      "end": "2017-05-26",
+      "id": "pakdd17@main",
+      "lat": 33.4998289,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2017-1.html",
+      "lng": 126.5313902,
+      "name": "PAKDD 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-05-23"
+    },
+    {
+      "access": "registration",
       "city": "Varna",
       "conferenceId": "ranlp17",
       "country": "Bulgaria",
@@ -756,6 +2208,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-09-04"
+    },
+    {
+      "access": "registration",
+      "city": "Como",
+      "conferenceId": "recsys17",
+      "country": "Italy",
+      "end": "2017-08-31",
+      "id": "recsys17@main",
+      "lat": 45.8115623,
+      "link": "https://web.archive.org/web/20170804045018/http://recsys.acm.org:80/recsys17/",
+      "lng": 9.0830353,
+      "name": "RecSys 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-27"
+    },
+    {
+      "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "roman17",
+      "country": "Portugal",
+      "end": "2017-09-01",
+      "id": "roman17@main",
+      "lat": 38.7077507,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2017.html",
+      "lng": -9.1365919,
+      "name": "RO-MAN 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-28"
     },
     {
       "access": "registration",
@@ -775,6 +2259,38 @@
     },
     {
       "access": "registration",
+      "city": "London",
+      "conferenceId": "rulemlrr17",
+      "country": "United Kingdom",
+      "end": "2017-07-15",
+      "id": "rulemlrr17@main",
+      "lat": 51.5074456,
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2017.html",
+      "lng": -0.1277653,
+      "name": "RuleML+RR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Houston",
+      "conferenceId": "sdm17",
+      "country": "United States",
+      "end": "2017-04-29",
+      "id": "sdm17@main",
+      "lat": 29.7589382,
+      "link": "https://dblp.org/db/conf/sdm/sdm2017.html",
+      "lng": -95.3676974,
+      "name": "SDM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-27"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "sem17",
       "country": "Canada",
@@ -788,6 +2304,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "sgp17",
+      "country": "United Kingdom",
+      "end": "2017-07-05",
+      "id": "sgp17@main",
+      "lat": 51.5074456,
+      "link": "https://dblp.org/db/conf/sgp/sgp2017p.html",
+      "lng": -0.1277653,
+      "name": "SGP 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-07-03"
+    },
+    {
+      "access": "registration",
+      "city": "Niterói",
+      "conferenceId": "sibgrapi17",
+      "country": "Brazil",
+      "end": "2017-10-20",
+      "id": "sibgrapi17@main",
+      "lat": -22.8884,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2017.html",
+      "lng": -43.1147,
+      "name": "SIBGRAPI 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-10-17"
     },
     {
       "access": "registration",
@@ -807,6 +2355,54 @@
     },
     {
       "access": "registration",
+      "city": "Bangkok",
+      "conferenceId": "siggraphasia17",
+      "country": "Thailand",
+      "end": "2017-11-30",
+      "id": "siggraphasia17@main",
+      "lat": 13.7524938,
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2017briefs.html",
+      "lng": 100.4935089,
+      "name": "SIGGRAPH Asia 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-11-27"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "sigir17",
+      "country": "Japan",
+      "end": "2017-08-11",
+      "id": "sigir17@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/sigir/sigir2017.html",
+      "lng": 139.7638947,
+      "name": "SIGIR 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-08-07"
+    },
+    {
+      "access": "registration",
+      "city": "Hatfield",
+      "conferenceId": "specom17",
+      "country": "United Kingdom",
+      "end": "2017-09-16",
+      "id": "specom17@main",
+      "lat": 51.7634675,
+      "link": "https://dblp.org/db/conf/specom/specom2017.html",
+      "lng": -0.2258741,
+      "name": "SPECOM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-09-12"
+    },
+    {
+      "access": "registration",
       "city": "Sydney",
       "conferenceId": "uai17",
       "country": "Australia",
@@ -820,6 +2416,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2017-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Santa Rosa",
+      "conferenceId": "wacv17",
+      "country": "United States",
+      "end": "2017-03-31",
+      "id": "wacv17@main",
+      "lat": 38.4404925,
+      "link": "https://dblp.org/db/conf/wacv/wacv2017.html",
+      "lng": -122.7141049,
+      "name": "WACV 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-03-24"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "wsdm17",
+      "country": "United Kingdom",
+      "end": "2017-02-10",
+      "id": "wsdm17@main",
+      "lat": 52.1975846,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2017.html",
+      "lng": 0.1391537,
+      "name": "WSDM 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-02-06"
+    },
+    {
+      "access": "registration",
+      "city": "Perth",
+      "conferenceId": "www17",
+      "country": "Australia",
+      "end": "2017-04-07",
+      "id": "www17@main",
+      "lat": -31.9558967,
+      "link": "https://dblp.org/db/conf/www/www2017.html",
+      "lng": 115.8605784,
+      "name": "WWW 2017",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2017-04-03"
     }
   ]
 }

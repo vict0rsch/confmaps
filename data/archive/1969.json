@@ -1,0 +1,131 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1969-05-13",
+      "fullName": "Association for Computational Linguistics Annual Meeting",
+      "id": "acl69",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1969-05-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1969
+    },
+    {
+      "deadlines": [],
+      "end": "1969-09-04",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling69",
+      "link": "https://dblp.org/db/conf/coling/coling1969.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1969-09-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1969
+    },
+    {
+      "deadlines": [],
+      "end": "1969-01-24",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss69",
+      "link": "https://apps.dtic.mil/sti/citations/AD0689804",
+      "series": "hicss",
+      "source": "curated",
+      "start": "1969-01-22",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 1969
+    },
+    {
+      "deadlines": [],
+      "end": "1969-05-09",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai69",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai69.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1969-05-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1969
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "acl69",
+      "country": "United States",
+      "end": "1969-05-13",
+      "id": "acl69@main",
+      "lat": 42.3588336,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -71.0578303,
+      "name": "ACL 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-05-13"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "coling69",
+      "country": "Sweden",
+      "end": "1969-09-04",
+      "id": "coling69@main",
+      "lat": 59.3251172,
+      "link": "https://dblp.org/db/conf/coling/coling1969.html",
+      "lng": 18.0710935,
+      "name": "COLING 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-09-01"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "hicss69",
+      "country": "United States",
+      "end": "1969-01-24",
+      "id": "hicss69@main",
+      "lat": 21.304547,
+      "link": "https://apps.dtic.mil/sti/citations/AD0689804",
+      "lng": -157.855676,
+      "name": "HICSS 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-01-22",
+      "venue": "University of Hawaii"
+    },
+    {
+      "access": "registration",
+      "city": "Washington, D.C.",
+      "conferenceId": "ijcai69",
+      "country": "United States",
+      "end": "1969-05-09",
+      "id": "ijcai69@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai69.html",
+      "lng": -77.0363849,
+      "name": "IJCAI 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-05-07"
+    }
+  ]
+}

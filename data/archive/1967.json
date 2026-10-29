@@ -1,0 +1,68 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1967-04-21",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl67",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1967-04-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1967
+    },
+    {
+      "deadlines": [],
+      "end": "1967-08-25",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling67",
+      "link": "https://dblp.org/db/conf/coling/coling1967.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1967-08-23",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1967
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Atlantic City",
+      "conferenceId": "acl67",
+      "country": "United States",
+      "end": "1967-04-21",
+      "id": "acl67@main",
+      "lat": 39.3642852,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -74.4229351,
+      "name": "ACL 1967",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1967-04-21"
+    },
+    {
+      "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "coling67",
+      "country": "France",
+      "end": "1967-08-25",
+      "id": "coling67@main",
+      "lat": 45.1875602,
+      "link": "https://dblp.org/db/conf/coling/coling1967.html",
+      "lng": 5.7357819,
+      "name": "COLING 1967",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1967-08-23"
+    }
+  ]
+}

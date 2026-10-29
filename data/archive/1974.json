@@ -1,0 +1,99 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1974-07-27",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl74",
+      "link": "https://aclanthology.org/J74-1/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1974-07-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1974
+    },
+    {
+      "deadlines": [],
+      "end": "1974-08-15",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr74",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1974-08-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1974
+    },
+    {
+      "deadlines": [],
+      "end": "1974-07-17",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph74",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1974.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1974-07-15",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1974
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Amherst",
+      "conferenceId": "acl74",
+      "country": "United States",
+      "end": "1974-07-27",
+      "id": "acl74@main",
+      "lat": 42.3731948,
+      "link": "https://aclanthology.org/J74-1/",
+      "lng": -72.5198761,
+      "name": "ACL 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "icpr74",
+      "country": "Denmark",
+      "end": "1974-08-15",
+      "id": "icpr74@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": 12.5700724,
+      "name": "ICPR 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Boulder",
+      "conferenceId": "siggraph74",
+      "country": "United States",
+      "end": "1974-07-17",
+      "id": "siggraph74@main",
+      "lat": 40.0149856,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1974.html",
+      "lng": -105.270545,
+      "name": "SIGGRAPH 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-07-15"
+    }
+  ]
+}

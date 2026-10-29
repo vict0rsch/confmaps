@@ -12,12 +12,30 @@
     - https://3dvconf.github.io/2025/
     - https://www.convention.qc.ca/en/news/international-conference-3d-vision-quebec-city-2019
   notes: 3DV 2025 was the 12th International Conference on 3D Vision, which counts the 2013 event, the first under the 3DV name, as the first edition.
+  not_held:
+    - year: 2023
+      source: https://3dvconf.github.io/2025/
 aaai:
   first_year: 1980
   sources:
     - https://en.wikipedia.org/wiki/AAAI_Conference_on_Artificial_Intelligence
     - https://aaai.org/conference/aaai/aaai80/
   notes: The first AAAI conference, AAAI-80, was held in August 1980 at Stanford University.
+  not_held:
+    - year: 1981
+      source: https://aaai.org/conference/aaai/
+    - year: 1985
+      source: https://aaai.org/conference/aaai/
+    - year: 1989
+      source: https://en.wikipedia.org/wiki/AAAI_Conference_on_Artificial_Intelligence
+    - year: 1995
+      source: https://en.wikipedia.org/wiki/AAAI_Conference_on_Artificial_Intelligence
+    - year: 2001
+      source: https://en.wikipedia.org/wiki/AAAI_Conference_on_Artificial_Intelligence
+    - year: 2003
+      source: https://aaai.org/conference/aaai/
+    - year: 2009
+      source: https://aaai.org/conference/aaai/
 aamas:
   first_year: 2002
   sources:
@@ -30,6 +48,37 @@ accv:
     - https://www.visionbib.com/bibliography/journal-list12.html
     - https://dblp.org/db/conf/accv/index.html
   notes: The first ACCV was held in Osaka in November 1993; dblp numbers the 1995 Singapore meeting as the 2nd.
+  not_held:
+    - year: 1994
+      source: http://www.afcv.org.cn/events.html
+    - year: 1996
+      source: http://www.afcv.org.cn/events.html
+    - year: 1997
+      source: http://www.afcv.org.cn/events.html
+    - year: 1999
+      source: http://www.afcv.org.cn/events.html
+    - year: 2001
+      source: http://www.afcv.org.cn/events.html
+    - year: 2003
+      source: http://www.afcv.org.cn/events.html
+    - year: 2005
+      source: http://www.afcv.org.cn/events.html
+    - year: 2008
+      source: http://www.afcv.org.cn/events.html
+    - year: 2011
+      source: http://www.afcv.org.cn/events.html
+    - year: 2013
+      source: http://www.afcv.org.cn/events.html
+    - year: 2015
+      source: https://link.springer.com/conference/accv
+    - year: 2017
+      source: https://link.springer.com/conference/accv
+    - year: 2019
+      source: https://link.springer.com/conference/accv
+    - year: 2021
+      source: https://link.springer.com/conference/accv
+    - year: 2023
+      source: https://link.springer.com/conference/accv
 acl:
   first_year: 1963
   sources:
@@ -54,6 +103,33 @@ aistats:
     - https://aistats.org/aistats1995/preface.html
     - https://aistats.org/aistats1989/
   notes: AISTATS counts the first Workshop on Artificial Intelligence and Statistics, held in Princeton in April 1985, as its first edition; the 1989 meeting was the 2nd.
+  not_held:
+    - year: 1986
+      source: https://aistats.org/aistats2025/other.html
+    - year: 1987
+      source: https://aistats.org/aistats2025/other.html
+    - year: 1988
+      source: https://aistats.org/aistats2025/other.html
+    - year: 1990
+      source: https://aistats.org/aistats2025/other.html
+    - year: 1992
+      source: http://www.gatsby.ucl.ac.uk/aistats/workshops.html
+    - year: 1994
+      source: http://www.gatsby.ucl.ac.uk/aistats/workshops.html
+    - year: 1996
+      source: http://www.gatsby.ucl.ac.uk/aistats/workshops.html
+    - year: 1998
+      source: http://www.gatsby.ucl.ac.uk/aistats/workshops.html
+    - year: 2000
+      source: https://aistats.org/aistats2009/proceedings.html
+    - year: 2002
+      source: https://aistats.org/aistats2009/proceedings.html
+    - year: 2004
+      source: https://aistats.org/other.html
+    - year: 2006
+      source: https://aistats.org/other.html
+    - year: 2008
+      source: https://aistats.org/other.html
 aiware:
   first_year: 2024
   sources:
@@ -82,6 +158,15 @@ bis:
     - https://dblp.org/db/conf/bis/index.html
     - https://bisconf.org/2027/previous-bis/
   notes: The first BIS conference was held in Poznan in April 1997; dblp lists the 1999 Poznan meeting as the 3rd.
+  not_held:
+    - year: 2001
+      source: https://bisconf.org/2026/
+    - year: 2022
+      source: https://bisconf.org/2025/
+    - year: 2023
+      source: https://bisconf.org/2025/
+    - year: 2024
+      source: https://bisconf.org/2025/
 bmvc:
   first_year: 1990
   sources:
@@ -101,6 +186,9 @@ chi:
     - https://en.wikipedia.org/wiki/Conference_on_Human_Factors_in_Computing_Systems
     - https://dblp.org/db/conf/chi/index.html
   notes: The series started with the 1982 Conference on Human Factors in Computing Systems in Gaithersburg, Maryland.
+  not_held:
+    - year: 1984
+      source: https://web.archive.org/web/20260515023747/https://archive.sigchi.org/conferences/conference-history/chi/
 chil:
   first_year: 2020
   sources:
@@ -122,6 +210,65 @@ coling:
     - https://aclanthology.org/venues/coling/
     - https://aclanthology.org/2022.coling-1.0/
   notes: The first COLING was held in 1965; COLING 2022 was the 29th, which matches a mostly biennial run from 1965.
+  not_held:
+    - year: 1968
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1970
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1972
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1974
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1975
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1977
+      source: https://en.wikipedia.org/wiki/International_Committee_on_Computational_Linguistics
+    - year: 1979
+      source: https://en.wikipedia.org/wiki/International_Committee_on_Computational_Linguistics
+    - year: 1981
+      source: https://en.wikipedia.org/wiki/International_Committee_on_Computational_Linguistics
+    - year: 1983
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1985
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1987
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1989
+      source: https://aclanthology.org/venues/coling/
+    - year: 1991
+      source: https://aclanthology.org/venues/coling/
+    - year: 1993
+      source: https://aclanthology.org/venues/coling/
+    - year: 1995
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1997
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 1999
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 2001
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 2003
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 2005
+      source: https://ufal.mff.cuni.cz/iccl/coling-conferences
+    - year: 2007
+      source: https://www.aclweb.org/portal/content/26th-international-conference-computational-linguistics-2
+    - year: 2009
+      source: https://www.aclweb.org/portal/content/26th-international-conference-computational-linguistics-2
+    - year: 2011
+      source: https://www.aclweb.org/portal/content/26th-international-conference-computational-linguistics-2
+    - year: 2013
+      source: https://aclanthology.org/venues/coling/
+    - year: 2015
+      source: https://aclanthology.org/venues/coling/
+    - year: 2017
+      source: https://aclanthology.org/venues/coling/
+    - year: 2019
+      source: https://aclanthology.org/venues/coling/
+    - year: 2021
+      source: https://aclanthology.org/venues/coling/
+    - year: 2023
+      source: https://aclanthology.org/venues/coling/
 collas:
   first_year: 2022
   sources:
@@ -161,28 +308,195 @@ cscw:
     - https://dblp.org/db/conf/cscw/index.html
     - https://en.wikipedia.org/wiki/Computer-supported_cooperative_work
   notes: The first CSCW conference was held in Austin, Texas, in December 1986.
+  not_held:
+    - year: 1987
+      source: https://dblp.org/db/conf/cscw/index.html
+    - year: 1989
+      source: https://dblp.org/db/conf/cscw/index.html
+    - year: 1991
+      source: https://dblp.org/db/conf/cscw/index.html
+    - year: 1993
+      source: https://ixdf.org/literature/conference_series/cscw
+    - year: 1995
+      source: https://ixdf.org/literature/conference_series/cscw
+    - year: 1997
+      source: https://ixdf.org/literature/conference_series/cscw
+    - year: 1999
+      source: https://web.archive.org/web/20250221050206/https://dl.acm.org/conference/cscw/proceedings
+    - year: 2001
+      source: https://web.archive.org/web/20250221050206/https://dl.acm.org/conference/cscw/proceedings
+    - year: 2003
+      source: https://web.archive.org/web/20250221050206/https://dl.acm.org/conference/cscw/proceedings
+    - year: 2005
+      source: https://ixdf.org/literature/conference_series/cscw
+    - year: 2007
+      source: https://ixdf.org/literature/conference_series/cscw
+    - year: 2009
+      source: https://ixdf.org/literature/conference_series/cscw
 cvpr:
   first_year: 1983
   sources:
     - https://find.library.upenn.edu/catalog/991003523503681
     - https://katalog.bibliothek.kit.edu/bib/121136
   notes: The first conference under the CVPR name was held in 1983; it continued the IEEE Conference on Pattern Recognition and Image Processing.
+  not_held:
+    - year: 1984
+      source: https://www.thecvf.com/?page_id=100
+    - year: 1987
+      source: https://www.thecvf.com/?page_id=100
+    - year: 1990
+      source: https://www.thecvf.com/?page_id=100
+    - year: 1995
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 2002
+      source: http://www.sigmod.org/publications/dblp/db/conf/cvpr/index.html
 eacl:
   first_year: 1983
   sources:
     - https://aclanthology.org/venues/eacl/
   notes: The first EACL conference was held in 1983.
+  not_held:
+    - year: 1984
+      source: https://eacl.org/conferences/
+    - year: 1986
+      source: https://eacl.org/conferences/
+    - year: 1988
+      source: https://eacl.org/conferences/
+    - year: 1990
+      source: https://www.aclweb.org/portal/eacl
+    - year: 1992
+      source: https://www.aclweb.org/portal/eacl
+    - year: 1994
+      source: https://www.aclweb.org/portal/eacl
+    - year: 1996
+      source: https://eacl.org/conferences/
+    - year: 1998
+      source: https://eacl.org/conferences/
+    - year: 2000
+      source: https://eacl.org/conferences/
+    - year: 2002
+      source: https://www.aclweb.org/portal/eacl
+    - year: 2004
+      source: https://www.aclweb.org/portal/eacl
+    - year: 2005
+      source: https://www.aclweb.org/portal/eacl
+    - year: 2007
+      source: https://eacl.org/conferences/
+    - year: 2008
+      source: https://eacl.org/conferences/
+    - year: 2010
+      source: https://eacl.org/conferences/
+    - year: 2011
+      source: https://eacl.org/conferences/
+    - year: 2013
+      source: https://eacl.org/conferences/
+    - year: 2015
+      source: https://eacl.org/conferences/
+    - year: 2016
+      source: https://eacl.org/conferences/
+    - year: 2018
+      source: https://eacl.org/conferences/
+    - year: 2019
+      source: https://eacl.org/conferences/
+    - year: 2020
+      source: https://eacl.org/conferences/
+    - year: 2022
+      source: https://eacl.org/conferences/
 ecai:
   first_year: 1974
   sources:
     - https://en.wikipedia.org/wiki/European_Conference_on_Artificial_Intelligence
     - https://ecai2024.eu/
   notes: ECAI 2024 was the 27th edition, a count that includes the AISB conferences from 1974 under which the series started.
+  not_held:
+    - year: 1977
+      source: https://www.eurai.org/ecai/history
+    - year: 1979
+      source: https://www.eurai.org/ecai/history
+    - year: 1981
+      source: https://www.eurai.org/ecai/history
+    - year: 1983
+      source: https://www.eurai.org/ecai/history
+    - year: 1985
+      source: https://www.eurai.org/ecai/history
+    - year: 1987
+      source: https://www.eurai.org/applications/Call_bids_host_ECAI-2029
+    - year: 1989
+      source: https://www.eurai.org/applications/Call_bids_host_ECAI-2029
+    - year: 1991
+      source: https://www.eurai.org/applications/Call_bids_host_ECAI-2029
+    - year: 1993
+      source: https://www.eurai.org/ecai/history
+    - year: 1995
+      source: https://www.eurai.org/ecai/history
+    - year: 1997
+      source: https://www.eurai.org/ecai/history
+    - year: 1999
+      source: https://www.eurai.org/ecai/history
+    - year: 2001
+      source: https://www.eurai.org/ecai/history
+    - year: 2003
+      source: https://www.eurai.org/ecai/history
+    - year: 2005
+      source: https://www.eurai.org/ecai/history
+    - year: 2007
+      source: https://www.eurai.org/ecai/history
+    - year: 2009
+      source: https://www.eurai.org/ecai/history
+    - year: 2011
+      source: http://www.wikicfp.com/cfp/program?id=793
+    - year: 2013
+      source: http://www.wikicfp.com/cfp/program?id=793
+    - year: 2015
+      source: http://www.wikicfp.com/cfp/program?id=793
+    - year: 2017
+      source: https://www.eurai.org/ecai/history
+    - year: 2019
+      source: https://www.eurai.org/ecai/history
+    - year: 2021
+      source: https://www.eurai.org/ecai/history
 eccv:
   first_year: 1990
   sources:
     - https://en.wikipedia.org/wiki/European_Conference_on_Computer_Vision
   notes: The first ECCV was held in April 1990 in Antibes, France.
+  not_held:
+    - year: 1991
+      source: http://eccv2012.unifi.it/conference/
+    - year: 1993
+      source: http://eccv2012.unifi.it/conference/
+    - year: 1995
+      source: http://eccv2012.unifi.it/conference/
+    - year: 1997
+      source: https://en.wikipedia.org/wiki/European_Conference_on_Computer_Vision
+    - year: 1999
+      source: https://en.wikipedia.org/wiki/European_Conference_on_Computer_Vision
+    - year: 2001
+      source: https://en.wikipedia.org/wiki/European_Conference_on_Computer_Vision
+    - year: 2003
+      source: https://link.springer.com/conference/eccv
+    - year: 2005
+      source: https://link.springer.com/conference/eccv
+    - year: 2007
+      source: https://link.springer.com/conference/eccv
+    - year: 2009
+      source: https://link.springer.com/conference/eccv
+    - year: 2011
+      source: https://link.springer.com/conference/eccv
+    - year: 2013
+      source: https://link.springer.com/conference/eccv
+    - year: 2015
+      source: https://link.springer.com/conference/eccv
+    - year: 2017
+      source: https://link.springer.com/conference/eccv
+    - year: 2019
+      source: https://link.springer.com/conference/eccv
+    - year: 2021
+      source: https://link.springer.com/conference/eccv
+    - year: 2023
+      source: https://link.springer.com/conference/eccv
+    - year: 2025
+      source: https://link.springer.com/conference/eccv
 ecir:
   first_year: 1979
   sources:
@@ -216,6 +530,15 @@ euvip:
   sources:
     - https://dblp.org/db/conf/euvip/index.html
   notes: EUVIP counts the 2008 VISPA workshop as its first edition; the 2010 workshop was the 2nd EUVIP and the 2013 one the fourth.
+  not_held:
+    - year: 2012
+      source: https://dblp.org/db/conf/euvip/index.html
+    - year: 2015
+      source: https://dblp.org/db/conf/euvip/index.html
+    - year: 2017
+      source: https://dblp.org/db/conf/euvip/index.html
+    - year: 2020
+      source: https://dblp.org/db/conf/euvip/index.html
 evomusart:
   first_year: 2012
   sources:
@@ -233,11 +556,59 @@ fg:
     - https://ieee-biometrics.org/conferences/flagship/fg/
     - https://infoscience.epfl.ch/handle/20.500.14299/208487
   notes: FG counts the 1995 Zurich workshop as its first edition; FG 2024 was the 18th.
+  not_held:
+    - year: 1997
+      source: http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=1095&copyownerid=224
+    - year: 1999
+      source: http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=1095&copyownerid=224
+    - year: 2001
+      source: https://ieee-biometrics.org/conferences/flagship/fg/
+    - year: 2003
+      source: https://ieee-biometrics.org/conferences/flagship/fg/
+    - year: 2005
+      source: https://ieee-biometrics.org/conferences/flagship/fg/
+    - year: 2007
+      source: https://dblp.org/db/conf/fgr/index.html
+    - year: 2009
+      source: https://dblp.org/db/conf/fgr/index.html
+    - year: 2010
+      source: https://dblp.org/db/conf/fgr/index.html
+    - year: 2012
+      source: https://dblp.org/db/conf/fgr/index.html
+    - year: 2014
+      source: https://ieee-biometrics.org/fg2019/index.html_p=5.html
+    - year: 2016
+      source: https://ieee-biometrics.org/fg2019/index.html_p=5.html
+    - year: 2022
+      source: https://ieee-biometrics.org/conferences/flagship/fg/
 fsr:
   first_year: 1997
   sources:
     - https://researchprofiles.canberra.edu.au/en/publications/vcr-a-virtually-controlled-robot-system/
   notes: The 1st International Conference on Field and Service Robotics was held in Canberra in December 1997.
+  not_held:
+    - year: 1998
+      source: https://link.springer.com/book/10.1007/978-3-540-33453-8
+    - year: 2000
+      source: https://link.springer.com/book/10.1007/978-3-540-33453-8
+    - year: 2002
+      source: https://link.springer.com/book/10.1007/978-3-540-33453-8
+    - year: 2004
+      source: http://ifrr.org/fsr
+    - year: 2006
+      source: http://ifrr.org/fsr
+    - year: 2008
+      source: https://dblp.org/db/conf/fsr/index.html
+    - year: 2010
+      source: https://fsr.utias.utoronto.ca/
+    - year: 2011
+      source: https://fsr.utias.utoronto.ca/
+    - year: 2014
+      source: https://dblp.org/db/conf/fsr/index.html
+    - year: 2016
+      source: https://dblp.org/db/conf/fsr/index.html
+    - year: 2018
+      source: https://dblp.org/db/conf/fsr/index.html
 gecco:
   first_year: 1999
   sources:
@@ -260,6 +631,35 @@ iberamia:
   sources:
     - https://www.iberamia.org/iberamia/?p=39
   notes: The first IBERAMIA was held in Barcelona in 1988; IBERAMIA 2024 in Montevideo was the 18th.
+  not_held:
+    - year: 1997
+      source: https://www.iberamia.org/iberamia/conferencias-iberamia/
+    - year: 1999
+      source: https://www.iberamia.org/iberamia/conferencias-iberamia/
+    - year: 2001
+      source: https://link.springer.com/conference/iberamia
+    - year: 2003
+      source: https://link.springer.com/conference/iberamia
+    - year: 2005
+      source: https://link.springer.com/conference/iberamia
+    - year: 2007
+      source: https://link.springer.com/conference/iberamia
+    - year: 2009
+      source: https://link.springer.com/conference/iberamia
+    - year: 2011
+      source: https://link.springer.com/conference/iberamia
+    - year: 2013
+      source: https://link.springer.com/conference/iberamia
+    - year: 2015
+      source: https://link.springer.com/conference/iberamia
+    - year: 2017
+      source: https://link.springer.com/conference/iberamia
+    - year: 2019
+      source: https://link.springer.com/conference/iberamia
+    - year: 2021
+      source: https://link.springer.com/conference/iberamia
+    - year: 2023
+      source: https://link.springer.com/conference/iberamia
 icann:
   first_year: 1991
   sources:
@@ -267,6 +667,9 @@ icann:
     - https://dblp.org/db/conf/icann/index.html
     - https://dblp.org/db/conf/icann/icann1997.html
   notes: The first ICANN was held in Finland in 1991; ICANN 2025 was the 34th edition.
+  not_held:
+    - year: 2015
+      source: https://e-nns.org/icanns/history/
 icaps:
   first_year: 1991
   sources:
@@ -297,6 +700,45 @@ iccv:
     - https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
     - https://dblp.org/db/conf/iccv/index.html
   notes: The first ICCV was held in London in 1987.
+  not_held:
+    - year: 1989
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 1991
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 1992
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 1994
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 1996
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 1997
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 2000
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 2002
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 2004
+      source: http://tab.computer.org/pamitc/conference/history.html
+    - year: 2006
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2008
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2010
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2012
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2014
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2016
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2018
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2020
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2022
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
+    - year: 2024
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Computer_Vision
 icdar:
   first_year: 1991
   sources:
@@ -304,6 +746,39 @@ icdar:
     - https://dblp.org/db/conf/icdar/index.html
     - https://dblp.org/db/conf/icdar/icdar1993.html
   notes: The first ICDAR was held in Saint-Malo, France, in 1991; it was biennial until 2023.
+  not_held:
+    - year: 1992
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 1994
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 1996
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 1998
+      source: https://iapr.org/archives/icdar2013/conference/history.html
+    - year: 2000
+      source: https://iapr.org/archives/icdar2013/conference/history.html
+    - year: 2002
+      source: https://iapr.org/archives/icdar2013/conference/history.html
+    - year: 2004
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 2006
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 2008
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition
+    - year: 2010
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2012
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2014
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2016
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2018
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2020
+      source: http://www.iapr-tc11.org/mediawiki/index.php/Conferences
+    - year: 2022
+      source: https://link.springer.com/conference/icdar
 icdl-epirob:
   first_year: 2011
   sources:
@@ -344,6 +819,9 @@ icml:
     - https://icml.cc/
     - https://en.wikipedia.org/wiki/International_Conference_on_Machine_Learning
   notes: ICML 2026 is the 43rd edition; the first was the 1980 International Workshop on Machine Learning at Carnegie Mellon.
+  not_held:
+    - year: 1986
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Machine_Learning
 icmr:
   first_year: 2011
   sources:
@@ -361,12 +839,68 @@ icpr:
   sources:
     - https://iapr.org/conferences/icpr_overview.php
   notes: ICPR has been held every two years since 1973.
+  not_held:
+    - year: 1975
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 1977
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 1979
+      source: http://www.icpr2012.org/history.html
+    - year: 1981
+      source: http://www.icpr2012.org/history.html
+    - year: 1983
+      source: http://www.icpr2012.org/history.html
+    - year: 1985
+      source: http://www.icpr2012.org/history.html
+    - year: 1987
+      source: http://www.icpr2012.org/history.html
+    - year: 1989
+      source: http://www.icpr2012.org/history.html
+    - year: 1991
+      source: https://old.iapr.org/conferences/schedule.php
+    - year: 1993
+      source: https://old.iapr.org/conferences/schedule.php
+    - year: 1995
+      source: https://old.iapr.org/conferences/schedule.php
+    - year: 1997
+      source: http://www.icpr2012.org/history.html
+    - year: 1999
+      source: http://www.icpr2012.org/history.html
+    - year: 2001
+      source: http://www.icpr2012.org/history.html
+    - year: 2003
+      source: http://www.icpr2012.org/history.html
+    - year: 2005
+      source: http://www.icpr2012.org/history.html
+    - year: 2007
+      source: http://www.icpr2012.org/history.html
+    - year: 2009
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2011
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2013
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2015
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2017
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2019
+      source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2023
+      source: https://en.wikipedia.org/wiki/IAPR
 icprai:
   first_year: 2018
   sources:
     - https://www.concordia.ca/research/cenparmi/news-events/conferences.html
     - https://www.concordia.ca/research/cenparmi/news-events/conferences/ICPRAI-2018.html
   notes: The first ICPRAI was held at Concordia University in Montreal in May 2018.
+  not_held:
+    - year: 2019
+      source: https://icprai2022.sciencesconf.org/
+    - year: 2021
+      source: https://icprai2022.sciencesconf.org/
+    - year: 2023
+      source: https://iapr.org/conferences/conference-schedule/
 icra:
   first_year: 1984
   sources:
@@ -383,12 +917,62 @@ ijcai:
   sources:
     - https://www.ijcai.org/proceedings/1969
   notes: The first IJCAI was held in Washington, D.C., in May 1969.
+  not_held:
+    - year: 1970
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1972
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1974
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1976
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1978
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1980
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1982
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1984
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1986
+      source: https://www.ijcai.org/past/ijcai-01/introduction.htm
+    - year: 1988
+      source: http://www.sigmod.org/publications/dblp/db/conf/ijcai/index.html
+    - year: 1990
+      source: http://www.sigmod.org/publications/dblp/db/conf/ijcai/index.html
+    - year: 1992
+      source: http://www.sigmod.org/publications/dblp/db/conf/ijcai/index.html
+    - year: 1994
+      source: https://www.ijcai.org/past_conferences
+    - year: 1996
+      source: https://www.ijcai.org/past_conferences
+    - year: 1998
+      source: https://www.ijcai.org/past_conferences
+    - year: 2000
+      source: https://ijcai.org/all_proceedings/
+    - year: 2002
+      source: https://ijcai.org/all_proceedings/
+    - year: 2004
+      source: https://ijcai.org/all_proceedings/
+    - year: 2006
+      source: https://ijcai.org/all_proceedings/
+    - year: 2008
+      source: https://ijcai.org/all_proceedings/
+    - year: 2010
+      source: https://ijcai.org/all_proceedings/
+    - year: 2012
+      source: https://www.ijcai.org/past_conferences
+    - year: 2014
+      source: https://www.ijcai.org/past_conferences
 ijcnlp-aacl:
   first_year: 2020
   sources:
     - https://aclanthology.org/volumes/2020.aacl-main/
     - https://aclanthology.org/venues/ijcnlp/
   notes: The joint event began in 2020 as AACL-IJCNLP, the 1st AACL conference and the 10th IJCNLP.
+  not_held:
+    - year: 2024
+      source: https://www.afnlp.org/web/ijcnlp-conferences/
 ijcnn:
   first_year: 1989
   sources:
@@ -400,6 +984,17 @@ inlg:
     - https://aclanthology.org/volumes/W00-14/
     - https://citius.gal/research/publications/proceedings-of-the-10th-international-conference-on-natural-language-generation/
   notes: INLG 2000 in Mitzpe Ramon, Israel, was the First International Conference on Natural Language Generation; earlier meetings since 1983 were workshops outside this numbering.
+  not_held:
+    - year: 2007
+      source: https://aclanthology.org/venues/inlg/
+    - year: 2009
+      source: https://aclanthology.org/venues/inlg/
+    - year: 2011
+      source: https://aclanthology.org/venues/inlg/
+    - year: 2013
+      source: https://dblp.org/db/conf/inlg/index.html
+    - year: 2015
+      source: https://dblp.org/db/conf/inlg/index.html
 interspeech:
   first_year: 2000
   sources:
@@ -424,6 +1019,31 @@ ismis:
     - https://dblp.org/db/conf/ismis/index.html
     - https://dblp.org/db/conf/ismis/ismis87.html
   notes: The 1st ISMIS was held in Knoxville, Tennessee, in October 1986.
+  not_held:
+    - year: 1992
+      source: https://ismis09.vse.cz/
+    - year: 1995
+      source: https://ismis09.vse.cz/
+    - year: 1998
+      source: https://ismis09.vse.cz/
+    - year: 2001
+      source: https://ismis09.vse.cz/
+    - year: 2004
+      source: https://ismis09.vse.cz/
+    - year: 2007
+      source: https://ismis09.vse.cz/
+    - year: 2010
+      source: https://link.springer.com/conference/ismis
+    - year: 2013
+      source: https://link.springer.com/conference/ismis
+    - year: 2016
+      source: https://link.springer.com/conference/ismis
+    - year: 2019
+      source: https://link.springer.com/conference/ismis
+    - year: 2021
+      source: https://link.springer.com/conference/ismis
+    - year: 2023
+      source: https://link.springer.com/conference/ismis
 iswc:
   first_year: 2002
   sources:
@@ -446,6 +1066,37 @@ kr:
     - https://dblp.org/db/conf/kr/index.html
     - https://dblp.org/db/conf/kr/kr89.html
   notes: The 1st KR conference was held in Toronto in May 1989.
+  not_held:
+    - year: 1990
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 1993
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 1995
+      source: https://web.archive.org/web/20260629051806/https://kr.org/proclist.html
+    - year: 1997
+      source: https://web.archive.org/web/20260629051806/https://kr.org/proclist.html
+    - year: 1999
+      source: https://web.archive.org/web/20260629051806/https://kr.org/proclist.html
+    - year: 2001
+      source: https://kmeducationhub.de/international-conference-on-the-principles-of-knowledge-representation-and-reasoning-krr/
+    - year: 2003
+      source: https://kmeducationhub.de/international-conference-on-the-principles-of-knowledge-representation-and-reasoning-krr/
+    - year: 2005
+      source: https://kmeducationhub.de/international-conference-on-the-principles-of-knowledge-representation-and-reasoning-krr/
+    - year: 2007
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2009
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2011
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2013
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2015
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2017
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2019
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
 ksem:
   first_year: 2006
   sources:
@@ -453,6 +1104,11 @@ ksem:
     - https://dblp.org/db/conf/ksem/index.html
     - https://dblp.org/db/conf/ksem/ksem2006.html
   notes: The first KSEM was held in Guilin, China, in August 2006.
+  not_held:
+    - year: 2008
+      source: https://www.ksem2023.conferences.academy/index.html
+    - year: 2012
+      source: https://link.springer.com/conference/ksem
 l4dc:
   first_year: 2019
   sources:
@@ -469,6 +1125,35 @@ lrec:
     - https://en.wikipedia.org/wiki/Language_Resources_and_Evaluation_Conference
     - https://lrec2022.lrec-conf.org/en/
   notes: The LREC series began in Granada in 1998 and is held every two years; LREC 2022 was the 13th.
+  not_held:
+    - year: 1999
+      source: https://lrec.elra.info/
+    - year: 2001
+      source: https://lrec.elra.info/
+    - year: 2003
+      source: https://lrec.elra.info/
+    - year: 2005
+      source: http://lrec-conf.org/
+    - year: 2007
+      source: http://lrec-conf.org/
+    - year: 2009
+      source: http://lrec-conf.org/
+    - year: 2011
+      source: https://lrec.elra.info/
+    - year: 2013
+      source: https://lrec.elra.info/
+    - year: 2015
+      source: https://lrec.elra.info/
+    - year: 2017
+      source: http://lrec-conf.org/
+    - year: 2019
+      source: http://lrec-conf.org/
+    - year: 2021
+      source: http://lrec-conf.org/
+    - year: 2023
+      source: https://www.elra.info/elra-events/lrec/
+    - year: 2025
+      source: https://www.elra.info/elra-events/lrec/
 lrec-coling:
   first_year: 2024
   sources:
@@ -505,12 +1190,42 @@ mldm:
     - https://dblp.org/db/conf/mldm/index.html
     - https://dblp.org/db/conf/mldm/mldm99.html
   notes: MLDM 2018 was the 14th; the count starts with the 1999 First International Workshop in Leipzig.
+  not_held:
+    - year: 2000
+      source: https://dblp.org/db/conf/mldm/index.html
+    - year: 2002
+      source: https://dblp.org/db/conf/mldm/index.html
+    - year: 2004
+      source: https://dblp.org/db/conf/mldm/index.html
+    - year: 2006
+      source: https://link.springer.com/conference/mldm
+    - year: 2008
+      source: https://link.springer.com/conference/mldm
+    - year: 2010
+      source: https://link.springer.com/conference/mldm
 naacl:
   first_year: 2000
   sources:
     - https://aclanthology.org/volumes/A00-2/
     - https://en.wikipedia.org/wiki/North_American_Chapter_of_the_Association_for_Computational_Linguistics
   notes: The 1st Meeting of NAACL was held in 2000, together with the Sixth Applied Natural Language Processing Conference.
+  not_held:
+    - year: 2002
+      source: https://www.aclweb.org/portal/node/2481
+    - year: 2005
+      source: https://naacl.org/conferences/index.html
+    - year: 2008
+      source: https://naacl.org/conferences/index.html
+    - year: 2011
+      source: https://naacl.org/conferences/index.html
+    - year: 2014
+      source: https://www.aclweb.org/portal/content/call-bids-host-acl-2023
+    - year: 2017
+      source: https://www.aclweb.org/portal/content/call-bids-host-acl-2023
+    - year: 2020
+      source: https://www.aclweb.org/portal/content/call-bids-host-acl-2023
+    - year: 2023
+      source: https://naacl.org/conferences/index.html
 neurips:
   first_year: 1987
   sources:
@@ -535,6 +1250,29 @@ ranlp:
     - https://ranlp.org/2027/
     - https://aclanthology.org/venues/ranlp/
   notes: RANLP has been held since 1995; RANLP 2025 was the 15th.
+  not_held:
+    - year: 2004
+      source: https://ranlp.org/2027/index.php/ranlp-history/
+    - year: 2006
+      source: https://ranlp.org/2027/index.php/ranlp-history/
+    - year: 2008
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2010
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2012
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2014
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2016
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2018
+      source: https://www.aclweb.org/portal/content/recent-advances-natural-language-processing-2025
+    - year: 2020
+      source: https://ranlp.org/2027/index.php/ranlp-history/
+    - year: 2022
+      source: https://ranlp.org/2027/index.php/ranlp-history/
+    - year: 2024
+      source: https://ranlp.org/2027/index.php/ranlp-history/
 recsys:
   first_year: 2007
   sources:
@@ -620,6 +1358,25 @@ slt:
     - https://signalprocessingsociety.org/sites/default/files/uploads/sltc_nl_archive/NL0701.html
     - https://aclweb.org/portal/node/2522
   notes: The first IEEE/ACL Spoken Language Technology Workshop was held in Aruba in December 2006.
+  not_held:
+    - year: 2007
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2009
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2011
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2013
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2015
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2017
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2019
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2020
+      source: https://dblp.org/db/conf/slt/index.html
+    - year: 2023
+      source: https://dblp.org/db/conf/slt/index.html
 spaice:
   first_year: 2024
   sources:
@@ -630,6 +1387,13 @@ specom:
   sources:
     - https://specom.nw.ru/2024/history/
   notes: The first SPECOM was held in St. Petersburg in October 1996.
+  not_held:
+    - year: 2008
+      source: https://specom.inf.u-szeged.hu/history/
+    - year: 2010
+      source: https://specom.inf.u-szeged.hu/history/
+    - year: 2012
+      source: https://specom.inf.u-szeged.hu/history/
 uai:
   first_year: 1985
   sources:
@@ -642,6 +1406,19 @@ wacv:
     - https://ndlsearch.ndl.go.jp/books/R100000002-I027485789
     - https://dblp.org/db/conf/wacv/wacv1992.html
   notes: WACV 2015 was the 15th edition; the count starts with the First IEEE Workshop on Applications of Computer Vision in Palm Springs in 1992.
+  not_held:
+    - year: 1993
+      source: https://dblp.org/db/conf/wacv/index.html
+    - year: 1995
+      source: https://dblp.org/db/conf/wacv/index.html
+    - year: 1997
+      source: https://dblp.org/db/conf/wacv/index.html
+    - year: 1999
+      source: https://www.thecvf.com/?page_id=100
+    - year: 2001
+      source: https://www.thecvf.com/?page_id=100
+    - year: 2003
+      source: https://www.thecvf.com/?page_id=100
 wsdm:
   first_year: 2008
   sources:

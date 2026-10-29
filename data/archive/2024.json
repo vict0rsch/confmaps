@@ -45,6 +45,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-12-12",
+      "fullName": "Asian Conference on Computer Vision",
+      "id": "accv24",
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "series": "accv",
+      "source": "curated",
+      "start": "2024-12-08",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ACCV",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-16",
       "id": "acl24",
       "link": "https://web.archive.org/web/20240811192721/https://2024.aclweb.org/",
@@ -69,6 +84,21 @@
         "computer-vision"
       ],
       "title": "ACM MM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-08",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml24",
+      "link": "https://web.archive.org/web/20241211113447/https://www.acml-conf.org/2024/",
+      "series": "acml",
+      "source": "curated",
+      "start": "2024-12-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
       "year": 2024
     },
     {
@@ -102,6 +132,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-02-28",
+      "fullName": "International Conference on Algorithmic Learning Theory",
+      "id": "alt2024",
+      "link": "https://dblp.org/db/conf/alt/alt2024.html",
+      "series": "alt",
+      "source": "curated",
+      "start": "2024-02-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ALT",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-09-12",
       "fullName": "International Conference on Automated Machine Learning",
       "id": "automl24",
@@ -128,6 +173,21 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-05",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2024",
+      "link": "https://dblp.org/db/conf/cec/cec2024.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2024-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
       "year": 2024
     },
     {
@@ -191,6 +251,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-05-25",
+      "fullName": "Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
+      "id": "coling24",
+      "link": "https://web.archive.org/web/20240526150149/https://lrec-coling-2024.org/",
+      "series": "coling",
+      "source": "curated",
+      "start": "2024-05-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-01",
       "id": "collas24",
       "link": "https://web.archive.org/web/20240804081832/https://lifelong-ml.cc",
@@ -221,6 +296,35 @@
     },
     {
       "deadlines": [],
+      "end": "2024-07-03",
+      "fullName": "Annual Conference on Learning Theory",
+      "id": "colt24",
+      "link": "https://dblp.org/db/conf/colt/colt2024.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "2024-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-16",
+      "id": "conll24",
+      "link": "https://aclanthology.org/2024.conll-1.0/",
+      "series": "conll",
+      "source": "curated",
+      "start": "2024-11-15",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-11-09",
       "id": "corl24",
       "link": "https://web.archive.org/web/20241106085650/https://corl.org",
@@ -231,6 +335,21 @@
         "robotics"
       ],
       "title": "CoRL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-01-06",
+      "fullName": "Conference on Parsimony and Learning",
+      "id": "cpal24",
+      "link": "https://dblp.org/db/conf/cpal/cpal2024.html",
+      "series": "cpal",
+      "source": "curated",
+      "start": "2024-01-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CPAL",
       "year": 2024
     },
     {
@@ -349,6 +468,134 @@
     },
     {
       "deadlines": [],
+      "end": "2024-10-11",
+      "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
+      "id": "esann24",
+      "link": "https://dblp.org/db/conf/esann/esann2024.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2024-10-09",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-26",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics24",
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2024.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2024-04-22",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-11",
+      "fullName": "European Workshop on Visual Information Processing",
+      "id": "euvip24",
+      "link": "https://dblp.org/db/conf/euvip/euvip2024.html",
+      "series": "euvip",
+      "source": "curated",
+      "start": "2024-09-08",
+      "tags": [
+        "computer vision",
+        "image processing",
+        "signal processing",
+        "machine learning",
+        "deep learning",
+        "visual information processing"
+      ],
+      "title": "EUVIP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-05",
+      "fullName": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart24",
+      "link": "https://dblp.org/db/conf/evomusart/evomusart2024.html",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2024-04-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-06",
+      "fullName": "ACM Conference on Fairness, Accountability, and Transparency",
+      "id": "facct24",
+      "link": "https://dblp.org/db/conf/fat/facct2024.html",
+      "series": "facct",
+      "source": "curated",
+      "start": "2024-06-03",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-31",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg24",
+      "link": "https://web.archive.org/web/20240522023701/https://fg2024.ieee-biometrics.org/",
+      "series": "fg",
+      "source": "curated",
+      "start": "2024-05-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-18",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco24",
+      "link": "https://dblp.org/db/conf/gecco/gecco2024.html",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2024-07-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-01-06",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss24",
+      "link": "https://dblp.org/db/conf/hicss/hicss2024.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2024-01-03",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-03-14",
       "id": "hri24",
       "link": "https://web.archive.org/web/20240228222314/https://humanrobotinteraction.org/2024/",
@@ -380,6 +627,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-09-20",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann24",
+      "link": "https://dblp.org/db/conf/icann/icann2024-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2024-09-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-06-06",
       "id": "icaps24",
       "link": "https://web.archive.org/web/20240601163319/https://icaps24.icaps-conference.org/",
@@ -390,6 +652,21 @@
         "automated-planning"
       ],
       "title": "ICAPS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-03",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc24",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2024.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2024-05-02",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2024
     },
     {
@@ -409,6 +686,81 @@
     },
     {
       "deadlines": [],
+      "end": "2024-06-21",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc24",
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2024.html",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2024-06-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-04",
+      "fullName": "International Conference on Document Analysis and Recognition",
+      "id": "icdar2024",
+      "link": "https://dblp.org/db/conf/icdar/icdar2024-1.html",
+      "series": "icdar",
+      "source": "curated",
+      "start": "2024-08-30",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICDAR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-23",
+      "fullName": "IEEE International Conference on Development and Learning",
+      "id": "icdlepirob24",
+      "link": "https://web.archive.org/web/20240414022945/https://la.utexas.edu/users/dil/ICDL_Austin_2024/",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2024-05-20",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-12",
+      "fullName": "IEEE International Conference on Data Mining",
+      "id": "icdm24",
+      "link": "https://dblp.org/db/conf/icdm/icdm2024.html",
+      "series": "icdm",
+      "source": "curated",
+      "start": "2024-12-09",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-30",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip24",
+      "link": "https://dblp.org/db/conf/icip/icip2024.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2024-10-27",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-05-11",
       "fullName": "International Conference on Learning Representations",
       "id": "iclr24",
@@ -424,6 +776,36 @@
     },
     {
       "deadlines": [],
+      "end": "2024-07-19",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme24",
+      "link": "https://dblp.org/db/conf/icmcs/icme2024.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2024-07-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-08",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi24",
+      "link": "https://dblp.org/db/conf/icmi/icmi2024.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2024-11-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-07-27",
       "fullName": "International Conference on Machine Learning",
       "id": "icml24",
@@ -435,6 +817,52 @@
         "machine-learning"
       ],
       "title": "ICML",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-14",
+      "fullName": "International Conference on Multimedia Retrieval",
+      "id": "icmr24",
+      "link": "https://dblp.org/db/conf/mir/icmr2024.html",
+      "series": "icmr",
+      "source": "curated",
+      "start": "2024-06-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-12",
+      "fullName": "International Conference on Computational Optimization",
+      "id": "icomp24",
+      "link": "https://labmmo.ru/en/news/otkryt-priem-statei-na-mezhdunarodnuyu-konferenciyu-po-vychislitelnoi-optimizacii-icomp-2024.html",
+      "series": "icomp",
+      "source": "curated",
+      "start": "2024-10-10",
+      "tags": [
+        "machine-learning",
+        "optimization-methods"
+      ],
+      "title": "ICOMP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-05",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr24",
+      "link": "https://dblp.org/db/conf/icpr/icpr2024-1.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2024-12-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
       "year": 2024
     },
     {
@@ -468,6 +896,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-06-06",
+      "fullName": "International AAAI Conference on Web and Social Media",
+      "id": "icwsm24",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2024.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2024-06-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-09",
       "fullName": "International Joint Conference on Artificial Intelligence",
       "id": "ijcai24",
@@ -479,6 +922,52 @@
         "machine-learning"
       ],
       "title": "IJCAI",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-05",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn24",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2024.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2024-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-27",
+      "fullName": "International Natural Language Generation Conference",
+      "id": "inlg2024",
+      "link": "https://dblp.org/db/conf/inlg/inlg2024.html",
+      "series": "inlg",
+      "source": "curated",
+      "start": "2024-09-23",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "INLG",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-09-05",
+      "fullName": "Annual Conference of the International Speech Communication Association",
+      "id": "interspeech2024",
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2024.html",
+      "series": "interspeech",
+      "source": "curated",
+      "start": "2024-09-01",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "Interspeech",
       "year": 2024
     },
     {
@@ -508,6 +997,36 @@
         "signal-processing"
       ],
       "title": "ISMIR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-19",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis24",
+      "link": "https://dblp.org/db/conf/ismis/ismis2024.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "2024-06-17",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-11-15",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc24",
+      "link": "https://dblp.org/db/conf/semweb/iswc2024-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2024-11-11",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
       "year": 2024
     },
     {
@@ -554,6 +1073,36 @@
     },
     {
       "deadlines": [],
+      "end": "2024-08-18",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem24",
+      "link": "https://dblp.org/db/conf/ksem/ksem2024-1.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2024-08-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-17",
+      "fullName": "Learning for Dynamics & Control Conference",
+      "id": "l4dc24",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2024.html",
+      "series": "l4dc",
+      "source": "curated",
+      "start": "2024-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-11-29",
       "fullName": "Learning on Graphs Conference",
       "id": "log24",
@@ -567,6 +1116,21 @@
         "knowledge-representation"
       ],
       "title": "LoG",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-25",
+      "fullName": "Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
+      "id": "lrec24",
+      "link": "https://dblp.org/db/conf/coling/coling2024.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2024-05-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
       "year": 2024
     },
     {
@@ -600,6 +1164,21 @@
     },
     {
       "deadlines": [],
+      "end": "2024-07-05",
+      "fullName": "Medical Imaging with Deep Learning",
+      "id": "midl24",
+      "link": "https://dblp.org/db/conf/midl/midl2024.html",
+      "series": "midl",
+      "source": "curated",
+      "start": "2024-07-03",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-09",
       "fullName": "International Conference on Multimedia Information Processing and Retrieval",
       "id": "mipr24",
@@ -611,6 +1190,21 @@
         "machine-learning"
       ],
       "title": "MIPR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-07-18",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm24",
+      "link": "https://www.mldm.de/mldm2024.php",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2024-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
       "year": 2024
     },
     {
@@ -644,6 +1238,51 @@
     },
     {
       "deadlines": [],
+      "end": "2024-04-20",
+      "id": "nlbse24",
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2024.html",
+      "series": "nlbse",
+      "source": "curated",
+      "start": "2024-04-20",
+      "tags": [
+        "natural-language-processing",
+        "software engineering"
+      ],
+      "title": "NLBSE",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-10",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd24",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2024-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2024-05-07",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-18",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys24",
+      "link": "https://dblp.org/db/conf/recsys/recsys2024.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2024-10-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-08-12",
       "id": "rlc24",
       "link": "https://web.archive.org/web/20240814094746/https://rl-conference.cc/",
@@ -654,6 +1293,21 @@
         "machine-learning"
       ],
       "title": "RLC",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-08-30",
+      "fullName": "IEEE International Conference on Robot and Human Interactive Communication",
+      "id": "roman24",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2024.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2024-08-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
       "year": 2024
     },
     {
@@ -672,6 +1326,23 @@
     },
     {
       "deadlines": [],
+      "end": "2024-09-18",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr24",
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2024.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2024-09-16",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
       "end": "2024-04-11",
       "fullName": "IEEE Conference on Secure and Trustworthy Machine Learning",
       "id": "satml24",
@@ -683,6 +1354,70 @@
         "machine-learning"
       ],
       "title": "SaTML",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-04-20",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm24",
+      "link": "https://dblp.org/db/conf/sdm/sdm2024.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2024-04-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-21",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem24",
+      "link": "https://dblp.org/db/conf/starsem/starsem2024.html",
+      "series": "sem",
+      "source": "curated",
+      "start": "2024-06-20",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-06-26",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp24",
+      "link": "https://web.archive.org/web/20240627104629/https://sgp2024.github.io/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2024-06-24",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-10-03",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi24",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2024.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2024-09-30",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2024
     },
     {
@@ -726,6 +1461,37 @@
         "data-mining"
       ],
       "title": "SIGIR",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-12",
+      "fullName": "Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region",
+      "id": "sigirap24",
+      "link": "https://dblp.org/db/conf/sigir-ap/sigir-ap2024.html",
+      "series": "sigir-ap",
+      "source": "curated",
+      "start": "2024-12-09",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR-AP",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-12-05",
+      "fullName": "IEEE Spoken Language Technology Workshop",
+      "id": "slt24",
+      "link": "https://web.archive.org/web/20241206213214/https://2024.ieeeslt.org/",
+      "series": "slt",
+      "source": "curated",
+      "start": "2024-12-02",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
       "year": 2024
     },
     {
@@ -787,6 +1553,42 @@
       ],
       "title": "WACV",
       "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-03-08",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm24",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2024.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2024-03-04",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2024
+    },
+    {
+      "deadlines": [],
+      "end": "2024-05-17",
+      "fullName": "The ACM Web Conference",
+      "id": "www24",
+      "link": "https://dblp.org/db/conf/www/www2024.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2024-05-13",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 2024
     }
   ],
   "locations": [
@@ -840,6 +1642,22 @@
     },
     {
       "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "accv24",
+      "country": "Vietnam",
+      "end": "2024-12-12",
+      "id": "accv24@main",
+      "lat": 21.0283334,
+      "link": "https://link.springer.com/book/10.1007/978-981-96-0885-0",
+      "lng": 105.854041,
+      "name": "ACCV 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-08"
+    },
+    {
+      "access": "registration",
       "city": "Bangkok",
       "conferenceId": "acl24",
       "country": "Thailand",
@@ -869,6 +1687,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-10-28"
+    },
+    {
+      "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "acml24",
+      "country": "Vietnam",
+      "end": "2024-12-08",
+      "id": "acml24@main",
+      "lat": 21.0283334,
+      "link": "https://web.archive.org/web/20241211113447/https://www.acml-conf.org/2024/",
+      "lng": 105.854041,
+      "name": "ACML 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-05"
     },
     {
       "access": "registration",
@@ -904,6 +1738,22 @@
     },
     {
       "access": "registration",
+      "city": "La Jolla",
+      "conferenceId": "alt2024",
+      "country": "United States",
+      "end": "2024-02-28",
+      "id": "alt2024@main",
+      "lat": 32.8458529,
+      "link": "https://dblp.org/db/conf/alt/alt2024.html",
+      "lng": -117.2575702,
+      "name": "ALT 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-02-25"
+    },
+    {
+      "access": "registration",
       "city": "Paris",
       "conferenceId": "automl24",
       "country": "France",
@@ -933,6 +1783,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-11-25"
+    },
+    {
+      "access": "registration",
+      "city": "Yokohama",
+      "conferenceId": "cec2024",
+      "country": "Japan",
+      "end": "2024-07-05",
+      "id": "cec2024@main",
+      "lat": 35.4503381,
+      "link": "https://dblp.org/db/conf/cec/cec2024.html",
+      "lng": 139.6343802,
+      "name": "CEC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-30"
     },
     {
       "access": "registration",
@@ -1000,6 +1866,24 @@
     },
     {
       "access": "registration",
+      "city": "Torino",
+      "conferenceId": "coling24",
+      "country": "Italy",
+      "end": "2024-05-25",
+      "format": "hybrid",
+      "id": "coling24@main",
+      "lat": 45.0677551,
+      "link": "https://web.archive.org/web/20240526150149/https://lrec-coling-2024.org/",
+      "lng": 7.6824892,
+      "name": "COLING 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-20",
+      "venue": "Lingotto Conference Centre"
+    },
+    {
+      "access": "registration",
       "city": "Pisa",
       "conferenceId": "collas24",
       "country": "Italy",
@@ -1032,6 +1916,38 @@
     },
     {
       "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "colt24",
+      "country": "Canada",
+      "end": "2024-07-03",
+      "id": "colt24@main",
+      "lat": 53.5462055,
+      "link": "https://dblp.org/db/conf/colt/colt2024.html",
+      "lng": -113.491241,
+      "name": "COLT 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-30"
+    },
+    {
+      "access": "registration",
+      "city": "Miami",
+      "conferenceId": "conll24",
+      "country": "United States",
+      "end": "2024-11-16",
+      "id": "conll24@main",
+      "lat": 25.7741566,
+      "link": "https://aclanthology.org/2024.conll-1.0/",
+      "lng": -80.1935973,
+      "name": "CoNLL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-15"
+    },
+    {
+      "access": "registration",
       "city": "Munich",
       "conferenceId": "corl24",
       "country": "Germany",
@@ -1045,6 +1961,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-11-06"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "cpal24",
+      "country": "China",
+      "end": "2024-01-06",
+      "id": "cpal24@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/cpal/cpal2024.html",
+      "lng": 114.1582831,
+      "name": "CPAL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-01-03"
     },
     {
       "access": "registration",
@@ -1178,6 +2110,135 @@
     },
     {
       "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann24",
+      "country": "Belgium",
+      "end": "2024-10-11",
+      "id": "esann24@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2024.html",
+      "lng": 3.226772,
+      "name": "ESANN 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-09"
+    },
+    {
+      "access": "registration",
+      "city": "Limassol",
+      "conferenceId": "eurographics24",
+      "country": "Cyprus",
+      "end": "2024-04-26",
+      "id": "eurographics24@main",
+      "lat": 34.6852901,
+      "link": "https://dblp.org/db/conf/eurographics/eg-education2024.html",
+      "lng": 33.0332657,
+      "name": "Eurographics 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Geneva",
+      "conferenceId": "euvip24",
+      "country": "Switzerland",
+      "end": "2024-09-11",
+      "id": "euvip24@main",
+      "lat": 46.2017559,
+      "link": "https://dblp.org/db/conf/euvip/euvip2024.html",
+      "lng": 6.1466014,
+      "name": "EUVIP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "Aberystwyth",
+      "conferenceId": "evomusart24",
+      "country": "United Kingdom",
+      "end": "2024-04-05",
+      "id": "evomusart24@main",
+      "lat": 52.4143113,
+      "link": "https://dblp.org/db/conf/evomusart/evomusart2024.html",
+      "lng": -4.0816846,
+      "name": "EvoMUSART 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-03"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "facct24",
+      "country": "Brazil",
+      "end": "2024-06-06",
+      "id": "facct24@main",
+      "lat": -22.9110137,
+      "link": "https://dblp.org/db/conf/fat/facct2024.html",
+      "lng": -43.2093727,
+      "name": "FAccT 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-03"
+    },
+    {
+      "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "fg24",
+      "country": "Turkey",
+      "end": "2024-05-31",
+      "id": "fg24@main",
+      "lat": 41.006381,
+      "link": "https://web.archive.org/web/20240522023701/https://fg2024.ieee-biometrics.org/",
+      "lng": 28.9758715,
+      "name": "FG 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-27"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "gecco24",
+      "country": "Australia",
+      "end": "2024-07-18",
+      "id": "gecco24@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/gecco/gecco2024.html",
+      "lng": 144.9631732,
+      "name": "GECCO 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "hicss24",
+      "country": "United States",
+      "end": "2024-01-06",
+      "id": "hicss24@main",
+      "lat": 21.304547,
+      "link": "https://dblp.org/db/conf/hicss/hicss2024.html",
+      "lng": -157.855676,
+      "name": "HICSS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-01-03",
+      "venue": "Hilton Hawaiian Village Waikiki Beach Resort"
+    },
+    {
+      "access": "registration",
       "city": "Boulder",
       "conferenceId": "hri24",
       "country": "United States",
@@ -1210,6 +2271,22 @@
     },
     {
       "access": "registration",
+      "city": "Lugano",
+      "conferenceId": "icann24",
+      "country": "Switzerland",
+      "end": "2024-09-20",
+      "id": "icann24@main",
+      "lat": 46.0038007,
+      "link": "https://dblp.org/db/conf/icann/icann2024-1.html",
+      "lng": 8.9512275,
+      "name": "ICANN 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-17"
+    },
+    {
+      "access": "registration",
       "city": "Banff",
       "conferenceId": "icaps24",
       "country": "Canada",
@@ -1226,6 +2303,22 @@
     },
     {
       "access": "registration",
+      "city": "Paredes de Coura",
+      "conferenceId": "icarsc24",
+      "country": "Portugal",
+      "end": "2024-05-03",
+      "id": "icarsc24@main",
+      "lat": 41.9133898,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2024.html",
+      "lng": -8.5639626,
+      "name": "ICARSC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-02"
+    },
+    {
+      "access": "registration",
       "city": "Seoul",
       "conferenceId": "icassp24",
       "country": "South Korea",
@@ -1239,6 +2332,86 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-04-14"
+    },
+    {
+      "access": "registration",
+      "city": "Jönköping",
+      "conferenceId": "iccc24",
+      "country": "Sweden",
+      "end": "2024-06-21",
+      "id": "iccc24@main",
+      "lat": 57.7825634,
+      "link": "https://dblp.org/db/conf/icccrea/icccrea2024.html",
+      "lng": 14.165719,
+      "name": "ICCC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-17"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "icdar2024",
+      "country": "Greece",
+      "end": "2024-09-04",
+      "id": "icdar2024@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/icdar/icdar2024-1.html",
+      "lng": 23.7348324,
+      "name": "ICDAR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-30"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "icdlepirob24",
+      "country": "United States",
+      "end": "2024-05-23",
+      "id": "icdlepirob24@main",
+      "lat": 30.2649261,
+      "link": "https://web.archive.org/web/20240414022945/https://la.utexas.edu/users/dil/ICDL_Austin_2024/",
+      "lng": -97.7474086,
+      "name": "ICDL-EpiRob 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "icdm24",
+      "country": "United Arab Emirates",
+      "end": "2024-12-12",
+      "id": "icdm24@main",
+      "lat": 24.4538352,
+      "link": "https://dblp.org/db/conf/icdm/icdm2024.html",
+      "lng": 54.3774014,
+      "name": "ICDM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-09"
+    },
+    {
+      "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "icip24",
+      "country": "United Arab Emirates",
+      "end": "2024-10-30",
+      "id": "icip24@main",
+      "lat": 24.4538352,
+      "link": "https://dblp.org/db/conf/icip/icip2024.html",
+      "lng": 54.3774014,
+      "name": "ICIP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-27"
     },
     {
       "access": "registration",
@@ -1259,6 +2432,38 @@
     },
     {
       "access": "registration",
+      "city": "Niagara Falls",
+      "conferenceId": "icme24",
+      "country": "Canada",
+      "end": "2024-07-19",
+      "id": "icme24@main",
+      "lat": 43.1065603,
+      "link": "https://dblp.org/db/conf/icmcs/icme2024.html",
+      "lng": -79.0639039,
+      "name": "ICME 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-15"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "icmi24",
+      "country": "Costa Rica",
+      "end": "2024-11-08",
+      "id": "icmi24@main",
+      "lat": 9.9327373,
+      "link": "https://dblp.org/db/conf/icmi/icmi2024.html",
+      "lng": -84.0796683,
+      "name": "ICMI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-04"
+    },
+    {
+      "access": "registration",
       "city": "Vienna",
       "conferenceId": "icml24",
       "country": "Austria",
@@ -1273,6 +2478,55 @@
       "role": "main",
       "start": "2024-07-21",
       "venue": "Messe Wien Exhibition Congress Center"
+    },
+    {
+      "access": "registration",
+      "city": "Phuket",
+      "conferenceId": "icmr24",
+      "country": "Thailand",
+      "end": "2024-06-14",
+      "id": "icmr24@main",
+      "lat": 7.8847901,
+      "link": "https://dblp.org/db/conf/mir/icmr2024.html",
+      "lng": 98.3891503,
+      "name": "ICMR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Innopolis",
+      "conferenceId": "icomp24",
+      "country": "Russia",
+      "end": "2024-10-12",
+      "format": "hybrid",
+      "id": "icomp24@main",
+      "lat": 55.7522117,
+      "link": "https://labmmo.ru/en/news/otkryt-priem-statei-na-mezhdunarodnuyu-konferenciyu-po-vychislitelnoi-optimizacii-icomp-2024.html",
+      "lng": 48.7445682,
+      "name": "ICOMP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-10"
+    },
+    {
+      "access": "registration",
+      "city": "Kolkata",
+      "conferenceId": "icpr24",
+      "country": "India",
+      "end": "2024-12-05",
+      "id": "icpr24@main",
+      "lat": 22.5726459,
+      "link": "https://dblp.org/db/conf/icpr/icpr2024-1.html",
+      "lng": 88.3638953,
+      "name": "ICPR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-01"
     },
     {
       "access": "registration",
@@ -1308,6 +2562,22 @@
     },
     {
       "access": "registration",
+      "city": "Buffalo",
+      "conferenceId": "icwsm24",
+      "country": "United States",
+      "end": "2024-06-06",
+      "id": "icwsm24@main",
+      "lat": 42.8864163,
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2024.html",
+      "lng": -78.8781493,
+      "name": "ICWSM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-03"
+    },
+    {
+      "access": "registration",
       "city": "Jeju",
       "conferenceId": "ijcai24",
       "country": "South Korea",
@@ -1321,6 +2591,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Yokohama",
+      "conferenceId": "ijcnn24",
+      "country": "Japan",
+      "end": "2024-07-05",
+      "id": "ijcnn24@main",
+      "lat": 35.4503381,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2024.html",
+      "lng": 139.6343802,
+      "name": "IJCNN 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-30"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "inlg2024",
+      "country": "Japan",
+      "end": "2024-09-27",
+      "id": "inlg2024@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/inlg/inlg2024.html",
+      "lng": 139.7638947,
+      "name": "INLG 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-23"
+    },
+    {
+      "access": "registration",
+      "city": "Kos",
+      "conferenceId": "interspeech2024",
+      "country": "Greece",
+      "end": "2024-09-05",
+      "id": "interspeech2024@main",
+      "lat": 36.8940286,
+      "link": "https://dblp.org/db/conf/interspeech/interspeech2024.html",
+      "lng": 27.2866636,
+      "name": "Interspeech 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-01"
     },
     {
       "access": "registration",
@@ -1353,6 +2671,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-11-10"
+    },
+    {
+      "access": "registration",
+      "city": "Poitiers",
+      "conferenceId": "ismis24",
+      "country": "France",
+      "end": "2024-06-19",
+      "id": "ismis24@main",
+      "lat": 46.5802596,
+      "link": "https://dblp.org/db/conf/ismis/ismis2024.html",
+      "lng": 0.340196,
+      "name": "ISMIS 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-17"
+    },
+    {
+      "access": "registration",
+      "city": "Baltimore",
+      "conferenceId": "iswc24",
+      "country": "United States",
+      "end": "2024-11-15",
+      "id": "iswc24@main",
+      "lat": 39.2908816,
+      "link": "https://dblp.org/db/conf/semweb/iswc2024-1.html",
+      "lng": -76.610759,
+      "name": "ISWC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-11-11"
     },
     {
       "access": "registration",
@@ -1404,6 +2754,39 @@
     },
     {
       "access": "registration",
+      "city": "Birmingham",
+      "conferenceId": "ksem24",
+      "country": "United Kingdom",
+      "end": "2024-08-18",
+      "id": "ksem24@main",
+      "lat": 52.4948994,
+      "link": "https://dblp.org/db/conf/ksem/ksem2024-1.html",
+      "lng": -1.8518439,
+      "name": "KSEM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-16"
+    },
+    {
+      "access": "registration",
+      "city": "Oxford",
+      "conferenceId": "l4dc24",
+      "country": "United Kingdom",
+      "end": "2024-07-17",
+      "id": "l4dc24@main",
+      "lat": 51.7520131,
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2024.html",
+      "lng": -1.2578499,
+      "name": "L4DC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-15",
+      "venue": "University of Oxford"
+    },
+    {
+      "access": "registration",
       "conferenceId": "log24",
       "end": "2024-11-29",
       "format": "virtual",
@@ -1415,6 +2798,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Turin",
+      "conferenceId": "lrec24",
+      "country": "Italy",
+      "end": "2024-05-25",
+      "id": "lrec24@main",
+      "lat": 45.0677551,
+      "link": "https://dblp.org/db/conf/coling/coling2024.html",
+      "lng": 7.6824892,
+      "name": "LREC 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-20"
     },
     {
       "access": "registration",
@@ -1450,6 +2849,22 @@
     },
     {
       "access": "registration",
+      "city": "Paris",
+      "conferenceId": "midl24",
+      "country": "France",
+      "end": "2024-07-05",
+      "id": "midl24@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/midl/midl2024.html",
+      "lng": 2.3483915,
+      "name": "MIDL 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-03"
+    },
+    {
+      "access": "registration",
       "city": "San Jose",
       "conferenceId": "mipr24",
       "country": "United States",
@@ -1463,6 +2878,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-08-07"
+    },
+    {
+      "access": "registration",
+      "city": "Dresden",
+      "conferenceId": "mldm24",
+      "country": "Germany",
+      "end": "2024-07-18",
+      "id": "mldm24@main",
+      "lat": 51.0493286,
+      "link": "https://www.mldm.de/mldm2024.php",
+      "lng": 13.7381437,
+      "name": "MLDM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-07-13"
     },
     {
       "access": "registration",
@@ -1499,6 +2930,54 @@
     },
     {
       "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "nlbse24",
+      "country": "Portugal",
+      "end": "2024-04-20",
+      "id": "nlbse24@main",
+      "lat": 38.7077507,
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2024.html",
+      "lng": -9.1365919,
+      "name": "NLBSE 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-20"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "pakdd24",
+      "country": "Taiwan",
+      "end": "2024-05-10",
+      "id": "pakdd24@main",
+      "lat": 25.0375198,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2024-1.html",
+      "lng": 121.5636796,
+      "name": "PAKDD 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-07"
+    },
+    {
+      "access": "registration",
+      "city": "Bari",
+      "conferenceId": "recsys24",
+      "country": "Italy",
+      "end": "2024-10-18",
+      "id": "recsys24@main",
+      "lat": 41.1257843,
+      "link": "https://dblp.org/db/conf/recsys/recsys2024.html",
+      "lng": 16.8620293,
+      "name": "RecSys 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-10-14"
+    },
+    {
+      "access": "registration",
       "city": "Amherst",
       "conferenceId": "rlc24",
       "country": "United States",
@@ -1512,6 +2991,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-08-09"
+    },
+    {
+      "access": "registration",
+      "city": "Pasadena",
+      "conferenceId": "roman24",
+      "country": "United States",
+      "end": "2024-08-30",
+      "id": "roman24@main",
+      "lat": 34.1476507,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2024.html",
+      "lng": -118.144155,
+      "name": "RO-MAN 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-08-26"
     },
     {
       "access": "registration",
@@ -1531,6 +3026,22 @@
     },
     {
       "access": "registration",
+      "city": "Bucharest",
+      "conferenceId": "rulemlrr24",
+      "country": "Romania",
+      "end": "2024-09-18",
+      "id": "rulemlrr24@main",
+      "lat": 44.4361414,
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2024.html",
+      "lng": 26.102684,
+      "name": "RuleML+RR 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-16"
+    },
+    {
+      "access": "registration",
       "city": "Toronto",
       "conferenceId": "satml24",
       "country": "Canada",
@@ -1544,6 +3055,71 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-04-09"
+    },
+    {
+      "access": "registration",
+      "city": "Houston",
+      "conferenceId": "sdm24",
+      "country": "United States",
+      "end": "2024-04-20",
+      "id": "sdm24@main",
+      "lat": 29.7589382,
+      "link": "https://dblp.org/db/conf/sdm/sdm2024.html",
+      "lng": -95.3676974,
+      "name": "SDM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-04-18"
+    },
+    {
+      "access": "registration",
+      "city": "Mexico City",
+      "conferenceId": "sem24",
+      "country": "Mexico",
+      "end": "2024-06-21",
+      "id": "sem24@main",
+      "lat": 19.4326296,
+      "link": "https://dblp.org/db/conf/starsem/starsem2024.html",
+      "lng": -99.1331785,
+      "name": "*SEM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-20"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "sgp24",
+      "country": "United States",
+      "end": "2024-06-26",
+      "id": "sgp24@main",
+      "lat": 42.3656347,
+      "link": "https://web.archive.org/web/20240627104629/https://sgp2024.github.io/",
+      "lng": -71.1040018,
+      "name": "SGP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-06-24",
+      "venue": "MIT"
+    },
+    {
+      "access": "registration",
+      "city": "Manaus",
+      "conferenceId": "sibgrapi24",
+      "country": "Brazil",
+      "end": "2024-10-03",
+      "id": "sibgrapi24@main",
+      "lat": -3.1316333,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2024.html",
+      "lng": -59.9825041,
+      "name": "SIBGRAPI 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-09-30"
     },
     {
       "access": "registration",
@@ -1593,6 +3169,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "sigirap24",
+      "country": "Japan",
+      "end": "2024-12-12",
+      "id": "sigirap24@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/sigir-ap/sigir-ap2024.html",
+      "lng": 139.7638947,
+      "name": "SIGIR-AP 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-09"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "slt24",
+      "country": "China",
+      "end": "2024-12-05",
+      "id": "slt24@main",
+      "lat": 22.1899448,
+      "link": "https://web.archive.org/web/20241206213214/https://2024.ieeeslt.org/",
+      "lng": 113.5380454,
+      "name": "SLT 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-12-02"
     },
     {
       "access": "registration",
@@ -1660,6 +3268,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2024-01-03"
+    },
+    {
+      "access": "registration",
+      "city": "Merida",
+      "conferenceId": "wsdm24",
+      "country": "Mexico",
+      "end": "2024-03-08",
+      "id": "wsdm24@main",
+      "lat": 20.9670759,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2024.html",
+      "lng": -89.6237402,
+      "name": "WSDM 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-03-04"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "www24",
+      "country": "Singapore",
+      "end": "2024-05-17",
+      "id": "www24@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/www/www2024.html",
+      "lng": 103.8519072,
+      "name": "WWW 2024",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2024-05-13"
     }
   ]
 }

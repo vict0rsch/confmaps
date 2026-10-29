@@ -1,0 +1,100 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1977-05-11",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp77",
+      "link": "https://dblp.org/db/conf/icassp/icassp1977.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1977-05-09",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1977
+    },
+    {
+      "deadlines": [],
+      "end": "1977-08-25",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai77",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai77.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1977-08-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1977
+    },
+    {
+      "deadlines": [],
+      "end": "1977-07-22",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph77",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1977.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1977-07-20",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1977
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Hartford",
+      "conferenceId": "icassp77",
+      "country": "United States",
+      "end": "1977-05-11",
+      "id": "icassp77@main",
+      "lat": 41.7661621,
+      "link": "https://dblp.org/db/conf/icassp/icassp1977.html",
+      "lng": -72.6732726,
+      "name": "ICASSP 1977",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1977-05-09"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "ijcai77",
+      "country": "United States",
+      "end": "1977-08-25",
+      "id": "ijcai77@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai77.html",
+      "lng": -71.1040018,
+      "name": "IJCAI 1977",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1977-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "siggraph77",
+      "country": "United States",
+      "end": "1977-07-22",
+      "id": "siggraph77@main",
+      "lat": 37.3361663,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1977.html",
+      "lng": -121.890591,
+      "name": "SIGGRAPH 1977",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1977-07-20"
+    }
+  ]
+}

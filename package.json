@@ -13,6 +13,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:bundle": "tsx scripts/check-bundle-size.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",

@@ -8,10 +8,15 @@ titles of a series' target years are listed in the past-mode prompt with their p
 quote copied from such a title is checked when the page itself shows only the bot check.
 """
 
+import json
 import math
+import os
 import re
 import time
 from collections.abc import Callable
+from datetime import date, timedelta
+from pathlib import Path
+from typing import Any
 from urllib.parse import urlsplit
 
 import httpx
@@ -20,8 +25,10 @@ from .geo import USER_AGENT
 from .verify import Page, normalize
 
 SPARQL_URL = "https://sparql.dblp.org/sparql"
-TIMEOUT_S = 20.0
+TIMEOUT_S = 90.0  # listing a series' volumes often takes 10-45 s
 MIN_INTERVAL_S = 1.0  # no documented limit: stay gentle
+# Listings saved on disk are reused this long: past volumes rarely change, new ones appear late.
+CACHE_DAYS = 30
 HOSTS = {"dblp.org", "www.dblp.org", "dblp.uni-trier.de", "www.dblp.uni-trier.de"}
 # Only these characters ever reach the query: keys and page names are checked first.
 INDEX_RE = re.compile(r"/db/conf/([a-z0-9_-]+)(?:/|/index\.html)?")
@@ -135,6 +142,34 @@ def edition_year_is(title: str, year_of_publication: str, year: int) -> bool:
     return year_of_publication == str(year)
 
 
+def default_cache_path() -> Path:
+    """Where the dblp listings are saved between runs (outside the repository).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        default_cache_path()  # ~/.cache/confmaps-discover/dblp-volumes.json
+    """
+    base = os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache"
+    return Path(base) / "confmaps-discover" / "dblp-volumes.json"
+
+
+def _page(rows: list[tuple[str, str]]) -> Page | None:
+    """The :class:`Page` of ``(title, year of publication)`` rows, or ``None`` if there are none."""
+    if not rows:
+        return None
+    segments = tuple(sorted({(normalize(title), year) for title, year in rows}))
+    text = "\n".join(title for title, _ in segments)
+    return Page(text, via=VIA_SPARQL, segments=segments)
+
+
+def _stream_key(series: str) -> str | None:
+    """The series' dblp stream key, or ``None`` if it cannot be put in a query."""
+    key = STREAMS.get(series, series)
+    return key if KEY_RE.fullmatch(key) else None
+
+
 class DblpTitles:
     """``url -> Page | None``: the proceedings titles a dblp page lists, one per line.
 
@@ -156,6 +191,8 @@ class DblpTitles:
         client: httpx.Client | None = None,
         sleep: Callable[[float], None] = time.sleep,
         now: Callable[[], float] = time.monotonic,
+        cache: Path | None = None,
+        today: Callable[[], date] = date.today,
     ) -> None:
         self.client = client or httpx.Client(timeout=TIMEOUT_S, trust_env=False)
         self.sleep = sleep
@@ -163,6 +200,49 @@ class DblpTitles:
         self.last = -math.inf
         self.results: dict[str, Page | None] = {}
         self.volumes: dict[str, list[tuple[str, str, str]]] = {}
+        self.failed: set[str] = set()  # stream keys whose listing query failed in this run
+        self.cache, self.today = cache, today
+        self.fetched: dict[str, str] = {}  # stream key → ISO date of its listing
+        self._load_cache()
+
+    def _load_cache(self) -> None:
+        """Read the fresh listings of :attr:`cache`; a missing or unreadable file is ignored."""
+        if self.cache is None or not self.cache.exists():
+            return
+        try:
+            streams = json.loads(self.cache.read_text())["streams"]
+            oldest = self.today() - timedelta(days=CACHE_DAYS)
+            for key, entry in streams.items():
+                fetched = date.fromisoformat(entry["fetched"])
+                rows = [tuple(map(str, r)) for r in entry["volumes"]]
+                # The file is outside the repository: keep only what a fresh query could give.
+                valid = all(
+                    len(r) == 3 and r[0].endswith(".html") and TOC_PAGE_RE.fullmatch(r[0][:-5])
+                    for r in rows
+                )
+                if KEY_RE.fullmatch(key) and fetched >= oldest and valid:
+                    self.volumes[key], self.fetched[key] = rows, entry["fetched"]
+        except (OSError, ValueError, KeyError, TypeError, AttributeError):
+            self.volumes.clear()
+            self.fetched.clear()
+
+    def save_cache(self) -> None:
+        """Write the listings of this run and the fresh cached ones to :attr:`cache`."""
+        if self.cache is None:
+            return
+        streams: dict[str, Any] = {
+            key: {"fetched": self.fetched[key], "volumes": [list(v) for v in volumes]}
+            for key, volumes in sorted(self.volumes.items())
+            if key in self.fetched
+        }
+        self.cache.parent.mkdir(parents=True, exist_ok=True)
+        tmp = self.cache.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"streams": streams}, ensure_ascii=False) + "\n")
+        tmp.replace(self.cache)
+
+    def is_cached(self, series: str) -> bool:
+        """Whether the series' volumes are already listed (from the cache or earlier)."""
+        return _stream_key(series) in self.volumes
 
     def _select(self, query: str) -> list[dict[str, str]] | None:
         """Rows (variable → value) of a SELECT query; ``None`` on any problem."""
@@ -183,12 +263,21 @@ class DblpTitles:
             return None
 
     def _titles(self, query: str) -> Page | None:
-        rows = [r for r in self._select(query) or [] if "title" in r]
-        if not rows:
+        rows = [(r["title"], r.get("year", "")) for r in self._select(query) or [] if "title" in r]
+        return _page(rows)
+
+    def _listed(self, url: str) -> Page | None:
+        """The page's titles from its series' listing (:meth:`list_volumes`), without a query;
+        ``None`` when that listing is missing or failed, or does not hold the page."""
+        path = urlsplit(url).path
+        if m := INDEX_RE.fullmatch(path):
+            key, toc = m[1], None
+        elif m := TOC_RE.fullmatch(path):
+            key, toc = m[1], f"https://dblp.org/db/conf/{m[1]}/{m[2]}.html"
+        else:
             return None
-        segments = tuple(sorted({(normalize(r["title"]), r.get("year", "")) for r in rows}))
-        text = "\n".join(title for title, _ in segments)
-        return Page(text, via=VIA_SPARQL, segments=segments)
+        # A series index lists every volume of its stream; a table of contents, those on it.
+        return _page([(t, y) for u, t, y in self.volumes.get(key, []) if toc in (None, u)])
 
     def editions(self, series: str, years: list[int]) -> list[tuple[str, str]]:
         """``(table-of-contents page URL, title)`` of the series' proceedings volumes held in
@@ -203,16 +292,9 @@ class DblpTitles:
             DblpTitles().editions("icml", [2019])
             # [("https://dblp.org/db/conf/icml/icml2019.html", "Proceedings of the 36th ...")]
         """
-        key = STREAMS.get(series, series)
-        if not KEY_RE.fullmatch(key):
+        key = _stream_key(series)
+        if key is None or self.list_volumes(series) is None:
             return []
-        if key not in self.volumes:
-            rows = self._select(EDITIONS_QUERY.format(key=key)) or []
-            self.volumes[key] = [
-                (f"{r['toc']}.html", r["title"], r.get("year", ""))
-                for r in rows
-                if "title" in r and TOC_PAGE_RE.fullmatch(r.get("toc", ""))
-            ]
         # One year of publication per volume, whatever the row order: the smallest.
         first: dict[tuple[str, str], str] = {}
         for u, t, year in sorted(self.volumes[key]):
@@ -233,10 +315,40 @@ class DblpTitles:
                         counts[y] += 1
         return picked
 
+    def list_volumes(self, series: str, retry: bool = False) -> int | None:
+        """Query the series' proceedings volumes once (unless cached): how many it has, or
+        ``None`` when the query failed (a timeout, an HTTP error). A series with no stream
+        has 0. ``retry`` queries again a series whose query failed.
+
+        Examples
+        --------
+        .. code-block:: python
+
+            DblpTitles().list_volumes("icml")  # 43
+        """
+        key = _stream_key(series)
+        if key is None:
+            return 0
+        if retry and key in self.failed:
+            self.failed.discard(key)
+            self.volumes.pop(key, None)
+        if key not in self.volumes:
+            rows = self._select(EDITIONS_QUERY.format(key=key))
+            if rows is None:
+                self.failed.add(key)
+            else:
+                self.fetched[key] = self.today().isoformat()
+            self.volumes[key] = [
+                (f"{r['toc']}.html", r["title"], r.get("year", ""))
+                for r in rows or []
+                if "title" in r and TOC_PAGE_RE.fullmatch(r.get("toc", ""))
+            ]
+        return None if key in self.failed else len(self.volumes[key])
+
     def __call__(self, url: str) -> Page | None:
         query = sparql_query(url)
         if query is None:
             return None
         if query not in self.results:
-            self.results[query] = self._titles(query)
+            self.results[query] = self._listed(url) or self._titles(query)
         return self.results[query]

@@ -1,0 +1,328 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1984-08-10",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai84",
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1984-08-06",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-06",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl84",
+      "link": "https://dblp.org/db/conf/coling/coling1984.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1984-07-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-06",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling84",
+      "link": "https://dblp.org/db/conf/coling/coling1984.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1984-07-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-09-07",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai84",
+      "link": "https://dblp.org/db/conf/ecai/ecai84.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1984-09-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-09-14",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics84",
+      "link": "https://dblp.org/db/conf/eurographics/eg1984.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1984-09-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-03-21",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp84",
+      "link": "https://dblp.org/db/conf/icassp/icassp1984.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1984-03-19",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-08-02",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr84",
+      "link": "https://iapr.org/about-us/history-of-iapr/",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1984-07-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-03-15",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra84",
+      "link": "https://dblp.org/db/conf/icra/icra1984.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1984-03-13",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-27",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph84",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1984.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1984-07-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-06",
+      "fullName": "Joint BCS/ACM Symposium on Research and Development in Information Retrieval",
+      "id": "sigir84",
+      "link": "https://dblp.org/db/conf/sigir/sigir84.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1984-07-02",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1984
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "aaai84",
+      "country": "United States",
+      "end": "1984-08-10",
+      "id": "aaai84@main",
+      "lat": 30.2649261,
+      "link": "https://aaai.org/conference/aaai/aaai84/",
+      "lng": -97.7474086,
+      "name": "AAAI 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-08-06",
+      "venue": "University of Texas"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "acl84",
+      "country": "United States",
+      "end": "1984-07-06",
+      "id": "acl84@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/coling/coling1984.html",
+      "lng": -122.1702445,
+      "name": "ACL 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-02",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "coling84",
+      "country": "United States",
+      "end": "1984-07-06",
+      "id": "coling84@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/coling/coling1984.html",
+      "lng": -122.1702445,
+      "name": "COLING 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-02",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "ecai84",
+      "country": "Italy",
+      "end": "1984-09-07",
+      "id": "ecai84@main",
+      "lat": 43.7159395,
+      "link": "https://dblp.org/db/conf/ecai/ecai84.html",
+      "lng": 10.4018624,
+      "name": "ECAI 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-09-05"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "eurographics84",
+      "country": "Denmark",
+      "end": "1984-09-14",
+      "id": "eurographics84@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/eurographics/eg1984.html",
+      "lng": 12.5700724,
+      "name": "Eurographics 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-09-12"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "icassp84",
+      "country": "United States",
+      "end": "1984-03-21",
+      "id": "icassp84@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/icassp/icassp1984.html",
+      "lng": -117.1638284,
+      "name": "ICASSP 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-03-19"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "icpr84",
+      "country": "Canada",
+      "end": "1984-08-02",
+      "id": "icpr84@main",
+      "lat": 45.5031824,
+      "link": "https://iapr.org/about-us/history-of-iapr/",
+      "lng": -73.5698065,
+      "name": "ICPR 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "icra84",
+      "country": "United States",
+      "end": "1984-03-15",
+      "id": "icra84@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/icra/icra1984.html",
+      "lng": -84.3898151,
+      "name": "ICRA 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-03-13"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "siggraph84",
+      "country": "United States",
+      "end": "1984-07-27",
+      "id": "siggraph84@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1984.html",
+      "lng": -93.2654692,
+      "name": "SIGGRAPH 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "sigir84",
+      "country": "United Kingdom",
+      "end": "1984-07-06",
+      "id": "sigir84@main",
+      "lat": 52.1975846,
+      "link": "https://dblp.org/db/conf/sigir/sigir84.html",
+      "lng": 0.1391537,
+      "name": "SIGIR 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-02"
+    }
+  ]
+}

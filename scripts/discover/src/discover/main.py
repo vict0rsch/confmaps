@@ -12,13 +12,17 @@ Past main editions (``data/past_conferences.yml``, DESIGN.md §3):
 
 --mode past --series S[,S...] --since Y [--until Y2] [--recheck]
                            years Y..Y2 (default: last year) of each series with no recorded
-                           edition; one API call per series and batch of up to 6 years.
+                           edition and not listed as not held in data/series.yml; one API
+                           call per series and batch of up to 6 years. Years the model reports
+                           as not held, and that pass the checks, are added to that list.
                            --recheck also re-verifies recorded `source: pwc` editions in the
                            range (the COVID pass). Dry-run one series first to measure cost.
 --mode past [--series S[,S...]] --since-creation [--until Y2]
                            instead of --since, start each series at its `first_year` in
                            data/series.yml. Without --series, every series in that file runs;
                            a named series with no entry is skipped with a warning.
+--random-order             (--mode past) research the batches in random order, so that runs
+                           cut short by --max-usd do not always spend it on the same series.
 
 Common:
 
@@ -33,7 +37,8 @@ Common:
                            with --mode past for past-mode results)
 --out-dir DIR              (CI) also write pr.json and pr-body.md there for the PR job
 
-Without ``--dry-run``, the curated file is written, the generated files are rebuilt
+Without ``--dry-run``, the curated file (and, in past mode, ``data/series.yml`` when years are
+recorded as not held) is written, the generated files are rebuilt
 (``pnpm data:build``: geocodes new cities, refreshes ``data/build/data.json`` and the archive)
 and the result is validated (``pnpm data:validate``). With ``--out-dir``, the data files a PR
 carries (:func:`proposed_files`) are copied under ``<out-dir>/data/``. This script never commits,
@@ -41,8 +46,10 @@ pushes or opens PRs: ``.github/workflows/discover.yml`` does that in a separate 
 """
 
 import argparse
+import io
 import json
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -50,7 +57,7 @@ import sys
 import tempfile
 import threading
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -69,13 +76,15 @@ from rich.progress import (
     TimeElapsedColumn,
 )
 from rich.text import Text
+from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 from . import agent, past_agent
 from .cost import Usage
-from .dblp import DblpTitles
+from .dblp import TIMEOUT_S, DblpTitles, default_cache_path
 from .geo import Geocoder, cached_hit
 from .merge import Plan, apply_plan, load_satellites, plan_changes, unified_diff
 from .past import check_and_plan, plan_batches
+from .past_merge import WIDTH
 from .report import PAST_INTRO, ConferenceRun, build_body, tool_log
 from .verify import MAX_FETCHES_PER_CONFERENCE, LimitedPages, PageFetcher, check_candidate_safely
 from .wayback import NO_SNAPSHOT_FLAG, Snapshots
@@ -243,13 +252,14 @@ def rebuild_and_validate(repo: Path) -> bool:
 def proposed_files(repo: Path) -> list[Path]:
     """Data files a discovery PR carries, relative to ``repo``.
 
-    The curated file and everything ``data:build`` writes; ``discover.yml`` commits exactly
+    The curated files and everything ``data:build`` writes; ``discover.yml`` commits exactly
     these paths.
     """
     archive = sorted(
         p.relative_to(repo) for p in (repo / ARCHIVE).glob("[0-9][0-9][0-9][0-9].json")
     )
-    return [p for p in (SATELLITES, PAST, GEOCACHE, DATA_JSON, *archive) if (repo / p).is_file()]
+    files = (SATELLITES, PAST, SERIES, GEOCACHE, DATA_JSON, *archive)
+    return [p for p in files if (repo / p).is_file()]
 
 
 def _result_path(results_dir: Path, conference_id: str) -> Path:
@@ -368,6 +378,125 @@ class ResearchProgress:
             self.live.remove_task(row)
         self.live.console.print(Text(line))  # Text: no markup or highlighting of model output
         self.live.update(self.overall, advance=1, info=self._budget(spent))
+
+
+class DblpProgress:
+    """Progress of listing each series' dblp proceedings in ``--mode past``: one query at a time,
+    each often 10-45 s, so this can take an hour on a first run.
+
+    Call :meth:`cached`, then :meth:`started` and :meth:`listed` around each query. On a
+    terminal, a rich bar shows the series listed and the one being queried now; elsewhere, one
+    :func:`say` line per series.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with DblpProgress(len(series)) as progress:
+            failed = list_dblp_volumes(dblp, series, progress)
+    """
+
+    def __init__(self, total: int, console: Console | None = None) -> None:
+        self.console = console or Console(stderr=True)
+        self.live: Progress | None = None
+        if self.console.is_terminal:
+            self.live = Progress(
+                SpinnerColumn(),
+                TextColumn("{task.description}"),
+                BarColumn(),
+                MofNCompleteColumn(),
+                TextColumn("{task.fields[activity]}"),
+                TimeElapsedColumn(),
+                console=self.console,
+            )
+            self.task = self.live.add_task("Listing dblp proceedings", total=total, activity="")
+
+    def __enter__(self) -> Self:
+        if self.live:
+            self.live.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self.live:
+            self.live.stop()
+
+    def _print(self, line: str, advance: int) -> None:
+        if not self.live:
+            say(line, file=sys.stderr)
+            return
+        self.live.console.print(Text(line))
+        self.live.update(self.task, advance=advance, activity="")
+
+    def cached(self, series: list[str], path: Path | None) -> None:
+        """``series`` were listed from the cache file at ``path``: no query for them."""
+        if series:
+            self._print(f"{len(series)} series listed from the dblp cache ({path})", len(series))
+
+    def started(self, series: str) -> None:
+        """The query for ``series`` starts."""
+        if self.live:
+            self.live.update(self.task, activity=f"querying {series}")
+
+    def listed(self, series: str, count: int | None, seconds: float, final: bool) -> None:
+        """The query for ``series`` ended: ``count`` volumes, or ``None`` if it failed. A failure
+        that is not ``final`` is retried later, so it does not advance the bar."""
+        if count is not None:
+            line = f"listed {series}: {count} dblp volume(s) in {seconds:.1f}s"
+        elif final:
+            line = (
+                f"dblp listing failed again for {series} after {seconds:.1f}s: its batches get "
+                "no dblp titles"
+            )
+        else:
+            line = f"dblp listing failed for {series} after {seconds:.1f}s: retried at the end"
+        self._print(line, 1 if count is not None or final else 0)
+
+    def retrying(self, series: list[str]) -> None:
+        """The failed ``series`` are queried once more."""
+        self._print(f"retrying {len(series)} failed listing(s): {', '.join(series)}", 0)
+
+
+def list_dblp_volumes(dblp: DblpTitles, series: list[str], progress: DblpProgress) -> list[str]:
+    """List the dblp proceedings of each series, one query at a time, and retry the failed ones
+    once at the end. The cache file is saved after each new listing, so an interrupted run
+    keeps them. Returns the series whose query failed twice.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        with DblpProgress(len(series)) as progress:
+            failed = list_dblp_volumes(dblp, series, progress)
+    """
+    cached = [s for s in series if dblp.is_cached(s)]
+    progress.cached(cached, dblp.cache)
+
+    def ok(s: str, retry: bool = False) -> bool:
+        progress.started(s)
+        start = time.monotonic()
+        count = dblp.list_volumes(s, retry=retry)
+        progress.listed(s, count, time.monotonic() - start, final=retry)
+        if count is not None:
+            dblp.save_cache()
+        return count is not None
+
+    # dblp works through queries roughly one at a time: parallel ones only time out more.
+    failed = [s for s in series if s not in cached and not ok(s)]
+    if failed:
+        progress.retrying(failed)
+    return [s for s in failed if not ok(s, retry=True)]
+
+
+def _list_dblp(dblp: DblpTitles, series: list[str]) -> None:
+    """:func:`list_dblp_volumes` with its step line, progress bar and final warning."""
+    step(
+        f"Listing the dblp proceedings of {len(series)} series, one at a time "
+        f"(up to {TIMEOUT_S:.0f}s each)"
+    )
+    with DblpProgress(len(series)) as progress:
+        failed = list_dblp_volumes(dblp, series, progress)
+    if failed:
+        say(f"warning: no dblp titles for {', '.join(failed)}", file=sys.stderr)
 
 
 class CheckProgress:
@@ -568,6 +697,12 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--only", action="append", default=[], help="conference id(s), comma-separated")
     p.add_argument("--series", action="append", default=[], help="series key(s), comma-separated")
     p.add_argument("--recheck", action="store_true", help="also re-verify source: pwc editions")
+    p.add_argument(
+        "--random-order",
+        action="store_true",
+        help="--mode past: research the batches in random order (a run cut short by --max-usd "
+        "then covers different series each time)",
+    )
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--max-usd", type=float, default=DEFAULT_MAX_USD)
     p.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
@@ -602,7 +737,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     else:
         for flag, used in (("--series", args.series), ("--until", args.until is not None),
                            ("--recheck", args.recheck),
-                           ("--since-creation", args.since_creation)):  # fmt: skip
+                           ("--since-creation", args.since_creation),
+                           ("--random-order", args.random_order)):  # fmt: skip
             if used:
                 p.error(f"{flag} only applies to --mode past")
     if args.max_usd < 0:
@@ -726,21 +862,75 @@ def _results_hint(results_dir: Path | None) -> None:
         )
 
 
-def _first_years(repo: Path) -> dict[str, int]:
-    """Series key → ``first_year`` from ``data/series.yml`` (``{}`` if missing; ``ValueError``/``TypeError`` if unusable)."""
+def _series_entries(repo: Path) -> dict[str, dict[str, Any]]:
+    """Series key → entry of ``data/series.yml`` (``{}`` if the file is missing).
+
+    Raises ``TypeError`` when the file is not a mapping and ``ValueError`` when an entry has no
+    usable ``first_year``.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        _series_entries(repo)["aaai"]["first_year"]  # 1980
+    """
     path = repo / SERIES
     data = (make_yaml().load(path.read_text()) or {}) if path.exists() else {}
     if not isinstance(data, dict):
         raise TypeError(f"{SERIES}: expected a mapping of series key to entry")
-    years: dict[str, int] = {}
+    entries: dict[str, dict[str, Any]] = {}
     for key, entry in data.items():
         year = entry.get("first_year") if isinstance(entry, dict) else None
         if isinstance(year, bool) or not isinstance(year, int) or not MIN_YEAR <= year <= MAX_YEAR:
             raise ValueError(
                 f"{SERIES}: {key}: first_year {year!r} is not a year in {MIN_YEAR}..{MAX_YEAR}"
             )
-        years[str(key)] = year
-    return years
+        entries[str(key)] = entry
+    return entries
+
+
+def apply_not_held(text: str, recorded: list[dict[str, Any]]) -> str:
+    """``data/series.yml`` text with the years recorded as not held added to their entries.
+
+    Each ``{year, source}`` goes into its entry's ``not_held`` list, created as the entry's
+    last key and sorted by year; a year already listed is skipped. The rest of the file keeps
+    its text (round trip without folding long lines).
+
+    Parameters
+    ----------
+    text : str
+        Current content of ``data/series.yml``.
+    recorded : list of dict
+        ``PastPlan.not_held`` items (``series``, ``year``, ``source``, ``reason``); each series
+        has an entry in the file.
+
+    Returns
+    -------
+    str
+        The new content; ``text`` itself when there is nothing to record.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        apply_not_held(text, [{"series": "aaai", "year": 1989, "source": url, "reason": why}])
+    """
+    if not recorded:
+        return text
+    yaml = make_yaml(WIDTH)
+    data = yaml.load(text)
+    for item in recorded:
+        entry = data[item["series"]]
+        if "not_held" not in entry:
+            entry["not_held"] = CommentedSeq()
+        listed = entry["not_held"]
+        if any(y["year"] == item["year"] for y in listed):
+            continue
+        listed.append(CommentedMap([("year", item["year"]), ("source", item["source"])]))
+        listed.sort(key=lambda y: y["year"])
+    out = io.StringIO()
+    yaml.dump(data, out)
+    return out.getvalue()
 
 
 def _main_past(
@@ -758,34 +948,46 @@ def _main_past(
     past_path = repo / PAST
     past_text = past_path.read_text() if past_path.exists() else ""
     past = load_entries(past_text)
-    dblp = dblp or DblpTitles()
+    series_path = repo / SERIES
+    series_text = series_path.read_text() if series_path.exists() else ""
+    try:
+        series_entries = _series_entries(repo)
+    except (ValueError, TypeError) as e:
+        say(f"error: {e}", file=sys.stderr)
+        return 1
+    dblp = dblp or DblpTitles(cache=default_cache_path())
     results_dir: Path | None = None
     if args.from_results:
         runs = load_results(args.from_results, "past")
         if args.series:
             runs = [r for r in runs if r.conference["series"] in args.series]
         step(f"Loaded {len(runs)} saved result(s) from {args.from_results}")
+        # The evidence check reads cited dblp pages from these listings (no query per page).
+        _list_dblp(dblp, list(dict.fromkeys(r.conference["series"] for r in runs)))
         mode = "from saved results"
     else:
         until = args.until if args.until is not None else today.year - 1
         series_list, since = args.series, args.since
         if args.since_creation:
-            try:
-                first_years = _first_years(repo)
-            except (ValueError, TypeError) as e:
-                say(f"error: {e}", file=sys.stderr)
-                return 1
-            series_list = args.series or list(first_years)
+            series_list = args.series or list(series_entries)
             for s in series_list:
-                if s not in first_years:
+                if s not in series_entries:
                     say(
                         f"warning: --series {s}: no first_year in {SERIES}, skipped",
                         file=sys.stderr,
                     )
-            series_list = [s for s in series_list if s in first_years]
-            since = {s: first_years[s] for s in series_list}
+            series_list = [s for s in series_list if s in series_entries]
+            since = {s: series_entries[s]["first_year"] for s in series_list}
             step("Starting at first_year: " + ", ".join(f"{s} {y}" for s, y in since.items()))
-        batches, unknown = plan_batches(data, past, series_list, since, until, args.recheck, dblp)
+        # Years recorded as not held are never researched again.
+        not_held = {
+            key: {y["year"] for y in entry.get("not_held", [])}
+            for key, entry in series_entries.items()
+        }
+        # Without dblp first: which series have years to research (and which are unknown).
+        batches, unknown = plan_batches(
+            data, past, series_list, since, until, args.recheck, None, not_held
+        )
         if unknown:
             say(
                 "error: no recorded edition for series " + ", ".join(unknown) + " (series keys "
@@ -796,6 +998,16 @@ def _main_past(
         if not batches:
             say("No editions to research.")
             return 0
+        _list_dblp(dblp, list(dict.fromkeys(b["series"] for b in batches)))
+        # The same batches, now with each one's dblp titles (listed above, so no query).
+        batches, _ = plan_batches(
+            data, past, series_list, since, until, args.recheck, dblp, not_held
+        )
+        if args.random_order:
+            # Requests start in list order and stop at --max-usd: shuffle so that a capped run
+            # does not always spend the budget on the same series (and the same dead ends).
+            random.shuffle(batches)
+            step("Researching the batches in random order")
         results_dir = _results_dir(args)
         client = client or anthropic.Anthropic()
 
@@ -833,14 +1045,17 @@ def _main_past(
                 progress.get_page(fetcher.get),
                 progress.geocoder(geocoder),
                 today,
+                series_entries,
                 on_checked=progress.checked,
                 snapshot=snapshots or Snapshots(),
                 dblp=dblp,
             )
+        new_series_text = apply_not_held(series_text, plan.not_held)
         counts = f"{len(plan.additions)} addition(s), {len(plan.applied)} update(s)"
         summary = (
             f"{counts}, {len(plan.suggestions)} suggestion(s) not applied, "
-            f"{len(plan.removals)} reported cancellation(s) to remove by hand, from "
+            f"{len(plan.removals)} reported cancellation(s) to remove by hand, "
+            f"{len(plan.not_held)} year(s) recorded as not held, from "
             f"{len(runs)} request(s) ({mode})."
         )
         return _propose(
@@ -852,7 +1067,9 @@ def _main_past(
             runs,
             plan,
             summary,
-            lambda cache: build_body(runs, plan, summary, None, cache, PAST_INTRO),
+            lambda cache: build_body(
+                runs, plan, summary, None, cache, PAST_INTRO, past_agent.PAST_MODEL
+            ),
             {
                 "title": f"Past editions: {counts}",
                 # Unverified defaults and cancellations need a human before the PR can merge.
@@ -860,6 +1077,7 @@ def _main_past(
                 or bool(plan.removals)
                 or any(NO_SNAPSHOT_FLAG in a.candidate.flags for a in plan.additions),
             },
+            extra=[(SERIES, series_text, new_series_text)],
         )
     finally:
         _results_hint(results_dir)
@@ -936,10 +1154,13 @@ def _propose(
     summary: str,
     body_for: Callable[[dict[str, Any]], str],
     pr: dict[str, Any],
+    extra: Sequence[tuple[Path, str, str]] = (),
 ) -> int:
     """Report, then (unless dry run) write ``rel``, rebuild, validate and stage the PR files.
 
     ``body_for(geocache)`` builds the PR body; ``pr`` is the ``pr.json`` (title, draft).
+    ``extra`` holds other files the run changes, as ``(rel, old text, new text)``: a dry run
+    shows their diff too, and each one that changed is written with ``rel``.
     """
     rc = 1 if any(r.failed for r in runs) else 0
     geocache = _load_geocache(repo)
@@ -947,7 +1168,10 @@ def _propose(
     if args.dry_run:
         say(body_for(geocache))
         say("\n## Server tool calls\n\n" + (tool_log(runs) or "(none)"))
-        diff = unified_diff(old_text, new_text, str(rel))
+        diff = "".join(
+            unified_diff(old, new, str(path))
+            for path, old, new in [(rel, old_text, new_text), *extra]
+        )
         say("\n## Proposed diff (not written)\n\n```diff\n" + (diff or "(no changes)\n") + "```")
         return rc
 
@@ -957,6 +1181,10 @@ def _propose(
         return rc
     step(f"Writing {rel}")
     (repo / rel).write_text(new_text)
+    for path, old, new in extra:
+        if new != old:
+            step(f"Writing {path}")
+            (repo / path).write_text(new)
     say(f"Wrote {rel}: {summary}")
     if not rebuild_and_validate(repo):
         say("data:build or data:validate failed; not proposing a PR.", file=sys.stderr)

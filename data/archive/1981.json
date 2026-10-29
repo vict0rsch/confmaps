@@ -1,0 +1,227 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1981-07-01",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl81",
+      "link": "https://dblp.org/db/conf/acl/acl1981.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1981-06-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-05-22",
+      "fullName": "Joint Conference on Easier and More Productive Use of Computer Systems",
+      "id": "chi81",
+      "link": "https://dblp.org/db/conf/chi/chi1981-2.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1981-05-20",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-09-11",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics81",
+      "link": "https://dblp.org/db/conf/eurographics/eg1981.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1981-09-09",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-04-01",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp81",
+      "link": "https://dblp.org/db/conf/icassp/icassp1981.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1981-03-30",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-08-28",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai81",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai81.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1981-08-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-08-07",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph81",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1981.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1981-08-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1981
+    },
+    {
+      "deadlines": [],
+      "end": "1981-06-02",
+      "id": "sigir81",
+      "link": "https://dblp.org/db/conf/sigir/sigir81.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1981-05-31",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1981
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "acl81",
+      "country": "United States",
+      "end": "1981-07-01",
+      "id": "acl81@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/acl/acl1981.html",
+      "lng": -122.1702445,
+      "name": "ACL 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-06-29",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "chi81",
+      "country": "United States",
+      "end": "1981-05-22",
+      "id": "chi81@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/chi/chi1981-2.html",
+      "lng": -83.7484616,
+      "name": "CHI 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Darmstadt",
+      "conferenceId": "eurographics81",
+      "country": "Germany",
+      "end": "1981-09-11",
+      "id": "eurographics81@main",
+      "lat": 49.872775,
+      "link": "https://dblp.org/db/conf/eurographics/eg1981.html",
+      "lng": 8.651177,
+      "name": "Eurographics 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "icassp81",
+      "country": "United States",
+      "end": "1981-04-01",
+      "id": "icassp81@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/icassp/icassp1981.html",
+      "lng": -84.3898151,
+      "name": "ICASSP 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-03-30"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "ijcai81",
+      "country": "Canada",
+      "end": "1981-08-28",
+      "id": "ijcai81@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai81.html",
+      "lng": -123.113952,
+      "name": "IJCAI 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "siggraph81",
+      "country": "United States",
+      "end": "1981-08-07",
+      "id": "siggraph81@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1981.html",
+      "lng": -96.7968559,
+      "name": "SIGGRAPH 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Oakland",
+      "conferenceId": "sigir81",
+      "country": "United States",
+      "end": "1981-06-02",
+      "id": "sigir81@main",
+      "lat": 37.8044557,
+      "link": "https://dblp.org/db/conf/sigir/sigir81.html",
+      "lng": -122.271356,
+      "name": "SIGIR 1981",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1981-05-31"
+    }
+  ]
+}

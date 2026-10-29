@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1964-07-30",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl64",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1964-07-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1964
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Bloomington",
+      "conferenceId": "acl64",
+      "country": "United States",
+      "end": "1964-07-30",
+      "id": "acl64@main",
+      "lat": 39.1670396,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -86.5342881,
+      "name": "ACL 1964",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1964-07-29"
+    }
+  ]
+}

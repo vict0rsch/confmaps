@@ -30,7 +30,7 @@ flowchart LR
   subgraph Sources
     HF[huggingface/ai-deadlines<br/>conference YAML]
     CUR[Curated inputs<br/>satellites.yml<br/>past_conferences.yml<br/>overrides.yml]
-    SER[data/series.yml<br/>first year per series]
+    SER[data/series.yml<br/>first year, not-held years]
     ARC[(data/archive/YYYY.json)]
     GC[(data/geocache.json)]
     NOM[Nominatim]
@@ -64,7 +64,7 @@ flowchart LR
   DJ --> VD
   CUR --> VD
   SER --> VD
-  SER --> DISC
+  SER <--> DISC
   DISC <--> CL
   DISC --> DBLP
   DISC -- "PR to curated YAML" --> CUR
@@ -83,7 +83,8 @@ data/                     inputs and outputs of the data pipeline
   satellites.yml          curated satellite events
   past_conferences.yml    past main editions (source of truth since the PwC import)
   overrides.yml           per-location field fixes, keyed by location id
-  series.yml              first year per series; checked by build (not emitted), read by discover
+  series.yml              first year and not-held years per series; checked by build (not emitted),
+                          read and written by discover
   geocache.json           "city|country" → coordinates (reviewed in diffs)
   co2-factors.json        DESNZ emission factors, read by the app
   archive/YYYY.json       every event that has ended; never shrinks
@@ -91,6 +92,7 @@ data/                     inputs and outputs of the data pipeline
 scripts/                  build-time TypeScript (run with tsx)
   build-data.ts           pnpm data:build (entry point)
   validate-data.ts        pnpm data:validate (entry point)
+  check-bundle-size.ts    pnpm check:bundle: main JS bundle ≤ 400 kB gzip (CI, after build)
   import-pwc.ts, pwc/     one-time PwC importer and its fixes
   build-cities.ts         regenerates public/cities.json from GeoNames
   schema.ts               Zod schemas for every data file; app types derive from it
@@ -179,7 +181,8 @@ app shows each group as one row and one pin.
   the network.
 - `pnpm data:validate` (`scripts/validate-data.ts`): offline checks of the committed files. CI
   and the discovery agent run it. It also checks `data/series.yml`: the schema, that every key
-  is a known series, and that no `first_year` is later than the series' earliest edition.
+  is a known series, that no `first_year` is later than the series' earliest edition, and that
+  its `not_held` years are after `first_year`, unique, and have no edition in the dataset.
   `series.yml` does not flow into `data.json`.
 
 `build-data.ts` does the input and output. The transformation itself is a pure function,
@@ -237,7 +240,8 @@ matter:
 
 - **`data.json` is a static import** (`src/lib/data/load.ts`). It ships inside the hashed
   JavaScript bundle. Code and data always deploy together, and the app has no loading state for
-  data.
+  data. `pnpm check:bundle` fails CI when that bundle passes 400 kB gzip; its message suggests
+  the split to make then (a live slice in the bundle, history fetched at first render).
 - **MapLibre is a dynamic import.** `App.svelte` imports `Map.svelte` lazily, so the list,
   filters and shell render before the map library arrives.
 - **Other large assets load on demand**: `public/cities.json` when the viewer searches for a
@@ -373,7 +377,7 @@ Its central rule is that **the model proposes and deterministic code decides**:
 ```mermaid
 flowchart LR
   T[select targets<br/>main.py, past.py] --> A[Claude API call per target<br/>agent.py, past_agent.py]
-  A -- "fields as value + source_url + quote" --> V[download each source<br/>and check each quote<br/>verify.py, past_verify.py]
+  A -- "values + source_url + quote" --> V[download each source<br/>and check each quote<br/>verify.py, past_verify.py]
   V --> M[diff against YAML,<br/>write with comments kept<br/>merge.py, past_merge.py, yamlio.py]
   M --> B[pnpm data:build + data:validate]
   B --> R[PR body with evidence table<br/>report.py]
@@ -381,25 +385,48 @@ flowchart LR
 
 - The model has web search and web fetch tools only. It cannot read or write the repository.
 - `verify.py` fetches pages itself, with SSRF protections (public IPs only, each redirect
-  checked). A field whose quote is not on the page is dropped.
-- `wayback.py` replaces past-edition links with Wayback Machine snapshots.
+  checked). In satellite mode, a field whose quote is not on the page is dropped. In past mode,
+  it stays as a model judgement and the PR flags it.
+- `wayback.py` replaces past-edition links with Wayback Machine snapshots. `past.py` skips the
+  lookup for editions that ended before 1996-06-01 and for links on proceedings hosts.
 - `dblp.py` (`DblpTitles`) queries dblp's open SPARQL endpoint (`sparql.dblp.org`, CC0 metadata),
   in past mode only. dblp.org's pages sit behind a bot check, so SPARQL is the interface dblp
-  offers to programs. The client sends one query at a time, at least one second apart, remembers
-  results for the run, and returns nothing when a query fails. Only keys and page names that
-  match a strict pattern enter a query. In the data flow, the program first lists the proceedings
-  titles and page URLs of a batch's target years in the prompt, so the model can quote a listed
-  title and cite its URL without opening it. Later, when `verify.py` finds a cited dblp page
-  behind the bot check, it reads that page's proceedings titles from SPARQL instead and runs the
-  usual checks on them. A quote must also fit inside a single title that states only the
-  edition's year (`past_verify.edition_pages`). The fallback order is the live page, then dblp
+  offers to programs. It sends one query at a time, at least one second apart: dblp works
+  through queries roughly one at a time, so parallel ones only time out more. Each query may take
+  up to 90 s; a failed query returns nothing, and the run reports it. The client remembers results
+  for the run. Only keys and page names that match a strict pattern enter a query. In the data
+  flow, the program first lists each series' proceedings volumes (`main.list_dblp_volumes`, with
+  a rich progress bar), and retries each failed listing once at the end. Listings are saved in
+  `~/.cache/confmaps-discover/dblp-volumes.json` (or under `$XDG_CACHE_HOME`) after each query
+  and reused for 30 days; failed listings are not saved. The prompt then lists the titles and
+  page URLs of a batch's target years, so the model can quote a listed title and cite its URL
+  without opening it. Later, when `verify.py` finds a cited dblp page behind the bot check, it
+  reads that page's proceedings titles from the series' listing, or from SPARQL when the listing
+  does not hold the page, and runs the usual checks on them. A quote must also fit inside a single
+  title that states only the edition's year (`past_verify.edition_pages`). The fallback order is the live page, then dblp
   SPARQL, then the Wayback copy. Satellite mode does not use dblp.
 - `past_ids.py` repeats the id and series rules of `scripts/lib/normalize.ts` in Python. A change
   to one needs the same change in the other.
 - `cost.py` estimates spend, and `--max-usd` stops new calls once the estimate passes the cap.
 
-In past mode, `--since-creation` reads `data/series.yml` to start each series at its first year
-instead of a single `--since` year. The `since_creation` input of `discover.yml` passes this flag.
+Past mode uses a different model from satellite mode: `claude-sonnet-5-5` at effort `medium`
+(`PAST_MODEL`, `PAST_EFFORT` in `past_agent.py`), and the basic web tools without dynamic
+filtering (`PAST_TOOLS`). The model returns editions, each with one source and one quote, and
+years in which the series held no edition.
+
+Past mode reads and writes `data/series.yml`:
+
+- `main.py` (`_series_entries`) reads it on every past run. With `--since-creation`, each series
+  starts at its `first_year` instead of a single `--since` year. In every past run, the years
+  listed in an entry's `not_held` are left out of the targets (`past.plan_batches`).
+- After the checks, `past._check_not_held` decides which years the model reported as not held
+  are recorded, and `main.apply_not_held` adds them to the file text. The program writes the
+  file next to `past_conferences.yml` and shows both in the diff. DESIGN.md §3 lists the
+  conditions.
+- The `propose` job of `discover.yml` commits `data/series.yml` with the other generated files.
+  The PR body (`report.py`) lists the recorded years.
+
+The `since_creation` input of `discover.yml` passes the `--since-creation` flag.
 
 DESIGN.md §3 gives the evidence rules field by field.
 
@@ -407,7 +434,7 @@ DESIGN.md §3 gives the evidence rules field by field.
 
 ```mermaid
 flowchart TB
-  PR[pull request] --> CI[ci.yml<br/>lint, check, data:validate,<br/>unit, build, e2e; pytest; a11y warn-only]
+  PR[pull request] --> CI[ci.yml<br/>lint, check, data:validate,<br/>unit, build, check:bundle, e2e; pytest; a11y warn-only]
   MAIN[push to main] --> CI
   CI -- "green, on main" --> DEP[deploy.yml<br/>gate: SHA is still tip of main<br/>build, publish to Pages]
   CRON[daily cron] --> SYNC[sync.yml<br/>build job: data:build, validate, test<br/>commit job: commit if changed]

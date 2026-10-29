@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from typing import Any
 from urllib.parse import quote
 
-from .agent import Research
+from .agent import MODEL, Research
 from .cost import PRICES, WEB_SEARCH_USD_PER_1K, Usage
 from .geo import GeoHit, cached_hit
 from .merge import Plan
@@ -95,6 +95,8 @@ def _flags(c: Checked) -> list[str]:
 
 
 def _status(chk: Any) -> str:
+    if chk.kind == JUDGEMENT and chk.detail:
+        return f"⚠️ {JUDGEMENT}: {code(chk.detail)}"
     if chk.kind == JUDGEMENT:
         return f"⚠️ {JUDGEMENT}"
     if chk.kept:
@@ -152,6 +154,23 @@ def removals_section(plan: Plan) -> str:
             "never shrinks afterwards."
         )
     return "\n".join(lines)
+
+
+def _series_year(item: dict[str, Any]) -> str:
+    return code(f"{item['series']} {item.get('year')}")
+
+
+def not_held_section(plan: Plan) -> str:
+    """Years recorded as not held in ``data/series.yml``, then the ones not recorded and why."""
+    recorded = [
+        f"- {_series_year(n)}: {code(n['reason'])} ([source]({link(n['source'])}))"
+        for n in getattr(plan, "not_held", [])
+    ]
+    blocks = ["\n".join(recorded)] if recorded else []
+    if skipped := getattr(plan, "not_held_skipped", []):
+        lines = [f"- {_series_year(n)}: {why}" for n, why in skipped]
+        blocks += ["### Not recorded", "\n".join(lines)]
+    return "\n\n".join(blocks)
 
 
 def evidence_section(runs: list[ConferenceRun], plan: Plan) -> str:
@@ -271,7 +290,9 @@ def total_usage(runs: list[ConferenceRun]) -> Usage:
     return total
 
 
-def cost_section(runs: list[ConferenceRun], weekly_conferences: int | None) -> str:
+def cost_section(
+    runs: list[ConferenceRun], weekly_conferences: int | None, model: str = MODEL
+) -> str:
     """Token / tool usage per request, total, and a projection for a weekly run.
 
     Parameters
@@ -281,6 +302,15 @@ def cost_section(runs: list[ConferenceRun], weekly_conferences: int | None) -> s
     weekly_conferences : int, optional
         Number of conferences a scheduled ``--mode upcoming`` run would research today; no
         projection when ``None`` (past mode).
+    model : str, optional
+        The model the run requested, whose list prices the assumptions name (the satellite-mode
+        model by default).
+
+    Examples
+    --------
+    .. code-block:: python
+
+        cost_section(runs, None, past_agent.PAST_MODEL)
     """
     total = total_usage(runs)
     lines = [
@@ -307,11 +337,11 @@ def cost_section(runs: list[ConferenceRun], weekly_conferences: int | None) -> s
                 f"({weekly_conferences} conferences): ~${avg * weekly_conferences:.2f}."
             ),
         ]
-    p = PRICES["claude-opus-5-5"]
+    p = PRICES[model]
     lines += [
         "",
         (
-            f"Assumptions: claude-opus-5-5 list prices ${p.input:g}/${p.output:g} per MTok "
+            f"Assumptions: {model} list prices ${p.input:g}/${p.output:g} per MTok "
             f"input/output, ${p.cache_write:g} cache write (5 min), ${p.cache_read:g} cache read; "
             f"web search ${WEB_SEARCH_USD_PER_1K:g} per 1,000; web fetch has no per-call fee "
             "(its content is billed as input tokens); no code-execution fee (the tool is not "
@@ -333,11 +363,12 @@ PAST_INTRO = (
     "quote was found on the downloaded source page and contains the value), *linked from "
     "source page* / *same site as source page* (for `link`), *derived from geocoded city* (for "
     "`country`), *quote on page, format in quote* (the quote says virtual/online or hybrid), "
-    "*derived: in person (pre-2020 default)* (a verified city, held before March 2020). *Model "
-    "judgement (quote shown)* only means the quote is on the page: whether it supports the "
-    "value is for you to judge. Recorded `source: pwc` editions receive verified changes of "
-    "format, place and dates; other differences, and any on `source: curated` entries, are "
-    "suggestions. A reported cancellation is never applied."
+    "*derived: in person (pre-2020 default)* (held before March 2020), *a title the series "
+    "already uses* (for `title`, when the quote gives only the long name). *Model judgement (quote "
+    "shown)* means that no check confirmed the value; the reason follows when a check failed. "
+    "Whether the quote supports the value is for you to judge. Recorded `source: pwc` "
+    "editions receive verified changes of format, place and dates; other differences, and any "
+    "on `source: curated` entries, are suggestions. A reported cancellation is never applied."
 )
 
 
@@ -348,8 +379,10 @@ def build_body(
     weekly_conferences: int | None,
     geocache: dict[str, Any],
     intro: str | None = None,
+    model: str = MODEL,
 ) -> str:
-    """The PR body (also printed by ``--dry-run``); ``intro`` replaces the satellite intro."""
+    """The PR body (also printed by ``--dry-run``); ``intro`` replaces the satellite intro and
+    ``model`` is the requested model whose prices the cost section states."""
     failed = [r for r in runs if r.failed]
     sections = [
         intro
@@ -375,6 +408,8 @@ def build_body(
         sections += ["## Suggested changes (not applied)", suggestions_section(plan)]
     if new_city_rows(plan):
         sections += ["## New cities", new_cities_section(plan, geocache)]
+    if getattr(plan, "not_held", []) or getattr(plan, "not_held_skipped", []):
+        sections += ["## Years recorded as not held", not_held_section(plan)]
     if failed:
         sections.append(
             "Conferences without a usable result (see Evidence): "
@@ -384,7 +419,7 @@ def build_body(
         "## Evidence",
         evidence_section(runs, plan),
         "## Cost",
-        cost_section(runs, weekly_conferences),
+        cost_section(runs, weekly_conferences, model),
     ]
     return "\n\n".join(sections)
 

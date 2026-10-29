@@ -86,6 +86,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-11-20",
+      "fullName": "Asian Conference on Machine Learning",
+      "id": "acml20",
+      "link": "https://dblp.org/db/conf/acml/acml2020.html",
+      "series": "acml",
+      "source": "curated",
+      "start": "2020-11-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ACML",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-08-28",
       "id": "aistats20",
       "link": "https://web.archive.org/web/20200920070113/https://www.aistats.org/aistats2020",
@@ -96,6 +111,21 @@
         "machine-learning"
       ],
       "title": "AISTATS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-24",
+      "fullName": "Conference on Automated Knowledge Base Construction",
+      "id": "akbc20",
+      "link": "https://dblp.org/db/conf/akbc/akbc2020.html",
+      "series": "akbc",
+      "source": "curated",
+      "start": "2020-06-22",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "AKBC",
       "year": 2020
     },
     {
@@ -114,6 +144,26 @@
     },
     {
       "deadlines": [],
+      "end": "2020-06-10",
+      "fullName": "International Conference on Business Information Systems",
+      "id": "bis2020",
+      "link": "https://dblp.org/db/conf/bis/bis2020.html",
+      "series": "bis",
+      "source": "curated",
+      "start": "2020-06-08",
+      "tags": [
+        "information-systems",
+        "machine-learning",
+        "natural-language-processing",
+        "data-mining",
+        "large-language-models",
+        "knowledge-graphs"
+      ],
+      "title": "BIS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-09-10",
       "id": "bmvc20",
       "link": "https://web.archive.org/web/20200530100007/https://britishmachinevisionassociation.github.io/bmvc",
@@ -124,6 +174,36 @@
         "computer-vision"
       ],
       "title": "BMVC",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-24",
+      "fullName": "IEEE Congress on Evolutionary Computation",
+      "id": "cec2020",
+      "link": "https://dblp.org/db/conf/cec/cec2020.html",
+      "series": "cec",
+      "source": "curated",
+      "start": "2020-07-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "CEC",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-04-30",
+      "fullName": "The ACM Conference on Human Factors in Computing Systems",
+      "id": "chi20",
+      "link": "https://dblp.org/db/conf/chi/chi2020.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "2020-04-25",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
       "year": 2020
     },
     {
@@ -212,6 +292,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-10-21",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
+      "id": "cscw20",
+      "link": "https://dblp.org/db/conf/cscw/cscw2020c.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "2020-10-17",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-06-19",
       "id": "cvpr20",
       "link": "https://web.archive.org/web/20200614132851/http://cvpr2020.thecvf.com/",
@@ -254,6 +349,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-04-17",
+      "fullName": "European Conference on Information Retrieval",
+      "id": "ecir20",
+      "link": "https://dblp.org/db/conf/ecir/ecir2020-1.html",
+      "series": "ecir",
+      "source": "curated",
+      "start": "2020-04-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-09-18",
       "id": "ecmlpkdd20",
       "link": "https://web.archive.org/web/20200919030631/https://ecmlpkdd2020.net/",
@@ -282,6 +392,114 @@
     },
     {
       "deadlines": [],
+      "end": "2020-10-04",
+      "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
+      "id": "esann20",
+      "link": "https://dblp.org/db/conf/esann/esann2020.html",
+      "series": "esann",
+      "source": "curated",
+      "start": "2020-10-02",
+      "tags": [
+        "machine learning"
+      ],
+      "title": "ESANN",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-05-29",
+      "fullName": "Annual Conference of the European Association for Computer Graphics",
+      "id": "eurographics20",
+      "link": "https://web.archive.org/web/20200604001154/https://conferences.eg.org/egev20/",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "2020-05-25",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-04-17",
+      "fullName": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
+      "id": "evomusart20",
+      "link": "https://web.archive.org/web/20200325134525/http://www.evostar.org/2020/evomusart/",
+      "series": "evomusart",
+      "source": "curated",
+      "start": "2020-04-15",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "EvoMUSART",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-01-30",
+      "fullName": "Conference on Fairness, Accountability, and Transparency",
+      "id": "facct20",
+      "link": "https://dblp.org/db/conf/fat/fat2020.html",
+      "series": "facct",
+      "source": "curated",
+      "start": "2020-01-27",
+      "tags": [
+        "fairness",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "FAccT",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-20",
+      "fullName": "International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg20",
+      "link": "https://web.archive.org/web/20210410110044/https://fg2020.sunai.uoc.edu/",
+      "series": "fg",
+      "source": "curated",
+      "start": "2020-11-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-12",
+      "fullName": "Genetic and Evolutionary Computation Conference",
+      "id": "gecco20",
+      "link": "https://web.archive.org/web/20200716205525/https://gecco-2020.sigevo.org/index.html/HomePage",
+      "series": "gecco",
+      "source": "curated",
+      "start": "2020-07-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "GECCO",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-01-10",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss20",
+      "link": "https://dblp.org/db/conf/hicss/hicss2020.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2020-01-07",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-03-26",
       "id": "hri20",
       "link": "https://web.archive.org/web/20200401234545/https://humanrobotinteraction.org/2020/",
@@ -296,6 +514,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-09-18",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann20",
+      "link": "https://dblp.org/db/conf/icann/icann2020-1.html",
+      "series": "icann",
+      "source": "curated",
+      "start": "2020-09-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-10-30",
       "id": "icaps20",
       "link": "https://web.archive.org/web/20201025140522/https://icaps20.icaps-conference.org/",
@@ -306,6 +539,21 @@
         "machine-learning"
       ],
       "title": "ICAPS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-04-17",
+      "fullName": "IEEE International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc20",
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2020.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2020-04-15",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2020
     },
     {
@@ -339,6 +587,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-10-30",
+      "fullName": "Joint IEEE International Conference on Development and Learning and Epigenetic Robotics",
+      "id": "icdlepirob20",
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2020.html",
+      "series": "icdl-epirob",
+      "source": "curated",
+      "start": "2020-10-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICDL-EpiRob",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-11-20",
       "id": "icdm20",
       "link": "https://web.archive.org/web/20201115120303/http://icdm2020.bigke.org/",
@@ -353,6 +616,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-10-28",
+      "fullName": "IEEE International Conference on Image Processing",
+      "id": "icip20",
+      "link": "https://dblp.org/db/conf/icip/icip2020.html",
+      "series": "icip",
+      "source": "curated",
+      "start": "2020-10-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICIP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-04-30",
       "id": "iclr20",
       "link": "https://web.archive.org/web/20200426203300/https://iclr.cc/Conferences/2020",
@@ -363,6 +641,36 @@
         "machine-learning"
       ],
       "title": "ICLR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-10",
+      "fullName": "IEEE International Conference on Multimedia and Expo",
+      "id": "icme20",
+      "link": "https://dblp.org/db/conf/icmcs/icme2020.html",
+      "series": "icme",
+      "source": "curated",
+      "start": "2020-07-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICME",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-29",
+      "fullName": "International Conference on Multimodal Interaction",
+      "id": "icmi20",
+      "link": "https://dblp.org/db/conf/icmi/icmi2020.html",
+      "series": "icmi",
+      "source": "curated",
+      "start": "2020-10-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "ICMI",
       "year": 2020
     },
     {
@@ -410,6 +718,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-10-23",
+      "fullName": "International Conference on Pattern Recognition and Artificial Intelligence",
+      "id": "icprai20",
+      "link": "https://dblp.org/db/conf/icprai/icprai2020.html",
+      "series": "icprai",
+      "source": "curated",
+      "start": "2020-10-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPRAI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-06-15",
       "id": "icra20",
       "link": "https://web.archive.org/web/20200605063531/https://icra2020.org/",
@@ -420,6 +743,21 @@
         "robotics"
       ],
       "title": "ICRA",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-11",
+      "fullName": "International AAAI Conference on Web and Social Media",
+      "id": "icwsm20",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2020.html",
+      "series": "icwsm",
+      "source": "curated",
+      "start": "2020-06-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICWSM",
       "year": 2020
     },
     {
@@ -448,6 +786,21 @@
         "natural-language-processing"
       ],
       "title": "AACL-IJCNLP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-24",
+      "fullName": "International Joint Conference on Neural Networks",
+      "id": "ijcnn20",
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2020.html",
+      "series": "ijcnn",
+      "source": "curated",
+      "start": "2020-07-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCNN",
       "year": 2020
     },
     {
@@ -510,6 +863,51 @@
     },
     {
       "deadlines": [],
+      "end": "2020-09-25",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis20",
+      "link": "https://dblp.org/db/conf/ismis/ismis2020.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "2020-09-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-06",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc20",
+      "link": "https://dblp.org/db/conf/semweb/iswc2020-1.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2020-11-02",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-03-20",
+      "fullName": "ACM Conference on Intelligent User Interfaces",
+      "id": "iui20",
+      "link": "https://dblp.org/db/conf/iui/iui2020.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2020-03-17",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-08-27",
       "id": "kdd20",
       "link": "https://web.archive.org/web/20200817123540/https://www.kdd.org/kdd2020/",
@@ -520,6 +918,51 @@
         "data-mining"
       ],
       "title": "KDD",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-09-18",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr20",
+      "link": "https://web.archive.org/web/20200911225815/https://kr2020.inf.unibz.it/",
+      "series": "kr",
+      "source": "curated",
+      "start": "2020-09-12",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-08-30",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem20",
+      "link": "https://dblp.org/db/conf/ksem/ksem2020-1.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2020-08-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-06-12",
+      "fullName": "Annual Conference on Learning for Dynamics and Control",
+      "id": "l4dc20",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2020.html",
+      "series": "l4dc",
+      "source": "curated",
+      "start": "2020-06-11",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
       "year": 2020
     },
     {
@@ -552,6 +995,36 @@
     },
     {
       "deadlines": [],
+      "end": "2020-08-08",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr20",
+      "link": "https://dblp.org/db/conf/mipr/mipr2020.html",
+      "series": "mipr",
+      "source": "curated",
+      "start": "2020-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-21",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm20",
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2020-07-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-12-12",
       "id": "neurips20",
       "link": "https://web.archive.org/web/20201208151319/https://nips.cc/Conferences/2020",
@@ -562,6 +1035,21 @@
         "machine-learning"
       ],
       "title": "NeurIPS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-05-14",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd20",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2020-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2020-05-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
       "year": 2020
     },
     {
@@ -580,6 +1068,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-09-04",
+      "fullName": "IEEE International Conference on Robot and Human Interactive Communication",
+      "id": "roman20",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2020.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2020-08-31",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-07-16",
       "id": "rss20",
       "link": "https://web.archive.org/web/20200715074055/https://roboticsconference.org/",
@@ -590,6 +1093,87 @@
         "robotics"
       ],
       "title": "RSS",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-01",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr20",
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2020.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2020-06-29",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-05-09",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm20",
+      "link": "https://dblp.org/db/conf/sdm/sdm2020.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2020-05-07",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-12-13",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem20",
+      "link": "https://dblp.org/db/conf/starsem/starsem2020.html",
+      "series": "sem",
+      "source": "curated",
+      "start": "2020-12-12",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-07-08",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp20",
+      "link": "https://web.archive.org/web/20200720071620/https://sgp2020.sites.uu.nl/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2020-07-06",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-10",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi20",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2020-11-07",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2020
     },
     {
@@ -608,6 +1192,20 @@
     },
     {
       "deadlines": [],
+      "end": "2020-12-13",
+      "id": "siggraphasia20",
+      "link": "https://web.archive.org/web/20210225180245/https://sa2020.siggraph.org//",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2020-12-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-07-30",
       "id": "sigir20",
       "link": "https://web.archive.org/web/20200724200508/http://sigir.org/sigir2020/",
@@ -618,6 +1216,22 @@
         "data-mining"
       ],
       "title": "SIGIR",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-10-09",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom20",
+      "link": "https://dblp.org/db/conf/specom/specom2020.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2020-10-07",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
       "year": 2020
     },
     {
@@ -765,6 +1379,22 @@
     },
     {
       "access": "registration",
+      "city": "Bangkok",
+      "conferenceId": "acml20",
+      "country": "Thailand",
+      "end": "2020-11-20",
+      "id": "acml20@main",
+      "lat": 13.7524938,
+      "link": "https://dblp.org/db/conf/acml/acml2020.html",
+      "lng": 100.4935089,
+      "name": "ACML 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-18"
+    },
+    {
+      "access": "registration",
       "conferenceId": "aistats20",
       "end": "2020-08-28",
       "format": "virtual",
@@ -776,6 +1406,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-08-26"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "akbc20",
+      "end": "2020-06-24",
+      "format": "virtual",
+      "id": "akbc20@main",
+      "link": "https://dblp.org/db/conf/akbc/akbc2020.html",
+      "name": "AKBC 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-22"
     },
     {
       "access": "registration",
@@ -795,6 +1438,22 @@
     },
     {
       "access": "registration",
+      "city": "Colorado Springs",
+      "conferenceId": "bis2020",
+      "country": "United States",
+      "end": "2020-06-10",
+      "id": "bis2020@main",
+      "lat": 38.8339578,
+      "link": "https://dblp.org/db/conf/bis/bis2020.html",
+      "lng": -104.825348,
+      "name": "BIS 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-08"
+    },
+    {
+      "access": "registration",
       "conferenceId": "bmvc20",
       "end": "2020-09-10",
       "format": "virtual",
@@ -806,6 +1465,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-09-07"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "cec2020",
+      "country": "United Kingdom",
+      "end": "2020-07-24",
+      "id": "cec2020@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/cec/cec2020.html",
+      "lng": -4.2501687,
+      "name": "CEC 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-19"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "chi20",
+      "country": "United States",
+      "end": "2020-04-30",
+      "id": "chi20@main",
+      "lat": 21.304547,
+      "link": "https://dblp.org/db/conf/chi/chi2020.html",
+      "lng": -157.855676,
+      "name": "CHI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-25"
     },
     {
       "access": "registration",
@@ -892,6 +1583,19 @@
     },
     {
       "access": "registration",
+      "conferenceId": "cscw20",
+      "end": "2020-10-21",
+      "format": "virtual",
+      "id": "cscw20@main",
+      "link": "https://dblp.org/db/conf/cscw/cscw2020c.html",
+      "name": "CSCW 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-17"
+    },
+    {
+      "access": "registration",
       "conferenceId": "cvpr20",
       "end": "2020-06-19",
       "format": "virtual",
@@ -934,6 +1638,22 @@
     },
     {
       "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "ecir20",
+      "country": "Portugal",
+      "end": "2020-04-17",
+      "id": "ecir20@main",
+      "lat": 38.7077507,
+      "link": "https://dblp.org/db/conf/ecir/ecir2020-1.html",
+      "lng": -9.1365919,
+      "name": "ECIR 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-14"
+    },
+    {
+      "access": "registration",
       "conferenceId": "ecmlpkdd20",
       "end": "2020-09-18",
       "format": "virtual",
@@ -961,6 +1681,109 @@
     },
     {
       "access": "registration",
+      "city": "Bruges",
+      "conferenceId": "esann20",
+      "country": "Belgium",
+      "end": "2020-10-04",
+      "id": "esann20@main",
+      "lat": 51.2085526,
+      "link": "https://dblp.org/db/conf/esann/esann2020.html",
+      "lng": 3.226772,
+      "name": "ESANN 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-02"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "eurographics20",
+      "end": "2020-05-29",
+      "format": "virtual",
+      "id": "eurographics20@main",
+      "link": "https://web.archive.org/web/20200604001154/https://conferences.eg.org/egev20/",
+      "name": "Eurographics 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-25"
+    },
+    {
+      "access": "registration",
+      "city": "Seville",
+      "conferenceId": "evomusart20",
+      "country": "Spain",
+      "end": "2020-04-17",
+      "id": "evomusart20@main",
+      "lat": 37.3886303,
+      "link": "https://web.archive.org/web/20200325134525/http://www.evostar.org/2020/evomusart/",
+      "lng": -5.9953403,
+      "name": "EvoMUSART 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-15"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "facct20",
+      "country": "Spain",
+      "end": "2020-01-30",
+      "id": "facct20@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/fat/fat2020.html",
+      "lng": 2.177073,
+      "name": "FAccT 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-01-27"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "fg20",
+      "end": "2020-11-20",
+      "format": "virtual",
+      "id": "fg20@main",
+      "link": "https://web.archive.org/web/20210410110044/https://fg2020.sunai.uoc.edu/",
+      "name": "FG 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-16"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "gecco20",
+      "end": "2020-07-12",
+      "format": "virtual",
+      "id": "gecco20@main",
+      "link": "https://web.archive.org/web/20200716205525/https://gecco-2020.sigevo.org/index.html/HomePage",
+      "name": "GECCO 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Maui",
+      "conferenceId": "hicss20",
+      "country": "United States",
+      "end": "2020-01-10",
+      "id": "hicss20@main",
+      "lat": 20.8029568,
+      "link": "https://dblp.org/db/conf/hicss/hicss2020.html",
+      "lng": -156.3106833,
+      "name": "HICSS 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-01-07"
+    },
+    {
+      "access": "registration",
       "conferenceId": "hri20",
       "end": "2020-03-26",
       "format": "virtual",
@@ -975,6 +1798,22 @@
     },
     {
       "access": "registration",
+      "city": "Bratislava",
+      "conferenceId": "icann20",
+      "country": "Slovakia",
+      "end": "2020-09-18",
+      "id": "icann20@main",
+      "lat": 48.1435026,
+      "link": "https://dblp.org/db/conf/icann/icann2020-1.html",
+      "lng": 17.1082867,
+      "name": "ICANN 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-15"
+    },
+    {
+      "access": "registration",
       "conferenceId": "icaps20",
       "end": "2020-10-30",
       "format": "virtual",
@@ -986,6 +1825,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-10-26"
+    },
+    {
+      "access": "registration",
+      "city": "Ponta Delgada",
+      "conferenceId": "icarsc20",
+      "country": "Portugal",
+      "end": "2020-04-17",
+      "id": "icarsc20@main",
+      "lat": 37.7393398,
+      "link": "https://dblp.org/db/conf/icarsc/icarsc2020.html",
+      "lng": -25.6689503,
+      "name": "ICARSC 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-04-15"
     },
     {
       "access": "registration",
@@ -1017,6 +1872,22 @@
     },
     {
       "access": "registration",
+      "city": "Valparaiso",
+      "conferenceId": "icdlepirob20",
+      "country": "Chile",
+      "end": "2020-10-30",
+      "id": "icdlepirob20@main",
+      "lat": -33.0458456,
+      "link": "https://dblp.org/db/conf/icdl-epirob/icdl-epirob2020.html",
+      "lng": -71.6196749,
+      "name": "ICDL-EpiRob 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-26"
+    },
+    {
+      "access": "registration",
       "conferenceId": "icdm20",
       "end": "2020-11-20",
       "format": "virtual",
@@ -1031,6 +1902,22 @@
     },
     {
       "access": "registration",
+      "city": "Abu Dhabi",
+      "conferenceId": "icip20",
+      "country": "United Arab Emirates",
+      "end": "2020-10-28",
+      "id": "icip20@main",
+      "lat": 24.4538352,
+      "link": "https://dblp.org/db/conf/icip/icip2020.html",
+      "lng": 54.3774014,
+      "name": "ICIP 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-25"
+    },
+    {
+      "access": "registration",
       "conferenceId": "iclr20",
       "end": "2020-04-30",
       "format": "virtual",
@@ -1042,6 +1929,35 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "icme20",
+      "country": "United Kingdom",
+      "end": "2020-07-10",
+      "id": "icme20@main",
+      "lat": 51.5074456,
+      "link": "https://dblp.org/db/conf/icmcs/icme2020.html",
+      "lng": -0.1277653,
+      "name": "ICME 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icmi20",
+      "end": "2020-10-29",
+      "format": "virtual",
+      "id": "icmi20@main",
+      "link": "https://dblp.org/db/conf/icmi/icmi2020.html",
+      "name": "ICMI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-25"
     },
     {
       "access": "registration",
@@ -1086,6 +2002,19 @@
     },
     {
       "access": "registration",
+      "conferenceId": "icprai20",
+      "end": "2020-10-23",
+      "format": "virtual",
+      "id": "icprai20@main",
+      "link": "https://dblp.org/db/conf/icprai/icprai2020.html",
+      "name": "ICPRAI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-19"
+    },
+    {
+      "access": "registration",
       "conferenceId": "icra20",
       "end": "2020-06-15",
       "format": "virtual",
@@ -1097,6 +2026,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-05-31"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icwsm20",
+      "end": "2020-06-11",
+      "format": "virtual",
+      "id": "icwsm20@main",
+      "link": "https://dblp.org/db/conf/icwsm/icwsm2020.html",
+      "name": "ICWSM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-08"
     },
     {
       "access": "registration",
@@ -1125,6 +2067,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-12-04"
+    },
+    {
+      "access": "registration",
+      "city": "Glasgow",
+      "conferenceId": "ijcnn20",
+      "country": "United Kingdom",
+      "end": "2020-07-24",
+      "id": "ijcnn20@main",
+      "lat": 55.861155,
+      "link": "https://dblp.org/db/conf/ijcnn/ijcnn2020.html",
+      "lng": -4.2501687,
+      "name": "IJCNN 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-19"
     },
     {
       "access": "registration",
@@ -1184,6 +2142,51 @@
     },
     {
       "access": "registration",
+      "city": "Graz",
+      "conferenceId": "ismis20",
+      "country": "Austria",
+      "end": "2020-09-25",
+      "id": "ismis20@main",
+      "lat": 47.0708678,
+      "link": "https://dblp.org/db/conf/ismis/ismis2020.html",
+      "lng": 15.4382786,
+      "name": "ISMIS 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "iswc20",
+      "end": "2020-11-06",
+      "format": "virtual",
+      "id": "iswc20@main",
+      "link": "https://dblp.org/db/conf/semweb/iswc2020-1.html",
+      "name": "ISWC 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-02"
+    },
+    {
+      "access": "registration",
+      "city": "Cagliari",
+      "conferenceId": "iui20",
+      "country": "Italy",
+      "end": "2020-03-20",
+      "id": "iui20@main",
+      "lat": 39.2171994,
+      "link": "https://dblp.org/db/conf/iui/iui2020.html",
+      "lng": 9.113311,
+      "name": "IUI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-03-17"
+    },
+    {
+      "access": "registration",
       "conferenceId": "kdd20",
       "end": "2020-08-27",
       "format": "virtual",
@@ -1195,6 +2198,48 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-08-23"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "kr20",
+      "end": "2020-09-18",
+      "format": "virtual",
+      "id": "kr20@main",
+      "link": "https://web.archive.org/web/20200911225815/https://kr2020.inf.unibz.it/",
+      "name": "KR 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-09-12"
+    },
+    {
+      "access": "registration",
+      "city": "Hangzhou",
+      "conferenceId": "ksem20",
+      "country": "China",
+      "end": "2020-08-30",
+      "id": "ksem20@main",
+      "lat": 30.2489634,
+      "link": "https://dblp.org/db/conf/ksem/ksem2020-1.html",
+      "lng": 120.2052342,
+      "name": "KSEM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-28"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "l4dc20",
+      "end": "2020-06-12",
+      "format": "virtual",
+      "id": "l4dc20@main",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2020.html",
+      "name": "L4DC 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-11"
     },
     {
       "access": "registration",
@@ -1226,6 +2271,39 @@
     },
     {
       "access": "registration",
+      "city": "Shenzhen",
+      "conferenceId": "mipr20",
+      "country": "China",
+      "end": "2020-08-08",
+      "id": "mipr20@main",
+      "lat": 22.5445741,
+      "link": "https://dblp.org/db/conf/mipr/mipr2020.html",
+      "lng": 114.0545429,
+      "name": "MIPR 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "mldm20",
+      "country": "Netherlands",
+      "end": "2020-07-21",
+      "format": "hybrid",
+      "id": "mldm20@main",
+      "lat": 52.3730796,
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "lng": 4.8924534,
+      "name": "MLDM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-20"
+    },
+    {
+      "access": "registration",
       "conferenceId": "neurips20",
       "end": "2020-12-12",
       "format": "virtual",
@@ -1240,6 +2318,22 @@
     },
     {
       "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "pakdd20",
+      "country": "Singapore",
+      "end": "2020-05-14",
+      "id": "pakdd20@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2020-1.html",
+      "lng": 103.8519072,
+      "name": "PAKDD 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-11"
+    },
+    {
+      "access": "registration",
       "conferenceId": "recsys20",
       "end": "2020-09-26",
       "format": "virtual",
@@ -1250,6 +2344,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-09-22"
+    },
+    {
+      "access": "registration",
+      "city": "Naples",
+      "conferenceId": "roman20",
+      "country": "Italy",
+      "end": "2020-09-04",
+      "id": "roman20@main",
+      "lat": 40.8358846,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2020.html",
+      "lng": 14.2487679,
+      "name": "RO-MAN 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-08-31"
     },
     {
       "access": "registration",
@@ -1267,6 +2377,74 @@
     },
     {
       "access": "registration",
+      "conferenceId": "rulemlrr20",
+      "end": "2020-07-01",
+      "format": "virtual",
+      "id": "rulemlrr20@main",
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2020.html",
+      "name": "RuleML+RR 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-06-29"
+    },
+    {
+      "access": "registration",
+      "city": "Cincinnati",
+      "conferenceId": "sdm20",
+      "country": "United States",
+      "end": "2020-05-09",
+      "id": "sdm20@main",
+      "lat": 39.1012809,
+      "link": "https://dblp.org/db/conf/sdm/sdm2020.html",
+      "lng": -84.5127405,
+      "name": "SDM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-05-07"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sem20",
+      "end": "2020-12-13",
+      "format": "virtual",
+      "id": "sem20@main",
+      "link": "https://dblp.org/db/conf/starsem/starsem2020.html",
+      "name": "*SEM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-12"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sgp20",
+      "end": "2020-07-08",
+      "format": "virtual",
+      "id": "sgp20@main",
+      "link": "https://web.archive.org/web/20200720071620/https://sgp2020.sites.uu.nl/",
+      "name": "SGP 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sibgrapi20",
+      "end": "2020-11-10",
+      "format": "virtual",
+      "id": "sibgrapi20@main",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "name": "SIBGRAPI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-07"
+    },
+    {
+      "access": "registration",
       "conferenceId": "siggraph20",
       "end": "2020-08-28",
       "format": "virtual",
@@ -1281,6 +2459,19 @@
     },
     {
       "access": "registration",
+      "conferenceId": "siggraphasia20",
+      "end": "2020-12-13",
+      "format": "virtual",
+      "id": "siggraphasia20@main",
+      "link": "https://web.archive.org/web/20210225180245/https://sa2020.siggraph.org//",
+      "name": "SIGGRAPH Asia 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-12-04"
+    },
+    {
+      "access": "registration",
       "conferenceId": "sigir20",
       "end": "2020-07-30",
       "format": "virtual",
@@ -1292,6 +2483,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "St. Petersburg",
+      "conferenceId": "specom20",
+      "country": "Russia",
+      "end": "2020-10-09",
+      "id": "specom20@main",
+      "lat": 59.938732,
+      "link": "https://dblp.org/db/conf/specom/specom2020.html",
+      "lng": 30.316229,
+      "name": "SPECOM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-10-07"
     },
     {
       "access": "registration",

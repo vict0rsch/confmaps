@@ -1,0 +1,227 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1978-07-27",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl78",
+      "link": "https://aclanthology.org/events/cl-1978/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1978-07-25",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-08-18",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling78",
+      "link": "https://www.persee.fr/doc/medio_0223-3843_1979_num_1_1_886_t1_0016_0000_2",
+      "series": "coling",
+      "source": "curated",
+      "start": "1978-08-14",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-07-20",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai78",
+      "link": "https://dblp.org/db/conf/ecai/ecai78.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1978-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-04-12",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp78",
+      "link": "https://dblp.org/db/conf/icassp/icassp1978.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1978-04-10",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-11-10",
+      "fullName": "International Joint Conference on Pattern Recognition",
+      "id": "icpr78",
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1978-11-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-08-25",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph78",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1978.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1978-08-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1978
+    },
+    {
+      "deadlines": [],
+      "end": "1978-05-12",
+      "id": "sigir78",
+      "link": "https://dblp.org/db/conf/sigir/sigir78.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1978-05-10",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1978
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Urbana",
+      "conferenceId": "acl78",
+      "country": "United States",
+      "end": "1978-07-27",
+      "id": "acl78@main",
+      "lat": 40.1117174,
+      "link": "https://aclanthology.org/events/cl-1978/",
+      "lng": -88.207301,
+      "name": "ACL 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Bergen",
+      "conferenceId": "coling78",
+      "country": "Norway",
+      "end": "1978-08-18",
+      "id": "coling78@main",
+      "lat": 60.3943055,
+      "link": "https://www.persee.fr/doc/medio_0223-3843_1979_num_1_1_886_t1_0016_0000_2",
+      "lng": 5.3259192,
+      "name": "COLING 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-08-14",
+      "venue": "University of Bergen"
+    },
+    {
+      "access": "registration",
+      "city": "Hamburg",
+      "conferenceId": "ecai78",
+      "country": "Germany",
+      "end": "1978-07-20",
+      "id": "ecai78@main",
+      "lat": 53.5501721,
+      "link": "https://dblp.org/db/conf/ecai/ecai78.html",
+      "lng": 10.0013165,
+      "name": "ECAI 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Tulsa",
+      "conferenceId": "icassp78",
+      "country": "United States",
+      "end": "1978-04-12",
+      "id": "icassp78@main",
+      "lat": 36.1563122,
+      "link": "https://dblp.org/db/conf/icassp/icassp1978.html",
+      "lng": -95.9927516,
+      "name": "ICASSP 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-04-10"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "icpr78",
+      "country": "Japan",
+      "end": "1978-11-10",
+      "id": "icpr78@main",
+      "lat": 35.0115754,
+      "link": "https://dblp.org/db/conf/icpr/index.html",
+      "lng": 135.7681441,
+      "name": "ICPR 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-11-07"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "siggraph78",
+      "country": "United States",
+      "end": "1978-08-25",
+      "id": "siggraph78@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1978.html",
+      "lng": -84.3898151,
+      "name": "SIGGRAPH 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-08-23"
+    },
+    {
+      "access": "registration",
+      "city": "Rochester",
+      "conferenceId": "sigir78",
+      "country": "United States",
+      "end": "1978-05-12",
+      "id": "sigir78@main",
+      "lat": 43.157285,
+      "link": "https://dblp.org/db/conf/sigir/sigir78.html",
+      "lng": -77.615214,
+      "name": "SIGIR 1978",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1978-05-10"
+    }
+  ]
+}

@@ -50,9 +50,16 @@ def test_nominatim_hit_must_be_a_settlement_in_that_country() -> None:
     assert seen[0].headers["user-agent"].startswith("confmaps.org discovery")
 
 
+def test_non_settlement_in_country_hit_is_used_when_no_settlement() -> None:
+    lake = result("United States", "lake", "Lake Tahoe") | {"type": "water"}
+    client, _ = nominatim([result("Canada"), lake, result("United States", "state")])
+    hit = Geocoder({}, client, sleep=lambda s: None)("Lake Tahoe", "United States")
+    assert hit is not None and hit.english_name.startswith("Lake Tahoe")
+
+
 @pytest.mark.parametrize(
     ("results", "status"),
-    [([result("Canada")], 200), ([result("United States", "state")], 200), ([], 503),
+    [([result("Canada")], 200), ([], 503),
      ({"error": "x"}, 200), ([{"lat": "x", "lon": "y", "display_name": "z", "addresstype":
      "city", "address": {"country": "United States"}}], 200)],
 )  # fmt: skip

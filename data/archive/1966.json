@@ -1,0 +1,37 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1966-07-27",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl66",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1966-07-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1966
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "acl66",
+      "country": "United States",
+      "end": "1966-07-27",
+      "id": "acl66@main",
+      "lat": 34.0536923,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -118.2427676,
+      "name": "ACL 1966",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1966-07-26"
+    }
+  ]
+}

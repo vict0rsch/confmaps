@@ -134,6 +134,16 @@ export function validateDataset(input: ValidationInput): string[] {
       errors.push(
         `series.yml: ${key}: first_year ${s.first_year} is later than its earliest edition (${first})`,
       );
+    const seenNotHeld = new Set<number>();
+    for (const { year } of s.not_held ?? []) {
+      if (year < s.first_year)
+        errors.push(`series.yml: ${key}: not_held ${year} is before first_year`);
+      if (seenNotHeld.has(year))
+        errors.push(`series.yml: ${key}: not_held ${year} is listed twice`);
+      seenNotHeld.add(year);
+      if (data.conferences.some((c) => c.series === key && c.year === year))
+        errors.push(`series.yml: ${key}: not_held ${year} has an edition in the dataset`);
+    }
   }
 
   // Overrides must target a known location

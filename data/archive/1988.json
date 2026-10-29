@@ -1,0 +1,643 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1988-08-26",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai88",
+      "link": "https://dblp.org/db/conf/aaai/aaai88.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1988-08-21",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-06-10",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl88",
+      "link": "https://dblp.org/db/conf/acl/acl1988.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1988-06-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-05-19",
+      "fullName": "SIGCHI Conference on Human Factors in Computing Systems",
+      "id": "chi88",
+      "link": "https://dblp.org/db/conf/chi/chi1988.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1988-05-15",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-08-27",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling88",
+      "link": "https://dblp.org/db/conf/coling/coling1988.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "1988-08-22",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-08-05",
+      "fullName": "Annual Workshop on Computational Learning Theory",
+      "id": "colt88",
+      "link": "https://dblp.org/db/conf/colt/colt1988.html",
+      "series": "colt",
+      "source": "curated",
+      "start": "1988-08-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "COLT",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-09-28",
+      "fullName": "ACM Conference on Computer-Supported Cooperative Work",
+      "id": "cscw88",
+      "link": "https://dblp.org/db/conf/cscw/cscw1988.html",
+      "series": "cscw",
+      "source": "curated",
+      "start": "1988-09-26",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CSCW",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-06-09",
+      "fullName": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition",
+      "id": "cvpr88",
+      "link": "https://dblp.org/db/conf/cvpr/cvpr1988.html",
+      "series": "cvpr",
+      "source": "curated",
+      "start": "1988-06-05",
+      "tags": [
+        "computer-vision",
+        "robotics",
+        "machine-learning",
+        "optimization-methods",
+        "representation-learning"
+      ],
+      "title": "CVPR",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-08-05",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai88",
+      "link": "https://dblp.org/db/conf/ecai/ecai88.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1988-08-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-09-16",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics88",
+      "link": "https://dblp.org/db/conf/eurographics/eg1988.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1988-09-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-04-14",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp88",
+      "link": "https://dblp.org/db/conf/icassp/icassp1988.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1988-04-11",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-12-08",
+      "fullName": "International Conference on Computer Vision",
+      "id": "iccv88",
+      "link": "https://dblp.org/db/conf/iccv/iccv1988.html",
+      "series": "iccv",
+      "source": "curated",
+      "start": "1988-12-05",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-06-14",
+      "fullName": "International Conference on Machine Learning",
+      "id": "icml88",
+      "link": "https://dblp.org/db/conf/icml/ml1988.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1988-06-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-11-17",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr88",
+      "link": "https://dblp.org/db/conf/icpr/icpr1988.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1988-11-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-04-29",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra88",
+      "link": "https://dblp.org/db/conf/icra/icra1988.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1988-04-24",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-11-02",
+      "fullName": "IEEE International Workshop on Intelligent Robots and Systems",
+      "id": "iros88",
+      "link": "https://dblp.org/db/conf/iros/iros1988.html",
+      "series": "iros",
+      "source": "curated",
+      "start": "1988-10-31",
+      "tags": [
+        "robotics"
+      ],
+      "title": "IROS",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-10-15",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis88",
+      "link": "https://dblp.org/db/conf/ismis/ismis88.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "1988-10-12",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-12-01",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips88",
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1988-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-08-05",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph88",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1988.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1988-08-01",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-06-15",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir88",
+      "link": "https://dblp.org/db/conf/sigir/sigir88.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1988-06-13",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai88",
+      "link": "https://dblp.org/db/conf/uai/uai1988.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1988-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1988
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "St. Paul",
+      "conferenceId": "aaai88",
+      "country": "United States",
+      "end": "1988-08-26",
+      "id": "aaai88@main",
+      "lat": 44.9497487,
+      "link": "https://dblp.org/db/conf/aaai/aaai88.html",
+      "lng": -93.0931028,
+      "name": "AAAI 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-21"
+    },
+    {
+      "access": "registration",
+      "city": "Buffalo",
+      "conferenceId": "acl88",
+      "country": "United States",
+      "end": "1988-06-10",
+      "id": "acl88@main",
+      "lat": 42.8864163,
+      "link": "https://dblp.org/db/conf/acl/acl1988.html",
+      "lng": -78.8781493,
+      "name": "ACL 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-06-07",
+      "venue": "State University of New York at Buffalo"
+    },
+    {
+      "access": "registration",
+      "city": "Washington, D.C.",
+      "conferenceId": "chi88",
+      "country": "United States",
+      "end": "1988-05-19",
+      "id": "chi88@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/chi/chi1988.html",
+      "lng": -77.0363849,
+      "name": "CHI 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-05-15"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "coling88",
+      "country": "Hungary",
+      "end": "1988-08-27",
+      "id": "coling88@main",
+      "lat": 47.4978789,
+      "link": "https://dblp.org/db/conf/coling/coling1988.html",
+      "lng": 19.0402383,
+      "name": "COLING 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "colt88",
+      "country": "United States",
+      "end": "1988-08-05",
+      "id": "colt88@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/colt/colt1988.html",
+      "lng": -71.1040018,
+      "name": "COLT 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "cscw88",
+      "country": "United States",
+      "end": "1988-09-28",
+      "id": "cscw88@main",
+      "lat": 45.5202471,
+      "link": "https://dblp.org/db/conf/cscw/cscw1988.html",
+      "lng": -122.674194,
+      "name": "CSCW 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-09-26"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "cvpr88",
+      "country": "United States",
+      "end": "1988-06-09",
+      "id": "cvpr88@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/cvpr/cvpr1988.html",
+      "lng": -83.7484616,
+      "name": "CVPR 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-06-05"
+    },
+    {
+      "access": "registration",
+      "city": "Munich",
+      "conferenceId": "ecai88",
+      "country": "Germany",
+      "end": "1988-08-05",
+      "id": "ecai88@main",
+      "lat": 48.1371079,
+      "link": "https://dblp.org/db/conf/ecai/ecai88.html",
+      "lng": 11.5753822,
+      "name": "ECAI 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Nice",
+      "conferenceId": "eurographics88",
+      "country": "France",
+      "end": "1988-09-16",
+      "id": "eurographics88@main",
+      "lat": 43.7009358,
+      "link": "https://dblp.org/db/conf/eurographics/eg1988.html",
+      "lng": 7.2683912,
+      "name": "Eurographics 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-09-12"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "icassp88",
+      "country": "United States",
+      "end": "1988-04-14",
+      "id": "icassp88@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/icassp/icassp1988.html",
+      "lng": -74.0060152,
+      "name": "ICASSP 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-04-11"
+    },
+    {
+      "access": "registration",
+      "city": "Tampa",
+      "conferenceId": "iccv88",
+      "country": "United States",
+      "end": "1988-12-08",
+      "id": "iccv88@main",
+      "lat": 27.9449854,
+      "link": "https://dblp.org/db/conf/iccv/iccv1988.html",
+      "lng": -82.4583107,
+      "name": "ICCV 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-12-05"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "icml88",
+      "country": "United States",
+      "end": "1988-06-14",
+      "id": "icml88@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/icml/ml1988.html",
+      "lng": -83.7484616,
+      "name": "ICML 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-06-12"
+    },
+    {
+      "access": "registration",
+      "city": "Rome",
+      "conferenceId": "icpr88",
+      "country": "Italy",
+      "end": "1988-11-17",
+      "id": "icpr88@main",
+      "lat": 41.8933203,
+      "link": "https://dblp.org/db/conf/icpr/icpr1988.html",
+      "lng": 12.4829321,
+      "name": "ICPR 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-11-14",
+      "venue": "Ergife Palace Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "icra88",
+      "country": "United States",
+      "end": "1988-04-29",
+      "id": "icra88@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/icra/icra1988.html",
+      "lng": -75.1635262,
+      "name": "ICRA 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "iros88",
+      "country": "Japan",
+      "end": "1988-11-02",
+      "id": "iros88@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/iros/iros1988.html",
+      "lng": 139.7638947,
+      "name": "IROS 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-10-31"
+    },
+    {
+      "access": "registration",
+      "city": "Turin",
+      "conferenceId": "ismis88",
+      "country": "Italy",
+      "end": "1988-10-15",
+      "id": "ismis88@main",
+      "lat": 45.0677551,
+      "link": "https://dblp.org/db/conf/ismis/ismis88.html",
+      "lng": 7.6824892,
+      "name": "ISMIS 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips88",
+      "country": "United States",
+      "end": "1988-12-01",
+      "id": "neurips88@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "lng": -104.984862,
+      "name": "NIPS 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-11-28",
+      "venue": "Sheraton Denver Tech Center"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "siggraph88",
+      "country": "United States",
+      "end": "1988-08-05",
+      "id": "siggraph88@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1988.html",
+      "lng": -84.3898151,
+      "name": "SIGGRAPH 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "sigir88",
+      "country": "France",
+      "end": "1988-06-15",
+      "id": "sigir88@main",
+      "lat": 45.1875602,
+      "link": "https://dblp.org/db/conf/sigir/sigir88.html",
+      "lng": 5.7357819,
+      "name": "SIGIR 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "uai88",
+      "country": "United States",
+      "end": "1988-07-12",
+      "id": "uai88@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/uai/uai1988.html",
+      "lng": -93.2654692,
+      "name": "UAI 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-07-10"
+    }
+  ]
+}

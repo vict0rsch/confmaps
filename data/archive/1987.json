@@ -1,0 +1,484 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1987-07-17",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai87",
+      "link": "https://aaai.org/conference/aaai/aaai87/",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1987-07-13",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-07-09",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl87",
+      "link": "https://dblp.org/db/conf/acl/acl1987.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1987-07-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-04-09",
+      "fullName": "SIGCHI/GI Conference on Human Factors in Computing Systems and Graphics Interface",
+      "id": "chi87",
+      "link": "https://dblp.org/db/conf/chi/chi1987.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1987-04-05",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-04-03",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl87",
+      "link": "https://dblp.org/db/conf/eacl/eacl1987.html",
+      "series": "eacl",
+      "source": "curated",
+      "start": "1987-04-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-08-28",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics87",
+      "link": "https://dblp.org/db/conf/eurographics/eg1987.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1987-08-24",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-04-09",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp87",
+      "link": "https://dblp.org/db/conf/icassp/icassp1987.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1987-04-06",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-06-11",
+      "fullName": "International Conference on Computer Vision",
+      "id": "iccv87",
+      "link": "https://iucat.iu.edu/iupui/3611751",
+      "series": "iccv",
+      "source": "curated",
+      "start": "1987-06-08",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "ICCV",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-06-25",
+      "fullName": "International Workshop on Machine Learning",
+      "id": "icml87",
+      "link": "https://www.sciencedirect.com/book/9780934613415/proceedings-of-the-fourth-international-workshop-on-machine-learning",
+      "series": "icml",
+      "source": "curated",
+      "start": "1987-06-22",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-04-03",
+      "fullName": "IEEE International Conference on Robotics and Automation",
+      "id": "icra87",
+      "link": "https://dblp.org/db/conf/icra/icra1987.html",
+      "series": "icra",
+      "source": "curated",
+      "start": "1987-03-31",
+      "tags": [
+        "robotics",
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "ICRA",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-08-28",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai87",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai87.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1987-08-23",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-10-17",
+      "fullName": "International Symposium on Methodologies for Intelligent Systems",
+      "id": "ismis87",
+      "link": "https://dblp.org/db/conf/ismis/ismis87.html",
+      "series": "ismis",
+      "source": "curated",
+      "start": "1987-10-14",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ISMIS",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-11-12",
+      "fullName": "IEEE Conference on Neural Information Processing Systems - Natural and Synthetic",
+      "id": "neurips87",
+      "link": "https://dblp.org/db/conf/nips/nips1987.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1987-11-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-07-31",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph87",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1987.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1987-07-27",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-06-05",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir87",
+      "link": "https://dblp.org/db/conf/sigir/sigir87.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1987-06-03",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai87",
+      "link": "https://dblp.org/db/conf/uai/uai1987.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1987-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1987
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "aaai87",
+      "country": "United States",
+      "end": "1987-07-17",
+      "id": "aaai87@main",
+      "lat": 47.6038321,
+      "link": "https://aaai.org/conference/aaai/aaai87/",
+      "lng": -122.330062,
+      "name": "AAAI 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "acl87",
+      "country": "United States",
+      "end": "1987-07-09",
+      "id": "acl87@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/acl/acl1987.html",
+      "lng": -122.1702445,
+      "name": "ACL 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-06",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "chi87",
+      "country": "Canada",
+      "end": "1987-04-09",
+      "id": "chi87@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/chi/chi1987.html",
+      "lng": -79.3839347,
+      "name": "CHI 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-04-05"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "eacl87",
+      "country": "Denmark",
+      "end": "1987-04-03",
+      "id": "eacl87@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/eacl/eacl1987.html",
+      "lng": 12.5700724,
+      "name": "EACL 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-04-01",
+      "venue": "University of Copenhagen"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "eurographics87",
+      "country": "Netherlands",
+      "end": "1987-08-28",
+      "id": "eurographics87@main",
+      "lat": 52.3730796,
+      "link": "https://dblp.org/db/conf/eurographics/eg1987.html",
+      "lng": 4.8924534,
+      "name": "Eurographics 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "icassp87",
+      "country": "United States",
+      "end": "1987-04-09",
+      "id": "icassp87@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/icassp/icassp1987.html",
+      "lng": -96.7968559,
+      "name": "ICASSP 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-04-06"
+    },
+    {
+      "access": "registration",
+      "city": "London",
+      "conferenceId": "iccv87",
+      "country": "United Kingdom",
+      "end": "1987-06-11",
+      "id": "iccv87@main",
+      "lat": 51.5074456,
+      "link": "https://iucat.iu.edu/iupui/3611751",
+      "lng": -0.1277653,
+      "name": "ICCV 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-06-08"
+    },
+    {
+      "access": "registration",
+      "city": "Irvine",
+      "conferenceId": "icml87",
+      "country": "United States",
+      "end": "1987-06-25",
+      "id": "icml87@main",
+      "lat": 33.6856969,
+      "link": "https://www.sciencedirect.com/book/9780934613415/proceedings-of-the-fourth-international-workshop-on-machine-learning",
+      "lng": -117.825981,
+      "name": "ICML 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-06-22",
+      "venue": "University of California, Irvine"
+    },
+    {
+      "access": "registration",
+      "city": "Raleigh",
+      "conferenceId": "icra87",
+      "country": "United States",
+      "end": "1987-04-03",
+      "id": "icra87@main",
+      "lat": 35.7803977,
+      "link": "https://dblp.org/db/conf/icra/icra1987.html",
+      "lng": -78.6390989,
+      "name": "ICRA 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-03-31"
+    },
+    {
+      "access": "registration",
+      "city": "Milan",
+      "conferenceId": "ijcai87",
+      "country": "Italy",
+      "end": "1987-08-28",
+      "id": "ijcai87@main",
+      "lat": 45.4641943,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai87.html",
+      "lng": 9.1896346,
+      "name": "IJCAI 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-08-23"
+    },
+    {
+      "access": "registration",
+      "city": "Charlotte",
+      "conferenceId": "ismis87",
+      "country": "United States",
+      "end": "1987-10-17",
+      "id": "ismis87@main",
+      "lat": 35.2272086,
+      "link": "https://dblp.org/db/conf/ismis/ismis87.html",
+      "lng": -80.8430827,
+      "name": "ISMIS 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-10-14"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips87",
+      "country": "United States",
+      "end": "1987-11-12",
+      "id": "neurips87@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1987.html",
+      "lng": -104.984862,
+      "name": "NIPS 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-11-08"
+    },
+    {
+      "access": "registration",
+      "city": "Anaheim",
+      "conferenceId": "siggraph87",
+      "country": "United States",
+      "end": "1987-07-31",
+      "id": "siggraph87@main",
+      "lat": 33.8347516,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1987.html",
+      "lng": -117.911732,
+      "name": "SIGGRAPH 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "sigir87",
+      "country": "United States",
+      "end": "1987-06-05",
+      "id": "sigir87@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/sigir/sigir87.html",
+      "lng": -90.0629493,
+      "name": "SIGIR 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-06-03"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "uai87",
+      "country": "United States",
+      "end": "1987-07-12",
+      "id": "uai87@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/uai/uai1987.html",
+      "lng": -122.330062,
+      "name": "UAI 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-10"
+    }
+  ]
+}

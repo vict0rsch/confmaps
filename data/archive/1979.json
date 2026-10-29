@@ -1,0 +1,165 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1979-07-01",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl79",
+      "link": "https://dblp.org/db/conf/acl/acl1979.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1979-06-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1979
+    },
+    {
+      "deadlines": [],
+      "end": "1979-04-04",
+      "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
+      "id": "icassp79",
+      "link": "https://dblp.org/db/conf/icassp/icassp1979.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1979-04-02",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1979
+    },
+    {
+      "deadlines": [],
+      "end": "1979-08-23",
+      "fullName": "International Joint Conference on Artificial Intelligence",
+      "id": "ijcai79",
+      "link": "https://dblp.org/db/conf/ijcai/ijcai1979.html",
+      "series": "ijcai",
+      "source": "curated",
+      "start": "1979-08-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "IJCAI",
+      "year": 1979
+    },
+    {
+      "deadlines": [],
+      "end": "1979-08-10",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph79",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1979.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1979-08-08",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1979
+    },
+    {
+      "deadlines": [],
+      "end": "1979-09-28",
+      "id": "sigir79",
+      "link": "https://dblp.org/db/conf/sigir/sigir79.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1979-09-27",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1979
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "La Jolla",
+      "conferenceId": "acl79",
+      "country": "United States",
+      "end": "1979-07-01",
+      "id": "acl79@main",
+      "lat": 32.8458529,
+      "link": "https://dblp.org/db/conf/acl/acl1979.html",
+      "lng": -117.2575702,
+      "name": "ACL 1979",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1979-06-29",
+      "venue": "University of California at San Diego"
+    },
+    {
+      "access": "registration",
+      "city": "Washington, D.C.",
+      "conferenceId": "icassp79",
+      "country": "United States",
+      "end": "1979-04-04",
+      "id": "icassp79@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/icassp/icassp1979.html",
+      "lng": -77.0363849,
+      "name": "ICASSP 1979",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1979-04-02"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "ijcai79",
+      "country": "Japan",
+      "end": "1979-08-23",
+      "id": "ijcai79@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/ijcai/ijcai1979.html",
+      "lng": 139.7638947,
+      "name": "IJCAI 1979",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1979-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "siggraph79",
+      "country": "United States",
+      "end": "1979-08-10",
+      "id": "siggraph79@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1979.html",
+      "lng": -87.6244212,
+      "name": "SIGGRAPH 1979",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1979-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "sigir79",
+      "country": "United States",
+      "end": "1979-09-28",
+      "id": "sigir79@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/sigir/sigir79.html",
+      "lng": -96.7968559,
+      "name": "SIGIR 1979",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1979-09-27"
+    }
+  ]
+}

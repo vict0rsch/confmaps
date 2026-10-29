@@ -1,0 +1,292 @@
+{
+  "conferences": [
+    {
+      "deadlines": [],
+      "end": "1982-08-20",
+      "fullName": "National Conference on Artificial Intelligence",
+      "id": "aaai82",
+      "link": "https://dblp.org/db/conf/aaai/aaai82.html",
+      "series": "aaai",
+      "source": "curated",
+      "start": "1982-08-18",
+      "tags": [
+        "data-mining",
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "AAAI",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-06-18",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl82",
+      "link": "https://dblp.org/db/conf/acl/acl1982.html",
+      "series": "acl",
+      "source": "curated",
+      "start": "1982-06-16",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-03-17",
+      "fullName": "Conference on Human Factors in Computing Systems",
+      "id": "chi82",
+      "link": "https://dblp.org/db/conf/chi/chi1982.html",
+      "series": "chi",
+      "source": "curated",
+      "start": "1982-03-15",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "CHI",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-07-14",
+      "fullName": "European Conference on Artificial Intelligence",
+      "id": "ecai82",
+      "link": "https://dblp.org/db/conf/ecai/ecai82.html",
+      "series": "ecai",
+      "source": "curated",
+      "start": "1982-07-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ECAI",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-09-10",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics82",
+      "link": "https://dblp.org/db/conf/eurographics/eg1982.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1982-09-08",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-05-05",
+      "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+      "id": "icassp82",
+      "link": "https://dblp.org/db/conf/icassp/icassp1982.html",
+      "series": "icassp",
+      "source": "curated",
+      "start": "1982-05-03",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "ICASSP",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-10-22",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr82",
+      "link": "https://catalog.hathitrust.org/Record/009672702",
+      "series": "icpr",
+      "source": "curated",
+      "start": "1982-10-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-07-30",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph82",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1982.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1982-07-26",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-05-20",
+      "id": "sigir82",
+      "link": "https://dblp.org/db/conf/sigir/sigir82.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1982-05-18",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1982
+    }
+  ],
+  "locations": [
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "aaai82",
+      "country": "United States",
+      "end": "1982-08-20",
+      "id": "aaai82@main",
+      "lat": 40.4406968,
+      "link": "https://dblp.org/db/conf/aaai/aaai82.html",
+      "lng": -80.0025666,
+      "name": "AAAI 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "acl82",
+      "country": "Canada",
+      "end": "1982-06-18",
+      "id": "acl82@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/acl/acl1982.html",
+      "lng": -79.3839347,
+      "name": "ACL 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-06-16",
+      "venue": "University of Toronto"
+    },
+    {
+      "access": "registration",
+      "city": "Gaithersburg",
+      "conferenceId": "chi82",
+      "country": "United States",
+      "end": "1982-03-17",
+      "id": "chi82@main",
+      "lat": 39.1399187,
+      "link": "https://dblp.org/db/conf/chi/chi1982.html",
+      "lng": -77.1929215,
+      "name": "CHI 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-03-15"
+    },
+    {
+      "access": "registration",
+      "city": "Orsay",
+      "conferenceId": "ecai82",
+      "country": "France",
+      "end": "1982-07-14",
+      "id": "ecai82@main",
+      "lat": 48.699184,
+      "link": "https://dblp.org/db/conf/ecai/ecai82.html",
+      "lng": 2.187457,
+      "name": "ECAI 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Manchester",
+      "conferenceId": "eurographics82",
+      "country": "United Kingdom",
+      "end": "1982-09-10",
+      "id": "eurographics82@main",
+      "lat": 53.4424618,
+      "link": "https://dblp.org/db/conf/eurographics/eg1982.html",
+      "lng": -2.2324547,
+      "name": "Eurographics 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "icassp82",
+      "country": "France",
+      "end": "1982-05-05",
+      "id": "icassp82@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/icassp/icassp1982.html",
+      "lng": 2.3483915,
+      "name": "ICASSP 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-05-03"
+    },
+    {
+      "access": "registration",
+      "city": "Munich",
+      "conferenceId": "icpr82",
+      "country": "Germany",
+      "end": "1982-10-22",
+      "id": "icpr82@main",
+      "lat": 48.1371079,
+      "link": "https://catalog.hathitrust.org/Record/009672702",
+      "lng": 11.5753822,
+      "name": "ICPR 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-10-19"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "siggraph82",
+      "country": "United States",
+      "end": "1982-07-30",
+      "id": "siggraph82@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1982.html",
+      "lng": -71.0578303,
+      "name": "SIGGRAPH 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "sigir82",
+      "country": "Germany",
+      "end": "1982-05-20",
+      "id": "sigir82@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/sigir/sigir82.html",
+      "lng": 13.3951309,
+      "name": "SIGIR 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-05-18"
+    }
+  ]
+}
