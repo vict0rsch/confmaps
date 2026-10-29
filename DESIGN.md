@@ -502,6 +502,10 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
     motion settles.
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
+  - At 2× and 4×, the list is debounced: it holds still behind a blur, with a notice saying why,
+    and updates on pause or back at 1×.
+  - The range label keeps a constant width while Play runs. Single-digit days get a figure space,
+    and the label is as wide as its widest month name.
 - **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
   handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
   editions do not squeeze it; "Since <year>" (or history mode) extends it. Play spans all data.

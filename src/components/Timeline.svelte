@@ -23,6 +23,7 @@
     datePresets,
     dayLabel,
     dragHandle,
+    monthVariants,
     moveWindow,
     nudge,
     sameWindow,
@@ -36,6 +37,7 @@
   const uid = $props.id();
 
   const dates = $derived(getDates());
+  const rangeLabel = $derived(windowLabel(dates, compact));
   const inHistory = $derived(!!historyMode.series);
 
   let trackEl: HTMLDivElement | undefined = $state();
@@ -419,7 +421,12 @@
           {/each}
         </div>
       {/if}
-      <span class="range tabular" data-testid="timeline-range">{windowLabel(dates, compact)}</span>
+      <span class="range tabular">
+        <span data-testid="timeline-range">{rangeLabel}</span>
+        {#each monthVariants(rangeLabel) as v, i (i)}
+          <span class="ghost" aria-hidden="true">{v}</span>
+        {/each}
+      </span>
     {/if}
   </div>
 </section>
@@ -796,12 +803,23 @@
       0 1px 3px rgb(0 0 0 / 0.12);
   }
 
+  /* The label and its month variants share one grid cell: the cell takes the widest one's width. */
   .range {
+    display: grid;
+    justify-items: end;
     min-width: 13.5em;
     color: var(--ink);
     font-weight: var(--weight-medium);
     text-align: right;
     white-space: nowrap;
+  }
+
+  .range > span {
+    grid-area: 1 / 1;
+  }
+
+  .ghost {
+    visibility: hidden;
   }
 
   .compact .range {

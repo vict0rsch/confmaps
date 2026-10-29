@@ -172,6 +172,8 @@ const month = (iso: string) => MONTHS[Number(iso.slice(5, 7)) - 1];
 /**
  * The window as text. Whole months read as months ("Nov 2026 – Oct 2027"), other windows as
  * days ("Oct 22, 2026 – Oct 22, 2027"). `short` (compact bar): months only, "Oct ’26 – Oct ’27".
+ * A single-digit day gets a leading figure space (as wide as a digit), so the label keeps its
+ * width while Play steps through the days.
  */
 export function windowLabel(w: DateWindow, short = false): string {
   const yy = (iso: string) => `’${iso.slice(2, 4)}`;
@@ -183,8 +185,15 @@ export function windowLabel(w: DateWindow, short = false): string {
     const [a, b] = [`${month(w.from)} ${w.from.slice(0, 4)}`, `${month(w.to)} ${w.to.slice(0, 4)}`];
     return a === b ? a : `${a} – ${b}`;
   }
-  return formatDateRange(w.from, w.to);
+  return formatDateRange(w.from, w.to).replace(/\b(\d)\b/g, '\u2007$1');
 }
+
+/**
+ * `label` once with each month name. Stacked invisibly behind the label, they give it the widest
+ * month's width, so it does not change width from month to month.
+ */
+export const monthVariants = (label: string): string[] =>
+  MONTHS.map((m) => label.replace(/[A-Z][a-z]{2}/g, m));
 
 /** One day as text: "Oct 22, 2026". */
 export const dayLabel = (iso: string): string => formatDateRange(iso, iso);
