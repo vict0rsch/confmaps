@@ -193,6 +193,21 @@
     },
     {
       "deadlines": [],
+      "end": "1996-03-27",
+      "fullName": "BCS-IRSG Annual Colloquium on Information Retrieval Research",
+      "id": "ecir96",
+      "link": "https://openaccess.city.ac.uk/id/eprint/4448/",
+      "series": "ecir",
+      "source": "curated",
+      "start": "1996-03-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
       "end": "1996-05-18",
       "fullName": "Conference on Empirical Methods in Natural Language Processing",
       "id": "emnlp96",
@@ -263,6 +278,23 @@
         "information-systems"
       ],
       "title": "HICSS",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-11-01",
+      "fullName": "Ibero-American Conference on Artificial Intelligence",
+      "id": "iberamia96",
+      "link": "https://www.iberamia.org/iberamia/conferencias-iberamia/",
+      "series": "iberamia",
+      "source": "curated",
+      "start": "1996-10-28",
+      "tags": [
+        "machine-learning",
+        "natural-language-processing",
+        "computer-vision"
+      ],
+      "title": "IBERAMIA",
       "year": 1996
     },
     {
@@ -416,6 +448,136 @@
         "data-mining"
       ],
       "title": "ISMIS",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-08-04",
+      "fullName": "International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd96",
+      "link": "https://aaai.org/conference/kdd/kdd96/",
+      "series": "kdd",
+      "source": "curated",
+      "start": "1996-08-02",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-11-08",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr96",
+      "link": "https://dblp.org/db/conf/kr/kr96.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "1996-11-05",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-12-05",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips96",
+      "link": "http://www.cs.cmu.edu/Groups/NIPS/NIPS96/nips96.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1996-12-03",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-08-09",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph96",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1996.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1996-08-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-08-22",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir96",
+      "link": "https://dblp.org/db/conf/sigir/sigir96.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1996-08-18",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-08-04",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai96",
+      "link": "https://dblp.org/db/conf/uai/uai1996.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1996-08-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-12-04",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv96",
+      "link": "https://dblp.org/db/conf/wacv/wacv1996.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "1996-12-02",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 1996
+    },
+    {
+      "deadlines": [],
+      "end": "1996-05-10",
+      "fullName": "International World Wide Web Conference",
+      "id": "www96",
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "series": "www",
+      "source": "curated",
+      "start": "1996-05-06",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 1996
     }
   ],
@@ -615,6 +777,23 @@
     },
     {
       "access": "registration",
+      "city": "Manchester",
+      "conferenceId": "ecir96",
+      "country": "United Kingdom",
+      "end": "1996-03-27",
+      "id": "ecir96@main",
+      "lat": 53.4424618,
+      "link": "https://openaccess.city.ac.uk/id/eprint/4448/",
+      "lng": -2.2324547,
+      "name": "ECIR 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-03-26",
+      "venue": "Manchester Metropolitan University"
+    },
+    {
+      "access": "registration",
       "city": "Philadelphia",
       "conferenceId": "emnlp96",
       "country": "United States",
@@ -692,6 +871,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1996-01-03"
+    },
+    {
+      "access": "registration",
+      "city": "Cholula",
+      "conferenceId": "iberamia96",
+      "country": "Mexico",
+      "end": "1996-11-01",
+      "id": "iberamia96@main",
+      "lat": 19.0678244,
+      "link": "https://www.iberamia.org/iberamia/conferencias-iberamia/",
+      "lng": -98.3106315,
+      "name": "IBERAMIA 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-10-28"
     },
     {
       "access": "registration",
@@ -852,6 +1047,137 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1996-06-09"
+    },
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "kdd96",
+      "country": "United States",
+      "end": "1996-08-04",
+      "id": "kdd96@main",
+      "lat": 45.5202471,
+      "link": "https://aaai.org/conference/kdd/kdd96/",
+      "lng": -122.674194,
+      "name": "KDD 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-02"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "kr96",
+      "country": "United States",
+      "end": "1996-11-08",
+      "id": "kr96@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/kr/kr96.html",
+      "lng": -71.1040018,
+      "name": "KR 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-11-05"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips96",
+      "country": "United States",
+      "end": "1996-12-05",
+      "id": "neurips96@main",
+      "lat": 39.7392364,
+      "link": "http://www.cs.cmu.edu/Groups/NIPS/NIPS96/nips96.html",
+      "lng": -104.984862,
+      "name": "NIPS 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-12-03",
+      "venue": "Marriott City Center"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "siggraph96",
+      "country": "United States",
+      "end": "1996-08-09",
+      "id": "siggraph96@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1996.html",
+      "lng": -90.0629493,
+      "name": "SIGGRAPH 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-04"
+    },
+    {
+      "access": "registration",
+      "city": "Zurich",
+      "conferenceId": "sigir96",
+      "country": "Switzerland",
+      "end": "1996-08-22",
+      "id": "sigir96@main",
+      "lat": 47.3744489,
+      "link": "https://dblp.org/db/conf/sigir/sigir96.html",
+      "lng": 8.5410422,
+      "name": "SIGIR 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Portland",
+      "conferenceId": "uai96",
+      "country": "United States",
+      "end": "1996-08-04",
+      "id": "uai96@main",
+      "lat": 45.5202471,
+      "link": "https://dblp.org/db/conf/uai/uai1996.html",
+      "lng": -122.674194,
+      "name": "UAI 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-08-01",
+      "venue": "Reed College"
+    },
+    {
+      "access": "registration",
+      "city": "Sarasota",
+      "conferenceId": "wacv96",
+      "country": "United States",
+      "end": "1996-12-04",
+      "id": "wacv96@main",
+      "lat": 27.3365805,
+      "link": "https://dblp.org/db/conf/wacv/wacv1996.html",
+      "lng": -82.5308545,
+      "name": "WACV 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-12-02"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "www96",
+      "country": "France",
+      "end": "1996-05-10",
+      "id": "www96@main",
+      "lat": 48.8534951,
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "lng": 2.3483915,
+      "name": "WWW 1996",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1996-05-06",
+      "venue": "CNIT"
     }
   ]
 }

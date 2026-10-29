@@ -839,6 +839,112 @@
     },
     {
       "deadlines": [],
+      "end": "2016-03-10",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui16",
+      "link": "https://dblp.org/db/conf/iui/iui2016.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2016-03-07",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-08-17",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd16",
+      "link": "https://dblp.org/rec/conf/kdd/2016.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2016-08-13",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-04-29",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr16",
+      "link": "https://dblp.org/db/conf/kr/kr2016.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2016-04-25",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-10-07",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem16",
+      "link": "https://dblp.org/db/conf/ksem/ksem2016.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2016-10-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-05-28",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec16",
+      "link": "https://dblp.org/db/conf/lrec/lrec2016.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2016-05-23",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-10-21",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai16",
+      "link": "https://dblp.org/db/conf/miccai/miccai2016-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2016-10-17",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-07-21",
+      "fullName": "Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm16",
+      "link": "https://dblp.org/db/conf/mldm/mldm2016.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2016-07-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
       "end": "2016-06-15",
       "id": "naacl16",
       "link": "https://web.archive.org/web/20160613114946/http://naacl.org/naacl-hlt-2016/",
@@ -867,6 +973,211 @@
     },
     {
       "deadlines": [],
+      "end": "2016-04-22",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd16",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2016-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2016-04-19",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-09-19",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys16",
+      "link": "https://web.archive.org/web/20160920114516/http://recsys.acm.org/recsys16/",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2016-09-15",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-08-31",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman16",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2016.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2016-08-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-06-22",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss16",
+      "link": "https://dblp.org/db/conf/rss/rss2016.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2016-06-18",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-05-07",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm16",
+      "link": "https://dblp.org/db/conf/sdm/sdm2016.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2016-05-05",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-08-12",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem16",
+      "link": "https://dblp.org/db/conf/starsem/starsem2016.html",
+      "series": "sem",
+      "source": "curated",
+      "start": "2016-08-11",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-06-24",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp16",
+      "link": "http://www.geometrysummit2016.org/sgp2016/index.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2016-06-20",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-10-07",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi16",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2016.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2016-10-04",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-07-28",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph16",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2016courses.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2016-07-24",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-12-08",
+      "fullName": "SIGGRAPH Asia",
+      "id": "siggraphasia16",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2016asiabriefs.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2016-12-05",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-07-21",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir16",
+      "link": "https://dblp.org/db/conf/sigir/sigir2016.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2016-07-17",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-12-16",
+      "fullName": "IEEE Spoken Language Technology Workshop",
+      "id": "slt16",
+      "link": "https://dblp.org/db/conf/slt/slt2016.html",
+      "series": "slt",
+      "source": "curated",
+      "start": "2016-12-13",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-08-27",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom16",
+      "link": "https://dblp.org/db/conf/specom/specom2016.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2016-08-23",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
       "end": "2016-06-29",
       "id": "uai16",
       "link": "https://web.archive.org/web/20160611134948/http://auai.org/uai2016/cfp.php",
@@ -877,6 +1188,58 @@
         "machine-learning"
       ],
       "title": "UAI",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-03-10",
+      "fullName": "IEEE Winter Conference on Applications of Computer Vision",
+      "id": "wacv16",
+      "link": "https://dblp.org/db/conf/wacv/wacv2016.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2016-03-07",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-02-25",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm16",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2016.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2016-02-22",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2016
+    },
+    {
+      "deadlines": [],
+      "end": "2016-04-15",
+      "fullName": "International World Wide Web Conference",
+      "id": "www16",
+      "link": "https://dblp.org/db/conf/www/www2016.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2016-04-11",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2016
     }
   ],
@@ -1751,6 +2114,118 @@
     },
     {
       "access": "registration",
+      "city": "Sonoma",
+      "conferenceId": "iui16",
+      "country": "United States",
+      "end": "2016-03-10",
+      "id": "iui16@main",
+      "lat": 38.2919984,
+      "link": "https://dblp.org/db/conf/iui/iui2016.html",
+      "lng": -122.4578582,
+      "name": "IUI 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-03-07"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "kdd16",
+      "country": "United States",
+      "end": "2016-08-17",
+      "id": "kdd16@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/rec/conf/kdd/2016.html",
+      "lng": -122.4075201,
+      "name": "KDD 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Cape Town",
+      "conferenceId": "kr16",
+      "country": "South Africa",
+      "end": "2016-04-29",
+      "id": "kr16@main",
+      "lat": -33.9288301,
+      "link": "https://dblp.org/db/conf/kr/kr2016.html",
+      "lng": 18.4172197,
+      "name": "KR 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-04-25"
+    },
+    {
+      "access": "registration",
+      "city": "Passau",
+      "conferenceId": "ksem16",
+      "country": "Germany",
+      "end": "2016-10-07",
+      "id": "ksem16@main",
+      "lat": 48.5748229,
+      "link": "https://dblp.org/db/conf/ksem/ksem2016.html",
+      "lng": 13.4609744,
+      "name": "KSEM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-10-05"
+    },
+    {
+      "access": "registration",
+      "city": "Portorož",
+      "conferenceId": "lrec16",
+      "country": "Slovenia",
+      "end": "2016-05-28",
+      "id": "lrec16@main",
+      "lat": 45.5146489,
+      "link": "https://dblp.org/db/conf/lrec/lrec2016.html",
+      "lng": 13.5910112,
+      "name": "LREC 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-05-23"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "miccai16",
+      "country": "Greece",
+      "end": "2016-10-21",
+      "id": "miccai16@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/miccai/miccai2016-1.html",
+      "lng": 23.7348324,
+      "name": "MICCAI 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm16",
+      "country": "United States",
+      "end": "2016-07-21",
+      "id": "mldm16@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/mldm/mldm2016.html",
+      "lng": -74.0060152,
+      "name": "MLDM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-07-16"
+    },
+    {
+      "access": "registration",
       "city": "San Diego",
       "conferenceId": "naacl16",
       "country": "United States",
@@ -1784,6 +2259,215 @@
     },
     {
       "access": "registration",
+      "city": "Auckland",
+      "conferenceId": "pakdd16",
+      "country": "New Zealand",
+      "end": "2016-04-22",
+      "id": "pakdd16@main",
+      "lat": -36.852095,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2016-1.html",
+      "lng": 174.7631803,
+      "name": "PAKDD 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-04-19"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "recsys16",
+      "country": "United States",
+      "end": "2016-09-19",
+      "id": "recsys16@main",
+      "lat": 42.3588336,
+      "link": "https://web.archive.org/web/20160920114516/http://recsys.acm.org/recsys16/",
+      "lng": -71.0578303,
+      "name": "RecSys 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-09-15"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "roman16",
+      "country": "United States",
+      "end": "2016-08-31",
+      "id": "roman16@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2016.html",
+      "lng": -74.0060152,
+      "name": "RO-MAN 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-08-26"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "rss16",
+      "country": "United States",
+      "end": "2016-06-22",
+      "id": "rss16@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/rss/rss2016.html",
+      "lng": -83.7484616,
+      "name": "RSS 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-06-18",
+      "venue": "University of Michigan"
+    },
+    {
+      "access": "registration",
+      "city": "Miami",
+      "conferenceId": "sdm16",
+      "country": "United States",
+      "end": "2016-05-07",
+      "id": "sdm16@main",
+      "lat": 25.7741566,
+      "link": "https://dblp.org/db/conf/sdm/sdm2016.html",
+      "lng": -80.1935973,
+      "name": "SDM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-05-05"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "sem16",
+      "country": "Germany",
+      "end": "2016-08-12",
+      "id": "sem16@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/starsem/starsem2016.html",
+      "lng": 13.3951309,
+      "name": "*SEM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "sgp16",
+      "country": "Germany",
+      "end": "2016-06-24",
+      "id": "sgp16@main",
+      "lat": 52.5173885,
+      "link": "http://www.geometrysummit2016.org/sgp2016/index.html",
+      "lng": 13.3951309,
+      "name": "SGP 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-06-20"
+    },
+    {
+      "access": "registration",
+      "city": "São Paulo",
+      "conferenceId": "sibgrapi16",
+      "country": "Brazil",
+      "end": "2016-10-07",
+      "id": "sibgrapi16@main",
+      "lat": -23.5506507,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2016.html",
+      "lng": -46.6333824,
+      "name": "SIBGRAPI 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-10-04"
+    },
+    {
+      "access": "registration",
+      "city": "Anaheim",
+      "conferenceId": "siggraph16",
+      "country": "United States",
+      "end": "2016-07-28",
+      "id": "siggraph16@main",
+      "lat": 33.8347516,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2016courses.html",
+      "lng": -117.911732,
+      "name": "SIGGRAPH 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-07-24"
+    },
+    {
+      "access": "registration",
+      "city": "Macao",
+      "conferenceId": "siggraphasia16",
+      "country": "China",
+      "end": "2016-12-08",
+      "id": "siggraphasia16@main",
+      "lat": 22.1899448,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2016asiabriefs.html",
+      "lng": 113.5380454,
+      "name": "SIGGRAPH Asia 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-12-05"
+    },
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "sigir16",
+      "country": "Italy",
+      "end": "2016-07-21",
+      "id": "sigir16@main",
+      "lat": 43.7159395,
+      "link": "https://dblp.org/db/conf/sigir/sigir2016.html",
+      "lng": 10.4018624,
+      "name": "SIGIR 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-07-17"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "slt16",
+      "country": "United States",
+      "end": "2016-12-16",
+      "id": "slt16@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/slt/slt2016.html",
+      "lng": -117.1638284,
+      "name": "SLT 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-12-13"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "specom16",
+      "country": "Hungary",
+      "end": "2016-08-27",
+      "id": "specom16@main",
+      "lat": 47.4978789,
+      "link": "https://dblp.org/db/conf/specom/specom2016.html",
+      "lng": 19.0402383,
+      "name": "SPECOM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-08-23"
+    },
+    {
+      "access": "registration",
       "city": "New York",
       "conferenceId": "uai16",
       "country": "United States",
@@ -1797,6 +2481,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2016-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Lake Placid",
+      "conferenceId": "wacv16",
+      "country": "United States",
+      "end": "2016-03-10",
+      "id": "wacv16@main",
+      "lat": 44.2831194,
+      "link": "https://dblp.org/db/conf/wacv/wacv2016.html",
+      "lng": -73.9828318,
+      "name": "WACV 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-03-07"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "wsdm16",
+      "country": "United States",
+      "end": "2016-02-25",
+      "id": "wsdm16@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2016.html",
+      "lng": -122.4075201,
+      "name": "WSDM 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-02-22"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "www16",
+      "country": "Canada",
+      "end": "2016-04-15",
+      "id": "www16@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/www/www2016.html",
+      "lng": -73.5698065,
+      "name": "WWW 2016",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2016-04-11"
     }
   ]
 }

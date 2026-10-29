@@ -446,6 +446,21 @@
     },
     {
       "deadlines": [],
+      "end": "2023-01-08",
+      "fullName": "IEEE International Conference on Automatic Face and Gesture Recognition",
+      "id": "fg23",
+      "link": "https://dblp.org/db/conf/fgr/fg2023.html",
+      "series": "fg",
+      "source": "curated",
+      "start": "2023-01-05",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "FG",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-07-19",
       "fullName": "Genetic and Evolutionary Computation Conference",
       "id": "gecco23",
@@ -546,6 +561,21 @@
         "signal-processing"
       ],
       "title": "ICASSP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-23",
+      "fullName": "International Conference on Computational Creativity",
+      "id": "iccc23",
+      "link": "https://web.archive.org/web/20230629014325/https://computationalcreativity.net/iccc23/",
+      "series": "iccc",
+      "source": "curated",
+      "start": "2023-06-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICCC",
       "year": 2023
     },
     {
@@ -843,6 +873,21 @@
     },
     {
       "deadlines": [],
+      "end": "2023-03-31",
+      "fullName": "ACM Conference on Intelligent User Interfaces",
+      "id": "iui23",
+      "link": "https://dblp.org/db/conf/iui/iui2023.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2023-03-27",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-08-10",
       "id": "kdd23",
       "link": "https://web.archive.org/web/20230802175700/https://kdd.org/kdd2023/",
@@ -871,6 +916,53 @@
     },
     {
       "deadlines": [],
+      "end": "2023-08-18",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem23",
+      "link": "https://dblp.org/db/conf/ksem/ksem2023-1.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2023-08-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-06-16",
+      "fullName": "Learning for Dynamics and Control Conference",
+      "id": "l4dc23",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2023.html",
+      "series": "l4dc",
+      "source": "curated",
+      "start": "2023-06-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-30",
+      "fullName": "Learning on Graphs Conference",
+      "id": "log23",
+      "link": "https://dblp.org/db/conf/log/log2023.html",
+      "series": "log",
+      "source": "curated",
+      "start": "2023-11-27",
+      "tags": [
+        "machine-learning",
+        "data-mining",
+        "knowledge-representation"
+      ],
+      "title": "LoG",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-10-12",
       "id": "miccai23",
       "link": "https://web.archive.org/web/20230923104657/https://conferences.miccai.org/2023/en/",
@@ -881,6 +973,36 @@
         "computer-vision"
       ],
       "title": "MICCAI",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-12",
+      "fullName": "Medical Imaging with Deep Learning",
+      "id": "midl23",
+      "link": "https://dblp.org/db/conf/midl/midl2023.html",
+      "series": "midl",
+      "source": "curated",
+      "start": "2023-07-10",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-01",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr23",
+      "link": "https://web.archive.org/web/20231009211800/http://www.ieee-mipr.org/",
+      "series": "mipr",
+      "source": "curated",
+      "start": "2023-08-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
       "year": 2023
     },
     {
@@ -899,6 +1021,21 @@
     },
     {
       "deadlines": [],
+      "end": "2023-05-20",
+      "id": "nlbse23",
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2023.html",
+      "series": "nlbse",
+      "source": "curated",
+      "start": "2023-05-20",
+      "tags": [
+        "natural-language-processing",
+        "software engineering"
+      ],
+      "title": "NLBSE",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-05-28",
       "id": "pakdd23",
       "link": "https://web.archive.org/web/20230525100840/https://pakdd2023.org",
@@ -909,6 +1046,21 @@
         "data-mining"
       ],
       "title": "PAKDD",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-09-06",
+      "fullName": "International Conference on Recent Advances in Natural Language Processing",
+      "id": "ranlp23",
+      "link": "https://web.archive.org/web/20230921073902/http://ranlp.org/ranlp2023/",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2023-09-04",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
       "year": 2023
     },
     {
@@ -955,6 +1107,53 @@
     },
     {
       "deadlines": [],
+      "end": "2023-09-20",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr23",
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2023.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2023-09-18",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-02-10",
+      "fullName": "IEEE Conference on Secure and Trustworthy Machine Learning",
+      "id": "satml23",
+      "link": "https://dblp.org/db/conf/satml/satml2023.html",
+      "series": "satml",
+      "source": "curated",
+      "start": "2023-02-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SaTML",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-04-29",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm23",
+      "link": "https://dblp.org/db/conf/sdm/sdm2023.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2023-04-27",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-07-14",
       "fullName": "*SEM 2023",
       "id": "sem23",
@@ -966,6 +1165,40 @@
         "natural-language-processing"
       ],
       "title": "*SEM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-05",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp23",
+      "link": "https://web.archive.org/web/20231205082750/https://sgp2024.github.io/past/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2023-07-03",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-11-09",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi23",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2023.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2023-11-06",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2023
     },
     {
@@ -1024,6 +1257,22 @@
         "data-mining"
       ],
       "title": "SIGIR-AP",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
+      "end": "2023-12-02",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom23",
+      "link": "https://dblp.org/db/conf/specom/specom2023-1.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2023-11-29",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
       "year": 2023
     },
     {
@@ -1572,6 +1821,22 @@
     },
     {
       "access": "registration",
+      "city": "Waikoloa Beach",
+      "conferenceId": "fg23",
+      "country": "United States",
+      "end": "2023-01-08",
+      "id": "fg23@main",
+      "lat": 19.9212437,
+      "link": "https://dblp.org/db/conf/fgr/fg2023.html",
+      "lng": -155.883456,
+      "name": "FG 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-01-05"
+    },
+    {
+      "access": "registration",
       "city": "Lisbon",
       "conferenceId": "gecco23",
       "country": "Portugal",
@@ -1681,6 +1946,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-06-04"
+    },
+    {
+      "access": "registration",
+      "city": "Waterloo",
+      "conferenceId": "iccc23",
+      "country": "Canada",
+      "end": "2023-06-23",
+      "id": "iccc23@main",
+      "lat": 43.4652699,
+      "link": "https://web.archive.org/web/20230629014325/https://computationalcreativity.net/iccc23/",
+      "lng": -80.5222961,
+      "name": "ICCC 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-06-19",
+      "venue": "University of Waterloo"
     },
     {
       "access": "registration",
@@ -2009,6 +2291,22 @@
     },
     {
       "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "iui23",
+      "country": "Australia",
+      "end": "2023-03-31",
+      "id": "iui23@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/iui/iui2023.html",
+      "lng": 151.2082848,
+      "name": "IUI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-03-27"
+    },
+    {
+      "access": "registration",
       "city": "Long Beach",
       "conferenceId": "kdd23",
       "country": "United States",
@@ -2041,6 +2339,51 @@
     },
     {
       "access": "registration",
+      "city": "Guangzhou",
+      "conferenceId": "ksem23",
+      "country": "China",
+      "end": "2023-08-18",
+      "id": "ksem23@main",
+      "lat": 23.1288429,
+      "link": "https://dblp.org/db/conf/ksem/ksem2023-1.html",
+      "lng": 113.2589581,
+      "name": "KSEM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-16"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "l4dc23",
+      "country": "United States",
+      "end": "2023-06-16",
+      "id": "l4dc23@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2023.html",
+      "lng": -75.1635262,
+      "name": "L4DC 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-06-15"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "log23",
+      "end": "2023-11-30",
+      "format": "virtual",
+      "id": "log23@main",
+      "link": "https://dblp.org/db/conf/log/log2023.html",
+      "name": "LoG 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-27"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "miccai23",
       "country": "Canada",
@@ -2054,6 +2397,39 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "Nashville",
+      "conferenceId": "midl23",
+      "country": "United States",
+      "end": "2023-07-12",
+      "id": "midl23@main",
+      "lat": 36.1622767,
+      "link": "https://dblp.org/db/conf/midl/midl2023.html",
+      "lng": -86.7742984,
+      "name": "MIDL 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-10"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "mipr23",
+      "country": "Singapore",
+      "end": "2023-09-01",
+      "format": "hybrid",
+      "id": "mipr23@main",
+      "lat": 1.2899175,
+      "link": "https://web.archive.org/web/20231009211800/http://www.ieee-mipr.org/",
+      "lng": 103.8519072,
+      "name": "MIPR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-08-30"
     },
     {
       "access": "registration",
@@ -2073,6 +2449,22 @@
     },
     {
       "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "nlbse23",
+      "country": "Australia",
+      "end": "2023-05-20",
+      "id": "nlbse23@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2023.html",
+      "lng": 144.9631732,
+      "name": "NLBSE 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-05-20"
+    },
+    {
+      "access": "registration",
       "city": "Osaka",
       "conferenceId": "pakdd23",
       "country": "Japan",
@@ -2087,6 +2479,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-05-25"
+    },
+    {
+      "access": "registration",
+      "city": "Varna",
+      "conferenceId": "ranlp23",
+      "country": "Bulgaria",
+      "end": "2023-09-06",
+      "id": "ranlp23@main",
+      "lat": 43.2073873,
+      "link": "https://web.archive.org/web/20230921073902/http://ranlp.org/ranlp2023/",
+      "lng": 27.9166653,
+      "name": "RANLP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-04"
     },
     {
       "access": "registration",
@@ -2138,6 +2546,54 @@
     },
     {
       "access": "registration",
+      "city": "Oslo",
+      "conferenceId": "rulemlrr23",
+      "country": "Norway",
+      "end": "2023-09-20",
+      "id": "rulemlrr23@main",
+      "lat": 59.9723975,
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2023.html",
+      "lng": 10.7757292,
+      "name": "RuleML+RR 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Raleigh",
+      "conferenceId": "satml23",
+      "country": "United States",
+      "end": "2023-02-10",
+      "id": "satml23@main",
+      "lat": 35.7803977,
+      "link": "https://dblp.org/db/conf/satml/satml2023.html",
+      "lng": -78.6390989,
+      "name": "SaTML 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-02-08"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "sdm23",
+      "country": "United States",
+      "end": "2023-04-29",
+      "id": "sdm23@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/sdm/sdm2023.html",
+      "lng": -93.2654692,
+      "name": "SDM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-04-27"
+    },
+    {
+      "access": "registration",
       "city": "Toronto",
       "conferenceId": "sem23",
       "country": "Canada",
@@ -2151,6 +2607,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Genova",
+      "conferenceId": "sgp23",
+      "country": "Italy",
+      "end": "2023-07-05",
+      "id": "sgp23@main",
+      "lat": 44.40726,
+      "link": "https://web.archive.org/web/20231205082750/https://sgp2024.github.io/past/",
+      "lng": 8.9338624,
+      "name": "SGP 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-03"
+    },
+    {
+      "access": "registration",
+      "city": "Rio Grande",
+      "conferenceId": "sibgrapi23",
+      "country": "Brazil",
+      "end": "2023-11-09",
+      "id": "sibgrapi23@main",
+      "lat": -32.0334252,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2023.html",
+      "lng": -52.0991297,
+      "name": "SIBGRAPI 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-06"
     },
     {
       "access": "registration",
@@ -2215,6 +2703,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Dharwad",
+      "conferenceId": "specom23",
+      "country": "India",
+      "end": "2023-12-02",
+      "id": "specom23@main",
+      "lat": 15.4540505,
+      "link": "https://dblp.org/db/conf/specom/specom2023-1.html",
+      "lng": 75.0066516,
+      "name": "SPECOM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-11-29"
     },
     {
       "access": "registration",

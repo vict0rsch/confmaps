@@ -230,6 +230,21 @@
     },
     {
       "deadlines": [],
+      "end": "1995-09-29",
+      "fullName": "European Workshop on Planning",
+      "id": "icaps95",
+      "link": "https://ecp01.icaps-conference.org/ecp_conferences.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "1995-09-27",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
       "end": "1995-05-12",
       "fullName": "International Conference on Acoustics, Speech, and Signal Processing",
       "id": "icassp95",
@@ -365,6 +380,123 @@
         "robotics"
       ],
       "title": "IROS",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-08-21",
+      "fullName": "International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd95",
+      "link": "https://aaai.org/conference/kdd/kdd95/",
+      "series": "kdd",
+      "source": "curated",
+      "start": "1995-08-20",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-11-30",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips95",
+      "link": "https://dblp.org/db/conf/nips/nips1995.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1995-11-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-10-27",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi95",
+      "link": "http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2013/02.25.18.00/doc/comissao.htm",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "1995-10-25",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-08-11",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph95",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1995.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1995-08-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-07-13",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir95",
+      "link": "https://dblp.org/db/conf/sigir/sigir95.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1995-07-09",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-08-20",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai95",
+      "link": "https://dblp.org/db/conf/uai/uai1995.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1995-08-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1995
+    },
+    {
+      "deadlines": [],
+      "end": "1995-04-14",
+      "fullName": "International World Wide Web Conference",
+      "id": "www95",
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "series": "www",
+      "source": "curated",
+      "start": "1995-04-10",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 1995
     }
   ],
@@ -616,6 +748,22 @@
     },
     {
       "access": "registration",
+      "city": "Assisi",
+      "conferenceId": "icaps95",
+      "country": "Italy",
+      "end": "1995-09-29",
+      "id": "icaps95@main",
+      "lat": 43.0711952,
+      "link": "https://ecp01.icaps-conference.org/ecp_conferences.html",
+      "lng": 12.6146669,
+      "name": "ICAPS 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-09-27"
+    },
+    {
+      "access": "registration",
       "city": "Detroit",
       "conferenceId": "icassp95",
       "country": "United States",
@@ -758,6 +906,118 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1995-08-05"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "kdd95",
+      "country": "Canada",
+      "end": "1995-08-21",
+      "id": "kdd95@main",
+      "lat": 45.5031824,
+      "link": "https://aaai.org/conference/kdd/kdd95/",
+      "lng": -73.5698065,
+      "name": "KDD 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips95",
+      "country": "United States",
+      "end": "1995-11-30",
+      "id": "neurips95@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1995.html",
+      "lng": -104.984862,
+      "name": "NIPS 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-11-27"
+    },
+    {
+      "access": "registration",
+      "city": "São Carlos",
+      "conferenceId": "sibgrapi95",
+      "country": "Brazil",
+      "end": "1995-10-27",
+      "id": "sibgrapi95@main",
+      "lat": -21.8788022,
+      "link": "http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2013/02.25.18.00/doc/comissao.htm",
+      "lng": -47.8567619,
+      "name": "SIBGRAPI 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-10-25"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph95",
+      "country": "United States",
+      "end": "1995-08-11",
+      "id": "siggraph95@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1995.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "sigir95",
+      "country": "United States",
+      "end": "1995-07-13",
+      "id": "sigir95@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/sigir/sigir95.html",
+      "lng": -122.330062,
+      "name": "SIGIR 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Montreal",
+      "conferenceId": "uai95",
+      "country": "Canada",
+      "end": "1995-08-20",
+      "id": "uai95@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/uai/uai1995.html",
+      "lng": -73.5698065,
+      "name": "UAI 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Darmstadt",
+      "conferenceId": "www95",
+      "country": "Germany",
+      "end": "1995-04-14",
+      "id": "www95@main",
+      "lat": 49.872775,
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "lng": 8.651177,
+      "name": "WWW 1995",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1995-04-10"
     }
   ]
 }

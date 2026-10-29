@@ -291,6 +291,69 @@
       ],
       "title": "ISMIS",
       "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-11-29",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips90",
+      "link": "https://dblp.org/db/conf/nips/nips1990.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1990-11-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-08-10",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph90",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1990.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1990-08-06",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-09-07",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir90",
+      "link": "https://dblp.org/db/conf/sigir/sigir90.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1990-09-05",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1990-07-29",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai90",
+      "link": "https://dblp.org/db/conf/uai/uai1990.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1990-07-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1990
     }
   ],
   "locations": [
@@ -600,6 +663,71 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1990-10-25"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips90",
+      "country": "United States",
+      "end": "1990-11-29",
+      "id": "neurips90@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1990.html",
+      "lng": -104.984862,
+      "name": "NIPS 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-11-26"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "siggraph90",
+      "country": "United States",
+      "end": "1990-08-10",
+      "id": "siggraph90@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1990.html",
+      "lng": -96.7968559,
+      "name": "SIGGRAPH 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Brussels",
+      "conferenceId": "sigir90",
+      "country": "Belgium",
+      "end": "1990-09-07",
+      "id": "sigir90@main",
+      "lat": 50.8467372,
+      "link": "https://dblp.org/db/conf/sigir/sigir90.html",
+      "lng": 4.352493,
+      "name": "SIGIR 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-09-05"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "uai90",
+      "country": "United States",
+      "end": "1990-07-29",
+      "id": "uai90@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/uai/uai1990.html",
+      "lng": -71.1040018,
+      "name": "UAI 1990",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1990-07-27",
+      "venue": "MIT"
     }
   ]
 }

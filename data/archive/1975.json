@@ -14,6 +14,21 @@
       ],
       "title": "IJCAI",
       "year": 1975
+    },
+    {
+      "deadlines": [],
+      "end": "1975-06-27",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph75",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1975.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1975-06-25",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1975
     }
   ],
   "locations": [
@@ -32,6 +47,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1975-09-03"
+    },
+    {
+      "access": "registration",
+      "city": "Bowling Green",
+      "conferenceId": "siggraph75",
+      "country": "United States",
+      "end": "1975-06-27",
+      "id": "siggraph75@main",
+      "lat": 36.9929203,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1975.html",
+      "lng": -86.4428677,
+      "name": "SIGGRAPH 1975",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1975-06-25"
     }
   ]
 }

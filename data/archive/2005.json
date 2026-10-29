@@ -36,6 +36,21 @@
     },
     {
       "deadlines": [],
+      "end": "2005-06-30",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl05",
+      "link": "https://2005.aclweb.org/",
+      "series": "acl",
+      "source": "curated",
+      "start": "2005-06-25",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
       "end": "2005-11-11",
       "fullName": "ACM Multimedia",
       "id": "acm05",
@@ -318,6 +333,21 @@
     },
     {
       "deadlines": [],
+      "end": "2005-01-06",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss05",
+      "link": "https://dblp.org/db/conf/hicss/hicss2005.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2005-01-03",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
       "end": "2005-09-15",
       "fullName": "International Conference on Artificial Neural Networks",
       "id": "icann05",
@@ -344,6 +374,21 @@
         "automated-planning"
       ],
       "title": "ICAPS",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-05-01",
+      "fullName": "International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc05",
+      "link": "http://robotics.dem.uc.pt/robotica2005",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2005-04-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2005
     },
     {
@@ -591,6 +636,292 @@
       ],
       "title": "ISWC",
       "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-01-13",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui05",
+      "link": "https://dblp.org/db/conf/iui/iui2005.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2005-01-10",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-08-24",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd05",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/1081870?tocHeading=heading2",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2005-08-21",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-10-29",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai05",
+      "link": "https://dblp.org/db/conf/miccai/miccai2005-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2005-10-26",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-07-11",
+      "fullName": "International Conference on Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm05",
+      "link": "https://dblp.org/db/conf/mldm/mldm2005.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2005-07-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-12-08",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips05",
+      "link": "https://dblp.org/db/conf/nips/nips2005.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2005-12-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-05-20",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd05",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2005.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2005-05-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-09-23",
+      "fullName": "Recent Advances in Natural Language Processing",
+      "id": "ranlp05",
+      "link": "https://web.archive.org/web/20051001011116/http://lml.bas.bg:80/ranlp2005/",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2005-09-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-08-15",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman05",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2005.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2005-08-13",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-06-11",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss05",
+      "link": "https://dblp.org/db/conf/rss/rss2005.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2005-06-08",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-04-23",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm05",
+      "link": "https://dblp.org/db/conf/sdm/sdm2005.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2005-04-21",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-07-06",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp05",
+      "link": "https://dblp.org/db/conf/sgp/sgp2005.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2005-07-04",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-10-12",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi05",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2005.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2005-10-09",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-08-04",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph05",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2005award.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2005-07-31",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-08-19",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir05",
+      "link": "https://dblp.org/db/conf/sigir/sigir2005.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2005-08-15",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-10-19",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom05",
+      "link": "https://web.archive.org/web/20050908030744/http://www.specom2005.org:80/",
+      "series": "specom",
+      "source": "curated",
+      "start": "2005-10-17",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-07-29",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai05",
+      "link": "https://dblp.org/db/conf/uai/uai2005.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2005-07-26",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-01-07",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv05",
+      "link": "https://dblp.org/db/conf/wacv/wacv2005.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2005-01-05",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2005
+    },
+    {
+      "deadlines": [],
+      "end": "2005-05-14",
+      "fullName": "International World Wide Web Conference",
+      "id": "www05",
+      "link": "https://dblp.org/db/conf/www/www2005.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2005-05-10",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 2005
     }
   ],
   "locations": [
@@ -625,6 +956,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2005-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "acl05",
+      "country": "United States",
+      "end": "2005-06-30",
+      "id": "acl05@main",
+      "lat": 42.2813722,
+      "link": "https://2005.aclweb.org/",
+      "lng": -83.7484616,
+      "name": "ACL 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-06-25"
     },
     {
       "access": "registration",
@@ -918,6 +1265,22 @@
     },
     {
       "access": "registration",
+      "city": "Waikoloa Village",
+      "conferenceId": "hicss05",
+      "country": "United States",
+      "end": "2005-01-06",
+      "id": "hicss05@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2005.html",
+      "lng": -155.787398,
+      "name": "HICSS 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-01-03"
+    },
+    {
+      "access": "registration",
       "city": "Warsaw",
       "conferenceId": "icann05",
       "country": "Poland",
@@ -947,6 +1310,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2005-06-05"
+    },
+    {
+      "access": "registration",
+      "city": "Coimbra",
+      "conferenceId": "icarsc05",
+      "country": "Portugal",
+      "end": "2005-05-01",
+      "id": "icarsc05@main",
+      "lat": 40.2111874,
+      "link": "http://robotics.dem.uc.pt/robotica2005",
+      "lng": -8.4291478,
+      "name": "ICARSC 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-04-29",
+      "venue": "Pavilhão Multi-Usos de Coimbra"
     },
     {
       "access": "registration",
@@ -1203,6 +1583,296 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2005-11-06"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "iui05",
+      "country": "United States",
+      "end": "2005-01-13",
+      "id": "iui05@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/iui/iui2005.html",
+      "lng": -117.1638284,
+      "name": "IUI 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-01-10"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "kdd05",
+      "country": "United States",
+      "end": "2005-08-24",
+      "id": "kdd05@main",
+      "lat": 41.8755616,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/1081870?tocHeading=heading2",
+      "lng": -87.6244212,
+      "name": "KDD 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-08-21"
+    },
+    {
+      "access": "registration",
+      "city": "Palm Springs",
+      "conferenceId": "miccai05",
+      "country": "United States",
+      "end": "2005-10-29",
+      "id": "miccai05@main",
+      "lat": 33.8246269,
+      "link": "https://dblp.org/db/conf/miccai/miccai2005-1.html",
+      "lng": -116.540303,
+      "name": "MICCAI 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-10-26"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "mldm05",
+      "country": "Germany",
+      "end": "2005-07-11",
+      "id": "mldm05@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/mldm/mldm2005.html",
+      "lng": 12.3747329,
+      "name": "MLDM 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips05",
+      "country": "Canada",
+      "end": "2005-12-08",
+      "id": "neurips05@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/nips/nips2005.html",
+      "lng": -123.113952,
+      "name": "NIPS 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-12-05"
+    },
+    {
+      "access": "registration",
+      "city": "Hanoi",
+      "conferenceId": "pakdd05",
+      "country": "Vietnam",
+      "end": "2005-05-20",
+      "id": "pakdd05@main",
+      "lat": 21.0283334,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2005.html",
+      "lng": 105.854041,
+      "name": "PAKDD 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-05-18"
+    },
+    {
+      "access": "registration",
+      "city": "Borovets",
+      "conferenceId": "ranlp05",
+      "country": "Bulgaria",
+      "end": "2005-09-23",
+      "id": "ranlp05@main",
+      "lat": 42.2668301,
+      "link": "https://web.archive.org/web/20051001011116/http://lml.bas.bg:80/ranlp2005/",
+      "lng": 23.6074324,
+      "name": "RANLP 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-09-21"
+    },
+    {
+      "access": "registration",
+      "city": "Nashville",
+      "conferenceId": "roman05",
+      "country": "United States",
+      "end": "2005-08-15",
+      "id": "roman05@main",
+      "lat": 36.1622767,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2005.html",
+      "lng": -86.7742984,
+      "name": "RO-MAN 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "rss05",
+      "country": "United States",
+      "end": "2005-06-11",
+      "id": "rss05@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/rss/rss2005.html",
+      "lng": -71.1040018,
+      "name": "RSS 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-06-08",
+      "venue": "Massachusetts Institute of Technology"
+    },
+    {
+      "access": "registration",
+      "city": "Newport Beach",
+      "conferenceId": "sdm05",
+      "country": "United States",
+      "end": "2005-04-23",
+      "id": "sdm05@main",
+      "lat": 33.6170092,
+      "link": "https://dblp.org/db/conf/sdm/sdm2005.html",
+      "lng": -117.9294401,
+      "name": "SDM 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-04-21"
+    },
+    {
+      "access": "registration",
+      "city": "Vienna",
+      "conferenceId": "sgp05",
+      "country": "Austria",
+      "end": "2005-07-06",
+      "id": "sgp05@main",
+      "lat": 48.2083537,
+      "link": "https://dblp.org/db/conf/sgp/sgp2005.html",
+      "lng": 16.3725042,
+      "name": "SGP 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-07-04"
+    },
+    {
+      "access": "registration",
+      "city": "Natal",
+      "conferenceId": "sibgrapi05",
+      "country": "Brazil",
+      "end": "2005-10-12",
+      "id": "sibgrapi05@main",
+      "lat": -5.805398,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2005.html",
+      "lng": -35.2080905,
+      "name": "SIBGRAPI 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-10-09"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph05",
+      "country": "United States",
+      "end": "2005-08-04",
+      "id": "siggraph05@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2005award.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "Salvador",
+      "conferenceId": "sigir05",
+      "country": "Brazil",
+      "end": "2005-08-19",
+      "id": "sigir05@main",
+      "lat": -12.9822499,
+      "link": "https://dblp.org/db/conf/sigir/sigir2005.html",
+      "lng": -38.4812772,
+      "name": "SIGIR 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-08-15"
+    },
+    {
+      "access": "registration",
+      "city": "Patras",
+      "conferenceId": "specom05",
+      "country": "Greece",
+      "end": "2005-10-19",
+      "id": "specom05@main",
+      "lat": 38.246242,
+      "link": "https://web.archive.org/web/20050908030744/http://www.specom2005.org:80/",
+      "lng": 21.7350847,
+      "name": "SPECOM 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-10-17",
+      "venue": "University of Patras"
+    },
+    {
+      "access": "registration",
+      "city": "Edinburgh",
+      "conferenceId": "uai05",
+      "country": "United Kingdom",
+      "end": "2005-07-29",
+      "id": "uai05@main",
+      "lat": 55.9533456,
+      "link": "https://dblp.org/db/conf/uai/uai2005.html",
+      "lng": -3.1883749,
+      "name": "UAI 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Breckenridge",
+      "conferenceId": "wacv05",
+      "country": "United States",
+      "end": "2005-01-07",
+      "id": "wacv05@main",
+      "lat": 32.7554791,
+      "link": "https://dblp.org/db/conf/wacv/wacv2005.html",
+      "lng": -98.9026798,
+      "name": "WACV 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-01-05"
+    },
+    {
+      "access": "registration",
+      "city": "Chiba",
+      "conferenceId": "www05",
+      "country": "Japan",
+      "end": "2005-05-14",
+      "id": "www05@main",
+      "lat": 35.6070629,
+      "link": "https://dblp.org/db/conf/www/www2005.html",
+      "lng": 140.1062653,
+      "name": "WWW 2005",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2005-05-10"
     }
   ]
 }

@@ -180,6 +180,21 @@
     },
     {
       "deadlines": [],
+      "end": "2002-09-01",
+      "fullName": "International Conference on Computational Linguistics",
+      "id": "coling02",
+      "link": "https://dblp.org/db/conf/coling/coling2002.html",
+      "series": "coling",
+      "source": "curated",
+      "start": "2002-08-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "COLING",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
       "end": "2002-07-10",
       "fullName": "Annual Conference on Computational Learning Theory",
       "id": "colt02",
@@ -191,6 +206,21 @@
         "machine-learning"
       ],
       "title": "COLT",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-09-01",
+      "fullName": "Conference on Computational Natural Language Learning",
+      "id": "conll02",
+      "link": "https://www.cnts.ua.ac.be/conll2002/",
+      "series": "conll",
+      "source": "curated",
+      "start": "2002-08-31",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "CoNLL",
       "year": 2002
     },
     {
@@ -407,6 +437,21 @@
     },
     {
       "deadlines": [],
+      "end": "2002-04-27",
+      "fullName": "International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc02",
+      "link": "https://web.archive.org/web/20020228174526/http://robotica.ua.pt:80/robotica2002/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2002-04-24",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
       "end": "2002-05-17",
       "fullName": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
       "id": "icassp02",
@@ -607,6 +652,21 @@
     },
     {
       "deadlines": [],
+      "end": "2002-06-12",
+      "fullName": "International Semantic Web Conference",
+      "id": "iswc02",
+      "link": "https://dblp.org/db/conf/semweb/semweb2002.html",
+      "series": "iswc",
+      "source": "curated",
+      "start": "2002-06-09",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "ISWC",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
       "end": "2002-01-16",
       "fullName": "International Conference on Intelligent User Interfaces",
       "id": "iui02",
@@ -618,6 +678,229 @@
         "human-computer-interaction"
       ],
       "title": "IUI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-07-26",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd02",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/775047",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2002-07-23",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-04-25",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr02",
+      "link": "https://dblp.org/db/conf/kr/kr2002.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2002-04-22",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-05-31",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec02",
+      "link": "https://dblp.org/db/conf/lrec/lrec2002.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2002-05-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-09-28",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai02",
+      "link": "https://dblp.org/db/conf/miccai/miccai2002-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2002-09-25",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-12-14",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips02",
+      "link": "https://dblp.org/db/conf/nips/nips2002.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2002-12-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-05-08",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd02",
+      "link": "https://pakdd.org/websites.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2002-05-06",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-09-27",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman02",
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2002-09-25",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-04-13",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm02",
+      "link": "https://dblp.org/db/conf/sdm/sdm2002.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2002-04-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-10-10",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi02",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2002.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2002-10-07",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-07-26",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph02",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2002aa.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2002-07-21",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-08-15",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir02",
+      "link": "https://dblp.org/db/conf/sigir/sigir2002.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2002-08-11",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-08-04",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai02",
+      "link": "https://dblp.org/db/conf/uai/uai2002.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2002-08-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-12-04",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv02",
+      "link": "https://dblp.org/db/conf/wacv/wacv2002.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2002-12-03",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2002
+    },
+    {
+      "deadlines": [],
+      "end": "2002-05-11",
+      "fullName": "International World Wide Web Conference",
+      "id": "www02",
+      "link": "https://dblp.org/db/conf/www/www2002.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2002-05-07",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2002
     }
   ],
@@ -801,6 +1084,23 @@
     },
     {
       "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "coling02",
+      "country": "Taiwan",
+      "end": "2002-09-01",
+      "id": "coling02@main",
+      "lat": 25.0375198,
+      "link": "https://dblp.org/db/conf/coling/coling2002.html",
+      "lng": 121.5636796,
+      "name": "COLING 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-08-24",
+      "venue": "Howard International House and Academia Sinica"
+    },
+    {
+      "access": "registration",
       "city": "Sydney",
       "conferenceId": "colt02",
       "country": "Australia",
@@ -814,6 +1114,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2002-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "conll02",
+      "country": "Taiwan",
+      "end": "2002-09-01",
+      "id": "conll02@main",
+      "lat": 25.0375198,
+      "link": "https://www.cnts.ua.ac.be/conll2002/",
+      "lng": 121.5636796,
+      "name": "CoNLL 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-08-31"
     },
     {
       "access": "registration",
@@ -1041,6 +1357,23 @@
     },
     {
       "access": "registration",
+      "city": "Aveiro",
+      "conferenceId": "icarsc02",
+      "country": "Portugal",
+      "end": "2002-04-27",
+      "id": "icarsc02@main",
+      "lat": 40.640496,
+      "link": "https://web.archive.org/web/20020228174526/http://robotica.ua.pt:80/robotica2002/",
+      "lng": -8.6537841,
+      "name": "ICARSC 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-04-24",
+      "venue": "Pavilhão Aristides Hall"
+    },
+    {
+      "access": "registration",
       "city": "Orlando",
       "conferenceId": "icassp02",
       "country": "United States",
@@ -1250,6 +1583,22 @@
     },
     {
       "access": "registration",
+      "city": "Sardinia",
+      "conferenceId": "iswc02",
+      "country": "Italy",
+      "end": "2002-06-12",
+      "id": "iswc02@main",
+      "lat": 40.0912813,
+      "link": "https://dblp.org/db/conf/semweb/semweb2002.html",
+      "lng": 9.0305773,
+      "name": "ISWC 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-06-09"
+    },
+    {
+      "access": "registration",
       "city": "San Francisco",
       "conferenceId": "iui02",
       "country": "United States",
@@ -1263,6 +1612,231 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2002-01-13"
+    },
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "kdd02",
+      "country": "Canada",
+      "end": "2002-07-26",
+      "id": "kdd02@main",
+      "lat": 53.5462055,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/775047",
+      "lng": -113.491241,
+      "name": "KDD 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Toulouse",
+      "conferenceId": "kr02",
+      "country": "France",
+      "end": "2002-04-25",
+      "id": "kr02@main",
+      "lat": 43.6044638,
+      "link": "https://dblp.org/db/conf/kr/kr2002.html",
+      "lng": 1.4442433,
+      "name": "KR 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Las Palmas",
+      "conferenceId": "lrec02",
+      "country": "Spain",
+      "end": "2002-05-31",
+      "id": "lrec02@main",
+      "lat": 28.1288694,
+      "link": "https://dblp.org/db/conf/lrec/lrec2002.html",
+      "lng": -15.4349015,
+      "name": "LREC 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-05-29"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "miccai02",
+      "country": "Japan",
+      "end": "2002-09-28",
+      "id": "miccai02@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/miccai/miccai2002-1.html",
+      "lng": 139.7638947,
+      "name": "MICCAI 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-09-25"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips02",
+      "country": "Canada",
+      "end": "2002-12-14",
+      "id": "neurips02@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/nips/nips2002.html",
+      "lng": -123.113952,
+      "name": "NIPS 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-12-09"
+    },
+    {
+      "access": "registration",
+      "city": "Taipei",
+      "conferenceId": "pakdd02",
+      "country": "Taiwan",
+      "end": "2002-05-08",
+      "id": "pakdd02@main",
+      "lat": 25.0375198,
+      "link": "https://pakdd.org/websites.html",
+      "lng": 121.5636796,
+      "name": "PAKDD 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-05-06"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "roman02",
+      "country": "Germany",
+      "end": "2002-09-27",
+      "id": "roman02@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "lng": 13.3951309,
+      "name": "RO-MAN 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-09-25"
+    },
+    {
+      "access": "registration",
+      "city": "Arlington",
+      "conferenceId": "sdm02",
+      "country": "United States",
+      "end": "2002-04-13",
+      "id": "sdm02@main",
+      "lat": 32.7355816,
+      "link": "https://dblp.org/db/conf/sdm/sdm2002.html",
+      "lng": -97.1071186,
+      "name": "SDM 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-04-11"
+    },
+    {
+      "access": "registration",
+      "city": "Fortaleza",
+      "conferenceId": "sibgrapi02",
+      "country": "Brazil",
+      "end": "2002-10-10",
+      "id": "sibgrapi02@main",
+      "lat": -3.7932167,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2002.html",
+      "lng": -38.5280359,
+      "name": "SIBGRAPI 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-10-07"
+    },
+    {
+      "access": "registration",
+      "city": "San Antonio",
+      "conferenceId": "siggraph02",
+      "country": "United States",
+      "end": "2002-07-26",
+      "id": "siggraph02@main",
+      "lat": 29.4246002,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2002aa.html",
+      "lng": -98.4951405,
+      "name": "SIGGRAPH 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-07-21"
+    },
+    {
+      "access": "registration",
+      "city": "Tampere",
+      "conferenceId": "sigir02",
+      "country": "Finland",
+      "end": "2002-08-15",
+      "id": "sigir02@main",
+      "lat": 61.4977988,
+      "link": "https://dblp.org/db/conf/sigir/sigir2002.html",
+      "lng": 23.7616335,
+      "name": "SIGIR 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "uai02",
+      "country": "Canada",
+      "end": "2002-08-04",
+      "id": "uai02@main",
+      "lat": 53.5462055,
+      "link": "https://dblp.org/db/conf/uai/uai2002.html",
+      "lng": -113.491241,
+      "name": "UAI 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-08-01",
+      "venue": "University of Alberta"
+    },
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "wacv02",
+      "country": "United States",
+      "end": "2002-12-04",
+      "id": "wacv02@main",
+      "lat": 28.5421218,
+      "link": "https://dblp.org/db/conf/wacv/wacv2002.html",
+      "lng": -81.379045,
+      "name": "WACV 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-12-03"
+    },
+    {
+      "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "www02",
+      "country": "United States",
+      "end": "2002-05-11",
+      "id": "www02@main",
+      "lat": 21.304547,
+      "link": "https://dblp.org/db/conf/www/www2002.html",
+      "lng": -157.855676,
+      "name": "WWW 2002",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2002-05-07"
     }
   ]
 }

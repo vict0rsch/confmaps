@@ -178,6 +178,21 @@
     },
     {
       "deadlines": [],
+      "end": "1994-03-23",
+      "fullName": "BCS-IRSG Annual Colloquium on Information Retrieval Research",
+      "id": "ecir94",
+      "link": "https://eprints.whiterose.ac.uk/id/eprint/4570/",
+      "series": "ecir",
+      "source": "curated",
+      "start": "1994-03-22",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
       "end": "1994-04-22",
       "fullName": "European Symposium on Artificial Neural Networks",
       "id": "esann94",
@@ -372,6 +387,120 @@
       ],
       "title": "ISMIS",
       "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-05-27",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr94",
+      "link": "https://dblp.org/db/conf/kr/kr94.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "1994-05-24",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-12-03",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips94",
+      "link": "https://dblp.org/db/conf/nips/nips1994.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1994-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-07-29",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph94",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1994.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1994-07-24",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-07-06",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir94",
+      "link": "https://dblp.org/db/conf/sigir/sigir94.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1994-07-03",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-07-31",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai94",
+      "link": "https://dblp.org/db/conf/uai/uai1994.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1994-07-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-12-07",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv94",
+      "link": "https://dblp.org/db/conf/wacv/wacv1994.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "1994-12-05",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 1994
+    },
+    {
+      "deadlines": [],
+      "end": "1994-05-27",
+      "fullName": "International World Wide Web Conference",
+      "id": "www94",
+      "link": "https://www2024.thewebconf.org/about/the-web-conference/",
+      "series": "www",
+      "source": "curated",
+      "start": "1994-05-25",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 1994
     }
   ],
   "locations": [
@@ -551,6 +680,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1994-05-02"
+    },
+    {
+      "access": "registration",
+      "city": "Drymen",
+      "conferenceId": "ecir94",
+      "country": "United Kingdom",
+      "end": "1994-03-23",
+      "id": "ecir94@main",
+      "lat": 56.0655347,
+      "link": "https://eprints.whiterose.ac.uk/id/eprint/4570/",
+      "lng": -4.4520006,
+      "name": "ECIR 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-03-22"
     },
     {
       "access": "registration",
@@ -761,6 +906,119 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1994-10-16"
+    },
+    {
+      "access": "registration",
+      "city": "Bonn",
+      "conferenceId": "kr94",
+      "country": "Germany",
+      "end": "1994-05-27",
+      "id": "kr94@main",
+      "lat": 50.7352621,
+      "link": "https://dblp.org/db/conf/kr/kr94.html",
+      "lng": 7.1024635,
+      "name": "KR 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-05-24"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips94",
+      "country": "United States",
+      "end": "1994-12-03",
+      "id": "neurips94@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1994.html",
+      "lng": -104.984862,
+      "name": "NIPS 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-11-28"
+    },
+    {
+      "access": "registration",
+      "city": "Orlando",
+      "conferenceId": "siggraph94",
+      "country": "United States",
+      "end": "1994-07-29",
+      "id": "siggraph94@main",
+      "lat": 28.5421218,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1994.html",
+      "lng": -81.379045,
+      "name": "SIGGRAPH 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-07-24"
+    },
+    {
+      "access": "registration",
+      "city": "Dublin",
+      "conferenceId": "sigir94",
+      "country": "Ireland",
+      "end": "1994-07-06",
+      "id": "sigir94@main",
+      "lat": 53.3493795,
+      "link": "https://dblp.org/db/conf/sigir/sigir94.html",
+      "lng": -6.2605593,
+      "name": "SIGIR 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-07-03"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "uai94",
+      "country": "United States",
+      "end": "1994-07-31",
+      "id": "uai94@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/uai/uai1994.html",
+      "lng": -122.330062,
+      "name": "UAI 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-07-29"
+    },
+    {
+      "access": "registration",
+      "city": "Sarasota",
+      "conferenceId": "wacv94",
+      "country": "United States",
+      "end": "1994-12-07",
+      "id": "wacv94@main",
+      "lat": 27.3365805,
+      "link": "https://dblp.org/db/conf/wacv/wacv1994.html",
+      "lng": -82.5308545,
+      "name": "WACV 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-12-05"
+    },
+    {
+      "access": "registration",
+      "city": "Geneva",
+      "conferenceId": "www94",
+      "country": "Switzerland",
+      "end": "1994-05-27",
+      "id": "www94@main",
+      "lat": 46.2017559,
+      "link": "https://www2024.thewebconf.org/about/the-web-conference/",
+      "lng": 6.1466014,
+      "name": "WWW 1994",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1994-05-25",
+      "venue": "CERN"
     }
   ]
 }

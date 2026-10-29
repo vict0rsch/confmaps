@@ -480,6 +480,21 @@
     },
     {
       "deadlines": [],
+      "end": "2021-03-11",
+      "fullName": "ACM/IEEE International Conference on Human-Robot Interaction",
+      "id": "hri21",
+      "link": "https://dblp.org/db/conf/hri/hri2021.html",
+      "series": "hri",
+      "source": "curated",
+      "start": "2021-03-08",
+      "tags": [
+        "robotics"
+      ],
+      "title": "HRI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-09-17",
       "fullName": "International Conference on Artificial Neural Networks",
       "id": "icann21",
@@ -845,6 +860,21 @@
     },
     {
       "deadlines": [],
+      "end": "2021-04-17",
+      "fullName": "ACM Conference on Intelligent User Interfaces",
+      "id": "iui21",
+      "link": "https://dblp.org/db/conf/iui/iui2021.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2021-04-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-08-18",
       "id": "kdd21",
       "link": "https://web.archive.org/web/20210813142414/https://www.kdd.org/kdd2021/",
@@ -855,6 +885,51 @@
         "data-mining"
       ],
       "title": "KDD",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-11-12",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr21",
+      "link": "https://kr.org/KR2021/",
+      "series": "kr",
+      "source": "curated",
+      "start": "2021-11-03",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-16",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem21",
+      "link": "https://dblp.org/db/conf/ksem/ksem2021-1.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2021-08-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-06-08",
+      "fullName": "Annual Conference on Learning for Dynamics and Control",
+      "id": "l4dc21",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2021.html",
+      "series": "l4dc",
+      "source": "curated",
+      "start": "2021-06-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
       "year": 2021
     },
     {
@@ -887,6 +962,21 @@
     },
     {
       "deadlines": [],
+      "end": "2021-09-10",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr21",
+      "link": "https://web.archive.org/web/20210928075140/https://mipr2021.org/",
+      "series": "mipr",
+      "source": "curated",
+      "start": "2021-09-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-06-11",
       "id": "naacl21",
       "link": "https://web.archive.org/web/20210605104454/https://2021.naacl.org/",
@@ -915,6 +1005,36 @@
     },
     {
       "deadlines": [],
+      "end": "2021-05-14",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd21",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2021-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2021-05-11",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-09-03",
+      "fullName": "International Conference on Recent Advances in Natural Language Processing",
+      "id": "ranlp21",
+      "link": "http://ranlp.org/ranlp2021/start.php",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2021-09-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-10-01",
       "id": "recsys21",
       "link": "https://web.archive.org/web/20211006033600/https://recsys.acm.org/recsys21/",
@@ -925,6 +1045,21 @@
         "data-mining"
       ],
       "title": "RecSys",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-12",
+      "fullName": "IEEE International Conference on Robot and Human Interactive Communication",
+      "id": "roman21",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2021.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2021-08-08",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
       "year": 2021
     },
     {
@@ -943,6 +1078,23 @@
     },
     {
       "deadlines": [],
+      "end": "2021-09-15",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr21",
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2021.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2021-09-13",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-05-01",
       "id": "sdm21",
       "link": "https://web.archive.org/web/20210415175616/https://www.siam.org/conferences/cm/conference/sdm21",
@@ -953,6 +1105,55 @@
         "data-mining"
       ],
       "title": "SDM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-08-06",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem21",
+      "link": "https://dblp.org/db/conf/starsem/starsem2021.html",
+      "series": "sem",
+      "source": "curated",
+      "start": "2021-08-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-14",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp21",
+      "link": "https://sgp2024.github.io/past/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2021-07-12",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-10-22",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi21",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2021.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2021-10-18",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2021
     },
     {
@@ -971,6 +1172,20 @@
     },
     {
       "deadlines": [],
+      "end": "2021-12-17",
+      "id": "siggraphasia21",
+      "link": "https://web.archive.org/web/20211216163819/https://sa2021.siggraph.org/en/",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2021-12-14",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-07-15",
       "id": "sigir21",
       "link": "https://web.archive.org/web/20210708225815/http://sigir.org/sigir2021/",
@@ -981,6 +1196,38 @@
         "data-mining"
       ],
       "title": "SIGIR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-01-22",
+      "fullName": "IEEE Spoken Language Technology Workshop",
+      "id": "slt21",
+      "link": "https://dblp.org/db/conf/slt/slt2021.html",
+      "series": "slt",
+      "source": "curated",
+      "start": "2021-01-19",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-09-30",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom21",
+      "link": "https://dblp.org/db/conf/specom/specom2021.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2021-09-27",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
       "year": 2021
     },
     {
@@ -1493,6 +1740,22 @@
     },
     {
       "access": "registration",
+      "city": "Boulder",
+      "conferenceId": "hri21",
+      "country": "United States",
+      "end": "2021-03-11",
+      "id": "hri21@main",
+      "lat": 40.0149856,
+      "link": "https://dblp.org/db/conf/hri/hri2021.html",
+      "lng": -105.270545,
+      "name": "HRI 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-03-08"
+    },
+    {
+      "access": "registration",
       "city": "Bratislava",
       "conferenceId": "icann21",
       "country": "Slovakia",
@@ -1859,6 +2122,22 @@
     },
     {
       "access": "registration",
+      "city": "College Station",
+      "conferenceId": "iui21",
+      "country": "United States",
+      "end": "2021-04-17",
+      "id": "iui21@main",
+      "lat": 30.6183939,
+      "link": "https://dblp.org/db/conf/iui/iui2021.html",
+      "lng": -96.3455991,
+      "name": "IUI 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-04-13"
+    },
+    {
+      "access": "registration",
       "conferenceId": "kdd21",
       "end": "2021-08-18",
       "format": "virtual",
@@ -1870,6 +2149,48 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-08-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "kr21",
+      "end": "2021-11-12",
+      "format": "virtual",
+      "id": "kr21@main",
+      "link": "https://kr.org/KR2021/",
+      "name": "KR 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-11-03"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "ksem21",
+      "country": "Japan",
+      "end": "2021-08-16",
+      "id": "ksem21@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/ksem/ksem2021-1.html",
+      "lng": 139.7638947,
+      "name": "KSEM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-14"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "l4dc21",
+      "end": "2021-06-08",
+      "format": "virtual",
+      "id": "l4dc21@main",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2021.html",
+      "name": "L4DC 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-06-07"
     },
     {
       "access": "registration",
@@ -1901,6 +2222,19 @@
     },
     {
       "access": "registration",
+      "conferenceId": "mipr21",
+      "end": "2021-09-10",
+      "format": "virtual",
+      "id": "mipr21@main",
+      "link": "https://web.archive.org/web/20210928075140/https://mipr2021.org/",
+      "name": "MIPR 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-08"
+    },
+    {
+      "access": "registration",
       "conferenceId": "naacl21",
       "end": "2021-06-11",
       "format": "virtual",
@@ -1928,6 +2262,32 @@
     },
     {
       "access": "registration",
+      "conferenceId": "pakdd21",
+      "end": "2021-05-14",
+      "format": "virtual",
+      "id": "pakdd21@main",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2021-1.html",
+      "name": "PAKDD 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-05-11"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "ranlp21",
+      "end": "2021-09-03",
+      "format": "virtual",
+      "id": "ranlp21@main",
+      "link": "http://ranlp.org/ranlp2021/start.php",
+      "name": "RANLP 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-01"
+    },
+    {
+      "access": "registration",
       "city": "Amsterdam",
       "conferenceId": "recsys21",
       "country": "Netherlands",
@@ -1945,6 +2305,22 @@
     },
     {
       "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "roman21",
+      "country": "Canada",
+      "end": "2021-08-12",
+      "id": "roman21@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2021.html",
+      "lng": -123.113952,
+      "name": "RO-MAN 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-08"
+    },
+    {
+      "access": "registration",
       "conferenceId": "rss21",
       "end": "2021-07-16",
       "format": "virtual",
@@ -1955,6 +2331,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Leuven",
+      "conferenceId": "rulemlrr21",
+      "country": "Belgium",
+      "end": "2021-09-15",
+      "id": "rulemlrr21@main",
+      "lat": 50.879202,
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2021.html",
+      "lng": 4.7011675,
+      "name": "RuleML+RR 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-13"
     },
     {
       "access": "registration",
@@ -1971,6 +2363,48 @@
     },
     {
       "access": "registration",
+      "conferenceId": "sem21",
+      "end": "2021-08-06",
+      "format": "virtual",
+      "id": "sem21@main",
+      "link": "https://dblp.org/db/conf/starsem/starsem2021.html",
+      "name": "*SEM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-08-05"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sgp21",
+      "end": "2021-07-14",
+      "format": "virtual",
+      "id": "sgp21@main",
+      "link": "https://sgp2024.github.io/past/",
+      "name": "SGP 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-12"
+    },
+    {
+      "access": "registration",
+      "city": "Gramado",
+      "conferenceId": "sibgrapi21",
+      "country": "Brazil",
+      "end": "2021-10-22",
+      "id": "sibgrapi21@main",
+      "lat": -29.3792858,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2021.html",
+      "lng": -50.8737019,
+      "name": "SIBGRAPI 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-10-18"
+    },
+    {
+      "access": "registration",
       "conferenceId": "siggraph21",
       "end": "2021-08-05",
       "format": "virtual",
@@ -1981,6 +2415,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "siggraphasia21",
+      "country": "Japan",
+      "end": "2021-12-17",
+      "id": "siggraphasia21@main",
+      "lat": 35.6768601,
+      "link": "https://web.archive.org/web/20211216163819/https://sa2021.siggraph.org/en/",
+      "lng": 139.7638947,
+      "name": "SIGGRAPH Asia 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-12-14"
     },
     {
       "access": "registration",
@@ -1995,6 +2445,35 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-07-11"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "slt21",
+      "end": "2021-01-22",
+      "format": "virtual",
+      "id": "slt21@main",
+      "link": "https://dblp.org/db/conf/slt/slt2021.html",
+      "name": "SLT 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-19"
+    },
+    {
+      "access": "registration",
+      "city": "St. Petersburg",
+      "conferenceId": "specom21",
+      "country": "Russia",
+      "end": "2021-09-30",
+      "id": "specom21@main",
+      "lat": 59.938732,
+      "link": "https://dblp.org/db/conf/specom/specom2021.html",
+      "lng": 30.316229,
+      "name": "SPECOM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-09-27"
     },
     {
       "access": "registration",

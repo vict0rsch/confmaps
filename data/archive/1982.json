@@ -108,6 +108,38 @@
       ],
       "title": "ICPR",
       "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-07-30",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph82",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1982.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1982-07-26",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1982
+    },
+    {
+      "deadlines": [],
+      "end": "1982-05-20",
+      "id": "sigir82",
+      "link": "https://dblp.org/db/conf/sigir/sigir82.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1982-05-18",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1982
     }
   ],
   "locations": [
@@ -223,6 +255,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1982-10-19"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "siggraph82",
+      "country": "United States",
+      "end": "1982-07-30",
+      "id": "siggraph82@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1982.html",
+      "lng": -71.0578303,
+      "name": "SIGGRAPH 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Berlin",
+      "conferenceId": "sigir82",
+      "country": "Germany",
+      "end": "1982-05-20",
+      "id": "sigir82@main",
+      "lat": 52.5173885,
+      "link": "https://dblp.org/db/conf/sigir/sigir82.html",
+      "lng": 13.3951309,
+      "name": "SIGIR 1982",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1982-05-18"
     }
   ]
 }

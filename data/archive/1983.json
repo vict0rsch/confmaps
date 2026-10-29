@@ -84,6 +84,21 @@
     },
     {
       "deadlines": [],
+      "end": "1983-09-02",
+      "fullName": "European Computer Graphics Conference and Exhibition",
+      "id": "eurographics83",
+      "link": "https://dblp.org/db/conf/eurographics/eg1983.html",
+      "series": "eurographics",
+      "source": "curated",
+      "start": "1983-08-31",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "Eurographics",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
       "end": "1983-04-16",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp83",
@@ -111,6 +126,38 @@
         "machine-learning"
       ],
       "title": "IJCAI",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-07-29",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph83",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1983.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1983-07-25",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1983
+    },
+    {
+      "deadlines": [],
+      "end": "1983-06-08",
+      "id": "sigir83",
+      "link": "https://dblp.org/db/conf/sigir/sigir83.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1983-06-06",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
       "year": 1983
     }
   ],
@@ -198,6 +245,22 @@
     },
     {
       "access": "registration",
+      "city": "Zagreb",
+      "conferenceId": "eurographics83",
+      "country": "Croatia",
+      "end": "1983-09-02",
+      "id": "eurographics83@main",
+      "lat": 45.8130967,
+      "link": "https://dblp.org/db/conf/eurographics/eg1983.html",
+      "lng": 15.9772795,
+      "name": "Eurographics 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-08-31"
+    },
+    {
+      "access": "registration",
       "city": "Boston",
       "conferenceId": "icassp83",
       "country": "United States",
@@ -227,6 +290,39 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1983-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "Detroit",
+      "conferenceId": "siggraph83",
+      "country": "United States",
+      "end": "1983-07-29",
+      "id": "siggraph83@main",
+      "lat": 42.3315509,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1983.html",
+      "lng": -83.0466403,
+      "name": "SIGGRAPH 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Bethesda",
+      "conferenceId": "sigir83",
+      "country": "United States",
+      "end": "1983-06-08",
+      "id": "sigir83@main",
+      "lat": 38.9846816,
+      "link": "https://dblp.org/db/conf/sigir/sigir83.html",
+      "lng": -77.0942447,
+      "name": "SIGIR 1983",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1983-06-06",
+      "venue": "National Library of Medicine"
     }
   ]
 }

@@ -376,6 +376,21 @@
     },
     {
       "deadlines": [],
+      "end": "2003-05-11",
+      "fullName": "International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc03",
+      "link": "https://web.archive.org/web/20030421101750/http://robotica2003.isr.ist.utl.pt:80/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2003-05-08",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
       "end": "2003-04-10",
       "fullName": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
       "id": "icassp03",
@@ -637,6 +652,66 @@
     },
     {
       "deadlines": [],
+      "end": "2003-08-27",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd03",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/956750",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2003-08-24",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-11-18",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai03",
+      "link": "https://dblp.org/db/conf/miccai/miccai2003-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2003-11-15",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-07-07",
+      "fullName": "Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm03",
+      "link": "https://dblp.org/db/conf/mldm/mldm2003.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2003-07-05",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-06-01",
+      "id": "naacl03",
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2003-05-27",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
       "end": "2003-12-13",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips03",
@@ -648,6 +723,168 @@
         "machine-learning"
       ],
       "title": "NeurIPS",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-05-02",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd03",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2003.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2003-04-30",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-09-12",
+      "fullName": "Recent Advances in Natural Language Processing",
+      "id": "ranlp03",
+      "link": "https://web.archive.org/web/20031002233138/http://www.lml.bas.bg:80/ranlp2003/",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2003-09-10",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-11-02",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman03",
+      "link": "https://ieeexplore.ieee.org/document/1251761",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2003-10-31",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-05-03",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm03",
+      "link": "https://dblp.org/db/conf/sdm/sdm2003.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2003-05-01",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-06-25",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp03",
+      "link": "https://dblp.org/db/conf/sgp/sgp2003.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2003-06-23",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-10-15",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi03",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2003.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2003-10-12",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-07-31",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph03",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2003.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2003-07-27",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-08-01",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir03",
+      "link": "https://dblp.org/db/conf/sigir/sigir2003.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2003-07-28",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-08-10",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai03",
+      "link": "https://dblp.org/db/conf/uai/uai2003.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2003-08-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2003-05-24",
+      "fullName": "International World Wide Web Conference",
+      "id": "www03",
+      "link": "https://dblp.org/db/conf/www/www2003.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2003-05-20",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2003
     }
   ],
@@ -1042,6 +1279,23 @@
     },
     {
       "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "icarsc03",
+      "country": "Portugal",
+      "end": "2003-05-11",
+      "id": "icarsc03@main",
+      "lat": 38.7077507,
+      "link": "https://web.archive.org/web/20030421101750/http://robotica2003.isr.ist.utl.pt:80/",
+      "lng": -9.1365919,
+      "name": "ICARSC 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-05-08",
+      "venue": "Centro de Congressos de Lisboa"
+    },
+    {
+      "access": "registration",
       "city": "Hong Kong",
       "conferenceId": "icassp03",
       "country": "China",
@@ -1314,6 +1568,70 @@
     },
     {
       "access": "registration",
+      "city": "Washington, D.C.",
+      "conferenceId": "kdd03",
+      "country": "United States",
+      "end": "2003-08-27",
+      "id": "kdd03@main",
+      "lat": 38.8950982,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/956750",
+      "lng": -77.0363849,
+      "name": "KDD 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Montréal",
+      "conferenceId": "miccai03",
+      "country": "Canada",
+      "end": "2003-11-18",
+      "id": "miccai03@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/miccai/miccai2003-1.html",
+      "lng": -73.5698065,
+      "name": "MICCAI 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-11-15"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "mldm03",
+      "country": "Germany",
+      "end": "2003-07-07",
+      "id": "mldm03@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/mldm/mldm2003.html",
+      "lng": 12.3747329,
+      "name": "MLDM 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-07-05"
+    },
+    {
+      "access": "registration",
+      "city": "Edmonton",
+      "conferenceId": "naacl03",
+      "country": "Canada",
+      "end": "2003-06-01",
+      "id": "naacl03@main",
+      "lat": 53.5462055,
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "lng": -113.491241,
+      "name": "NAACL 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-05-27"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "neurips03",
       "country": "Canada",
@@ -1327,6 +1645,166 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2003-12-08"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "pakdd03",
+      "country": "South Korea",
+      "end": "2003-05-02",
+      "id": "pakdd03@main",
+      "lat": 37.5666791,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2003.html",
+      "lng": 126.9782914,
+      "name": "PAKDD 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-04-30"
+    },
+    {
+      "access": "registration",
+      "city": "Borovets",
+      "conferenceId": "ranlp03",
+      "country": "Bulgaria",
+      "end": "2003-09-12",
+      "id": "ranlp03@main",
+      "lat": 42.2668301,
+      "link": "https://web.archive.org/web/20031002233138/http://www.lml.bas.bg:80/ranlp2003/",
+      "lng": 23.6074324,
+      "name": "RANLP 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-09-10"
+    },
+    {
+      "access": "registration",
+      "city": "Millbrae",
+      "conferenceId": "roman03",
+      "country": "United States",
+      "end": "2003-11-02",
+      "id": "roman03@main",
+      "lat": 37.598958,
+      "link": "https://ieeexplore.ieee.org/document/1251761",
+      "lng": -122.400941,
+      "name": "RO-MAN 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-10-31"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "sdm03",
+      "country": "United States",
+      "end": "2003-05-03",
+      "id": "sdm03@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/db/conf/sdm/sdm2003.html",
+      "lng": -122.4075201,
+      "name": "SDM 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-05-01"
+    },
+    {
+      "access": "registration",
+      "city": "Aachen",
+      "conferenceId": "sgp03",
+      "country": "Germany",
+      "end": "2003-06-25",
+      "id": "sgp03@main",
+      "lat": 50.776351,
+      "link": "https://dblp.org/db/conf/sgp/sgp2003.html",
+      "lng": 6.083862,
+      "name": "SGP 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-06-23"
+    },
+    {
+      "access": "registration",
+      "city": "São Carlos",
+      "conferenceId": "sibgrapi03",
+      "country": "Brazil",
+      "end": "2003-10-15",
+      "id": "sibgrapi03@main",
+      "lat": -21.8788022,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2003.html",
+      "lng": -47.8567619,
+      "name": "SIBGRAPI 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "siggraph03",
+      "country": "United States",
+      "end": "2003-07-31",
+      "id": "siggraph03@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2003.html",
+      "lng": -117.1638284,
+      "name": "SIGGRAPH 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "sigir03",
+      "country": "Canada",
+      "end": "2003-08-01",
+      "id": "sigir03@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/sigir/sigir2003.html",
+      "lng": -79.3839347,
+      "name": "SIGIR 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-07-28"
+    },
+    {
+      "access": "registration",
+      "city": "Acapulco",
+      "conferenceId": "uai03",
+      "country": "Mexico",
+      "end": "2003-08-10",
+      "id": "uai03@main",
+      "lat": 16.8680495,
+      "link": "https://dblp.org/db/conf/uai/uai2003.html",
+      "lng": -99.8940182,
+      "name": "UAI 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-08-07"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "www03",
+      "country": "Hungary",
+      "end": "2003-05-24",
+      "id": "www03@main",
+      "lat": 47.4978789,
+      "link": "https://dblp.org/db/conf/www/www2003.html",
+      "lng": 19.0402383,
+      "name": "WWW 2003",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2003-05-20"
     }
   ]
 }

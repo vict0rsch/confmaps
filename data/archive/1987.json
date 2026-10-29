@@ -171,6 +171,69 @@
       ],
       "title": "ISMIS",
       "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-11-12",
+      "fullName": "IEEE Conference on Neural Information Processing Systems - Natural and Synthetic",
+      "id": "neurips87",
+      "link": "https://dblp.org/db/conf/nips/nips1987.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1987-11-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-07-31",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph87",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1987.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1987-07-27",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-06-05",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir87",
+      "link": "https://dblp.org/db/conf/sigir/sigir87.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1987-06-03",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1987-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai87",
+      "link": "https://dblp.org/db/conf/uai/uai1987.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1987-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1987
     }
   ],
   "locations": [
@@ -352,6 +415,70 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1987-10-14"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips87",
+      "country": "United States",
+      "end": "1987-11-12",
+      "id": "neurips87@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1987.html",
+      "lng": -104.984862,
+      "name": "NIPS 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-11-08"
+    },
+    {
+      "access": "registration",
+      "city": "Anaheim",
+      "conferenceId": "siggraph87",
+      "country": "United States",
+      "end": "1987-07-31",
+      "id": "siggraph87@main",
+      "lat": 33.8347516,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1987.html",
+      "lng": -117.911732,
+      "name": "SIGGRAPH 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "sigir87",
+      "country": "United States",
+      "end": "1987-06-05",
+      "id": "sigir87@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/sigir/sigir87.html",
+      "lng": -90.0629493,
+      "name": "SIGIR 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-06-03"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "uai87",
+      "country": "United States",
+      "end": "1987-07-12",
+      "id": "uai87@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/uai/uai1987.html",
+      "lng": -122.330062,
+      "name": "UAI 1987",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1987-07-10"
     }
   ]
 }

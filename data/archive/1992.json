@@ -325,6 +325,118 @@
       ],
       "title": "IROS",
       "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-10-29",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr92",
+      "link": "https://dblp.org/db/conf/kr/kr92.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "1992-10-25",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-12-03",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips92",
+      "link": "https://dblp.org/db/conf/nips/nips1992.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1992-11-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-11-12",
+      "fullName": "Simpósio Brasileiro de Computação Gráfica e Processamento de Imagens",
+      "id": "sibgrapi92",
+      "link": "http://sibgrapi.sid.inpe.br/col/sid.inpe.br/banon/2001/03.30.15.38.24/doc/mirrorget.cgi?metadatarepository=sid.inpe.br/sibgrapi/2012/10.22.14.39.19&choice=full&languagebutton=pt-BR",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "1992-11-10",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-07-31",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph92",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1992.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1992-07-27",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-06-24",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir92",
+      "link": "https://dblp.org/db/conf/sigir/sigir92.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1992-06-21",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-07-19",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai92",
+      "link": "https://dblp.org/db/conf/uai/uai1992.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1992-07-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1992
+    },
+    {
+      "deadlines": [],
+      "end": "1992-12-02",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv92",
+      "link": "https://dblp.org/db/conf/wacv/wacv1992.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "1992-11-30",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 1992
     }
   ],
   "locations": [
@@ -665,6 +777,119 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1992-07-07"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "kr92",
+      "country": "United States",
+      "end": "1992-10-29",
+      "id": "kr92@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/kr/kr92.html",
+      "lng": -71.1040018,
+      "name": "KR 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-10-25"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips92",
+      "country": "United States",
+      "end": "1992-12-03",
+      "id": "neurips92@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1992.html",
+      "lng": -104.984862,
+      "name": "NIPS 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-11-30"
+    },
+    {
+      "access": "registration",
+      "city": "Águas de Lindóia",
+      "conferenceId": "sibgrapi92",
+      "country": "Brazil",
+      "end": "1992-11-12",
+      "id": "sibgrapi92@main",
+      "lat": -22.4762026,
+      "link": "http://sibgrapi.sid.inpe.br/col/sid.inpe.br/banon/2001/03.30.15.38.24/doc/mirrorget.cgi?metadatarepository=sid.inpe.br/sibgrapi/2012/10.22.14.39.19&choice=full&languagebutton=pt-BR",
+      "lng": -46.6107621,
+      "name": "SIBGRAPI 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-11-10"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "siggraph92",
+      "country": "United States",
+      "end": "1992-07-31",
+      "id": "siggraph92@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1992.html",
+      "lng": -87.6244212,
+      "name": "SIGGRAPH 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "sigir92",
+      "country": "Denmark",
+      "end": "1992-06-24",
+      "id": "sigir92@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/sigir/sigir92.html",
+      "lng": 12.5700724,
+      "name": "SIGIR 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "uai92",
+      "country": "United States",
+      "end": "1992-07-19",
+      "id": "uai92@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/uai/uai1992.html",
+      "lng": -122.1702445,
+      "name": "UAI 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-07-17",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Palm Springs",
+      "conferenceId": "wacv92",
+      "country": "United States",
+      "end": "1992-12-02",
+      "id": "wacv92@main",
+      "lat": 33.8246269,
+      "link": "https://dblp.org/db/conf/wacv/wacv1992.html",
+      "lng": -116.540303,
+      "name": "WACV 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-11-30"
     }
   ]
 }

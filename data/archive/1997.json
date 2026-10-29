@@ -234,6 +234,21 @@
     },
     {
       "deadlines": [],
+      "end": "1997-12-10",
+      "fullName": "International Conference on Field and Service Robotics",
+      "id": "fsr97",
+      "link": "https://researchprofiles.canberra.edu.au/en/publications/vcr-a-virtually-controlled-robot-system/",
+      "series": "fsr",
+      "source": "curated",
+      "start": "1997-12-08",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
       "end": "1997-01-10",
       "fullName": "Hawaii International Conference on System Sciences",
       "id": "hicss97",
@@ -260,6 +275,21 @@
         "machine-learning"
       ],
       "title": "ICANN",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-09-26",
+      "fullName": "European Conference on Planning",
+      "id": "icaps97",
+      "link": "https://vldb.org/dblp/db/conf/ecp/ecp1997.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "1997-09-24",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
       "year": 1997
     },
     {
@@ -413,6 +443,154 @@
         "human-computer-interaction"
       ],
       "title": "IUI",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-08-17",
+      "fullName": "International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd97",
+      "link": "https://dblp.org/db/conf/kdd/kdd97.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "1997-08-14",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-12-06",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips97",
+      "link": "https://dblp.org/db/conf/nips/nips1997.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1997-12-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-02-24",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd97",
+      "link": "https://pakdd.org/websites.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "1997-02-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-10-18",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi97",
+      "link": "https://www.visgraf.impa.br/sibgrapi97/cfp-english.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "1997-10-14",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-08-08",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph97",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1997.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1997-08-03",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-07-31",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir97",
+      "link": "https://dblp.org/db/conf/sigir/sigir97.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1997-07-27",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-10-30",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom97",
+      "link": "https://specom.nw.ru/2022/history/",
+      "series": "specom",
+      "source": "curated",
+      "start": "1997-10-27",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-08-03",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai97",
+      "link": "https://dblp.org/db/conf/uai/uai1997.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1997-08-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1997
+    },
+    {
+      "deadlines": [],
+      "end": "1997-04-11",
+      "fullName": "International World Wide Web Conference",
+      "id": "www97",
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "series": "www",
+      "source": "curated",
+      "start": "1997-04-07",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 1997
     }
   ],
@@ -662,6 +840,22 @@
     },
     {
       "access": "registration",
+      "city": "Canberra",
+      "conferenceId": "fsr97",
+      "country": "Australia",
+      "end": "1997-12-10",
+      "id": "fsr97@main",
+      "lat": -35.2975906,
+      "link": "https://researchprofiles.canberra.edu.au/en/publications/vcr-a-virtually-controlled-robot-system/",
+      "lng": 149.1012676,
+      "name": "FSR 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-12-08"
+    },
+    {
+      "access": "registration",
       "city": "Maui",
       "conferenceId": "hicss97",
       "country": "United States",
@@ -691,6 +885,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1997-10-08"
+    },
+    {
+      "access": "registration",
+      "city": "Toulouse",
+      "conferenceId": "icaps97",
+      "country": "France",
+      "end": "1997-09-26",
+      "id": "icaps97@main",
+      "lat": 43.6044638,
+      "link": "https://vldb.org/dblp/db/conf/ecp/ecp1997.html",
+      "lng": 1.4442433,
+      "name": "ICAPS 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-09-24"
     },
     {
       "access": "registration",
@@ -851,6 +1061,152 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1997-01-06"
+    },
+    {
+      "access": "registration",
+      "city": "Newport Beach",
+      "conferenceId": "kdd97",
+      "country": "United States",
+      "end": "1997-08-17",
+      "id": "kdd97@main",
+      "lat": 33.6170092,
+      "link": "https://dblp.org/db/conf/kdd/kdd97.html",
+      "lng": -117.9294401,
+      "name": "KDD 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-08-14"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips97",
+      "country": "United States",
+      "end": "1997-12-06",
+      "id": "neurips97@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1997.html",
+      "lng": -104.984862,
+      "name": "NIPS 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-12-01"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "pakdd97",
+      "country": "Singapore",
+      "end": "1997-02-24",
+      "id": "pakdd97@main",
+      "lat": 1.2899175,
+      "link": "https://pakdd.org/websites.html",
+      "lng": 103.8519072,
+      "name": "PAKDD 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-02-23"
+    },
+    {
+      "access": "registration",
+      "city": "Campos do Jordão",
+      "conferenceId": "sibgrapi97",
+      "country": "Brazil",
+      "end": "1997-10-18",
+      "id": "sibgrapi97@main",
+      "lat": -22.6929855,
+      "link": "https://www.visgraf.impa.br/sibgrapi97/cfp-english.html",
+      "lng": -45.5184918,
+      "name": "SIBGRAPI 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-10-14"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph97",
+      "country": "United States",
+      "end": "1997-08-08",
+      "id": "siggraph97@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1997.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-08-03"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "sigir97",
+      "country": "United States",
+      "end": "1997-07-31",
+      "id": "sigir97@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/sigir/sigir97.html",
+      "lng": -75.1635262,
+      "name": "SIGIR 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-07-27"
+    },
+    {
+      "access": "registration",
+      "city": "Cluj-Napoca",
+      "conferenceId": "specom97",
+      "country": "Romania",
+      "end": "1997-10-30",
+      "id": "specom97@main",
+      "lat": 46.769379,
+      "link": "https://specom.nw.ru/2022/history/",
+      "lng": 23.5899542,
+      "name": "SPECOM 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-10-27"
+    },
+    {
+      "access": "registration",
+      "city": "Providence",
+      "conferenceId": "uai97",
+      "country": "United States",
+      "end": "1997-08-03",
+      "id": "uai97@main",
+      "lat": 41.8239891,
+      "link": "https://dblp.org/db/conf/uai/uai1997.html",
+      "lng": -71.4128343,
+      "name": "UAI 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-08-01",
+      "venue": "Brown University"
+    },
+    {
+      "access": "registration",
+      "city": "Santa Clara",
+      "conferenceId": "www97",
+      "country": "United States",
+      "end": "1997-04-11",
+      "id": "www97@main",
+      "lat": 37.3541132,
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "lng": -121.955174,
+      "name": "WWW 1997",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1997-04-07",
+      "venue": "Santa Clara Convention Center"
     }
   ]
 }

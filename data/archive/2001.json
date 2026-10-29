@@ -250,6 +250,21 @@
     },
     {
       "deadlines": [],
+      "end": "2001-06-13",
+      "fullName": "International Conference on Field and Service Robotics",
+      "id": "fsr01",
+      "link": "https://www.tmt.unze.ba/zbornik/TMT2013/101-TMT13-085.pdf",
+      "series": "fsr",
+      "source": "curated",
+      "start": "2001-06-11",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
       "end": "2001-07-11",
       "fullName": "Genetic and Evolutionary Computation Conference",
       "id": "gecco01",
@@ -291,6 +306,36 @@
         "machine-learning"
       ],
       "title": "ICANN",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-09-14",
+      "fullName": "European Conference on Planning",
+      "id": "icaps01",
+      "link": "https://ecp01.icaps-conference.org/ecp_conferences.html",
+      "series": "icaps",
+      "source": "curated",
+      "start": "2001-09-12",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-04-28",
+      "fullName": "International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc01",
+      "link": "https://web.archive.org/web/20010424083410/http://www.robotica.dei.uminho.pt:80/robotica2001/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2001-04-25",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2001
     },
     {
@@ -526,6 +571,66 @@
     },
     {
       "deadlines": [],
+      "end": "2001-08-29",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd01",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/502512",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2001-08-26",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-10-17",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai01",
+      "link": "https://dblp.org/db/conf/miccai/miccai2001.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2001-10-14",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-07-27",
+      "fullName": "Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm01",
+      "link": "https://dblp.org/db/conf/mldm/mldm2001.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2001-07-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-06-07",
+      "id": "naacl01",
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2001-06-02",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
       "end": "2001-12-08",
       "id": "neurips01",
       "link": "https://neurips.cc/Conferences/2001/CMUPage",
@@ -536,6 +641,137 @@
         "machine-learning"
       ],
       "title": "NeurIPS",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-04-18",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd01",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2001.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2001-04-16",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-09-21",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman01",
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2001-09-18",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-04-07",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm01",
+      "link": "https://dblp.org/db/conf/sdm/sdm2001.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2001-04-05",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-10-18",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi01",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2001.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2001-10-15",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-08-17",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph01",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2001.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2001-08-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-09-13",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir01",
+      "link": "https://dblp.org/db/conf/sigir/sigir2001.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2001-09-09",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-08-05",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai01",
+      "link": "https://dblp.org/db/conf/uai/uai2001.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2001-08-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
+      "end": "2001-05-05",
+      "fullName": "International World Wide Web Conference",
+      "id": "www01",
+      "link": "https://dblp.org/db/conf/www/www2001.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2001-05-01",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2001
     }
   ],
@@ -799,6 +1035,22 @@
     },
     {
       "access": "registration",
+      "city": "Helsinki",
+      "conferenceId": "fsr01",
+      "country": "Finland",
+      "end": "2001-06-13",
+      "id": "fsr01@main",
+      "lat": 60.1666204,
+      "link": "https://www.tmt.unze.ba/zbornik/TMT2013/101-TMT13-085.pdf",
+      "lng": 24.9435408,
+      "name": "FSR 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-06-11"
+    },
+    {
+      "access": "registration",
       "city": "San Francisco",
       "conferenceId": "gecco01",
       "country": "United States",
@@ -844,6 +1096,39 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2001-08-21"
+    },
+    {
+      "access": "registration",
+      "city": "Toledo",
+      "conferenceId": "icaps01",
+      "country": "Spain",
+      "end": "2001-09-14",
+      "id": "icaps01@main",
+      "lat": 39.8558913,
+      "link": "https://ecp01.icaps-conference.org/ecp_conferences.html",
+      "lng": -4.024265,
+      "name": "ICAPS 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-09-12"
+    },
+    {
+      "access": "registration",
+      "city": "Guimarães",
+      "conferenceId": "icarsc01",
+      "country": "Portugal",
+      "end": "2001-04-28",
+      "id": "icarsc01@main",
+      "lat": 41.4417677,
+      "link": "https://web.archive.org/web/20010424083410/http://www.robotica.dei.uminho.pt:80/robotica2001/",
+      "lng": -8.2955712,
+      "name": "ICARSC 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-04-25",
+      "venue": "Pavilhão Francisco de Holanda"
     },
     {
       "access": "registration",
@@ -1090,6 +1375,70 @@
     },
     {
       "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "kdd01",
+      "country": "United States",
+      "end": "2001-08-29",
+      "id": "kdd01@main",
+      "lat": 37.7879363,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/502512",
+      "lng": -122.4075201,
+      "name": "KDD 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-08-26"
+    },
+    {
+      "access": "registration",
+      "city": "Utrecht",
+      "conferenceId": "miccai01",
+      "country": "Netherlands",
+      "end": "2001-10-17",
+      "id": "miccai01@main",
+      "lat": 52.0907006,
+      "link": "https://dblp.org/db/conf/miccai/miccai2001.html",
+      "lng": 5.1215634,
+      "name": "MICCAI 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-10-14"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "mldm01",
+      "country": "Germany",
+      "end": "2001-07-27",
+      "id": "mldm01@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/mldm/mldm2001.html",
+      "lng": 12.3747329,
+      "name": "MLDM 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "naacl01",
+      "country": "United States",
+      "end": "2001-06-07",
+      "id": "naacl01@main",
+      "lat": 40.4406968,
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "lng": -80.0025666,
+      "name": "NAACL 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-06-02"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "neurips01",
       "country": "Canada",
@@ -1104,6 +1453,135 @@
       "role": "main",
       "start": "2001-12-03",
       "venue": "Hyatt Regency Vancouver"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "pakdd01",
+      "country": "China",
+      "end": "2001-04-18",
+      "id": "pakdd01@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2001.html",
+      "lng": 114.1582831,
+      "name": "PAKDD 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-04-16"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "roman01",
+      "country": "France",
+      "end": "2001-09-21",
+      "id": "roman01@main",
+      "lat": 48.8534951,
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "lng": 2.3483915,
+      "name": "RO-MAN 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "sdm01",
+      "country": "United States",
+      "end": "2001-04-07",
+      "id": "sdm01@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/sdm/sdm2001.html",
+      "lng": -87.6244212,
+      "name": "SDM 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-04-05"
+    },
+    {
+      "access": "registration",
+      "city": "Florianópolis",
+      "conferenceId": "sibgrapi01",
+      "country": "Brazil",
+      "end": "2001-10-18",
+      "id": "sibgrapi01@main",
+      "lat": -27.5973002,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2001.html",
+      "lng": -48.5496098,
+      "name": "SIBGRAPI 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-10-15"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph01",
+      "country": "United States",
+      "end": "2001-08-17",
+      "id": "siggraph01@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2001.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-08-12"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "sigir01",
+      "country": "United States",
+      "end": "2001-09-13",
+      "id": "sigir01@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/sigir/sigir2001.html",
+      "lng": -90.0629493,
+      "name": "SIGIR 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-09-09"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "uai01",
+      "country": "United States",
+      "end": "2001-08-05",
+      "id": "uai01@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/uai/uai2001.html",
+      "lng": -122.330062,
+      "name": "UAI 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-08-02",
+      "venue": "University of Washington"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "www01",
+      "country": "China",
+      "end": "2001-05-05",
+      "id": "www01@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/www/www2001.html",
+      "lng": 114.1582831,
+      "name": "WWW 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-05-01"
     }
   ]
 }

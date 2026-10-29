@@ -60,6 +60,21 @@
       ],
       "title": "ICPR",
       "year": 1976
+    },
+    {
+      "deadlines": [],
+      "end": "1976-07-16",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph76",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1976.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1976-07-14",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1976
     }
   ],
   "locations": [
@@ -127,6 +142,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1976-11-08"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "siggraph76",
+      "country": "United States",
+      "end": "1976-07-16",
+      "id": "siggraph76@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1976.html",
+      "lng": -75.1635262,
+      "name": "SIGGRAPH 1976",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1976-07-14"
     }
   ]
 }

@@ -288,6 +288,21 @@
     },
     {
       "deadlines": [],
+      "end": "1999-08-31",
+      "fullName": "International Conference on Field and Service Robotics",
+      "id": "fsr99",
+      "link": "https://firedoc.nist.gov/exact_term/?keyword=GPS",
+      "series": "fsr",
+      "source": "curated",
+      "start": "1999-08-29",
+      "tags": [
+        "robotics"
+      ],
+      "title": "FSR",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
       "end": "1999-07-17",
       "fullName": "Genetic and Evolutionary Computation Conference",
       "id": "gecco99",
@@ -329,6 +344,21 @@
         "machine-learning"
       ],
       "title": "ICANN",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-09-10",
+      "fullName": "European Conference on Planning",
+      "id": "icaps99",
+      "link": "https://www.icaps-conference.org/conference/ecp-1999/",
+      "series": "icaps",
+      "source": "curated",
+      "start": "1999-09-08",
+      "tags": [
+        "automated-planning"
+      ],
+      "title": "ICAPS",
       "year": 1999
     },
     {
@@ -513,6 +543,168 @@
         "human-computer-interaction"
       ],
       "title": "IUI",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-08-18",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd99",
+      "link": "https://dblp.org/rec/conf/kdd/1999",
+      "series": "kdd",
+      "source": "curated",
+      "start": "1999-08-15",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-09-22",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai99",
+      "link": "https://dblp.org/db/conf/miccai/miccai1999.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "1999-09-19",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-09-18",
+      "fullName": "Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm99",
+      "link": "https://dblp.org/db/conf/mldm/mldm99.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "1999-09-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-12-04",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips99",
+      "link": "https://dblp.org/db/conf/nips/nips1999.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1999-11-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-04-28",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd99",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd99.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "1999-04-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-10-20",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi99",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi1999.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "1999-10-17",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-08-13",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph99",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1999.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1999-08-08",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-08-19",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir99",
+      "link": "https://dblp.org/db/conf/sigir/sigir99.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1999-08-15",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-08-01",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai99",
+      "link": "https://dblp.org/db/conf/uai/uai1999.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1999-07-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1999
+    },
+    {
+      "deadlines": [],
+      "end": "1999-05-14",
+      "fullName": "International World Wide Web Conference",
+      "id": "www99",
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "series": "www",
+      "source": "curated",
+      "start": "1999-05-11",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 1999
     }
   ],
@@ -810,6 +1002,22 @@
     },
     {
       "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "fsr99",
+      "country": "United States",
+      "end": "1999-08-31",
+      "id": "fsr99@main",
+      "lat": 40.4406968,
+      "link": "https://firedoc.nist.gov/exact_term/?keyword=GPS",
+      "lng": -80.0025666,
+      "name": "FSR 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-08-29"
+    },
+    {
+      "access": "registration",
       "city": "Orlando",
       "conferenceId": "gecco99",
       "country": "United States",
@@ -855,6 +1063,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1999-09-07"
+    },
+    {
+      "access": "registration",
+      "city": "Durham",
+      "conferenceId": "icaps99",
+      "country": "United Kingdom",
+      "end": "1999-09-10",
+      "id": "icaps99@main",
+      "lat": 54.7770139,
+      "link": "https://www.icaps-conference.org/conference/ecp-1999/",
+      "lng": -1.5756205,
+      "name": "ICAPS 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-09-08"
     },
     {
       "access": "registration",
@@ -1049,6 +1273,167 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1999-01-05"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "kdd99",
+      "country": "United States",
+      "end": "1999-08-18",
+      "id": "kdd99@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/rec/conf/kdd/1999",
+      "lng": -117.1638284,
+      "name": "KDD 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-08-15"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "miccai99",
+      "country": "United Kingdom",
+      "end": "1999-09-22",
+      "id": "miccai99@main",
+      "lat": 52.1975846,
+      "link": "https://dblp.org/db/conf/miccai/miccai1999.html",
+      "lng": 0.1391537,
+      "name": "MICCAI 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-09-19"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "mldm99",
+      "country": "Germany",
+      "end": "1999-09-18",
+      "id": "mldm99@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/mldm/mldm99.html",
+      "lng": 12.3747329,
+      "name": "MLDM 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-09-16"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips99",
+      "country": "United States",
+      "end": "1999-12-04",
+      "id": "neurips99@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1999.html",
+      "lng": -104.984862,
+      "name": "NIPS 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-11-29"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "pakdd99",
+      "country": "China",
+      "end": "1999-04-28",
+      "id": "pakdd99@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd99.html",
+      "lng": 116.3912972,
+      "name": "PAKDD 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Campinas",
+      "conferenceId": "sibgrapi99",
+      "country": "Brazil",
+      "end": "1999-10-20",
+      "id": "sibgrapi99@main",
+      "lat": -22.9056391,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi1999.html",
+      "lng": -47.059564,
+      "name": "SIBGRAPI 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph99",
+      "country": "United States",
+      "end": "1999-08-13",
+      "id": "siggraph99@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1999.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "Berkeley",
+      "conferenceId": "sigir99",
+      "country": "United States",
+      "end": "1999-08-19",
+      "id": "sigir99@main",
+      "lat": 37.8708393,
+      "link": "https://dblp.org/db/conf/sigir/sigir99.html",
+      "lng": -122.272863,
+      "name": "SIGIR 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-08-15"
+    },
+    {
+      "access": "registration",
+      "city": "Stockholm",
+      "conferenceId": "uai99",
+      "country": "Sweden",
+      "end": "1999-08-01",
+      "id": "uai99@main",
+      "lat": 59.3251172,
+      "link": "https://dblp.org/db/conf/uai/uai1999.html",
+      "lng": 18.0710935,
+      "name": "UAI 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-07-30"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "www99",
+      "country": "Canada",
+      "end": "1999-05-14",
+      "id": "www99@main",
+      "lat": 43.6534817,
+      "link": "https://archives.iw3c2.org/www2022/conference-history/",
+      "lng": -79.3839347,
+      "name": "WWW 1999",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1999-05-11",
+      "venue": "Metro Toronto Convention Centre"
     }
   ]
 }

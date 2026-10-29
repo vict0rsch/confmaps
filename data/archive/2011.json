@@ -444,6 +444,21 @@
     },
     {
       "deadlines": [],
+      "end": "2011-04-06",
+      "fullName": "Conference on Mobile Robots and Competitions",
+      "id": "icarsc11",
+      "link": "https://web.archive.org/web/20110520181330/http://robotica2011.ist.utl.pt/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2011-04-06",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
       "end": "2011-05-27",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp11",
@@ -750,6 +765,82 @@
     },
     {
       "deadlines": [],
+      "end": "2011-02-16",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui11",
+      "link": "https://dblp.org/db/conf/iui/iui2011.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2011-02-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-08-24",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd11",
+      "link": "https://dblp.org/db/conf/kdd/kdd2011.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2011-08-21",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-12-14",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem11",
+      "link": "https://dblp.org/db/conf/ksem/ksem2011.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2011-12-12",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-09-22",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai11",
+      "link": "https://link.springer.com/book/10.1007/978-3-642-23623-5",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2011-09-18",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-09-03",
+      "fullName": "Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm11",
+      "link": "https://dblp.org/db/conf/mldm/mldm2011.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2011-08-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
       "end": "2011-12-15",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips11",
@@ -761,6 +852,246 @@
         "machine-learning"
       ],
       "title": "NeurIPS",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-05-27",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd11",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2011-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2011-05-24",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-09-14",
+      "fullName": "Recent Advances in Natural Language Processing",
+      "id": "ranlp11",
+      "link": "https://dblp.org/db/conf/ranlp/ranlp2011.html",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2011-09-12",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-10-27",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys11",
+      "link": "https://dblp.org/db/conf/recsys/recsys2011.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2011-10-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-08-03",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman11",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2011.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2011-07-31",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-06-30",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss11",
+      "link": "https://dblp.org/db/conf/rss/rss2011.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2011-06-27",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-04-30",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm11",
+      "link": "https://dblp.org/db/conf/sdm/sdm2011.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2011-04-28",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-07-22",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp11",
+      "link": "https://web.archive.org/web/20110807141710/http://sgp2011-lgg.epfl.ch/Home.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2011-07-20",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-08-31",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi11",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2011.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2011-08-28",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-08-11",
+      "fullName": "International Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph11",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2011awards.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2011-08-07",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-12-15",
+      "fullName": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+      "id": "siggraphasia11",
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2011courses.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2011-12-12",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-07-29",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir11",
+      "link": "https://dblp.org/db/conf/sigir/sigir2011.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2011-07-25",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-07-17",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai11",
+      "link": "https://dblp.org/db/conf/uai/uai2011.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2011-07-14",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-01-07",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv11",
+      "link": "https://dblp.org/db/conf/wacv/wacv2011.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2011-01-05",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-02-12",
+      "fullName": "International Conference on Web Search and Web Data Mining",
+      "id": "wsdm11",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2011.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2011-02-09",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2011
+    },
+    {
+      "deadlines": [],
+      "end": "2011-04-01",
+      "fullName": "International World Wide Web Conference",
+      "id": "www11",
+      "link": "https://dblp.org/db/conf/www/www2011.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2011-03-28",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2011
     }
   ],
@@ -1218,6 +1549,23 @@
     },
     {
       "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "icarsc11",
+      "country": "Portugal",
+      "end": "2011-04-06",
+      "id": "icarsc11@main",
+      "lat": 38.7077507,
+      "link": "https://web.archive.org/web/20110520181330/http://robotica2011.ist.utl.pt/",
+      "lng": -9.1365919,
+      "name": "ICARSC 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-04-06",
+      "venue": "Instituto Superior Técnico"
+    },
+    {
+      "access": "registration",
       "city": "Prague",
       "conferenceId": "icassp11",
       "country": "Czech Republic",
@@ -1539,6 +1887,86 @@
     },
     {
       "access": "registration",
+      "city": "Palo Alto",
+      "conferenceId": "iui11",
+      "country": "United States",
+      "end": "2011-02-16",
+      "id": "iui11@main",
+      "lat": 37.4443293,
+      "link": "https://dblp.org/db/conf/iui/iui2011.html",
+      "lng": -122.1598465,
+      "name": "IUI 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-02-13"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "kdd11",
+      "country": "United States",
+      "end": "2011-08-24",
+      "id": "kdd11@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/kdd/kdd2011.html",
+      "lng": -117.1638284,
+      "name": "KDD 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-08-21"
+    },
+    {
+      "access": "registration",
+      "city": "Irvine",
+      "conferenceId": "ksem11",
+      "country": "United States",
+      "end": "2011-12-14",
+      "id": "ksem11@main",
+      "lat": 33.6856969,
+      "link": "https://dblp.org/db/conf/ksem/ksem2011.html",
+      "lng": -117.825981,
+      "name": "KSEM 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "miccai11",
+      "country": "Canada",
+      "end": "2011-09-22",
+      "id": "miccai11@main",
+      "lat": 43.6534817,
+      "link": "https://link.springer.com/book/10.1007/978-3-642-23623-5",
+      "lng": -79.3839347,
+      "name": "MICCAI 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm11",
+      "country": "United States",
+      "end": "2011-09-03",
+      "id": "mldm11@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/mldm/mldm2011.html",
+      "lng": -74.0060152,
+      "name": "MLDM 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-08-30"
+    },
+    {
+      "access": "registration",
       "city": "Granada",
       "conferenceId": "neurips11",
       "country": "Spain",
@@ -1553,6 +1981,247 @@
       "role": "main",
       "start": "2011-12-12",
       "venue": "Granada Congress and Exhibition Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Shenzhen",
+      "conferenceId": "pakdd11",
+      "country": "China",
+      "end": "2011-05-27",
+      "id": "pakdd11@main",
+      "lat": 22.5445741,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2011-1.html",
+      "lng": 114.0545429,
+      "name": "PAKDD 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-05-24"
+    },
+    {
+      "access": "registration",
+      "city": "Hissar",
+      "conferenceId": "ranlp11",
+      "country": "Bulgaria",
+      "end": "2011-09-14",
+      "id": "ranlp11@main",
+      "lat": 42.5003572,
+      "link": "https://dblp.org/db/conf/ranlp/ranlp2011.html",
+      "lng": 24.7147718,
+      "name": "RANLP 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-09-12"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "recsys11",
+      "country": "United States",
+      "end": "2011-10-27",
+      "id": "recsys11@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/recsys/recsys2011.html",
+      "lng": -87.6244212,
+      "name": "RecSys 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-10-23"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "roman11",
+      "country": "United States",
+      "end": "2011-08-03",
+      "id": "roman11@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2011.html",
+      "lng": -84.3898151,
+      "name": "RO-MAN 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "rss11",
+      "country": "United States",
+      "end": "2011-06-30",
+      "id": "rss11@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/rss/rss2011.html",
+      "lng": -118.2427676,
+      "name": "RSS 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-06-27",
+      "venue": "University of Southern California"
+    },
+    {
+      "access": "registration",
+      "city": "Mesa",
+      "conferenceId": "sdm11",
+      "country": "United States",
+      "end": "2011-04-30",
+      "id": "sdm11@main",
+      "lat": 33.4151005,
+      "link": "https://dblp.org/db/conf/sdm/sdm2011.html",
+      "lng": -111.831455,
+      "name": "SDM 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-04-28"
+    },
+    {
+      "access": "registration",
+      "city": "Lausanne",
+      "conferenceId": "sgp11",
+      "country": "Switzerland",
+      "end": "2011-07-22",
+      "id": "sgp11@main",
+      "lat": 46.5218269,
+      "link": "https://web.archive.org/web/20110807141710/http://sgp2011-lgg.epfl.ch/Home.html",
+      "lng": 6.6327025,
+      "name": "SGP 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-07-20"
+    },
+    {
+      "access": "registration",
+      "city": "Maceió",
+      "conferenceId": "sibgrapi11",
+      "country": "Brazil",
+      "end": "2011-08-31",
+      "id": "sibgrapi11@main",
+      "lat": -9.6476843,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2011.html",
+      "lng": -35.7339264,
+      "name": "SIBGRAPI 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-08-28"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "siggraph11",
+      "country": "Canada",
+      "end": "2011-08-11",
+      "id": "siggraph11@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2011awards.html",
+      "lng": -123.113952,
+      "name": "SIGGRAPH 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-08-07"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "siggraphasia11",
+      "country": "China",
+      "end": "2011-12-15",
+      "id": "siggraphasia11@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2011courses.html",
+      "lng": 114.1582831,
+      "name": "SIGGRAPH Asia 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "sigir11",
+      "country": "China",
+      "end": "2011-07-29",
+      "id": "sigir11@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/sigir/sigir2011.html",
+      "lng": 116.3912972,
+      "name": "SIGIR 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "uai11",
+      "country": "Spain",
+      "end": "2011-07-17",
+      "id": "uai11@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/uai/uai2011.html",
+      "lng": 2.177073,
+      "name": "UAI 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-07-14"
+    },
+    {
+      "access": "registration",
+      "city": "Kona",
+      "conferenceId": "wacv11",
+      "country": "United States",
+      "end": "2011-01-07",
+      "id": "wacv11@main",
+      "lat": 37.1576013,
+      "link": "https://dblp.org/db/conf/wacv/wacv2011.html",
+      "lng": -82.7387692,
+      "name": "WACV 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-01-05"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "wsdm11",
+      "country": "Hong Kong",
+      "end": "2011-02-12",
+      "id": "wsdm11@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2011.html",
+      "lng": 114.1582831,
+      "name": "WSDM 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-02-09"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "www11",
+      "country": "India",
+      "end": "2011-04-01",
+      "id": "www11@main",
+      "lat": 17.360589,
+      "link": "https://dblp.org/db/conf/www/www2011.html",
+      "lng": 78.4740613,
+      "name": "WWW 2011",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2011-03-28"
     }
   ]
 }

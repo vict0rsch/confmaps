@@ -107,6 +107,21 @@
       ],
       "title": "ICPR",
       "year": 1980
+    },
+    {
+      "deadlines": [],
+      "end": "1980-07-18",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph80",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1980.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1980-07-14",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1980
     }
   ],
   "locations": [
@@ -223,6 +238,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1980-12-01"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "siggraph80",
+      "country": "United States",
+      "end": "1980-07-18",
+      "id": "siggraph80@main",
+      "lat": 47.6038321,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1980.html",
+      "lng": -122.330062,
+      "name": "SIGGRAPH 1980",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1980-07-14"
     }
   ]
 }

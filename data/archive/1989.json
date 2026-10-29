@@ -231,6 +231,84 @@
       ],
       "title": "ISMIS",
       "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-05-18",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr89",
+      "link": "https://dblp.org/db/conf/kr/kr89.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "1989-05-15",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-11-30",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips89",
+      "link": "https://dblp.org/db/conf/nips/nips1989.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1989-11-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-08-04",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph89",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1989.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1989-07-31",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-06-28",
+      "fullName": "International Conference on Research and Development in Information Retrieval",
+      "id": "sigir89",
+      "link": "https://dblp.org/db/conf/sigir/sigir89.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1989-06-25",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1989
+    },
+    {
+      "deadlines": [],
+      "end": "1989-08-20",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai89",
+      "link": "https://dblp.org/db/conf/uai/uai1989.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1989-08-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1989
     }
   ],
   "locations": [
@@ -477,6 +555,86 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1989-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "kr89",
+      "country": "Canada",
+      "end": "1989-05-18",
+      "id": "kr89@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/kr/kr89.html",
+      "lng": -79.3839347,
+      "name": "KR 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-05-15"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips89",
+      "country": "United States",
+      "end": "1989-11-30",
+      "id": "neurips89@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1989.html",
+      "lng": -104.984862,
+      "name": "NIPS 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-11-27"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "siggraph89",
+      "country": "United States",
+      "end": "1989-08-04",
+      "id": "siggraph89@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1989.html",
+      "lng": -71.0578303,
+      "name": "SIGGRAPH 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-07-31"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "sigir89",
+      "country": "United States",
+      "end": "1989-06-28",
+      "id": "sigir89@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/sigir/sigir89.html",
+      "lng": -71.1040018,
+      "name": "SIGIR 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-06-25"
+    },
+    {
+      "access": "registration",
+      "city": "Windsor",
+      "conferenceId": "uai89",
+      "country": "Canada",
+      "end": "1989-08-20",
+      "id": "uai89@main",
+      "lat": 42.3167397,
+      "link": "https://dblp.org/db/conf/uai/uai1989.html",
+      "lng": -83.0373389,
+      "name": "UAI 1989",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1989-08-18"
     }
   ]
 }

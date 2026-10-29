@@ -250,6 +250,54 @@
       ],
       "title": "ISMIS",
       "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-08-05",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph88",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1988.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1988-08-01",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-06-15",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir88",
+      "link": "https://dblp.org/db/conf/sigir/sigir88.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1988-06-13",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
+      "end": "1988-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai88",
+      "link": "https://dblp.org/db/conf/uai/uai1988.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1988-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1988
     }
   ],
   "locations": [
@@ -510,6 +558,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1988-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "siggraph88",
+      "country": "United States",
+      "end": "1988-08-05",
+      "id": "siggraph88@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1988.html",
+      "lng": -84.3898151,
+      "name": "SIGGRAPH 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Grenoble",
+      "conferenceId": "sigir88",
+      "country": "France",
+      "end": "1988-06-15",
+      "id": "sigir88@main",
+      "lat": 45.1875602,
+      "link": "https://dblp.org/db/conf/sigir/sigir88.html",
+      "lng": 5.7357819,
+      "name": "SIGIR 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-06-13"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "uai88",
+      "country": "United States",
+      "end": "1988-07-12",
+      "id": "uai88@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/uai/uai1988.html",
+      "lng": -93.2654692,
+      "name": "UAI 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-07-10"
     }
   ]
 }

@@ -637,6 +637,228 @@
       ],
       "title": "IUI",
       "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-08-23",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd00",
+      "link": "https://dblp.org/rec/conf/kdd/2000",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2000-08-20",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-04-15",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr00",
+      "link": "https://dblp.org/db/conf/kr/kr2000.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2000-04-12",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-06-02",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec00",
+      "link": "https://dblp.org/db/conf/lrec/lrec2000.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2000-05-31",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-10-14",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai00",
+      "link": "https://dblp.org/db/conf/miccai/miccai2000.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2000-10-11",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-05-03",
+      "id": "naacl00",
+      "link": "https://aclanthology.org/www.mt-archive.info/srch/conferences-2.htm",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2000-04-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-11-30",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips00",
+      "link": "https://web.archive.org/web/20010505171306/http://www.cs.cmu.edu:80/Groups/NIPS/NIPS2000/",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2000-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-04-20",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd00",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2000.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2000-04-18",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-09-29",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman00",
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2000-09-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-10-20",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi00",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2000.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2000-10-17",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-07-28",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph00",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2000.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2000-07-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-07-28",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir00",
+      "link": "https://dblp.org/db/conf/sigir/sigir2000.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2000-07-24",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-07-03",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai00",
+      "link": "https://dblp.org/db/conf/uai/uai2000.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2000-06-30",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-12-06",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv00",
+      "link": "https://dblp.org/db/conf/wacv/wacv2000.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2000-12-04",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2000
+    },
+    {
+      "deadlines": [],
+      "end": "2000-05-19",
+      "fullName": "International World Wide Web Conference",
+      "id": "www00",
+      "link": "https://archives.iw3c2.org/www9/",
+      "series": "www",
+      "source": "curated",
+      "start": "2000-05-15",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 2000
     }
   ],
   "locations": [
@@ -1299,6 +1521,231 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2000-01-09"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "kdd00",
+      "country": "United States",
+      "end": "2000-08-23",
+      "id": "kdd00@main",
+      "lat": 42.3588336,
+      "link": "https://dblp.org/rec/conf/kdd/2000",
+      "lng": -71.0578303,
+      "name": "KDD 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-08-20"
+    },
+    {
+      "access": "registration",
+      "city": "Breckenridge",
+      "conferenceId": "kr00",
+      "country": "United States",
+      "end": "2000-04-15",
+      "id": "kr00@main",
+      "lat": 32.7554791,
+      "link": "https://dblp.org/db/conf/kr/kr2000.html",
+      "lng": -98.9026798,
+      "name": "KR 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-04-12"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "lrec00",
+      "country": "Greece",
+      "end": "2000-06-02",
+      "id": "lrec00@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/lrec/lrec2000.html",
+      "lng": 23.7348324,
+      "name": "LREC 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-05-31"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "miccai00",
+      "country": "United States",
+      "end": "2000-10-14",
+      "id": "miccai00@main",
+      "lat": 40.4406968,
+      "link": "https://dblp.org/db/conf/miccai/miccai2000.html",
+      "lng": -80.0025666,
+      "name": "MICCAI 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-10-11"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "naacl00",
+      "country": "United States",
+      "end": "2000-05-03",
+      "id": "naacl00@main",
+      "lat": 47.6038321,
+      "link": "https://aclanthology.org/www.mt-archive.info/srch/conferences-2.htm",
+      "lng": -122.330062,
+      "name": "NAACL 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-04-29"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips00",
+      "country": "United States",
+      "end": "2000-11-30",
+      "id": "neurips00@main",
+      "lat": 39.7392364,
+      "link": "https://web.archive.org/web/20010505171306/http://www.cs.cmu.edu:80/Groups/NIPS/NIPS2000/",
+      "lng": -104.984862,
+      "name": "NIPS 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-11-28"
+    },
+    {
+      "access": "registration",
+      "city": "Kyoto",
+      "conferenceId": "pakdd00",
+      "country": "Japan",
+      "end": "2000-04-20",
+      "id": "pakdd00@main",
+      "lat": 35.0115754,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2000.html",
+      "lng": 135.7681441,
+      "name": "PAKDD 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-04-18"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "roman00",
+      "country": "Japan",
+      "end": "2000-09-29",
+      "id": "roman00@main",
+      "lat": 34.6937569,
+      "link": "https://dblp.org/db/conf/ro-man/index.html",
+      "lng": 135.5014539,
+      "name": "RO-MAN 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-09-27"
+    },
+    {
+      "access": "registration",
+      "city": "Gramado",
+      "conferenceId": "sibgrapi00",
+      "country": "Brazil",
+      "end": "2000-10-20",
+      "id": "sibgrapi00@main",
+      "lat": -29.3792858,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2000.html",
+      "lng": -50.8737019,
+      "name": "SIBGRAPI 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "siggraph00",
+      "country": "United States",
+      "end": "2000-07-28",
+      "id": "siggraph00@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2000.html",
+      "lng": -90.0629493,
+      "name": "SIGGRAPH 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Athens",
+      "conferenceId": "sigir00",
+      "country": "Greece",
+      "end": "2000-07-28",
+      "id": "sigir00@main",
+      "lat": 37.9755648,
+      "link": "https://dblp.org/db/conf/sigir/sigir2000.html",
+      "lng": 23.7348324,
+      "name": "SIGIR 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-07-24"
+    },
+    {
+      "access": "registration",
+      "city": "Stanford",
+      "conferenceId": "uai00",
+      "country": "United States",
+      "end": "2000-07-03",
+      "id": "uai00@main",
+      "lat": 37.427467,
+      "link": "https://dblp.org/db/conf/uai/uai2000.html",
+      "lng": -122.1702445,
+      "name": "UAI 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-06-30",
+      "venue": "Stanford University"
+    },
+    {
+      "access": "registration",
+      "city": "Palm Springs",
+      "conferenceId": "wacv00",
+      "country": "United States",
+      "end": "2000-12-06",
+      "id": "wacv00@main",
+      "lat": 33.8246269,
+      "link": "https://dblp.org/db/conf/wacv/wacv2000.html",
+      "lng": -116.540303,
+      "name": "WACV 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-12-04"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "www00",
+      "country": "Netherlands",
+      "end": "2000-05-19",
+      "id": "www00@main",
+      "lat": 52.3730796,
+      "link": "https://archives.iw3c2.org/www9/",
+      "lng": 4.8924534,
+      "name": "WWW 2000",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2000-05-15"
     }
   ]
 }

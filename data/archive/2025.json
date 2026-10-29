@@ -1692,6 +1692,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-03-27",
+      "fullName": "ACM Conference on Intelligent User Interfaces",
+      "id": "iui25",
+      "link": "https://dblp.org/db/conf/iui/iui2025.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2025-03-24",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-02-04T11:59:59Z",
@@ -1739,6 +1754,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-11-17",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr25",
+      "link": "https://web.archive.org/web/20250724010750/https://kr.org/KR2025/index.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2025-11-11",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-03-21T11:59:59Z",
@@ -1770,6 +1800,38 @@
         "machine-learning"
       ],
       "title": "KSEM",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-06",
+      "fullName": "Learning for Dynamics & Control Conference",
+      "id": "l4dc25",
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2025.html",
+      "series": "l4dc",
+      "source": "curated",
+      "start": "2025-06-04",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "L4DC",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-12-12",
+      "fullName": "Learning on Graphs Conference",
+      "id": "log25",
+      "link": "https://web.archive.org/web/20260217081148/https://log2025.logconference.org/",
+      "series": "log",
+      "source": "curated",
+      "start": "2025-12-10",
+      "tags": [
+        "machine-learning",
+        "data-mining",
+        "knowledge-representation"
+      ],
+      "title": "LoG",
       "year": 2025
     },
     {
@@ -1805,6 +1867,66 @@
         "mathematics"
       ],
       "title": "MathAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-27",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai25",
+      "link": "https://dblp.org/db/conf/miccai/miccai2025-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2025-09-23",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-11",
+      "fullName": "Medical Imaging with Deep Learning",
+      "id": "midl25",
+      "link": "https://web.archive.org/web/20250709101212/https://2025.midl.io/call-for-papers",
+      "series": "midl",
+      "source": "curated",
+      "start": "2025-07-09",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-08-08",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr25",
+      "link": "https://web.archive.org/web/20250720103052/https://sites.google.com/view/mipr-2025/ieee-mipr",
+      "series": "mipr",
+      "source": "curated",
+      "start": "2025-08-06",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-23",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm25",
+      "link": "https://web.archive.org/web/20250311024114/http://www.mldm.de/",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2025-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
       "year": 2025
     },
     {
@@ -1888,6 +2010,66 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-04-28",
+      "id": "nlbse25",
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2025.html",
+      "series": "nlbse",
+      "source": "curated",
+      "start": "2025-04-27",
+      "tags": [
+        "natural-language-processing",
+        "software engineering"
+      ],
+      "title": "NLBSE",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-06-13",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd25",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2025-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2025-06-10",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-10",
+      "fullName": "International Conference on Recent Advances in Natural Language Processing",
+      "id": "ranlp25",
+      "link": "https://web.archive.org/web/20250827023341/https://ranlp.org/ranlp2025/",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2025-09-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-26",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys25",
+      "link": "https://dblp.org/db/conf/recsys/recsys2025.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2025-09-22",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-02-22T11:59:59Z",
@@ -1923,6 +2105,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-08-29",
+      "fullName": "IEEE International Conference on Robot and Human Interactive Communication",
+      "id": "roman25",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2025.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2025-08-25",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-01-18T11:59:59Z",
@@ -1949,6 +2146,53 @@
         "machine-learning"
       ],
       "title": "RSS",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-09-24",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr25",
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2025.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2025-09-22",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-04-11",
+      "fullName": "IEEE Conference on Secure and Trustworthy Machine Learning",
+      "id": "satml25",
+      "link": "https://dblp.org/db/conf/satml/satml2025.html",
+      "series": "satml",
+      "source": "curated",
+      "start": "2025-04-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SaTML",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-05-03",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm25",
+      "link": "https://dblp.org/db/conf/sdm/sdm2025.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2025-05-01",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
       "year": 2025
     },
     {
@@ -2029,6 +2273,24 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-10-03",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi25",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2025.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2025-09-30",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-01-16T22:00:00Z",
@@ -2054,6 +2316,84 @@
         "computer-graphics"
       ],
       "title": "SIGGRAPH",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-12-18",
+      "id": "siggraphasia25",
+      "link": "https://web.archive.org/web/20251218070927/https://asia.siggraph.org/2025/",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2025-12-15",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-07-18",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir25",
+      "link": "https://dblp.org/db/conf/sigir/sigir2025.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2025-07-13",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-12-10",
+      "fullName": "Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region",
+      "id": "sigirap25",
+      "link": "https://dblp.org/db/conf/sigir-ap/sigir-ap2025.html",
+      "series": "sigir-ap",
+      "source": "curated",
+      "start": "2025-12-07",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SIGIR-AP",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-11-03",
+      "fullName": "IAA Conference on AI in and for Space",
+      "id": "spaice25",
+      "link": "https://spaice.esa.int/2025/",
+      "series": "spaice",
+      "source": "curated",
+      "start": "2025-11-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "SPAICE",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-10-15",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom25",
+      "link": "https://dblp.org/db/conf/specom/specom2025-1.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2025-10-13",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
       "year": 2025
     },
     {
@@ -2128,6 +2468,26 @@
         "data-mining"
       ],
       "title": "WSDM",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
+      "end": "2025-05-02",
+      "fullName": "The ACM Web Conference",
+      "id": "www25",
+      "link": "https://dblp.org/db/conf/www/www2025.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2025-04-28",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2025
     }
   ],
@@ -3242,6 +3602,22 @@
     },
     {
       "access": "registration",
+      "city": "Cagliari",
+      "conferenceId": "iui25",
+      "country": "Italy",
+      "end": "2025-03-27",
+      "id": "iui25@main",
+      "lat": 39.2171994,
+      "link": "https://dblp.org/db/conf/iui/iui2025.html",
+      "lng": 9.113311,
+      "name": "IUI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-03-24"
+    },
+    {
+      "access": "registration",
       "city": "Toronto",
       "conferenceId": "kdd25",
       "country": "Canada",
@@ -3256,6 +3632,22 @@
       "role": "main",
       "start": "2025-08-03",
       "venue": "Toronto Convention Centre"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "kr25",
+      "country": "Australia",
+      "end": "2025-11-17",
+      "id": "kr25@main",
+      "lat": -37.8142454,
+      "link": "https://web.archive.org/web/20250724010750/https://kr.org/KR2025/index.html",
+      "lng": 144.9631732,
+      "name": "KR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-11"
     },
     {
       "access": "registration",
@@ -3276,6 +3668,39 @@
     },
     {
       "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "l4dc25",
+      "country": "United States",
+      "end": "2025-06-06",
+      "id": "l4dc25@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/l4dc/l4dc2025.html",
+      "lng": -83.7484616,
+      "name": "L4DC 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-04"
+    },
+    {
+      "access": "registration",
+      "city": "Phoenix",
+      "conferenceId": "log25",
+      "country": "United States",
+      "end": "2025-12-12",
+      "id": "log25@main",
+      "lat": 33.4484367,
+      "link": "https://web.archive.org/web/20260217081148/https://log2025.logconference.org/",
+      "lng": -112.074141,
+      "name": "LoG 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-12-10",
+      "venue": "Arizona State University - West Valley Campus"
+    },
+    {
+      "access": "registration",
       "city": "Sochi",
       "conferenceId": "mathai25",
       "country": "Russia",
@@ -3290,6 +3715,71 @@
       "role": "main",
       "start": "2025-03-24",
       "venue": "Sirius International Mathematics Center, Sirius"
+    },
+    {
+      "access": "registration",
+      "city": "Daejeon",
+      "conferenceId": "miccai25",
+      "country": "South Korea",
+      "end": "2025-09-27",
+      "id": "miccai25@main",
+      "lat": 36.3497007,
+      "link": "https://dblp.org/db/conf/miccai/miccai2025-1.html",
+      "lng": 127.3849016,
+      "name": "MICCAI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-23"
+    },
+    {
+      "access": "registration",
+      "city": "Salt Lake City",
+      "conferenceId": "midl25",
+      "country": "United States",
+      "end": "2025-07-11",
+      "format": "hybrid",
+      "id": "midl25@main",
+      "lat": 40.7596198,
+      "link": "https://web.archive.org/web/20250709101212/https://2025.midl.io/call-for-papers",
+      "lng": -111.886797,
+      "name": "MIDL 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "mipr25",
+      "country": "United States",
+      "end": "2025-08-08",
+      "id": "mipr25@main",
+      "lat": 37.3361663,
+      "link": "https://web.archive.org/web/20250720103052/https://sites.google.com/view/mipr-2025/ieee-mipr",
+      "lng": -121.890591,
+      "name": "MIPR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-06"
+    },
+    {
+      "access": "registration",
+      "city": "Dresden",
+      "conferenceId": "mldm25",
+      "country": "Germany",
+      "end": "2025-07-23",
+      "id": "mldm25@main",
+      "lat": 51.0493286,
+      "link": "https://web.archive.org/web/20250311024114/http://www.mldm.de/",
+      "lng": 13.7381437,
+      "name": "MLDM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-18"
     },
     {
       "access": "registration",
@@ -3344,6 +3834,70 @@
     },
     {
       "access": "registration",
+      "city": "Ottawa",
+      "conferenceId": "nlbse25",
+      "country": "Canada",
+      "end": "2025-04-28",
+      "id": "nlbse25@main",
+      "lat": 45.4208777,
+      "link": "https://dblp.org/db/conf/nlbse/nlbse2025.html",
+      "lng": -75.6901106,
+      "name": "NLBSE 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-27"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "pakdd25",
+      "country": "Australia",
+      "end": "2025-06-13",
+      "id": "pakdd25@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2025-1.html",
+      "lng": 151.2082848,
+      "name": "PAKDD 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-06-10"
+    },
+    {
+      "access": "registration",
+      "city": "Varna",
+      "conferenceId": "ranlp25",
+      "country": "Bulgaria",
+      "end": "2025-09-10",
+      "id": "ranlp25@main",
+      "lat": 43.2073873,
+      "link": "https://web.archive.org/web/20250827023341/https://ranlp.org/ranlp2025/",
+      "lng": 27.9166653,
+      "name": "RANLP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "Prague",
+      "conferenceId": "recsys25",
+      "country": "Czech Republic",
+      "end": "2025-09-26",
+      "id": "recsys25@main",
+      "lat": 50.0874654,
+      "link": "https://dblp.org/db/conf/recsys/recsys2025.html",
+      "lng": 14.4212535,
+      "name": "RecSys 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-22"
+    },
+    {
+      "access": "registration",
       "city": "Edmonton",
       "conferenceId": "rlc25",
       "country": "Canada",
@@ -3358,6 +3912,22 @@
       "role": "main",
       "start": "2025-08-05",
       "venue": "Centennial Centre for Interdisciplinary Science (CCIS), University of Alberta"
+    },
+    {
+      "access": "registration",
+      "city": "Eindhoven",
+      "conferenceId": "roman25",
+      "country": "Netherlands",
+      "end": "2025-08-29",
+      "id": "roman25@main",
+      "lat": 51.4392648,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2025.html",
+      "lng": 5.478633,
+      "name": "RO-MAN 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-08-25"
     },
     {
       "access": "registration",
@@ -3378,6 +3948,54 @@
     },
     {
       "access": "registration",
+      "city": "Istanbul",
+      "conferenceId": "rulemlrr25",
+      "country": "Turkey",
+      "end": "2025-09-24",
+      "id": "rulemlrr25@main",
+      "lat": 41.006381,
+      "link": "https://dblp.org/db/conf/rulemlrr/rulemlrr2025.html",
+      "lng": 28.9758715,
+      "name": "RuleML+RR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-22"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "satml25",
+      "country": "Denmark",
+      "end": "2025-04-11",
+      "id": "satml25@main",
+      "lat": 55.6867243,
+      "link": "https://dblp.org/db/conf/satml/satml2025.html",
+      "lng": 12.5700724,
+      "name": "SaTML 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-09"
+    },
+    {
+      "access": "registration",
+      "city": "Alexandria",
+      "conferenceId": "sdm25",
+      "country": "United States",
+      "end": "2025-05-03",
+      "id": "sdm25@main",
+      "lat": 38.8051095,
+      "link": "https://dblp.org/db/conf/sdm/sdm2025.html",
+      "lng": -77.0470229,
+      "name": "SDM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-05-01"
+    },
+    {
+      "access": "registration",
       "city": "Bilbao",
       "conferenceId": "sgp25",
       "country": "Spain",
@@ -3395,6 +4013,22 @@
     },
     {
       "access": "registration",
+      "city": "Salvador",
+      "conferenceId": "sibgrapi25",
+      "country": "Brazil",
+      "end": "2025-10-03",
+      "id": "sibgrapi25@main",
+      "lat": -12.9822499,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2025.html",
+      "lng": -38.4812772,
+      "name": "SIBGRAPI 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-09-30"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "siggraph25",
       "country": "Canada",
@@ -3409,6 +4043,87 @@
       "role": "main",
       "start": "2025-08-10",
       "venue": "Convention Centre, Vancouver, Canada"
+    },
+    {
+      "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "siggraphasia25",
+      "country": "China",
+      "end": "2025-12-18",
+      "id": "siggraphasia25@main",
+      "lat": 22.2818333,
+      "link": "https://web.archive.org/web/20251218070927/https://asia.siggraph.org/2025/",
+      "lng": 114.1582831,
+      "name": "SIGGRAPH Asia 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-12-15",
+      "venue": "Hong Kong Convention and Exhibition Centre (HKCEC)"
+    },
+    {
+      "access": "registration",
+      "city": "Padua",
+      "conferenceId": "sigir25",
+      "country": "Italy",
+      "end": "2025-07-18",
+      "id": "sigir25@main",
+      "lat": 45.3984428,
+      "link": "https://dblp.org/db/conf/sigir/sigir2025.html",
+      "lng": 11.8956829,
+      "name": "SIGIR 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-07-13"
+    },
+    {
+      "access": "registration",
+      "city": "Xi'an",
+      "conferenceId": "sigirap25",
+      "country": "China",
+      "end": "2025-12-10",
+      "id": "sigirap25@main",
+      "lat": 34.261004,
+      "link": "https://dblp.org/db/conf/sigir-ap/sigir-ap2025.html",
+      "lng": 108.9423363,
+      "name": "SIGIR-AP 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-12-07"
+    },
+    {
+      "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "spaice25",
+      "country": "China",
+      "end": "2025-11-03",
+      "id": "spaice25@main",
+      "lat": 31.311123,
+      "link": "https://spaice.esa.int/2025/",
+      "lng": 120.6212881,
+      "name": "SPAICE 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-01"
+    },
+    {
+      "access": "registration",
+      "city": "Szeged",
+      "conferenceId": "specom25",
+      "country": "Hungary",
+      "end": "2025-10-15",
+      "id": "specom25@main",
+      "lat": 46.2546312,
+      "link": "https://dblp.org/db/conf/specom/specom2025-1.html",
+      "lng": 20.1486016,
+      "name": "SPECOM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-10-13"
     },
     {
       "access": "registration",
@@ -3459,6 +4174,22 @@
       "role": "main",
       "start": "2025-03-10",
       "venue": "Hannover Congress Center, Hannover, Germany"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "www25",
+      "country": "Australia",
+      "end": "2025-05-02",
+      "id": "www25@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/www/www2025.html",
+      "lng": 151.2082848,
+      "name": "WWW 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-04-28"
     }
   ]
 }

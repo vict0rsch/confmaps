@@ -189,6 +189,54 @@
       ],
       "title": "ISMIS",
       "year": 1986
+    },
+    {
+      "deadlines": [],
+      "end": "1986-08-22",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph86",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1986.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1986-08-18",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1986
+    },
+    {
+      "deadlines": [],
+      "end": "1986-09-10",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir86",
+      "link": "https://dblp.org/db/conf/sigir/sigir86.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1986-09-08",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1986
+    },
+    {
+      "deadlines": [],
+      "end": "1986-08-10",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai86",
+      "link": "https://dblp.org/db/conf/uai/uai1986.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1986-08-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1986
     }
   ],
   "locations": [
@@ -384,6 +432,55 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1986-10-22"
+    },
+    {
+      "access": "registration",
+      "city": "Dallas",
+      "conferenceId": "siggraph86",
+      "country": "United States",
+      "end": "1986-08-22",
+      "id": "siggraph86@main",
+      "lat": 32.7762719,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1986.html",
+      "lng": -96.7968559,
+      "name": "SIGGRAPH 1986",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1986-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "Pisa",
+      "conferenceId": "sigir86",
+      "country": "Italy",
+      "end": "1986-09-10",
+      "id": "sigir86@main",
+      "lat": 43.7159395,
+      "link": "https://dblp.org/db/conf/sigir/sigir86.html",
+      "lng": 10.4018624,
+      "name": "SIGIR 1986",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1986-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "Philadelphia",
+      "conferenceId": "uai86",
+      "country": "United States",
+      "end": "1986-08-10",
+      "id": "uai86@main",
+      "lat": 39.9527237,
+      "link": "https://dblp.org/db/conf/uai/uai1986.html",
+      "lng": -75.1635262,
+      "name": "UAI 1986",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1986-08-08",
+      "venue": "University of Pennsylvania"
     }
   ]
 }

@@ -394,6 +394,21 @@
     },
     {
       "deadlines": [],
+      "end": "2007-04-27",
+      "fullName": "Conference on Mobile Robots and Competitions",
+      "id": "icarsc07",
+      "link": "https://web.archive.org/web/20070418103615/http://www.ccvalg.pt:80/robotica2007/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2007-04-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
       "end": "2007-04-20",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp07",
@@ -640,6 +655,97 @@
     },
     {
       "deadlines": [],
+      "end": "2007-01-31",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui07",
+      "link": "https://dblp.org/db/conf/iui/iui2007.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2007-01-28",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-08-15",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd07",
+      "link": "https://dblp.org/db/conf/kdd/kdd2007.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2007-08-12",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-11-30",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem07",
+      "link": "https://dblp.org/db/conf/ksem/ksem2007.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2007-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-11-02",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai07",
+      "link": "https://dblp.org/db/conf/miccai/miccai2007-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2007-10-29",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-07-20",
+      "fullName": "International Conference on Machine Learning and Data Mining in Pattern Recognition",
+      "id": "mldm07",
+      "link": "https://dblp.org/db/conf/mldm/mldm2007.html",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2007-07-18",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-04-27",
+      "fullName": "Human Language Technologies: The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
+      "id": "naacl07",
+      "link": "http://mirror.aclweb.org/hlt-naacl07",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2007-04-22",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL-HLT",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
       "end": "2007-12-06",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips07",
@@ -651,6 +757,231 @@
         "machine-learning"
       ],
       "title": "NIPS",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-05-25",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd07",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2007.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2007-05-22",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-09-29",
+      "fullName": "Recent Advances in Natural Language Processing",
+      "id": "ranlp07",
+      "link": "https://web.archive.org/web/20071002103358/http://lml.bas.bg:80/ranlp2007/",
+      "series": "ranlp",
+      "source": "curated",
+      "start": "2007-09-27",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "RANLP",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-10-20",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys07",
+      "link": "https://dblp.org/db/conf/recsys/recsys2007.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2007-10-19",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-08-29",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman07",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2007.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2007-08-26",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-06-30",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss07",
+      "link": "https://dblp.org/db/conf/rss/rss2007.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2007-06-27",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-04-28",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm07",
+      "link": "https://dblp.org/db/conf/sdm/sdm2007.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2007-04-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-07-06",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp07",
+      "link": "https://dblp.org/db/conf/sgp/sgp2007.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2007-07-04",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-10-10",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi07",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2007.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2007-10-07",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-08-09",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph07",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2007ag.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2007-08-05",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-07-27",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir07",
+      "link": "https://dblp.org/db/conf/sigir/sigir2007.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2007-07-23",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-10-18",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom07",
+      "link": "https://web.archive.org/web/20071013100444/http://specom2007.ru:80/",
+      "series": "specom",
+      "source": "curated",
+      "start": "2007-10-15",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-07-22",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai07",
+      "link": "https://dblp.org/db/conf/uai/uai2007.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2007-07-19",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-02-22",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv07",
+      "link": "https://dblp.org/db/conf/wacv/wacv2007.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2007-02-21",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2007
+    },
+    {
+      "deadlines": [],
+      "end": "2007-05-12",
+      "fullName": "International World Wide Web Conference",
+      "id": "www07",
+      "link": "https://dblp.org/rec/conf/www/2007.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2007-05-08",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2007
     }
   ],
@@ -1058,6 +1389,22 @@
     },
     {
       "access": "registration",
+      "city": "Paderne",
+      "conferenceId": "icarsc07",
+      "country": "Portugal",
+      "end": "2007-04-27",
+      "id": "icarsc07@main",
+      "lat": 42.0888298,
+      "link": "https://web.archive.org/web/20070418103615/http://www.ccvalg.pt:80/robotica2007/",
+      "lng": -8.2753654,
+      "name": "ICARSC 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-04-27"
+    },
+    {
+      "access": "registration",
       "city": "Honolulu",
       "conferenceId": "icassp07",
       "country": "United States",
@@ -1315,6 +1662,103 @@
     },
     {
       "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "iui07",
+      "country": "United States",
+      "end": "2007-01-31",
+      "id": "iui07@main",
+      "lat": 21.304547,
+      "link": "https://dblp.org/db/conf/iui/iui2007.html",
+      "lng": -157.855676,
+      "name": "IUI 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-01-28"
+    },
+    {
+      "access": "registration",
+      "city": "San Jose",
+      "conferenceId": "kdd07",
+      "country": "United States",
+      "end": "2007-08-15",
+      "id": "kdd07@main",
+      "lat": 37.3361663,
+      "link": "https://dblp.org/db/conf/kdd/kdd2007.html",
+      "lng": -121.890591,
+      "name": "KDD 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-08-12"
+    },
+    {
+      "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "ksem07",
+      "country": "Australia",
+      "end": "2007-11-30",
+      "id": "ksem07@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/ksem/ksem2007.html",
+      "lng": 144.9631732,
+      "name": "KSEM 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-11-28"
+    },
+    {
+      "access": "registration",
+      "city": "Brisbane",
+      "conferenceId": "miccai07",
+      "country": "Australia",
+      "end": "2007-11-02",
+      "id": "miccai07@main",
+      "lat": -27.4689623,
+      "link": "https://dblp.org/db/conf/miccai/miccai2007-1.html",
+      "lng": 153.0235009,
+      "name": "MICCAI 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-10-29"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "mldm07",
+      "country": "Germany",
+      "end": "2007-07-20",
+      "id": "mldm07@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/mldm/mldm2007.html",
+      "lng": 12.3747329,
+      "name": "MLDM 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-07-18"
+    },
+    {
+      "access": "registration",
+      "city": "Rochester",
+      "conferenceId": "naacl07",
+      "country": "United States",
+      "end": "2007-04-27",
+      "id": "naacl07@main",
+      "lat": 43.157285,
+      "link": "http://mirror.aclweb.org/hlt-naacl07",
+      "lng": -77.615214,
+      "name": "NAACL-HLT 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-04-22",
+      "venue": "Hyatt Regency"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "neurips07",
       "country": "Canada",
@@ -1329,6 +1773,231 @@
       "role": "main",
       "start": "2007-12-03",
       "venue": "Hyatt Regency Vancouver"
+    },
+    {
+      "access": "registration",
+      "city": "Nanjing",
+      "conferenceId": "pakdd07",
+      "country": "China",
+      "end": "2007-05-25",
+      "id": "pakdd07@main",
+      "lat": 32.0438284,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2007.html",
+      "lng": 118.7788631,
+      "name": "PAKDD 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-05-22"
+    },
+    {
+      "access": "registration",
+      "city": "Borovets",
+      "conferenceId": "ranlp07",
+      "country": "Bulgaria",
+      "end": "2007-09-29",
+      "id": "ranlp07@main",
+      "lat": 42.2668301,
+      "link": "https://web.archive.org/web/20071002103358/http://lml.bas.bg:80/ranlp2007/",
+      "lng": 23.6074324,
+      "name": "RANLP 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-09-27"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "recsys07",
+      "country": "United States",
+      "end": "2007-10-20",
+      "id": "recsys07@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/recsys/recsys2007.html",
+      "lng": -93.2654692,
+      "name": "RecSys 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-10-19"
+    },
+    {
+      "access": "registration",
+      "city": "Jeju Island",
+      "conferenceId": "roman07",
+      "country": "South Korea",
+      "end": "2007-08-29",
+      "id": "roman07@main",
+      "lat": 33.3803475,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2007.html",
+      "lng": 126.5482545,
+      "name": "RO-MAN 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-08-26"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "rss07",
+      "country": "United States",
+      "end": "2007-06-30",
+      "id": "rss07@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/rss/rss2007.html",
+      "lng": -84.3898151,
+      "name": "RSS 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-06-27",
+      "venue": "Georgia Institute of Technology"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "sdm07",
+      "country": "United States",
+      "end": "2007-04-28",
+      "id": "sdm07@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/sdm/sdm2007.html",
+      "lng": -93.2654692,
+      "name": "SDM 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-04-26"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "sgp07",
+      "country": "Spain",
+      "end": "2007-07-06",
+      "id": "sgp07@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/sgp/sgp2007.html",
+      "lng": 2.177073,
+      "name": "SGP 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-07-04"
+    },
+    {
+      "access": "registration",
+      "city": "Belo Horizonte",
+      "conferenceId": "sibgrapi07",
+      "country": "Brazil",
+      "end": "2007-10-10",
+      "id": "sibgrapi07@main",
+      "lat": -19.9227318,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2007.html",
+      "lng": -43.9450948,
+      "name": "SIBGRAPI 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-10-07"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "siggraph07",
+      "country": "United States",
+      "end": "2007-08-09",
+      "id": "siggraph07@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2007ag.html",
+      "lng": -117.1638284,
+      "name": "SIGGRAPH 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-08-05"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "sigir07",
+      "country": "Netherlands",
+      "end": "2007-07-27",
+      "id": "sigir07@main",
+      "lat": 52.3730796,
+      "link": "https://dblp.org/db/conf/sigir/sigir2007.html",
+      "lng": 4.8924534,
+      "name": "SIGIR 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Moscow",
+      "conferenceId": "specom07",
+      "country": "Russia",
+      "end": "2007-10-18",
+      "id": "specom07@main",
+      "lat": 55.7505412,
+      "link": "https://web.archive.org/web/20071013100444/http://specom2007.ru:80/",
+      "lng": 37.6174782,
+      "name": "SPECOM 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-10-15"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "uai07",
+      "country": "Canada",
+      "end": "2007-07-22",
+      "id": "uai07@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/uai/uai2007.html",
+      "lng": -123.113952,
+      "name": "UAI 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-07-19"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "wacv07",
+      "country": "United States",
+      "end": "2007-02-22",
+      "id": "wacv07@main",
+      "lat": 30.2649261,
+      "link": "https://dblp.org/db/conf/wacv/wacv2007.html",
+      "lng": -97.7474086,
+      "name": "WACV 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-02-21"
+    },
+    {
+      "access": "registration",
+      "city": "Banff",
+      "conferenceId": "www07",
+      "country": "Canada",
+      "end": "2007-05-12",
+      "id": "www07@main",
+      "lat": 51.175076,
+      "link": "https://dblp.org/rec/conf/www/2007.html",
+      "lng": -115.5720773,
+      "name": "WWW 2007",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2007-05-08"
     }
   ]
 }

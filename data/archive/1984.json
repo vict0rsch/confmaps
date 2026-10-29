@@ -125,6 +125,39 @@
       ],
       "title": "ICRA",
       "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-27",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph84",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1984.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1984-07-23",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1984
+    },
+    {
+      "deadlines": [],
+      "end": "1984-07-06",
+      "fullName": "Joint BCS/ACM Symposium on Research and Development in Information Retrieval",
+      "id": "sigir84",
+      "link": "https://dblp.org/db/conf/sigir/sigir84.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1984-07-02",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1984
     }
   ],
   "locations": [
@@ -258,6 +291,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1984-03-13"
+    },
+    {
+      "access": "registration",
+      "city": "Minneapolis",
+      "conferenceId": "siggraph84",
+      "country": "United States",
+      "end": "1984-07-27",
+      "id": "siggraph84@main",
+      "lat": 44.9772995,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1984.html",
+      "lng": -93.2654692,
+      "name": "SIGGRAPH 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-23"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "sigir84",
+      "country": "United Kingdom",
+      "end": "1984-07-06",
+      "id": "sigir84@main",
+      "lat": 52.1975846,
+      "link": "https://dblp.org/db/conf/sigir/sigir84.html",
+      "lng": 0.1391537,
+      "name": "SIGIR 1984",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1984-07-02"
     }
   ]
 }

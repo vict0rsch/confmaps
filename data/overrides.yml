@@ -154,3 +154,43 @@ icdlepirob16@main:
     Nominatim resolves "Cergy-Pontoise, France" to a university site in Saint-Germain-en-Laye;
     ICDL-EpiRob 2016 was held in Cergy-Pontoise (dblp proceedings title; Nominatim "Cergy",
     countrycodes=fr).
+
+slt06@main:
+  lat: 12.5704412
+  lng: -70.0394103
+  reason: >-
+    Nominatim finds nothing for "Palm Beach" with countrycodes=aw (OpenStreetMap files Aruba under
+    the Netherlands); SLT 2006 was held in Palm Beach, Aruba (dblp proceedings title; Nominatim
+    "Palm Beach, Aruba", no country filter, neighbourhood).
+
+fg23@main:
+  lat: 19.9212437
+  lng: -155.883456
+  reason: >-
+    Nominatim resolves "Waikoloa Beach, United States" to a beach on Maui; FG 2023 was held in
+    Waikoloa Beach, Hawaii (dblp proceedings title "Waikoloa Beach, HI, USA"; Nominatim "Waikoloa
+    Beach Resort, Hawaii", countrycodes=us, locality).
+
+uai10@main:
+  lat: 33.3889038
+  lng: -118.4239288
+  reason: >-
+    Nominatim resolves "Catalina Island, United States" to an islet in Alaska; UAI 2010 was held
+    on Catalina Island, California (dblp proceedings title "Catalina Island, CA, USA"; Nominatim
+    "Santa Catalina Island, California", countrycodes=us, island).
+
+wacv09@main:
+  lat: 40.5807546
+  lng: -111.6572955
+  reason: >-
+    Nominatim resolves "Snowbird, United States" to Snowbird Community, North Carolina; WACV 2009
+    was held in Snowbird, Utah (dblp proceedings title "Snowbird, UT, USA"; Nominatim "Snowbird,
+    Utah", countrycodes=us, locality).
+
+neurips12@main:
+  lat: 38.9630669
+  lng: -119.939946
+  reason: >-
+    Nominatim resolves "Lake Tahoe, United States" to the lake itself; NeurIPS 2012 was held at
+    Lake Tahoe, Nevada (dblp proceedings title), the Stateline casino resorts on the lake's south
+    shore, as for wacv18 (Nominatim "Stateline, Nevada", village).

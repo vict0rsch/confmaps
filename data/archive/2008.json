@@ -455,6 +455,21 @@
     },
     {
       "deadlines": [],
+      "end": "2008-04-02",
+      "fullName": "Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc08",
+      "link": "https://web.archive.org/web/20080405181153/http://robotica.ua.pt:80/robotica2008/sm/main.htm",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2008-04-02",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
       "end": "2008-04-04",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp08",
@@ -700,6 +715,82 @@
     },
     {
       "deadlines": [],
+      "end": "2008-01-16",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui08",
+      "link": "https://dblp.org/db/conf/iui/iui2008.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2008-01-13",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-08-27",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd08",
+      "link": "https://dblp.org/db/conf/kdd/kdd2008.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2008-08-24",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-09-19",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr08",
+      "link": "https://web.archive.org/web/20080515155508/http://www.kr.org/KR2008/",
+      "series": "kr",
+      "source": "curated",
+      "start": "2008-09-16",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-05-30",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec08",
+      "link": "https://web.archive.org/web/20080521125730/http://www.lrec-conf.org:80/lrec2008/",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2008-05-28",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-09-10",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai08",
+      "link": "https://dblp.org/db/conf/miccai/miccai2008-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2008-09-06",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
       "end": "2008-12-11",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips08",
@@ -711,6 +802,247 @@
         "machine-learning"
       ],
       "title": "NIPS",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-05-23",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd08",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2008.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2008-05-20",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-10-25",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys08",
+      "link": "https://dblp.org/db/conf/recsys/recsys2008.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2008-10-23",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-08-03",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman08",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2008.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2008-08-01",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-06-28",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss08",
+      "link": "https://dblp.org/db/conf/rss/rss2008.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2008-06-25",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-04-26",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm08",
+      "link": "https://dblp.org/db/conf/sdm/sdm2008.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2008-04-24",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-07-04",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp08",
+      "link": "https://web.archive.org/web/20080629074629/http://www2.imm.dtu.dk:80/SGP08/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2008-07-02",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-10-15",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi08",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2008.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2008-10-12",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-08-15",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph08",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2008classes.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2008-08-11",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-12-13",
+      "fullName": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+      "id": "siggraphasia08",
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2008courses.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2008-12-10",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-07-24",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir08",
+      "link": "https://dblp.org/db/conf/sigir/sigir2008.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2008-07-20",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-12-19",
+      "fullName": "IEEE Spoken Language Technology Workshop",
+      "id": "slt08",
+      "link": "https://dblp.org/db/conf/slt/slt2008.html",
+      "series": "slt",
+      "source": "curated",
+      "start": "2008-12-15",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai08",
+      "link": "https://dblp.org/db/conf/uai/uai2008.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2008-07-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-01-09",
+      "fullName": "IEEE Workshop on Applications of Computer Vision",
+      "id": "wacv08",
+      "link": "https://dblp.org/db/conf/wacv/wacv2008.html",
+      "series": "wacv",
+      "source": "curated",
+      "start": "2008-01-07",
+      "tags": [
+        "machine-learning",
+        "computer-vision"
+      ],
+      "title": "WACV",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-02-12",
+      "fullName": "International Conference on Web Search and Web Data Mining",
+      "id": "wsdm08",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2008.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2008-02-11",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2008
+    },
+    {
+      "deadlines": [],
+      "end": "2008-04-25",
+      "fullName": "International World Wide Web Conference",
+      "id": "www08",
+      "link": "https://wwwconference.org/www2008/papers/proceedings/",
+      "series": "www",
+      "source": "curated",
+      "start": "2008-04-21",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2008
     }
   ],
@@ -1184,6 +1516,22 @@
     },
     {
       "access": "registration",
+      "city": "Aveiro",
+      "conferenceId": "icarsc08",
+      "country": "Portugal",
+      "end": "2008-04-02",
+      "id": "icarsc08@main",
+      "lat": 40.640496,
+      "link": "https://web.archive.org/web/20080405181153/http://robotica.ua.pt:80/robotica2008/sm/main.htm",
+      "lng": -8.6537841,
+      "name": "ICARSC 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-04-02"
+    },
+    {
+      "access": "registration",
       "city": "Las Vegas",
       "conferenceId": "icassp08",
       "country": "United States",
@@ -1443,6 +1791,86 @@
     },
     {
       "access": "registration",
+      "city": "Gran Canaria",
+      "conferenceId": "iui08",
+      "country": "Spain",
+      "end": "2008-01-16",
+      "id": "iui08@main",
+      "lat": 27.9580004,
+      "link": "https://dblp.org/db/conf/iui/iui2008.html",
+      "lng": -15.6062305,
+      "name": "IUI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-01-13"
+    },
+    {
+      "access": "registration",
+      "city": "Las Vegas",
+      "conferenceId": "kdd08",
+      "country": "United States",
+      "end": "2008-08-27",
+      "id": "kdd08@main",
+      "lat": 36.1674263,
+      "link": "https://dblp.org/db/conf/kdd/kdd2008.html",
+      "lng": -115.1484131,
+      "name": "KDD 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-08-24"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "kr08",
+      "country": "Australia",
+      "end": "2008-09-19",
+      "id": "kr08@main",
+      "lat": -33.8698439,
+      "link": "https://web.archive.org/web/20080515155508/http://www.kr.org/KR2008/",
+      "lng": 151.2082848,
+      "name": "KR 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-09-16"
+    },
+    {
+      "access": "registration",
+      "city": "Marrakech",
+      "conferenceId": "lrec08",
+      "country": "Morocco",
+      "end": "2008-05-30",
+      "id": "lrec08@main",
+      "lat": 31.6258257,
+      "link": "https://web.archive.org/web/20080521125730/http://www.lrec-conf.org:80/lrec2008/",
+      "lng": -7.9891608,
+      "name": "LREC 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-05-28"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "miccai08",
+      "country": "United States",
+      "end": "2008-09-10",
+      "id": "miccai08@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/miccai/miccai2008-1.html",
+      "lng": -74.0060152,
+      "name": "MICCAI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-09-06"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "neurips08",
       "country": "Canada",
@@ -1457,6 +1885,247 @@
       "role": "main",
       "start": "2008-12-08",
       "venue": "Hyatt Regency Vancouver"
+    },
+    {
+      "access": "registration",
+      "city": "Osaka",
+      "conferenceId": "pakdd08",
+      "country": "Japan",
+      "end": "2008-05-23",
+      "id": "pakdd08@main",
+      "lat": 34.6937569,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2008.html",
+      "lng": 135.5014539,
+      "name": "PAKDD 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-05-20"
+    },
+    {
+      "access": "registration",
+      "city": "Lausanne",
+      "conferenceId": "recsys08",
+      "country": "Switzerland",
+      "end": "2008-10-25",
+      "id": "recsys08@main",
+      "lat": 46.5218269,
+      "link": "https://dblp.org/db/conf/recsys/recsys2008.html",
+      "lng": 6.6327025,
+      "name": "RecSys 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-10-23"
+    },
+    {
+      "access": "registration",
+      "city": "Munich",
+      "conferenceId": "roman08",
+      "country": "Germany",
+      "end": "2008-08-03",
+      "id": "roman08@main",
+      "lat": 48.1371079,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2008.html",
+      "lng": 11.5753822,
+      "name": "RO-MAN 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-08-01"
+    },
+    {
+      "access": "registration",
+      "city": "Zurich",
+      "conferenceId": "rss08",
+      "country": "Switzerland",
+      "end": "2008-06-28",
+      "id": "rss08@main",
+      "lat": 47.3744489,
+      "link": "https://dblp.org/db/conf/rss/rss2008.html",
+      "lng": 8.5410422,
+      "name": "RSS 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-06-25",
+      "venue": "Eidgenössische Technische Hochschule Zürich"
+    },
+    {
+      "access": "registration",
+      "city": "Atlanta",
+      "conferenceId": "sdm08",
+      "country": "United States",
+      "end": "2008-04-26",
+      "id": "sdm08@main",
+      "lat": 33.7544657,
+      "link": "https://dblp.org/db/conf/sdm/sdm2008.html",
+      "lng": -84.3898151,
+      "name": "SDM 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-04-24"
+    },
+    {
+      "access": "registration",
+      "city": "Copenhagen",
+      "conferenceId": "sgp08",
+      "country": "Denmark",
+      "end": "2008-07-04",
+      "id": "sgp08@main",
+      "lat": 55.6867243,
+      "link": "https://web.archive.org/web/20080629074629/http://www2.imm.dtu.dk:80/SGP08/",
+      "lng": 12.5700724,
+      "name": "SGP 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-02"
+    },
+    {
+      "access": "registration",
+      "city": "Campo Grande",
+      "conferenceId": "sibgrapi08",
+      "country": "Brazil",
+      "end": "2008-10-15",
+      "id": "sibgrapi08@main",
+      "lat": -20.4640173,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2008.html",
+      "lng": -54.6162947,
+      "name": "SIBGRAPI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph08",
+      "country": "United States",
+      "end": "2008-08-15",
+      "id": "siggraph08@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2008classes.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-08-11"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "siggraphasia08",
+      "country": "Singapore",
+      "end": "2008-12-13",
+      "id": "siggraphasia08@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2008courses.html",
+      "lng": 103.8519072,
+      "name": "SIGGRAPH Asia 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-12-10"
+    },
+    {
+      "access": "registration",
+      "city": "Singapore",
+      "conferenceId": "sigir08",
+      "country": "Singapore",
+      "end": "2008-07-24",
+      "id": "sigir08@main",
+      "lat": 1.2899175,
+      "link": "https://dblp.org/db/conf/sigir/sigir2008.html",
+      "lng": 103.8519072,
+      "name": "SIGIR 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-20"
+    },
+    {
+      "access": "registration",
+      "city": "Goa",
+      "conferenceId": "slt08",
+      "country": "India",
+      "end": "2008-12-19",
+      "id": "slt08@main",
+      "lat": 15.3004543,
+      "link": "https://dblp.org/db/conf/slt/slt2008.html",
+      "lng": 74.0855134,
+      "name": "SLT 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-12-15"
+    },
+    {
+      "access": "registration",
+      "city": "Helsinki",
+      "conferenceId": "uai08",
+      "country": "Finland",
+      "end": "2008-07-12",
+      "id": "uai08@main",
+      "lat": 60.1666204,
+      "link": "https://dblp.org/db/conf/uai/uai2008.html",
+      "lng": 24.9435408,
+      "name": "UAI 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Copper Mountain",
+      "conferenceId": "wacv08",
+      "country": "United States",
+      "end": "2008-01-09",
+      "id": "wacv08@main",
+      "lat": 39.5002472,
+      "link": "https://dblp.org/db/conf/wacv/wacv2008.html",
+      "lng": -106.1495904,
+      "name": "WACV 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-01-07"
+    },
+    {
+      "access": "registration",
+      "city": "Palo Alto",
+      "conferenceId": "wsdm08",
+      "country": "United States",
+      "end": "2008-02-12",
+      "id": "wsdm08@main",
+      "lat": 37.4443293,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2008.html",
+      "lng": -122.1598465,
+      "name": "WSDM 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-02-11"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "www08",
+      "country": "China",
+      "end": "2008-04-25",
+      "id": "www08@main",
+      "lat": 39.9057136,
+      "link": "https://wwwconference.org/www2008/papers/proceedings/",
+      "lng": 116.3912972,
+      "name": "WWW 2008",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2008-04-21"
     }
   ]
 }

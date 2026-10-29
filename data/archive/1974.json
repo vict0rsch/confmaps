@@ -14,6 +14,21 @@
       ],
       "title": "ICPR",
       "year": 1974
+    },
+    {
+      "deadlines": [],
+      "end": "1974-07-17",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph74",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1974.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1974-07-15",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1974
     }
   ],
   "locations": [
@@ -32,6 +47,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1974-08-13"
+    },
+    {
+      "access": "registration",
+      "city": "Boulder",
+      "conferenceId": "siggraph74",
+      "country": "United States",
+      "end": "1974-07-17",
+      "id": "siggraph74@main",
+      "lat": 40.0149856,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1974.html",
+      "lng": -105.270545,
+      "name": "SIGGRAPH 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-07-15"
     }
   ]
 }

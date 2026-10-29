@@ -114,6 +114,21 @@
     },
     {
       "deadlines": [],
+      "end": "1991-04-09",
+      "fullName": "BCS-IRSG Annual Colloquium on Information Retrieval Research",
+      "id": "ecir91",
+      "link": "https://link.springer.com/chapter/10.1007/978-1-4615-5243-7_9",
+      "series": "ecir",
+      "source": "curated",
+      "start": "1991-04-08",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ECIR",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
       "end": "1991-09-06",
       "fullName": "European Computer Graphics Conference and Exhibition",
       "id": "eurographics91",
@@ -279,6 +294,84 @@
       ],
       "title": "ISMIS",
       "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1991-04-25",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr91",
+      "link": "https://dblp.org/db/conf/kr/kr91.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "1991-04-22",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1991-12-05",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips91",
+      "link": "https://dblp.org/db/conf/nips/nips1991.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1991-12-02",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1991-08-02",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph91",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/122718",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1991-07-28",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1991-10-16",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir91",
+      "link": "https://dblp.org/db/conf/sigir/sigir91.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1991-10-13",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1991-07-15",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai91",
+      "link": "https://dblp.org/db/conf/uai/uai1991.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1991-07-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1991
     }
   ],
   "locations": [
@@ -395,6 +488,22 @@
       "role": "main",
       "start": "1991-04-09",
       "venue": "Congress Hall, Alexanderplatz"
+    },
+    {
+      "access": "registration",
+      "city": "Lancaster",
+      "conferenceId": "ecir91",
+      "country": "United Kingdom",
+      "end": "1991-04-09",
+      "id": "ecir91@main",
+      "lat": 54.0488219,
+      "link": "https://link.springer.com/chapter/10.1007/978-1-4615-5243-7_9",
+      "lng": -2.8013499,
+      "name": "ECIR 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-04-08"
     },
     {
       "access": "registration",
@@ -571,6 +680,87 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1991-10-16"
+    },
+    {
+      "access": "registration",
+      "city": "Cambridge",
+      "conferenceId": "kr91",
+      "country": "United States",
+      "end": "1991-04-25",
+      "id": "kr91@main",
+      "lat": 42.3656347,
+      "link": "https://dblp.org/db/conf/kr/kr91.html",
+      "lng": -71.1040018,
+      "name": "KR 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips91",
+      "country": "United States",
+      "end": "1991-12-05",
+      "id": "neurips91@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1991.html",
+      "lng": -104.984862,
+      "name": "NIPS 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-12-02"
+    },
+    {
+      "access": "registration",
+      "city": "Las Vegas",
+      "conferenceId": "siggraph91",
+      "country": "United States",
+      "end": "1991-08-02",
+      "id": "siggraph91@main",
+      "lat": 36.1674263,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/122718",
+      "lng": -115.1484131,
+      "name": "SIGGRAPH 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-07-28"
+    },
+    {
+      "access": "registration",
+      "city": "Chicago",
+      "conferenceId": "sigir91",
+      "country": "United States",
+      "end": "1991-10-16",
+      "id": "sigir91@main",
+      "lat": 41.8755616,
+      "link": "https://dblp.org/db/conf/sigir/sigir91.html",
+      "lng": -87.6244212,
+      "name": "SIGIR 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-10-13"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "uai91",
+      "country": "United States",
+      "end": "1991-07-15",
+      "id": "uai91@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/uai/uai1991.html",
+      "lng": -118.2427676,
+      "name": "UAI 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-07-13",
+      "venue": "University of California at Los Angeles"
     }
   ]
 }

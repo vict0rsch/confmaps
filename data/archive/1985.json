@@ -141,6 +141,54 @@
       ],
       "title": "IJCAI",
       "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-07-26",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph85",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1985.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1985-07-22",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-06-07",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir85",
+      "link": "https://dblp.org/db/conf/sigir/sigir85.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1985-06-05",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
+      "end": "1985-07-12",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai85",
+      "link": "https://dblp.org/db/conf/uai/uai1985.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1985-07-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1985
     }
   ],
   "locations": [
@@ -289,6 +337,54 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1985-08-18"
+    },
+    {
+      "access": "registration",
+      "city": "San Francisco",
+      "conferenceId": "siggraph85",
+      "country": "United States",
+      "end": "1985-07-26",
+      "id": "siggraph85@main",
+      "lat": 37.7879363,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1985.html",
+      "lng": -122.4075201,
+      "name": "SIGGRAPH 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-07-22"
+    },
+    {
+      "access": "registration",
+      "city": "Montréal",
+      "conferenceId": "sigir85",
+      "country": "Canada",
+      "end": "1985-06-07",
+      "id": "sigir85@main",
+      "lat": 45.5031824,
+      "link": "https://dblp.org/db/conf/sigir/sigir85.html",
+      "lng": -73.5698065,
+      "name": "SIGIR 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-06-05"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "uai85",
+      "country": "United States",
+      "end": "1985-07-12",
+      "id": "uai85@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/uai/uai1985.html",
+      "lng": -118.2427676,
+      "name": "UAI 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-07-10"
     }
   ]
 }

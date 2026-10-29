@@ -506,6 +506,21 @@
     },
     {
       "deadlines": [],
+      "end": "2010-03-24",
+      "fullName": "Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc10",
+      "link": "http://robotica2010.ipleiria.pt/conference.html",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2010-03-24",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
       "end": "2010-03-19",
       "fullName": "International Conference on Acoustics, Speech and Signal Processing",
       "id": "icassp10",
@@ -751,6 +766,112 @@
     },
     {
       "deadlines": [],
+      "end": "2010-02-10",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui10",
+      "link": "https://dblp.org/db/conf/iui/iui2010.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2010-02-07",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-07-28",
+      "fullName": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd10",
+      "link": "https://dblp.org/db/conf/kdd/kdd2010.html",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2010-07-25",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-05-13",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr10",
+      "link": "https://dblp.org/db/conf/kr/kr2010.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2010-05-09",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-09-03",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem10",
+      "link": "https://dblp.org/db/conf/ksem/ksem2010.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2010-09-01",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-05-23",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec10",
+      "link": "https://dblp.org/db/conf/lrec/lrec2010.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2010-05-17",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-09-24",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai10",
+      "link": "https://dblp.org/db/conf/miccai/miccai2010-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2010-09-20",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-06-06",
+      "fullName": "Human Language Technologies: The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
+      "id": "naacl10",
+      "link": "http://mirror.aclweb.org/hlt-naacl10/",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2010-06-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL-HLT",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
       "end": "2010-12-09",
       "fullName": "Conference on Neural Information Processing Systems",
       "id": "neurips10",
@@ -762,6 +883,231 @@
         "machine-learning"
       ],
       "title": "NIPS",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-06-24",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd10",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2010-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2010-06-21",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-09-30",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys10",
+      "link": "https://dblp.org/db/conf/recsys/recsys2010.html",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2010-09-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-09-15",
+      "fullName": "IEEE International Conference on Robot and Human Interactive Communication",
+      "id": "roman10",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2010.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2010-09-13",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-06-30",
+      "fullName": "Robotics: Science and Systems",
+      "id": "rss10",
+      "link": "https://dblp.org/db/conf/rss/rss2010.html",
+      "series": "rss",
+      "source": "curated",
+      "start": "2010-06-27",
+      "tags": [
+        "robotics",
+        "machine-learning"
+      ],
+      "title": "RSS",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-05-01",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm10",
+      "link": "https://dblp.org/db/conf/sdm/sdm2010.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2010-04-29",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-07-07",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp10",
+      "link": "https://web.archive.org/web/20100720034818/http://sgp2010.liris.cnrs.fr:80/index.php",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2010-07-05",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-09-03",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi10",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2010.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2010-08-30",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-07-30",
+      "fullName": "International Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph10",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2010awards.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2010-07-26",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-12-18",
+      "fullName": "ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia",
+      "id": "siggraphasia10",
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2010animations.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2010-12-15",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-07-23",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir10",
+      "link": "https://dblp.org/db/conf/sigir/sigir2010.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2010-07-19",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-12-15",
+      "fullName": "IEEE Spoken Language Technology Workshop",
+      "id": "slt10",
+      "link": "https://dblp.org/db/conf/slt/slt2010.html",
+      "series": "slt",
+      "source": "curated",
+      "start": "2010-12-12",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SLT",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-07-11",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai10",
+      "link": "https://dblp.org/db/conf/uai/uai2010.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2010-07-08",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-02-06",
+      "fullName": "International Conference on Web Search and Web Data Mining",
+      "id": "wsdm10",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2010.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2010-02-04",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2010
+    },
+    {
+      "deadlines": [],
+      "end": "2010-04-30",
+      "fullName": "International World Wide Web Conference",
+      "id": "www10",
+      "link": "https://dblp.org/db/conf/www/www2010.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2010-04-26",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2010
     }
   ],
@@ -1283,6 +1629,23 @@
     },
     {
       "access": "registration",
+      "city": "Leiria",
+      "conferenceId": "icarsc10",
+      "country": "Portugal",
+      "end": "2010-03-24",
+      "id": "icarsc10@main",
+      "lat": 39.7437902,
+      "link": "http://robotica2010.ipleiria.pt/conference.html",
+      "lng": -8.8071119,
+      "name": "ICARSC 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-03-24",
+      "venue": "Polytechnic Institute of Leiria, Superior School of Technology and Management"
+    },
+    {
+      "access": "registration",
       "city": "Dallas",
       "conferenceId": "icassp10",
       "country": "United States",
@@ -1540,6 +1903,119 @@
     },
     {
       "access": "registration",
+      "city": "Hong Kong",
+      "conferenceId": "iui10",
+      "country": "China",
+      "end": "2010-02-10",
+      "id": "iui10@main",
+      "lat": 22.2818333,
+      "link": "https://dblp.org/db/conf/iui/iui2010.html",
+      "lng": 114.1582831,
+      "name": "IUI 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-02-07"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "kdd10",
+      "country": "United States",
+      "end": "2010-07-28",
+      "id": "kdd10@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/kdd/kdd2010.html",
+      "lng": -77.0363849,
+      "name": "KDD 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "Toronto",
+      "conferenceId": "kr10",
+      "country": "Canada",
+      "end": "2010-05-13",
+      "id": "kr10@main",
+      "lat": 43.6534817,
+      "link": "https://dblp.org/db/conf/kr/kr2010.html",
+      "lng": -79.3839347,
+      "name": "KR 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-05-09"
+    },
+    {
+      "access": "registration",
+      "city": "Belfast",
+      "conferenceId": "ksem10",
+      "country": "United Kingdom",
+      "end": "2010-09-03",
+      "id": "ksem10@main",
+      "lat": 54.596391,
+      "link": "https://dblp.org/db/conf/ksem/ksem2010.html",
+      "lng": -5.9301829,
+      "name": "KSEM 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-09-01"
+    },
+    {
+      "access": "registration",
+      "city": "Valletta",
+      "conferenceId": "lrec10",
+      "country": "Malta",
+      "end": "2010-05-23",
+      "id": "lrec10@main",
+      "lat": 35.8989979,
+      "link": "https://dblp.org/db/conf/lrec/lrec2010.html",
+      "lng": 14.5136607,
+      "name": "LREC 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-05-17"
+    },
+    {
+      "access": "registration",
+      "city": "Beijing",
+      "conferenceId": "miccai10",
+      "country": "China",
+      "end": "2010-09-24",
+      "id": "miccai10@main",
+      "lat": 39.9057136,
+      "link": "https://dblp.org/db/conf/miccai/miccai2010-1.html",
+      "lng": 116.3912972,
+      "name": "MICCAI 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-09-20"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "naacl10",
+      "country": "United States",
+      "end": "2010-06-06",
+      "id": "naacl10@main",
+      "lat": 34.0536923,
+      "link": "http://mirror.aclweb.org/hlt-naacl10/",
+      "lng": -118.2427676,
+      "name": "NAACL-HLT 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-06-01",
+      "venue": "Millennium Biltmore Hotel"
+    },
+    {
+      "access": "registration",
       "city": "Vancouver",
       "conferenceId": "neurips10",
       "country": "Canada",
@@ -1554,6 +2030,231 @@
       "role": "main",
       "start": "2010-12-06",
       "venue": "Hyatt Regency Vancouver"
+    },
+    {
+      "access": "registration",
+      "city": "Hyderabad",
+      "conferenceId": "pakdd10",
+      "country": "India",
+      "end": "2010-06-24",
+      "id": "pakdd10@main",
+      "lat": 17.360589,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2010-1.html",
+      "lng": 78.4740613,
+      "name": "PAKDD 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "recsys10",
+      "country": "Spain",
+      "end": "2010-09-30",
+      "id": "recsys10@main",
+      "lat": 41.3825802,
+      "link": "https://dblp.org/db/conf/recsys/recsys2010.html",
+      "lng": 2.177073,
+      "name": "RecSys 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-09-26"
+    },
+    {
+      "access": "registration",
+      "city": "Viareggio",
+      "conferenceId": "roman10",
+      "country": "Italy",
+      "end": "2010-09-15",
+      "id": "roman10@main",
+      "lat": 43.8672392,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2010.html",
+      "lng": 10.2506055,
+      "name": "RO-MAN 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-09-13"
+    },
+    {
+      "access": "registration",
+      "city": "Zaragoza",
+      "conferenceId": "rss10",
+      "country": "Spain",
+      "end": "2010-06-30",
+      "id": "rss10@main",
+      "lat": 41.6915847,
+      "link": "https://dblp.org/db/conf/rss/rss2010.html",
+      "lng": -0.9101268,
+      "name": "RSS 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-06-27",
+      "venue": "Universidad de Zaragoza"
+    },
+    {
+      "access": "registration",
+      "city": "Columbus",
+      "conferenceId": "sdm10",
+      "country": "United States",
+      "end": "2010-05-01",
+      "id": "sdm10@main",
+      "lat": 39.9622601,
+      "link": "https://dblp.org/db/conf/sdm/sdm2010.html",
+      "lng": -83.0007065,
+      "name": "SDM 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-04-29"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "sgp10",
+      "country": "France",
+      "end": "2010-07-07",
+      "id": "sgp10@main",
+      "lat": 45.7578137,
+      "link": "https://web.archive.org/web/20100720034818/http://sgp2010.liris.cnrs.fr:80/index.php",
+      "lng": 4.8320114,
+      "name": "SGP 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-07-05"
+    },
+    {
+      "access": "registration",
+      "city": "Gramado",
+      "conferenceId": "sibgrapi10",
+      "country": "Brazil",
+      "end": "2010-09-03",
+      "id": "sibgrapi10@main",
+      "lat": -29.3792858,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2010.html",
+      "lng": -50.8737019,
+      "name": "SIBGRAPI 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-08-30"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph10",
+      "country": "United States",
+      "end": "2010-07-30",
+      "id": "siggraph10@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2010awards.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Seoul",
+      "conferenceId": "siggraphasia10",
+      "country": "South Korea",
+      "end": "2010-12-18",
+      "id": "siggraphasia10@main",
+      "lat": 37.5666791,
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2010animations.html",
+      "lng": 126.9782914,
+      "name": "SIGGRAPH Asia 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-12-15"
+    },
+    {
+      "access": "registration",
+      "city": "Geneva",
+      "conferenceId": "sigir10",
+      "country": "Switzerland",
+      "end": "2010-07-23",
+      "id": "sigir10@main",
+      "lat": 46.2017559,
+      "link": "https://dblp.org/db/conf/sigir/sigir2010.html",
+      "lng": 6.1466014,
+      "name": "SIGIR 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-07-19"
+    },
+    {
+      "access": "registration",
+      "city": "Berkeley",
+      "conferenceId": "slt10",
+      "country": "United States",
+      "end": "2010-12-15",
+      "id": "slt10@main",
+      "lat": 37.8708393,
+      "link": "https://dblp.org/db/conf/slt/slt2010.html",
+      "lng": -122.272863,
+      "name": "SLT 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-12-12"
+    },
+    {
+      "access": "registration",
+      "city": "Catalina Island",
+      "conferenceId": "uai10",
+      "country": "United States",
+      "end": "2010-07-11",
+      "id": "uai10@main",
+      "lat": 33.3889038,
+      "link": "https://dblp.org/db/conf/uai/uai2010.html",
+      "lng": -118.4239288,
+      "name": "UAI 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "wsdm10",
+      "country": "United States",
+      "end": "2010-02-06",
+      "id": "wsdm10@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2010.html",
+      "lng": -74.0060152,
+      "name": "WSDM 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-02-04"
+    },
+    {
+      "access": "registration",
+      "city": "Raleigh",
+      "conferenceId": "www10",
+      "country": "United States",
+      "end": "2010-04-30",
+      "id": "www10@main",
+      "lat": 35.7803977,
+      "link": "https://dblp.org/db/conf/www/www2010.html",
+      "lng": -78.6390989,
+      "name": "WWW 2010",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2010-04-26"
     }
   ]
 }

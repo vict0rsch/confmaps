@@ -905,6 +905,21 @@
     },
     {
       "deadlines": [],
+      "end": "2018-03-11",
+      "fullName": "International Conference on Intelligent User Interfaces",
+      "id": "iui18",
+      "link": "https://dblp.org/db/conf/iui/iui2018.html",
+      "series": "iui",
+      "source": "curated",
+      "start": "2018-03-07",
+      "tags": [
+        "human-computer-interaction"
+      ],
+      "title": "IUI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-08-23",
       "id": "kdd18",
       "link": "https://web.archive.org/web/20180820213922/http://www.kdd.org/kdd2018/",
@@ -915,6 +930,96 @@
         "machine-learning"
       ],
       "title": "KDD",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-11-02",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr18",
+      "link": "https://dblp.org/db/conf/kr/kr2018.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2018-10-30",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-19",
+      "fullName": "International Conference on Knowledge Science, Engineering and Management",
+      "id": "ksem18",
+      "link": "https://dblp.org/db/conf/ksem/ksem2018-1.html",
+      "series": "ksem",
+      "source": "curated",
+      "start": "2018-08-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "KSEM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-12",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec18",
+      "link": "https://dblp.org/db/conf/lrec/lrec2018.html",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2018-05-07",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-20",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai18",
+      "link": "https://dblp.org/db/conf/miccai/miccai2018-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2018-09-16",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-06",
+      "fullName": "International Conference on Medical Imaging with Deep Learning",
+      "id": "midl18",
+      "link": "https://2018.midl.io/",
+      "series": "midl",
+      "source": "curated",
+      "start": "2018-07-04",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MIDL",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-12",
+      "fullName": "International Conference on Multimedia Information Processing and Retrieval",
+      "id": "mipr18",
+      "link": "https://mipr2021.org/pages/history/",
+      "series": "mipr",
+      "source": "curated",
+      "start": "2018-04-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MIPR",
       "year": 2018
     },
     {
@@ -962,6 +1067,51 @@
     },
     {
       "deadlines": [],
+      "end": "2018-06-06",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd18",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2018-1.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2018-06-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-10-07",
+      "fullName": "ACM Conference on Recommender Systems",
+      "id": "recsys18",
+      "link": "https://web.archive.org/web/20181004182026/http://recsys.acm.org:80/recsys18/",
+      "series": "recsys",
+      "source": "curated",
+      "start": "2018-10-02",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "RecSys",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-08-31",
+      "fullName": "IEEE International Symposium on Robot and Human Interactive Communication",
+      "id": "roman18",
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2018.html",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2018-08-27",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-06-30",
       "id": "rss18",
       "link": "https://web.archive.org/web/20180625000803/http://www.roboticsconference.org/",
@@ -972,6 +1122,69 @@
         "robotics"
       ],
       "title": "RSS",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-21",
+      "fullName": "International Joint Conference on Rules and Reasoning",
+      "id": "rulemlrr18",
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2018.html",
+      "series": "ruleml-rr",
+      "source": "curated",
+      "start": "2018-09-18",
+      "tags": [
+        "reasoning",
+        "machine-learning",
+        "knowledge representation"
+      ],
+      "title": "RuleML+RR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-05-05",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm18",
+      "link": "https://dblp.org/db/conf/sdm/sdm2018.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2018-05-03",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-06-06",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem18",
+      "link": "https://dblp.org/db/conf/starsem/starsem2018.html",
+      "series": "sem",
+      "source": "curated",
+      "start": "2018-06-05",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-11",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp18",
+      "link": "https://web.archive.org/web/20180711192957/https://sgp2018.sciencesconf.org/",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2018-07-09",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
       "year": 2018
     },
     {
@@ -990,6 +1203,39 @@
     },
     {
       "deadlines": [],
+      "end": "2018-12-07",
+      "fullName": "SIGGRAPH Asia",
+      "id": "siggraphasia18",
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2018briefs.html",
+      "series": "siggraph-asia",
+      "source": "curated",
+      "start": "2018-12-04",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH Asia",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-07-12",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir18",
+      "link": "https://dblp.org/db/conf/sigir/sigir2018.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2018-07-08",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-12-21",
       "id": "slt18",
       "link": "https://web.archive.org/web/20181215114906/http://slt2018.org/",
@@ -1001,6 +1247,22 @@
         "signal-processing"
       ],
       "title": "SLT",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-09-22",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom18",
+      "link": "https://dblp.org/db/conf/specom/specom2018.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2018-09-18",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
       "year": 2018
     },
     {
@@ -1029,6 +1291,42 @@
         "computer-vision"
       ],
       "title": "WACV",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-02-09",
+      "fullName": "ACM International Conference on Web Search and Data Mining",
+      "id": "wsdm18",
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2018.html",
+      "series": "wsdm",
+      "source": "curated",
+      "start": "2018-02-05",
+      "tags": [
+        "web-search",
+        "data-mining"
+      ],
+      "title": "WSDM",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
+      "end": "2018-04-27",
+      "fullName": "The Web Conference",
+      "id": "www18",
+      "link": "https://dblp.org/db/conf/www/www2018.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2018-04-23",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
       "year": 2018
     }
   ],
@@ -2000,6 +2298,22 @@
     },
     {
       "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "iui18",
+      "country": "Japan",
+      "end": "2018-03-11",
+      "id": "iui18@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/iui/iui2018.html",
+      "lng": 139.7638947,
+      "name": "IUI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-03-07"
+    },
+    {
+      "access": "registration",
       "city": "London",
       "conferenceId": "kdd18",
       "country": "United Kingdom",
@@ -2013,6 +2327,103 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-08-19"
+    },
+    {
+      "access": "registration",
+      "city": "Tempe",
+      "conferenceId": "kr18",
+      "country": "United States",
+      "end": "2018-11-02",
+      "id": "kr18@main",
+      "lat": 33.4255117,
+      "link": "https://dblp.org/db/conf/kr/kr2018.html",
+      "lng": -111.940016,
+      "name": "KR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-30"
+    },
+    {
+      "access": "registration",
+      "city": "Changchun",
+      "conferenceId": "ksem18",
+      "country": "China",
+      "end": "2018-08-19",
+      "id": "ksem18@main",
+      "lat": 43.8844844,
+      "link": "https://dblp.org/db/conf/ksem/ksem2018-1.html",
+      "lng": 125.3181675,
+      "name": "KSEM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-17"
+    },
+    {
+      "access": "registration",
+      "city": "Miyazaki",
+      "conferenceId": "lrec18",
+      "country": "Japan",
+      "end": "2018-05-12",
+      "id": "lrec18@main",
+      "lat": 31.9076334,
+      "link": "https://dblp.org/db/conf/lrec/lrec2018.html",
+      "lng": 131.4204022,
+      "name": "LREC 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-05-07"
+    },
+    {
+      "access": "registration",
+      "city": "Granada",
+      "conferenceId": "miccai18",
+      "country": "Spain",
+      "end": "2018-09-20",
+      "id": "miccai18@main",
+      "lat": 37.1734995,
+      "link": "https://dblp.org/db/conf/miccai/miccai2018-1.html",
+      "lng": -3.5995337,
+      "name": "MICCAI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-16"
+    },
+    {
+      "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "midl18",
+      "country": "Netherlands",
+      "end": "2018-07-06",
+      "id": "midl18@main",
+      "lat": 52.3730796,
+      "link": "https://2018.midl.io/",
+      "lng": 4.8924534,
+      "name": "MIDL 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-04",
+      "venue": "CASA Hotel"
+    },
+    {
+      "access": "registration",
+      "city": "Miami",
+      "conferenceId": "mipr18",
+      "country": "United States",
+      "end": "2018-04-12",
+      "id": "mipr18@main",
+      "lat": 25.7741566,
+      "link": "https://mipr2021.org/pages/history/",
+      "lng": -80.1935973,
+      "name": "MIPR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-10"
     },
     {
       "access": "registration",
@@ -2065,6 +2476,54 @@
     },
     {
       "access": "registration",
+      "city": "Melbourne",
+      "conferenceId": "pakdd18",
+      "country": "Australia",
+      "end": "2018-06-06",
+      "id": "pakdd18@main",
+      "lat": -37.8142454,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2018-1.html",
+      "lng": 144.9631732,
+      "name": "PAKDD 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-03"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "recsys18",
+      "country": "Canada",
+      "end": "2018-10-07",
+      "id": "recsys18@main",
+      "lat": 49.2608724,
+      "link": "https://web.archive.org/web/20181004182026/http://recsys.acm.org:80/recsys18/",
+      "lng": -123.113952,
+      "name": "RecSys 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-02"
+    },
+    {
+      "access": "registration",
+      "city": "Nanjing",
+      "conferenceId": "roman18",
+      "country": "China",
+      "end": "2018-08-31",
+      "id": "roman18@main",
+      "lat": 32.0438284,
+      "link": "https://dblp.org/db/conf/ro-man/ro-man2018.html",
+      "lng": 118.7788631,
+      "name": "RO-MAN 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-08-27"
+    },
+    {
+      "access": "registration",
       "city": "Pittsburgh",
       "conferenceId": "rss18",
       "country": "United States",
@@ -2078,6 +2537,71 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-06-26"
+    },
+    {
+      "access": "registration",
+      "city": "Luxembourg",
+      "conferenceId": "rulemlrr18",
+      "country": "Luxembourg",
+      "end": "2018-09-21",
+      "id": "rulemlrr18@main",
+      "lat": 49.6112768,
+      "link": "https://dblp.org/db/conf/ruleml/ruleml2018.html",
+      "lng": 6.129799,
+      "name": "RuleML+RR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-18"
+    },
+    {
+      "access": "registration",
+      "city": "San Diego",
+      "conferenceId": "sdm18",
+      "country": "United States",
+      "end": "2018-05-05",
+      "id": "sdm18@main",
+      "lat": 32.7157062,
+      "link": "https://dblp.org/db/conf/sdm/sdm2018.html",
+      "lng": -117.1638284,
+      "name": "SDM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-05-03",
+      "venue": "San Diego Marriott Mission Valley"
+    },
+    {
+      "access": "registration",
+      "city": "New Orleans",
+      "conferenceId": "sem18",
+      "country": "United States",
+      "end": "2018-06-06",
+      "id": "sem18@main",
+      "lat": 29.9574657,
+      "link": "https://dblp.org/db/conf/starsem/starsem2018.html",
+      "lng": -90.0629493,
+      "name": "*SEM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-06-05"
+    },
+    {
+      "access": "registration",
+      "city": "Paris",
+      "conferenceId": "sgp18",
+      "country": "France",
+      "end": "2018-07-11",
+      "id": "sgp18@main",
+      "lat": 48.8534951,
+      "link": "https://web.archive.org/web/20180711192957/https://sgp2018.sciencesconf.org/",
+      "lng": 2.3483915,
+      "name": "SGP 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-09"
     },
     {
       "access": "registration",
@@ -2097,6 +2621,38 @@
     },
     {
       "access": "registration",
+      "city": "Tokyo",
+      "conferenceId": "siggraphasia18",
+      "country": "Japan",
+      "end": "2018-12-07",
+      "id": "siggraphasia18@main",
+      "lat": 35.6768601,
+      "link": "https://dblp.org/db/conf/siggrapha/siggrapha2018briefs.html",
+      "lng": 139.7638947,
+      "name": "SIGGRAPH Asia 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-12-04"
+    },
+    {
+      "access": "registration",
+      "city": "Ann Arbor",
+      "conferenceId": "sigir18",
+      "country": "United States",
+      "end": "2018-07-12",
+      "id": "sigir18@main",
+      "lat": 42.2813722,
+      "link": "https://dblp.org/db/conf/sigir/sigir2018.html",
+      "lng": -83.7484616,
+      "name": "SIGIR 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-07-08"
+    },
+    {
+      "access": "registration",
       "city": "Athens",
       "conferenceId": "slt18",
       "country": "Greece",
@@ -2110,6 +2666,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-12-18"
+    },
+    {
+      "access": "registration",
+      "city": "Leipzig",
+      "conferenceId": "specom18",
+      "country": "Germany",
+      "end": "2018-09-22",
+      "id": "specom18@main",
+      "lat": 51.3406321,
+      "link": "https://dblp.org/db/conf/specom/specom2018.html",
+      "lng": 12.3747329,
+      "name": "SPECOM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-09-18"
     },
     {
       "access": "registration",
@@ -2142,6 +2714,38 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-03-12"
+    },
+    {
+      "access": "registration",
+      "city": "Marina Del Rey",
+      "conferenceId": "wsdm18",
+      "country": "United States",
+      "end": "2018-02-09",
+      "id": "wsdm18@main",
+      "lat": 33.9776848,
+      "link": "https://dblp.org/db/conf/wsdm/wsdm2018.html",
+      "lng": -118.448647,
+      "name": "WSDM 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-02-05"
+    },
+    {
+      "access": "registration",
+      "city": "Lyon",
+      "conferenceId": "www18",
+      "country": "France",
+      "end": "2018-04-27",
+      "id": "www18@main",
+      "lat": 45.7578137,
+      "link": "https://dblp.org/db/conf/www/www2018.html",
+      "lng": 4.8320114,
+      "name": "WWW 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-04-23"
     }
   ]
 }

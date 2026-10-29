@@ -387,6 +387,87 @@
       ],
       "title": "IUI",
       "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-12-02",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips93",
+      "link": "https://dblp.org/db/conf/nips/nips1993.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1993-11-29",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-10-22",
+      "fullName": "Simpósio Brasileiro de Computação Gráfica e Processamento de Imagens",
+      "id": "sibgrapi93",
+      "link": "http://sibgrapi.sid.inpe.br/attachment.cgi/sid.inpe.br/sibgrapi/2013/01.02.13.33/doc/@sumario.htm",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "1993-10-19",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-08-06",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph93",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1993.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "1993-08-02",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-07-01",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir93",
+      "link": "https://dblp.org/db/conf/sigir/sigir93.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "1993-06-27",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 1993
+    },
+    {
+      "deadlines": [],
+      "end": "1993-07-11",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai93",
+      "link": "https://dblp.org/db/conf/uai/uai1993.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "1993-07-09",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 1993
     }
   ],
   "locations": [
@@ -792,6 +873,87 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1993-01-04"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips93",
+      "country": "United States",
+      "end": "1993-12-02",
+      "id": "neurips93@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1993.html",
+      "lng": -104.984862,
+      "name": "NIPS 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-11-29"
+    },
+    {
+      "access": "registration",
+      "city": "Recife",
+      "conferenceId": "sibgrapi93",
+      "country": "Brazil",
+      "end": "1993-10-22",
+      "id": "sibgrapi93@main",
+      "lat": -8.0584933,
+      "link": "http://sibgrapi.sid.inpe.br/attachment.cgi/sid.inpe.br/sibgrapi/2013/01.02.13.33/doc/@sumario.htm",
+      "lng": -34.8848193,
+      "name": "SIBGRAPI 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-10-19"
+    },
+    {
+      "access": "registration",
+      "city": "Anaheim",
+      "conferenceId": "siggraph93",
+      "country": "United States",
+      "end": "1993-08-06",
+      "id": "siggraph93@main",
+      "lat": 33.8347516,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph1993.html",
+      "lng": -117.911732,
+      "name": "SIGGRAPH 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-08-02"
+    },
+    {
+      "access": "registration",
+      "city": "Pittsburgh",
+      "conferenceId": "sigir93",
+      "country": "United States",
+      "end": "1993-07-01",
+      "id": "sigir93@main",
+      "lat": 40.4406968,
+      "link": "https://dblp.org/db/conf/sigir/sigir93.html",
+      "lng": -80.0025666,
+      "name": "SIGIR 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-06-27"
+    },
+    {
+      "access": "registration",
+      "city": "Washington",
+      "conferenceId": "uai93",
+      "country": "United States",
+      "end": "1993-07-11",
+      "id": "uai93@main",
+      "lat": 38.8950982,
+      "link": "https://dblp.org/db/conf/uai/uai1993.html",
+      "lng": -77.0363849,
+      "name": "UAI 1993",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1993-07-09",
+      "venue": "The Catholic University of America"
     }
   ]
 }

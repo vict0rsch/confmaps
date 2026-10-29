@@ -51,6 +51,21 @@
     },
     {
       "deadlines": [],
+      "end": "2004-07-26",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl04",
+      "link": "https://2004.aclweb.org/",
+      "series": "acl",
+      "source": "curated",
+      "start": "2004-07-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
       "end": "2004-10-16",
       "fullName": "ACM International Conference on Multimedia",
       "id": "acm04",
@@ -378,6 +393,21 @@
     },
     {
       "deadlines": [],
+      "end": "2004-01-08",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss04",
+      "link": "https://dblp.org/db/conf/hicss/hicss2004.html",
+      "series": "hicss",
+      "source": "curated",
+      "start": "2004-01-05",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
       "end": "2004-11-26",
       "fullName": "Ibero-American Conference on Artificial Intelligence",
       "id": "iberamia04",
@@ -406,6 +436,21 @@
         "automated-planning"
       ],
       "title": "ICAPS",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-04-25",
+      "fullName": "International Conference on Autonomous Robot Systems and Competitions",
+      "id": "icarsc04",
+      "link": "https://web.archive.org/web/20040330225441/http://www.robotica2004.org:80/",
+      "series": "icarsc",
+      "source": "curated",
+      "start": "2004-04-22",
+      "tags": [
+        "robotics"
+      ],
+      "title": "ICARSC",
       "year": 2004
     },
     {
@@ -637,6 +682,259 @@
       ],
       "title": "IUI",
       "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-08-25",
+      "fullName": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "id": "kdd04",
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/1014052",
+      "series": "kdd",
+      "source": "curated",
+      "start": "2004-08-22",
+      "tags": [
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "KDD",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-06-05",
+      "fullName": "International Conference on Principles of Knowledge Representation and Reasoning",
+      "id": "kr04",
+      "link": "https://dblp.org/db/conf/kr/kr2004.html",
+      "series": "kr",
+      "source": "curated",
+      "start": "2004-06-02",
+      "tags": [
+        "knowledge-representation"
+      ],
+      "title": "KR",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-05-28",
+      "fullName": "Language Resources and Evaluation Conference",
+      "id": "lrec04",
+      "link": "http://www.lrec-conf.org/lrec2004/index",
+      "series": "lrec",
+      "source": "curated",
+      "start": "2004-05-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "LREC",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-09-29",
+      "fullName": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+      "id": "miccai04",
+      "link": "https://dblp.org/db/conf/miccai/miccai2004-1.html",
+      "series": "miccai",
+      "source": "curated",
+      "start": "2004-09-26",
+      "tags": [
+        "computer-vision"
+      ],
+      "title": "MICCAI",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-05-07",
+      "id": "naacl04",
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "series": "naacl",
+      "source": "curated",
+      "start": "2004-05-01",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "NAACL",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-12-18",
+      "fullName": "Neural Information Processing Systems",
+      "id": "neurips04",
+      "link": "https://dblp.org/db/conf/nips/nips2004.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "2004-12-13",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-05-28",
+      "fullName": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
+      "id": "pakdd04",
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2004.html",
+      "series": "pakdd",
+      "source": "curated",
+      "start": "2004-05-26",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "PAKDD",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-09-22",
+      "fullName": "IEEE International Workshop on Robot and Human Interactive Communication",
+      "id": "roman04",
+      "link": "https://ieeexplore.ieee.org/xpl/conhome/1000636/all-proceedings",
+      "series": "ro-man",
+      "source": "curated",
+      "start": "2004-09-20",
+      "tags": [
+        "robotics"
+      ],
+      "title": "RO-MAN",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-04-24",
+      "fullName": "SIAM International Conference on Data Mining",
+      "id": "sdm04",
+      "link": "https://dblp.org/db/conf/sdm/sdm2004.html",
+      "series": "sdm",
+      "source": "curated",
+      "start": "2004-04-22",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "SDM",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-07-10",
+      "fullName": "Symposium on Geometry Processing",
+      "id": "sgp04",
+      "link": "https://dblp.org/db/conf/sgp/sgp2004.html",
+      "series": "sgp",
+      "source": "curated",
+      "start": "2004-07-08",
+      "tags": [
+        "computer-vision",
+        "machine-learning"
+      ],
+      "title": "SGP",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-10-20",
+      "fullName": "Brazilian Symposium on Computer Graphics and Image Processing",
+      "id": "sibgrapi04",
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2004.html",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2004-10-17",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-08-12",
+      "fullName": "Conference on Computer Graphics and Interactive Techniques",
+      "id": "siggraph04",
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2004ep.html",
+      "series": "siggraph",
+      "source": "curated",
+      "start": "2004-08-08",
+      "tags": [
+        "computer-graphics"
+      ],
+      "title": "SIGGRAPH",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-07-29",
+      "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "id": "sigir04",
+      "link": "https://dblp.org/db/conf/sigir/sigir2004.html",
+      "series": "sigir",
+      "source": "curated",
+      "start": "2004-07-25",
+      "tags": [
+        "information-retrieval",
+        "natural-language-processing",
+        "web-search",
+        "data-mining"
+      ],
+      "title": "SIGIR",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-09-22",
+      "fullName": "International Conference on Speech and Computer",
+      "id": "specom04",
+      "link": "https://www.isca-archive.org/specom_2004/index.html",
+      "series": "specom",
+      "source": "curated",
+      "start": "2004-09-20",
+      "tags": [
+        "speech",
+        "signal-processing"
+      ],
+      "title": "SPECOM",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-07-11",
+      "fullName": "Conference on Uncertainty in Artificial Intelligence",
+      "id": "uai04",
+      "link": "https://dblp.org/db/conf/uai/uai2004.html",
+      "series": "uai",
+      "source": "curated",
+      "start": "2004-07-07",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "UAI",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
+      "end": "2004-05-20",
+      "fullName": "International World Wide Web Conference",
+      "id": "www04",
+      "link": "https://dblp.org/db/conf/www/www2004.html",
+      "series": "www",
+      "source": "curated",
+      "start": "2004-05-17",
+      "tags": [
+        "machine-learning",
+        "recommendation",
+        "semantics and knowledge",
+        "retrieval",
+        "web mining",
+        "content analysis"
+      ],
+      "title": "WWW",
+      "year": 2004
     }
   ],
   "locations": [
@@ -688,6 +986,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2004-01-28"
+    },
+    {
+      "access": "registration",
+      "city": "Barcelona",
+      "conferenceId": "acl04",
+      "country": "Spain",
+      "end": "2004-07-26",
+      "id": "acl04@main",
+      "lat": 41.3825802,
+      "link": "https://2004.aclweb.org/",
+      "lng": 2.177073,
+      "name": "ACL 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-21"
     },
     {
       "access": "registration",
@@ -1027,6 +1341,22 @@
     },
     {
       "access": "registration",
+      "city": "Waikoloa Village",
+      "conferenceId": "hicss04",
+      "country": "United States",
+      "end": "2004-01-08",
+      "id": "hicss04@main",
+      "lat": 19.9469278,
+      "link": "https://dblp.org/db/conf/hicss/hicss2004.html",
+      "lng": -155.787398,
+      "name": "HICSS 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-01-05"
+    },
+    {
+      "access": "registration",
       "city": "Puebla",
       "conferenceId": "iberamia04",
       "country": "Mexico",
@@ -1056,6 +1386,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2004-06-03"
+    },
+    {
+      "access": "registration",
+      "city": "Porto",
+      "conferenceId": "icarsc04",
+      "country": "Portugal",
+      "end": "2004-04-25",
+      "id": "icarsc04@main",
+      "lat": 41.1502195,
+      "link": "https://web.archive.org/web/20040330225441/http://www.robotica2004.org:80/",
+      "lng": -8.6103497,
+      "name": "ICARSC 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-04-22",
+      "venue": "Pavilhão Rosa Mota"
     },
     {
       "access": "registration",
@@ -1296,6 +1643,262 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2004-01-13"
+    },
+    {
+      "access": "registration",
+      "city": "Seattle",
+      "conferenceId": "kdd04",
+      "country": "United States",
+      "end": "2004-08-25",
+      "id": "kdd04@main",
+      "lat": 47.6038321,
+      "link": "https://dl.acm.org/doi/proceedings/10.1145/1014052",
+      "lng": -122.330062,
+      "name": "KDD 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-08-22"
+    },
+    {
+      "access": "registration",
+      "city": "Whistler",
+      "conferenceId": "kr04",
+      "country": "Canada",
+      "end": "2004-06-05",
+      "id": "kr04@main",
+      "lat": 50.1171903,
+      "link": "https://dblp.org/db/conf/kr/kr2004.html",
+      "lng": -122.9543022,
+      "name": "KR 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-06-02"
+    },
+    {
+      "access": "registration",
+      "city": "Lisbon",
+      "conferenceId": "lrec04",
+      "country": "Portugal",
+      "end": "2004-05-28",
+      "id": "lrec04@main",
+      "lat": 38.7077507,
+      "link": "http://www.lrec-conf.org/lrec2004/index",
+      "lng": -9.1365919,
+      "name": "LREC 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-05-26"
+    },
+    {
+      "access": "registration",
+      "city": "Saint-Malo",
+      "conferenceId": "miccai04",
+      "country": "France",
+      "end": "2004-09-29",
+      "id": "miccai04@main",
+      "lat": 48.649518,
+      "link": "https://dblp.org/db/conf/miccai/miccai2004-1.html",
+      "lng": -2.0260409,
+      "name": "MICCAI 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-09-26"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "naacl04",
+      "country": "United States",
+      "end": "2004-05-07",
+      "id": "naacl04@main",
+      "lat": 42.3588336,
+      "link": "https://www.aclweb.org/portal/conference-list?page=2",
+      "lng": -71.0578303,
+      "name": "NAACL 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-05-01"
+    },
+    {
+      "access": "registration",
+      "city": "Vancouver",
+      "conferenceId": "neurips04",
+      "country": "Canada",
+      "end": "2004-12-18",
+      "id": "neurips04@main",
+      "lat": 49.2608724,
+      "link": "https://dblp.org/db/conf/nips/nips2004.html",
+      "lng": -123.113952,
+      "name": "NIPS 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-12-13"
+    },
+    {
+      "access": "registration",
+      "city": "Sydney",
+      "conferenceId": "pakdd04",
+      "country": "Australia",
+      "end": "2004-05-28",
+      "id": "pakdd04@main",
+      "lat": -33.8698439,
+      "link": "https://dblp.org/db/conf/pakdd/pakdd2004.html",
+      "lng": 151.2082848,
+      "name": "PAKDD 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-05-26"
+    },
+    {
+      "access": "registration",
+      "city": "Kurashiki",
+      "conferenceId": "roman04",
+      "country": "Japan",
+      "end": "2004-09-22",
+      "id": "roman04@main",
+      "lat": 34.5850791,
+      "link": "https://ieeexplore.ieee.org/xpl/conhome/1000636/all-proceedings",
+      "lng": 133.7719957,
+      "name": "RO-MAN 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-09-20"
+    },
+    {
+      "access": "registration",
+      "city": "Lake Buena Vista",
+      "conferenceId": "sdm04",
+      "country": "United States",
+      "end": "2004-04-24",
+      "id": "sdm04@main",
+      "lat": 28.3716746,
+      "link": "https://dblp.org/db/conf/sdm/sdm2004.html",
+      "lng": -81.5239625,
+      "name": "SDM 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-04-22"
+    },
+    {
+      "access": "registration",
+      "city": "Nice",
+      "conferenceId": "sgp04",
+      "country": "France",
+      "end": "2004-07-10",
+      "id": "sgp04@main",
+      "lat": 43.7009358,
+      "link": "https://dblp.org/db/conf/sgp/sgp2004.html",
+      "lng": 7.2683912,
+      "name": "SGP 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-08"
+    },
+    {
+      "access": "registration",
+      "city": "Curitiba",
+      "conferenceId": "sibgrapi04",
+      "country": "Brazil",
+      "end": "2004-10-20",
+      "id": "sibgrapi04@main",
+      "lat": -25.4295963,
+      "link": "https://dblp.org/db/conf/sibgrapi/sibgrapi2004.html",
+      "lng": -49.2712724,
+      "name": "SIBGRAPI 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-10-17"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "siggraph04",
+      "country": "United States",
+      "end": "2004-08-12",
+      "id": "siggraph04@main",
+      "lat": 34.0536923,
+      "link": "https://dblp.org/db/conf/siggraph/siggraph2004ep.html",
+      "lng": -118.2427676,
+      "name": "SIGGRAPH 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-08-08"
+    },
+    {
+      "access": "registration",
+      "city": "Sheffield",
+      "conferenceId": "sigir04",
+      "country": "United Kingdom",
+      "end": "2004-07-29",
+      "id": "sigir04@main",
+      "lat": 53.3806626,
+      "link": "https://dblp.org/db/conf/sigir/sigir2004.html",
+      "lng": -1.4702278,
+      "name": "SIGIR 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-25"
+    },
+    {
+      "access": "registration",
+      "city": "St. Petersburg",
+      "conferenceId": "specom04",
+      "country": "Russia",
+      "end": "2004-09-22",
+      "id": "specom04@main",
+      "lat": 59.938732,
+      "link": "https://www.isca-archive.org/specom_2004/index.html",
+      "lng": 30.316229,
+      "name": "SPECOM 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-09-20"
+    },
+    {
+      "access": "registration",
+      "city": "Banff",
+      "conferenceId": "uai04",
+      "country": "Canada",
+      "end": "2004-07-11",
+      "id": "uai04@main",
+      "lat": 51.175076,
+      "link": "https://dblp.org/db/conf/uai/uai2004.html",
+      "lng": -115.5720773,
+      "name": "UAI 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-07"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "www04",
+      "country": "United States",
+      "end": "2004-05-20",
+      "id": "www04@main",
+      "lat": 40.7127281,
+      "link": "https://dblp.org/db/conf/www/www2004.html",
+      "lng": -74.0060152,
+      "name": "WWW 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-05-17"
     }
   ]
 }
