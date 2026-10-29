@@ -687,7 +687,8 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map
-  like the legend, so they reserve nothing.
+  like the legend, so they reserve nothing. Closing the detail keeps the map still, whether or not
+  opening it moved the map.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that. On phones it is always compact and collapsed from the start: only its (i)
   button shows, and a tap on it shows the credits. This departs from the OSMF attribution

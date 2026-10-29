@@ -558,8 +558,9 @@
   });
 
   // On select, or when overlays resize: fit the selection into the visible area. A selection
-  // clicked on the map keeps the zoom, only kept clear of the overlays. Without a selection,
-  // just follow the overlays (the visible centre stays put).
+  // clicked on the map keeps the zoom, only kept clear of the overlays. Closing the selection keeps
+  // the map still. Otherwise, without a selection, just follow the overlays (the visible centre
+  // stays put).
   $effect(() => {
     const id = app.selectedConferenceId;
     const pad = camPad;
@@ -588,7 +589,12 @@
         if (historyMode.series) fitHistory(duration(900));
         else fitOverview(duration(800));
       } else if (deferredFit && !noRoom()) deferredFit();
-      else m.easeTo({ padding: pad, duration: duration(250) });
+      // Closing the detail keeps the map still, however it was opened.
+      else if (!id && followed.id) {
+        const right = container.clientWidth - pad.right;
+        const bottom = container.clientHeight - pad.bottom;
+        m.jumpTo({ padding: pad, center: m.unproject([(pad.left + right) / 2, bottom / 2]) });
+      } else m.easeTo({ padding: pad, duration: duration(250) });
       followed = { id, left: pad.left, phone, folded };
     });
   });
