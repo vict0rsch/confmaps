@@ -1007,6 +1007,21 @@
     },
     {
       "deadlines": [],
+      "end": "2023-07-19",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm23",
+      "link": "https://web.archive.org/web/20230606192725/http://www.mldm.de",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2023-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2023-12-16",
       "id": "neurips23",
       "link": "https://web.archive.org/web/20231209151617/https://neurips.cc/Conferences/2023/",
@@ -2430,6 +2445,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2023-08-30"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm23",
+      "country": "United States",
+      "end": "2023-07-19",
+      "id": "mldm23@main",
+      "lat": 40.7127281,
+      "link": "https://web.archive.org/web/20230606192725/http://www.mldm.de",
+      "lng": -74.0060152,
+      "name": "MLDM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-15"
     },
     {
       "access": "registration",

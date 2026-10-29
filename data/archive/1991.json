@@ -220,6 +220,21 @@
     },
     {
       "deadlines": [],
+      "end": "1991-06-29",
+      "fullName": "International Workshop on Machine Learning",
+      "id": "icml91",
+      "link": "https://dblp.org/db/conf/icml/ml1991.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1991-06-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1991
+    },
+    {
+      "deadlines": [],
       "end": "1991-04-11",
       "fullName": "IEEE International Conference on Robotics and Automation",
       "id": "icra91",
@@ -600,6 +615,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1991-09-30"
+    },
+    {
+      "access": "registration",
+      "city": "Evanston",
+      "conferenceId": "icml91",
+      "country": "United States",
+      "end": "1991-06-29",
+      "id": "icml91@main",
+      "lat": 42.0470043,
+      "link": "https://dblp.org/db/conf/icml/ml1991.html",
+      "lng": -87.6846053,
+      "name": "ICML 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-06-27",
+      "venue": "Northwestern University"
     },
     {
       "access": "registration",

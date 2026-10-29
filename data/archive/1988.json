@@ -253,6 +253,21 @@
     },
     {
       "deadlines": [],
+      "end": "1988-12-01",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips88",
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1988-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1988
+    },
+    {
+      "deadlines": [],
       "end": "1988-08-05",
       "fullName": "Conference on Computer Graphics and Interactive Techniques",
       "id": "siggraph88",
@@ -558,6 +573,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1988-10-12"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips88",
+      "country": "United States",
+      "end": "1988-12-01",
+      "id": "neurips88@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "lng": -104.984862,
+      "name": "NIPS 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-11-28",
+      "venue": "Sheraton Denver Tech Center"
     },
     {
       "access": "registration",

@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "1969-05-13",
+      "fullName": "Association for Computational Linguistics Annual Meeting",
+      "id": "acl69",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1969-05-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1969
+    },
+    {
+      "deadlines": [],
       "end": "1969-09-04",
       "fullName": "International Conference on Computational Linguistics",
       "id": "coling69",
@@ -47,6 +62,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "acl69",
+      "country": "United States",
+      "end": "1969-05-13",
+      "id": "acl69@main",
+      "lat": 42.3588336,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -71.0578303,
+      "name": "ACL 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-05-13"
+    },
     {
       "access": "registration",
       "city": "Stockholm",

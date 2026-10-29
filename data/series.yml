@@ -819,6 +819,9 @@ icml:
     - https://icml.cc/
     - https://en.wikipedia.org/wiki/International_Conference_on_Machine_Learning
   notes: ICML 2026 is the 43rd edition; the first was the 1980 International Workshop on Machine Learning at Carnegie Mellon.
+  not_held:
+    - year: 1986
+      source: https://en.wikipedia.org/wiki/International_Conference_on_Machine_Learning
 icmr:
   first_year: 2011
   sources:
@@ -883,6 +886,8 @@ icpr:
       source: https://iapr.org/about-us/history-of-iapr/
     - year: 2019
       source: https://iapr.org/about-us/history-of-iapr/
+    - year: 2023
+      source: https://en.wikipedia.org/wiki/IAPR
 icprai:
   first_year: 2018
   sources:
@@ -1084,6 +1089,12 @@ kr:
       source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
     - year: 2011
       source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2013
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2015
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
+    - year: 2017
+      source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
     - year: 2019
       source: https://web.archive.org/web/20260618121135/https://kr.org/pastconfs.html
 ksem:
@@ -1199,6 +1210,14 @@ naacl:
     - https://en.wikipedia.org/wiki/North_American_Chapter_of_the_Association_for_Computational_Linguistics
   notes: The 1st Meeting of NAACL was held in 2000, together with the Sixth Applied Natural Language Processing Conference.
   not_held:
+    - year: 2002
+      source: https://www.aclweb.org/portal/node/2481
+    - year: 2005
+      source: https://naacl.org/conferences/index.html
+    - year: 2008
+      source: https://naacl.org/conferences/index.html
+    - year: 2011
+      source: https://naacl.org/conferences/index.html
     - year: 2014
       source: https://www.aclweb.org/portal/content/call-bids-host-acl-2023
     - year: 2017

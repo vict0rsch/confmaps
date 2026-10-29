@@ -1010,6 +1010,21 @@
     },
     {
       "deadlines": [],
+      "end": "2020-07-21",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm20",
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2020-07-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
       "end": "2020-12-12",
       "id": "neurips20",
       "link": "https://web.archive.org/web/20201208151319/https://nips.cc/Conferences/2020",
@@ -1141,6 +1156,24 @@
         "machine-learning"
       ],
       "title": "SGP",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-10",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi20",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2020-11-07",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
       "year": 2020
     },
     {
@@ -2254,6 +2287,23 @@
     },
     {
       "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "mldm20",
+      "country": "Netherlands",
+      "end": "2020-07-21",
+      "format": "hybrid",
+      "id": "mldm20@main",
+      "lat": 52.3730796,
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "lng": 4.8924534,
+      "name": "MLDM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-20"
+    },
+    {
+      "access": "registration",
       "conferenceId": "neurips20",
       "end": "2020-12-12",
       "format": "virtual",
@@ -2379,6 +2429,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2020-07-06"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sibgrapi20",
+      "end": "2020-11-10",
+      "format": "virtual",
+      "id": "sibgrapi20@main",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "name": "SIBGRAPI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-07"
     },
     {
       "access": "registration",

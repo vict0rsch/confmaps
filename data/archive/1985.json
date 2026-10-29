@@ -112,6 +112,21 @@
     },
     {
       "deadlines": [],
+      "end": "1985-06-26",
+      "fullName": "International Machine Learning Workshop",
+      "id": "icml85",
+      "link": "https://icml.cc/Conferences/2007/pastconferences.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1985-06-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
       "end": "1985-03-28",
       "fullName": "IEEE International Conference on Robotics and Automation",
       "id": "icra85",
@@ -305,6 +320,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1985-03-26"
+    },
+    {
+      "access": "registration",
+      "city": "Skytop",
+      "conferenceId": "icml85",
+      "country": "United States",
+      "end": "1985-06-26",
+      "id": "icml85@main",
+      "lat": 41.2279599,
+      "link": "https://icml.cc/Conferences/2007/pastconferences.html",
+      "lng": -75.2384618,
+      "name": "ICML 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-06-24",
+      "venue": "Skytop Lodge"
     },
     {
       "access": "registration",

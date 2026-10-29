@@ -2291,6 +2291,96 @@
     },
     {
       "deadlines": [],
+      "end": "1964-07-30",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl64",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1964-07-29",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1964
+    },
+    {
+      "deadlines": [],
+      "end": "1966-07-27",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl66",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1966-07-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1966
+    },
+    {
+      "deadlines": [],
+      "end": "1967-04-21",
+      "fullName": "Association for Machine Translation and Computational Linguistics Annual Meeting",
+      "id": "acl67",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1967-04-21",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1967
+    },
+    {
+      "deadlines": [],
+      "end": "1968-07-25",
+      "fullName": "Association for Computational Linguistics Annual Meeting",
+      "id": "acl68",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1968-07-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1968
+    },
+    {
+      "deadlines": [],
+      "end": "1969-05-13",
+      "fullName": "Association for Computational Linguistics Annual Meeting",
+      "id": "acl69",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1969-05-13",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1969
+    },
+    {
+      "deadlines": [],
+      "end": "1974-07-27",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl74",
+      "link": "https://aclanthology.org/J74-1/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1974-07-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1974
+    },
+    {
+      "deadlines": [],
       "end": "1976-10-09",
       "fullName": "Annual Meeting of the Association for Computational Linguistics",
       "id": "acl76",
@@ -10848,6 +10938,21 @@
     },
     {
       "deadlines": [],
+      "end": "2001-07-11",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl01",
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/1073012",
+      "series": "eacl",
+      "source": "curated",
+      "start": "2001-07-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
       "end": "2003-04-17",
       "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
       "id": "eacl03",
@@ -17113,6 +17218,21 @@
     },
     {
       "deadlines": [],
+      "end": "1973-01-11",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss73",
+      "link": "https://katalog.bibliothek.kit.edu/bib/741721",
+      "series": "hicss",
+      "source": "curated",
+      "start": "1973-01-09",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 1973
+    },
+    {
+      "deadlines": [],
       "end": "1989-01-06",
       "fullName": "Hawaii International Conference on System Sciences",
       "id": "hicss89",
@@ -17155,6 +17275,21 @@
       ],
       "title": "HICSS",
       "year": 1991
+    },
+    {
+      "deadlines": [],
+      "end": "1992-01-10",
+      "fullName": "Hawaii International Conference on System Sciences",
+      "id": "hicss92",
+      "link": "https://experts.umn.edu/en/publications/use-of-a-collaborative-work-system-for-the-study-of-the-key-issue/",
+      "series": "hicss",
+      "source": "curated",
+      "start": "1992-01-07",
+      "tags": [
+        "information-systems"
+      ],
+      "title": "HICSS",
+      "year": 1992
     },
     {
       "deadlines": [],
@@ -17840,6 +17975,21 @@
       ],
       "title": "ICANN",
       "year": 2003
+    },
+    {
+      "deadlines": [],
+      "end": "2004-07-29",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann04",
+      "link": "https://e-nns.org/icanns/history/",
+      "series": "icann",
+      "source": "curated",
+      "start": "2004-07-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2004
     },
     {
       "deadlines": [],
@@ -23711,6 +23861,21 @@
     },
     {
       "deadlines": [],
+      "end": "1985-06-26",
+      "fullName": "International Machine Learning Workshop",
+      "id": "icml85",
+      "link": "https://icml.cc/Conferences/2007/pastconferences.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1985-06-24",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1985
+    },
+    {
+      "deadlines": [],
       "end": "1987-06-25",
       "fullName": "International Workshop on Machine Learning",
       "id": "icml87",
@@ -23768,6 +23933,21 @@
       ],
       "title": "ICML",
       "year": 1990
+    },
+    {
+      "deadlines": [],
+      "end": "1991-06-29",
+      "fullName": "International Workshop on Machine Learning",
+      "id": "icml91",
+      "link": "https://dblp.org/db/conf/icml/ml1991.html",
+      "series": "icml",
+      "source": "curated",
+      "start": "1991-06-27",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICML",
+      "year": 1991
     },
     {
       "deadlines": [],
@@ -24343,6 +24523,21 @@
       ],
       "title": "ICPR",
       "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2021-01-15",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr21",
+      "link": "https://dblp.org/db/conf/icpr/icpr2020.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2021-01-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2021
     },
     {
       "deadlines": [],
@@ -32629,6 +32824,66 @@
     },
     {
       "deadlines": [],
+      "end": "2020-07-21",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm20",
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2020-07-20",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2020
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-22",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm21",
+      "link": "https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2021-07-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2022-07-21",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm22",
+      "link": "https://web.archive.org/web/20220809044335/https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2022-07-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
+      "end": "2023-07-19",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm23",
+      "link": "https://web.archive.org/web/20230606192725/http://www.mldm.de",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2023-07-15",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2023
+    },
+    {
+      "deadlines": [],
       "end": "2024-07-18",
       "fullName": "International Conference on Machine Learning and Data Mining",
       "id": "mldm24",
@@ -33458,6 +33713,21 @@
       ],
       "title": "NIPS",
       "year": 1987
+    },
+    {
+      "deadlines": [],
+      "end": "1988-12-01",
+      "fullName": "Conference on Neural Information Processing Systems",
+      "id": "neurips88",
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "series": "neurips",
+      "source": "curated",
+      "start": "1988-11-28",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "NIPS",
+      "year": 1988
     },
     {
       "deadlines": [],
@@ -36287,6 +36557,21 @@
     },
     {
       "deadlines": [],
+      "end": "2025-11-09",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem25",
+      "link": "https://web.archive.org/web/20251027182421/https://starsem2025.github.io/",
+      "series": "sem",
+      "source": "curated",
+      "start": "2025-11-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2025
+    },
+    {
+      "deadlines": [],
       "end": "2003-06-25",
       "fullName": "Symposium on Geometry Processing",
       "id": "sgp03",
@@ -37117,6 +37402,24 @@
     },
     {
       "deadlines": [],
+      "end": "2018-11-01",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi18",
+      "link": "https://web.archive.org/web/20180928045116/http://www.imago.ufpr.br:80/sibgrapi2018/",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2018-10-29",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2019-10-30",
       "fullName": "Conference on Graphics, Patterns and Images",
       "id": "sibgrapi19",
@@ -37132,6 +37435,24 @@
       ],
       "title": "SIBGRAPI",
       "year": 2019
+    },
+    {
+      "deadlines": [],
+      "end": "2020-11-10",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi20",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2020-11-07",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2020
     },
     {
       "deadlines": [],
@@ -42270,7 +42591,7 @@
       "year": 1999
     }
   ],
-  "generatedAt": "2026-10-29T09:04:11.800Z",
+  "generatedAt": "2026-10-29T11:39:38.725Z",
   "locations": [
     {
       "access": "registration",
@@ -44282,6 +44603,102 @@
       "role": "main",
       "start": "1963-08-25",
       "venue": "Denver Hilton"
+    },
+    {
+      "access": "registration",
+      "city": "Bloomington",
+      "conferenceId": "acl64",
+      "country": "United States",
+      "end": "1964-07-30",
+      "id": "acl64@main",
+      "lat": 39.1670396,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -86.5342881,
+      "name": "ACL 1964",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1964-07-29"
+    },
+    {
+      "access": "registration",
+      "city": "Los Angeles",
+      "conferenceId": "acl66",
+      "country": "United States",
+      "end": "1966-07-27",
+      "id": "acl66@main",
+      "lat": 34.0536923,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -118.2427676,
+      "name": "ACL 1966",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1966-07-26"
+    },
+    {
+      "access": "registration",
+      "city": "Atlantic City",
+      "conferenceId": "acl67",
+      "country": "United States",
+      "end": "1967-04-21",
+      "id": "acl67@main",
+      "lat": 39.3642852,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -74.4229351,
+      "name": "ACL 1967",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1967-04-21"
+    },
+    {
+      "access": "registration",
+      "city": "Urbana",
+      "conferenceId": "acl68",
+      "country": "United States",
+      "end": "1968-07-25",
+      "id": "acl68@main",
+      "lat": 40.1117174,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -88.207301,
+      "name": "ACL 1968",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1968-07-24"
+    },
+    {
+      "access": "registration",
+      "city": "Boston",
+      "conferenceId": "acl69",
+      "country": "United States",
+      "end": "1969-05-13",
+      "id": "acl69@main",
+      "lat": 42.3588336,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -71.0578303,
+      "name": "ACL 1969",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1969-05-13"
+    },
+    {
+      "access": "registration",
+      "city": "Amherst",
+      "conferenceId": "acl74",
+      "country": "United States",
+      "end": "1974-07-27",
+      "id": "acl74@main",
+      "lat": 42.3731948,
+      "link": "https://aclanthology.org/J74-1/",
+      "lng": -72.5198761,
+      "name": "ACL 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-07-26"
     },
     {
       "access": "registration",
@@ -52394,6 +52811,22 @@
     },
     {
       "access": "registration",
+      "city": "Toulouse",
+      "conferenceId": "eacl01",
+      "country": "France",
+      "end": "2001-07-11",
+      "id": "eacl01@main",
+      "lat": 43.6044638,
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/1073012",
+      "lng": 1.4442433,
+      "name": "EACL 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-07-06"
+    },
+    {
+      "access": "registration",
       "city": "Budapest",
       "conferenceId": "eacl03",
       "country": "Hungary",
@@ -58294,6 +58727,22 @@
     },
     {
       "access": "registration",
+      "city": "Honolulu",
+      "conferenceId": "hicss73",
+      "country": "United States",
+      "end": "1973-01-11",
+      "id": "hicss73@main",
+      "lat": 21.304547,
+      "link": "https://katalog.bibliothek.kit.edu/bib/741721",
+      "lng": -157.855676,
+      "name": "HICSS 1973",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1973-01-09"
+    },
+    {
+      "access": "registration",
       "city": "Kailua-Kona",
       "conferenceId": "hicss89",
       "country": "United States",
@@ -58339,6 +58788,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1991-01-08"
+    },
+    {
+      "access": "registration",
+      "city": "Koloa",
+      "conferenceId": "hicss92",
+      "country": "United States",
+      "end": "1992-01-10",
+      "id": "hicss92@main",
+      "lat": 21.9042514,
+      "link": "https://experts.umn.edu/en/publications/use-of-a-collaborative-work-system-for-the-study-of-the-key-issue/",
+      "lng": -159.4657414,
+      "name": "HICSS 1992",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1992-01-07"
     },
     {
       "access": "registration",
@@ -59041,6 +59506,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2003-06-26"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "icann04",
+      "country": "Hungary",
+      "end": "2004-07-29",
+      "id": "icann04@main",
+      "lat": 47.4978789,
+      "link": "https://e-nns.org/icanns/history/",
+      "lng": 19.0402383,
+      "name": "ICANN 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-25"
     },
     {
       "access": "registration",
@@ -64897,6 +65378,23 @@
     },
     {
       "access": "registration",
+      "city": "Skytop",
+      "conferenceId": "icml85",
+      "country": "United States",
+      "end": "1985-06-26",
+      "id": "icml85@main",
+      "lat": 41.2279599,
+      "link": "https://icml.cc/Conferences/2007/pastconferences.html",
+      "lng": -75.2384618,
+      "name": "ICML 1985",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1985-06-24",
+      "venue": "Skytop Lodge"
+    },
+    {
+      "access": "registration",
       "city": "Irvine",
       "conferenceId": "icml87",
       "country": "United States",
@@ -64960,6 +65458,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1990-06-21"
+    },
+    {
+      "access": "registration",
+      "city": "Evanston",
+      "conferenceId": "icml91",
+      "country": "United States",
+      "end": "1991-06-29",
+      "id": "icml91@main",
+      "lat": 42.0470043,
+      "link": "https://dblp.org/db/conf/icml/ml1991.html",
+      "lng": -87.6846053,
+      "name": "ICML 1991",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1991-06-27",
+      "venue": "Northwestern University"
     },
     {
       "access": "registration",
@@ -65547,6 +66062,19 @@
       "link": "https://web.archive.org/web/20210106201159/https://www.micc.unifi.it/icpr2020/",
       "name": "ICPR 2020",
       "notes": "Held online (planned: Milan, Italy).",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-10"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "icpr21",
+      "end": "2021-01-15",
+      "format": "virtual",
+      "id": "icpr21@main",
+      "link": "https://dblp.org/db/conf/icpr/icpr2020.html",
+      "name": "ICPR 2021",
       "official": true,
       "presentsPapers": true,
       "role": "main",
@@ -73714,6 +74242,71 @@
     },
     {
       "access": "registration",
+      "city": "Amsterdam",
+      "conferenceId": "mldm20",
+      "country": "Netherlands",
+      "end": "2020-07-21",
+      "format": "hybrid",
+      "id": "mldm20@main",
+      "lat": 52.3730796,
+      "link": "https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php",
+      "lng": 4.8924534,
+      "name": "MLDM 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-07-20"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm21",
+      "country": "United States",
+      "end": "2021-07-22",
+      "id": "mldm21@main",
+      "lat": 40.7127281,
+      "link": "https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582",
+      "lng": -74.0060152,
+      "name": "MLDM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-17"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm22",
+      "country": "United States",
+      "end": "2022-07-21",
+      "id": "mldm22@main",
+      "lat": 40.7127281,
+      "link": "https://web.archive.org/web/20220809044335/https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition",
+      "lng": -74.0060152,
+      "name": "MLDM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-16"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm23",
+      "country": "United States",
+      "end": "2023-07-19",
+      "id": "mldm23@main",
+      "lat": 40.7127281,
+      "link": "https://web.archive.org/web/20230606192725/http://www.mldm.de",
+      "lng": -74.0060152,
+      "name": "MLDM 2023",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2023-07-15"
+    },
+    {
+      "access": "registration",
       "city": "Dresden",
       "conferenceId": "mldm24",
       "country": "Germany",
@@ -74576,6 +75169,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "1987-11-08"
+    },
+    {
+      "access": "registration",
+      "city": "Denver",
+      "conferenceId": "neurips88",
+      "country": "United States",
+      "end": "1988-12-01",
+      "id": "neurips88@main",
+      "lat": 39.7392364,
+      "link": "https://dblp.org/db/conf/nips/nips1988.html",
+      "lng": -104.984862,
+      "name": "NIPS 1988",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1988-11-28",
+      "venue": "Sheraton Denver Tech Center"
     },
     {
       "access": "registration",
@@ -77425,6 +78035,22 @@
     },
     {
       "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "sem25",
+      "country": "China",
+      "end": "2025-11-09",
+      "id": "sem25@main",
+      "lat": 31.311123,
+      "link": "https://web.archive.org/web/20251027182421/https://starsem2025.github.io/",
+      "lng": 120.6212881,
+      "name": "*SEM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-08"
+    },
+    {
+      "access": "registration",
       "city": "Aachen",
       "conferenceId": "sgp03",
       "country": "Germany",
@@ -78091,6 +78717,23 @@
     },
     {
       "access": "registration",
+      "city": "Foz do Iguaçu",
+      "conferenceId": "sibgrapi18",
+      "country": "Brazil",
+      "end": "2018-11-01",
+      "id": "sibgrapi18@main",
+      "lat": -25.5304023,
+      "link": "https://web.archive.org/web/20180928045116/http://www.imago.ufpr.br:80/sibgrapi2018/",
+      "lng": -54.5830692,
+      "name": "SIBGRAPI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-29",
+      "venue": "Bourbon Cataratas Convention & Spa Resort"
+    },
+    {
+      "access": "registration",
       "city": "Rio de Janeiro",
       "conferenceId": "sibgrapi19",
       "country": "Brazil",
@@ -78104,6 +78747,19 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2019-10-28"
+    },
+    {
+      "access": "registration",
+      "conferenceId": "sibgrapi20",
+      "end": "2020-11-10",
+      "format": "virtual",
+      "id": "sibgrapi20@main",
+      "link": "https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/",
+      "name": "SIBGRAPI 2020",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2020-11-07"
     },
     {
       "access": "registration",

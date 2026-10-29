@@ -834,6 +834,11 @@
     "lat": 40.8018746,
     "lng": -124.1707558
   },
+  "evanston|united states": {
+    "display_name": "Evanston, Evanston Township, Cook County, Illinois, United States",
+    "lat": 42.0470043,
+    "lng": -87.6846053
+  },
   "florence|italy": {
     "display_name": "Florence, Tuscany, Italy",
     "lat": 43.7697955,
@@ -863,6 +868,11 @@
     "display_name": "Foster City, San Mateo County, California, United States",
     "lat": 37.5600336,
     "lng": -122.2688522
+  },
+  "foz do iguacu|brazil": {
+    "display_name": "Foz do Iguaçu, Paraná, South Region, Brazil",
+    "lat": -25.5304023,
+    "lng": -54.5830692
   },
   "frankfurt am main|germany": {
     "display_name": "Frankfurt, Hesse, Germany",
@@ -2383,6 +2393,11 @@
     "display_name": "Skövde, Skövde kommun, Västra Götaland County, 541 50, Sweden",
     "lat": 58.3896329,
     "lng": 13.8456344
+  },
+  "skytop|united states": {
+    "display_name": "Skytop, Barrett Township, Monroe County, Pennsylvania, 18357, United States",
+    "lat": 41.2279599,
+    "lng": -75.2384618
   },
   "snowbird|united states": {
     "display_name": "Snowbird Community, Graham County, North Carolina, 28771, United States",

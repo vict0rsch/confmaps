@@ -712,6 +712,21 @@
     },
     {
       "deadlines": [],
+      "end": "2021-01-15",
+      "fullName": "International Conference on Pattern Recognition",
+      "id": "icpr21",
+      "link": "https://dblp.org/db/conf/icpr/icpr2020.html",
+      "series": "icpr",
+      "source": "curated",
+      "start": "2021-01-10",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICPR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
       "end": "2021-06-05",
       "id": "icra21",
       "link": "https://web.archive.org/web/20210530005435/https://www.ieee-icra.org/",
@@ -973,6 +988,21 @@
         "machine-learning"
       ],
       "title": "MIPR",
+      "year": 2021
+    },
+    {
+      "deadlines": [],
+      "end": "2021-07-22",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm21",
+      "link": "https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2021-07-17",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
       "year": 2021
     },
     {
@@ -1978,6 +2008,19 @@
     },
     {
       "access": "registration",
+      "conferenceId": "icpr21",
+      "end": "2021-01-15",
+      "format": "virtual",
+      "id": "icpr21@main",
+      "link": "https://dblp.org/db/conf/icpr/icpr2020.html",
+      "name": "ICPR 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-01-10"
+    },
+    {
+      "access": "registration",
       "city": "Xi'an",
       "conferenceId": "icra21",
       "country": "China",
@@ -2232,6 +2275,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2021-09-08"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm21",
+      "country": "United States",
+      "end": "2021-07-22",
+      "id": "mldm21@main",
+      "lat": 40.7127281,
+      "link": "https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582",
+      "lng": -74.0060152,
+      "name": "MLDM 2021",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2021-07-17"
     },
     {
       "access": "registration",

@@ -31,6 +31,51 @@
     - https://mt-archive.net/50/AMTCL-1963-TOC.htm
     - http://makerhacker.github.io/paper-mining/acl/acl_home.html
 
+- id: acl64
+  title: ACL
+  year: 1964
+  full_name: Association for Machine Translation and Computational Linguistics Annual Meeting
+  link: https://aclanthology.org/P82-1017.pdf
+  start: '1964-07-29'
+  end: '1964-07-30'
+  format: in_person
+  city: Bloomington
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/P82-1017.pdf
+
+- id: acl66
+  title: ACL
+  year: 1966
+  full_name: Association for Machine Translation and Computational Linguistics Annual Meeting
+  link: https://aclanthology.org/P82-1017.pdf
+  start: '1966-07-26'
+  end: '1966-07-27'
+  format: in_person
+  city: Los Angeles
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/P82-1017.pdf
+
+- id: acl67
+  title: ACL
+  year: 1967
+  full_name: Association for Machine Translation and Computational Linguistics Annual Meeting
+  link: https://aclanthology.org/P82-1017.pdf
+  start: '1967-04-21'
+  end: '1967-04-21'
+  format: in_person
+  city: Atlantic City
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/P82-1017.pdf
+
 - id: coling67
   title: COLING
   year: 1967
@@ -45,6 +90,21 @@
   source: curated
   sources:
     - https://eric.ed.gov/?id=ED014071
+
+- id: acl68
+  title: ACL
+  year: 1968
+  full_name: Association for Computational Linguistics Annual Meeting
+  link: https://aclanthology.org/P82-1017.pdf
+  start: '1968-07-24'
+  end: '1968-07-25'
+  format: in_person
+  city: Urbana
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/P82-1017.pdf
 
 - id: hicss68
   title: HICSS
@@ -61,6 +121,21 @@
   source: curated
   sources:
     - https://katalog.bibliothek.kit.edu/bib/553994
+
+- id: acl69
+  title: ACL
+  year: 1969
+  full_name: Association for Computational Linguistics Annual Meeting
+  link: https://aclanthology.org/P82-1017.pdf
+  start: '1969-05-13'
+  end: '1969-05-13'
+  format: in_person
+  city: Boston
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/P82-1017.pdf
 
 - id: coling69
   title: COLING
@@ -139,6 +214,21 @@
   sources:
     - https://dblp.org/db/conf/coling/coling1973.html
 
+- id: hicss73
+  title: HICSS
+  year: 1973
+  full_name: Hawaii International Conference on System Sciences
+  link: https://katalog.bibliothek.kit.edu/bib/741721
+  start: '1973-01-09'
+  end: '1973-01-11'
+  format: in_person
+  city: Honolulu
+  country: United States
+  tags: [information-systems]
+  source: curated
+  sources:
+    - https://experts.arizona.edu/en/publications/hawaii-international-conference-on-system-sciences-6th-proceeding-3/
+
 - id: icpr73
   title: ICPR
   year: 1973
@@ -169,6 +259,21 @@
   source: curated
   sources:
     - https://dblp.org/db/conf/ijcai/ijcai73.html
+
+- id: acl74
+  title: ACL
+  year: 1974
+  full_name: Annual Meeting of the Association for Computational Linguistics
+  link: https://aclanthology.org/J74-1/
+  start: '1974-07-26'
+  end: '1974-07-27'
+  format: in_person
+  city: Amherst
+  country: United States
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://aclanthology.org/J74-1001.pdf
 
 - id: icpr74
   title: ICPR
@@ -1303,6 +1408,22 @@
   sources:
     - https://dblp.org/db/conf/icassp/icassp1985.html
 
+- id: icml85
+  title: ICML
+  year: 1985
+  full_name: International Machine Learning Workshop
+  link: https://icml.cc/Conferences/2007/pastconferences.html
+  start: '1985-06-24'
+  end: '1985-06-26'
+  format: in_person
+  city: Skytop
+  country: United States
+  venue: Skytop Lodge
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://blackwells.co.uk/bookshop/product/Machine-Learning-by-Tom-M-Mitchell-editor/9781461322795
+
 - id: icra85
   title: ICRA
   year: 1985
@@ -2074,6 +2195,22 @@
   source: curated
   sources:
     - https://dblp.org/db/conf/ismis/ismis88.html
+
+- id: neurips88
+  title: NIPS
+  year: 1988
+  full_name: Conference on Neural Information Processing Systems
+  link: https://dblp.org/db/conf/nips/nips1988.html
+  start: '1988-11-28'
+  end: '1988-12-01'
+  format: in_person
+  city: Denver
+  country: United States
+  venue: Sheraton Denver Tech Center
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://mailman.srv.cs.cmu.edu/pipermail/connectionists/1988-October/011501.html
 
 - id: siggraph88
   title: SIGGRAPH
@@ -2985,6 +3122,22 @@
   sources:
     - https://www.academia.edu/49013652/Document_analysis_and_recognition_by_computers
 
+- id: icml91
+  title: ICML
+  year: 1991
+  full_name: International Workshop on Machine Learning
+  link: https://dblp.org/db/conf/icml/ml1991.html
+  start: '1991-06-27'
+  end: '1991-06-29'
+  format: in_person
+  city: Evanston
+  country: United States
+  venue: Northwestern University
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://mailman.srv.cs.cmu.edu/pipermail/connectionists/1991-January/013049.html
+
 - id: icra91
   title: ICRA
   year: 1991
@@ -3331,6 +3484,21 @@
   source: curated
   sources:
     - https://web.archive.org/web/20240415020803/https://bmi.math.u-bordeaux.fr/cgi-bin/ouvrages?cong=EGCP
+
+- id: hicss92
+  title: HICSS
+  year: 1992
+  full_name: Hawaii International Conference on System Sciences
+  link: https://experts.umn.edu/en/publications/use-of-a-collaborative-work-system-for-the-study-of-the-key-issue/
+  start: '1992-01-07'
+  end: '1992-01-10'
+  format: in_person
+  city: Koloa
+  country: United States
+  tags: [information-systems]
+  source: curated
+  sources:
+    - https://experts.umn.edu/en/publications/use-of-a-collaborative-work-system-for-the-study-of-the-key-issue/
 
 - id: icann92
   title: ICANN
@@ -8458,6 +8626,21 @@
   sources:
     - http://tab.computer.org/pamitc/conference/history.html
 
+- id: eacl01
+  title: EACL
+  year: 2001
+  full_name: Conference of the European Chapter of the Association for Computational Linguistics
+  link: https://dl.acm.org/doi/proceedings/10.5555/1073012
+  start: '2001-07-06'
+  end: '2001-07-11'
+  format: in_person
+  city: Toulouse
+  country: France
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://web.archive.org/web/20220407072520/https://dl.acm.org/doi/proceedings/10.5555/1073012
+
 - id: ecir01
   title: ECIR
   year: 2001
@@ -11183,6 +11366,21 @@
   source: curated
   sources:
     - https://dblp.org/db/conf/iberamia/iberamia2004.html
+
+- id: icann04
+  title: ICANN
+  year: 2004
+  full_name: International Conference on Artificial Neural Networks
+  link: https://e-nns.org/icanns/history/  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2004-07-25'
+  end: '2004-07-29'
+  format: in_person
+  city: Budapest
+  country: Hungary
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://e-nns.org/icanns/history/
 
 - id: icaps04
   title: ICAPS
@@ -27195,6 +27393,22 @@
   sources:
     - https://sgp2018.sciencesconf.org/
 
+- id: sibgrapi18
+  title: SIBGRAPI
+  year: 2018
+  full_name: Conference on Graphics, Patterns and Images
+  link: https://web.archive.org/web/20180928045116/http://www.imago.ufpr.br:80/sibgrapi2018/
+  start: '2018-10-29'
+  end: '2018-11-01'
+  format: in_person
+  city: Foz do Iguaçu
+  country: Brazil
+  venue: Bourbon Cataratas Convention & Spa Resort
+  tags: [image-processing, pattern-recognition, computer-vision, computer-graphics]
+  source: curated
+  sources:
+    - https://web.archive.org/web/20220703180342/http://www.imago.ufpr.br/sibgrapi2018/
+
 - id: siggraph18
   title: SIGGRAPH
   year: 2018
@@ -29937,6 +30151,21 @@
   sources:
     - https://dblp.org/db/conf/mipr/mipr2020.html
 
+- id: mldm20
+  title: MLDM
+  year: 2020
+  full_name: International Conference on Machine Learning and Data Mining
+  link: https://web.archive.org/web/20200805074441/http://www.mldm.de:80/bibliography.php
+  start: '2020-07-20'
+  end: '2020-07-21'
+  format: hybrid
+  city: Amsterdam
+  country: Netherlands
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://www.mldm.de/bibliography.php
+
 - id: neurips20
   title: NeurIPS
   year: 2020
@@ -30081,6 +30310,19 @@
   source: curated
   sources:
     - https://sgp2023.github.io/past/
+
+- id: sibgrapi20
+  title: SIBGRAPI
+  year: 2020
+  full_name: Conference on Graphics, Patterns and Images
+  link: https://web.archive.org/web/20201101151320/https://sibgrapi2020.cin.ufpe.br/
+  start: '2020-11-07'
+  end: '2020-11-10'
+  format: virtual
+  tags: [image-processing, pattern-recognition, computer-vision, computer-graphics]
+  source: curated
+  sources:
+    - https://sibgrapi2020.cin.ufpe.br/
 
 - id: siggraph20
   title: SIGGRAPH
@@ -31041,6 +31283,19 @@
   sources:
     - https://dblp.org/db/conf/mir/icmr2021.html
 
+- id: icpr21
+  title: ICPR
+  year: 2021
+  full_name: International Conference on Pattern Recognition
+  link: https://dblp.org/db/conf/icpr/icpr2020.html
+  start: '2021-01-10'
+  end: '2021-01-15'
+  format: virtual
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://dblp.org/db/conf/icpr/icpr2020.html
+
 - id: icra21
   title: ICRA
   year: 2021
@@ -31336,6 +31591,21 @@
   source: curated
   sources:
     - https://mipr2021.org/
+
+- id: mldm21
+  title: MLDM
+  year: 2021
+  full_name: International Conference on Machine Learning and Data Mining
+  link: https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582  # UNARCHIVED live link — replace with a Wayback snapshot before merging
+  start: '2021-07-17'
+  end: '2021-07-22'
+  format: in_person  # UNVERIFIED default — check before merging
+  city: New York
+  country: United States
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://www.readkong.com/page/international-conference-on-machine-learning-and-data-5015582
 
 - id: naacl21
   title: NAACL-HLT
@@ -32979,6 +33249,21 @@
   sources:
     - https://www.proceedings.com/65530.html
 
+- id: mldm22
+  title: MLDM
+  year: 2022
+  full_name: International Conference on Machine Learning and Data Mining
+  link: https://web.archive.org/web/20220809044335/https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition
+  start: '2022-07-16'
+  end: '2022-07-21'
+  format: in_person  # UNVERIFIED default — check before merging
+  city: New York
+  country: United States
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition
+
 - id: naacl22
   title: NAACL
   year: 2022
@@ -34524,6 +34809,21 @@
   source: curated
   sources:
     - http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=173491&copyownerid=170583
+
+- id: mldm23
+  title: MLDM
+  year: 2023
+  full_name: International Conference on Machine Learning and Data Mining
+  link: https://web.archive.org/web/20230606192725/http://www.mldm.de
+  start: '2023-07-15'
+  end: '2023-07-19'
+  format: in_person  # UNVERIFIED default — check before merging
+  city: New York
+  country: United States
+  tags: [machine-learning]
+  source: curated
+  sources:
+    - https://easychair.org/cfp/MLDM-2023
 
 - id: neurips23
   title: NeurIPS
@@ -37443,6 +37743,21 @@
   source: curated
   sources:
     - https://dblp.org/db/conf/sdm/sdm2025.html
+
+- id: sem25
+  title: '*SEM'
+  year: 2025
+  full_name: Joint Conference on Lexical and Computational Semantics
+  link: https://web.archive.org/web/20251027182421/https://starsem2025.github.io/
+  start: '2025-11-08'
+  end: '2025-11-09'
+  format: in_person  # UNVERIFIED default — check before merging
+  city: Suzhou
+  country: China
+  tags: [natural-language-processing]
+  source: curated
+  sources:
+    - https://starsem2025.github.io/
 
 - id: sibgrapi25
   title: SIBGRAPI

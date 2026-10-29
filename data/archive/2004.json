@@ -425,6 +425,21 @@
     },
     {
       "deadlines": [],
+      "end": "2004-07-29",
+      "fullName": "International Conference on Artificial Neural Networks",
+      "id": "icann04",
+      "link": "https://e-nns.org/icanns/history/",
+      "series": "icann",
+      "source": "curated",
+      "start": "2004-07-25",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "ICANN",
+      "year": 2004
+    },
+    {
+      "deadlines": [],
       "end": "2004-06-07",
       "fullName": "International Conference on Automated Planning and Scheduling",
       "id": "icaps04",
@@ -1370,6 +1385,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2004-11-22"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "icann04",
+      "country": "Hungary",
+      "end": "2004-07-29",
+      "id": "icann04@main",
+      "lat": 47.4978789,
+      "link": "https://e-nns.org/icanns/history/",
+      "lng": 19.0402383,
+      "name": "ICANN 2004",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2004-07-25"
     },
     {
       "access": "registration",

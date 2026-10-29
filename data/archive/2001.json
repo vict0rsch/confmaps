@@ -175,6 +175,21 @@
     },
     {
       "deadlines": [],
+      "end": "2001-07-11",
+      "fullName": "Conference of the European Chapter of the Association for Computational Linguistics",
+      "id": "eacl01",
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/1073012",
+      "series": "eacl",
+      "source": "curated",
+      "start": "2001-07-06",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EACL",
+      "year": 2001
+    },
+    {
+      "deadlines": [],
       "end": "2001-04-06",
       "fullName": "European Annual Colloquium on Information Retrieval Research",
       "id": "ecir01",
@@ -952,6 +967,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2001-12-11"
+    },
+    {
+      "access": "registration",
+      "city": "Toulouse",
+      "conferenceId": "eacl01",
+      "country": "France",
+      "end": "2001-07-11",
+      "id": "eacl01@main",
+      "lat": 43.6044638,
+      "link": "https://dl.acm.org/doi/proceedings/10.5555/1073012",
+      "lng": 1.4442433,
+      "name": "EACL 2001",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2001-07-06"
     },
     {
       "access": "registration",

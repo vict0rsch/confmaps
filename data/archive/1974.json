@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "1974-07-27",
+      "fullName": "Annual Meeting of the Association for Computational Linguistics",
+      "id": "acl74",
+      "link": "https://aclanthology.org/J74-1/",
+      "series": "acl",
+      "source": "curated",
+      "start": "1974-07-26",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1974
+    },
+    {
+      "deadlines": [],
       "end": "1974-08-15",
       "fullName": "International Joint Conference on Pattern Recognition",
       "id": "icpr74",
@@ -32,6 +47,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Amherst",
+      "conferenceId": "acl74",
+      "country": "United States",
+      "end": "1974-07-27",
+      "id": "acl74@main",
+      "lat": 42.3731948,
+      "link": "https://aclanthology.org/J74-1/",
+      "lng": -72.5198761,
+      "name": "ACL 1974",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1974-07-26"
+    },
     {
       "access": "registration",
       "city": "Copenhagen",

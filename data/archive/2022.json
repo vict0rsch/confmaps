@@ -1093,6 +1093,21 @@
     },
     {
       "deadlines": [],
+      "end": "2022-07-21",
+      "fullName": "International Conference on Machine Learning and Data Mining",
+      "id": "mldm22",
+      "link": "https://web.archive.org/web/20220809044335/https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition",
+      "series": "mldm",
+      "source": "curated",
+      "start": "2022-07-16",
+      "tags": [
+        "machine-learning"
+      ],
+      "title": "MLDM",
+      "year": 2022
+    },
+    {
+      "deadlines": [],
       "end": "2022-07-15",
       "id": "naacl22",
       "link": "https://web.archive.org/web/20220712212235/https://2022.naacl.org/",
@@ -2599,6 +2614,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2022-08-02"
+    },
+    {
+      "access": "registration",
+      "city": "New York",
+      "conferenceId": "mldm22",
+      "country": "United States",
+      "end": "2022-07-21",
+      "id": "mldm22@main",
+      "lat": 40.7127281,
+      "link": "https://web.archive.org/web/20220809044335/https://euagenda.eu/publications/machine-learning-and-data-mining-in-pattern-recognition",
+      "lng": -74.0060152,
+      "name": "MLDM 2022",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2022-07-16"
     },
     {
       "access": "registration",

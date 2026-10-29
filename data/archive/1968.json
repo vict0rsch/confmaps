@@ -2,6 +2,21 @@
   "conferences": [
     {
       "deadlines": [],
+      "end": "1968-07-25",
+      "fullName": "Association for Computational Linguistics Annual Meeting",
+      "id": "acl68",
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "series": "acl",
+      "source": "curated",
+      "start": "1968-07-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "ACL",
+      "year": 1968
+    },
+    {
+      "deadlines": [],
       "end": "1968-01-31",
       "fullName": "Hawaii International Conference on System Sciences",
       "id": "hicss68",
@@ -17,6 +32,22 @@
     }
   ],
   "locations": [
+    {
+      "access": "registration",
+      "city": "Urbana",
+      "conferenceId": "acl68",
+      "country": "United States",
+      "end": "1968-07-25",
+      "id": "acl68@main",
+      "lat": 40.1117174,
+      "link": "https://aclanthology.org/P82-1017.pdf",
+      "lng": -88.207301,
+      "name": "ACL 1968",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "1968-07-24"
+    },
     {
       "access": "registration",
       "city": "Honolulu",

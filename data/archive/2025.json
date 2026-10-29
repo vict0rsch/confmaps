@@ -2196,6 +2196,21 @@
       "year": 2025
     },
     {
+      "deadlines": [],
+      "end": "2025-11-09",
+      "fullName": "Joint Conference on Lexical and Computational Semantics",
+      "id": "sem25",
+      "link": "https://web.archive.org/web/20251027182421/https://starsem2025.github.io/",
+      "series": "sem",
+      "source": "curated",
+      "start": "2025-11-08",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "*SEM",
+      "year": 2025
+    },
+    {
       "deadlines": [
         {
           "date": "2025-02-04T23:59:00Z",
@@ -3993,6 +4008,22 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2025-05-01"
+    },
+    {
+      "access": "registration",
+      "city": "Suzhou",
+      "conferenceId": "sem25",
+      "country": "China",
+      "end": "2025-11-09",
+      "id": "sem25@main",
+      "lat": 31.311123,
+      "link": "https://web.archive.org/web/20251027182421/https://starsem2025.github.io/",
+      "lng": 120.6212881,
+      "name": "*SEM 2025",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2025-11-08"
     },
     {
       "access": "registration",

@@ -1189,6 +1189,24 @@
     },
     {
       "deadlines": [],
+      "end": "2018-11-01",
+      "fullName": "Conference on Graphics, Patterns and Images",
+      "id": "sibgrapi18",
+      "link": "https://web.archive.org/web/20180928045116/http://www.imago.ufpr.br:80/sibgrapi2018/",
+      "series": "sibgrapi",
+      "source": "curated",
+      "start": "2018-10-29",
+      "tags": [
+        "image-processing",
+        "pattern-recognition",
+        "computer-vision",
+        "computer-graphics"
+      ],
+      "title": "SIBGRAPI",
+      "year": 2018
+    },
+    {
+      "deadlines": [],
       "end": "2018-08-16",
       "id": "siggraph18",
       "link": "https://web.archive.org/web/20180811220048/http://s2018.siggraph.org/",
@@ -2602,6 +2620,23 @@
       "presentsPapers": true,
       "role": "main",
       "start": "2018-07-09"
+    },
+    {
+      "access": "registration",
+      "city": "Foz do Iguaçu",
+      "conferenceId": "sibgrapi18",
+      "country": "Brazil",
+      "end": "2018-11-01",
+      "id": "sibgrapi18@main",
+      "lat": -25.5304023,
+      "link": "https://web.archive.org/web/20180928045116/http://www.imago.ufpr.br:80/sibgrapi2018/",
+      "lng": -54.5830692,
+      "name": "SIBGRAPI 2018",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2018-10-29",
+      "venue": "Bourbon Cataratas Convention & Spa Resort"
     },
     {
       "access": "registration",
