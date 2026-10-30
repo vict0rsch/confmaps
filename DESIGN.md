@@ -528,7 +528,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   The stops on the track are clickable: a stop pauses Play there and glides the path to it (in
   400 ms; a jump under reduced motion), the first stop restarts it and the last shows it whole.
   Play continues from the stop. They are one keyboard stop (a radio group): arrows step, Home /
-  End go to the first stop and to the whole path.
+  End go to the first stop and to the whole path. Hovering a stop, or focusing it from the
+  keyboard, shows its years and city above the timeline ("2019 · Long Beach").
   Older editions are fainter: an edition's pins and the leg arriving at it go from 35% opacity
   (the oldest) to full (the newest), fixed during play; year labels stay fully opaque.
   **Predicate layering:** history mode shows that series' editions of **all years** that pass every

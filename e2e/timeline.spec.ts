@@ -121,9 +121,18 @@ test('history stops: click or arrow keys to step through the editions', async ({
   await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
   await expect(stops.nth(mid)).toBeChecked();
   await expect(stops.nth(mid)).toHaveAccessibleName(/^\d{4}(, \d{4})*, .+/);
+  // The tooltip shows the same text as the name, e.g. "2019 · Long Beach": on hover, and on
+  // keyboard focus, but not after a click alone once the pointer has left.
+  const tip = page.locator('.stop-tip');
+  const tipText = async (i: number) =>
+    (await stops.nth(i).getAttribute('aria-label'))!.replaceAll(', ', ' · ');
+  await expect(tip).toHaveText(await tipText(mid));
+  await page.mouse.move(0, 0);
+  await expect(tip).toHaveCount(0);
   await page.keyboard.press('ArrowRight');
   await expect(stops.nth(mid + 1)).toBeChecked();
   await expect(stops.nth(mid + 1)).toBeFocused();
+  await expect(tip).toHaveText(await tipText(mid + 1));
   await page.keyboard.press('End');
   await expect(stops.nth(n - 1)).toBeChecked();
 });

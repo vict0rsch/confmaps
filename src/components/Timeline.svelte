@@ -130,6 +130,21 @@
   const stopHit = (i: number) =>
     Math.min(24, stopXs[i] - (stopXs[i - 1] ?? -Infinity), (stopXs[i + 1] ?? Infinity) - stopXs[i]);
   const stopEls: HTMLButtonElement[] = [];
+  // The tooltip above the stops: the hovered stop, else the one with keyboard focus. Centred on
+  // the stop, clamped inside the panel (the section's box).
+  let hoveredStop: number | null = $state(null);
+  let focusedStop: number | null = $state(null);
+  const tipStop = $derived(hoveredStop ?? focusedStop);
+  let sectionEl: HTMLElement | undefined;
+  let tipEl: HTMLDivElement | undefined = $state();
+  let tipX = $state(0);
+  $effect(() => {
+    if (tipStop === null || !tipEl || !trackEl || !sectionEl) return;
+    const sx = stopXs[tipStop];
+    const half = tipEl.offsetWidth / 2;
+    const at = trackEl.getBoundingClientRect().left - sectionEl.getBoundingClientRect().left + sx;
+    tipX = Math.max(half, Math.min(sectionEl.clientWidth - half, at));
+  });
   // Arrows step from the focused stop (`at`) to the previous / next one, Home / End to the first
   // stop / the whole path.
   function onstopkeydown(e: KeyboardEvent, at: number) {
@@ -277,6 +292,7 @@
   class:dragging={!!drag}
   aria-label="Timeline"
   data-testid="timeline"
+  bind:this={sectionEl}
 >
   <!-- Speed shows while playing, or while this group is hovered or holds focus (it stays in the
        DOM and in the tab order). -->
@@ -431,6 +447,11 @@
                 bind:this={stopEls[i]}
                 onclick={() => play.goTo(i)}
                 onkeydown={(e) => onstopkeydown(e, i)}
+                onpointerenter={() => (hoveredStop = i)}
+                onpointerleave={() => (hoveredStop = null)}
+                onfocus={(e) =>
+                  (focusedStop = e.currentTarget.matches(':focus-visible') ? i : null)}
+                onblur={() => (focusedStop = null)}
               ></button>
             {/each}
           </div>
@@ -481,6 +502,14 @@
     </div>
   {/if}
 
+  <!-- Each stop's accessible name already says this. -->
+  {#if inHistory && tipStop !== null && historyMode.stops[tipStop]}
+    {@const s = historyMode.stops[tipStop]}
+    <div class="stop-tip glass-thick" bind:this={tipEl} style:left="{tipX}px" aria-hidden="true">
+      <span class="stop-tip-years">{s.years.join(' · ')}</span> · {s.city}
+    </div>
+  {/if}
+
   <div class="aside">
     {#if inHistory}
       <button class="button exit" type="button" onclick={() => historyMode.exit()}>
@@ -515,6 +544,7 @@
 
 <style>
   .timeline {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--space-4);
@@ -739,6 +769,30 @@
 
   .stop:focus-visible {
     outline: none;
+  }
+
+  /* Above the panel, over the map; years in semibold as on the map's labels. */
+  .stop-tip {
+    position: absolute;
+    bottom: calc(100% + var(--space-2));
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: stop-tip-in var(--duration-fast) var(--ease-out);
+  }
+
+  .stop-tip-years {
+    font-weight: var(--weight-semibold);
+  }
+
+  @keyframes stop-tip-in {
+    from {
+      opacity: 0;
+    }
   }
 
   .stop:focus-visible::after {
