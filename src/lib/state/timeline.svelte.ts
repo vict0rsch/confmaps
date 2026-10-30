@@ -1,6 +1,7 @@
 // Timeline state (DESIGN §5.4): Play and history mode, layered over the filters.
 //
-// - `scope`: every filter except `dates` (the timeline histogram, history mode), and the data span.
+// - `scope`: every filter except `dates` (the timeline histogram, history mode), and the span the
+//   timeline covers (its start follows those filters).
 // - `historyMode`: history mode for one conference series (`?h=<series>`). While on, the app's
 //   visibility hook shows that series' editions (all years) passing the other filters; the dates
 //   window is ignored but untouched, so exiting restores the previous view.
@@ -40,8 +41,15 @@ class Scope {
   readonly candidates: JoinedLocation[] = $derived(
     app.data.locations.filter((l) => this.othersPredicate(l)),
   );
-  /** All data, first event start → last event end. */
-  readonly span: DateWindow = dataSpan(app.data.locations) ?? { from: app.today, to: app.today };
+  readonly #all: DateWindow = dataSpan(app.data.locations) ?? { from: app.today, to: app.today };
+  /**
+   * First candidate's start (all data when none passes) → last event end of all data: the start
+   * follows the filters, the end does not.
+   */
+  readonly span: DateWindow = $derived({
+    from: dataSpan(this.candidates)?.from ?? this.#all.from,
+    to: this.#all.to,
+  });
 }
 
 export const scope = new Scope();

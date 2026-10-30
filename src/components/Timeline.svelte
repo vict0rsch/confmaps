@@ -3,6 +3,7 @@
   // through getDates() / setDates(), so the filter panel's month inputs stay in sync.
   // The histogram counts events per month passing every other filter (dates aside), so it shows
   // what moving the window would reveal; recomputed on filter changes only (~130 locations).
+  import { untrack } from 'svelte';
   import { app } from '../lib/state/app.svelte';
   import type { DateWindow } from '../lib/state/derive';
   import { getDates, setDates } from '../lib/state/filters.svelte';
@@ -23,6 +24,8 @@
     datePresets,
     dayLabel,
     dragHandle,
+    followSince,
+    isSinceWindow,
     monthVariants,
     moveWindow,
     nudge,
@@ -44,19 +47,51 @@
   let width = $state(0);
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
-  // starts at most 5 years back ("Since <year>" or history mode reach further).
+  // starts at most 5 years back ("Since <year>" or history mode reach further). Its start is
+  // rebuilt (it may shrink) when the filters move the span start (Play is paused then), or when
+  // the window becomes "Since <year>", whatever set it (not mid-drag or during Play); the end
+  // stays.
   let extent: Domain | undefined;
-  const domain: Domain = $derived.by(
-    () =>
-      (extent = coverDomain(
-        extent,
-        axisSpan(scope.span, app.today),
-        dates,
-        { from: app.today, to: app.today },
-        inHistory ? dataSpan(app.visibleLocations) : null,
-      )),
-  );
+  let extentFrom = '';
+  let wasSince = false;
+  const restartAxis = () => {
+    if (extent) extent = { start: Infinity, end: extent.end };
+  };
+  const domain: Domain = $derived.by(() => {
+    const since = isSinceWindow(dates, scope.span.from, app.today);
+    if (scope.span.from !== extentFrom || (since && !wasSince && !drag && !play.playing)) {
+      restartAxis();
+    }
+    extentFrom = scope.span.from;
+    wasSince = since;
+    return (extent = coverDomain(
+      extent,
+      axisSpan(scope.span, app.today),
+      dates,
+      { from: app.today, to: app.today },
+      inHistory ? dataSpan(app.visibleLocations) : null,
+    ));
+  });
   const x = (day: number) => toX(day, domain, width);
+
+  // A filter change that moves the span start pauses Play (like any outside change of the
+  // window), and an active "Since <year>" follows to the new start; not in history mode. Only the
+  // span start is tracked; a filter change leaves the dates as they were, and moving them does not
+  // change the span. Before the render, so the axis is drawn once, already paused.
+  let sinceFrom = scope.span.from;
+  $effect.pre(() => {
+    const from = scope.span.from;
+    untrack(() => {
+      if (from === sinceFrom || inHistory) return;
+      play.pause();
+      const w = followSince(getDates(), sinceFrom, from, app.today);
+      if (w) {
+        restartAxis();
+        setDates(w);
+      }
+    });
+    sinceFrom = from;
+  });
 
   const BARS_H = $derived(compact ? 16 : 22);
   const bins = $derived(histogram(scope.candidates, domain));

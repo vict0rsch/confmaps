@@ -508,7 +508,17 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
     and the label is as wide as its widest month name.
 - **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
   handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
-  editions do not squeeze it; "Since <year>" (or history mode) extends it. Play spans all data.
+  editions do not squeeze it; "Since <year>" (or history mode) extends it. Play runs to the end
+  of all data.
+- **The start follows the filters:** "Since <year>" (in the timeline and in the filter panel), the
+  earliest point Play rewinds to and the axis start use the first event that passes every filter
+  except `dates` (the events the histogram counts). With no filter, or when no event passes, they
+  use all data. The end always stays at the end of all data. A filter change that moves the start
+  pauses Play, like any outside change of the window (not in history mode). The axis start is
+  rebuilt, and can move later, when a filter change moves the start, and when the window becomes
+  "Since <year>", from the timeline or from the filter panel. The axis still covers the current
+  window. A filter change never moves the window, except an active "Since <year>", which follows
+  the new start (not in history mode).
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
@@ -538,6 +548,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   button. A link that only repeats the viewer's own travel settings (their own address after a
   reload) or their own saved city is not treated as shared. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
+- The map marks home with a small blue dot in a halo. It is not a pin, because home is not an
+  event. Its blue (`--pin-home`) stays clearly apart from the indigo of official pins.
 
 ### 5.6 URL state
 
@@ -698,7 +710,8 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
   returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
-  map shows a main ↔ satellite line. On phones it is in the logo panel.
+  map shows a main ↔ satellite line. A "Your city" item (the blue home dot) comes last and appears
+  only while a city is set. On phones it is in the logo panel.
 - **List order:** upcoming conferences come first, soonest first. A conference is upcoming while
   one of its visible sites has not ended (ending today counts). Finished conferences follow, most
   recent first. The rule is the same in every window, so the past presets open on the newest

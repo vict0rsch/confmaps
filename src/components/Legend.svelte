@@ -21,6 +21,9 @@
   {#if showLink}
     <li><span class="link" aria-hidden="true"></span> Satellite link</li>
   {/if}
+  {#if app.home}
+    <li><span class="home" aria-hidden="true"></span> Your city</li>
+  {/if}
 </ul>
 
 <style>
@@ -51,5 +54,15 @@
     flex: none;
     width: 16px;
     border-top: 1.5px dashed var(--pin-link);
+  }
+
+  /* The map's home dot in miniature (style.ts): an 8 px dot in a 2 px halo. */
+  .home {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pin-home);
+    box-shadow: 0 0 0 2px var(--pin-halo);
   }
 </style>

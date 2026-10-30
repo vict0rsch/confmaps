@@ -1,14 +1,22 @@
+<script module lang="ts">
+  /**
+   * Set by FilterPanel: a getter of the timeline's span start (`scope.span.from`), so "Since
+   * <year>" matches the timeline. Through context: importing the timeline state here would be an
+   * import cycle (it imports the filters, which import this control).
+   */
+  export const DATA_FROM_CONTEXT = Symbol('dates data start');
+</script>
+
 <script lang="ts">
+  import { getContext } from 'svelte';
   import { monthEnd, parseDay, type DateWindow } from '../../lib/filters/dates';
   import type { ControlProps } from '../../lib/filters/types';
-  import { app } from '../../lib/state/app.svelte';
-  import { dataSpan } from '../../lib/timeline/scale';
   import { datePresets, sameWindow as same } from '../../lib/timeline/window';
 
   let { state, set, ctx }: ControlProps<DateWindow> = $props();
 
-  const dataFrom = dataSpan(app.data.locations)?.from;
-  const presets = $derived(datePresets(ctx.today, dataFrom));
+  const dataFrom = getContext<() => string>(DATA_FROM_CONTEXT);
+  const presets = $derived(datePresets(ctx.today, dataFrom()));
 
   // Month inputs: "from" snaps to the month's first day, "to" to its last; the other bound moves
   // if needed to keep from ≤ to.
