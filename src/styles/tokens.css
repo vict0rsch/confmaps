@@ -90,6 +90,7 @@
   --drawer-width: 384px;
   --timeline-height: 56px;
   --timeline-height-compact: 44px;
+  --map-zoom-height: 74px; /* the zoom capsule: two 36 px buttons, hairline and border (Map.svelte) */
 }
 
 /* ---- Semantic tokens: light ---- */

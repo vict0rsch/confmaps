@@ -613,8 +613,9 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
 ```
 
 - **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
-  detail drawer on the right and the legend at the top-left of the free map area. Zoom controls and
-  the attribution sit bottom-right, above the timeline.
+  detail drawer on the right and the legend at the top-left of the free map area. The attribution
+  and the zoom controls sit side by side in the bottom-right corner, above the timeline. They do
+  not move when the drawer opens: the drawer stops above them and scrolls.
 - **Collapsible sidebar (desktop):** the menu button (☰) at the end of the sidebar's brand row folds
   the sidebar into a glass pill at its top-left corner. The pill shows the logo, the wordmark and ☰,
   and it is one button that opens the sidebar again. It is as tall as the legend chip, and the

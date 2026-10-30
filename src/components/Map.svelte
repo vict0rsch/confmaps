@@ -850,16 +850,17 @@
     inset: 0;
   }
 
-  /* Keep MapLibre controls in the free map area: above the timeline and bottom sheet, left of the
-     drawer. The insets already include the gap to the neighbouring panel on desktop. */
+  /* Keep MapLibre controls above the timeline and bottom sheet, in the window's right corner:
+     the drawer stops above them (App.svelte). One row, bottom-aligned: the attribution, then zoom
+     (MapLibre puts the last control added first). The insets already include the gap to the
+     neighbouring panel on desktop. */
   .map-wrap :global(.maplibregl-ctrl-bottom-right) {
     bottom: var(--stage-inset-bottom, var(--panel-gap));
-    right: var(--stage-inset-right, var(--panel-gap));
+    right: var(--panel-gap);
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-end;
     gap: var(--space-2);
-    transition: right var(--duration-base) var(--ease-out);
   }
   .map-wrap :global(.maplibregl-ctrl-bottom-right .maplibregl-ctrl) {
     margin: 0;
@@ -870,6 +871,7 @@
   @media (max-width: 1023px) {
     .map-wrap :global(.maplibregl-ctrl-bottom-right) {
       bottom: calc(var(--stage-inset-bottom, var(--inset-bottom)) + var(--space-2));
+      right: var(--stage-inset-right);
     }
   }
 
