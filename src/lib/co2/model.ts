@@ -96,22 +96,22 @@ export function estimateTrip(from: LatLng, to: LatLng, opts: EstimateOptions): T
 }
 
 /**
- * The most a connection adds to a flight estimate, by haul band: a detour through the hub plus
- * one more take-off and landing each way. Our rough range, not a DESNZ value (METHODOLOGY.md,
- * "Layovers").
+ * Illustrative upper end to add to a flight estimate, by haul band: one connection each way plus method
+ * uncertainty (a larger non-CO2 multiplier than DESNZ's x1.7, as some calculators use). Our own
+ * range, not a DESNZ value (METHODOLOGY.md, "Uncertainty range").
  */
-export const LAYOVER_UPLIFT: Record<string, number> = {
-  [SHORT_HAUL_FACTOR_ID]: 0.2,
-  [LONG_HAUL_FACTOR_ID]: 0.1,
+export const FLIGHT_RANGE_UPLIFT: Record<string, number> = {
+  [SHORT_HAUL_FACTOR_ID]: 0.5,
+  [LONG_HAUL_FACTOR_ID]: 0.33,
 };
 
 /**
- * A flight's estimate from nonstop to one connection each way, kg CO2e `[low, high]`. Rail has
+ * A flight's estimate from nonstop to the upper end of that range, kg CO2e `[low, high]`. Rail has
  * no range (undefined). Shown in the detail panel only; the list and filters use the nonstop
  * figure.
  */
-export function layoverRangeKg(trip: TripEstimate): [number, number] | undefined {
-  const uplift = trip.mode === 'flight' ? LAYOVER_UPLIFT[trip.factorId] : undefined;
+export function flightRangeKg(trip: TripEstimate): [number, number] | undefined {
+  const uplift = trip.mode === 'flight' ? FLIGHT_RANGE_UPLIFT[trip.factorId] : undefined;
   return uplift === undefined ? undefined : [trip.kgCO2e, trip.kgCO2e * (1 + uplift)];
 }
 

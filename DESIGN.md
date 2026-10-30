@@ -722,9 +722,9 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
   empty map keeps MapLibre's zoom in.
 - Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
-  "View history". A flight estimate is nonstop, with a second line for one connection each way
-  ("~4.6–4.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
-  nonstop figure.
+  "View history". A flight estimate is nonstop. A second line shows an illustrative range up to
+  one connection each way and a larger non-CO₂ multiplier ("~4.6–6.1 t depending on route and
+  method"; METHODOLOGY.md, Uncertainty range). The list and filters use the nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 
