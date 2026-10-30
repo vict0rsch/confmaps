@@ -9,6 +9,7 @@ import {
   datePresets,
   dragHandle,
   followSince,
+  isSinceWindow,
   monthVariants,
   moveWindow,
   nearestBoundary,
@@ -41,6 +42,16 @@ describe('presets', () => {
       w: { from: '2016-12-05', to: '2026-10-22' },
     });
     expect(datePresets('2026-10-22', '2026-12-01').map((p) => p.id)).not.toContain('all');
+  });
+
+  it('the "Since <year>" window is the span start → today, whatever set it', () => {
+    const today = '2026-10-22';
+    const since = datePresets(today, '2013-05-02').find((p) => p.id === 'all')!.w;
+    expect(isSinceWindow(since, '2013-05-02', today)).toBe(true);
+    expect(isSinceWindow({ from: '2013-05-01', to: today }, '2013-05-02', today)).toBe(false);
+    expect(isSinceWindow({ from: '2013-05-02', to: '2026-10-31' }, '2013-05-02', today)).toBe(
+      false,
+    );
   });
 
   it('an active "Since <year>" follows the span start, both ways; other windows stay', () => {

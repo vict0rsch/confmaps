@@ -25,6 +25,7 @@
     dayLabel,
     dragHandle,
     followSince,
+    isSinceWindow,
     monthVariants,
     moveWindow,
     nudge,
@@ -32,7 +33,6 @@
     toDomainEdge,
     windowLabel,
     type Part,
-    type Preset,
   } from '../lib/timeline/window';
   import Icon from './Icon.svelte';
 
@@ -48,16 +48,22 @@
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
   // starts at most 5 years back ("Since <year>" or history mode reach further). Its start is
-  // rebuilt (it may shrink) when the filters move the span start, or on "Since <year>"; the end
+  // rebuilt (it may shrink) when the filters move the span start (Play is paused then), or when
+  // the window becomes "Since <year>", whatever set it (not mid-drag or during Play); the end
   // stays.
   let extent: Domain | undefined;
   let extentFrom = '';
+  let wasSince = false;
   const restartAxis = () => {
     if (extent) extent = { start: Infinity, end: extent.end };
   };
   const domain: Domain = $derived.by(() => {
-    if (scope.span.from !== extentFrom) restartAxis();
+    const since = isSinceWindow(dates, scope.span.from, app.today);
+    if (scope.span.from !== extentFrom || (since && !wasSince && !drag && !play.playing)) {
+      restartAxis();
+    }
     extentFrom = scope.span.from;
+    wasSince = since;
     return (extent = coverDomain(
       extent,
       axisSpan(scope.span, app.today),
@@ -68,15 +74,18 @@
   });
   const x = (day: number) => toX(day, domain, width);
 
-  // An active "Since <year>" follows the filters to the new start (not during Play or history
-  // mode). Only the span start is tracked; a filter change leaves the dates as they were, and
-  // moving them does not change the span. Before the render, so the axis is drawn once.
+  // A filter change that moves the span start pauses Play (like any outside change of the
+  // window), and an active "Since <year>" follows to the new start; not in history mode. Only the
+  // span start is tracked; a filter change leaves the dates as they were, and moving them does not
+  // change the span. Before the render, so the axis is drawn once, already paused.
   let sinceFrom = scope.span.from;
   $effect.pre(() => {
     const from = scope.span.from;
     untrack(() => {
+      if (from === sinceFrom || inHistory) return;
+      play.pause();
       const w = followSince(getDates(), sinceFrom, from, app.today);
-      if (w && !inHistory && !play.playing) {
+      if (w) {
         restartAxis();
         setDates(w);
       }
@@ -220,11 +229,9 @@
     set(next);
   }
 
-  function applyPreset(p: Preset) {
+  function applyPreset(w: DateWindow) {
     play.pause();
-    // Only when the window changes: the domain is recomputed right away, not during a later drag.
-    if (p.id === 'all' && !sameWindow(p.w, getDates())) restartAxis();
-    set(p.w);
+    set(w);
   }
 
   const offset = (iso: string) => dayNumber(iso) - domain.start;
@@ -441,7 +448,7 @@
               type="button"
               class="preset"
               aria-pressed={sameWindow(dates, p.w)}
-              onclick={() => applyPreset(p)}
+              onclick={() => applyPreset(p.w)}
               ><span class="full">{p.label}</span><span class="short" aria-hidden="true"
                 >{p.short}</span
               ></button

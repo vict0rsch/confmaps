@@ -43,6 +43,10 @@ export function datePresets(today: string, dataFrom?: string): Preset[] {
   return presets;
 }
 
+/** Whether `w` is the "Since <year>" window: the span start `from` → today. */
+export const isSinceWindow = (w: DateWindow, from: string, today: string): boolean =>
+  w.from === from && w.to === today;
+
 /**
  * The window once the span start moves from `prevFrom` to `from`: an active "Since <year>"
  * (`prevFrom` → today) follows to the new start; any other window stays (`null`).
@@ -53,7 +57,7 @@ export function followSince(
   from: string,
   today: string,
 ): DateWindow | null {
-  if (from === prevFrom || from >= today || w.from !== prevFrom || w.to !== today) return null;
+  if (from === prevFrom || from >= today || !isSinceWindow(w, prevFrom, today)) return null;
   return { from, to: today };
 }
 

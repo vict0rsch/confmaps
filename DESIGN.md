@@ -513,10 +513,12 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 - **The start follows the filters:** "Since <year>" (in the timeline and in the filter panel), the
   earliest point Play rewinds to and the axis start use the first event that passes every filter
   except `dates` (the events the histogram counts). With no filter, or when no event passes, they
-  use all data. The end always stays at the end of all data. When a filter change moves the start,
-  or "Since <year>" is pressed, the axis start is rebuilt and can move later. The axis still
-  covers the current window. A filter change never moves the window, except an active
-  "Since <year>", which follows the new start (not during Play or history mode).
+  use all data. The end always stays at the end of all data. A filter change that moves the start
+  pauses Play, like any outside change of the window (not in history mode). The axis start is
+  rebuilt, and can move later, when a filter change moves the start, and when the window becomes
+  "Since <year>", from the timeline or from the filter panel. The axis still covers the current
+  window. A filter change never moves the window, except an active "Since <year>", which follows
+  the new start (not in history mode).
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
