@@ -500,7 +500,7 @@
     source(SRC.historyHead)?.setData({
       type: 'FeatureCollection',
       features:
-        head && play.travel !== null
+        head && play.travelShown !== null
           ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: head }, properties: {} }]
           : [],
     });

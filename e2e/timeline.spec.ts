@@ -109,6 +109,25 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await expect(page.getByTestId('timeline-range')).toBeVisible();
 });
 
+test('history stops: click or arrow keys to step through the editions', async ({ page }) => {
+  await page.goto('/?h=icml');
+  const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
+  const n = await stops.count();
+  expect(n).toBeGreaterThan(3);
+  // From a link nothing plays: the whole path is shown, at the last stop.
+  await expect(stops.nth(n - 1)).toBeChecked();
+  const mid = Math.floor(n / 2);
+  await stops.nth(mid).click();
+  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
+  await expect(stops.nth(mid)).toBeChecked();
+  await expect(stops.nth(mid)).toHaveAccessibleName(/^\d{4}(, \d{4})*, .+/);
+  await page.keyboard.press('ArrowRight');
+  await expect(stops.nth(mid + 1)).toBeChecked();
+  await expect(stops.nth(mid + 1)).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(stops.nth(n - 1)).toBeChecked();
+});
+
 test.describe('phone', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true });
 

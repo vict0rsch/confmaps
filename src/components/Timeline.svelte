@@ -126,6 +126,38 @@
     const f = travelled - i;
     return stopXs[i] + (i + 1 < stopXs.length ? (stopXs[i + 1] - stopXs[i]) * f : 0);
   });
+  /** A stop's hit width: up to 24 px, at most the gap to either neighbour (no overlap). */
+  const stopHit = (i: number) =>
+    Math.min(24, stopXs[i] - (stopXs[i - 1] ?? -Infinity), (stopXs[i + 1] ?? Infinity) - stopXs[i]);
+  const stopEls: HTMLButtonElement[] = [];
+  // Arrows step from the focused stop (`at`) to the previous / next one, Home / End to the first
+  // stop / the whole path.
+  function onstopkeydown(e: KeyboardEvent, at: number) {
+    const last = historyMode.stops.length - 1;
+    let to: number;
+    switch (e.key) {
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        to = at - 1;
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        to = at + 1;
+        break;
+      case 'Home':
+        to = 0;
+        break;
+      case 'End':
+        to = last;
+        break;
+      default:
+        return;
+    }
+    e.preventDefault();
+    const i = Math.max(0, Math.min(last, to));
+    play.goTo(i);
+    stopEls[i]?.focus();
+  }
   const yearsText = $derived.by(() => {
     const ys = historyMode.years;
     if (!ys.length) return '';
@@ -377,16 +409,31 @@
               y1={BARS_H / 2}
               y2={BARS_H / 2}
             />
-            {#each stopXs as sx, i (i)}
-              <circle
+          </svg>
+          <!-- One radio per stop, a single Tab stop (roving tabindex): click, arrows, Home / End. -->
+          <div
+            class="stops-group"
+            role="radiogroup"
+            aria-label="Editions"
+            style:height="{BARS_H}px"
+          >
+            {#each historyMode.stops as s, i (i)}
+              <button
+                type="button"
                 class="stop"
                 class:reached={i <= Math.floor(travelled + 1e-6)}
-                cx={sx}
-                cy={BARS_H / 2}
-                r="4"
-              />
+                role="radio"
+                aria-checked={i === play.stopIndex}
+                aria-label="{s.years.join(', ')}, {s.city}"
+                tabindex={i === play.stopIndex ? 0 : -1}
+                style:left="{stopXs[i]}px"
+                style:width="{stopHit(i)}px"
+                bind:this={stopEls[i]}
+                onclick={() => play.goTo(i)}
+                onkeydown={(e) => onstopkeydown(e, i)}
+              ></button>
             {/each}
-          </svg>
+          </div>
         {/if}
 
         <div class="today" style:left="{todayX}px" aria-hidden="true"></div>
@@ -643,18 +690,61 @@
     stroke-linecap: round;
   }
 
-  .stop {
-    fill: var(--glass-fill-solid);
-    stroke: var(--border-strong);
-    stroke-width: 1.5;
-    transition:
-      fill var(--duration-base) var(--ease-out),
-      stroke var(--duration-base) var(--ease-out);
+  .stops-group {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
   }
 
-  .stop.reached {
-    fill: var(--accent);
-    stroke: var(--glass-fill-solid);
+  /* A stop: an 8 px dot with a 1.5 px ring, in a wider invisible hit area. */
+  .stop {
+    position: absolute;
+    top: 50%;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+  }
+
+  .stop::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 9.5px;
+    height: 9.5px;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-full);
+    background: var(--glass-fill-solid);
+    transition:
+      background-color var(--duration-base) var(--ease-out),
+      border-color var(--duration-base) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .stop.reached::after {
+    border-color: var(--glass-fill-solid);
+    background: var(--accent);
+  }
+
+  .stop:hover::after {
+    border-color: var(--accent);
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+
+  .stop:focus-visible {
+    outline: none;
+  }
+
+  .stop:focus-visible::after {
+    box-shadow:
+      0 0 0 2px var(--glass-fill-solid),
+      0 0 0 4px var(--focus);
   }
 
   .today {
