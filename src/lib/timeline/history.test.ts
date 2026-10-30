@@ -2,11 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { hybridLocation, location, oldEditionLocation, virtualLocation } from '../filters/fixtures';
 import { trimLine } from '../map/geojson';
 import {
+  ageOpacity,
   curve,
   historyFitPoints,
   historyLegs,
   historyStops,
   mergeCloseLabels,
+  MIN_OPACITY,
   onlineYears,
   pathAt,
   stopIndexOf,
@@ -147,6 +149,41 @@ describe('path progress', () => {
     expect(labels.map((l) => l.years)).toEqual(['2024 · 2027', '2026']);
   });
 
+  it('keeps a path circling the globe within the world copies the map draws (±540°)', () => {
+    // ICML 2013–2018 heads west round the world. Unwrapped leg by leg, the stops drift past -540°,
+    // where MapLibre's GeoJSON tiles drop features: the path and labels stopped at New York 2016.
+    const west = historyStops([
+      edition('icml13', 2013, '2013-06-16', 'Atlanta', 33.75, -84.39),
+      edition('icml14', 2014, '2014-06-21', 'Beijing', 39.91, 116.39),
+      edition('icml15', 2015, '2015-07-06', 'Lille', 50.64, 3.06),
+      edition('icml16', 2016, '2016-06-19', 'New York City', 40.71, -74.01),
+      edition('icml17', 2017, '2017-08-06', 'Sydney', -33.87, 151.21),
+      edition('icml18', 2018, '2018-07-10', 'Stockholm', 59.33, 18.07),
+    ]);
+    expect(west.at(-1)!.lng).toBeLessThan(-540);
+    const westLegs = historyLegs(west);
+    const drawn = (lng: number) => Math.abs(lng) <= 540;
+    const done = pathAt(westLegs, westLegs.length);
+    expect(done.lines.flat().every(([lng]) => drawn(lng))).toBe(true);
+    expect(drawn(pathAt(westLegs, westLegs.length - 0.5).head![0])).toBe(true);
+    expect(stopLabels(west, west.length).every((l) => drawn(l.lng))).toBe(true);
+    // Moved by whole turns only: each leg still takes the short way round.
+    done.lines.forEach((line, i) => {
+      const turns = (line[0][0] - westLegs[i][0][0]) / 360;
+      expect(turns).toBeCloseTo(Math.round(turns));
+      expect(line.at(-1)![0] - line[0][0]).toBeCloseTo(westLegs[i].at(-1)![0] - westLegs[i][0][0]);
+    });
+  });
+
+  it('fades editions by age: the oldest at MIN_OPACITY, the newest at 1, linear in between', () => {
+    const span = { oldest: 2013, newest: 2025 };
+    expect(ageOpacity(2013, span)).toBeCloseTo(MIN_OPACITY);
+    expect(ageOpacity(2019, span)).toBeCloseTo((MIN_OPACITY + 1) / 2);
+    expect(ageOpacity(2025, span)).toBe(1);
+    expect(ageOpacity(2010, span)).toBeCloseTo(MIN_OPACITY);
+    expect(ageOpacity(2026, { oldest: 2026, newest: 2026 })).toBe(1);
+  });
+
   it('merges labels that would overlap at this zoom into one stacked label, keeping every year', () => {
     const near = [
       { lng: -117.16, lat: 32.72, years: '2025', city: 'San Diego' },
@@ -159,6 +196,15 @@ describe('path progress', () => {
     expect(world[0]).toMatchObject({ lat: 33.77, rows: [{ years: '2017' }, { years: '2025' }] });
     expect(world[1].rows).toEqual([{ years: '2024', city: 'Vienna' }]);
     expect(mergeCloseLabels(near, 9).map((g) => g.rows.length)).toEqual([1, 1, 1]);
+  });
+
+  it('merges labels either side of the antimeridian', () => {
+    const across = [
+      { lng: 179, lat: 10, years: '2024', city: 'Fiji' },
+      { lng: -179, lat: 10, years: '2025', city: 'Samoa' },
+    ];
+    expect(mergeCloseLabels(across, 2)).toHaveLength(1);
+    expect(mergeCloseLabels(across, 9)).toHaveLength(2);
   });
 
   it('fit points include the arcs, with others unwrapped next to the path', () => {

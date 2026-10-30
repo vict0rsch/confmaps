@@ -1,16 +1,16 @@
 // Timeline choreography on the map (DESIGN §5.4): pins fade + scale in as they enter the window,
-// ripple while live and fade out as they leave; during Play they also dim as they cross the window.
-// Main↔satellite lines draw in once both ends show. Pins never move.
+// ripple while live and fade out as they leave; during Play they also dim as they cross the window,
+// and in history mode older editions are fainter. Main↔satellite lines draw in once both ends
+// show. Pins never move.
 //
 // Every location sits in one unclustered GeoJSON source (`SRC.anim`), set once per style; each
-// frame only writes feature-state (`o` opacity, `s` scale, `ro`/`rs` ripple, `w` window fade) for
-// the pins that
-// changed, which paint expressions read (style.ts). Links are a tiny source re-set only while one
-// of them animates. Timing is pure (../timeline/motion.ts); this class only applies it.
+// frame only writes feature-state (`o` opacity, `s` scale, `ro`/`rs` ripple, `w` window fade, `a`
+// age fade) for the pins that changed, which paint expressions read (style.ts). Links are a tiny
+// source re-set only while one of them animates. Timing is pure (../timeline/motion.ts); this class only applies it.
 import type { FeatureCollection, LineString } from 'geojson';
 import type { GeoJSONSource, Map as MLMap } from 'maplibre-gl';
 import type { JoinedLocation, PinnedJoined } from '../data/load';
-import { stopIndexOf, type Stop } from '../timeline/history';
+import { ageOpacity, stopIndexOf, type Stop } from '../timeline/history';
 import {
   linkAt,
   pulseAt,
@@ -77,6 +77,8 @@ type Pin = {
   live: boolean;
   /** Play's fade across the window (1 outside Play). */
   w: number;
+  /** History mode's fade by the edition's age (1 outside history mode). */
+  a: number;
   /** Last feature-state written, to skip unchanged pins. */
   written: string;
 };
@@ -90,8 +92,8 @@ type Link = {
   cur: Visual;
 };
 
-const key = (o: number, s: number, ro: number, rs: number, w: number) =>
-  `${o.toFixed(3)}|${s.toFixed(3)}|${ro.toFixed(3)}|${rs.toFixed(3)}|${w.toFixed(3)}`;
+const key = (o: number, s: number, ro: number, rs: number, w: number, a: number) =>
+  `${o.toFixed(3)}|${s.toFixed(3)}|${ro.toFixed(3)}|${rs.toFixed(3)}|${w.toFixed(3)}|${a.toFixed(3)}`;
 
 export class Choreographer {
   readonly #map: MLMap;
@@ -110,6 +112,7 @@ export class Choreographer {
       pulse: null,
       live: false,
       w: 1,
+      a: 1,
       written: '',
     }));
     const mains = new Map<string, number>();
@@ -207,6 +210,11 @@ export class Choreographer {
     for (const p of this.#pins) p.w = w ? windowFade(p.loc.start, w) : 1;
   }
 
+  /** History mode's editions' years, which pins fade across by age; `null` shows them all at 1. */
+  setAge(span: { oldest: number; newest: number } | null): void {
+    for (const p of this.#pins) p.a = span ? ageOpacity(p.loc.conference.year, span) : 1;
+  }
+
   /** Apply the state at `now`. Returns whether anything is still moving (keep the loop going). */
   frame(now: number): boolean {
     const cfg = this.#cfg;
@@ -224,10 +232,13 @@ export class Choreographer {
           if (now >= p.pulse.t0) ({ ro, rs } = pulseAt(p.pulse.t0, now, cfg));
         }
       }
-      const k = key(v.o, v.s, ro, rs, p.w);
+      const k = key(v.o, v.s, ro, rs, p.w, p.a);
       if (k === p.written) return;
       p.written = k;
-      this.#map.setFeatureState({ source: SRC.anim, id }, { o: v.o, s: v.s, ro, rs, w: p.w });
+      this.#map.setFeatureState(
+        { source: SRC.anim, id },
+        { o: v.o, s: v.s, ro, rs, w: p.w, a: p.a },
+      );
     });
 
     for (const l of this.#links) {

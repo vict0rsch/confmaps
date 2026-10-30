@@ -309,16 +309,16 @@ const fs = (key: string, fallback: number): ExpressionSpecification => [
 ];
 
 /**
- * Animated pins: the choreographer's opacity (`o`) × Play's window fade (`w`) × the selection
- * dimming.
+ * Animated pins: the choreographer's opacity (`o`) × Play's window fade (`w`) × history mode's
+ * age fade (`a`) × the selection dimming.
  */
 export function animOpacity(selectedId: string | null): ExpressionSpecification {
-  return ['*', fs('o', 0), fs('w', 1), pinOpacity(selectedId)];
+  return ['*', fs('o', 0), fs('w', 1), fs('a', 1), pinOpacity(selectedId)];
 }
 
-/** The live ripple ring: its own opacity (`ro`) × the selection dimming. */
+/** The live ripple ring: its own opacity (`ro`) × the age fade (`a`) × the selection dimming. */
 export function animRingOpacity(selectedId: string | null): ExpressionSpecification {
-  return ['*', fs('ro', 0), pinOpacity(selectedId)];
+  return ['*', fs('ro', 0), fs('a', 1), pinOpacity(selectedId)];
 }
 
 /**
@@ -480,20 +480,29 @@ export function dataLayers(
         'line-opacity': ['case', ['==', ['get', 'nearest'], 1], 0.55, 0.22],
       },
     },
-    // History mode: the editions' path, on a halo so it reads over borders.
+    // History mode: the editions' path, on a halo so it reads over borders. Each leg fades by
+    // the age of the edition it arrives at (`o`).
     {
       id: LAYER.historyCasing,
       type: 'line',
       source: SRC.historyPath,
       layout: lineLayout,
-      paint: { 'line-color': p.pinHalo, 'line-width': 5, 'line-opacity': 0.6 },
+      paint: {
+        'line-color': p.pinHalo,
+        'line-width': 5,
+        'line-opacity': ['*', 0.6, ['coalesce', ['get', 'o'], 1]],
+      },
     },
     {
       id: LAYER.historyPath,
       type: 'line',
       source: SRC.historyPath,
       layout: lineLayout,
-      paint: { 'line-color': p.link, 'line-width': 2, 'line-opacity': 0.85 },
+      paint: {
+        'line-color': p.link,
+        'line-width': 2,
+        'line-opacity': ['*', 0.85, ['coalesce', ['get', 'o'], 1]],
+      },
     },
     {
       id: LAYER.animLinks,

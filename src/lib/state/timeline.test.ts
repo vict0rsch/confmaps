@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('../analytics', () => ({ track: vi.fn() }));
 
@@ -8,7 +8,7 @@ import { historyStops } from '../timeline/history';
 import { addDays, dataSpan, windowDays } from '../timeline/scale';
 import { app } from './app.svelte';
 import { defaultDates, filterState, getDates, setDates } from './filters.svelte';
-import { historyMode, play, PlayState, scope } from './timeline.svelte';
+import { AUTOPLAY_MS, historyMode, play, PlayState, scope } from './timeline.svelte';
 import { buildQuery, parseHistory, type URLInputs } from './url';
 import { DEFAULT_TRAVEL } from './travel.svelte';
 
@@ -187,6 +187,39 @@ describe('history mode', () => {
     historyMode.enter(single);
     expect(historyMode.stops).toHaveLength(1);
     expect(play.canPlay).toBe(false);
+  });
+});
+
+describe('history mode autoplay', () => {
+  beforeEach(() => vi.useFakeTimers());
+  afterEach(() => vi.useRealTimers());
+
+  it('from the button, Play starts after a short wait', () => {
+    historyMode.enter('icml');
+    vi.advanceTimersByTime(AUTOPLAY_MS - 1);
+    expect(play.playing).toBe(false);
+    vi.advanceTimersByTime(1);
+    expect(play.playing).toBe(true);
+    expect(play.travel).toBe(0);
+  });
+
+  it('not from a URL', () => {
+    historyMode.enter('icml', { fromURL: true });
+    vi.advanceTimersByTime(AUTOPLAY_MS);
+    expect(play.playing).toBe(false);
+  });
+
+  it.each([
+    ['exit', () => historyMode.exit()],
+    ['another series', () => historyMode.enter('neurips', { fromURL: true })],
+    ['Play then Pause', () => (play.toggle(), play.toggle())],
+    ['a scrub (any pause)', () => play.pause()],
+  ])('is cancelled by %s', (_, cancel) => {
+    historyMode.enter('icml');
+    vi.advanceTimersByTime(AUTOPLAY_MS / 2);
+    cancel();
+    vi.advanceTimersByTime(AUTOPLAY_MS);
+    expect(play.playing).toBe(false);
   });
 });
 

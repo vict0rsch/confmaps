@@ -71,6 +71,12 @@
     </button>
   </header>
 
+  {#if onViewHistory}
+    <button class="button history" type="button" onclick={onViewHistory}>
+      <Icon name="history" size={14} /> View history
+    </button>
+  {/if}
+
   <!-- Quiet inline facts: dates and website on one line, deadlines below when there are any. -->
   <dl class="facts">
     <div class="fact">
@@ -195,12 +201,6 @@
       {/each}
     </ul>
   </section>
-
-  {#if onViewHistory}
-    <button class="button history" type="button" onclick={onViewHistory}>
-      <Icon name="history" size={14} /> View history
-    </button>
-  {/if}
 </article>
 
 <style>
@@ -426,7 +426,17 @@
     font-size: var(--text-sm);
   }
 
+  /* The primary action: the shared .button capsule with the accent fill (as Share's Copy). */
   .history {
     align-self: flex-start;
+    border-color: transparent;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .history:hover {
+    background: var(--accent);
+    filter: brightness(1.08);
   }
 </style>

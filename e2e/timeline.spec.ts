@@ -95,9 +95,14 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await expect(meta).toHaveText(/^\d+ editions/);
   const editions = (await meta.textContent())!.match(/\d+/)![0];
   await expect(page.locator('#list-heading .count')).toHaveText(`${editions}`);
+  // The button plays the editions after a short wait.
+  await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
 
+  // A link does not.
   await page.reload();
   await expect(meta).toHaveText(new RegExp(`^${editions} editions`));
+  await page.waitForTimeout(1500);
+  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
 
   await page.getByRole('button', { name: 'Exit history' }).click();
   await expect(page).not.toHaveURL(/[?&]h=/);

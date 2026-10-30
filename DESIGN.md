@@ -522,6 +522,11 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
 - **History mode:** from a conference's detail ("View history"), show all editions of its series,
   linked chronologically by a curved path with year labels (consecutive editions in the same place
   share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
+  The "View history" button starts Play 1 s after the click, once the entry (path drawn in, camera
+  fit) has settled; leaving history mode, another series, Play/Pause or a scrub first cancels it.
+  Opening `?h=` from a link does not play.
+  Older editions are fainter: an edition's pins and the leg arriving at it go from 35% opacity
+  (the oldest) to full (the newest), fixed during play; year labels stay fully opaque.
   **Predicate layering:** history mode shows that series' editions of **all years** that pass every
   filter *except* `dates`; the dates window is ignored but left untouched, so exiting restores the
   previous view. The path skips virtual editions (the leg joins the neighbouring stops; hybrid
@@ -721,10 +726,10 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
   empty map keeps MapLibre's zoom in.
-- Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
-  "View history". A flight estimate is nonstop, with a second line for one connection each way
-  ("~4.6–4.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
-  nonstop figure.
+- Detail: "View history" as the primary button under the title, then dates, deadline status,
+  each site with access, distance, estimated CO₂, myclimate link. A flight estimate is nonstop,
+  with a second line for one connection each way ("~4.6–4.0 t depending on layovers";
+  METHODOLOGY.md, Layovers). The list and filters use the nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 

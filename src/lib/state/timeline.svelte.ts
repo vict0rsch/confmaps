@@ -86,7 +86,8 @@ export class HistoryState {
 
   /**
    * Enter history mode. From the UI, the open conference closes (its pins would dim the
-   * others) and is restored on exit. From a URL, selection is left as the link says.
+   * others) and is restored on exit, and Play starts once the entry has settled. From a URL,
+   * selection is left as the link says, and nothing plays.
    */
   enter(series: string, opts: { fromURL?: boolean } = {}): void {
     if (!this.isSeries(series)) return;
@@ -98,6 +99,7 @@ export class HistoryState {
       app.select(null);
     }
     this.series = series;
+    if (!opts.fromURL) play.playSoon();
   }
 
   exit(): void {
@@ -122,6 +124,12 @@ app.predicate = (loc) =>
 
 export type PlayOptions = { reducedMotion?: () => boolean };
 
+/**
+ * Wait before history mode plays on its own: the entry intro (path drawn in over 300 + 700 ms,
+ * camera fit in 900 ms; Map.svelte) settles first.
+ */
+export const AUTOPLAY_MS = 1000;
+
 export class PlayState {
   playing = $state(false);
   speed: Speed = $state(1);
@@ -138,6 +146,7 @@ export class PlayState {
   #months = 0;
   #lastSet: DateWindow | null = null;
   #reported = false;
+  #soon: ReturnType<typeof setTimeout> | undefined;
 
   constructor(opts: PlayOptions = {}) {
     this.#reduced = opts.reducedMotion ?? (() => prefersReducedMotion.current);
@@ -162,7 +171,14 @@ export class PlayState {
     else this.play();
   }
 
+  /** Play after `AUTOPLAY_MS`, unless Play or Pause (any pause: exit, scrub, …) comes first. */
+  playSoon(): void {
+    clearTimeout(this.#soon);
+    this.#soon = setTimeout(() => this.play(), AUTOPLAY_MS);
+  }
+
   play(): void {
+    clearTimeout(this.#soon);
     if (this.playing || !this.canPlay) return;
     if (!this.#reported) {
       this.#reported = true;
@@ -182,6 +198,7 @@ export class PlayState {
   }
 
   pause(): void {
+    clearTimeout(this.#soon);
     this.playing = false;
     this.#lastSet = null;
     if (this.#raf) cancelAnimationFrame(this.#raf);
