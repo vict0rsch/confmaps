@@ -29,7 +29,8 @@ test('the privacy page opens from the footer and closes', async ({ page }) => {
 });
 
 test("an event's tracks share one list row, and the detail lists them", async ({ page }) => {
-  await page.goto('/');
+  // A fixed window: EMNLP 2026 has left the default "next 12 months".
+  await page.goto('/?from=2026-10&to=2026-10');
   const row = page.locator('button.row[data-conference-id="emnlp26"]');
   await expect(row).toContainText('+2 tracks');
   await expect(page.locator('button.row[data-conference-id="emnlp26ind"]')).toHaveCount(0);
