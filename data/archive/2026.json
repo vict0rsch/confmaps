@@ -953,6 +953,126 @@
     {
       "deadlines": [
         {
+          "date": "2026-05-26T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-05-28T11:59:59Z",
+          "label": "Reviewer registration deadline",
+          "timezone": "AoE",
+          "type": "reviewer_registration"
+        },
+        {
+          "date": "2026-07-08T11:59:59Z",
+          "label": "Author response period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-07-14T11:59:59Z",
+          "label": "Author response period end",
+          "timezone": "AoE",
+          "type": "rebuttal_end"
+        },
+        {
+          "date": "2026-07-31T11:59:59Z",
+          "label": "Meta review release",
+          "timezone": "AoE",
+          "type": "review_release"
+        },
+        {
+          "date": "2026-08-03T11:59:59Z",
+          "label": "EMNLP commitment deadline",
+          "timezone": "AoE",
+          "type": "commitment_deadline"
+        },
+        {
+          "date": "2026-08-21T11:59:59Z",
+          "label": "Author notification date",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-08-31T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-29",
+      "fullName": "The annual Conference on Empirical Methods in Natural Language Processing",
+      "id": "emnlp26",
+      "link": "https://2026.emnlp.org/",
+      "series": "emnlp",
+      "source": "hf",
+      "start": "2026-10-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-08-31T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-29",
+      "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (Industry Track)",
+      "id": "emnlp26ind",
+      "link": "https://2026.emnlp.org/",
+      "series": "emnlp",
+      "source": "hf",
+      "start": "2026-10-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP (Industry Track)",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
+          "date": "2026-07-11T11:59:59Z",
+          "label": "Paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-08-23T11:59:59Z",
+          "label": "Notification of acceptance",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-08-31T11:59:59Z",
+          "label": "Camera-ready submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-10-29",
+      "fullName": "The annual Conference on Empirical Methods in Natural Language Processing (System Demonstrations Track)",
+      "id": "emnlp26sys",
+      "link": "https://2026.emnlp.org/",
+      "series": "emnlp",
+      "source": "hf",
+      "start": "2026-10-24",
+      "tags": [
+        "natural-language-processing"
+      ],
+      "title": "EMNLP (System Demonstrations Track)",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
           "date": "2025-11-27T11:59:59Z",
           "label": "Paper submission deadline",
           "timezone": "AoE",
@@ -2973,6 +3093,57 @@
       "role": "main",
       "start": "2026-09-07",
       "venue": "University of Naples Federico II & Mostra d'Oltremare"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "emnlp26",
+      "country": "Hungary",
+      "end": "2026-10-29",
+      "id": "emnlp26@main",
+      "lat": 47.4978789,
+      "link": "https://2026.emnlp.org/",
+      "lng": 19.0402383,
+      "name": "EMNLP 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-10-24",
+      "venue": "Hungexpo, Budapest, Hungary"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "emnlp26ind",
+      "country": "Hungary",
+      "end": "2026-10-29",
+      "id": "emnlp26ind@main",
+      "lat": 47.4978789,
+      "link": "https://2026.emnlp.org/",
+      "lng": 19.0402383,
+      "name": "EMNLP (Industry Track) 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-10-24",
+      "venue": "HUNGEXPO Budapest Congress & Exhibition Center, Albertirsai út 10, 1101 Budapest, Hungary"
+    },
+    {
+      "access": "registration",
+      "city": "Budapest",
+      "conferenceId": "emnlp26sys",
+      "country": "Hungary",
+      "end": "2026-10-29",
+      "id": "emnlp26sys@main",
+      "lat": 47.4978789,
+      "link": "https://2026.emnlp.org/",
+      "lng": 19.0402383,
+      "name": "EMNLP (System Demonstrations Track) 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-10-24",
+      "venue": "HUNGEXPO Budapest Congress & Exhibition Center, Budapest, Hungary"
     },
     {
       "access": "registration",
