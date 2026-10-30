@@ -27,8 +27,11 @@ test('the city list is not fetched on page load, only on first focus of the sear
 test('setting home via search shows distances and estimates in the list', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('row-footprint')).toHaveCount(0);
+  const yourCity = page.getByRole('list', { name: 'Map legend' }).getByText('Your city');
+  await expect(yourCity).toHaveCount(0);
   await setHome(page);
   await expect(page.getByTestId('home-city')).toHaveText('Berlin, Germany');
+  await expect(yourCity).toBeVisible();
   const first = page.getByTestId('row-footprint').first();
   await expect(first).toContainText(/~[\d,]+ km/);
   await expect(first).toContainText(/~[\d.,]+ (kg|t)/);

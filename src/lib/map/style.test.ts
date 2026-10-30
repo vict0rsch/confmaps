@@ -16,6 +16,7 @@ const p = Object.fromEntries(
     'pinHalo',
     'link',
     'selected',
+    'home',
     'clusterFill',
     'clusterRing',
     'clusterInk',
@@ -112,6 +113,12 @@ describe('dataLayers', () => {
     // Home lines sit under the pins; the home marker over them.
     expect(ids.indexOf('home-lines')).toBeLessThan(ids.indexOf('clusters'));
     expect(ids.indexOf('home')).toBeGreaterThan(ids.indexOf('pin'));
+  });
+
+  it('draws home as a dot in its own colour', () => {
+    const ls = dataLayers(p, 'light', { selectedId: null, hoveredId: null });
+    const home = ls.find((x) => x.id === 'home') as Extract<LayerSpecification, { type: 'circle' }>;
+    expect(home.paint?.['circle-color']).toBe(p.home);
   });
 });
 

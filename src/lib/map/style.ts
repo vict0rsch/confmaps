@@ -28,6 +28,7 @@ export type MapPalette = {
   pinHalo: string;
   link: string;
   selected: string;
+  home: string;
   clusterFill: string;
   clusterRing: string;
   clusterInk: string;
@@ -46,6 +47,7 @@ const TOKENS: Record<keyof MapPalette, string> = {
   pinHalo: '--pin-halo',
   link: '--pin-link',
   selected: '--pin-selected',
+  home: '--pin-home',
   clusterFill: '--cluster-fill',
   clusterRing: '--cluster-ring',
   clusterInk: '--cluster-ink',
@@ -642,14 +644,14 @@ export function dataLayers(
       layout: { ...lockLayout(theme), ...anim },
       paint: { 'icon-opacity': animOpacity(e.selectedId) },
     },
-    // Home: a small neutral dot (not a pin: it is not an event).
+    // Home: a small blue dot (not a pin: it is not an event).
     {
       id: LAYER.home,
       type: 'circle',
       source: SRC.home,
       paint: {
         'circle-radius': 4,
-        'circle-color': p.labelStrong,
+        'circle-color': p.home,
         'circle-stroke-color': p.pinHalo,
         'circle-stroke-width': 2,
         'circle-pitch-alignment': 'map',

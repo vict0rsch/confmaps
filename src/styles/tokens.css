@@ -45,6 +45,10 @@
   --orange-400: #fb923c;
   --orange-650: #c9480f; /* softened orange-700, for map pins */
 
+  /* ---- Primitives: data (home marker, a "you are here" blue) ---- */
+  --blue-400: #409cff;
+  --blue-600: #1a73e8;
+
   /* ---- Spacing (4 px grid) ---- */
   --space-1: 4px;
   --space-2: 8px;
@@ -142,6 +146,7 @@
   --pin-halo: var(--gray-0);
   --pin-link: var(--indigo-550);
   --pin-selected: var(--gray-900);
+  --pin-home: var(--blue-600); /* 3.4:1 on water, 4.0:1 on land; ~30° of hue from indigo-550 */
   --cluster-fill: var(--gray-0);
   --cluster-ring: var(--indigo-550);
   --cluster-ink: var(--gray-900);
@@ -198,6 +203,7 @@
   --pin-halo: var(--gray-d-900);
   --pin-link: var(--indigo-400);
   --pin-selected: var(--gray-d-100);
+  --pin-home: var(--blue-400); /* 6.2:1 on water, 5.7:1 on land; ~25° of hue from indigo-400 */
   --cluster-fill: var(--gray-d-850);
   --cluster-ring: var(--indigo-400);
   --cluster-ink: var(--gray-d-100);

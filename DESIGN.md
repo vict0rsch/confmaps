@@ -538,6 +538,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   button. A link that only repeats the viewer's own travel settings (their own address after a
   reload) or their own saved city is not treated as shared. Third-party licences and attributions are shown in-app at `#credits` ("Data & credits").
 - Lines from home to visible sites when home is set; detail shows nearest site per conference.
+- The map marks home with a small blue dot in a halo. It is not a pin, because home is not an
+  event. Its blue (`--pin-home`) stays clearly apart from the indigo of official pins.
 
 ### 5.6 URL state
 
@@ -698,7 +700,8 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   "community") as one inner list, then "Authors only" (an official satellite with the badge).
   Beside an open drawer it is hidden below 1280 px, because the strip of map is too narrow. It
   returns when the drawer closes. A "Satellite link" item (the dashed line) appears only while the
-  map shows a main ↔ satellite line. On phones it is in the logo panel.
+  map shows a main ↔ satellite line. A "Your city" item (the blue home dot) comes last and appears
+  only while a city is set. On phones it is in the logo panel.
 - **List order:** upcoming conferences come first, soonest first. A conference is upcoming while
   one of its visible sites has not ended (ending today counts). Finished conferences follow, most
   recent first. The rule is the same in every window, so the past presets open on the newest
