@@ -36,8 +36,8 @@ describe('formatCo2', () => {
 
 describe('formatCo2Range', () => {
   it('shares the unit when both ends use it', () => {
-    expect(formatCo2Range(4559.572, 5015.53)).toBe('~4.6–5.0 t'); // golden: Berlin → Sydney
-    expect(formatCo2Range(260.1679, 312.2)).toBe('~260–310 kg'); // golden: Berlin → Paris flight
+    expect(formatCo2Range(4559.572, 6064.2305)).toBe('~4.6–6.1 t'); // golden: Berlin → Sydney, × 1.33
+    expect(formatCo2Range(260.168, 390.252)).toBe('~260–390 kg'); // golden: Berlin → Paris flight, × 1.5
   });
   it('spells both units across the kg/t switch, and collapses equal ends', () => {
     expect(formatCo2Range(880, 1056)).toBe('~880 kg–1.1 t');
