@@ -8,6 +8,7 @@ import {
   clampAtEnd,
   datePresets,
   dragHandle,
+  followSince,
   monthVariants,
   moveWindow,
   nearestBoundary,
@@ -40,6 +41,25 @@ describe('presets', () => {
       w: { from: '2016-12-05', to: '2026-10-22' },
     });
     expect(datePresets('2026-10-22', '2026-12-01').map((p) => p.id)).not.toContain('all');
+  });
+
+  it('an active "Since <year>" follows the span start, both ways; other windows stay', () => {
+    const today = '2026-10-22';
+    const old = { from: '1963-08-25', to: today };
+    expect(followSince(old, '1963-08-25', '1985-06-24', today)).toEqual({
+      from: '1985-06-24',
+      to: today,
+    });
+    expect(
+      followSince({ from: '1985-06-24', to: today }, '1985-06-24', '1963-08-25', today),
+    ).toEqual(old);
+    expect(followSince(old, '1963-08-25', '1963-08-25', today)).toBeNull(); // start unchanged
+    expect(followSince(plan, '1963-08-25', '1985-06-24', today)).toBeNull();
+    expect(
+      followSince({ from: '1963-08-25', to: '2026-10-21' }, '1963-08-25', '1985-06-24', today),
+    ).toBeNull();
+    // A start after today has no "Since <year>" preset.
+    expect(followSince(old, '1963-08-25', '2026-12-01', today)).toBeNull();
   });
 });
 

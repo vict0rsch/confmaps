@@ -3,6 +3,7 @@
   // through getDates() / setDates(), so the filter panel's month inputs stay in sync.
   // The histogram counts events per month passing every other filter (dates aside), so it shows
   // what moving the window would reveal; recomputed on filter changes only (~130 locations).
+  import { untrack } from 'svelte';
   import { app } from '../lib/state/app.svelte';
   import type { DateWindow } from '../lib/state/derive';
   import { getDates, setDates } from '../lib/state/filters.svelte';
@@ -23,6 +24,7 @@
     datePresets,
     dayLabel,
     dragHandle,
+    followSince,
     monthVariants,
     moveWindow,
     nudge,
@@ -65,6 +67,22 @@
     ));
   });
   const x = (day: number) => toX(day, domain, width);
+
+  // An active "Since <year>" follows the filters to the new start (not during Play or history
+  // mode). Only the span start is tracked; a filter change leaves the dates as they were, and
+  // moving them does not change the span. Before the render, so the axis is drawn once.
+  let sinceFrom = scope.span.from;
+  $effect.pre(() => {
+    const from = scope.span.from;
+    untrack(() => {
+      const w = followSince(getDates(), sinceFrom, from, app.today);
+      if (w && !inHistory && !play.playing) {
+        restartAxis();
+        setDates(w);
+      }
+    });
+    sinceFrom = from;
+  });
 
   const BARS_H = $derived(compact ? 16 : 22);
   const bins = $derived(histogram(scope.candidates, domain));

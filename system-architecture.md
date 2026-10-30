@@ -333,7 +333,10 @@ The main components are:
 - `ConferenceList.svelte` and `Detail.svelte`: the list and the selected conference.
 - `Timeline.svelte`: histogram, window handles, presets, Play.
 - `filters/FilterPanel.svelte`: renders the registry as chips with trays (desktop) or stacked
-  sections (phone dialog). `MultiSelect.svelte` serves every multi-choice filter.
+  sections (phone dialog). `MultiSelect.svelte` serves every multi-choice filter. The panel gives
+  `DatesControl.svelte` the timeline's span start (`scope.span.from`) through Svelte context. The
+  control cannot import the timeline state, because that state imports the filter registry, which
+  imports the control.
 - `HomeSettings.svelte`, `SiteFootprint.svelte`: home city, travel settings, per-site CO₂.
 - `BottomSheet.svelte`, `BrandMenu.svelte`, `FiltersMenu.svelte`: the phone layout's sheet and
   anchored panels.

@@ -6,11 +6,14 @@
   import { setContext, tick } from 'svelte';
   import type { AnyFilter } from '../../lib/filters';
   import { filterState } from '../../lib/state/filters.svelte';
+  import { scope } from '../../lib/state/timeline.svelte';
   import Icon from '../Icon.svelte';
+  import { DATA_FROM_CONTEXT } from './DatesControl.svelte';
   import { FIELD_CONTEXT } from './MultiSelect.svelte';
 
   let { layout = 'sidebar' }: { layout?: 'sidebar' | 'dialog' } = $props();
   setContext(FIELD_CONTEXT, () => layout === 'dialog');
+  setContext(DATA_FROM_CONTEXT, () => scope.span.from);
 
   const uid = $props.id();
   const trayId = (id: string) => `${uid}-tray-${id}`;
