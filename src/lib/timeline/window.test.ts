@@ -8,6 +8,7 @@ import {
   clampAtEnd,
   datePresets,
   dragHandle,
+  monthVariants,
   moveWindow,
   nearestBoundary,
   nextSpeed,
@@ -173,5 +174,17 @@ describe('windowLabel', () => {
     expect(windowLabel({ from: '2026-11-01', to: '2026-11-30' })).toBe('Nov 2026');
     expect(windowLabel(plan)).toBe('Oct 22, 2026 – Oct 22, 2027');
     expect(windowLabel(plan, true)).toBe('Oct ’26 – Oct ’27');
+  });
+
+  it('has one variant per month name, for the widest-month width', () => {
+    const v = monthVariants('Oct \u20072, 2026 – Nov 11, 2027');
+    expect(v).toHaveLength(12);
+    expect(v[4]).toBe('May \u20072, 2026 – May 11, 2027');
+  });
+
+  it('pads single-digit days to the width of two digits', () => {
+    expect(windowLabel({ from: '2026-10-02', to: '2027-10-11' })).toBe(
+      'Oct \u20072, 2026 – Oct 11, 2027',
+    );
   });
 });

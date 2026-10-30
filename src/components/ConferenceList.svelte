@@ -3,6 +3,7 @@
   import { isVirtual } from '../lib/data/types';
   import { nearestOption } from '../lib/home/footprint';
   import { app } from '../lib/state/app.svelte';
+  import { play } from '../lib/state/timeline.svelte';
   import { travel } from '../lib/state/travel.svelte';
   import type { ListItem } from '../lib/state/derive';
   import { formatDateRangeShort } from '../lib/format/dates';
@@ -15,13 +16,28 @@
 
   let nearestFirst = $state(false);
 
+  // Play at 2× or 4× changes the list every frame. There the list is debounced: it holds still
+  // behind a blur and catches up once the changes stop, in practice on pause or back at 1×.
+  const LIST_DEBOUNCE_MS = 600; // longer than a 2× step under reduced motion (500 ms)
+  const fast = $derived(play.playing && play.speed >= 2);
+  let shown: ListItem[] = $state.raw([]);
+  $effect.pre(() => {
+    const next = app.listItems;
+    if (!fast) {
+      shown = next;
+      return;
+    }
+    const id = setTimeout(() => (shown = next), LIST_DEBOUNCE_MS);
+    return () => clearTimeout(id);
+  });
+
   // With a home set, each conference gets its nearest visible site and the estimated trip there,
   // or "Online · ~0 kg" for a virtual edition (sorted first by "Nearest first", at distance 0).
   const near = $derived.by(() => {
     const home = app.home;
     const opts = { mode: travel.mode, thresholdKm: travel.threshold };
     return new Map(
-      home ? app.listItems.map((i) => [i.conference.id, nearestOption(home, i.sites, opts)]) : [],
+      home ? shown.map((i) => [i.conference.id, nearestOption(home, i.sites, opts)]) : [],
     );
   });
   const distance = (id: string) => {
@@ -30,8 +46,8 @@
   };
   const items = $derived(
     nearestFirst && app.home
-      ? app.listItems.toSorted((a, b) => distance(a.conference.id) - distance(b.conference.id))
-      : app.listItems,
+      ? shown.toSorted((a, b) => distance(a.conference.id) - distance(b.conference.id))
+      : shown,
   );
 
   function span(item: ListItem) {
@@ -84,9 +100,14 @@
     {/if}
   </header>
 
+  {#if fast && items.length}
+    <div class="hold" role="status">
+      <p>The list holds still at {play.speed}×. It updates when you pause or slow to 1×.</p>
+    </div>
+  {/if}
   {#if items.length}
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <ul role="list" bind:this={listEl} onkeydown={onKeydown}>
+    <ul role="list" class:fast inert={fast} bind:this={listEl} onkeydown={onKeydown}>
       {#each items as item (item.conference.id)}
         {@const c = item.conference}
         {@const selected =
@@ -195,6 +216,37 @@
     flex-direction: column;
     gap: var(--space-1);
     padding: 0 var(--space-2) var(--space-4);
+    transition:
+      filter var(--duration-base) var(--ease-out),
+      opacity var(--duration-base) var(--ease-out);
+  }
+
+  ul.fast {
+    filter: blur(3px);
+    opacity: 0.6;
+  }
+
+  /* Sticks in view over the blurred rows; zero height, so the rows do not move. */
+  .hold {
+    position: sticky;
+    top: 30%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .hold p {
+    max-width: 30ch;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-fill-thick);
+    box-shadow: var(--shadow-md);
+    color: var(--ink);
+    font-size: var(--text-sm);
+    text-align: center;
   }
 
   .row {

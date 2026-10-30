@@ -558,8 +558,9 @@
   });
 
   // On select, or when overlays resize: fit the selection into the visible area. A selection
-  // clicked on the map keeps the zoom, only kept clear of the overlays. Without a selection,
-  // just follow the overlays (the visible centre stays put).
+  // clicked on the map keeps the zoom, only kept clear of the overlays. Closing the selection keeps
+  // the map still. Otherwise, without a selection, just follow the overlays (the visible centre
+  // stays put).
   $effect(() => {
     const id = app.selectedConferenceId;
     const pad = camPad;
@@ -588,7 +589,12 @@
         if (historyMode.series) fitHistory(duration(900));
         else fitOverview(duration(800));
       } else if (deferredFit && !noRoom()) deferredFit();
-      else m.easeTo({ padding: pad, duration: duration(250) });
+      // Closing the detail keeps the map still, however it was opened.
+      else if (!id && followed.id) {
+        const right = container.clientWidth - pad.right;
+        const bottom = container.clientHeight - pad.bottom;
+        m.jumpTo({ padding: pad, center: m.unproject([(pad.left + right) / 2, bottom / 2]) });
+      } else m.easeTo({ padding: pad, duration: duration(250) });
       followed = { id, left: pad.left, phone, folded };
     });
   });
@@ -844,16 +850,17 @@
     inset: 0;
   }
 
-  /* Keep MapLibre controls in the free map area: above the timeline and bottom sheet, left of the
-     drawer. The insets already include the gap to the neighbouring panel on desktop. */
+  /* Keep MapLibre controls above the timeline and bottom sheet, in the window's right corner:
+     the drawer stops above them (App.svelte). One row, bottom-aligned: the attribution, then zoom
+     (MapLibre puts the last control added first). The insets already include the gap to the
+     neighbouring panel on desktop. */
   .map-wrap :global(.maplibregl-ctrl-bottom-right) {
     bottom: var(--stage-inset-bottom, var(--panel-gap));
-    right: var(--stage-inset-right, var(--panel-gap));
+    right: var(--panel-gap);
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-end;
     gap: var(--space-2);
-    transition: right var(--duration-base) var(--ease-out);
   }
   .map-wrap :global(.maplibregl-ctrl-bottom-right .maplibregl-ctrl) {
     margin: 0;
@@ -864,6 +871,7 @@
   @media (max-width: 1023px) {
     .map-wrap :global(.maplibregl-ctrl-bottom-right) {
       bottom: calc(var(--stage-inset-bottom, var(--inset-bottom)) + var(--space-2));
+      right: var(--stage-inset-right);
     }
   }
 

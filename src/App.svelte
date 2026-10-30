@@ -535,7 +535,8 @@
     top: var(--panel-gap);
     right: var(--panel-gap);
     width: var(--drawer-width);
-    max-height: calc(100% - 3 * var(--panel-gap) - var(--timeline-height));
+    /* Stops a gap above the map's zoom buttons, which stay in the corner above the timeline. */
+    max-height: calc(100% - 4 * var(--panel-gap) - var(--timeline-height) - var(--map-zoom-height));
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-panel);

@@ -502,6 +502,10 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
     motion settles.
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
+  - At 2× and 4×, the list is debounced: it holds still behind a blur, with a notice saying why,
+    and updates on pause or back at 1×.
+  - The range label keeps a constant width while Play runs. Single-digit days get a figure space,
+    and the label is as wide as its widest month name.
 - **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
   handles. The axis covers at most the last 5 years plus the current window, so the 2016–2019
   editions do not squeeze it; "Since <year>" (or history mode) extends it. Play spans all data.
@@ -609,8 +613,9 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
 ```
 
 - **Floating panels:** the sidebar sits top-left, the timeline bottom-right of the sidebar, the
-  detail drawer on the right and the legend at the top-left of the free map area. Zoom controls and
-  the attribution sit bottom-right, above the timeline.
+  detail drawer on the right and the legend at the top-left of the free map area. The attribution
+  and the zoom controls sit side by side in the bottom-right corner, above the timeline. They do
+  not move when the drawer opens: the drawer stops above them and scrolls.
 - **Collapsible sidebar (desktop):** the menu button (☰) at the end of the sidebar's brand row folds
   the sidebar into a glass pill at its top-left corner. The pill shows the logo, the wordmark and ☰,
   and it is one button that opens the sidebar again. It is as tall as the legend chip, and the
@@ -683,7 +688,8 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
 - **Map insets:** the map reserves space for the sidebar, the timeline and the open drawer (panel
   size plus the gap), so fitting to a conference and "back to selection" keep pins clear of every
   panel. The collapsed pill (desktop) and the folded pill (phones held sideways) float over the map
-  like the legend, so they reserve nothing.
+  like the legend, so they reserve nothing. Closing the detail keeps the map still, whether or not
+  opening it moved the map.
 - **Attribution** is shown in full when the free map area is at least 560 px wide and in compact
   form below that. On phones it is always compact and collapsed from the start: only its (i)
   button shows, and a tap on it shows the credits. This departs from the OSMF attribution
