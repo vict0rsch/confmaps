@@ -940,8 +940,17 @@
     gap: var(--space-2);
   }
 
+  /* Exit stands out in the accent's soft tint, below Play's solid fill. */
   .exit {
     height: 32px;
     white-space: nowrap;
+    border-color: transparent;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: var(--weight-semibold);
+  }
+
+  .exit:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
   }
 </style>
