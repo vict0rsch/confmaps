@@ -126,6 +126,53 @@
     const f = travelled - i;
     return stopXs[i] + (i + 1 < stopXs.length ? (stopXs[i + 1] - stopXs[i]) * f : 0);
   });
+  /** A stop's hit width: up to 24 px, at most the gap to either neighbour (no overlap). */
+  const stopHit = (i: number) =>
+    Math.min(24, stopXs[i] - (stopXs[i - 1] ?? -Infinity), (stopXs[i + 1] ?? Infinity) - stopXs[i]);
+  const stopEls: HTMLButtonElement[] = [];
+  // The tooltip above the stops: the hovered stop, else the one with keyboard focus. Centred on
+  // the stop, clamped inside the panel (the section's box).
+  let hoveredStop: number | null = $state(null);
+  let focusedStop: number | null = $state(null);
+  const tipStop = $derived(hoveredStop ?? focusedStop);
+  let sectionEl: HTMLElement | undefined;
+  let tipEl: HTMLDivElement | undefined = $state();
+  let tipX = $state(0);
+  $effect(() => {
+    if (tipStop === null || !tipEl || !trackEl || !sectionEl) return;
+    const sx = stopXs[tipStop];
+    const half = tipEl.offsetWidth / 2;
+    const at = trackEl.getBoundingClientRect().left - sectionEl.getBoundingClientRect().left + sx;
+    tipX = Math.max(half, Math.min(sectionEl.clientWidth - half, at));
+  });
+  // Arrows step from the focused stop (`at`) to the previous / next one, Home / End to the first
+  // stop / the whole path.
+  function onstopkeydown(e: KeyboardEvent, at: number) {
+    const last = historyMode.stops.length - 1;
+    let to: number;
+    switch (e.key) {
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        to = at - 1;
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        to = at + 1;
+        break;
+      case 'Home':
+        to = 0;
+        break;
+      case 'End':
+        to = last;
+        break;
+      default:
+        return;
+    }
+    e.preventDefault();
+    const i = Math.max(0, Math.min(last, to));
+    play.goTo(i);
+    stopEls[i]?.focus();
+  }
   const yearsText = $derived.by(() => {
     const ys = historyMode.years;
     if (!ys.length) return '';
@@ -245,6 +292,7 @@
   class:dragging={!!drag}
   aria-label="Timeline"
   data-testid="timeline"
+  bind:this={sectionEl}
 >
   <!-- Speed shows while playing, or while this group is hovered or holds focus (it stays in the
        DOM and in the tab order). -->
@@ -377,16 +425,36 @@
               y1={BARS_H / 2}
               y2={BARS_H / 2}
             />
-            {#each stopXs as sx, i (i)}
-              <circle
+          </svg>
+          <!-- One radio per stop, a single Tab stop (roving tabindex): click, arrows, Home / End. -->
+          <div
+            class="stops-group"
+            role="radiogroup"
+            aria-label="Editions"
+            style:height="{BARS_H}px"
+          >
+            {#each historyMode.stops as s, i (i)}
+              <button
+                type="button"
                 class="stop"
                 class:reached={i <= Math.floor(travelled + 1e-6)}
-                cx={sx}
-                cy={BARS_H / 2}
-                r="4"
-              />
+                role="radio"
+                aria-checked={i === play.stopIndex}
+                aria-label="{s.years.join(', ')}, {s.city}"
+                tabindex={i === play.stopIndex ? 0 : -1}
+                style:left="{stopXs[i]}px"
+                style:width="{stopHit(i)}px"
+                bind:this={stopEls[i]}
+                onclick={() => play.goTo(i)}
+                onkeydown={(e) => onstopkeydown(e, i)}
+                onpointerenter={() => (hoveredStop = i)}
+                onpointerleave={() => (hoveredStop = null)}
+                onfocus={(e) =>
+                  (focusedStop = e.currentTarget.matches(':focus-visible') ? i : null)}
+                onblur={() => (focusedStop = null)}
+              ></button>
             {/each}
-          </svg>
+          </div>
         {/if}
 
         <div class="today" style:left="{todayX}px" aria-hidden="true"></div>
@@ -434,6 +502,14 @@
     </div>
   {/if}
 
+  <!-- Each stop's accessible name already says this. -->
+  {#if inHistory && tipStop !== null && historyMode.stops[tipStop]}
+    {@const s = historyMode.stops[tipStop]}
+    <div class="stop-tip glass-thick" bind:this={tipEl} style:left="{tipX}px" aria-hidden="true">
+      <span class="stop-tip-years">{s.years.join(' · ')}</span> · {s.city}
+    </div>
+  {/if}
+
   <div class="aside">
     {#if inHistory}
       <button class="button exit" type="button" onclick={() => historyMode.exit()}>
@@ -468,6 +544,7 @@
 
 <style>
   .timeline {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--space-4);
@@ -643,18 +720,85 @@
     stroke-linecap: round;
   }
 
-  .stop {
-    fill: var(--glass-fill-solid);
-    stroke: var(--border-strong);
-    stroke-width: 1.5;
-    transition:
-      fill var(--duration-base) var(--ease-out),
-      stroke var(--duration-base) var(--ease-out);
+  .stops-group {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
   }
 
-  .stop.reached {
-    fill: var(--accent);
-    stroke: var(--glass-fill-solid);
+  /* A stop: an 8 px dot with a 1.5 px ring, in a wider invisible hit area. */
+  .stop {
+    position: absolute;
+    top: 50%;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+  }
+
+  .stop::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 9.5px;
+    height: 9.5px;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-full);
+    background: var(--glass-fill-solid);
+    transition:
+      background-color var(--duration-base) var(--ease-out),
+      border-color var(--duration-base) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .stop.reached::after {
+    border-color: var(--glass-fill-solid);
+    background: var(--accent);
+  }
+
+  .stop:hover::after {
+    border-color: var(--accent);
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+
+  .stop:focus-visible {
+    outline: none;
+  }
+
+  /* Above the panel, over the map; years in semibold as on the map's labels. */
+  .stop-tip {
+    position: absolute;
+    bottom: calc(100% + var(--space-2));
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: stop-tip-in var(--duration-fast) var(--ease-out);
+  }
+
+  .stop-tip-years {
+    font-weight: var(--weight-semibold);
+  }
+
+  @keyframes stop-tip-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  .stop:focus-visible::after {
+    box-shadow:
+      0 0 0 2px var(--glass-fill-solid),
+      0 0 0 4px var(--focus);
   }
 
   .today {
@@ -940,8 +1084,17 @@
     gap: var(--space-2);
   }
 
+  /* Exit stands out in the accent's soft tint, below Play's solid fill. */
   .exit {
     height: 32px;
     white-space: nowrap;
+    border-color: transparent;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: var(--weight-semibold);
+  }
+
+  .exit:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
   }
 </style>

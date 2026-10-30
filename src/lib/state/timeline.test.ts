@@ -1,14 +1,14 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('../analytics', () => ({ track: vi.fn() }));
 
 import { track } from '../analytics';
 import { liveIds, shownIds } from '../map/choreography';
-import { historyStops } from '../timeline/history';
+import { historyStops, LEG_MS } from '../timeline/history';
 import { addDays, dataSpan, windowDays } from '../timeline/scale';
 import { app } from './app.svelte';
 import { defaultDates, filterState, getDates, setDates } from './filters.svelte';
-import { historyMode, play, PlayState, scope } from './timeline.svelte';
+import { AUTOPLAY_MS, GLIDE_MS, historyMode, play, PlayState, scope } from './timeline.svelte';
 import { buildQuery, parseHistory, type URLInputs } from './url';
 import { DEFAULT_TRAVEL } from './travel.svelte';
 
@@ -187,6 +187,136 @@ describe('history mode', () => {
     historyMode.enter(single);
     expect(historyMode.stops).toHaveLength(1);
     expect(play.canPlay).toBe(false);
+  });
+});
+
+describe('history mode autoplay', () => {
+  beforeEach(() => vi.useFakeTimers());
+  afterEach(() => vi.useRealTimers());
+
+  it('from the button, Play starts after a short wait', () => {
+    historyMode.enter('icml');
+    vi.advanceTimersByTime(AUTOPLAY_MS - 1);
+    expect(play.playing).toBe(false);
+    vi.advanceTimersByTime(1);
+    expect(play.playing).toBe(true);
+    expect(play.travel).toBe(0);
+  });
+
+  it('not from a URL', () => {
+    historyMode.enter('icml', { fromURL: true });
+    vi.advanceTimersByTime(AUTOPLAY_MS);
+    expect(play.playing).toBe(false);
+  });
+
+  it.each([
+    ['exit', () => historyMode.exit()],
+    ['another series', () => historyMode.enter('neurips', { fromURL: true })],
+    ['Play then Pause', () => (play.toggle(), play.toggle())],
+    ['a scrub (any pause)', () => play.pause()],
+  ])('is cancelled by %s', (_, cancel) => {
+    historyMode.enter('icml');
+    vi.advanceTimersByTime(AUTOPLAY_MS / 2);
+    cancel();
+    vi.advanceTimersByTime(AUTOPLAY_MS);
+    expect(play.playing).toBe(false);
+  });
+});
+
+describe('history stops (goTo)', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    // No rAF in Node: frames every 16 ms on the fake clock.
+    vi.stubGlobal('requestAnimationFrame', (cb: FrameRequestCallback) =>
+      setTimeout(() => cb(Date.now()), 16),
+    );
+    vi.stubGlobal('cancelAnimationFrame', (id: number) => clearTimeout(id));
+    historyMode.enter('icml', { fromURL: true });
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+  const last = () => historyMode.stops.length - 1;
+
+  it('pauses Play at the stop; Play continues from there', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    p.play();
+    p.step(LEG_MS * 5.5);
+    p.goTo(3);
+    expect(p.playing).toBe(false);
+    expect(p.travel).toBe(3);
+    expect(p.stopIndex).toBe(3);
+    p.play();
+    expect(p.travel).toBe(3);
+    p.step(LEG_MS);
+    expect(p.travel).toBe(4);
+    p.pause();
+  });
+
+  it('the first stop restarts the path; the last shows it complete, and Play starts over', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    p.goTo(0);
+    vi.advanceTimersByTime(GLIDE_MS + 50);
+    expect(p.travelShown).toBe(0);
+    const firsts = historyMode.stops[0].conferenceIds.map((id) => `${id}@main`);
+    expect([...shownIds(app.visibleLocations, historyMode.stops, p.travelShown)]).toEqual(firsts);
+    p.goTo(last());
+    expect(p.travel).toBeNull();
+    expect(p.stopIndex).toBe(last());
+    vi.advanceTimersByTime(GLIDE_MS + 50);
+    expect(p.travelShown).toBeNull();
+    p.play();
+    expect(p.travel).toBe(0);
+    p.pause();
+  });
+
+  it('glides through the stops in between, without stalling at each (dwell)', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    p.goTo(0); // from the whole path
+    expect(p.travelShown).toBe(last());
+    const seen: number[] = [];
+    for (let t = 0; t < GLIDE_MS; t += 16) {
+      vi.advanceTimersByTime(16);
+      seen.push(p.travelShown!);
+    }
+    expect(seen.some((v) => v > 0 && v < last() && !Number.isInteger(v))).toBe(true);
+    expect(seen.every((v, i) => i === 0 || v <= seen[i - 1])).toBe(true);
+    // A new click mid-way retargets from where the path is drawn, without a jump.
+    p.goTo(last());
+    vi.advanceTimersByTime(GLIDE_MS / 2);
+    const mid = p.travelShown!;
+    expect(mid > 0 && mid < last()).toBe(true);
+    p.goTo(2);
+    expect(p.travelShown).toBe(mid);
+    vi.advanceTimersByTime(GLIDE_MS + 50);
+    expect(p.travelShown).toBe(2);
+  });
+
+  it('Play during a glide starts from its target', () => {
+    const p = new PlayState({ reducedMotion: () => false });
+    p.goTo(5);
+    vi.advanceTimersByTime(GLIDE_MS / 2);
+    p.play();
+    expect(p.travel).toBe(5);
+    expect(p.travelShown).toBe(5);
+    p.pause();
+  });
+
+  it('a filter leaving fewer stops than travelled: the current stop is the last one left', () => {
+    const p = new PlayState({ reducedMotion: () => true });
+    p.goTo(30);
+    filterState.set('search', 'icml 2024, icml 2025, icml 2026');
+    expect(historyMode.stops).toHaveLength(3);
+    expect(p.stopIndex).toBe(2);
+  });
+
+  it('jumps under reduced motion', () => {
+    const p = new PlayState({ reducedMotion: () => true });
+    p.goTo(4);
+    expect(p.travelShown).toBe(4);
+    p.goTo(last());
+    expect(p.travelShown).toBeNull();
   });
 });
 

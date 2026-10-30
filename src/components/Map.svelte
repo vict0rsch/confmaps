@@ -61,6 +61,7 @@
     readPalette,
   } from '../lib/map/style';
   import {
+    ageOpacity,
     historyFitPoints,
     historyLegs,
     mergeCloseLabels,
@@ -187,6 +188,12 @@
   const legs = $derived(historyLegs(historyMode.stops));
   const intro = new Tween(1, { easing: cubicOut });
   const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
+  /** History mode: the editions' years on the map; their pins and legs fade by age across them. */
+  const ageSpan = $derived.by(() => {
+    if (!historyMode.series) return null;
+    const ys = app.mapLocations.map((l) => l.conference.year);
+    return { oldest: Math.min(...ys), newest: Math.max(...ys) };
+  });
 
   // ---- Map lifecycle -------------------------------------------------------
   /**
@@ -439,6 +446,17 @@
     });
   });
 
+  // History mode: older editions' pins are fainter, a fixed fade under the motion's own.
+  $effect(() => {
+    const span = ageSpan;
+    if (!styleReady || !choreo) return;
+    untrack(() => {
+      if (!span && !animMode) return;
+      choreo!.setAge(span);
+      kick();
+    });
+  });
+
   // A style reload (theme switch) drops feature-state: re-send it.
   $effect(() => {
     if (!styleReady || !choreo) return;
@@ -472,16 +490,17 @@
     const labels = on ? stopLabels(historyMode.stops, Math.floor(pathProgress + 1e-6)) : [];
     source(SRC.historyPath)?.setData({
       type: 'FeatureCollection',
-      features: lines.map((coordinates): Feature<LineString> => ({
+      // Line i is leg i, which arrives at stop i + 1.
+      features: lines.map((coordinates, i): Feature<LineString> => ({
         type: 'Feature',
         geometry: { type: 'LineString', coordinates },
-        properties: {},
+        properties: { o: ageSpan ? ageOpacity(historyMode.stops[i + 1].years[0], ageSpan) : 1 },
       })),
     });
     source(SRC.historyHead)?.setData({
       type: 'FeatureCollection',
       features:
-        head && play.travel !== null
+        head && play.travelShown !== null
           ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: head }, properties: {} }]
           : [],
     });

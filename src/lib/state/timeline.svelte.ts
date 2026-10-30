@@ -13,6 +13,7 @@ import { track } from '../analytics';
 import type { JoinedLocation } from '../data/load';
 import { composePredicate } from '../filters/store.svelte';
 import { historyStops, LEG_MS, onlineYears, travelDisplay, type Stop } from '../timeline/history';
+import { easeInOut } from '../timeline/motion';
 import { dataSpan } from '../timeline/scale';
 import {
   advanceMonths,
@@ -86,7 +87,8 @@ export class HistoryState {
 
   /**
    * Enter history mode. From the UI, the open conference closes (its pins would dim the
-   * others) and is restored on exit. From a URL, selection is left as the link says.
+   * others) and is restored on exit, and Play starts once the entry has settled. From a URL,
+   * selection is left as the link says, and nothing plays.
    */
   enter(series: string, opts: { fromURL?: boolean } = {}): void {
     if (!this.isSeries(series)) return;
@@ -98,6 +100,7 @@ export class HistoryState {
       app.select(null);
     }
     this.series = series;
+    if (!opts.fromURL) play.playSoon();
   }
 
   exit(): void {
@@ -122,6 +125,15 @@ app.predicate = (loc) =>
 
 export type PlayOptions = { reducedMotion?: () => boolean };
 
+/**
+ * Wait before history mode plays on its own: the entry intro (path drawn in over 300 + 700 ms,
+ * camera fit in 900 ms; Map.svelte) settles first.
+ */
+export const AUTOPLAY_MS = 1000;
+
+/** A click on a history stop glides the path there in this many ms (eased like the travel). */
+export const GLIDE_MS = 400;
+
 export class PlayState {
   playing = $state(false);
   speed: Speed = $state(1);
@@ -138,6 +150,12 @@ export class PlayState {
   #months = 0;
   #lastSet: DateWindow | null = null;
   #reported = false;
+  #soon: ReturnType<typeof setTimeout> | undefined;
+  /** `goTo`'s glide, in displayed progress (so the dwell does not stall it); `t0` = first frame. */
+  #glide: { from: number; to: number; t0?: number } | null = null;
+  #glideRaf = 0;
+  /** Displayed progress while gliding, which `travelShown` returns; else `null`. */
+  #glideAt: number | null = $state(null);
 
   constructor(opts: PlayOptions = {}) {
     this.#reduced = opts.reducedMotion ?? (() => prefersReducedMotion.current);
@@ -154,7 +172,53 @@ export class PlayState {
 
   /** Displayed history progress (eased, or stepped under reduced motion); `null` = complete. */
   get travelShown(): number | null {
+    if (this.#glideAt !== null) return this.#glideAt;
     return this.travel === null ? null : travelDisplay(this.travel, this.#reduced());
+  }
+
+  /**
+   * The stop reached (index into `historyMode.stops`): the last one when the path is complete,
+   * or when a filter leaves fewer stops than `travel` has passed.
+   */
+  get stopIndex(): number {
+    const last = historyMode.stops.length - 1;
+    return this.travel === null
+      ? last
+      : Math.max(0, Math.min(last, Math.floor(this.travel + 1e-6)));
+  }
+
+  /**
+   * Go to history stop `i`, pausing Play there (Play then continues from it): the first stop
+   * restarts the path, the last shows it complete. Glides over `GLIDE_MS`; jumps under reduced
+   * motion.
+   */
+  goTo(i: number): void {
+    const last = historyMode.stops.length - 1;
+    const from = this.travelShown ?? last;
+    this.pause();
+    this.travel = i >= last ? null : i;
+    if (this.#reduced() || from === i || typeof requestAnimationFrame === 'undefined') return;
+    this.#glide = { from, to: i };
+    this.#glideAt = from;
+    this.#glideRaf = requestAnimationFrame(this.#glideFrame);
+  }
+
+  #glideFrame = (t: number): void => {
+    const g = this.#glide;
+    if (!g) return;
+    g.t0 ??= t;
+    const u = (t - g.t0) / GLIDE_MS;
+    if (u >= 1) return this.#endGlide();
+    this.#glideAt = g.from + (g.to - g.from) * easeInOut(u);
+    this.#glideRaf = requestAnimationFrame(this.#glideFrame);
+  };
+
+  /** Stop a glide where it is headed (`travel` already holds its target). */
+  #endGlide(): void {
+    if (this.#glideRaf) cancelAnimationFrame(this.#glideRaf);
+    this.#glideRaf = 0;
+    this.#glide = null;
+    this.#glideAt = null;
   }
 
   toggle(): void {
@@ -162,7 +226,15 @@ export class PlayState {
     else this.play();
   }
 
+  /** Play after `AUTOPLAY_MS`, unless Play or Pause (any pause: exit, scrub, …) comes first. */
+  playSoon(): void {
+    clearTimeout(this.#soon);
+    this.#soon = setTimeout(() => this.play(), AUTOPLAY_MS);
+  }
+
   play(): void {
+    clearTimeout(this.#soon);
+    this.#endGlide();
     if (this.playing || !this.canPlay) return;
     if (!this.#reported) {
       this.#reported = true;
@@ -182,6 +254,8 @@ export class PlayState {
   }
 
   pause(): void {
+    clearTimeout(this.#soon);
+    this.#endGlide();
     this.playing = false;
     this.#lastSet = null;
     if (this.#raf) cancelAnimationFrame(this.#raf);

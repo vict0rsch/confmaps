@@ -125,7 +125,24 @@ export function travelDisplay(raw: number, stepped: boolean): number {
   return i + easeInOut((raw - i - DWELL) / (1 - DWELL));
 }
 
-/** The path drawn up to `progress` (0 = first stop … legs.length = complete), and its head. */
+/** Opacity of the oldest edition's marks in history mode; the newest's are at 1. */
+export const MIN_OPACITY = 0.35;
+
+/**
+ * Opacity of an edition's marks (its pins, the leg arriving at it) by age: linear in its year,
+ * from MIN_OPACITY for the oldest to 1 for the newest. A single year (no span) stays at 1.
+ */
+export function ageOpacity(year: number, span: { oldest: number; newest: number }): number {
+  if (span.newest <= span.oldest) return 1;
+  const t = Math.max(0, Math.min(1, (year - span.oldest) / (span.newest - span.oldest)));
+  return MIN_OPACITY + (1 - MIN_OPACITY) * t;
+}
+
+/**
+ * The path drawn up to `progress` (0 = first stop … legs.length = complete), and its head. Each
+ * leg moves by whole turns to start within ±180°: MapLibre's GeoJSON tiles keep one world copy
+ * either side, so the legs of a path that keeps circling the globe would vanish past ±540°.
+ */
 export function pathAt(
   legs: readonly Coord[][],
   progress: number,
@@ -135,7 +152,9 @@ export function pathAt(
   legs.forEach((leg, i) => {
     const f = Math.max(0, Math.min(1, progress - i));
     if (f <= 0) return;
-    const line = f >= 1 ? leg : trimLine(leg, f);
+    const turn = 360 * Math.round(leg[0][0] / 360);
+    const cut = f >= 1 ? leg : trimLine(leg, f);
+    const line = turn ? cut.map(([lng, lat]): Coord => [lng - turn, lat]) : cut;
     lines.push(line);
     if (f < 1) head = line[line.length - 1];
   });
@@ -145,19 +164,17 @@ export function pathAt(
 export type StopLabel = { lng: number; lat: number; years: string; city: string };
 
 /**
- * Year labels for the stops revealed so far (index ≤ `upTo`). Stops at the same place (a series
- * returning to a city) share one label: "2025 · 2027".
+ * Year labels for the stops revealed so far (index ≤ `upTo`), at longitudes within ±180° (see
+ * `pathAt`). Stops at the same place (a series returning to a city) share one label: "2025 · 2027".
  */
 export function stopLabels(stops: readonly Stop[], upTo: number): StopLabel[] {
   const out: (StopLabel & { list: number[] })[] = [];
   stops.forEach((s, i) => {
     if (i > upTo) return;
-    const wrapped = { lat: s.lat, lng: ((((s.lng + 180) % 360) + 360) % 360) - 180 };
-    const same = out.find((l) =>
-      samePlace({ lat: l.lat, lng: ((((l.lng + 180) % 360) + 360) % 360) - 180 }, wrapped),
-    );
+    const wrapped = { lat: s.lat, lng: s.lng - 360 * Math.round(s.lng / 360) };
+    const same = out.find((l) => samePlace(l, wrapped));
     if (same) same.list.push(...s.years.filter((y) => !same.list.includes(y)));
-    else out.push({ lng: s.lng, lat: s.lat, years: '', city: s.city, list: [...s.years] });
+    else out.push({ lng: wrapped.lng, lat: s.lat, years: '', city: s.city, list: [...s.years] });
   });
   return out.map(({ list, ...l }) => ({ ...l, years: list.sort().join(' · ') }));
 }
@@ -193,6 +210,10 @@ export function mergeCloseLabels(labels: readonly StopLabel[], zoom: number): La
   const GAP = 4;
   const overlap = (a: LabelGroup, b: LabelGroup) => {
     const [p, q] = [box(a), box(b)];
+    // Labels are wrapped to ±180°: compare across the antimeridian by taking q's nearest world copy.
+    const shift = Math.round((p.left - q.left) / world) * world;
+    q.left += shift;
+    q.right += shift;
     return (
       p.left < q.right + GAP &&
       q.left < p.right + GAP &&
