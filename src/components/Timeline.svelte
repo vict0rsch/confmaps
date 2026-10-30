@@ -30,6 +30,7 @@
     toDomainEdge,
     windowLabel,
     type Part,
+    type Preset,
   } from '../lib/timeline/window';
   import Icon from './Icon.svelte';
 
@@ -44,18 +45,25 @@
   let width = $state(0);
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
-  // starts at most 5 years back ("Since <year>" or history mode reach further).
+  // starts at most 5 years back ("Since <year>" or history mode reach further). Its start is
+  // rebuilt (it may shrink) when the filters move the span start, or on "Since <year>"; the end
+  // stays.
   let extent: Domain | undefined;
-  const domain: Domain = $derived.by(
-    () =>
-      (extent = coverDomain(
-        extent,
-        axisSpan(scope.span, app.today),
-        dates,
-        { from: app.today, to: app.today },
-        inHistory ? dataSpan(app.visibleLocations) : null,
-      )),
-  );
+  let extentFrom = '';
+  const restartAxis = () => {
+    if (extent) extent = { start: Infinity, end: extent.end };
+  };
+  const domain: Domain = $derived.by(() => {
+    if (scope.span.from !== extentFrom) restartAxis();
+    extentFrom = scope.span.from;
+    return (extent = coverDomain(
+      extent,
+      axisSpan(scope.span, app.today),
+      dates,
+      { from: app.today, to: app.today },
+      inHistory ? dataSpan(app.visibleLocations) : null,
+    ));
+  });
   const x = (day: number) => toX(day, domain, width);
 
   const BARS_H = $derived(compact ? 16 : 22);
@@ -194,9 +202,11 @@
     set(next);
   }
 
-  function applyPreset(w: DateWindow) {
+  function applyPreset(p: Preset) {
     play.pause();
-    set(w);
+    // Only when the window changes: the domain is recomputed right away, not during a later drag.
+    if (p.id === 'all' && !sameWindow(p.w, getDates())) restartAxis();
+    set(p.w);
   }
 
   const offset = (iso: string) => dayNumber(iso) - domain.start;
@@ -413,7 +423,7 @@
               type="button"
               class="preset"
               aria-pressed={sameWindow(dates, p.w)}
-              onclick={() => applyPreset(p.w)}
+              onclick={() => applyPreset(p)}
               ><span class="full">{p.label}</span><span class="short" aria-hidden="true"
                 >{p.short}</span
               ></button

@@ -5,7 +5,7 @@ vi.mock('../analytics', () => ({ track: vi.fn() }));
 import { track } from '../analytics';
 import { liveIds, shownIds } from '../map/choreography';
 import { historyStops } from '../timeline/history';
-import { addDays, windowDays } from '../timeline/scale';
+import { addDays, dataSpan, windowDays } from '../timeline/scale';
 import { app } from './app.svelte';
 import { defaultDates, filterState, getDates, setDates } from './filters.svelte';
 import { historyMode, play, PlayState, scope } from './timeline.svelte';
@@ -84,6 +84,32 @@ describe('PlayState', () => {
   it('cannot play a window wider than the data', () => {
     setDates({ from: addDays(scope.span.from, -1), to: addDays(scope.span.to, 1) });
     expect(play.canPlay).toBe(false);
+  });
+});
+
+describe('scope.span', () => {
+  const all = dataSpan(app.data.locations)!;
+
+  it('covers all data when no filter is applied', () => {
+    expect(scope.span).toEqual(all);
+  });
+
+  it('starts at the first event passing the filters; the end stays at the data end', () => {
+    filterState.set('search', 'iclr');
+    const from = scope.candidates.map((l) => l.start).sort()[0];
+    expect(from > all.from).toBe(true);
+    expect(scope.span).toEqual({ from, to: all.to });
+    // Play rewinds to that start.
+    setDates({ from: '2026-01-01', to: all.to });
+    play.play();
+    expect(getDates().from).toBe(`${from.slice(0, 7)}-01`);
+    play.pause();
+  });
+
+  it('falls back to all data when nothing passes the filters', () => {
+    filterState.set('search', 'zzzz-no-match');
+    expect(scope.candidates).toHaveLength(0);
+    expect(scope.span).toEqual(all);
   });
 });
 
