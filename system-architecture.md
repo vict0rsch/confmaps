@@ -366,8 +366,8 @@ results. METHODOLOGY.md explains the method; DESIGN.md §4 sets the wording rule
 
 ### Analytics
 
-`lib/analytics.ts` calls GoatCounter's count endpoint directly. It does nothing unless the build
-sets `VITE_GOATCOUNTER_CODE`, and it respects Do Not Track and Global Privacy Control. Events
+`lib/analytics.ts` POSTs to Umami Cloud's send endpoint directly. It does nothing unless the build
+sets `VITE_UMAMI_WEBSITE_ID`, and it respects Do Not Track and Global Privacy Control. Events
 carry an event name only. PRIVACY.md lists them.
 
 ## 7. Discovery agent

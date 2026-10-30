@@ -785,15 +785,18 @@ Past main editions can be virtual or hybrid (§2.4, §2.5).
 
 ## 6. Analytics
 
-GoatCounter (cookieless, no consent banner), page views + anonymous custom events only:
+Umami Cloud (cookieless, no consent banner), page views + anonymous custom events only:
 `filter_used:<id>`, `history_mode_opened`, `play_pressed`, `myclimate_clicked`, `share_opened`.
-Never coordinates, cities, or free text. Event list documented in `PRIVACY.md`, linked from the footer.
+The app never sends coordinates, cities, or free text. Event list documented in `PRIVACY.md`,
+linked from the footer. Umami derives an approximate location (down to city) and a monthly visitor
+hash from the request; `PRIVACY.md` says so.
 
-As built: no third-party script. The app calls GoatCounter's documented **count endpoint** directly
-(`src/lib/analytics.ts`), so nothing is stored in the browser. It is **off unless the `GOATCOUNTER_CODE`
-Actions variable is set** (passed to the build as `VITE_GOATCOUNTER_CODE` by `deploy.yml`), off on
-localhost, and **Do Not Track and Global Privacy Control are respected**. Each event is sent at most
-once per page load; the page view carries only the referrer's origin.
+As built: no third-party script. The app POSTs to Umami's documented **send endpoint**
+(`https://gateway.umami.is/api/send`) directly (`src/lib/analytics.ts`), so nothing is stored in the
+browser. It is **off unless the `UMAMI_WEBSITE_ID` Actions variable is set** (passed to the build as
+`VITE_UMAMI_WEBSITE_ID` by `deploy.yml`), off on localhost, and **Do Not Track and Global Privacy
+Control are respected**. Each event is sent at most once per page load; the page view carries only
+the referrer's origin.
 
 ## 7. Hosting
 

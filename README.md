@@ -63,10 +63,10 @@ See DESIGN.md §3 for the evidence checks and the workflow (`discover.yml`, manu
 
 ## Analytics (optional)
 
-Cookieless [GoatCounter](https://www.goatcounter.com), off unless configured (see
-[PRIVACY.md](PRIVACY.md)). To enable it, create a GoatCounter site and add its code (the `xxx` in
-`xxx.goatcounter.com`) as a repository **variable** named `GOATCOUNTER_CODE` (Settings, Secrets and
-variables, Actions, Variables). `deploy.yml` passes it to the build as `VITE_GOATCOUNTER_CODE`.
+Cookieless [Umami Cloud](https://umami.is), off unless configured (see [PRIVACY.md](PRIVACY.md)).
+To enable it, add the site in Umami Cloud and set its website ID (a UUID, under Settings, Websites)
+as a repository **variable** named `UMAMI_WEBSITE_ID` (Settings, Secrets and variables, Actions,
+Variables). `deploy.yml` passes it to the build as `VITE_UMAMI_WEBSITE_ID`.
 Do Not Track and Global Privacy Control are respected.
 
 ## Data sources and licences
