@@ -525,7 +525,7 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   place share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
   While a conference is open, the timeline also shows "Play NeurIPS history" beside Play, the same
   entry point; narrow bars shorten it to an icon and "History", then to the icon alone. History mode
-  hides it (Exit takes over).
+  hides it (Exit takes over). The list's header repeats "Exit history".
   Either button starts Play 1 s after the click, once the entry (path drawn in, camera
   fit) has settled; leaving history mode, another series, Play/Pause or a scrub first cancels it.
   Opening `?h=` from a link does not play.
