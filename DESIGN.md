@@ -519,10 +519,13 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   "Since <year>", from the timeline or from the filter panel. The axis still covers the current
   window. A filter change never moves the window, except an active "Since <year>", which follows
   the new start (not in history mode).
-- **History mode:** from a conference's detail ("View history"), show all editions of its series,
-  linked chronologically by a curved path with year labels (consecutive editions in the same place
-  share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
-  The "View history" button starts Play 1 s after the click, once the entry (path drawn in, camera
+- **History mode:** from a conference's detail ("View NeurIPS history"), show all editions of its
+  series, linked chronologically by a curved path with year labels (consecutive editions in the same
+  place share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
+  While a conference is open, the timeline also shows "Play NeurIPS history" beside Play, the same
+  entry point; narrow bars shorten it to an icon and "History", then to the icon alone. History mode
+  hides it (Exit takes over).
+  Either button starts Play 1 s after the click, once the entry (path drawn in, camera
   fit) has settled; leaving history mode, another series, Play/Pause or a scrub first cancels it.
   Opening `?h=` from a link does not play.
   The stops on the track are clickable: a stop pauses Play there and glides the path to it (in
@@ -731,7 +734,7 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
   empty map keeps MapLibre's zoom in.
-- Detail: "View history" as the primary button under the title, then dates, deadline status,
+- Detail: "View <series> history" as the full-width primary button under the title, then dates, deadline status,
   each site with access, distance, estimated CO₂, myclimate link. A flight estimate is nonstop,
   with a second line for one connection each way ("~4.6–4.0 t depending on layovers";
   METHODOLOGY.md, Layovers). The list and filters use the nonstop figure.

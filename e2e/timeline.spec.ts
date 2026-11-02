@@ -87,7 +87,7 @@ test('"Since <year>" from the filter panel rebuilds the axis start', async ({ pa
 test('history mode opens from a conference detail and lives in the URL', async ({ page }) => {
   await page.goto('/');
   await page.locator('button.row[data-conference-id="neurips26"]').click();
-  await page.getByTestId('detail').getByRole('button', { name: 'View history' }).click();
+  await page.getByTestId('detail').getByRole('button', { name: 'View NeurIPS history' }).click();
   await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
   await expect(page).not.toHaveURL(/[?&]c=/);
   // One list row per edition (the count depends on how far back the data goes).
@@ -107,6 +107,20 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await page.getByRole('button', { name: 'Exit history' }).click();
   await expect(page).not.toHaveURL(/[?&]h=/);
   await expect(page.getByTestId('timeline-range')).toBeVisible();
+});
+
+test('the timeline plays the open conference history', async ({ page }) => {
+  await page.goto('/');
+  const timeline = page.getByTestId('timeline');
+  const button = timeline.getByRole('button', { name: 'Play NeurIPS history' });
+  await expect(page.getByTestId('timeline-range')).toBeVisible();
+  await expect(button).toHaveCount(0);
+
+  await page.locator('button.row[data-conference-id="neurips26"]').click();
+  await button.click();
+  await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
+  await expect(page.getByTestId('history-meta')).toBeVisible();
+  await expect(button).toHaveCount(0);
 });
 
 test('history stops: click or arrow keys to step through the editions', async ({ page }) => {

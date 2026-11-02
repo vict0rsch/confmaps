@@ -72,14 +72,15 @@ export class HistoryState {
   /** Years of the visible virtual editions, which have no stop on the path. */
   readonly onlineYears: number[] = $derived(this.series ? onlineYears(app.visibleLocations) : []);
   /** Display name, from the latest edition (e.g. "NeurIPS"). */
-  readonly title: string = $derived.by(() => {
-    const s = this.series;
-    if (!s) return '';
+  readonly title: string = $derived(this.series ? this.titleOf(this.series) : '');
+
+  /** A series' display name, from its latest edition (e.g. "NeurIPS" for `neurips`). */
+  titleOf(series: string): string {
     const latest = app.data.conferences
-      .filter((c) => c.series === s)
+      .filter((c) => c.series === series)
       .sort((a, b) => b.year - a.year)[0];
-    return latest?.title ?? s;
-  });
+    return latest?.title ?? series;
+  }
 
   isSeries(series: string): boolean {
     return app.data.conferences.some((c) => c.series === series);

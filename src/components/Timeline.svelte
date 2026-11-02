@@ -36,7 +36,14 @@
   } from '../lib/timeline/window';
   import Icon from './Icon.svelte';
 
-  let { compact = false }: { compact?: boolean } = $props();
+  let {
+    compact = false,
+    onViewHistory,
+  }: {
+    compact?: boolean;
+    /** History mode entry point for the open conference, as the detail's button. */
+    onViewHistory?: () => void;
+  } = $props();
   const uid = $props.id();
 
   const dates = $derived(getDates());
@@ -317,6 +324,14 @@
         {/if}
       </svg>
     </button>
+    <!-- Beside Play, before the speed's slot. In history mode, the label and Exit replace it. -->
+    {#if onViewHistory && app.selectedConference && !inHistory}
+      {@const label = `Play ${historyMode.titleOf(app.selectedConference.series)} history`}
+      <button class="button view-history" type="button" aria-label={label} onclick={onViewHistory}>
+        <Icon name="history" size={16} />
+        <span class="full">{label}</span><span class="short" aria-hidden="true">History</span>
+      </button>
+    {/if}
     {#if !(compact && inHistory)}
       <button
         class="speed tabular"
@@ -1044,6 +1059,67 @@
   }
 
   /* ---- History mode ---- */
+  /* The entry point: the shared .button capsule with the accent fill (as Share's Copy). */
+  .view-history {
+    flex: none;
+    border-color: transparent;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: var(--weight-semibold);
+    white-space: nowrap;
+  }
+
+  .view-history:hover {
+    background: var(--accent);
+    filter: brightness(1.08);
+  }
+
+  .view-history .short {
+    display: none;
+  }
+
+  .compact .view-history {
+    height: 32px;
+    padding: 0 var(--space-3);
+  }
+
+  /* Narrow bar (the desktop panel beside the sidebar, phones): icon + "History", so the track
+     keeps its room. The full label stays the accessible name. */
+  @container timeline (max-width: 1100px) {
+    .view-history .full {
+      display: none;
+    }
+
+    .view-history .short {
+      display: inline;
+    }
+  }
+
+  /* Narrowest bars (the desktop panel at a 1024 px window, 320 px phones): the icon alone. */
+  @container timeline (max-width: 700px) {
+    .timeline:not(.compact) .view-history {
+      width: 36px;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .timeline:not(.compact) .view-history .short {
+      display: none;
+    }
+  }
+
+  @container timeline (max-width: 340px) {
+    .compact .view-history {
+      width: 32px;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .compact .view-history .short {
+      display: none;
+    }
+  }
+
   .history-label {
     display: flex;
     flex-direction: column;
