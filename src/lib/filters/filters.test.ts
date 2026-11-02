@@ -10,6 +10,7 @@ import { kindFilter } from './kind';
 import { openFilter, submissionOpen } from './open';
 import { radiusFilter } from './radius';
 import { cleanQuery, fold, matchesQuery, searchFilter } from './search';
+import { seriesFilter } from './series';
 import { normalizeTag, subjectCatalog, subjectFilter, subjectOfTag, SUBJECTS } from './subject';
 import { RESERVED_PARAMS, SELECTION_PARAM, TRAVEL_PARAMS } from '../state/url';
 import type { AnyFilter } from './types';
@@ -25,9 +26,10 @@ function roundTrips(f: AnyFilter, states: unknown[]) {
 describe('registry', () => {
   const filters = createFilters(today);
 
-  it('lists the 8 filters with unique ids and non-colliding URL params', () => {
+  it('lists the 9 filters with unique ids and non-colliding URL params', () => {
     expect(filters.map((f) => f.id)).toEqual([
       'search',
+      'series',
       'dates',
       'subject',
       'radius',
@@ -360,6 +362,23 @@ describe('kind', () => {
     expect(kindFilter.isActive(null)).toBe(false);
     roundTrips(kindFilter, [null, 'official', 'community']);
     expect(kindFilter.fromURL('kind=Official')).toBeNull();
+  });
+});
+
+describe('series', () => {
+  it('keeps the editions of one series', () => {
+    const c = ctx();
+    expect(seriesFilter.test(location({}, { series: 'icml' }), c, 'icml')).toBe(true);
+    expect(seriesFilter.test(location({}, { series: 'neurips' }), c, 'icml')).toBe(false);
+  });
+
+  it('is inactive by default; URL round-trips and rejects junk', () => {
+    expect(seriesFilter.isActive(null)).toBe(false);
+    expect(seriesFilter.isActive('icml')).toBe(true);
+    roundTrips(seriesFilter, [null, 'icml', 'acm-mm']);
+    expect(seriesFilter.fromURL('series=ICML')).toBeNull();
+    expect(seriesFilter.fromURL('series=a%20b')).toBeNull();
+    expect(seriesFilter.fromURL(`series=${'a'.repeat(41)}`)).toBeNull();
   });
 });
 

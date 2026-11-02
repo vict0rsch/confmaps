@@ -84,12 +84,14 @@ test('"Since <year>" from the filter panel rebuilds the axis start', async ({ pa
   await expect.poll(firstYear).toBeLessThanOrEqual(2015);
 });
 
-test('history mode opens from a conference detail and lives in the URL', async ({ page }) => {
+test('View history sets the Series filter and tours its editions', async ({ page }) => {
   await page.goto('/');
   await page.locator('button.row[data-conference-id="neurips26"]').click();
   await page.getByTestId('detail').getByRole('button', { name: 'View history' }).click();
-  await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
-  await expect(page).not.toHaveURL(/[?&]c=/);
+  await expect(page).toHaveURL(/[?&]series=neurips(&|$)/);
+  await expect(page).not.toHaveURL(/[?&](h|c)=/);
+  const chip = page.locator('button.chip[data-filter="series"]');
+  await expect(chip).toHaveClass(/active/);
   // One list row per edition (the count depends on how far back the data goes).
   const meta = page.getByTestId('history-meta');
   await expect(meta).toHaveText(/^\d+ editions/);
@@ -98,19 +100,69 @@ test('history mode opens from a conference detail and lives in the URL', async (
   // The button plays the editions after a short wait.
   await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
 
-  // A link does not.
-  await page.reload();
-  await expect(meta).toHaveText(new RegExp(`^${editions} editions`));
-  await page.waitForTimeout(1500);
-  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
-
-  await page.getByRole('button', { name: 'Exit history' }).click();
-  await expect(page).not.toHaveURL(/[?&]h=/);
+  // Exiting the tour keeps the filter.
+  await page.getByRole('button', { name: 'Exit tour' }).click();
+  await expect(chip).toHaveClass(/active/);
   await expect(page.getByTestId('timeline-range')).toBeVisible();
+
+  // The link holds the filter, not the tour.
+  await page.reload();
+  await expect(page.locator('#list-heading .count')).toHaveText(`${editions}`);
+  await expect(meta).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Tour', exact: true })).toBeEnabled();
+});
+
+test('Tour plays the visible conferences; a filter change ends it', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Tour', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
+  await expect(page.locator('button.row.current')).toHaveCount(1);
+  await page.getByLabel('Search conferences').fill('iclr');
+  await expect(page.getByRole('button', { name: 'Exit tour' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Play timeline' })).toBeVisible();
+  await expect(page.locator('button.row.current')).toHaveCount(0);
+});
+
+test('a tour ended by a home change stays ended when the home changes back', async ({ page }) => {
+  const setHome = async (query: string) => {
+    const input = page.getByRole('combobox', { name: 'Your city' });
+    const change = page.getByRole('button', { name: 'Change location' });
+    if (!(await input.or(change).isVisible())) await page.getByTestId('home-pill').click();
+    await input.or(change).waitFor();
+    if (await change.isVisible()) await change.click();
+    await input.click();
+    await input.fill(query);
+    await expect(page.getByRole('option').first()).toContainText(query);
+    await page.keyboard.press('Enter');
+    await expect(page.getByTestId('home-city')).toContainText(query);
+  };
+  // ICML within 2,000 km of home: several editions from Paris, one (2017) from Sydney.
+  await page.goto('/?series=icml&from=2000-01&to=2027-12&radius=2000');
+  await setHome('Paris');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Tour', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Exit tour' })).toBeVisible();
+  await setHome('Sydney');
+  await expect(page.getByRole('button', { name: 'Exit tour' })).toHaveCount(0);
+  await setHome('Paris');
+  await page.waitForTimeout(1500); // longer than the autoplay delay
+  await expect(page.getByRole('button', { name: 'Exit tour' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Play timeline' })).toBeVisible();
+});
+
+test('Tour is disabled above 200 conferences', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('timeline').getByRole('button', { name: 'Past 5 years' }).click();
+  const tour = page.getByRole('button', { name: 'Tour', exact: true });
+  await expect(tour).toBeDisabled();
+  await expect(tour).toHaveAttribute('title', /200 conferences or fewer \(now [\d,]+\)/);
 });
 
 test('history stops: click or arrow keys to step through the editions', async ({ page }) => {
   await page.goto('/?h=icml');
+  // The link becomes the Series filter.
+  await expect(page).toHaveURL(/[?&]series=icml(&|$)/);
+  await expect(page).not.toHaveURL(/[?&]h=/);
   const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
   const n = await stops.count();
   expect(n).toBeGreaterThan(3);
@@ -118,7 +170,7 @@ test('history stops: click or arrow keys to step through the editions', async ({
   await expect(stops.nth(n - 1)).toBeChecked();
   const mid = Math.floor(n / 2);
   await stops.nth(mid).click();
-  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Play the tour' })).toBeVisible();
   await expect(stops.nth(mid)).toBeChecked();
   await expect(stops.nth(mid)).toHaveAccessibleName(/^\d{4}(, \d{4})*, .+/);
   // The tooltip shows the same text as the name, e.g. "2019 · Long Beach": on hover, and on

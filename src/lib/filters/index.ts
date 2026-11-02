@@ -7,6 +7,7 @@ import { kindFilter } from './kind';
 import { openFilter } from './open';
 import { radiusFilter } from './radius';
 import { searchFilter } from './search';
+import { seriesFilter } from './series';
 import { subjectFilter } from './subject';
 import type { AnyFilter } from './types';
 
@@ -14,6 +15,7 @@ import type { AnyFilter } from './types';
 export function createFilters(today: string | (() => string)): AnyFilter[] {
   return [
     searchFilter,
+    seriesFilter,
     createDatesFilter(today),
     subjectFilter,
     radiusFilter,

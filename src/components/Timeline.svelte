@@ -7,7 +7,8 @@
   import { app } from '../lib/state/app.svelte';
   import type { DateWindow } from '../lib/state/derive';
   import { getDates, setDates } from '../lib/state/filters.svelte';
-  import { historyMode, play, scope } from '../lib/state/timeline.svelte';
+  import { play, scope, tour, TOUR_MAX } from '../lib/state/timeline.svelte';
+  import { stopText } from '../lib/timeline/history';
   import {
     axisTicks,
     coverDomain,
@@ -41,13 +42,13 @@
 
   const dates = $derived(getDates());
   const rangeLabel = $derived(windowLabel(dates, compact));
-  const inHistory = $derived(!!historyMode.series);
+  const inTour = $derived(tour.active);
 
   let trackEl: HTMLDivElement | undefined = $state();
   let width = $state(0);
 
   // The axis only ever grows (sticky), so it never rescales under a dragged handle or Play. It
-  // starts at most 5 years back ("Since <year>" or history mode reach further). Its start is
+  // starts at most 5 years back ("Since <year>" or a tour reach further). Its start is
   // rebuilt (it may shrink) when the filters move the span start (Play is paused then), or when
   // the window becomes "Since <year>", whatever set it (not mid-drag or during Play); the end
   // stays.
@@ -69,20 +70,20 @@
       axisSpan(scope.span, app.today),
       dates,
       { from: app.today, to: app.today },
-      inHistory ? dataSpan(app.visibleLocations) : null,
+      inTour ? dataSpan(app.visibleLocations) : null,
     ));
   });
   const x = (day: number) => toX(day, domain, width);
 
   // A filter change that moves the span start pauses Play (like any outside change of the
-  // window), and an active "Since <year>" follows to the new start; not in history mode. Only the
+  // window), and an active "Since <year>" follows to the new start; not in a tour. Only the
   // span start is tracked; a filter change leaves the dates as they were, and moving them does not
   // change the span. Before the render, so the axis is drawn once, already paused.
   let sinceFrom = scope.span.from;
   $effect.pre(() => {
     const from = scope.span.from;
     untrack(() => {
-      if (from === sinceFrom || inHistory) return;
+      if (from === sinceFrom || inTour) return;
       play.pause();
       const w = followSince(getDates(), sinceFrom, from, app.today);
       if (w) {
@@ -117,9 +118,9 @@
   const win = $derived({ x0: x(dayNumber(dates.from)), x1: x(dayNumber(dates.to) + 1) });
   const presets = $derived(datePresets(app.today, scope.span.from));
 
-  // ---- History mode: stops on the axis, progress along them ----------------
-  const stopXs = $derived(historyMode.stops.map((s) => x(dayNumber(s.start))));
-  const travelled = $derived(play.travelShown ?? Math.max(0, historyMode.stops.length - 1));
+  // ---- Tour: stops on the axis, progress along them ------------------------
+  const stopXs = $derived(tour.stops.map((s) => x(dayNumber(s.start))));
+  const travelled = $derived(play.travelShown ?? Math.max(0, tour.stops.length - 1));
   const progressX = $derived.by(() => {
     if (!stopXs.length) return 0;
     const i = Math.min(Math.floor(travelled), stopXs.length - 1);
@@ -148,7 +149,7 @@
   // Arrows step from the focused stop (`at`) to the previous / next one, Home / End to the first
   // stop / the whole path.
   function onstopkeydown(e: KeyboardEvent, at: number) {
-    const last = historyMode.stops.length - 1;
+    const last = tour.stops.length - 1;
     let to: number;
     switch (e.key) {
       case 'ArrowLeft':
@@ -174,25 +175,33 @@
     stopEls[i]?.focus();
   }
   const yearsText = $derived.by(() => {
-    const ys = historyMode.years;
-    if (!ys.length) return '';
-    return ys.length === 1 ? String(ys[0]) : `${ys[0]}–${ys[ys.length - 1]}`;
+    if (!inTour || !app.visibleLocations.length) return '';
+    const ys = app.visibleLocations.map((l) => l.conference.year);
+    const [first, last] = [Math.min(...ys), Math.max(...ys)];
+    return first === last ? String(first) : `${first}–${last}`;
   });
+  // One series: its editions; else the conferences toured.
   const editionsText = $derived.by(() => {
-    const n = historyMode.years.length;
+    const n = tour.series ? tour.years.length : app.listItems.length;
     if (!n) return 'No editions match the current filters';
+    if (!tour.series) return `${n} ${n === 1 ? 'conference' : 'conferences'} · ${yearsText}`;
     return n === 1 ? `1 edition · ${yearsText}` : `${n} editions · ${yearsText}`;
   });
 
-  const playLabel = $derived(
-    play.playing ? 'Pause' : inHistory ? 'Play through the editions' : 'Play timeline',
-  );
+  const playLabel = $derived(play.playing ? 'Pause' : inTour ? 'Play the tour' : 'Play timeline');
   const playTitle = $derived(
     play.canPlay
       ? playLabel
-      : inHistory
-        ? 'Only one edition on record so far'
+      : inTour
+        ? 'Only one stop to visit'
         : 'The window already covers all events',
+  );
+  const tourTitle = $derived(
+    tour.canStart
+      ? 'Tour'
+      : app.listItems.length > TOUR_MAX
+        ? `Narrow your filters to ${TOUR_MAX} conferences or fewer (now ${app.listItems.length.toLocaleString('en-US')})`
+        : 'Fewer than two places to visit',
   );
 
   // ---- Pointer: drag a handle, drag the window, or press the bare track --------
@@ -204,7 +213,7 @@
   }
 
   function onpointerdown(e: PointerEvent) {
-    if (inHistory || e.button !== 0 || !trackEl) return;
+    if (inTour || e.button !== 0 || !trackEl) return;
     const target = (e.target as Element).closest<HTMLElement>('[data-part]');
     let part = (target?.dataset.part ?? 'track') as Part | 'track';
     play.pause();
@@ -288,7 +297,7 @@
 <section
   class="timeline"
   class:compact
-  class:history={inHistory}
+  class:history={inTour}
   class:dragging={!!drag}
   aria-label="Timeline"
   data-testid="timeline"
@@ -317,7 +326,20 @@
         {/if}
       </svg>
     </button>
-    {#if !(compact && inHistory)}
+    {#if !inTour}
+      <button
+        class="button tour"
+        type="button"
+        aria-label={compact ? 'Tour' : undefined}
+        title={tourTitle}
+        disabled={!tour.canStart}
+        onclick={() => tour.enter()}
+      >
+        <Icon name="history" size={14} />
+        {#if !compact}Tour{/if}
+      </button>
+    {/if}
+    {#if !(compact && inTour)}
       <button
         class="speed tabular"
         type="button"
@@ -328,15 +350,15 @@
     {/if}
   </div>
 
-  {#if inHistory}
+  {#if inTour}
     <div class="history-label">
       <span class="history-title">
         <Icon name="history" size={14} />
-        {historyMode.title}{compact ? '' : ' history'}
+        {tour.series ? `${tour.title}${compact ? '' : ' history'}` : 'Tour'}
         <!-- Compact bar: no room; the list marks those editions Virtual. -->
-        {#if historyMode.onlineYears.length && !compact}
+        {#if tour.onlineYears.length && !compact}
           <span class="history-online tabular" data-testid="history-online">
-            Online: {historyMode.onlineYears.join(' · ')}
+            Online: {tour.onlineYears.join(' · ')}
           </span>
         {/if}
       </span>
@@ -346,7 +368,7 @@
     </div>
   {/if}
 
-  {#if !(compact && inHistory)}
+  {#if !(compact && inTour)}
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
       class="track"
@@ -359,7 +381,7 @@
       onpointercancel={onpointerup}
     >
       {#if width > 0}
-        {#if !inHistory}
+        {#if !inTour}
           <!-- The selection sits under the bars; the bars ignore the pointer, so presses reach it. -->
           <div
             class="window"
@@ -401,7 +423,7 @@
               {/each}
             </g>
           {/snippet}
-          {#if inHistory}
+          {#if inTour}
             {@render barsOf('bar-muted')}
           {:else}
             {@render barsOf('bar-muted')}
@@ -409,7 +431,7 @@
           {/if}
         </svg>
 
-        {#if inHistory && stopXs.length}
+        {#if inTour && stopXs.length}
           <svg class="stops" {width} height={BARS_H} aria-hidden="true">
             <line
               class="stops-line"
@@ -433,14 +455,14 @@
             aria-label="Editions"
             style:height="{BARS_H}px"
           >
-            {#each historyMode.stops as s, i (i)}
+            {#each tour.stops as s, i (i)}
               <button
                 type="button"
                 class="stop"
                 class:reached={i <= Math.floor(travelled + 1e-6)}
                 role="radio"
                 aria-checked={i === play.stopIndex}
-                aria-label="{s.years.join(', ')}, {s.city}"
+                aria-label="{stopText(s, tour.named).join(', ')}, {s.city}"
                 tabindex={i === play.stopIndex ? 0 : -1}
                 style:left="{stopXs[i]}px"
                 style:width="{stopHit(i)}px"
@@ -459,7 +481,7 @@
 
         <div class="today" style:left="{todayX}px" aria-hidden="true"></div>
 
-        {#if !inHistory}
+        {#if !inTour}
           <div
             class="handle"
             data-part="from"
@@ -503,18 +525,18 @@
   {/if}
 
   <!-- Each stop's accessible name already says this. -->
-  {#if inHistory && tipStop !== null && historyMode.stops[tipStop]}
-    {@const s = historyMode.stops[tipStop]}
+  {#if inTour && tipStop !== null && tour.stops[tipStop]}
+    {@const s = tour.stops[tipStop]}
     <div class="stop-tip glass-thick" bind:this={tipEl} style:left="{tipX}px" aria-hidden="true">
-      <span class="stop-tip-years">{s.years.join(' · ')}</span> · {s.city}
+      <span class="stop-tip-years">{stopText(s, tour.named).join(' · ')}</span> · {s.city}
     </div>
   {/if}
 
   <div class="aside">
-    {#if inHistory}
-      <button class="button exit" type="button" onclick={() => historyMode.exit()}>
+    {#if inTour}
+      <button class="button exit" type="button" onclick={() => tour.exit()}>
         <Icon name="close" size={14} />
-        {compact ? 'Exit' : 'Exit history'}
+        {compact ? 'Exit' : 'Exit tour'}
       </button>
     {:else}
       {#if !compact}
@@ -1043,7 +1065,7 @@
     }
   }
 
-  /* ---- History mode ---- */
+  /* ---- Tour ---- */
   .history-label {
     display: flex;
     flex-direction: column;
@@ -1082,6 +1104,19 @@
     /* Not baseline: the title's leading icon would set it and drop the text below the meta. */
     align-items: center;
     gap: var(--space-2);
+  }
+
+  /* Tour: beside Play, the size of Exit. */
+  .tour {
+    height: 32px;
+    padding: 0 var(--space-3);
+    white-space: nowrap;
+  }
+
+  .compact .tour {
+    width: 32px;
+    padding: 0;
+    justify-content: center;
   }
 
   /* Exit stands out in the accent's soft tint, below Play's solid fill. */

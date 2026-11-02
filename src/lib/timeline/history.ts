@@ -1,5 +1,5 @@
-// History mode geometry (DESIGN §5.4), pure: a series' editions as chronological stops (main
-// venues), the curved path linking them, its year labels, and travel progress for Play.
+// Tour geometry (DESIGN §5.4), pure: the visible editions as chronological stops (main venues),
+// the curved path linking them, its labels, and travel progress for Play.
 import { isPinned, type JoinedLocation, type PinnedJoined } from '../data/load';
 import { trimLine } from '../map/geojson';
 import { easeInOut } from './motion';
@@ -14,6 +14,8 @@ export type Stop = {
   city: string;
   /** Edition years held here (consecutive editions at the same place share a stop). */
   years: number[];
+  /** Editions held here by name, e.g. "EMNLP 2023" (a track's "(…)" suffix dropped). */
+  names: string[];
   conferenceIds: string[];
   /** Start date of the first edition here. */
   start: string;
@@ -22,16 +24,25 @@ export type Stop = {
 const samePlace = (a: LngLat, b: LngLat) =>
   Math.abs(a.lat - b.lat) < 1e-3 && Math.abs(a.lng - b.lng) < 1e-3;
 
+/** "EMNLP (Industry Track)" 2023 → "EMNLP 2023". */
+const editionName = (c: { title: string; year: number }) =>
+  `${c.title.replace(/\s*\([^)]*\)$/, '')} ${c.year}`;
+
 /**
- * Chronological stops of a series from its visible locations: one per edition's main venue
- * (ordered by start date, then id). Consecutive editions at the same place merge into one stop,
- * e.g. EMNLP's main conference and its industry track. Virtual editions have no place: the path
- * skips them (the leg joins the neighbouring stops); hybrid ones are stops at their city.
+ * Chronological stops from the visible locations: one per edition's main venue (ordered by start
+ * date, then title, then id). Consecutive editions at the same place merge into one stop, e.g.
+ * EMNLP's main conference and its industry track. Virtual editions have no place: the path skips
+ * them (the leg joins the neighbouring stops); hybrid ones are stops at their city.
  */
 export function historyStops(visible: readonly JoinedLocation[]): Stop[] {
   const mains = visible
     .filter((l): l is PinnedJoined => l.role === 'main' && isPinned(l))
-    .sort((a, b) => a.start.localeCompare(b.start) || a.conferenceId.localeCompare(b.conferenceId));
+    .sort(
+      (a, b) =>
+        a.start.localeCompare(b.start) ||
+        a.conference.title.localeCompare(b.conference.title) ||
+        a.conferenceId.localeCompare(b.conferenceId),
+    );
   const stops: Stop[] = [];
   let prevLng: number | undefined;
   for (const m of mains) {
@@ -42,8 +53,10 @@ export function historyStops(visible: readonly JoinedLocation[]): Stop[] {
     }
     prevLng = lng;
     const last = stops.at(-1);
+    const name = editionName(m.conference);
     if (last && samePlace(last, { lat: m.lat, lng })) {
       if (!last.years.includes(m.conference.year)) last.years.push(m.conference.year);
+      if (!last.names.includes(name)) last.names.push(name);
       last.conferenceIds.push(m.conferenceId);
       continue;
     }
@@ -52,6 +65,7 @@ export function historyStops(visible: readonly JoinedLocation[]): Stop[] {
       lng,
       city: m.city,
       years: [m.conference.year],
+      names: [name],
       conferenceIds: [m.conferenceId],
       start: m.start,
     });
@@ -161,26 +175,45 @@ export function pathAt(
   return { lines, head };
 }
 
-export type StopLabel = { lng: number; lat: number; years: string; city: string };
+/** A stop's text: its edition names when the stops mix series (`named`), else its years. */
+export const stopText = (s: Stop, named: boolean): string[] =>
+  named ? s.names : s.years.map(String);
+
+/** `years`: the stop's text (`stopText`); `first`: index of the earliest stop it labels. */
+export type StopLabel = { lng: number; lat: number; years: string; city: string; first: number };
 
 /**
- * Year labels for the stops revealed so far (index ≤ `upTo`), at longitudes within ±180° (see
- * `pathAt`). Stops at the same place (a series returning to a city) share one label: "2025 · 2027".
+ * Labels for the stops revealed so far (index ≤ `upTo`), at longitudes within ±180° (see
+ * `pathAt`). Stops at the same place (a series returning to a city) share one label, in stop
+ * order: "2025 · 2027".
  */
-export function stopLabels(stops: readonly Stop[], upTo: number): StopLabel[] {
-  const out: (StopLabel & { list: number[] })[] = [];
+export function stopLabels(stops: readonly Stop[], upTo: number, named = false): StopLabel[] {
+  const out: (StopLabel & { list: string[] })[] = [];
   stops.forEach((s, i) => {
     if (i > upTo) return;
+    const text = stopText(s, named);
     const wrapped = { lat: s.lat, lng: s.lng - 360 * Math.round(s.lng / 360) };
     const same = out.find((l) => samePlace(l, wrapped));
-    if (same) same.list.push(...s.years.filter((y) => !same.list.includes(y)));
-    else out.push({ lng: wrapped.lng, lat: s.lat, years: '', city: s.city, list: [...s.years] });
+    if (same) same.list.push(...text.filter((t) => !same.list.includes(t)));
+    else
+      out.push({
+        lng: wrapped.lng,
+        lat: s.lat,
+        years: '',
+        city: s.city,
+        first: i,
+        list: [...text],
+      });
   });
-  return out.map(({ list, ...l }) => ({ ...l, years: list.sort().join(' · ') }));
+  return out.map(({ list, ...l }) => ({ ...l, years: list.join(' · ') }));
 }
 
 /** Labels drawn as one: anchored at the topmost stop, one row per stop, earliest first. */
-export type LabelGroup = { lng: number; lat: number; rows: { years: string; city: string }[] };
+export type LabelGroup = {
+  lng: number;
+  lat: number;
+  rows: { years: string; city: string; first: number }[];
+};
 
 /**
  * Merge labels that would overlap on screen at `zoom` (e.g. Long Beach 2017 and San Diego 2025
@@ -224,7 +257,7 @@ export function mergeCloseLabels(labels: readonly StopLabel[], zoom: number): La
   const groups: LabelGroup[] = labels.map((l) => ({
     lng: l.lng,
     lat: l.lat,
-    rows: [{ years: l.years, city: l.city }],
+    rows: [{ years: l.years, city: l.city, first: l.first }],
   }));
   for (let i = 0; i < groups.length; i++) {
     const j = groups.findIndex((g, k) => k > i && overlap(groups[i], g));
@@ -234,7 +267,7 @@ export function mergeCloseLabels(labels: readonly StopLabel[], zoom: number): La
     groups[i] = {
       lng: top.lng,
       lat: top.lat,
-      rows: [...a.rows, ...b.rows].sort((r, s) => r.years.localeCompare(s.years)),
+      rows: [...a.rows, ...b.rows].sort((r, s) => r.first - s.first),
     };
     groups.splice(j, 1);
     i = -1; // the merged label is larger: check every pair again

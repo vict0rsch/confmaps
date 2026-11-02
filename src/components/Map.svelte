@@ -25,7 +25,7 @@
   import { prefersReducedMotion, Tween } from 'svelte/motion';
   import { app } from '../lib/state/app.svelte';
   import { getDates } from '../lib/state/filters.svelte';
-  import { historyMode, play } from '../lib/state/timeline.svelte';
+  import { play, tour } from '../lib/state/timeline.svelte';
   import { animFeatures, Choreographer, liveIds, shownIds } from '../lib/map/choreography';
   import {
     boundsOf,
@@ -162,12 +162,12 @@
     })),
   }));
 
-  // ---- Timeline choreography (Play, history mode) ---------------------------
+  // ---- Timeline choreography (Play, tour) ------------------------------------
   // While the timeline animates, an unclustered presentation of every location replaces the
   // clustered one (per-pin fades can't be clustered); it hands back once motion settles.
   const anim = animFeatures(app.data.pinnedLocations);
   const motion = $derived(motionConfig(prefersReducedMotion.current));
-  const wantAnim = $derived(play.playing || !!historyMode.series);
+  const wantAnim = $derived(play.playing || tour.active);
   let animMode = $state(false);
   /** Crossfade between the presentations: 0 = clustered, 1 = animated. */
   const blend = new Tween(0, { easing: cubicOut });
@@ -176,21 +176,24 @@
   /** Pins currently shown by the animated presentation (hit-testing ignores hidden ones). */
   let shownNow: ReadonlySet<string> = new Set();
 
-  const stops = $derived(historyMode.series ? historyMode.stops : null);
+  const stops = $derived(tour.active ? tour.stops : null);
   const shown = $derived(shownIds(app.mapLocations, stops, play.travelShown));
   const live = $derived(
     play.playing ? liveIds(app.mapLocations, getDates().to, stops, play.travelShown) : null,
   );
-  /** Play's window, which pins dim across (not in history mode, whose travel has no window). */
-  const fadeWindow = $derived(play.playing && !historyMode.series ? getDates() : null);
+  /** Play's window, which pins dim across (not in a tour, whose travel has no window). */
+  const fadeWindow = $derived(play.playing && !tour.active ? getDates() : null);
 
-  // History mode: the path between editions, drawn in on entry and along with Play's travel.
-  const legs = $derived(historyLegs(historyMode.stops));
+  // Tour: the path between editions, drawn in on entry and along with Play's travel.
+  const legs = $derived(historyLegs(tour.stops));
   const intro = new Tween(1, { easing: cubicOut });
   const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
-  /** History mode: the editions' years on the map; their pins and legs fade by age across them. */
+  /** The labels of the stops reached, merged where they overlap (slow: only when they change). */
+  const reached = $derived(Math.floor(pathProgress + 1e-6));
+  const labelGroups = $derived(mergeCloseLabels(stopLabels(tour.stops, reached, tour.named), zoom));
+  /** Tour: the editions' years on the map; their pins and legs fade by age across them. */
   const ageSpan = $derived.by(() => {
-    if (!historyMode.series) return null;
+    if (!tour.active) return null;
     const ys = app.mapLocations.map((l) => l.conference.year);
     return { oldest: Math.min(...ys), newest: Math.max(...ys) };
   });
@@ -370,7 +373,7 @@
               theme,
               { selectedId: app.selectedConferenceId, hoveredId: app.hoveredConferenceId },
               animMode,
-              !!historyMode.series,
+              tour.active,
             ),
           ],
         };
@@ -417,14 +420,14 @@
     });
   });
 
-  // Feed the choreographer. Entering history mode starts from an empty map so its editions
+  // Feed the choreographer. Starting a tour starts from an empty map so its editions
   // arrive one after the other; starting Play keeps what is on screen.
   $effect(() => {
     const [want, s, l, cfg] = [wantAnim, shown, live, motion];
     if (!styleReady || !choreo) return;
     untrack(() => {
       if (want && !animMode) {
-        choreo!.reset(historyMode.series && !play.playing ? new Set() : s, cfg);
+        choreo!.reset(tour.active && !play.playing ? new Set() : s, cfg);
         animMode = true;
       }
       shownNow = s;
@@ -435,18 +438,18 @@
   });
 
   // Play: pins dim as they cross the window. On pause the dimmed pins crossfade out as they are,
-  // so they are reset only when history mode takes over the animated presentation.
+  // so they are reset only when a tour takes over the animated presentation.
   $effect(() => {
     const w = fadeWindow;
     if (!styleReady || !choreo) return;
     untrack(() => {
-      if (!w && !historyMode.series) return;
+      if (!w && !tour.active) return;
       choreo!.setWindow(w);
       kick();
     });
   });
 
-  // History mode: older editions' pins are fainter, a fixed fade under the motion's own.
+  // Tour: older editions' pins are fainter, a fixed fade under the motion's own.
   $effect(() => {
     const span = ageSpan;
     if (!styleReady || !choreo) return;
@@ -475,26 +478,25 @@
     raf = 0;
     if (!choreo || !map) return;
     if (choreo.frame(now)) return kick();
-    // Settled. Still animating (Play, history mode): the next change kicks the loop again.
+    // Settled. Still animating (Play, tour): the next change kicks the loop again.
     // Otherwise back to clusters, once their source has caught up (no stale frame).
     if (wantAnim) return;
     if (map.isSourceLoaded(SRC.pins)) animMode = false;
     else kick();
   }
 
-  // History layers: path (trimmed to the progress), travelling head, year labels.
+  // Tour layers: path (trimmed to the progress) and travelling head, every frame of travel.
   $effect(() => {
     if (!styleReady) return;
-    const on = !!historyMode.series;
+    const on = tour.active;
     const { lines, head } = on ? pathAt(legs, pathProgress) : { lines: [], head: null };
-    const labels = on ? stopLabels(historyMode.stops, Math.floor(pathProgress + 1e-6)) : [];
     source(SRC.historyPath)?.setData({
       type: 'FeatureCollection',
       // Line i is leg i, which arrives at stop i + 1.
       features: lines.map((coordinates, i): Feature<LineString> => ({
         type: 'Feature',
         geometry: { type: 'LineString', coordinates },
-        properties: { o: ageSpan ? ageOpacity(historyMode.stops[i + 1].years[0], ageSpan) : 1 },
+        properties: { o: ageSpan ? ageOpacity(tour.stops[i + 1].years[0], ageSpan) : 1 },
       })),
     });
     source(SRC.historyHead)?.setData({
@@ -504,9 +506,14 @@
           ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: head }, properties: {} }]
           : [],
     });
+  });
+
+  // Tour labels: only when the stops reached (or the zoom) change, not every frame.
+  $effect(() => {
+    if (!styleReady) return;
     source(SRC.historyLabels)?.setData({
       type: 'FeatureCollection',
-      features: mergeCloseLabels(labels, zoom).map(({ lng, lat, rows }) => ({
+      features: labelGroups.map(({ lng, lat, rows }) => ({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lng, lat] },
         properties: historyLabelProps(rows),
@@ -514,26 +521,26 @@
     });
   });
 
-  // Entering history mode: draw the path in, and fit the camera to the editions. Exiting
-  // without a selection to restore: back to the overview.
-  let lastSeries: string | null | undefined;
+  // Starting a tour (View history during a tour starts a new one): draw the path in, and fit the
+  // camera to the stops. Ending it without a selection to restore: back to the overview.
+  let lastSession: number | null | undefined;
   $effect(() => {
-    const series = historyMode.series;
+    const session = tour.active ? tour.session : null;
     const m = map;
     if (!m) return;
     untrack(() => {
-      const first = lastSeries === undefined;
-      const prev = lastSeries;
-      lastSeries = series;
-      if (series === prev || (first && !series)) return;
-      if (series) {
+      const first = lastSession === undefined;
+      const prev = lastSession;
+      lastSession = session;
+      if (session === prev || (first && session === null)) return;
+      if (session !== null) {
         void intro.set(0, { duration: 0 });
         void intro.set(1, { duration: motion.drawLines ? 700 : 0, delay: first ? 0 : 300 });
       }
       // Next frame: entering closes the detail, whose camera follow-up (easeTo) would cancel it.
       requestAnimationFrame(() => {
-        if (map !== m || historyMode.series !== series) return;
-        if (series) fitHistory(first ? 0 : duration(900));
+        if (map !== m || (tour.active ? tour.session : null) !== session) return;
+        if (session !== null) fitHistory(first ? 0 : duration(900));
         else if (!app.selectedConferenceId) fitOverview(duration(800));
       });
     });
@@ -565,11 +572,7 @@
     paint(LAYER.animDot, 'circle-opacity', aop);
     paint(LAYER.animLock, 'icon-opacity', aop);
     paint(LAYER.animRing, 'circle-stroke-opacity', fade(animRingOpacity(sel), ka));
-    paint(
-      LAYER.animLinks,
-      'line-opacity',
-      fade(animLinkOpacity(emphasis, !!historyMode.series), ka),
-    );
+    paint(LAYER.animLinks, 'line-opacity', fade(animLinkOpacity(emphasis, tour.active), ka));
     const clusterOp = (sel ? 0.6 : 1) * kc;
     paint(LAYER.clusters, 'circle-opacity', clusterOp);
     paint(LAYER.clusters, 'circle-stroke-opacity', clusterOp);
@@ -605,7 +608,7 @@
       // free area: the zoom fitted beside the panel would show the world twice once folded. A
       // view the viewer moved to is kept.
       else if (!id && phone && toggled && atOverview) {
-        if (historyMode.series) fitHistory(duration(900));
+        if (tour.active) fitHistory(duration(900));
         else fitOverview(duration(800));
       } else if (deferredFit && !noRoom()) deferredFit();
       // Closing the detail keeps the map still, however it was opened.
@@ -652,8 +655,8 @@
    */
   function fitHistory(ms: number) {
     const sites = app.mapLocations;
-    const single = historyMode.stops.length < 2;
-    const pts = historyFitPoints(historyMode.stops, legs, single ? sites : []);
+    const single = tour.stops.length < 2;
+    const pts = historyFitPoints(tour.stops, legs, single ? sites : []);
     const b = boundsOf(pts.length ? pts : sites, false);
     if (!map || !roomFor(() => fitHistory(ms)) || !b) return;
     // A short map (a phone held sideways) would spend most of its height on the margins.

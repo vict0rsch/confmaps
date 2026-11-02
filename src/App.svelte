@@ -23,7 +23,7 @@
   import TimelineSlot from './components/slots/TimelineSlot.svelte';
   import type { JoinedLocation } from './lib/data/load';
   import { app } from './lib/state/app.svelte';
-  import { historyMode } from './lib/state/timeline.svelte';
+  import { tour } from './lib/state/timeline.svelte';
 
   const desktop = new MediaQuery('(min-width: 1024px)', true);
   // Phones held sideways: the list and the detail move to a side panel.
@@ -62,15 +62,15 @@
     document.documentElement.dataset.theme = app.resolvedTheme;
   });
 
-  // Mobile: history mode lowers the sheet so the editions' path is in view.
+  // Mobile: a tour lowers the sheet so the editions' path is in view.
   $effect(() => {
-    if (historyMode.series && !desktop.current && !untrack(() => app.selectedConferenceId)) {
+    if (tour.active && !desktop.current && !untrack(() => app.selectedConferenceId)) {
       sheetSnap = 'peek';
     }
   });
 
   function viewHistory() {
-    if (app.selectedConference) historyMode.enter(app.selectedConference.series);
+    if (app.selectedConference) tour.viewHistory(app.selectedConference.series);
   }
 
   // Mobile: opening a conference raises the sheet so the detail is readable.

@@ -1,9 +1,10 @@
 // URL state (DESIGN §5.6), pure part: parse a query string into app state and build one back.
 // Example: `?c=neurips26&sub=ML,CV&radius=1000&co2=300&from=2026-11&to=2027-10`.
 //
-// Owned params: each registered filter's `params`, plus `c` (selection), `mode`, `thr`, `units`,
-// and `h` (history mode) when the caller passes it. `home` (a shared GeoNames city id, §5.5) is read
-// but never kept: the address bar never carries it, only the share dialog adds it (`withHomeParam`).
+// Owned params: each registered filter's `params`, plus `c` (selection), `mode`, `thr`, `units`.
+// `h` (a legacy history link, read as the `series` filter) and `home` (a shared GeoNames city id,
+// §5.5) are read but never kept: the address bar never carries them, only the share dialog adds
+// `home` (`withHomeParam`).
 // Every other param is left as is.
 // Parsing never throws: invalid values fall back to defaults.
 import type { ModeSetting } from '../co2/model';
@@ -19,7 +20,7 @@ export const TRAVEL_PARAMS = { mode: 'mode', threshold: 'thr', units: 'units' } 
  */
 export const TRAVEL_DEPENDENT_FILTERS: readonly string[] = ['co2'];
 export const HOME_PARAM = 'home';
-/** `h` = history mode (§5.4), `home` = opt-in shared city (§5.5). */
+/** `h` = history link (§5.4), `home` = opt-in shared city (§5.5). */
 export const RESERVED_PARAMS: readonly string[] = ['h', HOME_PARAM];
 export const HISTORY_PARAM = 'h';
 
@@ -83,8 +84,6 @@ export type URLInputs = {
   states: Readonly<Record<string, unknown>>;
   selection: string | null;
   travel: { units: Units; mode: ModeSetting; threshold: number };
-  /** History mode series (`h`); `undefined` leaves `h` as it is in `current`. */
-  history?: string | null;
 };
 
 /** Commas stay literal (`sub=ML,CV`); everything else is percent-encoded. */
@@ -92,12 +91,11 @@ const enc = (s: string) => encodeURIComponent(s).replace(/%2C/gi, ',');
 
 /**
  * The query string (no `?`) for `inputs`, keeping `current`'s params this module does not own.
- * Order: selection, history, active filters (registry order), travel (non-default, or all when a CO₂ filter is active), the rest.
+ * Order: selection, active filters (registry order), travel (non-default, or all when a CO₂ filter is active), the rest.
  */
 export function buildQuery(current: string, inputs: URLInputs): string {
   const entries: [string, string][] = [];
   if (inputs.selection) entries.push([SELECTION_PARAM, inputs.selection]);
-  if (inputs.history) entries.push([HISTORY_PARAM, inputs.history]);
   for (const f of inputs.filters) {
     const s = inputs.states[f.id];
     if (f.isActive(s)) entries.push(...new URLSearchParams(f.toURL(s)));
@@ -111,8 +109,7 @@ export function buildQuery(current: string, inputs: URLInputs): string {
     entries.push([TRAVEL_PARAMS.threshold, String(t.threshold)]);
   }
   if (all || t.units !== DEFAULT_TRAVEL.units) entries.push([TRAVEL_PARAMS.units, t.units]);
-  const owned = new Set(ownedParams(inputs.filters));
-  if (inputs.history !== undefined) owned.add(HISTORY_PARAM);
+  const owned = new Set([...ownedParams(inputs.filters), HISTORY_PARAM]);
   for (const [k, v] of params(current)) {
     if (!owned.has(k) && k !== HOME_PARAM) entries.push([k, v]);
   }

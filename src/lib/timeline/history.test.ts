@@ -13,6 +13,7 @@ import {
   pathAt,
   stopIndexOf,
   stopLabels,
+  stopText,
   travelDisplay,
 } from './history';
 
@@ -55,6 +56,27 @@ describe('historyStops', () => {
     const [a, b] = historyStops([vancouver, seoul]);
     expect(a.lng).toBeCloseTo(-123.12);
     expect(b.lng).toBeCloseTo(126.98 - 360);
+  });
+
+  it('breaks start-date ties by title', () => {
+    const at = (id: string, title: string, city: string, lng: number) =>
+      location(
+        { id: `${id}@main`, conferenceId: id, start: '2025-07-13', city, lat: 0, lng },
+        { id, year: 2025, start: '2025-07-13', series: id, title },
+      );
+    const stops = historyStops([at('a', 'UAI', 'Rio', 0), at('z', 'COLT', 'Lyon', 10)]);
+    expect(stops.map((s) => s.city)).toEqual(['Lyon', 'Rio']);
+  });
+
+  it('names editions without the track suffix', () => {
+    const track = location(
+      { id: 'icml25ind@main', conferenceId: 'icml25ind', lat: 49.28, lng: -123.12 },
+      { id: 'icml25ind', year: 2025, start: '2025-07-13', title: 'ICML (Industry Track)' },
+    );
+    const [stop] = historyStops([vancouver, track]);
+    expect(stop.names).toEqual(['ICML 2025']);
+    expect(stopText(stop, true)).toEqual(['ICML 2025']);
+    expect(stopText(stop, false)).toEqual(['2025']);
   });
 
   it('handles one edition (no legs) and none', () => {
@@ -142,11 +164,19 @@ describe('path progress', () => {
 
   it('labels revealed stops with their years, sharing a label on a return visit', () => {
     expect(stopLabels(stops, 0)).toEqual([
-      { lng: stops[0].lng, lat: stops[0].lat, years: '2024', city: 'Vienna' },
+      { lng: stops[0].lng, lat: stops[0].lat, years: '2024', city: 'Vienna', first: 0 },
     ]);
     const back = edition('icml27', 2027, '2027-07-01', 'Vienna', 48.21, 16.37);
     const labels = stopLabels(historyStops([vienna, seoul, back]), 2);
     expect(labels.map((l) => l.years)).toEqual(['2024 · 2027', '2026']);
+    expect(labels.map((l) => l.first)).toEqual([0, 1]);
+  });
+
+  it('labels stops by edition name when the tour mixes series', () => {
+    const neurips = edition('neurips24', 2024, '2024-12-10', 'Vancouver', 49.28, -123.12);
+    neurips.conference.title = 'NeurIPS';
+    const labels = stopLabels(historyStops([vienna, neurips, vancouver]), 2, true);
+    expect(labels.map((l) => l.years)).toEqual(['ICML 2024', 'NeurIPS 2024 · ICML 2025']);
   });
 
   it('keeps a path circling the globe within the world copies the map draws (±540°)', () => {
@@ -186,22 +216,31 @@ describe('path progress', () => {
 
   it('merges labels that would overlap at this zoom into one stacked label, keeping every year', () => {
     const near = [
-      { lng: -117.16, lat: 32.72, years: '2025', city: 'San Diego' },
-      { lng: -118.19, lat: 33.77, years: '2017', city: 'Long Beach' },
-      { lng: 16.37, lat: 48.21, years: '2024', city: 'Vienna' },
+      { lng: -117.16, lat: 32.72, years: '2025', city: 'San Diego', first: 2 },
+      { lng: -118.19, lat: 33.77, years: '2017', city: 'Long Beach', first: 0 },
+      { lng: 16.37, lat: 48.21, years: '2024', city: 'Vienna', first: 1 },
     ];
     const world = mergeCloseLabels(near, 2);
     expect(world).toHaveLength(2);
     // Anchored at the northernmost stop (Long Beach), rows in year order.
     expect(world[0]).toMatchObject({ lat: 33.77, rows: [{ years: '2017' }, { years: '2025' }] });
-    expect(world[1].rows).toEqual([{ years: '2024', city: 'Vienna' }]);
+    expect(world[1].rows).toEqual([{ years: '2024', city: 'Vienna', first: 1 }]);
     expect(mergeCloseLabels(near, 9).map((g) => g.rows.length)).toEqual([1, 1, 1]);
+  });
+
+  it('merged rows keep stop order', () => {
+    const near = [
+      { lng: -117.16, lat: 32.72, years: 'NeurIPS 2017', city: 'San Diego', first: 0 },
+      { lng: -118.19, lat: 33.77, years: 'ICML 2025', city: 'Long Beach', first: 1 },
+    ];
+    const [group] = mergeCloseLabels(near, 2);
+    expect(group.rows.map((r) => r.years)).toEqual(['NeurIPS 2017', 'ICML 2025']);
   });
 
   it('merges labels either side of the antimeridian', () => {
     const across = [
-      { lng: 179, lat: 10, years: '2024', city: 'Fiji' },
-      { lng: -179, lat: 10, years: '2025', city: 'Samoa' },
+      { lng: 179, lat: 10, years: '2024', city: 'Fiji', first: 0 },
+      { lng: -179, lat: 10, years: '2025', city: 'Samoa', first: 1 },
     ];
     expect(mergeCloseLabels(across, 2)).toHaveLength(1);
     expect(mergeCloseLabels(across, 9)).toHaveLength(2);

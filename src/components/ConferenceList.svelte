@@ -3,7 +3,7 @@
   import { isVirtual } from '../lib/data/types';
   import { nearestOption } from '../lib/home/footprint';
   import { app } from '../lib/state/app.svelte';
-  import { play } from '../lib/state/timeline.svelte';
+  import { play, tour } from '../lib/state/timeline.svelte';
   import { travel } from '../lib/state/travel.svelte';
   import type { ListItem } from '../lib/state/derive';
   import { formatDateRangeShort } from '../lib/format/dates';
@@ -19,7 +19,7 @@
   // Play at 2× or 4× changes the list every frame. There the list is debounced: it holds still
   // behind a blur and catches up once the changes stop, in practice on pause or back at 1×.
   const LIST_DEBOUNCE_MS = 600; // longer than a 2× step under reduced motion (500 ms)
-  const fast = $derived(play.playing && play.speed >= 2);
+  const fast = $derived(play.playing && play.speed >= 2 && !tour.active);
   let shown: ListItem[] = $state.raw([]);
   $effect.pre(() => {
     const next = app.listItems;
@@ -61,6 +61,10 @@
   /** "Registration" is the common case: only "Open to all" and "Authors only" get a badge here. */
   const showAccess = (item: ListItem, i: number) =>
     item.sites[i].access !== 'registration' && (i === 0 || mixedAccess(item));
+
+  /** Tour: the conferences of the stop reached (the Set changes only with the stop). */
+  const stop = $derived(tour.stops[play.stopIndex]);
+  const currentIds = $derived(new Set(stop?.conferenceIds));
 
   // Keep the selected row in view when selection comes from the map.
   $effect(() => {
@@ -113,11 +117,13 @@
         {@const selected =
           app.selectedConferenceId === c.id ||
           item.tracks.some((t) => t.id === app.selectedConferenceId)}
+        {@const current = currentIds.has(c.id) || item.tracks.some((t) => currentIds.has(t.id))}
         <li>
           <button
             type="button"
             class="row"
             class:selected
+            class:current
             class:hovered={app.hoveredConferenceId === c.id}
             data-conference-id={c.id}
             aria-current={selected ? 'true' : undefined}
@@ -268,7 +274,8 @@
     background: var(--glass-tint-hover);
   }
 
-  .row.selected {
+  .row.selected,
+  .row.current {
     background: var(--accent-soft);
   }
 

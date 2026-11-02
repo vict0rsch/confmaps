@@ -40,9 +40,9 @@ describe('buildQuery', () => {
     );
   });
 
-  it('keeps params it does not own (h, others) and replaces its own', () => {
+  it('keeps params it does not own, replaces its own and drops a history link (h)', () => {
     const q = buildQuery('?h=icml&sub=NLP&utm=x&c=old', inputs());
-    expect(q).toBe('h=icml&utm=x');
+    expect(q).toBe('utm=x');
   });
 
   it('never writes home from state (home is not an input)', () => {

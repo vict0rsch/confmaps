@@ -1,10 +1,11 @@
 // URL state (DESIGN §5.6), live part: hydrate from `location.search` once, then mirror filters,
-// selection and travel settings back with `history.replaceState` (debounced). `home` is read once
-// (shared link) and never written back.
+// selection and travel settings back with `history.replaceState` (debounced). `home` (shared link)
+// and `h` (history link) are read once and never written back.
+import { isSeries, seriesWindow } from '../filters/series';
 import { home } from '../home/store.svelte';
 import { app } from './app.svelte';
 import { filterState } from './filters.svelte';
-import { historyMode } from './timeline.svelte';
+import { tour } from './timeline.svelte';
 import { travel } from './travel.svelte';
 import { buildQuery, parseHistory, parseQuery, type URLInputs } from './url';
 
@@ -17,10 +18,18 @@ export function hydrateFromURL(query: string = location.search): void {
   // Travel settings in a link (always present with a CO₂ filter) win for this visit, unsaved.
   travel.applyShared(parsed.travel);
   if (parsed.selection) app.select(parsed.selection);
-  const h = parseHistory(query, (s) => historyMode.isSeries(s));
-  if (h) historyMode.enter(h, { fromURL: true });
+  // A history link (`h=<series>`): the series' editions, over any dates in the link; no autoplay.
+  const h = parseHistory(query, (s) => isSeries(app.data.conferences, s));
+  if (h) filterState.hydrate({ series: h, dates: seriesWindow(app.data.locations, h) });
+  // The tour starts once the shared city (if any) is in place, since the city can change what is
+  // visible; not if the viewer changed a filter meanwhile.
+  const states = filterState.states;
+  const startTour = () => {
+    if (h && filterState.states === states) tour.enter({ fromURL: true });
+  };
   // Opt-in shared city: this visit only (not saved); the sync below then drops `home` from the URL.
-  if (parsed.home) void home.applyShared(parsed.home);
+  if (parsed.home) void home.applyShared(parsed.home).then(startTour);
+  else startTour();
 }
 
 function write(inputs: URLInputs): void {
@@ -45,7 +54,6 @@ export function startURLSync(debounceMs = URL_DEBOUNCE_MS): () => void {
         states: filterState.states,
         selection: app.selectedConferenceId,
         travel: travel.values,
-        history: historyMode.series,
       };
       clearTimeout(timer);
       timer = setTimeout(() => write(inputs), debounceMs);
