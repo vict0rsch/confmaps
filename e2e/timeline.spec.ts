@@ -123,6 +123,20 @@ test('the timeline plays the open conference history', async ({ page }) => {
   await expect(button).toHaveCount(0);
 });
 
+test('history mode keeps the list sharp at 4×', async ({ page }) => {
+  await page.goto('/?h=neurips');
+  const controls = page.getByTestId('timeline');
+  await controls.getByRole('button', { name: 'Play through the editions' }).hover();
+  const speed = controls.getByRole('button', { name: /^Playback speed/ });
+  while (!(await speed.getAttribute('aria-label'))!.endsWith('4×')) await speed.click();
+  await page.getByRole('button', { name: 'Play through the editions' }).click();
+  await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
+  const list = page.locator('ul[role="list"]').first();
+  await expect(list).not.toHaveClass(/fast/);
+  await expect(list).not.toHaveAttribute('inert', /.*/);
+  await expect(page.getByText(/The list holds still/)).toHaveCount(0);
+});
+
 test('history stops: click or arrow keys to step through the editions', async ({ page }) => {
   await page.goto('/?h=icml');
   const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
