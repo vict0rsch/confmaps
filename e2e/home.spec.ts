@@ -97,9 +97,9 @@ test('detail shows per-site estimates, the nearest site, and the myclimate cross
   const sites = detail.getByTestId('site-footprint');
   await expect(sites).toHaveCount(3);
   await expect(detail.getByText('Estimated CO₂e, round trip').first()).toBeVisible();
-  // Flights (Sydney, Atlanta) are nonstop with a layover range; Paris (rail) has none.
+  // Flights (Sydney, Atlanta) are nonstop with an uncertainty range; Paris (rail) has none.
   await expect(
-    detail.getByText(/^~[\d.,]+(?: kg)?–[\d.,]+ (?:kg|t) depending on layovers$/),
+    detail.getByText(/^~[\d.,]+(?: kg)?–[\d.,]+ (?:kg|t) depending on route and method$/),
   ).toHaveCount(2);
   await expect(detail.getByText('Nearest')).toHaveCount(1);
   await expect(detail.getByText(/^Paris: roughly \d+× less than flying to Sydney$/)).toBeVisible();
@@ -123,7 +123,7 @@ test('the methodology opens from the detail panel', async ({ page }) => {
   await page.locator('[data-conference-id="neurips26"]').click();
   await page.getByTestId('detail').getByRole('link', { name: 'How is this estimated?' }).click();
   const dialog = page.getByRole('dialog', { name: 'Methodology' });
-  await expect(dialog.getByText('These are order-of-magnitude estimates')).toBeVisible();
+  await expect(dialog.getByText('These figures are order-of-magnitude estimates')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
   await expect(page).not.toHaveURL(/#methodology/);
