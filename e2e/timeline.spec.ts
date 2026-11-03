@@ -93,6 +93,10 @@ test('history mode opens from a conference detail and lives in the URL', async (
   // One list row per edition (the count depends on how far back the data goes).
   const meta = page.getByTestId('history-meta');
   await expect(meta).toHaveText(/^\d+ editions/);
+  // Only the first edition shows until Play starts there, not the whole path first. Checked
+  // once, without retrying: Play also starts at the first stop.
+  const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
+  expect(await stops.first().isChecked()).toBe(true);
   const editions = (await meta.textContent())!.match(/\d+/)![0];
   await expect(page.locator('#list-heading .count')).toHaveText(`${editions}`);
   // The button plays the editions after a short wait.

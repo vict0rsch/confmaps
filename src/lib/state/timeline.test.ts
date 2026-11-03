@@ -196,6 +196,9 @@ describe('history mode autoplay', () => {
 
   it('from the button, Play starts after a short wait', () => {
     historyMode.enter('icml');
+    // Only the first stop shows meanwhile, not the whole path.
+    expect(play.travel).toBe(0);
+    expect(play.stopIndex).toBe(0);
     vi.advanceTimersByTime(AUTOPLAY_MS - 1);
     expect(play.playing).toBe(false);
     vi.advanceTimersByTime(1);
@@ -205,6 +208,17 @@ describe('history mode autoplay', () => {
 
   it('not from a URL', () => {
     historyMode.enter('icml', { fromURL: true });
+    expect(play.travel).toBeNull(); // the whole path
+    vi.advanceTimersByTime(AUTOPLAY_MS);
+    expect(play.playing).toBe(false);
+  });
+
+  it('a single edition: the whole path, nothing plays', () => {
+    const single = [...new Set(app.data.conferences.map((c) => c.series))].find(
+      (s) => historyStops(app.data.locations.filter((l) => l.conference.series === s)).length === 1,
+    )!;
+    historyMode.enter(single);
+    expect(play.travel).toBeNull();
     vi.advanceTimersByTime(AUTOPLAY_MS);
     expect(play.playing).toBe(false);
   });

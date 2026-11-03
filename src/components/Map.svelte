@@ -457,9 +457,10 @@
 
   const source = (id: string) => map?.getSource(id) as GeoJSONSource | undefined;
 
-  // The clustered source is hidden while Play runs: don't re-cluster on every frame.
+  // The clustered source is hidden while Play runs: don't re-cluster on every frame. In history
+  // mode it is hidden too, and fades out on entry: keep the view it fades from, not the series.
   $effect(() => {
-    if (!styleReady || (animMode && play.playing)) return;
+    if (!styleReady || (animMode && play.playing) || historyMode.series) return;
     source(SRC.pins)?.setData(pins);
     source(SRC.links)?.setData(links);
   });

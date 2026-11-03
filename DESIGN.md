@@ -527,9 +527,12 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   entry point; narrow bars shorten it to an icon and "History", then to the icon alone. History mode
   hides it (Exit takes over). The filters' chip row leads with a "NeurIPS history" chip that exits
   history mode too.
-  Either button starts Play 1 s after the click, once the entry (path drawn in, camera
-  fit) has settled; leaving history mode, another series, Play/Pause or a scrub first cancels it.
-  Opening `?h=` from a link does not play.
+  Either button starts Play 1 s after the click, once the camera has fit the whole path. Until
+  then only the first edition shows (its pins and label, no path; the previous map fades out as it
+  was), and Play travels from there.
+  Leaving history mode, another series, Play/Pause or a scrub first cancels it; a pause leaves the
+  first edition shown, and Play continues from it. A series with a single edition has nothing to
+  play: it shows whole. Opening `?h=` from a link does not play: the path draws in whole.
   The stops on the track are clickable: a stop pauses Play there and glides the path to it (in
   400 ms; a jump under reduced motion), the first stop restarts it and the last shows it whole.
   Play continues from the stop. They are one keyboard stop (a radio group): arrows step, Home /

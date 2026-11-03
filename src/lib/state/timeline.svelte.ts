@@ -88,8 +88,9 @@ export class HistoryState {
 
   /**
    * Enter history mode. From the UI, the open conference closes (its pins would dim the
-   * others) and is restored on exit, and Play starts once the entry has settled. From a URL,
-   * selection is left as the link says, and nothing plays.
+   * others) and is restored on exit, and Play starts from the first edition once the entry has
+   * settled; until then only that edition shows. From a URL, selection is left as the link says,
+   * the whole path is shown, and nothing plays.
    */
   enter(series: string, opts: { fromURL?: boolean } = {}): void {
     if (!this.isSeries(series)) return;
@@ -101,7 +102,11 @@ export class HistoryState {
       app.select(null);
     }
     this.series = series;
-    if (!opts.fromURL) play.playSoon();
+    if (!opts.fromURL) {
+      // Not the whole path first: it would vanish as Play starts.
+      if (play.canPlay) play.travel = 0;
+      play.playSoon();
+    }
   }
 
   exit(): void {
@@ -127,8 +132,8 @@ app.predicate = (loc) =>
 export type PlayOptions = { reducedMotion?: () => boolean };
 
 /**
- * Wait before history mode plays on its own: the entry intro (path drawn in over 300 + 700 ms,
- * camera fit in 900 ms; Map.svelte) settles first.
+ * Wait before history mode plays on its own: the entry's camera fit (900 ms; Map.svelte) settles
+ * first.
  */
 export const AUTOPLAY_MS = 1000;
 
