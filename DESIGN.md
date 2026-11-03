@@ -503,7 +503,8 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   - Main↔satellite lines draw in when both ends are visible.
   - Pins never move position; simultaneous entries are **staggered** (attention/tracking limits).
   - At 2× and 4×, the list is debounced: it holds still behind a blur, with a notice saying why,
-    and updates on pause or back at 1×.
+    and updates on pause or back at 1×. This does not apply in history mode, where the list stays
+    the same.
   - The range label keeps a constant width while Play runs. Single-digit days get a figure space,
     and the label is as wide as its widest month name.
 - **History presets** ("Past 5 years", "Since <year>" back to the oldest edition) only set the
@@ -519,9 +520,29 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   "Since <year>", from the timeline or from the filter panel. The axis still covers the current
   window. A filter change never moves the window, except an active "Since <year>", which follows
   the new start (not in history mode).
-- **History mode:** from a conference's detail ("View history"), show all editions of its series,
-  linked chronologically by a curved path with year labels (consecutive editions in the same place
-  share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
+- **History mode:** from a conference's detail ("View NeurIPS history"), show all editions of its
+  series, linked chronologically by a curved path with year labels (consecutive editions in the same
+  place share a stop); play travels the path stop by stop. URL `?h=<series>`, e.g. `?h=icml`.
+  While a conference is open, the timeline also shows "Play NeurIPS history" beside Play, the same
+  entry point; narrow bars shorten it to an icon and "History", then to the icon alone. History mode
+  hides it (Exit takes over). The filters' chip row leads with a "NeurIPS history" chip that exits
+  history mode too.
+  Either button starts Play 1 s after the click, once the camera has fit the whole path. Until
+  then only the first edition shows (its pins and label, no path; the previous map fades out as it
+  was), and Play travels from there.
+  Leaving history mode, another series, Play/Pause or a scrub first cancels it; a pause leaves the
+  first edition shown, and Play continues from it. A series with a single edition has nothing to
+  play: it shows whole. Opening `?h=` from a link does not play: the path draws in whole.
+  The stops on the track are clickable: a stop pauses Play there and glides the path to it (in
+  400 ms; a jump under reduced motion), the first stop restarts it and the last shows it whole.
+  Play continues from the stop. They are one keyboard stop (a radio group): arrows step, Home /
+  End go to the first stop and to the whole path. Hovering a stop, or focusing it from the
+  keyboard, shows its years and city above the timeline ("2019 · Long Beach").
+  Older editions are fainter: an edition's pins and the leg arriving at it go from 35% opacity
+  (the oldest) to full (the newest edition the path has reached). While the path travels, the
+  newest end moves with it, so each edition brightens as the line arrives and the older ones dim
+  gradually. With the whole path shown, the newest end is the series' last edition. Year labels
+  stay fully opaque.
   **Predicate layering:** history mode shows that series' editions of **all years** that pass every
   filter *except* `dates`; the dates window is ignored but left untouched, so exiting restores the
   previous view. The path skips virtual editions (the leg joins the neighbouring stops; hybrid
@@ -717,14 +738,17 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   recent first. The rule is the same in every window, so the past presets open on the newest
   editions.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
+- **Hover pin** (mouse only, not while Play runs) → a tooltip with the conference and that site's
+  dates ("NeurIPS 2025 · Nov 30 – Dec 7"). **Hover cluster** → one such line per conference,
+  soonest first, at most 10, then "[...]". A camera move or a click hides it.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking
   empty map keeps MapLibre's zoom in.
-- Detail: dates, deadline status, each site with access, distance, estimated CO₂, myclimate link,
-  "View history". A flight estimate is nonstop, with a second line for one connection each way
-  ("~4.6–4.0 t depending on layovers"; METHODOLOGY.md, Layovers). The list and filters use the
-  nonstop figure.
+- Detail: "View <series> history" as the full-width primary button under the title, then dates, deadline status,
+  each site with access, distance, estimated CO₂, myclimate link. A flight estimate is nonstop,
+  with a second line for one connection each way ("~4.6–4.0 t depending on layovers";
+  METHODOLOGY.md, Layovers). The list and filters use the nonstop figure.
 - Selection stays highlighted while panning; "back to selection" control.
 - Crowded areas cluster with counts; co-located events open a list.
 

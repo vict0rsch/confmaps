@@ -34,7 +34,9 @@ test('history mode: the NIPS 2017 edition, online years beside the title', async
   await expect(row(page, 'neurips17')).toContainText('Long Beach, United States');
   // Virtual editions are listed, but have no stop: 8 pinned editions, New Orleans twice in a row.
   await expect(row(page, 'neurips20')).toContainText('Online');
-  await expect(page.locator('.stops .stop')).toHaveCount(7);
+  await expect(page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio')).toHaveCount(
+    7,
+  );
 });
 
 test('a virtual edition: Virtual badge, "Online · ~0 kg"; distance filters keep it', async ({

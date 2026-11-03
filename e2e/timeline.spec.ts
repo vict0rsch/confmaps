@@ -87,21 +87,95 @@ test('"Since <year>" from the filter panel rebuilds the axis start', async ({ pa
 test('history mode opens from a conference detail and lives in the URL', async ({ page }) => {
   await page.goto('/');
   await page.locator('button.row[data-conference-id="neurips26"]').click();
-  await page.getByTestId('detail').getByRole('button', { name: 'View history' }).click();
+  await page.getByTestId('detail').getByRole('button', { name: 'View NeurIPS history' }).click();
   await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
   await expect(page).not.toHaveURL(/[?&]c=/);
   // One list row per edition (the count depends on how far back the data goes).
   const meta = page.getByTestId('history-meta');
   await expect(meta).toHaveText(/^\d+ editions/);
+  // Only the first edition shows until Play starts there, not the whole path first. Checked
+  // once, without retrying: Play also starts at the first stop.
+  const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
+  expect(await stops.first().isChecked()).toBe(true);
   const editions = (await meta.textContent())!.match(/\d+/)![0];
   await expect(page.locator('#list-heading .count')).toHaveText(`${editions}`);
+  // The button plays the editions after a short wait.
+  await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
 
+  // A link does not.
   await page.reload();
   await expect(meta).toHaveText(new RegExp(`^${editions} editions`));
+  await page.waitForTimeout(1500);
+  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
 
-  await page.getByRole('button', { name: 'Exit history' }).click();
+  await page.getByTestId('timeline').getByRole('button', { name: 'Exit history' }).click();
   await expect(page).not.toHaveURL(/[?&]h=/);
   await expect(page.getByTestId('timeline-range')).toBeVisible();
+});
+
+test("the filters' chip exits history mode", async ({ page }) => {
+  await page.goto('/?h=neurips');
+  const chip = page.getByRole('button', { name: 'Exit NeurIPS history' });
+  await expect(chip).toHaveText('NeurIPS history');
+  await chip.click();
+  await expect(page).not.toHaveURL(/[?&]h=/);
+  await expect(chip).toHaveCount(0);
+});
+
+test('the timeline plays the open conference history', async ({ page }) => {
+  await page.goto('/');
+  const timeline = page.getByTestId('timeline');
+  const button = timeline.getByRole('button', { name: 'Play NeurIPS history' });
+  await expect(page.getByTestId('timeline-range')).toBeVisible();
+  await expect(button).toHaveCount(0);
+
+  await page.locator('button.row[data-conference-id="neurips26"]').click();
+  await button.click();
+  await expect(page).toHaveURL(/[?&]h=neurips(&|$)/);
+  await expect(page.getByTestId('history-meta')).toBeVisible();
+  await expect(button).toHaveCount(0);
+});
+
+test('history mode keeps the list sharp at 4×', async ({ page }) => {
+  await page.goto('/?h=neurips');
+  const controls = page.getByTestId('timeline');
+  await controls.getByRole('button', { name: 'Play through the editions' }).hover();
+  const speed = controls.getByRole('button', { name: /^Playback speed/ });
+  while (!(await speed.getAttribute('aria-label'))!.endsWith('4×')) await speed.click();
+  await page.getByRole('button', { name: 'Play through the editions' }).click();
+  await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible();
+  const list = page.locator('ul[role="list"]').first();
+  await expect(list).not.toHaveClass(/fast/);
+  await expect(list).not.toHaveAttribute('inert', /.*/);
+  await expect(page.getByText(/The list holds still/)).toHaveCount(0);
+});
+
+test('history stops: click or arrow keys to step through the editions', async ({ page }) => {
+  await page.goto('/?h=icml');
+  const stops = page.getByRole('radiogroup', { name: 'Editions' }).getByRole('radio');
+  const n = await stops.count();
+  expect(n).toBeGreaterThan(3);
+  // From a link nothing plays: the whole path is shown, at the last stop.
+  await expect(stops.nth(n - 1)).toBeChecked();
+  const mid = Math.floor(n / 2);
+  await stops.nth(mid).click();
+  await expect(page.getByRole('button', { name: 'Play through the editions' })).toBeVisible();
+  await expect(stops.nth(mid)).toBeChecked();
+  await expect(stops.nth(mid)).toHaveAccessibleName(/^\d{4}(, \d{4})*, .+/);
+  // The tooltip shows the same text as the name, e.g. "2019 · Long Beach": on hover, and on
+  // keyboard focus, but not after a click alone once the pointer has left.
+  const tip = page.locator('.stop-tip');
+  const tipText = async (i: number) =>
+    (await stops.nth(i).getAttribute('aria-label'))!.replaceAll(', ', ' · ');
+  await expect(tip).toHaveText(await tipText(mid));
+  await page.mouse.move(0, 0);
+  await expect(tip).toHaveCount(0);
+  await page.keyboard.press('ArrowRight');
+  await expect(stops.nth(mid + 1)).toBeChecked();
+  await expect(stops.nth(mid + 1)).toBeFocused();
+  await expect(tip).toHaveText(await tipText(mid + 1));
+  await page.keyboard.press('End');
+  await expect(stops.nth(n - 1)).toBeChecked();
 });
 
 test.describe('phone', () => {

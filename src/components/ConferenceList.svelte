@@ -3,7 +3,7 @@
   import { isVirtual } from '../lib/data/types';
   import { nearestOption } from '../lib/home/footprint';
   import { app } from '../lib/state/app.svelte';
-  import { play } from '../lib/state/timeline.svelte';
+  import { historyMode, play } from '../lib/state/timeline.svelte';
   import { travel } from '../lib/state/travel.svelte';
   import type { ListItem } from '../lib/state/derive';
   import { formatDateRangeShort } from '../lib/format/dates';
@@ -18,8 +18,9 @@
 
   // Play at 2× or 4× changes the list every frame. There the list is debounced: it holds still
   // behind a blur and catches up once the changes stop, in practice on pause or back at 1×.
+  // History mode is excluded: its path travels without moving the dates window, so the list stays.
   const LIST_DEBOUNCE_MS = 600; // longer than a 2× step under reduced motion (500 ms)
-  const fast = $derived(play.playing && play.speed >= 2);
+  const fast = $derived(play.playing && play.speed >= 2 && !historyMode.series);
   let shown: ListItem[] = $state.raw([]);
   $effect.pre(() => {
     const next = app.listItems;

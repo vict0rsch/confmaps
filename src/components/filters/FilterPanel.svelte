@@ -6,7 +6,7 @@
   import { setContext, tick } from 'svelte';
   import type { AnyFilter } from '../../lib/filters';
   import { filterState } from '../../lib/state/filters.svelte';
-  import { scope } from '../../lib/state/timeline.svelte';
+  import { historyMode, scope } from '../../lib/state/timeline.svelte';
   import Icon from '../Icon.svelte';
   import { DATA_FROM_CONTEXT } from './DatesControl.svelte';
   import { FIELD_CONTEXT } from './MultiSelect.svelte';
@@ -68,6 +68,18 @@
 
   {#if layout === 'sidebar'}
     <div class="chip-row">
+      <!-- History mode narrows the map like a filter, so it leads the row as a chip that exits it. -->
+      {#if historyMode.series}
+        <button
+          class="chip history"
+          type="button"
+          aria-label="Exit {historyMode.title} history"
+          onclick={() => historyMode.exit()}
+        >
+          <Icon name="close" size={12} />
+          <span>{historyMode.title} history</span>
+        </button>
+      {/if}
       {#each others as f (f.id)}
         {@const active = filterState.isActive(f.id)}
         <button
@@ -183,6 +195,23 @@
 
   .chip[aria-expanded='true'] :global(.icon) {
     transform: rotate(-90deg);
+  }
+
+  /* As the timeline's Exit: the accent's soft tint, the close icon leading. */
+  .chip.history {
+    padding: 0 12px 0 10px;
+    border-color: transparent;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .chip.history:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  .chip.history :global(.icon) {
+    color: var(--accent);
+    transform: none;
   }
 
   .dot {

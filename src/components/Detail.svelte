@@ -10,6 +10,7 @@
   import { kindLabel, placeLabel, roleLabel, websiteLabel } from '../lib/format/labels';
   import { app } from '../lib/state/app.svelte';
   import { deadlineSummary } from '../lib/state/derive';
+  import { historyMode } from '../lib/state/timeline.svelte';
   import AccessBadge from './AccessBadge.svelte';
   import Icon from './Icon.svelte';
   import SiteMarker from './SiteMarker.svelte';
@@ -38,6 +39,7 @@
   /** The event's tracks (EMNLP + Industry + System Demonstrations), when it has several. */
   const tracks = $derived(app.data.trackGroups.get(conference.id) ?? []);
   const website = $derived(websiteLabel(conference.link));
+  const seriesTitle = $derived(historyMode.titleOf(conference.series));
 
   // Move focus into the panel when it opens or switches conference (screen readers).
   $effect(() => {
@@ -70,6 +72,12 @@
       <Icon name="close" size={16} />
     </button>
   </header>
+
+  {#if onViewHistory}
+    <button class="button history" type="button" onclick={onViewHistory}>
+      <Icon name="history" size={16} /> View {seriesTitle} history
+    </button>
+  {/if}
 
   <!-- Quiet inline facts: dates and website on one line, deadlines below when there are any. -->
   <dl class="facts">
@@ -195,12 +203,6 @@
       {/each}
     </ul>
   </section>
-
-  {#if onViewHistory}
-    <button class="button history" type="button" onclick={onViewHistory}>
-      <Icon name="history" size={14} /> View history
-    </button>
-  {/if}
 </article>
 
 <style>
@@ -426,7 +428,20 @@
     font-size: var(--text-sm);
   }
 
+  /* The primary action: the shared .button capsule with the accent fill (as Share's Copy). */
   .history {
-    align-self: flex-start;
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+    border-color: transparent;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: var(--text-md);
+    font-weight: var(--weight-semibold);
+  }
+
+  .history:hover {
+    background: var(--accent);
+    filter: brightness(1.08);
   }
 </style>

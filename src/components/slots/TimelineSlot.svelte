@@ -3,7 +3,8 @@
   // (--timeline-height[-compact]).
   import Timeline from '../Timeline.svelte';
 
-  let { compact = false }: { compact?: boolean } = $props();
+  let { compact = false, onViewHistory }: { compact?: boolean; onViewHistory?: () => void } =
+    $props();
 </script>
 
-<Timeline {compact} />
+<Timeline {compact} {onViewHistory} />

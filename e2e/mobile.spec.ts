@@ -183,7 +183,7 @@ test('tapping the grip expands the sheet', async ({ page }) => {
 
 test('View history from a scrolled detail shows the list heading', async ({ page }) => {
   await page.goto('/?c=neurips26');
-  const history = page.getByTestId('detail').getByRole('button', { name: 'View history' });
+  const history = page.getByTestId('detail').getByRole('button', { name: 'View NeurIPS history' });
   await history.scrollIntoViewIfNeeded();
   await history.click();
   await expect(page.getByTestId('history-meta')).toBeVisible();
@@ -503,7 +503,9 @@ test.describe('landscape', () => {
   test('a new selection while folded unfolds the panel to the detail', async ({ page }) => {
     // Pins are drawn on the map canvas: leaving history mode restores the selection instead.
     await page.goto('/?c=neurips26');
-    const history = page.getByTestId('detail').getByRole('button', { name: 'View history' });
+    const history = page
+      .getByTestId('detail')
+      .getByRole('button', { name: 'View NeurIPS history' });
     await history.scrollIntoViewIfNeeded();
     await history.click();
     await expect(page.getByTestId('history-meta')).toBeVisible();

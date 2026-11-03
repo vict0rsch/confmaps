@@ -240,7 +240,7 @@
     <header class="topbar" bind:offsetHeight={topbarHeight}>
       <BrandMenu />
       <FiltersMenu />
-      <div class="topbar-timeline glass"><TimelineSlot compact /></div>
+      <div class="topbar-timeline glass"><TimelineSlot compact onViewHistory={viewHistory} /></div>
     </header>
   {/if}
 
@@ -345,7 +345,7 @@
   </main>
 
   {#if desktop.current}
-    <div class="timeline glass"><TimelineSlot /></div>
+    <div class="timeline glass"><TimelineSlot onViewHistory={viewHistory} /></div>
   {/if}
 </div>
 
