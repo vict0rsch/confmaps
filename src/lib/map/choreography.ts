@@ -232,7 +232,8 @@ export class Choreographer {
           if (now >= p.pulse.t0) ({ ro, rs } = pulseAt(p.pulse.t0, now, cfg));
         }
       }
-      const k = key(v.o, v.s, ro, rs, p.w, p.a);
+      // A hidden pin's age fade is invisible: it is not rewritten each frame while the span glides.
+      const k = key(v.o, v.s, ro, rs, p.w, v.o || ro ? p.a : 0);
       if (k === p.written) return;
       p.written = k;
       this.#map.setFeatureState(

@@ -66,6 +66,7 @@
     historyLegs,
     mergeCloseLabels,
     pathAt,
+    reachedYear,
     stopLabels,
   } from '../lib/timeline/history';
   import { motionConfig } from '../lib/timeline/motion';
@@ -188,11 +189,17 @@
   const legs = $derived(historyLegs(historyMode.stops));
   const intro = new Tween(1, { easing: cubicOut });
   const pathProgress = $derived(play.travelShown ?? intro.current * legs.length);
-  /** History mode: the editions' years on the map; their pins and legs fade by age across them. */
+  /**
+   * History mode: the editions' years on the map, from the oldest to the one the travel has
+   * reached (gliding with it); their pins and legs fade by age across them.
+   */
   const ageSpan = $derived.by(() => {
     if (!historyMode.series) return null;
     const ys = app.mapLocations.map((l) => l.conference.year);
-    return { oldest: Math.min(...ys), newest: Math.max(...ys) };
+    const t = play.travelShown;
+    const newest =
+      t === null || !historyMode.stops.length ? Math.max(...ys) : reachedYear(historyMode.stops, t);
+    return { oldest: Math.min(...ys), newest };
   });
 
   // ---- Map lifecycle -------------------------------------------------------
@@ -446,7 +453,7 @@
     });
   });
 
-  // History mode: older editions' pins are fainter, a fixed fade under the motion's own.
+  // History mode: older editions' pins are fainter, a fade under the motion's own.
   $effect(() => {
     const span = ageSpan;
     if (!styleReady || !choreo) return;

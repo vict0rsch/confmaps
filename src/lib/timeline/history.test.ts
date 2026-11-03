@@ -11,6 +11,7 @@ import {
   MIN_OPACITY,
   onlineYears,
   pathAt,
+  reachedYear,
   stopIndexOf,
   stopLabels,
   travelDisplay,
@@ -182,6 +183,21 @@ describe('path progress', () => {
     expect(ageOpacity(2025, span)).toBe(1);
     expect(ageOpacity(2010, span)).toBeCloseTo(MIN_OPACITY);
     expect(ageOpacity(2026, { oldest: 2026, newest: 2026 })).toBe(1);
+  });
+
+  it('ends the fade at the year reached, gliding to the next stop as the path travels', () => {
+    const again = edition('icml26v', 2026, '2026-07-06', 'Vancouver', 49.28, -123.12);
+    const later = edition('icml28', 2028, '2028-07-06', 'Seoul', 37.57, 126.98);
+    const held = historyStops([vienna, vancouver, again, later]);
+    expect(held.map((s) => s.years)).toEqual([[2024], [2025, 2026], [2028]]);
+    expect(reachedYear(held, 0)).toBe(2024);
+    expect(reachedYear(held, 0.5)).toBeCloseTo(2024.5);
+    // A stop holding several editions: from its latest year on.
+    expect(reachedYear(held, 1)).toBe(2026);
+    expect(reachedYear(held, 1.25)).toBeCloseTo(2026.5);
+    expect(reachedYear(held, 2)).toBe(2028);
+    // Past the last stop (a filter left fewer stops than the travel has passed).
+    expect(reachedYear(held, 5)).toBe(2028);
   });
 
   it('merges labels that would overlap at this zoom into one stacked label, keeping every year', () => {

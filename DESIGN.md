@@ -536,7 +536,10 @@ The scrubber **is** the `dates` filter (one `{from, to}` state, two presentation
   End go to the first stop and to the whole path. Hovering a stop, or focusing it from the
   keyboard, shows its years and city above the timeline ("2019 · Long Beach").
   Older editions are fainter: an edition's pins and the leg arriving at it go from 35% opacity
-  (the oldest) to full (the newest), fixed during play; year labels stay fully opaque.
+  (the oldest) to full (the newest edition the path has reached). While the path travels, the
+  newest end moves with it, so each edition brightens as the line arrives and the older ones dim
+  gradually. With the whole path shown, the newest end is the series' last edition. Year labels
+  stay fully opaque.
   **Predicate layering:** history mode shows that series' editions of **all years** that pass every
   filter *except* `dates`; the dates window is ignored but left untouched, so exiting restores the
   previous view. The path skips virtual editions (the leg joins the neighbouring stops; hybrid

@@ -139,6 +139,19 @@ export function ageOpacity(year: number, span: { oldest: number; newest: number 
 }
 
 /**
+ * The newest year of the age fade at displayed `progress` along the stops (see `travelDisplay`):
+ * the latest year of the stop reached, gliding linearly to the next stop's first year as the path
+ * travels there. `stops` must not be empty.
+ */
+export function reachedYear(stops: readonly Stop[], progress: number): number {
+  const i = Math.max(0, Math.min(stops.length - 1, Math.floor(progress + 1e-6)));
+  const from = stops[i].years.at(-1)!;
+  const next = stops[i + 1];
+  if (!next) return from;
+  return from + (next.years[0] - from) * Math.max(0, progress - i);
+}
+
+/**
  * The path drawn up to `progress` (0 = first stop … legs.length = complete), and its head. Each
  * leg moves by whole turns to start within ±180°: MapLibre's GeoJSON tiles keep one world copy
  * either side, so the legs of a path that keeps circling the globe would vanish past ±540°.
