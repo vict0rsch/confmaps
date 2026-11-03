@@ -735,6 +735,9 @@ PHONE HELD SIDEWAYS, panel folded (‹ folds it into a pill; the pill opens it a
   recent first. The rule is the same in every window, so the past presets open on the newest
   editions.
 - Hover list row → highlight its pins. Click row → detail panel + fit map to the conference's sites.
+- **Hover pin** (mouse only, not while Play runs) → a tooltip with the conference and that site's
+  dates ("NeurIPS 2025 · Nov 30 – Dec 7"). **Hover cluster** → one such line per conference,
+  soonest first, at most 10, then "[...]". A camera move or a click hides it.
 - **Click pin** → detail panel at the same zoom. The map stays still, or pans to centre the pin if
   the drawer would cover it. **Double-click pin** → fit to the conference's sites; double-clicking
   it again (before zooming by hand) returns to the overview of every visible pin. Double-clicking

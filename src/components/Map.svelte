@@ -23,6 +23,7 @@
   import { untrack } from 'svelte';
   import { cubicOut } from 'svelte/easing';
   import { prefersReducedMotion, Tween } from 'svelte/motion';
+  import { MediaQuery } from 'svelte/reactivity';
   import { app } from '../lib/state/app.svelte';
   import { getDates } from '../lib/state/filters.svelte';
   import { historyMode, play } from '../lib/state/timeline.svelte';
@@ -35,6 +36,7 @@
     trimLine,
     type PinCollection,
   } from '../lib/map/geojson';
+  import { mapTipLines } from '../lib/format/labels';
   import { haversineKm } from '../lib/geo/distance';
   import { lockBadge } from '../lib/map/icons';
   import {
@@ -202,6 +204,57 @@
     return { oldest: Math.min(...ys), newest };
   });
 
+  // ---- Hover tooltip ---------------------------------------------------------
+  // The conference and its dates over a pin, up to 10 for a cluster (DESIGN §5.7). Mouse only: a
+  // tap would leave it behind. Titles are external data: they render as text, never as HTML.
+  const canHover = new MediaQuery('(hover: hover)', false);
+  const locationById = new Map(app.data.pinnedLocations.map((l) => [l.id, l]));
+  let tipLines: string[] = $state([]);
+  let tipAt = $state({ x: 0, y: 0 });
+  let tipEl: HTMLDivElement | undefined = $state();
+  let tipPos = $state({ left: 0, top: 0 });
+  /** The pin or cluster under the pointer: a move within it only moves the tooltip. */
+  let tipKey: string | null = null;
+  /** Bumped on every change of target: a cluster's leaves that arrive late are dropped. */
+  let tipSeq = 0;
+
+  function setTipTarget(key: string | null) {
+    tipKey = key;
+    tipSeq++;
+    tipLines = [];
+  }
+
+  async function showClusterTip(cluster: MapGeoJSONFeature) {
+    const seq = tipSeq;
+    const src = source(SRC.pins);
+    const { cluster_id, point_count } = cluster.properties;
+    const leaves = await src?.getClusterLeaves(cluster_id, point_count, 0).catch(() => null);
+    if (!leaves || seq !== tipSeq) return;
+    tipLines = mapTipLines(leaves.flatMap((f) => locationById.get(f.properties?.id) ?? []));
+  }
+
+  // The pins under a still pointer change (filters, the timeline's frames, the swap between
+  // presentations): hide the tooltip; the next move shows it again, once Play has stopped.
+  $effect(() => {
+    void [pins, shown, animMode];
+    untrack(() => setTipTarget(null));
+  });
+
+  // Above and right of the pointer (clear of the cursor), flipped to stay in the free map area.
+  $effect(() => {
+    const { x, y } = tipAt;
+    if (!tipEl || !tipLines.length) return;
+    const [w, h] = [tipEl.offsetWidth, tipEl.offsetHeight];
+    const right = container.clientWidth - insets.right;
+    const bottom = container.clientHeight - insets.bottom;
+    const left = x + 12 + w <= right ? x + 12 : x - 12 - w;
+    const top = y - 12 - h >= insets.top ? y - 12 - h : y + 24;
+    tipPos = {
+      left: Math.max(insets.left, Math.min(right - w, left)),
+      top: Math.max(insets.top, Math.min(bottom - h, top)),
+    };
+  });
+
   // ---- Map lifecycle -------------------------------------------------------
   /**
    * The mobile layout, in either orientation: zoom may go below 0 so the first view fits every
@@ -257,9 +310,26 @@
     });
     m.on('mouseenter', LAYER.clusters, () => (m.getCanvas().style.cursor = 'pointer'));
     m.on('mouseleave', LAYER.clusters, () => (m.getCanvas().style.cursor = ''));
+    m.on('mousemove', (e) => {
+      if (!canHover.current || play.playing || m.isMoving()) return;
+      tipAt = { x: e.point.x, y: e.point.y };
+      const { pin, cluster } = hitAt(e.point);
+      const key = pin
+        ? `pin ${pin.properties.id}`
+        : cluster
+          ? `cluster ${cluster.properties.cluster_id}`
+          : null;
+      if (key === tipKey) return;
+      setTipTarget(key);
+      if (pin) tipLines = mapTipLines([locationById.get(pin.properties.id)!]);
+      else if (cluster) void showClusterTip(cluster);
+    });
+    m.on('mouseout', () => setTipTarget(null));
+    m.on('movestart', () => setTipTarget(null));
     // A click on a pin selects without moving the camera; a double-click zooms to the
     // conference, and a second one back out to the overview.
     m.on('click', (e) => {
+      setTipTarget(null);
       const { pin, cluster } = hitAt(e.point);
       if (pin) {
         coLocated = null;
@@ -835,6 +905,22 @@
     </button>
   {/if}
 
+  {#if tipLines.length}
+    <!-- The conference list already says this. -->
+    <div
+      class="map-tip glass-thick"
+      class:multi={tipLines.length > 1}
+      bind:this={tipEl}
+      style:left="{tipPos.left}px"
+      style:top="{tipPos.top}px"
+      aria-hidden="true"
+    >
+      {#each tipLines as line, i (i)}
+        <div>{line}</div>
+      {/each}
+    </div>
+  {/if}
+
   {#if coLocated}
     <div
       class="colocated"
@@ -970,6 +1056,22 @@
     max-width: calc(100% - var(--inset-left) - var(--inset-right) - 32px);
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  /* As the timeline's stop tooltip; a list of conferences gets rounded corners, not a capsule. */
+  .map-tip {
+    position: absolute;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    color: var(--ink);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+    pointer-events: none;
+    animation: rise var(--duration-fast) var(--ease-out);
+  }
+  .map-tip.multi {
+    padding: 4px 8px;
+    border-radius: var(--radius-md);
   }
 
   .colocated {
