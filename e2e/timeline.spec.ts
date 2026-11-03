@@ -109,12 +109,13 @@ test('history mode opens from a conference detail and lives in the URL', async (
   await expect(page.getByTestId('timeline-range')).toBeVisible();
 });
 
-test('the list also exits history mode', async ({ page }) => {
+test("the filters' chip exits history mode", async ({ page }) => {
   await page.goto('/?h=neurips');
-  const list = page.getByRole('region', { name: /\d+ conferences?$/ });
-  await list.getByRole('button', { name: 'Exit history' }).click();
+  const chip = page.getByRole('button', { name: 'Exit NeurIPS history' });
+  await expect(chip).toHaveText('NeurIPS history');
+  await chip.click();
   await expect(page).not.toHaveURL(/[?&]h=/);
-  await expect(list.getByRole('button', { name: 'Exit history' })).toHaveCount(0);
+  await expect(chip).toHaveCount(0);
 });
 
 test('the timeline plays the open conference history', async ({ page }) => {

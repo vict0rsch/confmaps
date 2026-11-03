@@ -9,7 +9,6 @@
   import { formatDateRangeShort } from '../lib/format/dates';
   import { placeLabel } from '../lib/format/labels';
   import AccessBadge from './AccessBadge.svelte';
-  import Icon from './Icon.svelte';
   import SiteMarker from './SiteMarker.svelte';
   import VirtualBadge from './VirtualBadge.svelte';
 
@@ -98,12 +97,6 @@
         onclick={() => (nearestFirst = !nearestFirst)}
       >
         Nearest first
-      </button>
-    {/if}
-    <!-- The timeline's Exit, also here where the list shows the series' editions. -->
-    {#if historyMode.series}
-      <button class="button exit" type="button" onclick={() => historyMode.exit()}>
-        <Icon name="close" size={14} /> Exit history
       </button>
     {/if}
   </header>
@@ -214,7 +207,6 @@
   }
 
   h2 {
-    margin-right: auto;
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
     color: var(--ink-muted);
@@ -391,20 +383,6 @@
     background: var(--accent-soft);
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
     color: var(--accent);
-  }
-
-  /* As the timeline's Exit: the accent's soft tint. */
-  .exit {
-    height: 28px;
-    white-space: nowrap;
-    border-color: transparent;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-weight: var(--weight-semibold);
-  }
-
-  .exit:hover {
-    background: color-mix(in srgb, var(--accent) 22%, transparent);
   }
 
   .near {
