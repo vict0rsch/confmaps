@@ -808,6 +808,33 @@ Past main editions can be virtual or hybrid (§2.4, §2.5).
 - Past editions without deadlines hide the deadline line (and the HF countdown link).
 - Credits name paperswithcode/ai-deadlines (MIT) next to huggingface/ai-deadlines.
 
+### 5.10 Search engines and AI crawlers
+
+The site is one URL, `https://confmaps.org/`. There are no per-conference pages.
+
+- **Head:** a plain title and description, a static canonical link to `https://confmaps.org/`
+  (URL sync never changes it), Open Graph and Twitter tags, and an Apple touch icon. One JSON-LD
+  block describes a `WebSite` and a free `WebApplication`. Its description is the meta description.
+- **No `Event` markup.** Google shows event results only when each event has its own page. A list
+  page with `Event` items would break that rule, so the JSON-LD has none.
+- **Static summary:** the build writes plain HTML into `<div id="app">`. It has a heading, one
+  sentence on what the site is, and the conferences of the default view (§5.4: Plan window, no
+  other filter), in list order. Each conference shows its title, year, full name, other tracks
+  and official link, then each visible site with its city and country (or "Online") and dates.
+  Satellites show their own name and link. A last line gives the date the data last changed and links to
+  huggingface/ai-deadlines and the repository. There is no CO₂ and no past edition. The summary is
+  visible HTML: crawlers, link previews and visitors without JavaScript read it. The app clears it
+  before it mounts, so it shows only for a moment.
+  - The window starts on the build date. A deploy rebuilds it (every merge, and each daily sync
+    that changes the data), so between deploys the list can still hold events that have ended.
+- **robots.txt** allows every crawler, AI crawlers included, and points to `sitemap.xml`. The
+  sitemap lists the one URL, with the date the data last changed as `lastmod`.
+- **llms.txt** ([llmstxt.org](https://llmstxt.org)) summarizes the site for language models and
+  links the URL params `c` and `h` (§5.6), the built `data.json`, the data sources, METHODOLOGY.md,
+  PRIVACY.md and the repository.
+- **Preview image:** `og.png` (1200 × 630) is a screenshot of the default map in the light theme,
+  with the brand and tagline on a glass card. It was made once and does not follow the data.
+
 ## 6. Analytics
 
 Umami Cloud (cookieless, no consent banner), page views + anonymous custom events only:
