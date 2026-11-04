@@ -1,0 +1,5 @@
+# All crawlers are welcome, AI crawlers included.
+User-agent: *
+Allow: /
+
+Sitemap: https://confmaps.org/sitemap.xml

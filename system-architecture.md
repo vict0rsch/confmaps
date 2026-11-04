@@ -93,6 +93,7 @@ scripts/                  build-time TypeScript (run with tsx)
   build-data.ts           pnpm data:build (entry point)
   validate-data.ts        pnpm data:validate (entry point)
   check-bundle-size.ts    pnpm check:bundle: main JS bundle ≤ 400 kB gzip (CI, after build)
+  seo.ts                  static summary and sitemap for crawlers (run by vite.config.ts)
   import-pwc.ts, pwc/     one-time PwC importer and its fixes
   build-cities.ts         regenerates public/cities.json from GeoNames
   schema.ts               Zod schemas for every data file; app types derive from it
@@ -110,7 +111,8 @@ src/                      the Svelte app
   lib/co2/                CO₂ model and number formatting
   lib/geo/, lib/format/   haversine distance; date and label formatting
   styles/                 design tokens and base CSS (glass classes)
-public/                   cities.json, CNAME, favicon
+public/                   cities.json, CNAME, favicon, apple-touch-icon.png, og.png, robots.txt,
+                          llms.txt
 e2e/                      Playwright tests (smoke, mobile, a11y, past editions)
 .github/workflows/        ci, deploy, sync, discover
 ```
@@ -235,8 +237,9 @@ deleted.
 
 ### Loading
 
-`src/main.ts` starts URL sync and the clock, then mounts `App.svelte`. Three loading choices
-matter:
+`src/main.ts` starts URL sync and the clock, then mounts `App.svelte`. Before it mounts, it
+empties `<div id="app">`, which holds the static summary for crawlers (see "Crawler pages"
+below). Three loading choices matter:
 
 - **`data.json` is a static import** (`src/lib/data/load.ts`). It ships inside the hashed
   JavaScript bundle. Code and data always deploy together, and the app has no loading state for
@@ -250,6 +253,24 @@ matter:
 
 `joinData` turns the flat file into `AppData`: each location joined to its conference, indexes
 by id, and the track groups.
+
+### Crawler pages
+
+A small plugin in `vite.config.ts` (`seo`) adds what crawlers read, in dev and in the build.
+The logic is in `scripts/seo.ts`; DESIGN.md §5.10 gives the content.
+
+- `transformIndexHtml` fills `<div id="app">` with `summaryHtml`: plain HTML of the conferences
+  in the default view, for the build date. `defaultRows` takes them from the same functions as
+  `app.listItems` (`planWindow`, `windowPredicate`, `groupByConference`, `foldTracks`), and
+  `scripts/seo.test.ts` checks that the rows equal the app's list when every registered filter
+  is at its default state. Every data string is escaped, and only http(s) links become hrefs.
+- `generateBundle` emits `sitemap.xml`, with `generatedAt` as `lastmod`.
+- The plugin loads `scripts/seo.ts` with Vite's `runnerImport`, not a static import. The config
+  then does not bundle app code (extensionless and JSON imports), which Vite's future native
+  config loader rejects.
+
+The head tags, `robots.txt`, `llms.txt` and the two images are static files (`index.html`,
+`public/`).
 
 ### State
 

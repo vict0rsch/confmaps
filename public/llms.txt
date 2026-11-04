@@ -1,0 +1,22 @@
+# confmaps
+
+> confmaps (https://confmaps.org) is a map of AI conferences and their regional satellite events, such as NeurIPS 2026 in Paris. It shows where and when each event takes place, so researchers can attend the location closest to them and travel less. It also gives a rough, estimated travel footprint (~kg CO₂e) from the viewer's home city. It is a free, static site with no accounts; the home city stays in the browser.
+
+## Site
+
+- [confmaps](https://confmaps.org/): the interactive map and list of upcoming conferences (the next 12 months by default)
+- [One conference](https://confmaps.org/?c=neurips26): `c=<conference id>` opens that conference's details, for example `c=neurips26`
+- [History of a series](https://confmaps.org/?h=icml): `h=<series>` shows every edition of a series on the map, linked in time order
+
+## Data
+
+- [data.json](https://raw.githubusercontent.com/vict0rsch/confmaps/main/data/build/data.json): every conference and location the site shows, with dates, cities, coordinates and links
+- [huggingface/ai-deadlines](https://github.com/huggingface/ai-deadlines): upstream source of the conferences, synced daily
+- [paperswithcode/ai-deadlines](https://github.com/paperswithcode/ai-deadlines): source of past editions (2016–2025), imported once and corrected with cited sources
+- [satellites.yml](https://github.com/vict0rsch/confmaps/blob/main/data/satellites.yml): curated satellite events, each with sources
+
+## Documentation
+
+- [METHODOLOGY.md](https://github.com/vict0rsch/confmaps/blob/main/METHODOLOGY.md): how the travel CO₂ estimates are computed (order-of-magnitude estimates from DESNZ factors, not measurements)
+- [PRIVACY.md](https://github.com/vict0rsch/confmaps/blob/main/PRIVACY.md): what the site collects (cookieless, aggregate analytics only)
+- [GitHub repository](https://github.com/vict0rsch/confmaps): source code (Apache-2.0) and the built data

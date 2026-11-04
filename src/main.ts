@@ -9,7 +9,10 @@ import { startURLSync } from './lib/state/url-sync.svelte';
 startURLSync();
 appState.startClock();
 
-const app = mount(App, { target: document.getElementById('app')! });
+// index.html holds a static summary for crawlers (vite.config.ts); the app replaces it.
+const target = document.getElementById('app')!;
+target.replaceChildren();
+const app = mount(App, { target });
 
 trackPageView();
 
