@@ -432,6 +432,48 @@
     {
       "deadlines": [
         {
+          "date": "2026-05-17T11:59:00Z",
+          "label": "Abstract submission deadline",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-05-24T11:59:00Z",
+          "label": "Full paper submission deadline",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-08-08T11:59:00Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-08-21T11:59:00Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-11-11",
+      "fullName": "Conference on Information and Knowledge Management",
+      "id": "cikm26",
+      "link": "https://cikm2026.diag.uniroma1.it/",
+      "series": "cikm",
+      "source": "hf",
+      "start": "2026-11-07",
+      "tags": [
+        "web-search",
+        "data-mining",
+        "machine-learning"
+      ],
+      "title": "CIKM",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
           "date": "2026-04-10T23:59:00Z",
           "label": "Abstract registration deadline",
           "timezone": "AoE",
@@ -2923,6 +2965,22 @@
       "role": "main",
       "start": "2026-06-28",
       "venue": "Seattle Children's Research Institute, B. Wayne Hughes Building"
+    },
+    {
+      "access": "registration",
+      "city": "Rome",
+      "conferenceId": "cikm26",
+      "country": "Italy",
+      "end": "2026-11-11",
+      "id": "cikm26@main",
+      "lat": 41.8933203,
+      "link": "https://cikm2026.diag.uniroma1.it/",
+      "lng": 12.4829321,
+      "name": "CIKM 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-11-07"
     },
     {
       "access": "registration",
