@@ -630,6 +630,41 @@
     {
       "deadlines": [
         {
+          "date": "2026-05-26T11:59:00Z",
+          "label": "Abstract submission deadline",
+          "timezone": "UTC",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-05-29T11:59:00Z",
+          "label": "Paper submission deadline",
+          "timezone": "UTC",
+          "type": "paper"
+        },
+        {
+          "date": "2026-10-13T11:59:59Z",
+          "label": "Camera-ready deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-11-12",
+      "fullName": "The Conference on Robot Learning",
+      "id": "corl26",
+      "link": "https://www.corl.org/",
+      "series": "corl",
+      "source": "hf",
+      "start": "2026-11-09",
+      "tags": [
+        "machine-learning",
+        "robotics"
+      ],
+      "title": "CoRL",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
           "date": "2025-12-11T11:59:59Z",
           "label": "Tutorial proposals deadline",
           "timezone": "AoE",
@@ -3049,6 +3084,23 @@
       "role": "main",
       "start": "2026-07-03",
       "venue": "San Diego, California, USA"
+    },
+    {
+      "access": "registration",
+      "city": "Austin",
+      "conferenceId": "corl26",
+      "country": "United States",
+      "end": "2026-11-12",
+      "id": "corl26@main",
+      "lat": 30.2649261,
+      "link": "https://www.corl.org/",
+      "lng": -97.7474086,
+      "name": "CoRL 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-11-09",
+      "venue": "JW Marriott Austin, 110 E 2nd St, Austin, TX 78701"
     },
     {
       "access": "registration",
