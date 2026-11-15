@@ -175,6 +175,66 @@
     {
       "deadlines": [
         {
+          "date": "2026-03-26T11:59:59Z",
+          "label": "Contribution registration",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-04-02T11:59:59Z",
+          "label": "Contribution submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-04-09T11:59:59Z",
+          "label": "Supplementary material submission",
+          "timezone": "AoE",
+          "type": "supplementary"
+        },
+        {
+          "date": "2026-06-05T11:59:59Z",
+          "label": "Rebuttal period start",
+          "timezone": "AoE",
+          "type": "rebuttal_start"
+        },
+        {
+          "date": "2026-07-10T11:59:59Z",
+          "label": "Author notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-08-07T11:59:59Z",
+          "label": "Camera-ready submission",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        },
+        {
+          "date": "2026-08-21T11:59:59Z",
+          "label": "Author registration",
+          "timezone": "AoE",
+          "type": "registration"
+        }
+      ],
+      "end": "2026-11-14",
+      "fullName": "ACM Multimedia",
+      "id": "acm26",
+      "link": "https://2026.acmmm.org/",
+      "series": "acm-mm",
+      "source": "hf",
+      "start": "2026-11-10",
+      "tags": [
+        "computer-vision",
+        "machine-learning",
+        "human-computer-interaction"
+      ],
+      "title": "ACM MM",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
           "date": "2025-09-26T11:59:59Z",
           "label": "Abstract submission deadline",
           "timezone": "AoE",
@@ -2898,6 +2958,22 @@
       "role": "main",
       "start": "2026-07-02",
       "venue": "Grand Hyatt Manchester San Diego, 1 Market Place, San Diego, CA 92101"
+    },
+    {
+      "access": "registration",
+      "city": "Rio de Janeiro",
+      "conferenceId": "acm26",
+      "country": "Brazil",
+      "end": "2026-11-14",
+      "id": "acm26@main",
+      "lat": -22.9110137,
+      "link": "https://2026.acmmm.org/",
+      "lng": -43.2093727,
+      "name": "ACM MM 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-11-10"
     },
     {
       "access": "registration",
