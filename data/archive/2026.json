@@ -1617,6 +1617,46 @@
     {
       "deadlines": [
         {
+          "date": "2026-05-31T11:59:59Z",
+          "label": "Abstract Submission",
+          "timezone": "AoE",
+          "type": "abstract"
+        },
+        {
+          "date": "2026-06-07T11:59:59Z",
+          "label": "Full Paper Submission",
+          "timezone": "AoE",
+          "type": "paper"
+        },
+        {
+          "date": "2026-08-17T11:59:59Z",
+          "label": "Author Notification",
+          "timezone": "AoE",
+          "type": "notification"
+        },
+        {
+          "date": "2026-09-10T11:59:59Z",
+          "label": "Camera Ready Deadline",
+          "timezone": "AoE",
+          "type": "camera_ready"
+        }
+      ],
+      "end": "2026-11-15",
+      "fullName": "International Conference on Data Mining",
+      "id": "icdm26",
+      "link": "http://icdm2026.neu.edu.cn/",
+      "series": "icdm",
+      "source": "hf",
+      "start": "2026-11-12",
+      "tags": [
+        "data-mining"
+      ],
+      "title": "ICDM",
+      "year": 2026
+    },
+    {
+      "deadlines": [
+        {
           "date": "2025-09-20T11:59:59Z",
           "label": "Abstract Submission",
           "timezone": "AoE",
@@ -3466,6 +3506,22 @@
       "role": "main",
       "start": "2026-08-30",
       "venue": "TU Wien, Campus Gußhaus"
+    },
+    {
+      "access": "registration",
+      "city": "Shenyang",
+      "conferenceId": "icdm26",
+      "country": "China",
+      "end": "2026-11-15",
+      "id": "icdm26@main",
+      "lat": 41.8026095,
+      "link": "http://icdm2026.neu.edu.cn/",
+      "lng": 123.4279105,
+      "name": "ICDM 2026",
+      "official": true,
+      "presentsPapers": true,
+      "role": "main",
+      "start": "2026-11-12"
     },
     {
       "access": "registration",
